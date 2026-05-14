@@ -89,8 +89,8 @@ def lesson_to_wiki_markdown(
     lesson: dict[str, Any],
     *,
     source_url: str,
-    personal_notes: str,
     date: str,
+    personal_notes: str = "",   # kept for backward compat, no longer rendered
 ) -> str:
     """Convert a lesson dict to a wiki-page markdown string (no extra LLM call)."""
     title = lesson.get("title", "Untitled")
@@ -106,8 +106,6 @@ def lesson_to_wiki_markdown(
         f"- [{fr['title']}]({fr['url']})"
         for fr in lesson.get("further_reading", [])
     ) or "- (none)"
-
-    notes_section = personal_notes.strip() if personal_notes.strip() else "(no personal notes)"
 
     return f"""---
 title: "{title}"
@@ -127,9 +125,6 @@ tags: {tag_list}
 
 ## Training Exercise
 {lesson.get("training_exercise", "")}
-
-## Personal Notes
-{notes_section}
 
 ## Further Reading
 {further_reading_md}
@@ -157,14 +152,13 @@ tags: [tag1, tag2, tag3]
 ## How It Works
 Expand on the mechanics or ideas in the notes with additional context where helpful.
 
-## Personal Notes
-<reproduce the original notes verbatim here>
-
 ## Further Reading
 - [Title](url) (2-3 inferred resources, or "(none)" if not applicable)
 
 Rules:
 - Output ONLY the markdown document. No preamble.
+- Do NOT reproduce the original notes verbatim. Synthesise and restructure the content.
+- Do NOT include any Notion links, email metadata, or raw URLs from the notes.
 - Tags: 3-6 lowercase strings.
 - Keep tone practical and useful for future reference.
 """

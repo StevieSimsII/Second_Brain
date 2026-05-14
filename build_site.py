@@ -55,6 +55,9 @@ def _parse_page(path: Path) -> dict | None:
     if not body:
         return None
 
+    # Strip the ## Personal Notes section (contains raw email body / Notion links)
+    body = re.sub(r"\n## Personal Notes\b.*?(?=\n## |\Z)", "", body, flags=re.DOTALL).strip()
+
     return {
         "id":     path.stem,
         "title":  title,
@@ -154,10 +157,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .article-view { padding: 40px 48px; max-width: 820px; width: 100%; }
 
   .article-view .art-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-  .article-view .art-title { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 12px; }
+  .article-view .art-title { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 10px; }
+  .article-view .art-source { margin-bottom: 8px; }
+  .article-view .art-source a { color: var(--accent); text-decoration: none; font-size: 13px; }
+  .article-view .art-source a:hover { text-decoration: underline; }
   .article-view .art-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
-  .article-view .art-meta a { color: var(--accent); text-decoration: none; }
-  .article-view .art-meta a:hover { text-decoration: underline; }
   .art-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
   .art-tag { background: var(--tag-bg); color: var(--accent); border: 1px solid var(--border); border-radius: 20px; padding: 2px 10px; font-size: 12px; cursor: pointer; }
   .art-tag:hover { background: var(--accent); color: #0d1117; }
@@ -287,8 +291,8 @@ function openArticle(id) {
   renderList();
 
   const sourceHtml = a.source && a.source !== "personal notes"
-    ? `<a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ Source</a>`
-    : `<span>Personal notes</span>`;
+    ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ ${escHtml(a.source)}</a></div>`
+    : "";
 
   const tagsHtml = (a.tags || []).map(t =>
     `<span class="art-tag" data-tag="${t}">${t}</span>`
@@ -300,9 +304,9 @@ function openArticle(id) {
     <div class="article-view">
       <div class="art-header">
         <div class="art-title">${escHtml(a.title)}</div>
+        ${sourceHtml}
         <div class="art-meta">
           <span>${a.date || ""}</span>
-          ${sourceHtml}
         </div>
         ${tagsHtml ? `<div class="art-tags">${tagsHtml}</div>` : ""}
       </div>
