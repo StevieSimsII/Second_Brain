@@ -159,7 +159,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .main::-webkit-scrollbar-track { background: transparent; }
   .main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .welcome { flex: 1; overflow-y: auto; padding: 40px 48px; max-width: 820px; width: 100%; }
+  .welcome { flex: 1; overflow-y: auto; padding: 40px 48px; width: 100%; }
 
   .article-view { padding: 40px 48px; max-width: 820px; width: 100%; }
 
