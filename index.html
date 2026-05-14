@@ -881,7 +881,7 @@ function openArticle(id) {
   renderList();
 
   const sourceHtml = a.source && a.source !== "personal notes"
-    ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ ${escHtml(a.source)}</a></div>`
+    ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ ${escHtml(friendlySource(a.source))}</a></div>`
     : "";
 
   const tagsHtml = (a.tags || []).map(t =>
@@ -921,6 +921,52 @@ document.getElementById("search").addEventListener("input", e => {
 });
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+const SOURCE_NAMES = {
+  "github.com":          "GitHub",
+  "gist.github.com":     "GitHub Gist",
+  "docs.github.com":     "GitHub Docs",
+  "youtu.be":            "YouTube",
+  "youtube.com":         "YouTube",
+  "linkedin.com":        "LinkedIn",
+  "open.substack.com":   "Substack",
+  "substack.com":        "Substack",
+  "x.com":               "X / Twitter",
+  "twitter.com":         "X / Twitter",
+  "hbr.org":             "Harvard Business Review",
+  "claude.ai":           "Claude",
+  "claude.com":          "Claude / Anthropic",
+  "anthropic.com":       "Anthropic",
+  "docs.anthropic.com":  "Anthropic Docs",
+  "notion.so":           "Notion",
+  "medium.com":          "Medium",
+  "dev.to":              "DEV Community",
+  "stackoverflow.com":   "Stack Overflow",
+  "microsoft.com":       "Microsoft",
+  "learn.microsoft.com": "Microsoft Learn",
+  "docs.microsoft.com":  "Microsoft Docs",
+  "techcommunity.microsoft.com": "Microsoft Tech Community",
+  "powerappstools.com":  "Power Apps Tools",
+  "tabulareditor.com":   "Tabular Editor",
+  "npmjs.com":           "npm",
+  "pypi.org":            "PyPI",
+};
+
+function friendlySource(url) {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    // Check exact match first, then check if host ends with a known domain
+    if (SOURCE_NAMES[host]) return SOURCE_NAMES[host];
+    for (const [domain, name] of Object.entries(SOURCE_NAMES)) {
+      if (host.endsWith("." + domain) || host === domain) return name;
+    }
+    // Fallback: capitalise the root domain (e.g. "vercel.com" → "Vercel")
+    const root = host.split(".").slice(-2, -1)[0] || host;
+    return root.charAt(0).toUpperCase() + root.slice(1);
+  } catch {
+    return url;
+  }
+}
+
 function escHtml(s) {
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
