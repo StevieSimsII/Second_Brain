@@ -3,6 +3,9 @@
 .env.local
 .token_cache.json
 
+# Personal assets
+favicon-32x32.png
+
 # Python runtime
 .venv/
 __pycache__/
