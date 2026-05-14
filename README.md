@@ -9,7 +9,7 @@ You (phone or desktop)
        ↓
   Send URL to your private Telegram bot
        ↓
-  LinkToNotion bot fetches the article
+  LinkToNotionLessons bot fetches the article
        ↓
   OpenAI gpt-4o generates a structured lesson
        ↓
@@ -34,7 +34,7 @@ You (phone or desktop)
 
 **Two repos:**
 - **This repo** (`Second_Brain`) — the GitHub Actions pipeline that reads your email and builds the site
-- **[LinkToNotion](https://github.com/StevieSimsII/LinkToNotion)** — the Telegram bot that processes URLs and sends the emails
+- **[LinkToNotionLessons](https://github.com/StevieSimsII/LinkToNotionLessons)** — the Telegram bot that processes URLs and sends the emails
 
 **Accounts and keys:**
 - GitHub account
@@ -49,17 +49,17 @@ You (phone or desktop)
 
 ## Setup Guide
 
-### Part 1 — Telegram Bot (LinkToNotion)
+### Part 1 — Telegram Bot (LinkToNotionLessons)
 
 This is the front door. You'll set this up first so you can start capturing articles immediately.
 
 ---
 
-#### Step 1 — Clone LinkToNotion
+#### Step 1 — Clone LinkToNotionLessons
 
 ```bash
-git clone https://github.com/StevieSimsII/LinkToNotion.git
-cd LinkToNotion
+git clone https://github.com/StevieSimsII/LinkToNotionLessons.git
+cd LinkToNotionLessons
 pip install -r requirements.txt
 ```
 
@@ -106,9 +106,9 @@ The bot sends lesson emails via Gmail SMTP. You need an App Password, not your r
 
 ---
 
-#### Step 6 — Configure LinkToNotion
+#### Step 6 — Configure LinkToNotionLessons
 
-Create `LinkToNotion/.env.local` (never commit this file):
+Create `LinkToNotionLessons/.env.local` (never commit this file):
 
 ```env
 # Telegram
@@ -144,7 +144,7 @@ python main.py
 
 You should see:
 ```
-Starting LinkToNotion bot...
+Starting LinkToNotionLessons bot...
 Bot ready. Press Ctrl+C to stop.
 ```
 
@@ -187,7 +187,7 @@ The bot needs to be running to receive messages. Options:
 
 | Option | How |
 |--------|-----|
-| **Windows Task Scheduler** | Trigger at startup → run `python main.py` in the LinkToNotion directory |
+| **Windows Task Scheduler** | Trigger at startup → run `python main.py` in the LinkToNotionLessons directory |
 | **Cheap VPS** (e.g. DigitalOcean $4/mo) | `python main.py` in a `tmux` session or as a `systemd` service |
 | **Railway / Render** | Free tier works — point the start command at `python main.py` |
 
