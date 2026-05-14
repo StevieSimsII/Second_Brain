@@ -1,6 +1,18 @@
+# Credentials & secrets
 .env
 .env.local
+.token_cache.json
+
+# Python runtime
 .venv/
 __pycache__/
 *.pyc
-.token_cache.json
+*.pyo
+
+# Generated wiki metadata (private — contains email subjects & article history)
+wiki/index.md
+wiki/log.md
+
+# macOS / editor noise
+.DS_Store
+*.swp
