@@ -8,40 +8,72 @@ A fully automated personal knowledge base that reads emails you send yourself, p
 
 ## How It Works
 
-1. **You send an email to yourself** with a link or notes and drop it in an Outlook folder called `Learnings`
+There are two ways to feed your Second Brain. Both end up as wiki pages on your site.
+
+### Path 1 — Direct Email (Core Pipeline)
+
+1. **Email yourself** a link or notes and drop it in your Outlook `Learnings` folder
 2. **GitHub Actions runs daily** (8am CT) and reads any new emails via the Microsoft Graph API
-3. **OpenAI processes each email** — either fetching the linked article and generating a structured wiki page, or converting your raw notes directly into a wiki entry
+3. **OpenAI processes each email** — fetching the linked article and generating a structured wiki page, or converting your raw notes directly into a wiki entry
 4. **A static HTML site is rebuilt** and pushed back to the repo, updating your GitHub Pages site automatically
 5. **Optionally**, a Notion page is created in parallel for each entry
 
-This follows the [LLM-wiki pattern](https://karpathy.ai) — a persistent, compounding knowledge base maintained incrementally by LLMs.
+### Path 2 — Telegram Bot (Fast Capture, anywhere)
+
+1. **Send a URL to your private Telegram bot** from your phone or desktop — takes 5 seconds
+2. **The bot fetches the article**, calls OpenAI to generate a structured lesson, and creates a Notion page
+3. **An email is sent to your Outlook address** with the full lesson summary + a markdown attachment
+4. **Move that email into your Learnings folder** (or set up an Outlook rule to do it automatically)
+5. **GitHub Actions picks it up** in the next daily run and adds it to your wiki
+
+This follows the [LLM-wiki pattern](https://karpathy.github.io) — a persistent, compounding knowledge base maintained incrementally by LLMs.
 
 ```
-You → Email (Outlook Learnings folder)
-         ↓
-    GitHub Actions (daily cron)
-         ↓
-    Microsoft Graph API (reads emails)
-         ↓
-    OpenAI gpt-4o (generates wiki pages)
-         ↓
-    wiki/pages/*.md  +  Notion pages
-         ↓
-    build_site.py → index.html
-         ↓
-    GitHub Pages (public site)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PATH 1: Direct Email          PATH 2: Telegram Bot
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Email yourself a link    OR   Send URL to Telegram bot
+         ↓                              ↓
+  Move to Learnings folder       Fetch + OpenAI lesson
+                                        ↓
+                               Notion page created
+                                        ↓
+                               Gmail → your Outlook
+                                        ↓
+                               Move to Learnings folder
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    Both paths converge here:
+
+              GitHub Actions (daily 8am CT)
+                         ↓
+          Microsoft Graph API (reads Learnings folder)
+                         ↓
+            OpenAI gpt-4o (generates wiki pages)
+                         ↓
+          wiki/pages/*.md  +  Notion pages (optional)
+                         ↓
+           build_site.py → index.html committed
+                         ↓
+             GitHub Pages (your live public site)
 ```
 
 ---
 
 ## Prerequisites
 
+**Core pipeline (required):**
 - A **GitHub account** with a public (or private + Pages-enabled) repository
 - A **Microsoft 365 account** with Outlook (personal or work)
 - An **OpenAI API key** (gpt-4o)
-- An **Azure account** (free tier works) for Microsoft Graph API access
+- An **Azure account** (free tier) for Microsoft Graph API access
 - Python 3.11+
-- (Optional) A **Notion account** and integration token
+
+**Telegram fast-capture (optional but recommended):**
+- A **Telegram account** and the Telegram app on your phone
+- A **Gmail account** with an App Password enabled (used to send lesson emails)
+
+**Notion integration (optional):**
+- A **Notion account** and integration token
 
 ---
 
@@ -233,6 +265,146 @@ git push
 The GitHub Action will run daily at 8am CT, or you can trigger it manually any time:
 
 **Repo → Actions → Sync Second Brain → Run workflow**
+
+---
+
+---
+
+## Bonus: Telegram Bot for On-the-Go Capture
+
+The Telegram bot lives in a companion repo — [LinkToNotion](https://github.com/StevieSimsII/LinkToNotion) — and runs as a separate long-polling process on your machine (or a cheap VPS). Once it's running, you send it a URL from anywhere and it handles the rest.
+
+### How the Email Loop Closes
+
+The bot sends a formatted email (HTML + markdown attachment) to your configured `EMAIL_TO` address — your Outlook inbox. The email subject is `[Lesson] Your Article Title`. From there you have two options:
+
+- **Manual:** Move the email into your `Learnings` folder whenever you want it in the wiki
+- **Automatic (recommended):** Create an Outlook rule that moves any email with subject containing `[Lesson]` directly into `Learnings` — fully hands-off
+
+### Telegram Bot Setup
+
+#### Step T1 — Clone the LinkToNotion Repo
+
+```bash
+git clone https://github.com/StevieSimsII/LinkToNotion.git
+cd LinkToNotion
+pip install -r requirements.txt
+```
+
+#### Step T2 — Create a Telegram Bot via BotFather
+
+1. Open Telegram and search for **@BotFather**
+2. Send `/newbot`
+3. Give your bot a name (e.g., `My Second Brain`) and a username (e.g., `my_secondbrain_bot`)
+4. BotFather will reply with your **bot token** — looks like `123456789:ABCdef...`
+5. Copy it — you'll need it in your `.env.local`
+
+#### Step T3 — Get Your Telegram User ID
+
+You need your personal user ID so the bot only responds to you (not anyone who finds it).
+
+1. In Telegram, search for **@userinfobot**
+2. Send `/start`
+3. It replies with your numeric user ID — e.g., `123456789`
+4. Copy it
+
+#### Step T4 — Create a Gmail App Password
+
+The bot sends emails via Gmail SMTP. You need an App Password (not your regular Gmail password).
+
+1. Go to your **Google Account** → [myaccount.google.com/security](https://myaccount.google.com/security)
+2. Make sure **2-Step Verification** is turned on (required for App Passwords)
+3. Search for **App passwords** (or go directly to [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords))
+4. Select app: **Mail**, Select device: **Other** → type `Second Brain Bot` → **Generate**
+5. Copy the 16-character password shown — it won't be shown again
+
+#### Step T5 — Configure LinkToNotion .env.local
+
+Create `LinkToNotion/.env.local`:
+
+```env
+# Telegram
+TELEGRAM_BOT_TOKEN=123456789:ABCdef...
+ALLOWED_TELEGRAM_USER_ID=123456789
+
+# OpenAI
+OPENAI_API_KEY=sk-...
+OPENAI_MODEL=gpt-4o
+
+# Notion
+NOTION_API_KEY=secret_...
+NOTION_PARENT_PAGE_ID=abc123...
+
+# Gmail (sends lesson emails to your Outlook)
+GMAIL_USER=yourname@gmail.com
+GMAIL_APP_PASSWORD=abcd efgh ijkl mnop
+EMAIL_TO=you@youroutlook.com
+
+# GitHub token (optional — for richer GitHub repo summaries)
+GITHUB_TOKEN=ghp_...
+```
+
+> **Important:** `EMAIL_TO` should be your Outlook/Microsoft 365 address — this is where the lesson email lands so the Second Brain pipeline can pick it up.
+
+#### Step T6 — Start the Bot
+
+```bash
+cd LinkToNotion
+python main.py
+```
+
+You should see:
+```
+Starting LinkToNotion bot...
+Bot ready. Press Ctrl+C to stop.
+```
+
+Now open Telegram, find your bot by the username you created, and send `/start` to verify it responds.
+
+#### Step T7 — Send Your First Link
+
+Send any URL to your bot:
+
+```
+https://some-article.com/interesting-thing
+```
+
+The bot will reply:
+```
+Processing: https://some-article.com/interesting-thing
+This can take a minute...
+```
+
+Then within ~30 seconds:
+```
+Done.
+
+*Your Article Title*
+Notion: https://notion.so/...
+Email sent to you@youroutlook.com
+Wiki note: wiki/pages/2026-05-14-your-article-title.md
+```
+
+Check your Outlook inbox — you'll have a formatted email with the full lesson.
+
+#### Step T8 — (Recommended) Set Up an Outlook Rule
+
+To fully automate the loop so every bot-processed article lands in your Second Brain without any manual steps:
+
+1. In Outlook, go to **Settings** → **Rules** → **Add new rule**
+2. **Condition:** Subject contains `[Lesson]`
+3. **Action:** Move to folder → `Learnings`
+4. Save the rule
+
+Now the complete flow is touchless: send URL on phone → wiki page appears on your site the next morning.
+
+#### Running the Bot Persistently
+
+For the bot to work when your computer is off, run it on a lightweight server:
+
+- **Windows Task Scheduler** — trigger at startup, run `python main.py` in the LinkToNotion directory
+- **A cheap VPS** (e.g., DigitalOcean $4/mo droplet) running `python main.py` in a `tmux` or `screen` session, or as a `systemd` service
+- **Railway / Render** — free tier is enough; point it at the `main.py` entry point
 
 ---
 
