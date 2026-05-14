@@ -159,10 +159,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .main::-webkit-scrollbar-track { background: transparent; }
   .main::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .welcome { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--muted); gap: 12px; padding: 40px; text-align: center; }
-  .welcome .big { font-size: 48px; }
-  .welcome h2 { font-size: 20px; color: var(--text); }
-  .welcome p { font-size: 14px; max-width: 360px; }
+  .welcome { flex: 1; overflow-y: auto; padding: 40px 48px; max-width: 820px; width: 100%; }
 
   .article-view { padding: 40px 48px; max-width: 820px; width: 100%; }
 
@@ -233,16 +230,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
   </aside>
   <main class="main" id="main">
-    <div class="welcome">
-      <div class="big">&#129504;</div>
-      <h2>Stevie's Second Brain</h2>
-      <p>Select an article from the sidebar to start reading.</p>
-    </div>
+    <div class="welcome md-body" id="welcome-content"></div>
   </main>
 </div>
 
 <script>
 const ARTICLES = __ARTICLES_JSON__;
+const README_MD = __README_MD__;
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let activeId     = null;
@@ -301,7 +295,7 @@ function openArticle(id) {
   renderList();
 
   const sourceHtml = a.source && a.source !== "personal notes"
-    ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ ${escHtml(friendlySource(a.source))}</a></div>`
+    ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ Link to Source</a></div>`
     : "";
 
   const tagsHtml = (a.tags || []).map(t =>
@@ -391,13 +385,23 @@ function escHtml(s) {
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
+// ── Welcome (README) ──────────────────────────────────────────────────────────
+function showWelcome() {
+  document.getElementById("main").innerHTML =
+    `<div class="welcome md-body" id="welcome-content">${marked.parse(README_MD)}</div>`;
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 renderTags();
 renderList();
 
-// Open article from URL hash on load
+// Open article from URL hash on load, otherwise show README
 const hash = window.location.hash.slice(1);
-if (hash && ARTICLES.find(a => a.id === hash)) openArticle(hash);
+if (hash && ARTICLES.find(a => a.id === hash)) {
+  openArticle(hash);
+} else {
+  showWelcome();
+}
 </script>
 </body>
 </html>
@@ -426,7 +430,13 @@ def build(out_path: Path) -> None:
     log.info("Loaded %d articles from %s", len(articles), WIKI_PAGES)
 
     articles_json = json.dumps(articles, ensure_ascii=False, indent=2)
+
+    readme_path = HERE / "README.md"
+    readme_text = readme_path.read_text(encoding="utf-8") if readme_path.exists() else ""
+    readme_json = json.dumps(readme_text, ensure_ascii=False)
+
     html = HTML_TEMPLATE.replace("__ARTICLES_JSON__", articles_json)
+    html = html.replace("__README_MD__", readme_json)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")
