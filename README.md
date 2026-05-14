@@ -1,9 +1,5 @@
 # 🧠 Stevie's Second Brain
 
-A fully automated personal knowledge base. Send a URL to a Telegram bot, and it appears as a structured wiki article on your site by the next morning — no manual steps required.
-
-**Live site:** [steviesimsii.github.io/Second_Brain](https://steviesimsii.github.io/Second_Brain)
-
 ---
 
 ## How It Works
