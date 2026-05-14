@@ -55,6 +55,16 @@ def _parse_page(path: Path) -> dict | None:
     if not body:
         return None
 
+    # If frontmatter source is "personal notes", try to pull the real URL out of
+    # the ## Personal Notes section (e.g. "Source: https://...") before stripping it.
+    if source in ("personal notes", ""):
+        url_match = re.search(
+            r"## Personal Notes\b.*?(?:^Source:\s*)(https?://[^\s\n]+)",
+            body, re.DOTALL | re.MULTILINE,
+        )
+        if url_match:
+            source = url_match.group(1).strip()
+
     # Strip the ## Personal Notes section (contains raw email body / Notion links)
     body = re.sub(r"\n## Personal Notes\b.*?(?=\n## |\Z)", "", body, flags=re.DOTALL).strip()
 
