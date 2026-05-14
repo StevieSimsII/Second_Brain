@@ -1,0 +1,51 @@
+name: Sync Second Brain
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 8am CT (UTC-5) every day
+  workflow_dispatch:         # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write            # needed to commit wiki pages + index.html back to repo
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Process new emails
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+          GRAPH_CLIENT_ID: ${{ secrets.GRAPH_CLIENT_ID }}
+          GRAPH_TENANT_ID: ${{ secrets.GRAPH_TENANT_ID }}
+          GRAPH_CLIENT_SECRET: ${{ secrets.GRAPH_CLIENT_SECRET }}
+          GRAPH_USER_EMAIL: ${{ secrets.GRAPH_USER_EMAIL }}
+          OUTLOOK_FOLDER: Learnings
+        run: python process.py
+
+      - name: Rebuild site
+        run: python build_site.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add wiki/ index.html .processed.json
+          git diff --cached --quiet && echo "Nothing new to commit." || \
+            git commit -m "sync: $(date -u '+%Y-%m-%d %H:%M UTC')" && git push
