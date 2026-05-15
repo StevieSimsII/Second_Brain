@@ -253,11 +253,11 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         Setup Guide / README
       </a>
       <a href="https://steviesimsii.github.io/Deepwater_Daily/" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zm5-3.25a.75.75 0 011.5 0v4.5l2.47 1.385a.75.75 0 11-.74 1.3l-2.75-1.543A.75.75 0 016.5 9.25v-4.5z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C8 0 2.5 6.5 2.5 10a5.5 5.5 0 0011 0C13.5 6.5 8 0 8 0z"/></svg>
         Deepwater Daily
       </a>
       <a href="https://steviesimsii.github.io/AiNewsDaily/" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.75A2.75 2.75 0 012.75 0h10.5A2.75 2.75 0 0116 2.75v10.5A2.75 2.75 0 0113.25 16H2.75A2.75 2.75 0 010 13.25V2.75zm2.75-1.25c-.69 0-1.25.56-1.25 1.25v10.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25V2.75c0-.69-.56-1.25-1.25-1.25H2.75zM8 4a.75.75 0 01.75.75v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5A.75.75 0 018 4z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 5.4 5.4 1.6-5.4 1.6L8 14l-1.6-5.4L1 7l5.4-1.6z"/></svg>
         AI &amp; ML News Daily
       </a>
     </div>
