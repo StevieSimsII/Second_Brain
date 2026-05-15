@@ -198,9 +198,10 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .md-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
 
   /* ── Sidebar footer ── */
-  .sidebar-footer { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+  .sidebar-footer { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
   .sidebar-footer a { color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .15s; }
   .sidebar-footer a:hover { color: var(--accent); }
+  .sidebar-footer-row { display: flex; gap: 12px; }
 
   /* ── Mobile back button ── */
   .mobile-back { display: none; }
@@ -252,18 +253,16 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         View on GitHub
       </a>
-      <a href="https://github.com/StevieSimsII/Second_Brain#readme" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm7.25 10.032V3.5a2.25 2.25 0 012.25-2.25h3.5v9H11.5a3.75 3.75 0 00-2.25.75v-.468zM6.5 12.032V11.25A3.75 3.75 0 004.253 10.5H1.5V2.5h3.5A2.25 2.25 0 017.25 4.75v8.282a.25.25 0 01-.75 0z"/></svg>
-        Setup Guide / README
-      </a>
-      <a href="https://steviesimsii.github.io/Deepwater_Daily/" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C8 0 2.5 6.5 2.5 10a5.5 5.5 0 0011 0C13.5 6.5 8 0 8 0z"/></svg>
-        Deepwater Daily
-      </a>
-      <a href="https://steviesimsii.github.io/AiNewsDaily/" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 5.4 5.4 1.6-5.4 1.6L8 14l-1.6-5.4L1 7l5.4-1.6z"/></svg>
-        AI &amp; ML News Daily
-      </a>
+      <div class="sidebar-footer-row">
+        <a href="https://steviesimsii.github.io/Deepwater_Daily/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C8 0 2.5 6.5 2.5 10a5.5 5.5 0 0011 0C13.5 6.5 8 0 8 0z"/></svg>
+          Deepwater Daily
+        </a>
+        <a href="https://steviesimsii.github.io/AiNewsDaily/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 5.4 5.4 1.6-5.4 1.6L8 14l-1.6-5.4L1 7l5.4-1.6z"/></svg>
+          AI &amp; ML News
+        </a>
+      </div>
     </div>
   </aside>
   <main class="main" id="main">
