@@ -316,7 +316,7 @@ function renderList() {
     <div class="article-card${a.id === activeId ? " active" : ""}" data-id="${a.id}">
       <div class="card-title">${escHtml(a.title)}</div>
       <div class="card-meta">
-        <span>${a.date || ""}</span>
+        <span>${fmtDate(a.date)}</span>
       </div>
       ${a.tags && a.tags.length ? `<div class="card-tags">${a.tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>` : ""}
     </div>`).join("");
@@ -361,7 +361,7 @@ function openArticle(id) {
         <div class="art-title">${escHtml(a.title)}</div>
         ${sourceHtml}
         <div class="art-meta">
-          <span>${a.date || ""}</span>
+          <span>${fmtDate(a.date)}</span>
         </div>
         ${tagsHtml ? `<div class="art-tags">${tagsHtml}</div>` : ""}
       </div>
@@ -435,6 +435,12 @@ function friendlySource(url) {
   } catch {
     return url;
   }
+}
+
+function fmtDate(d) {
+  if (!d) return "";
+  const [y, m, day] = d.split("-");
+  return `${m}-${day}-${y}`;
 }
 
 function escHtml(s) {
