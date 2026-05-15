@@ -129,7 +129,26 @@ def _get(token: str, path: str, params: dict | None = None) -> dict:
         params=params,
         timeout=30,
     )
-    resp.raise_for_status()
+    try:
+        resp.raise_for_status()
+    except requests.HTTPError as exc:
+        detail = resp.text.strip()
+        hints: list[str] = []
+        if resp.status_code == 403 and "/mailFolders" in url:
+            hints.extend([
+                "verify the Azure app has Microsoft Graph Application permission Mail.Read",
+                "grant admin consent for the application permission in Microsoft Entra",
+                "confirm GRAPH_USER_EMAIL is the exact Microsoft 365 mailbox address in this tenant",
+                "check Exchange Online app mailbox restrictions such as App RBAC or Application Access Policies",
+            ])
+        hint_text = f" Likely fixes: {'; '.join(hints)}." if hints else ""
+        if detail:
+            raise RuntimeError(
+                f"Graph request failed ({resp.status_code}) for {url}: {detail}{hint_text}"
+            ) from exc
+        raise RuntimeError(
+            f"Graph request failed ({resp.status_code}) for {url}.{hint_text}"
+        ) from exc
     return resp.json()
 
 
