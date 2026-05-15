@@ -317,6 +317,7 @@ function renderList() {
       <div class="card-title">${escHtml(a.title)}</div>
       <div class="card-meta">
         <span>${fmtDate(a.date)}</span>
+        ${a.source && a.source !== "personal notes" ? `<span>· ${escHtml(friendlySource(a.source))}</span>` : ""}
       </div>
       ${a.tags && a.tags.length ? `<div class="card-tags">${a.tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>` : ""}
     </div>`).join("");
