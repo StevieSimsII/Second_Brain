@@ -279,7 +279,10 @@ let searchQuery  = "";
 // ── Tag index ─────────────────────────────────────────────────────────────────
 const tagCounts = {};
 ARTICLES.forEach(a => (a.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; }));
-const allTags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]).map(e => e[0]);
+const allTags = Object.entries(tagCounts)
+  .filter(([, n]) => n >= 4)
+  .sort((a, b) => b[1] - a[1])
+  .map(e => e[0]);
 
 // ── Render tags ───────────────────────────────────────────────────────────────
 function renderTags() {
