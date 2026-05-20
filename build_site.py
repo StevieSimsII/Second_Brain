@@ -14,6 +14,7 @@ import json
 import logging
 import re
 from datetime import datetime
+from markdown import markdown
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -52,6 +53,50 @@ def _parse_page(path: Path) -> dict | None:
     source = _fm("source")
     tags  = _fm_tags()
 
+    # Some newer pages use a markdown H1 plus inline metadata lines instead of
+    # YAML frontmatter. Parse that fallback shape so the site can render both.
+    if not fm_match:
+      lines = body.splitlines()
+      if lines and lines[0].startswith("# "):
+        inferred_title = lines[0][2:].strip()
+        cursor = 1
+
+        while cursor < len(lines) and not lines[cursor].strip():
+          cursor += 1
+
+        inferred_date = ""
+        inferred_source = ""
+        inferred_tags: list[str] = []
+        metadata_found = False
+
+        while cursor < len(lines):
+          line = lines[cursor].strip()
+          if not line:
+            cursor += 1
+            break
+          if line.startswith("Date:"):
+            inferred_date = line.partition(":")[2].strip()
+            metadata_found = True
+          elif line.startswith("Source:"):
+            inferred_source = line.partition(":")[2].strip()
+            metadata_found = True
+          elif line.startswith("Tags:"):
+            inferred_tags = [tag.strip() for tag in line.partition(":")[2].split(",") if tag.strip()]
+            metadata_found = True
+          else:
+            break
+          cursor += 1
+
+        if metadata_found:
+          while cursor < len(lines) and not lines[cursor].strip():
+            cursor += 1
+
+          title = inferred_title or title
+          date = inferred_date or date
+          source = inferred_source or source
+          tags = inferred_tags or tags
+          body = "\n".join(lines[cursor:]).strip()
+
     if not body:
         return None
 
@@ -86,6 +131,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Stevie's Second Brain</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 <meta name="apple-mobile-web-app-title" content="Second Brain"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -270,18 +316,20 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     </div>
   </aside>
   <main class="main" id="main">
-    <div class="welcome md-body" id="welcome-content"></div>
+    <div class="welcome md-body" id="welcome-content">__README_HTML__</div>
   </main>
 </div>
 
+<script id="articles-data" type="application/json">__ARTICLES_JSON__</script>
+
 <script>
-const ARTICLES = __ARTICLES_JSON__;
-const README_MD = __README_MD__;
+const ARTICLES = JSON.parse(document.getElementById("articles-data").textContent);
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let activeId     = null;
 let activeTag    = null;
 let searchQuery  = "";
+const WELCOME_HTML = document.getElementById("main").innerHTML;
 
 // ── Tag index ─────────────────────────────────────────────────────────────────
 const tagCounts = {};
@@ -459,8 +507,7 @@ function escHtml(s) {
 function showWelcome() {
   // On mobile, stay on the list view — README is desktop-only landing
   if (isMobile()) return;
-  document.getElementById("main").innerHTML =
-    `<div class="welcome md-body" id="welcome-content">${marked.parse(README_MD)}</div>`;
+  document.getElementById("main").innerHTML = WELCOME_HTML;
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
@@ -502,13 +549,14 @@ def build(out_path: Path) -> None:
     log.info("Loaded %d articles from %s", len(articles), WIKI_PAGES)
 
     articles_json = json.dumps(articles, ensure_ascii=False, indent=2)
+    articles_json = articles_json.replace("<", "\\u003c")
 
     readme_path = HERE / "README.md"
     readme_text = readme_path.read_text(encoding="utf-8") if readme_path.exists() else ""
-    readme_json = json.dumps(readme_text, ensure_ascii=False)
+    readme_html = markdown(readme_text, extensions=["fenced_code", "tables"])
 
     html = HTML_TEMPLATE.replace("__ARTICLES_JSON__", articles_json)
-    html = html.replace("__README_MD__", readme_json)
+    html = html.replace("__README_HTML__", readme_html)
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(html, encoding="utf-8")

@@ -1,8 +1,9 @@
-# Power Apps Code Apps: Unifying BI, Actions, and AI Under Enterprise Governance
-
-Date: 2026-05-20
-Source: https://www.linkedin.com/posts/nicolassprotti_microsoft-powerbi-fabric-share-7462519822556520448-oBNV?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: powerapps, powerbi, fabric, power-platform, enterprise-security, ai-agents
+---
+title: "Power Apps Code Apps: Unifying BI, Actions, and AI Under Enterprise Governance"
+source: "https://www.linkedin.com/posts/nicolassprotti_microsoft-powerbi-fabric-share-7462519822556520448-oBNV?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-05-20"
+tags: [powerapps, powerbi, fabric, power-platform, enterprise-security, ai-agents]
+---
 
 ## Overview
 

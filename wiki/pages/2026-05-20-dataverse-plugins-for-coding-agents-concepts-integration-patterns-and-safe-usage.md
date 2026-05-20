@@ -1,8 +1,9 @@
-# Dataverse Plugins for Coding Agents: Concepts, Integration Patterns, and Safe Usage
-
-Date: 2026-05-20
-Source: https://youtu.be/ya-MOAL08bY?si=B07wVB7zns5WZxyj
-Tags: dataverse, plugins, ai-agents, microsoft-power-platform, tooling
+---
+title: "Dataverse Plugins for Coding Agents: Concepts, Integration Patterns, and Safe Usage"
+source: "https://youtu.be/ya-MOAL08bY?si=B07wVB7zns5WZxyj"
+date: "2026-05-20"
+tags: [dataverse, plugins, ai-agents, microsoft-power-platform, tooling]
+---
 
 ## Overview
 

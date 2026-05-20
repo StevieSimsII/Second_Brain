@@ -1,8 +1,9 @@
-# Power Apps Patch() Patterns for Create, Update, Bulk Operations, and Upserts
-
-Date: 2026-05-20
-Source: https://www.linkedin.com/posts/shreyansh-haran_powerapps-powerplatform-lowcode-share-7446146596603465728-tAE5?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: powerapps, powerfx, patch, powerplatform, sharepoint
+---
+title: "Power Apps Patch() Patterns for Create, Update, Bulk Operations, and Upserts"
+source: "https://www.linkedin.com/posts/shreyansh-haran_powerapps-powerplatform-lowcode-share-7446146596603465728-tAE5?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-05-20"
+tags: [powerapps, powerfx, patch, powerplatform, sharepoint]
+---
 
 ## Overview
 

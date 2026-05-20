@@ -1,8 +1,9 @@
-# Inside VS Code’s GitHub Copilot Coding Harness
-
-Date: 2026-05-20
-Source: https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode
-Tags: vscode, github-copilot, agentic-ai, tool-calling, evaluation
+---
+title: "Inside VS Code’s GitHub Copilot Coding Harness"
+source: "https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-copilot-vscode"
+date: "2026-05-20"
+tags: [vscode, github-copilot, agentic-ai, tool-calling, evaluation]
+---
 
 ## Overview
 
