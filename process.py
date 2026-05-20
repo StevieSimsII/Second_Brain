@@ -72,9 +72,10 @@ def process_email_body_only(email, *, dry_run: bool) -> int:
         date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     body = email.body.strip()
+    log.info("  Body: %d chars for '%s'", len(body), email.subject)
     if not body:
-        log.info("  Empty body — skipping '%s'", email.subject)
-        return 0
+        log.warning("  Empty body — skipping '%s' (will not retry)", email.subject)
+        return -1  # sentinel: genuinely no content, mark processed
 
     if dry_run:
         log.info("  [dry-run] Would generate notes page from body: %s", email.subject)
@@ -223,10 +224,18 @@ def main() -> None:
             pages = process_email_body_only(email, dry_run=args.dry_run)
         else:
             pages = process_email(email, dry_run=args.dry_run)
-        total_pages += pages
+
+        # pages > 0  → page written, mark done
+        # pages == -1 → genuinely empty content, mark done (no point retrying)
+        # pages == 0  → API/fetch failure, do NOT mark done so next run retries
         if not args.dry_run:
-            processed.add(email.entry_id)
-            _save_processed(processed)
+            if pages != 0:
+                processed.add(email.entry_id)
+                _save_processed(processed)
+            else:
+                log.warning("  0 pages created — will retry '%s' next run", email.subject)
+
+        total_pages += max(pages, 0)
 
     verb = "would be created (dry run)" if args.dry_run else "created"
     log.info("Done. %d wiki page(s) %s from %d email(s).", total_pages, verb, len(new_emails))
