@@ -1,0 +1,40 @@
+name: Build Second Brain Site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'wiki/pages/**'
+      - 'build_site.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build site
+        run: python build_site.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && echo "Nothing to rebuild." || \
+            git commit -m "build: $(date -u '+%Y-%m-%d %H:%M UTC')" && \
+            git pull --rebase origin main && \
+            git push
