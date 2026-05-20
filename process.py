@@ -120,7 +120,8 @@ def process_email_body_only(email, *, dry_run: bool) -> int:
 
 
 def process_email(email, *, dry_run: bool) -> int:
-    """URL mode: fetch each URL in the email, generate a lesson, create wiki + Notion pages."""
+    """URL mode: fetch each URL in the email, generate a lesson, create wiki + Notion pages.
+    Falls back to body-only mode when no URLs are present or all fetches/LLM calls fail."""
     try:
         date_str = email.received.strftime("%Y-%m-%d")
     except Exception:
@@ -130,8 +131,8 @@ def process_email(email, *, dry_run: bool) -> int:
     pages_created = 0
 
     if not email.urls:
-        log.info("  No URLs found — skipping '%s'", email.subject)
-        return 0
+        log.info("  No URLs found — falling back to body-only for '%s'", email.subject)
+        return process_email_body_only(email, dry_run=dry_run)
 
     for url in email.urls:
         log.info("  Processing URL: %s", url)
@@ -177,6 +178,10 @@ def process_email(email, *, dry_run: bool) -> int:
             date=date_str,
         )
         pages_created += 1
+
+    if pages_created == 0 and email.urls:
+        log.info("  All URL fetches/LLM calls failed — falling back to body-only for '%s'", email.subject)
+        return process_email_body_only(email, dry_run=dry_run)
 
     return pages_created
 
