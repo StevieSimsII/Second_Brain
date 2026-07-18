@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.stevie.secondbrain</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/steviecopilot/Stevie_Code/Second_Brain/.venv/bin/python</string>
+      <string>-m</string>
+      <string>ingest</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/steviecopilot/Stevie_Code/Second_Brain</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+      <key>HOME</key>
+      <string>/Users/steviecopilot</string>
+      <key>PYTHONUNBUFFERED</key>
+      <string>1</string>
+    </dict>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/steviecopilot/Library/Logs/SecondBrain.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/steviecopilot/Library/Logs/SecondBrain.err.log</string>
+  </dict>
+</plist>
+

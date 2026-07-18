@@ -24,6 +24,13 @@ HERE = Path(__file__).resolve().parent
 WIKI_PAGES = HERE / "wiki" / "pages"
 DEFAULT_OUT = HERE / "index.html"
 
+GENERIC_TAGS = {"ai", "technology", "software", "tools", "automation"}
+TITLE_STOP_WORDS = {
+    "about", "after", "before", "building", "from", "into", "practical",
+    "the", "their", "this", "understanding", "using", "what", "when",
+    "where", "which", "with", "without", "your",
+}
+
 
 # ── Frontmatter parser ────────────────────────────────────────────────────────
 
@@ -121,6 +128,45 @@ def _parse_page(path: Path) -> dict | None:
         "source": source,
         "content": body,
     }
+
+
+def _title_tokens(title: str) -> set[str]:
+    return {
+        token
+        for token in re.findall(r"[a-z0-9]+", title.lower())
+        if len(token) > 2 and token not in TITLE_STOP_WORDS
+    }
+
+
+def add_related_articles(articles: list[dict], limit: int = 4) -> None:
+    """Attach low-cost, explainable connections based on tags and title concepts."""
+    for article in articles:
+        article_tags = {tag.lower() for tag in article.get("tags", [])}
+        meaningful_tags = article_tags - GENERIC_TAGS
+        title_tokens = _title_tokens(article.get("title", ""))
+        candidates: list[tuple[int, str, dict, list[str]]] = []
+
+        for candidate in articles:
+            if candidate["id"] == article["id"]:
+                continue
+            candidate_tags = {tag.lower() for tag in candidate.get("tags", [])}
+            shared_tags = sorted(meaningful_tags & (candidate_tags - GENERIC_TAGS))
+            shared_words = title_tokens & _title_tokens(candidate.get("title", ""))
+            if not shared_tags and len(shared_words) < 2:
+                continue
+            score = len(shared_tags) * 5 + len(shared_words) * 2
+            candidates.append((score, candidate.get("date", ""), candidate, shared_tags))
+
+        candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
+        article["related"] = [
+            {
+                "id": candidate["id"],
+                "title": candidate["title"],
+                "date": candidate.get("date", ""),
+                "shared_tags": shared_tags,
+            }
+            for _, _, candidate, shared_tags in candidates[:limit]
+        ]
 
 
 # ── HTML template ─────────────────────────────────────────────────────────────
@@ -222,6 +268,13 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .art-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
   .art-tag { background: var(--tag-bg); color: var(--accent); border: 1px solid var(--border); border-radius: 20px; padding: 2px 10px; font-size: 12px; cursor: pointer; }
   .art-tag:hover { background: var(--accent); color: #0d1117; }
+
+  .related-notes { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .related-notes h2 { font-size: 17px; margin-bottom: 10px; }
+  .related-note { display: block; width: 100%; padding: 10px 12px; margin: 6px 0; text-align: left; color: var(--text); background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+  .related-note:hover { border-color: var(--accent); background: var(--card-hover); }
+  .related-note-title { display: block; font-size: 13px; font-weight: 600; }
+  .related-note-reason { display: block; margin-top: 2px; font-size: 11px; color: var(--muted); }
 
   /* ── Markdown styles ── */
   .md-body h1, .md-body h2, .md-body h3, .md-body h4 { color: var(--text); margin: 1.5em 0 .6em; line-height: 1.3; }
@@ -406,6 +459,14 @@ function openArticle(id) {
 
   const bodyHtml = marked.parse(a.content || "");
 
+  const relatedHtml = (a.related || []).length
+    ? `<div class="related-notes"><h2>Related Notes</h2>${a.related.map(item => `
+        <button class="related-note" data-related-id="${escHtml(item.id)}">
+          <span class="related-note-title">${escHtml(item.title)}</span>
+          <span class="related-note-reason">${item.shared_tags.length ? `Shared topics: ${item.shared_tags.map(escHtml).join(", ")}` : "Related concepts"}</span>
+        </button>`).join("")}</div>`
+    : "";
+
   const backBtn = isMobile()
     ? `<div class="mobile-back" id="back-btn">&#8592; All Articles</div>`
     : "";
@@ -422,6 +483,7 @@ function openArticle(id) {
         ${tagsHtml ? `<div class="art-tags">${tagsHtml}</div>` : ""}
       </div>
       <div class="md-body">${bodyHtml}</div>
+      ${relatedHtml}
     </div>`;
 
   if (isMobile()) {
@@ -434,6 +496,10 @@ function openArticle(id) {
       activeTag = activeTag === el.dataset.tag ? null : el.dataset.tag;
       renderTags(); renderList();
     })
+  );
+
+  document.getElementById("main").querySelectorAll(".related-note").forEach(el =>
+    el.addEventListener("click", () => openArticle(el.dataset.relatedId))
   );
 
   window.location.hash = id;
@@ -545,6 +611,7 @@ def build(out_path: Path) -> None:
 
     # Sort newest first
     articles.sort(key=lambda a: a.get("date", ""), reverse=True)
+    add_related_articles(articles)
 
     log.info("Loaded %d articles from %s", len(articles), WIKI_PAGES)
 

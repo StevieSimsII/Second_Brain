@@ -1,138 +1,123 @@
-# 🧠 Stevie's Second Brain
+# Stevie's Second Brain
 
-This repository is now the publishing layer for the site, not the ingestion pipeline. Its job is simple: take markdown pages in `wiki/pages/`, turn them into a searchable static site, and publish the result through GitHub Pages.
+One repository and one workflow for capturing, developing, searching, and publishing durable knowledge.
 
-The generated site uses this README as its desktop landing page, so keeping this file accurate affects both the repository docs and the live site experience.
+The live site is [Stevie's Second Brain](https://steviesimsii.github.io/Second_Brain/).
 
-## How It Works Now
+## The Workflow
 
 ```text
-Capture or generate notes elsewhere
-(manual writing, a bot, another repo, or any script)
+Send a link to Telegram
         ↓
-Write a publish-ready markdown file to wiki/pages/
+Normalize the URL and check for duplicates
         ↓
-Push to main
+Retrieve source evidence
+  • YouTube transcript
+  • GitHub metadata, README, and file tree
+  • Readable article content
         ↓
-GitHub Actions runs build_site.py
+Reject thin sources instead of inventing a lesson
         ↓
-build_site.py:
-  - parses frontmatter
-  - sorts pages by date
-  - strips ## Personal Notes from public output
-  - extracts a source URL when possible
-  - rebuilds index.html
+Generate a structured lesson with Codex (ChatGPT plan auth)
         ↓
-Workflow commits the rebuilt index.html
+Commit canonical Markdown to wiki/pages/
         ↓
-GitHub Pages serves the updated site
+GitHub Actions rebuilds the searchable site
+        ↓
+Telegram returns the direct article link
 ```
 
-In my current setup, an upstream automation writes the markdown and pushes it here. This repo no longer fetches from Outlook, Microsoft Graph, Notion, or OpenAI directly. If you fork this project, anything that can write good markdown files into `wiki/pages/` can be your upstream.
+Markdown is the source of truth. Notion, email, and OpenAI Platform API keys are not part of the pipeline.
 
-## What This Repo Owns
-
-- `wiki/pages/*.md` as the source of truth for published notes
-- `build_site.py` as the static site builder
-- `README.md` as the desktop landing page content inside the generated site
-- `.github/workflows/build.yml` as the rebuild-and-publish automation
-- `index.html` as the generated artifact GitHub Pages serves
-
-## Content Format
-
-Each note is one markdown file under `wiki/pages/`. The builder expects simple YAML frontmatter and a markdown body.
-
-```md
----
-title: "Inside VS Code's GitHub Copilot Coding Harness"
-date: "2026-05-20"
-tags: [copilot, vscode, ai-agents]
-source: "https://example.com/post"
----
-
-## Overview
-A concise summary of what the piece is about.
-
-## Key Concepts
-- First concept
-- Second concept
-
-## How It Works
-Describe the mechanism, workflow, or architecture.
-
-## Personal Notes
-Source: https://example.com/post
-Notion page: https://www.notion.so/...
-Private reminders that should not be published verbatim.
-```
-
-Notes:
-
-- `date` controls sort order, so use `YYYY-MM-DD`.
-- `title` and the markdown body are what readers see in the site.
-- `tags` drive filtering and search discovery.
-- `source` is optional, but recommended.
-- The `## Personal Notes` section is removed from the public article view.
-- If `source` is blank or set to `personal notes`, the builder tries to recover a `Source: https://...` URL from the `## Personal Notes` section before stripping it.
-
-## Local Workflow
-
-Prerequisites:
-
-- Python 3.11+ is enough.
-- Install the build dependency before running the generator.
-
-```bash
-python -m pip install -r requirements.txt
-```
-
-Build the site locally:
-
-```bash
-python build_site.py
-```
-
-Write the generated file somewhere else:
-
-```bash
-python build_site.py --out C:/path/to/index.html
-```
-
-Then open `index.html` in a browser to inspect the result.
-
-## Publishing Flow
-
-- GitHub Pages serves the root `index.html` from `main`.
-- The build workflow runs on pushes that change `wiki/pages/**`, `build_site.py`, or `README.md`, and it also supports manual dispatch.
-- The workflow rebuilds `index.html`, commits it with a `build:` timestamp, and pushes the generated file back to `main`.
-
-## Project Layout
+## Repository Layout
 
 ```text
 Second_Brain/
-├── .github/
-│   └── workflows/
-│       └── build.yml       # Rebuilds index.html on content or builder changes
-├── wiki/
-│   └── pages/              # Publish-ready markdown notes
-├── build_site.py           # Converts wiki pages + README into the site
-├── README.md               # Repo docs and desktop landing page content
-├── index.html              # Generated site artifact
-├── requirements.txt        # Build-time markdown dependency
-└── apple-touch-icon.png    # GitHub Pages asset
+├── ingest/                  # Always-on Telegram capture service
+│   ├── __main__.py          # python -m ingest
+│   ├── sources.py           # GitHub, YouTube, and web acquisition
+│   ├── codex.py             # Codex CLI + ChatGPT monthly-plan auth
+│   ├── lesson.py            # Grounded lesson generation
+│   ├── github.py            # Idempotent Markdown publishing
+│   └── requirements.txt     # Bot runtime dependencies
+├── wiki/pages/              # Canonical lesson Markdown
+├── build_site.py            # Searchable static-site generator
+├── index.html               # Generated GitHub Pages site
+├── tests/                   # Ingestion and knowledge-linking tests
+└── docs/OPERATIONS.md       # Mac mini setup and daily operations
 ```
 
-The active runtime path is intentionally small: markdown in, static site out. Some legacy directories may still exist in the repo, but the current build and deploy path is driven by `wiki/pages/`, `build_site.py`, `README.md`, and the build workflow.
+## Intelligence That Compounds
 
-## Adding Content
+Every new capture stores stable metadata with the lesson:
 
-You have two basic options:
+- normalized source URL
+- source type and evidence size
+- a URL fingerprint used for deduplication
+- reusable topic tags
+- capture date
 
-1. Write markdown files directly in `wiki/pages/`.
-2. Use an upstream capture or summarization tool that generates markdown and commits or pushes it here.
+The site automatically connects each lesson to related notes using shared topics and title concepts. This is deliberately transparent and inexpensive: no vector database is needed for the first intelligence layer.
 
-As long as the final artifact is a correctly formatted markdown file in `wiki/pages/`, this repo will publish it.
+The next natural layer is retrieval over the Markdown collection for a Telegram `/ask` command. The canonical files are already structured to support that without another content store.
 
-## License
+## Run the Site Locally
 
-MIT — fork it, adapt it, and point it at your own upstream content pipeline.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python build_site.py
+```
+
+Open `index.html` after the build.
+
+## Run the Telegram Capture Bot
+
+```bash
+# One-time on the Mac mini host
+npm install -g @openai/codex
+codex login   # Sign in with ChatGPT (monthly plan), not an API key
+
+source .venv/bin/activate
+python -m pip install -r ingest/requirements.txt
+cp .env.example .env.local
+# Fill in Telegram and GitHub values. Leave OPENAI_API_KEY unset.
+python -m ingest
+```
+
+Lesson generation calls `codex exec` and reuses `~/.codex/auth.json` from `codex login`, so usage follows your ChatGPT/Codex plan limits.
+
+Only one instance should poll a Telegram bot token at a time. The Mac mini is the permanent host; use a separate Telegram bot token for development.
+
+See [docs/OPERATIONS.md](docs/OPERATIONS.md) for `launchd`, updates, logs, and migration from the former `LinkToNotionLessons` service.
+
+## Content Format
+
+Lessons are normal Markdown with YAML frontmatter:
+
+```md
+---
+title: "A durable lesson title"
+source: "https://example.com/source"
+date: "2026-07-16"
+tags: [agents, retrieval, knowledge-management]
+source_type: "web"
+source_fingerprint: "d8c66f8213"
+source_characters: 18420
+---
+
+## Overview
+...
+```
+
+You can also write or edit files in `wiki/pages/` manually. Pushing them to `main` rebuilds the site.
+
+## Design Principles
+
+- One canonical store: Git-tracked Markdown.
+- Capture should be easier than postponing the note.
+- Weak evidence should fail visibly.
+- Generated knowledge should remain inspectable and editable.
+- Intelligence should grow from the corpus without locking it into a proprietary store.
+- Lesson generation uses ChatGPT-plan Codex auth, not Platform API billing.
