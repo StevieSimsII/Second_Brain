@@ -1,29 +1,18 @@
-"""Generate and render grounded Second Brain lessons."""
+"""Generate and render grounded Second Brain lessons via Codex ChatGPT auth."""
 from __future__ import annotations
 
-import json
 import re
 from typing import Any
 
-from openai import OpenAI
-
 from ingest import config
+from ingest.codex import LESSON_OUTPUT_SCHEMA, run_codex_structured
 from ingest.sources import FetchedSource
 
 
 SYSTEM_PROMPT = """You are an expert technical educator building a durable personal
 knowledge base. Transform the supplied source into a self-contained, practical lesson.
 
-Return only JSON matching this schema:
-{
-  "title": "Concise descriptive title, at most 120 characters",
-  "tags": ["3-6 stable lowercase topic tags"],
-  "overview": "Why this matters in 1-2 paragraphs",
-  "key_concepts": [{"name": "Concept", "explanation": "Grounded explanation"}],
-  "how_it_works": "Detailed Markdown walkthrough",
-  "training_exercise": "Concrete step-by-step exercise in Markdown",
-  "further_reading": [{"title": "Resource", "url": "https://..."}]
-}
+Return only JSON matching the provided schema.
 
 Rules:
 - Base factual claims on the supplied source. Never conceal thin or uncertain evidence.
@@ -31,39 +20,25 @@ Rules:
 - Use 4-8 key concepts.
 - Include further-reading URLs only when they appear in the supplied source; otherwise use [].
 - Prefer reusable topic tags over news-cycle or marketing tags.
+- Title at most 120 characters.
+- Tags should be 3-6 stable lowercase topic tags.
 """
 
 
-def _extract_json(text: str) -> dict[str, Any]:
-    value = text.strip()
-    if value.startswith("```"):
-        value = re.sub(r"^```(?:json)?\s*", "", value)
-        value = re.sub(r"\s*```\s*$", "", value)
-    return json.loads(value)
-
-
 def generate_lesson(source: FetchedSource) -> dict[str, Any]:
-    if not config.OPENAI_API_KEY:
-        raise RuntimeError("OPENAI_API_KEY is not configured")
-    client = OpenAI(api_key=config.OPENAI_API_KEY)
-    response = client.chat.completions.create(
-        model=config.OPENAI_MODEL,
-        max_completion_tokens=4096,
-        response_format={"type": "json_object"},
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": (
-                    f"Source URL: {source.url}\n"
-                    f"Source type: {source.kind}\n"
-                    f"Retrieved characters: {source.character_count}\n\n"
-                    f"--- BEGIN SOURCE ---\n{source.content}\n--- END SOURCE ---"
-                ),
-            },
-        ],
+    prompt = (
+        f"{SYSTEM_PROMPT}\n\n"
+        f"Source URL: {source.url}\n"
+        f"Source type: {source.kind}\n"
+        f"Retrieved characters: {source.character_count}\n\n"
+        f"--- BEGIN SOURCE ---\n{source.content}\n--- END SOURCE ---"
     )
-    lesson = _extract_json(response.choices[0].message.content or "")
+    lesson = run_codex_structured(
+        prompt,
+        schema=LESSON_OUTPUT_SCHEMA,
+        model=config.CODEX_MODEL,
+        timeout=config.CODEX_TIMEOUT_SECONDS,
+    )
     required = ("title", "overview", "key_concepts", "how_it_works", "training_exercise")
     missing = [key for key in required if not lesson.get(key)]
     if missing:
@@ -131,4 +106,3 @@ def render_markdown(
             if item_url:
                 lines.append(f"- [{item_title or item_url}]({item_url})")
     return "\n".join(lines).rstrip() + "\n"
-

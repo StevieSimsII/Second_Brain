@@ -1,4 +1,4 @@
-# 🧠 Stevie's Second Brain
+# Stevie's Second Brain
 
 One repository and one workflow for capturing, developing, searching, and publishing durable knowledge.
 
@@ -18,7 +18,7 @@ Retrieve source evidence
         ↓
 Reject thin sources instead of inventing a lesson
         ↓
-Generate a structured lesson with OpenAI
+Generate a structured lesson with Codex (ChatGPT plan auth)
         ↓
 Commit canonical Markdown to wiki/pages/
         ↓
@@ -27,7 +27,7 @@ GitHub Actions rebuilds the searchable site
 Telegram returns the direct article link
 ```
 
-Markdown is the source of truth. Notion and email are not part of the pipeline.
+Markdown is the source of truth. Notion, email, and OpenAI Platform API keys are not part of the pipeline.
 
 ## Repository Layout
 
@@ -36,6 +36,7 @@ Second_Brain/
 ├── ingest/                  # Always-on Telegram capture service
 │   ├── __main__.py          # python -m ingest
 │   ├── sources.py           # GitHub, YouTube, and web acquisition
+│   ├── codex.py             # Codex CLI + ChatGPT monthly-plan auth
 │   ├── lesson.py            # Grounded lesson generation
 │   ├── github.py            # Idempotent Markdown publishing
 │   └── requirements.txt     # Bot runtime dependencies
@@ -74,12 +75,18 @@ Open `index.html` after the build.
 ## Run the Telegram Capture Bot
 
 ```bash
+# One-time on the Mac mini host
+npm install -g @openai/codex
+codex login   # Sign in with ChatGPT (monthly plan), not an API key
+
 source .venv/bin/activate
 python -m pip install -r ingest/requirements.txt
 cp .env.example .env.local
-# Fill in Telegram, OpenAI, and GitHub values.
+# Fill in Telegram and GitHub values. Leave OPENAI_API_KEY unset.
 python -m ingest
 ```
+
+Lesson generation calls `codex exec` and reuses `~/.codex/auth.json` from `codex login`, so usage follows your ChatGPT/Codex plan limits.
 
 Only one instance should poll a Telegram bot token at a time. The Mac mini is the permanent host; use a separate Telegram bot token for development.
 
@@ -113,3 +120,4 @@ You can also write or edit files in `wiki/pages/` manually. Pushing them to `mai
 - Weak evidence should fail visibly.
 - Generated knowledge should remain inspectable and editable.
 - Intelligence should grow from the corpus without locking it into a proprietary store.
+- Lesson generation uses ChatGPT-plan Codex auth, not Platform API billing.

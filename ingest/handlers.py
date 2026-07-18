@@ -45,7 +45,7 @@ async def handle_status(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         await update.message.reply_text("The bot is running, but GitHub is not reachable.")
         return
     await update.message.reply_text(
-        f"Second Brain is ready.\nRepository: {repository}\nModel: {config.OPENAI_MODEL}"
+        f"Second Brain is ready.\nRepository: {repository}\nCodex model: {config.CODEX_MODEL}"
     )
 
 

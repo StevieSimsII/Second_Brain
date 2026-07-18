@@ -2,6 +2,9 @@
 .env
 .env.local
 .token_cache.json
+# Codex ChatGPT auth cache (never commit)
+.codex/
+auth.json
 
 # Personal assets
 favicon-32x32.png
