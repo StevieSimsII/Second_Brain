@@ -297,6 +297,57 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+    "title": "Designing Longer-Running AI Agent Loops and Workflows",
+    "date": "2026-07-19",
+    "tags": [
+      "ai-agents",
+      "workflow-design",
+      "prompt-engineering",
+      "technical-education",
+      "human-ai-collaboration"
+    ],
+    "source": "https://www.youtube.com/watch?v=aVO6E181cNU",
+    "content": "## Overview\n\nThis lesson distills a transcripted discussion about how to get an AI coding agent to work longer, more reliably, and with less micromanagement. The core idea is that strong agent use is not just better prompting; it is designing feedback loops, clear exit conditions, lightweight prototypes, and verification steps. The speakers describe tools such as `/loop`, `/goal`, and reusable workflows, plus a practical video-editing example that combines transcription, UI generation, and rendering. Evidence is strongest for the workflow principles and examples shown in the transcript. Product-specific names appear to come from auto-transcribed audio and may contain recognition errors, so treat exact tool branding as approximate unless verified elsewhere.\n\n## Key Concepts\n\n- **Exit conditions over open-ended prompting**: A long-running agent needs a clear definition of done. In the transcript, `/goal` is presented as a way to remind the agent of its exit condition and discourage premature stopping when it hits friction or ambiguity.\n- **Planning as unknown-reduction**: Planning is framed less as writing one perfect spec and more as iteratively removing unknowns. That includes researching edge cases, learning how a subsystem works, generating mockups, and refining the request as new constraints appear.\n- **Prototype before expensive implementation**: The speakers recommend testing the smallest version that can validate the idea. For example, explore video overlay designs in HTML first, then move to a more expensive React or rendering pipeline only after the concept is proven.\n- **Separate creation from verification**: Workflows become more reliable when one agent produces output and another checks it against a rubric. The transcript argues this reduces self-referential bias, where a model is too lenient about its own work.\n- **Use artifacts and reports as shared working memory**: HTML artifacts, implementation notes, and explainers make agent work inspectable and reusable. They help humans review decisions and let future agent runs inherit context without starting from scratch.\n- **Keep context lean**: As models improve, the speakers argue they often need fewer examples, fewer rigid constraints, and shorter instruction files. Overly long system prompts, skills, or repo instructions can narrow the model unnecessarily and consume useful context window space.\n- **Match workflow style to task shape**: Deterministic tasks benefit from hard checks like latency targets or file matches. Squishier tasks, such as design judgment or clip quality, benefit from rubrics, exploration, and multi-agent review rather than a single pass.\n\n## How It Works\n\nUse this workflow when you want an agent to handle a substantial task with less babysitting. First, define the outcome in a way the agent can test: a rendered file, a design match, a latency target, or a rubric-scored deliverable. Second, spend time removing unknowns before asking for full execution: have the agent explain the subsystem, list failure modes, and generate a few design or implementation options. Third, ask for the smallest proof first, not the polished version. In the transcript's example, the agent transcribes a short video, creates caption and overlay UI, and renders a basic result from one prompt. Fourth, if quality is subjective, split the work into roles: one agent plans or coordinates, sub-agents generate candidate outputs, and separate verification agents review them against a rubric. Fifth, save useful instructions, scripts, notes, and artifacts so the next run starts from a better workspace instead of rebuilding everything from scratch. Throughout, prefer concise guidance that states goals and principles rather than long lists of brittle examples or prohibitions.\n\n## Training Exercise\n\nPick a task you repeat, such as generating short video clips, writing release notes, or preparing a bug-fix summary. Write a one-sentence outcome, then ask an agent to do three things in order: 1. explain the relevant subsystem and likely failure modes, 2. produce a low-cost prototype or artifact with 2-3 variations, and 3. propose a workflow that separates generation from verification using a rubric. After reviewing the result, shorten any bloated instructions and rerun the task with a clearer exit condition. Compare the second run to the first and note which unknowns mattered most.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=aVO6E181cNU)",
+    "related": [
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "ai-agents",
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-05-22-build-reliable-ai-workflows-before-autonomous-agents",
+        "title": "Build Reliable AI Workflows Before Autonomous Agents",
+        "date": "2026-05-22",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
+        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
+        "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
+        "date": "2026-06-20",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-18-ai-regulation-data-centers-and-platform-competition-lessons-from-an-all--bdc41c9a90",
     "title": "AI Regulation, Data Centers, and Platform Competition: Lessons from an All-In Discussion",
     "date": "2026-07-18",
@@ -946,6 +997,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "workflow-design"
+        ]
+      },
+      {
         "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
         "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
         "date": "2026-07-12",
@@ -961,14 +1021,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "tool-use"
-        ]
-      },
-      {
-        "id": "2026-06-17-google-okf-structuring-knowledge-for-agent-centric-systems",
-        "title": "Google OKF: Structuring Knowledge for Agent-Centric Systems",
-        "date": "2026-06-17",
-        "shared_tags": [
-          "ai-agents"
         ]
       }
     ]
@@ -4897,9 +4949,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-10-evaluating-a-frontier-llm-in-practice-a-month-long-testing-framework",
-        "title": "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework",
-        "date": "2026-07-10",
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
         "shared_tags": [
           "prompt-engineering"
         ]
@@ -5094,6 +5146,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
         "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
         "date": "2026-05-20",
@@ -5106,14 +5167,6 @@ source_characters: 18420
         "id": "2026-06-03-microsoft-build-highlights-ai-agents-copilot-and-the-modern-azure-developer-stac",
         "title": "Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack",
         "date": "2026-06-03",
-        "shared_tags": [
-          "ai-agents"
-        ]
-      },
-      {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
         "shared_tags": [
           "ai-agents"
         ]
@@ -6627,19 +6680,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      },
+      {
         "id": "2026-05-23-decomposing-an-llm-agent-when-to-use-tools-skills-or-subagents",
         "title": "Decomposing an LLM Agent: When to Use Tools, Skills, or Subagents",
         "date": "2026-05-23",
         "shared_tags": [
           "tool-use"
-        ]
-      },
-      {
-        "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
-        "title": "Practical Patterns for Using Codex as an Engineering Workbench",
-        "date": "2026-07-15",
-        "shared_tags": [
-          "codex"
         ]
       }
     ]
