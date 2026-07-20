@@ -297,6 +297,55 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+    "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+    "date": "2026-07-19",
+    "tags": [
+      "ai-agents",
+      "prompting",
+      "software-engineering",
+      "knowledge-work",
+      "human-agent-interaction"
+    ],
+    "source": "https://www.youtube.com/watch?v=IHbsfvbfAto",
+    "content": "## Overview\n\nThis lesson turns the talk into a practical method for getting more value from AI agents. The core claim is that many failures are not proof that the model is incapable; they are often signs that the user has not yet supplied the right tools, context, or problem framing. The speaker calls this gap a form of capability overhang: models can sometimes do much more than typical usage reveals. The practical skill, then, is not just writing prompts. It is learning how to work with an agent, expose missing context, prototype cheaply, and reduce your own unknown unknowns so you can steer the system toward valuable output.\n\n## Key Concepts\n\n- **Capability overhang**: The transcript argues that what models can do and what users usually ask them to do are often mismatched. A model may fail in a plain chat setting yet succeed once given code execution, search, or a better task setup.\n- **Human-agent interaction**: The speaker frames this as a new high-leverage skill, similar to writing or public speaking. Good interaction with agents involves framing goals, supplying constraints, and adapting based on how the model actually behaves.\n- **Models are grown, not designed**: The talk says model abilities emerge in spiky, unexpected ways rather than along a clean, predictable path. Because of that, you cannot assume the best workflow in advance; you have to discover it empirically.\n- **Unhobbling the model**: A recurring idea is that users often restrict models unintentionally. Giving the model tools, better context, or a more suitable format can unlock behavior that was not visible in a simpler setup.\n- **Unknown unknowns**: The speaker argues that progress often stalls because the user lacks domain understanding they do not yet know they need. In the video-editing example, color grading became a hidden bottleneck that had to be learned before the agent could be directed well.\n- **Staying in the loop**: The workflow is not fully hands-off automation. The user explores, asks follow-up questions, studies intermediate artifacts, and uses cheap prototypes to discover what they actually want before pushing for a full implementation.\n\n## How It Works\n\nUse this workflow when an agent seems underpowered or slow. Start by defining the outcome, not just the task: what should exist at the end, who it is for, and what level of depth or quality is needed. Next, expose missing context explicitly. The talk's example of explaining a module improves when the user states their skill level, unfamiliarity with the code, and that the task is high-compute enough to justify subagents. Then check whether the model is being hobbled by the environment. A plain chat request may fail where a coding agent with code execution succeeds, as in the Pokemon example where searching a list programmatically works better than relying on recall. After that, iterate through cheap representations before full implementation: HTML mockups, reports, transcripts, or prototypes. When output quality stalls, assume there may be an unknown unknown in your own understanding. Learn just enough of the missing domain to steer the model better, as the speaker did with color grading. The practical pattern is: specify outcome, add context, give tools, inspect intermediate artifacts, learn the missing concept, and rerun with sharper direction.\n\n## Training Exercise\n\nPick a task that feels slightly beyond what you would normally trust an AI agent to do, such as explaining a code module, drafting a small internal tool, or transforming raw media into a polished artifact. First, write a weak prompt with minimal context. Record the result and note where it fails. Second, rewrite the prompt to include your role, your level of familiarity, the desired output, available tools, and any reason the task may require deeper exploration. Third, ask the agent to produce an intermediate artifact before the final result, such as a plan, HTML mockup, report, or transcript. Fourth, identify one place where the output is weak and ask: is this a model limitation, or do I lack a concept needed to direct it? Spend 15 minutes learning that missing concept with the agent, then retry. Finish by writing a short reflection on what changed after you improved context, tooling, and your own understanding.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=IHbsfvbfAto)",
+    "related": [
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "ai-agents",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
+        "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
+        "date": "2026-07-12",
+        "shared_tags": [
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
+        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
+        "date": "2026-07-17",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
+        "title": "Practical Patterns for Using Codex as an Engineering Workbench",
+        "date": "2026-07-15",
+        "shared_tags": [
+          "prompting"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
     "title": "Designing Longer-Running AI Agent Loops and Workflows",
     "date": "2026-07-19",
@@ -956,19 +1005,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
         "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
         "date": "2026-07-17",
         "shared_tags": [
           "ai-coding"
-        ]
-      },
-      {
-        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
-        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
-        "date": "2026-07-17",
-        "shared_tags": [
-          "prompting"
         ]
       }
     ]
@@ -997,6 +1046,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
         "title": "Designing Longer-Running AI Agent Loops and Workflows",
         "date": "2026-07-19",
@@ -1012,15 +1070,6 @@ source_characters: 18420
         "shared_tags": [
           "evaluation",
           "prompting"
-        ]
-      },
-      {
-        "id": "2026-05-13-computer-use-in-codex-browser-controlled-agent-workflows",
-        "title": "Computer Use in Codex: Browser-Controlled Agent Workflows",
-        "date": "2026-05-13",
-        "shared_tags": [
-          "ai-agents",
-          "tool-use"
         ]
       }
     ]
@@ -1110,17 +1159,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
-        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
-        "date": "2026-07-17",
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
         "shared_tags": [
-          "llms"
+          "knowledge-work"
         ]
       },
       {
-        "id": "2026-07-13-how-to-read-ai-news-critically-model-leaks-release-signals-and-hype-evaluation",
-        "title": "How to Read AI News Critically: Model Leaks, Release Signals, and Hype Evaluation",
-        "date": "2026-07-13",
+        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
+        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
+        "date": "2026-07-17",
         "shared_tags": [
           "llms"
         ]
