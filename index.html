@@ -297,6 +297,55 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+    "title": "Model Fusion for Agentic Engineering",
+    "date": "2026-07-20",
+    "tags": [
+      "ai-agents",
+      "software-engineering",
+      "orchestration",
+      "validation",
+      "decision-making"
+    ],
+    "source": "https://www.youtube.com/watch?v=AQl5Q-0l7FQ",
+    "content": "## Overview\n\nThis lesson teaches a practical pattern for agentic engineering: use multiple AI models together instead of choosing a single winner. In the source, this pattern is called \"model fusion\" and is shown through a custom agent harness with three commands: `/opinion`, `/fusion`, and `/auto validate`. The central idea is to gather parallel perspectives, merge them into one decision-ready result, and validate implementation with an explicit gate written before the builder starts. The source argues that this improves planning and review, but most evidence shown is demo-based and anecdotal rather than a controlled benchmark, so treat the performance claims as observed examples rather than universal results.\n\n## Key Concepts\n\n- **And, Not Or**: The lesson rejects the idea of picking one best model. Instead, it recommends combining models so their different strengths, context windows, and reasoning styles contribute to better engineering decisions.\n- **Model Fusion**: Model fusion is the practice of collecting outputs from multiple agents or models and consolidating them into a single result. The source presents it as a renamed but longstanding pattern related to architect-editor flows, prompt chaining, and agent chaining.\n- **Parallel Opinions First**: The `/opinion` step asks two agents to solve the same problem independently. This is useful when you want multiple perspectives before committing to an architecture, implementation, or tradeoff.\n- **Consensus, Divergence, and Discards**: The `/fusion` step does more than merge text. It identifies where agents agree, where they differ, and what ideas are dropped. That structure helps an engineer see tradeoffs instead of blindly accepting a single answer.\n- **Validation Before Execution**: The `/auto validate` workflow has one agent write a validation script before another agent builds the solution. The builder then has to satisfy that gate, which turns review into an explicit, testable process rather than an informal check.\n- **Harness Ownership**: The source strongly argues that the agent harness matters as much as the models. A customizable harness lets you define roles, prompts, validation rules, and coordination patterns instead of waiting for a vendor tool to support them.\n- **Tight Coordination vs. Loose Delegation**: This pattern is presented as more than simple task splitting. The goal is a tightly coordinated team of agents that compare, fuse, validate, and loop on each other's work rather than acting as isolated subagents.\n\n## How It Works\n\nStart with two agents assigned the same engineering prompt. First, run an opinion step so both agents respond independently. Next, run a fusion step that combines the two outputs into one artifact while explicitly listing consensus points, divergences, and discarded ideas. Then run an auto-validation step: a validator agent writes a gate or test script before the builder begins, and the builder must produce work that passes that script. In the source, this pattern is used for example tasks like comparing scikit-learn models and designing a benchmark for bulk SQLite inserts. The claimed benefit is better decision quality and less manual review, because the engineer sees multiple viewpoints and receives implementation guarded by explicit checks. A careful reading of the source suggests the real reusable idea is not any specific model ranking, but the workflow shape: parallel reasoning, structured synthesis, and predeclared validation.\n\n## Training Exercise\n\nPick a small engineering problem you can verify locally, such as choosing a data structure, comparing two API designs, or drafting a small benchmark. Write three prompts for a two-agent harness: 1. an `/opinion` prompt asking each agent for its independent recommendation with pros, cons, and assumptions, 2. a `/fusion` prompt asking a synthesizer to produce one final decision with sections for consensus, divergence, and discarded ideas, and 3. an `/auto validate` prompt asking a validator to define a concrete pass/fail script before implementation begins. After running the workflow, review whether the fused result actually exposed useful disagreements and whether the validation gate caught anything a normal single-agent flow would likely miss.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=AQl5Q-0l7FQ)",
+    "related": [
+      {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      },
+      {
+        "id": "2026-07-09-grok-45-in-cursor-training-a-generalist-tool-using-model-for-real-computer-work",
+        "title": "Grok 4.5 in Cursor: Training a Generalist Tool-Using Model for Real Computer Work",
+        "date": "2026-07-09",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
+        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
+        "date": "2026-07-17",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-20-practical-rag-knowledge-bases-for-team-memory-afde5f9d0e",
     "title": "Practical RAG Knowledge Bases for Team Memory",
     "date": "2026-07-20",
@@ -363,6 +412,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson turns the talk into a practical method for getting more value from AI agents. The core claim is that many failures are not proof that the model is incapable; they are often signs that the user has not yet supplied the right tools, context, or problem framing. The speaker calls this gap a form of capability overhang: models can sometimes do much more than typical usage reveals. The practical skill, then, is not just writing prompts. It is learning how to work with an agent, expose missing context, prototype cheaply, and reduce your own unknown unknowns so you can steer the system toward valuable output.\n\n## Key Concepts\n\n- **Capability overhang**: The transcript argues that what models can do and what users usually ask them to do are often mismatched. A model may fail in a plain chat setting yet succeed once given code execution, search, or a better task setup.\n- **Human-agent interaction**: The speaker frames this as a new high-leverage skill, similar to writing or public speaking. Good interaction with agents involves framing goals, supplying constraints, and adapting based on how the model actually behaves.\n- **Models are grown, not designed**: The talk says model abilities emerge in spiky, unexpected ways rather than along a clean, predictable path. Because of that, you cannot assume the best workflow in advance; you have to discover it empirically.\n- **Unhobbling the model**: A recurring idea is that users often restrict models unintentionally. Giving the model tools, better context, or a more suitable format can unlock behavior that was not visible in a simpler setup.\n- **Unknown unknowns**: The speaker argues that progress often stalls because the user lacks domain understanding they do not yet know they need. In the video-editing example, color grading became a hidden bottleneck that had to be learned before the agent could be directed well.\n- **Staying in the loop**: The workflow is not fully hands-off automation. The user explores, asks follow-up questions, studies intermediate artifacts, and uses cheap prototypes to discover what they actually want before pushing for a full implementation.\n\n## How It Works\n\nUse this workflow when an agent seems underpowered or slow. Start by defining the outcome, not just the task: what should exist at the end, who it is for, and what level of depth or quality is needed. Next, expose missing context explicitly. The talk's example of explaining a module improves when the user states their skill level, unfamiliarity with the code, and that the task is high-compute enough to justify subagents. Then check whether the model is being hobbled by the environment. A plain chat request may fail where a coding agent with code execution succeeds, as in the Pokemon example where searching a list programmatically works better than relying on recall. After that, iterate through cheap representations before full implementation: HTML mockups, reports, transcripts, or prototypes. When output quality stalls, assume there may be an unknown unknown in your own understanding. Learn just enough of the missing domain to steer the model better, as the speaker did with color grading. The practical pattern is: specify outcome, add context, give tools, inspect intermediate artifacts, learn the missing concept, and rerun with sharper direction.\n\n## Training Exercise\n\nPick a task that feels slightly beyond what you would normally trust an AI agent to do, such as explaining a code module, drafting a small internal tool, or transforming raw media into a polished artifact. First, write a weak prompt with minimal context. Record the result and note where it fails. Second, rewrite the prompt to include your role, your level of familiarity, the desired output, available tools, and any reason the task may require deeper exploration. Third, ask the agent to produce an intermediate artifact before the final result, such as a plan, HTML mockup, report, or transcript. Fourth, identify one place where the output is weak and ask: is this a model limitation, or do I lack a concept needed to direct it? Spend 15 minutes learning that missing concept with the agent, then retry. Finish by writing a short reflection on what changed after you improved context, tooling, and your own understanding.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=IHbsfvbfAto)",
     "related": [
       {
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
         "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
         "date": "2026-07-13",
@@ -385,14 +443,6 @@ source_characters: 18420
         "date": "2026-07-17",
         "shared_tags": [
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
-        "title": "Practical Patterns for Using Codex as an Engineering Workbench",
-        "date": "2026-07-15",
-        "shared_tags": [
-          "prompting"
         ]
       }
     ]
@@ -1995,6 +2045,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
         "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
         "date": "2026-07-06",
@@ -2006,14 +2064,6 @@ source_characters: 18420
         "id": "2026-06-03-mai-code-1-flash-efficient-agentic-coding-for-real-world-github-copilot-workflow",
         "title": "MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows",
         "date": "2026-06-03",
-        "shared_tags": [
-          "llm"
-        ]
-      },
-      {
-        "id": "2026-05-28-skillopt-training-reusable-natural-language-skills-for-frozen-llm-agents",
-        "title": "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents",
-        "date": "2026-05-28",
         "shared_tags": [
           "llm"
         ]
