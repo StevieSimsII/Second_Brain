@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-20-practical-rag-knowledge-bases-for-team-memory-afde5f9d0e",
+    "title": "Practical RAG Knowledge Bases for Team Memory",
+    "date": "2026-07-20",
+    "tags": [
+      "rag",
+      "knowledge-management",
+      "embeddings",
+      "data-ingestion",
+      "enterprise-search"
+    ],
+    "source": "https://www.youtube.com/watch?v=eCx3SSCcISo",
+    "content": "## Overview\n\nThis lesson explains a practical pattern for building a company knowledge base with retrieval-augmented generation (RAG). The source argues that useful knowledge systems are less about visual note graphs and more about a dependable ingestion-and-retrieval pipeline: collect internal data, enrich it with metadata, store it in a searchable representation, and inject the most relevant context into a model at question time. The transcript presents this as a real production pattern used by a large AI hardware company, but some proper nouns and version numbers appear noisy in transcription, so treat names as less certain than the architectural ideas.\n\n## Key Concepts\n\n- **Retrieval-Augmented Generation**: RAG improves answers by retrieving relevant information from a specific dataset and placing it before the user’s question in the model prompt. In the lesson’s framing, this collapses a vague question into a context-grounded one.\n- **Ingestion Pipeline**: A usable knowledge base starts by continuously pulling data from business systems such as Slack, wikis, code repositories, email, and custom databases. The source emphasizes that this collection step matters more than flashy presentation.\n- **Embeddings and Metadata**: Raw content is not stored alone. The system adds metadata such as who said it, when, where, topic, and possible resolution, then stores the result in a machine-searchable form the transcript calls embedding space.\n- **Relevance Weighting**: Good retrieval is not just about document count. The source highlights weighting by recency, source importance, and relevance so newer or more authoritative information can outrank older or weaker evidence.\n- **Structured Memory Artifacts**: Conversation threads can be distilled into structured records with fields like question, summary, resolution, systems, source ID, and timestamps. This turns scattered discussions into reusable organizational memory.\n- **Query Interfaces**: Once data is indexed, people or agents can query it through a chat UI, MCP, web interface, or other tooling. The important behavior is that the system retrieves evidence first and answers second.\n\n## How It Works\n\nBuild the lesson’s system in five steps. First, choose a narrow set of sources your team already uses, such as chat, docs, repos, and email. Second, ingest those sources continuously instead of relying on manual note-taking. Third, enrich each item with metadata the model can later use for ranking: author, timestamp, source system, topic, and any extracted summary or resolution. Fourth, store both searchable text and embeddings so the system can support exact lookup and semantic retrieval. Fifth, when a user asks a question, retrieve the best matching items, prefer stronger evidence using recency and authority signals, and prepend that context to the model prompt. The source also notes an optional enterprise layer for authentication, authorization, auditing, and analytics; it treats that as important for large companies but not always necessary for a small internal deployment.\n\n## Training Exercise\n\nDesign a small-team knowledge base on paper before writing code. Pick three sources you actually use. For each source, define: 1. what gets ingested, 2. what metadata is attached, 3. how often it syncs, and 4. one example question it should answer better than a general-purpose model. Then create three sample records by hand in a table with fields for raw content, author, timestamp, source, summary, and resolution. Finally, write a mock prompt that shows how those retrieved records would be inserted above a user question. Your success criterion is simple: can the grounded prompt answer a team-specific question that the ungrounded model could not answer reliably?\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=eCx3SSCcISo)",
+    "related": [
+      {
+        "id": "2026-05-23-llm-wiki-structured-personal-knowledge-as-an-alternative-to-naive-rag",
+        "title": "LLM Wiki: Structured Personal Knowledge as an Alternative to Naive RAG",
+        "date": "2026-05-23",
+        "shared_tags": [
+          "knowledge-management",
+          "rag"
+        ]
+      },
+      {
+        "id": "2026-05-08-building-an-llm-maintained-wiki-for-compounding-knowledge",
+        "title": "Building an LLM-Maintained Wiki for Compounding Knowledge",
+        "date": "2026-05-08",
+        "shared_tags": [
+          "knowledge-management",
+          "rag"
+        ]
+      },
+      {
+        "id": "2026-05-08-karpathys-llm-wiki-persistent-knowledge-files-vs-basic-rag",
+        "title": "Karpathy’s LLM Wiki: Persistent Knowledge Files vs Basic RAG",
+        "date": "2026-05-08",
+        "shared_tags": [
+          "knowledge-management",
+          "rag"
+        ]
+      },
+      {
+        "id": "2026-05-28-building-a-business-llm-knowledge-base-with-retrieval-augmented-generation",
+        "title": "Building a Business LLM Knowledge Base with Retrieval-Augmented Generation",
+        "date": "2026-05-28",
+        "shared_tags": [
+          "embeddings",
+          "rag"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
     "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
     "date": "2026-07-19",
