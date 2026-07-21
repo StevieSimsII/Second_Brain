@@ -501,6 +501,58 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+    "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+    "date": "2026-07-21",
+    "tags": [
+      "llm",
+      "prompt-engineering",
+      "token-optimization",
+      "developer-tools",
+      "ai-systems"
+    ],
+    "source": "https://linkedin.com/posts/burkeholland_the-vast-majority-of-your-token-spend-is-ugcPost-7485391834861568000-8dmr?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY",
+    "content": "## Overview\n\nThis lesson explains prompt caching as described in Burke Holland’s transcript: why repeated prompts become cheaper, what kinds of changes silently trigger cache misses, and how to structure your workflow to preserve cache reuse. The practical takeaway is that much of your cost comes from input tokens, and small configuration changes can erase most of the savings unless you understand what counts as a changed prompt prefix.\n\n## Key Concepts\n\n- **Input-token cost dominates**: The source claims most token spend comes from input tokens, not output tokens. That makes input-side optimizations, especially caching, a high-leverage cost control.\n- **Prompt caching reuses the unchanged prefix**: A chat request is described as a growing prompt made from system instructions, tools, skills, MCP definitions, custom agents, and conversation history. When that earlier portion stays the same, the provider can reuse cached work for it and only compute the new suffix.\n- **Caching avoids repeated attention computation**: The transcript describes tokenization, vectorization, and attention as the expensive path. Caching matters because the provider can skip recomputing that earlier work for unchanged prompt content.\n- **Cache misses come from prefix changes**: Changing the model, reasoning level, enabled skills, MCP servers, or agent setup can change the prefix and cause a cache miss. The practical lesson is that workflow configuration changes can cost more than message edits.\n- **Caches have a time-to-live and multiple variants**: The source says OpenAI 5-6 models have about a 30-minute cache TTL, while Anthropic API caching is described as 5 minutes by default with possible extension. It also describes cached prompt states as keeping multiple variations, so returning to a previous configuration may restore reuse if still within TTL.\n- **Misses may be partial, not absolute**: The transcript says prompts are cached in chunks, so a miss does not always mean zero reuse. If only later chunks changed, earlier unchanged chunks may still be reused.\n- **Session boundaries matter for instruction files**: The source claims edits to an `AGENTS.md`-style instruction file were not picked up until starting a new session. That means some prompt-affecting files may not influence caching or behavior until the harness rebuilds the session context.\n\n## How It Works\n\nTreat prompt caching as a prefix-stability problem. In the transcript’s model, your tool builds a long request from hidden system material plus your visible chat. The provider caches the expensive processing for that request. If you send another message without changing the earlier structure, the provider can reuse that cached prefix and charge far less. If you switch models, alter reasoning level, enable or disable skills or MCP servers, or move to a different custom-agent setup, you likely change the prefix and lose most of that reuse. The lesson is operational: keep your environment stable during a task, avoid unnecessary toggles, batch related work into the same session, and remember that returning to an earlier configuration may recover cached savings if the TTL has not expired. One uncertainty the source explicitly notes is Anthropic behavior: it is described as similar but not identical, and at least one example is presented as confusing rather than settled.\n\n## Training Exercise\n\nOpen your AI coding tool and run a small controlled experiment. First, send the same short prompt twice in the same session and record whether token reuse or lower cost appears on the second run. Next, change one variable at a time: switch the model, change reasoning level, enable or disable one skill or tool, and note which change causes reuse to disappear. Then revert to a previous configuration within a short window and test whether reuse returns. Finish by writing a short rule set for yourself: which settings you will keep fixed during focused work, which changes deserve a fresh session, and how long you can pause before assuming the cache has expired.\n\n## Further Reading\n\n- [Original LinkedIn post and transcript](https://linkedin.com/posts/burkeholland_the-vast-majority-of-your-token-spend-is-ugcPost-7485391834861568000-8dmr?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY)",
+    "related": [
+      {
+        "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
+        "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
+        "date": "2026-05-27",
+        "shared_tags": [
+          "developer-tools",
+          "llm"
+        ]
+      },
+      {
+        "id": "2026-05-22-karpathy-inspired-agent-coding-rules-as-a-reusable-claude-code-skill",
+        "title": "Karpathy-Inspired Agent Coding Rules as a Reusable Claude Code Skill",
+        "date": "2026-05-22",
+        "shared_tags": [
+          "developer-tools",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
+        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
+        "date": "2026-07-09",
+        "shared_tags": [
+          "developer-tools",
+          "llm"
+        ]
+      },
+      {
+        "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
+        "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
+        "date": "2026-07-06",
+        "shared_tags": [
+          "developer-tools",
+          "llm"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-prompt-caching-in-copilot-style-llm-workflows-f3dc58c179",
     "title": "Prompt Caching in Copilot-Style LLM Workflows",
     "date": "2026-07-21",
@@ -5011,18 +5063,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
-        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
-        "date": "2026-07-09",
+        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+        "date": "2026-07-21",
         "shared_tags": [
           "developer-tools",
           "llm"
         ]
       },
       {
-        "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
-        "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
-        "date": "2026-07-06",
+        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
+        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
+        "date": "2026-07-09",
         "shared_tags": [
           "developer-tools",
           "llm"
@@ -5360,9 +5412,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
+        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+        "date": "2026-07-21",
         "shared_tags": [
           "prompt-engineering"
         ]
@@ -5720,21 +5772,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "developer-tools",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
         "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
         "date": "2026-05-27",
         "shared_tags": [
           "cursor",
           "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-05-23-decomposing-an-llm-agent-when-to-use-tools-skills-or-subagents",
-        "title": "Decomposing an LLM Agent: When to Use Tools, Skills, or Subagents",
-        "date": "2026-05-23",
-        "shared_tags": [
-          "llm-agents",
-          "prompt-engineering"
         ]
       }
     ]
@@ -5807,6 +5859,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson unpacks a short but important discussion about the economics of frontier AI companies, centered on a claim that Anthropic expects positive operating profit and improving compute efficiency. The core issue is not just whether an AI company is profitable in a given quarter, but what falling compute-to-revenue ratios imply about model serving costs, gross margins, pricing power, and the maturity of enterprise demand.\n\nEngineers, technical product leaders, and platform teams should care because AI economics directly shape architecture decisions, vendor selection, model routing strategies, and whether AI-backed products can scale sustainably. The conversation also highlights a second-order issue: even if model providers become more efficient, enterprises still need measurement, workflow integration, and procurement discipline to capture value from AI adoption.\n\n## Key Concepts\n\n- **Compute-to-revenue ratio**: A compute-to-revenue ratio measures how much of each dollar earned is consumed by computing expense, especially inference and serving. If that ratio falls from 71 cents to 56 cents per dollar of revenue, it suggests improving operational efficiency, better pricing, or a more favorable workload mix.\n- **Operating profit vs. true economic profitability**: Operating profit is an accounting measure based on operating revenue minus operating expenses. It does not automatically answer deeper questions about capital intensity, cloud credits, depreciation treatment, stock compensation, or whether major training costs are recognized in the same period as revenues.\n- **Inference cost decline**: Inference costs often fall over time due to better hardware, improved kernels, batching, quantization, routing, caching, and model architecture advances. These cost declines can materially improve margins even if model quality continues to increase.\n- **Workload mix and product maturity**: The economics of AI usage depend heavily on what customers are doing: casual prompting, API experimentation, embedded copilots, or high-volume agentic workflows. More predictable and integrated usage can make utilization and pricing more stable, improving provider-side economics.\n- **Enterprise ROI measurement gap**: Many organizations struggle to measure AI's impact because benefits often appear as faster decisions, less rework, or improved throughput rather than simple headcount reduction. Without instrumentation and operating-model changes, even technically successful AI deployments may look financially ambiguous.\n- **Procurement lag vs. vendor repricing**: If AI infrastructure costs are falling faster than enterprise contract cycles, buyers may overpay relative to current market economics. This creates a strategic challenge: procurement processes may move annually, while model pricing and cost floors can change quarterly.\n\n## How It Works\n\nThe source is a social discussion built around one headline claim: Anthropic is expected to post operating profit, and its compute spend per dollar of revenue has dropped from 71% to 56% in a short period. That single metric acts as a compressed signal for several moving parts in AI economics.\n\nAt a high level, the implied logic is:\n\n1. AI providers generate revenue from model access, typically through APIs, enterprise contracts, or packaged products.\n2. They incur large operating costs, especially for inference compute, infrastructure, and model operations.\n3. If compute expense per revenue dollar declines, each dollar of sales contributes more to margin.\n4. If this trend is sustained, the business can move from \"growth with heavy subsidy\" toward self-funding operations.\n\nThe discussion then branches into two competing interpretations.\n\n**Interpretation 1: improving real unit economics**\n\nSome commenters argue the falling ratio reflects genuine progress:\n\n- model serving is getting cheaper,\n- hardware/software stacks are improving,\n- customers are buying more predictable enterprise usage,\n- providers are becoming more efficient as scale increases.\n\nFrom an engineering perspective, that story is plausible. AI inference costs can drop quickly through:\n\n- better accelerator utilization,\n- larger batch sizes,\n- KV-cache reuse,\n- lower-precision inference,\n- smaller or routed models for simpler tasks,\n- distillation and fine-tuning,\n- traffic shaping and asynchronous execution,\n- better orchestration for agent workflows.\n\nIf revenue holds steady or rises while these costs fall, operating margin improves.\n\n**Interpretation 2: accounting and reporting ambiguity**\n\nOther commenters are skeptical and ask whether the operating-profit signal is masking deeper costs. That skepticism is technically important because frontier AI businesses have unusual cost structures. A quarter can look profitable while still hiding unresolved questions such as:\n\n- Are cloud credits or partner subsidies inflating effective margins?\n- Are training runs treated as capitalized or amortized expenses instead of current-period costs?\n- Are infrastructure obligations shifted off the income statement through partnerships or leasing structures?\n- Is the company reporting operating profit while still burning cash elsewhere?\n\nThis does not mean the profitability claim is false. It means engineers and technical leaders should separate **headline profitability** from **full-stack economic sustainability**.\n\n## Why the 71-cent to 56-cent shift matters\n\nThat 15-point drop is significant because it implies the provider's cost floor is moving fast. In plain terms, if the company previously spent $0.71 on compute to earn $1.00 and now spends $0.56, it has widened the contribution available for:\n\n- gross margin,\n- R&D,\n- sales and support,\n- future model development,\n- price competition.\n\nThis can happen through several mechanisms:\n\n```text\nRevenue per request increases\n+ Cost per request decreases\n+ Request mix shifts to higher-value workloads\n= Better compute-to-revenue ratio\n```\n\nFor example, a provider may route lightweight classification tasks to cheaper models while reserving large models for complex reasoning. Or enterprise buyers may move from small pilots to embedded production systems with steadier demand, which improves cluster planning and utilization.\n\n## Why usage patterns matter\n\nOne notable comment suggests that economics improve when users move away from ad hoc prompting toward integrated, multi-step workflows. This is an important systems insight.\n\nCasual prompting tends to be noisy:\n\n- spiky demand,\n- less predictable token consumption,\n- low retention,\n- unclear willingness to pay.\n\nIntegrated workflows are different:\n\n- recurring request patterns,\n- known latency and quality targets,\n- measurable business outcomes,\n- stronger switching costs,\n- better opportunities for optimization.\n\nThat means the same model provider can become more profitable not only because silicon improves, but because customer behavior matures.\n\n## Why buyer-side economics may lag provider-side economics\n\nAnother strong idea in the discussion is that falling provider costs are also a buyer story. If providers become more efficient rapidly, then enterprises buying AI services need mechanisms to capture those gains. Otherwise they may be locked into stale pricing or architectures.\n\nFor engineering teams, this means vendor strategy should include:\n\n- benchmarking across model providers,\n- abstracting model access behind internal gateways,\n- tracking cost per task rather than raw token usage,\n- renegotiating contracts more frequently,\n- enabling fallback or routing across vendors.\n\nA practical architecture implication is to avoid hard-coding one model provider into every product path. A thin platform layer can let teams re-route workloads when price-performance shifts.\n\n## Why adoption still depends on organizational design\n\nThe source also highlights that technical capability and vendor profitability do not automatically translate into enterprise value. Many organizations cannot measure gains such as reduced rework, faster analysis, or improved decision quality. If finance teams only recognize labor savings, then the broader value of AI-enabled process redesign remains invisible.\n\nEngineers can help close this gap by instrumenting AI systems around business outcomes, not just tokens and latency. Useful metrics include:\n\n- time to complete a workflow,\n- percentage of tasks automated end-to-end,\n- human review load,\n- defect or rework rate,\n- throughput per employee,\n- conversion or resolution rate.\n\nWithout these measurements, enterprises may underinvest in successful systems or overinvest in flashy pilots with weak economics.\n\n## A practical mental model\n\nWhen evaluating frontier AI economics, think in layers:\n\n1. **Model-layer economics** — cost per token, throughput, latency, utilization.\n2. **Product-layer economics** — price per seat, API revenue, retention, workload mix.\n3. **Company-layer economics** — operating margin, infrastructure commitments, R&D burden.\n4. **Enterprise-layer economics** — ROI realization, workflow redesign, governance, procurement speed.\n\nThe source mainly surfaces layer 3 with a hint from layer 1, but the most actionable insight for engineers is that all four layers interact. Falling inference cost only matters if products capture value and organizations can operationalize it.\n\n## Training Exercise\n\nBuild a simple unit-economics model for an AI feature and test how changes in inference efficiency affect margin and ROI.\n\n### Goal\nCreate a spreadsheet or small script that estimates whether an AI-powered workflow is sustainable for both the vendor and the enterprise buyer.\n\n### Step 1: Define a sample workload\nAssume your application processes support tickets with an LLM.\n\nUse these starter inputs:\n\n- 100,000 requests/month\n- average 3,000 tokens/request\n- model cost: $2.00 per 1M tokens\n- AI feature revenue: $0.12 per request billed internally or externally\n- human review required on 20% of requests\n- human review cost: $1.50 per reviewed request\n\n### Step 2: Compute baseline economics\nCalculate:\n\n1. total monthly tokens,\n2. total inference cost,\n3. total review cost,\n4. total revenue,\n5. contribution margin.\n\nFormula sketch:\n\n```text\ntotal_tokens = requests * tokens_per_request\ninference_cost = (total_tokens / 1_000_000) * cost_per_million_tokens\nreview_cost = requests * review_rate * review_cost_per_request\nrevenue = requests * revenue_per_request\nmargin = revenue - inference_cost - review_cost\n```\n\n### Step 3: Simulate efficiency gains\nNow model a drop in compute cost analogous to the source discussion.\n\nRun these scenarios:\n\n- cost per 1M tokens drops 20%\n- average tokens per request drops 25% due to better prompting/routing\n- review rate drops from 20% to 10% due to better workflow integration\n\nObserve which lever contributes most to margin improvement.\n\n### Step 4: Add buyer-side ROI metrics\nEstimate enterprise value from the same system:\n\n- average ticket handling time before AI: 12 minutes\n- after AI: 7 minutes\n- labor cost: $45/hour\n\nCompute monthly labor savings and compare it to the total AI system cost. Then ask: if labor savings are not counted, what other measurable KPIs would justify the deployment?\n\n### Step 5: Optional Python version\nUse this starter script:\n\n```python\nrequests = 100_000\ntokens_per_request = 3000\ncost_per_million = 2.00\nrevenue_per_request = 0.12\nreview_rate = 0.20\nreview_cost_per_request = 1.50\n\n\ndef economics(requests, tokens_per_request, cost_per_million,\n              revenue_per_request, review_rate, review_cost_per_request):\n    total_tokens = requests * tokens_per_request\n    inference_cost = (total_tokens / 1_000_000) * cost_per_million\n    review_cost = requests * review_rate * review_cost_per_request\n    revenue = requests * revenue_per_request\n    margin = revenue - inference_cost - review_cost\n    return {\n        \"total_tokens\": total_tokens,\n        \"inference_cost\": inference_cost,\n        \"review_cost\": review_cost,\n        \"revenue\": revenue,\n        \"margin\": margin,\n    }\n\nbaseline = economics(\n    requests, tokens_per_request, cost_per_million,\n    revenue_per_request, review_rate, review_cost_per_request\n)\n\nimproved = economics(\n    requests, int(tokens_per_request * 0.75), cost_per_million * 0.8,\n    revenue_per_request, 0.10, review_cost_per_request\n)\n\nprint(\"Baseline:\", baseline)\nprint(\"Improved:\", improved)\n```\n\n### Step 6: Reflect\nWrite a short note answering:\n\n- Which mattered more: raw model cost decline or workflow redesign?\n- How would contract lag affect your vendor strategy?\n- What accounting or reporting assumptions would you need to validate before trusting a vendor profitability claim?\n\n## Further Reading\n\n- [Stanford HAI AI Index Report](https://aiindex.stanford.edu/report/)\n- [NVIDIA TensorRT-LLM Documentation](https://nvidia.github.io/TensorRT-LLM/)\n- [OpenAI API Pricing](https://openai.com/api/pricing/)\n- [Anthropic API Documentation](https://docs.anthropic.com/)",
     "related": [
       {
+        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "llm"
+        ]
+      },
+      {
         "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
         "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
         "date": "2026-07-09",
@@ -5826,14 +5886,6 @@ source_characters: 18420
         "id": "2026-05-27-using-the-microsoft-learn-mcp-server-and-typescript-cli-for-trusted-docs-retriev",
         "title": "Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval",
         "date": "2026-05-27",
-        "shared_tags": [
-          "llm"
-        ]
-      },
-      {
-        "id": "2026-05-20-vs-code-1120-agents-byok-model-controls-and-markdown-diff-workflows",
-        "title": "VS Code 1.120: Agents, BYOK Model Controls, and Markdown Diff Workflows",
-        "date": "2026-05-20",
         "shared_tags": [
           "llm"
         ]
