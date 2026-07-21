@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
+    "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
+    "date": "2026-07-21",
+    "tags": [
+      "agent-design",
+      "developer-tools",
+      "tooling",
+      "extensibility",
+      "ai-agents"
+    ],
+    "source": "https://linkedin.com/posts/burkeholland_in-the-past-if-you-wanted-to-extend-a-tool-ugcPost-7485461142400794624-DF9_?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY",
+    "content": "## Overview\n\nThis source presents a shift in how software tools may be extended. Instead of writing a traditional extension, the user describes a missing capability in the GitHub Copilot app and the app adds it. The example given is asking for a visual SQLite editor. The post also claims a marketplace is coming for sharing more complex additions. Evidence is thin because the source is a short social post, so the lesson should be read as an introduction to the idea of agentic extensibility rather than a detailed product specification.\n\n## Key Concepts\n\n- **Traditional extensions**: The post contrasts older tool customization models, where extending a product like VS Code required writing an extension.\n- **Conversational capability creation**: In the described model, the user states what the tool lacks in natural language instead of implementing the feature directly.\n- **Dynamic self-extension**: The core claim is that the GitHub Copilot app can add new functionality to itself at request time, adapting to the user's immediate need.\n- **Task-specific interfaces**: The SQLite visual editor example suggests the added capability can be a concrete interface for a narrow job, not just a generic text response.\n- **Agentic surface**: The post calls this an 'agentic surface,' meaning a user-facing environment where the agent changes the tool's behavior or shape to fit the task.\n- **Extension marketplace**: The post says a marketplace is coming, implying that some generated or assembled capabilities may become reusable, shareable artifacts.\n\n## How It Works\n\nBased on the source, the workflow is: a user notices a missing feature, describes that feature to the app, and the app adds the capability. The explicit example is requesting a visual editor for a SQLite database. The post further suggests that these additions may become complex enough to publish through a marketplace. What is not established in the source is the implementation mechanism: it does not explain whether the app generates code, composes existing components, installs packages, or uses some internal runtime. A careful reading is therefore: the source clearly claims outcome and interaction model, but not technical internals.\n\n## Training Exercise\n\nWrite three feature requests for an AI-powered developer tool that currently lacks them: one data tool, one debugging tool, and one visualization tool. For each request, include: the missing capability, the exact prompt you would give the agent, the UI or artifact you expect back, and one risk or ambiguity that would need clarification before trusting the result. Then compare your requests to the SQLite editor example from the source and identify which parts are directly supported by the post and which parts are your own assumptions.\n\n## Further Reading\n\n- [In the past if you wanted to extend a tool like VS Code, you had to write an extension. In GitHub Copilot app, you just tell the app what you want that it doesn't have, and it adds it.](https://linkedin.com/posts/burkeholland_in-the-past-if-you-wanted-to-extend-a-tool-ugcPost-7485461142400794624-DF9_?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY)",
+    "related": [
+      {
+        "id": "2026-05-20-dataverse-plugins-for-coding-agents-concepts-integration-patterns-and-safe-usage",
+        "title": "Dataverse Plugins for Coding Agents: Concepts, Integration Patterns, and Safe Usage",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "tooling"
+        ]
+      },
+      {
+        "id": "2026-05-20-github-copilot-app-technical-preview-agentic-development-across-repos-worktrees-",
+        "title": "GitHub Copilot App Technical Preview: Agentic Development Across Repos, Worktrees, and GitHub",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-05-20-google-io-2026-gemini-35-agentic-search-xr-and-googles-expanding-ai-platform",
+        "title": "Google I/O 2026: Gemini 3.5, Agentic Search, XR, and Google's Expanding AI Platform",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-04-18-ai-tool-hooks-in-copilot-cli-and-vs-code",
+        "title": "AI Tool Hooks in Copilot CLI and VS Code",
+        "date": "2026-04-18",
+        "shared_tags": [
+          "ai-agents",
+          "developer-tools"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
     "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
     "date": "2026-07-21",
@@ -747,8 +799,8 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
+        "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
         "date": "2026-07-21",
         "shared_tags": [
           "ai-agents"
@@ -6081,6 +6133,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
+        "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "tooling"
+        ]
+      },
+      {
         "id": "2026-05-05-teaching-ai-agents-to-use-obsidian-safely",
         "title": "Teaching AI Agents to Use Obsidian Safely",
         "date": "2026-05-05",
@@ -6096,14 +6157,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "plugins"
-        ]
-      },
-      {
-        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
-        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
-        "date": "2026-05-20",
-        "shared_tags": [
-          "ai-agents"
         ]
       }
     ]
@@ -6345,6 +6398,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
+        "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "developer-tools"
+        ]
+      },
+      {
         "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
         "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
         "date": "2026-06-05",
@@ -6357,15 +6419,6 @@ source_characters: 18420
         "id": "2026-06-03-microsoft-build-highlights-ai-agents-copilot-and-the-modern-azure-developer-stac",
         "title": "Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack",
         "date": "2026-06-03",
-        "shared_tags": [
-          "ai-agents",
-          "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-04-27-building-a-personal-assistant-with-github-copilot-sdk-and-cli",
-        "title": "Building a Personal Assistant with GitHub Copilot SDK and CLI",
-        "date": "2026-04-27",
         "shared_tags": [
           "ai-agents",
           "developer-tools"
@@ -7995,21 +8048,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
+        "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "tooling"
+        ]
+      },
+      {
         "id": "2026-05-21-whats-new-in-vs-code-121x-native-mermaid-preview-agent-sessions-and-better-markd",
         "title": "What’s New in VS Code 1.21x: Native Mermaid Preview, Agent Sessions, and Better Markdown",
         "date": "2026-05-21",
         "shared_tags": [
           "ai-agents",
           "markdown"
-        ]
-      },
-      {
-        "id": "2026-05-08-building-an-llm-maintained-wiki-for-compounding-knowledge",
-        "title": "Building an LLM-Maintained Wiki for Compounding Knowledge",
-        "date": "2026-05-08",
-        "shared_tags": [
-          "markdown",
-          "obsidian"
         ]
       }
     ]
