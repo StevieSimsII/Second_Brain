@@ -399,6 +399,54 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-21-kimi-k3-quickstart-calling-a-1m-context-reasoning-model-through-the-open-c63207fa01",
+    "title": "Kimi K3 Quickstart: Calling a 1M-Context Reasoning Model Through the OpenAI SDK",
+    "date": "2026-07-21",
+    "tags": [
+      "llm-api",
+      "python",
+      "tool-calling",
+      "structured-output",
+      "multimodal"
+    ],
+    "source": "https://platform.kimi.ai/docs/guide/kimi-k3-quickstart",
+    "content": "## Overview\n\nThis lesson teaches how to use Kimi K3 from the Kimi API Platform quickstart page. The source presents Kimi K3 as a flagship 2.8-trillion-parameter model with native visual understanding, a 1M-token context window, always-on reasoning, and OpenAI SDK compatibility through `base_url=\"https://api.moonshot.ai/v1\"`. Practically, the page is most useful as an API integration guide: authenticate with `MOONSHOT_API_KEY`, send chat completion requests, control `reasoning_effort`, stream reasoning and answer deltas, pass image/video inputs in the required message format, enforce JSON output with `json_schema`, and run tool-calling loops correctly by preserving the full assistant message. Some broader claims, such as being the first open-source model in its class or having roughly 2.5x K2 scaling efficiency, are stated by the source but not independently substantiated within it.\n\n## Key Concepts\n\n- **OpenAI SDK compatibility via custom base URL**: The examples use the Python `openai` package with `OpenAI(api_key=os.environ[\"MOONSHOT_API_KEY\"], base_url=\"https://api.moonshot.ai/v1\")`. The key practical point is that you keep the SDK interface but target Kimi's API endpoint.\n- **Always-on reasoning with configurable effort**: Kimi K3 always runs in thinking mode. You cannot disable chain-of-thought behavior, but you can adjust the top-level `reasoning_effort` field to `low`, `high`, or `max` to trade off depth and latency; the source says the default is `max`.\n- **Message integrity in multi-turn and tool workflows**: The source repeatedly warns to carry forward the complete assistant message returned by the API, not just `message.content`. This matters because tool calls and other metadata live on the assistant message object.\n- **Streaming separates reasoning from final answer**: When streaming, deltas may contain `reasoning_content` and `content` separately. A client should handle both streams distinctly and avoid parsing intermediate reasoning as the final structured result.\n- **Multimodal input requires structured content arrays**: For vision, `content` must be an array of typed objects such as text, `image_url`, or `video_url`, not a serialized string. Public image URLs are not supported according to the page; examples use base64 data URLs for images and `ms://\u003cfile-id>` for uploaded video.\n- **Structured output uses strict JSON Schema**: To constrain the final answer, the quickstart uses `response_format={\"type\":\"json_schema\", ...}` with `strict: true`. The source explicitly says to parse only `message.content`, not `reasoning_content`.\n- **Tool calling is explicit and stateful**: You can require at least one tool call with `tool_choice=\"required\"`, execute each returned call yourself, append matching tool messages with `tool_call_id`, and call the model again. The page also shows dynamic tool loading by placing tool definitions in a `system` message.\n- **Large-context usage benefits from stable prefixes**: The source says K3 has a 1M-token context window and automatic context caching. Cache eligibility depends on a previous request having more than 256 prompt tokens, and later requests should keep the long prefix unchanged to attempt cache hits.\n\n## How It Works\n\nA minimal working flow is: install `openai>=1.0`, set `MOONSHOT_API_KEY`, create an `OpenAI` client pointed at `https://api.moonshot.ai/v1`, and call `client.chat.completions.create(model=\"kimi-k3\", messages=[...])`. From there, choose the advanced behavior you need. For deeper reasoning, set `reasoning_effort`. For streaming, read both `delta.reasoning_content` and `delta.content`. For vision, build `messages` so `content` is an array of typed parts and use base64 or uploaded-file references instead of public URLs. For JSON extraction, provide a strict `json_schema` and parse only the final `message.content`. For tool use, preserve the entire assistant message, execute every returned tool call, append corresponding tool results, and request the final answer in a second round. For long documents or knowledge bases, keep a stable long prefix so automatic caching can potentially help on later requests. Also note the documented limits: several sampling parameters are fixed and should be omitted, `max_completion_tokens` defaults to 131072 and can be raised to 1048576, and web search is described as not recommended for production workflows in the near term.\n\n## Training Exercise\n\nBuild a small Python script that does three things with the same `client`: first, asks Kimi K3 for a one-sentence summary of a local markdown file inserted as a system prompt; second, extracts two fields from a sentence using strict `json_schema`; third, runs a single required tool call using a toy function like `get_weather`. Success criteria: you preserve the complete assistant message during the tool loop, parse structured data only from `message.content`, and keep the long markdown prefix unchanged between two related summarization questions so your code is compatible with the source's caching guidance.\n\n## Further Reading\n\n- [Kimi K3 - Kimi API Platform](https://platform.kimi.ai/docs/guide/kimi-k3-quickstart)",
+    "related": [
+      {
+        "id": "2026-07-09-gpt-56-model-family-efficiency-agentic-tool-use-and-safety-by-design",
+        "title": "GPT-5.6 Model Family: Efficiency, Agentic Tool Use, and Safety by Design",
+        "date": "2026-07-09",
+        "shared_tags": [
+          "tool-calling"
+        ]
+      },
+      {
+        "id": "2026-06-05-microsoft-build-2026-understanding-the-role-of-new-ai-model-announcements",
+        "title": "Microsoft Build 2026: Understanding the Role of New AI Model Announcements",
+        "date": "2026-06-05",
+        "shared_tags": [
+          "multimodal"
+        ]
+      },
+      {
+        "id": "2026-07-09-introducing-the-next-chapter-for-chatgpt-product-platform-and-agentic-ai-concept",
+        "title": "Introducing the Next Chapter for ChatGPT: Product Platform and Agentic AI Concepts",
+        "date": "2026-07-09",
+        "shared_tags": [
+          "multimodal"
+        ]
+      },
+      {
+        "id": "2026-05-28-skillopt-training-reusable-natural-language-skills-for-frozen-llm-agents",
+        "title": "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents",
+        "date": "2026-05-28",
+        "shared_tags": [
+          "python"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
     "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
     "date": "2026-07-21",
@@ -3757,11 +3805,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-13-understanding-as-the-new-bottleneck-in-building-with-ai",
-        "title": "Understanding as the New Bottleneck in Building with AI",
-        "date": "2026-07-13",
+        "id": "2026-07-21-kimi-k3-quickstart-calling-a-1m-context-reasoning-model-through-the-open-c63207fa01",
+        "title": "Kimi K3 Quickstart: Calling a 1M-Context Reasoning Model Through the OpenAI SDK",
+        "date": "2026-07-21",
         "shared_tags": [
-          "llms"
+          "multimodal"
         ]
       }
     ]
@@ -6896,9 +6944,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-05-20-inside-vs-codes-github-copilot-coding-harness",
-        "title": "Inside VS Code’s GitHub Copilot Coding Harness",
-        "date": "2026-05-20",
+        "id": "2026-07-21-kimi-k3-quickstart-calling-a-1m-context-reasoning-model-through-the-open-c63207fa01",
+        "title": "Kimi K3 Quickstart: Calling a 1M-Context Reasoning Model Through the OpenAI SDK",
+        "date": "2026-07-21",
         "shared_tags": [
           "tool-calling"
         ]
@@ -9042,6 +9090,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-kimi-k3-quickstart-calling-a-1m-context-reasoning-model-through-the-open-c63207fa01",
+        "title": "Kimi K3 Quickstart: Calling a 1M-Context Reasoning Model Through the OpenAI SDK",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "python"
+        ]
+      },
+      {
         "id": "2026-05-28-skillopt-training-reusable-natural-language-skills-for-frozen-llm-agents",
         "title": "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents",
         "date": "2026-05-28",
@@ -9053,14 +9109,6 @@ source_characters: 18420
         "id": "2026-04-23-beginner-setup-guide-for-karpathys-llm-wiki-learning-environment",
         "title": "Beginner Setup Guide for Karpathy's LLM Wiki Learning Environment",
         "date": "2026-04-23",
-        "shared_tags": [
-          "python"
-        ]
-      },
-      {
-        "id": "2026-04-17-markitdown-for-llm-ingestion-pipelines",
-        "title": "MarkItDown for LLM Ingestion Pipelines",
-        "date": "2026-04-17",
         "shared_tags": [
           "python"
         ]
