@@ -297,6 +297,55 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+    "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+    "date": "2026-07-21",
+    "tags": [
+      "automation",
+      "ai-workflows",
+      "debugging",
+      "productivity",
+      "systems-thinking"
+    ],
+    "source": "https://www.youtube.com/watch?v=3Y6kVI3fR9c",
+    "content": "## Overview\n\nThis lesson distills the source video into a practical method for building AI automations that are durable instead of impressive-but-fragile. The transcript presents four rules attributed to Anthropic engineers and Claude users: identify the real bottleneck before automating, build proactive systems that report back to you, inspect traces to debug drift and failures, and frame larger work as objectives with explicit success criteria. Some examples in the video, such as internal Anthropic systems and quoted interviews, are reported by the speaker rather than evidenced directly in the transcript, so they should be treated as illustrative unless you verify them separately.\n\n## Key Concepts\n\n- **Bottleneck-first automation**: The source argues that automation should start by finding the workflow constraint that limits total throughput. Improving a non-bottleneck may save local effort without improving the whole system.\n- **Tool-stack matching**: The transcript describes several solution types inside the Claude ecosystem, including skills, loops, routines, artifacts, and external tools. The practical point is to choose the simplest tool combination that fits the actual bottleneck.\n- **Proactive system design**: A useful automation is described as bottom-up rather than request-response. The source breaks this into four parts: a trigger, a worker, access to needed systems, and a receipt that reports what happened.\n- **Explicit receipts**: A receipt is the compact proof of completion returned to the human. The video emphasizes making receipts concrete, such as reporting counts or outputs, so the operator can quickly judge whether a run likely succeeded.\n- **Trace reading**: A trace is the detailed record of how the system reached an outcome. The source presents manual trace review as the main debugging loop for understanding failures, drift, and missed edge cases.\n- **Objective-based delegation**: For larger work, the transcript recommends giving an objective and defining what 'done' means, instead of prescribing every step. This works better when paired with granular acceptance criteria and an external evaluator.\n\n## How It Works\n\nUse this workflow. First, map a recurring task and ask where work actually backs up; automate that constraint first. Second, build a minimum viable proactive system with four parts: a trigger such as a schedule or event check, a worker that performs the task, access to the required tools or accounts, and a receipt sent to your normal work hub. Third, log each run so you can inspect traces, not just final outcomes. Review traces manually when something looks wrong, then update the skill or routine to handle that edge case in future runs. Fourth, for bigger projects, convert vague requests into objectives with a checklist of observable completion criteria. Add an evaluator that can test the result independently, and require proof such as counts, artifacts, or screenshots. The operating principle across the lesson is simple: automate narrowly, observe closely, and tighten the system after each failure mode you uncover.\n\n## Training Exercise\n\nPick one weekly task you repeat. Write a short bottleneck diagnosis explaining why this task, and not another, is the real constraint. Then design a proactive automation in four lines: trigger, worker, access, and receipt. Next, define three log fields you would want in a trace if the automation failed. Finally, rewrite the task as an objective with at least six specific acceptance criteria and one independent evaluation step. When you are done, check whether your design automates the true bottleneck, produces visible proof, and gives you enough trace detail to improve the system after a bad run.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=3Y6kVI3fR9c)",
+    "related": [
+      {
+        "id": "2026-05-23-practical-claude-code-workflows-context-memory-shortcuts-and-safe-execution",
+        "title": "Practical Claude Code Workflows: Context, Memory, Shortcuts, and Safe Execution",
+        "date": "2026-05-23",
+        "shared_tags": [
+          "ai-workflows",
+          "productivity"
+        ]
+      },
+      {
+        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
+        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
+        "date": "2026-07-17",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
+        "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
+        "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
+        "date": "2026-07-12",
+        "shared_tags": [
+          "productivity"
+        ]
+      },
+      {
+        "id": "2026-07-07-understanding-jevons-paradox-and-why-efficiency-can-increase-resource-use",
+        "title": "Understanding Jevons Paradox and Why Efficiency Can Increase Resource Use",
+        "date": "2026-07-07",
+        "shared_tags": [
+          "systems-thinking"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
     "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
     "date": "2026-07-21",
@@ -844,6 +893,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
         "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
         "title": "Practical Patterns for Using Codex as an Engineering Workbench",
         "date": "2026-07-15",
@@ -855,14 +912,6 @@ source_characters: 18420
         "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
         "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
         "date": "2026-07-13",
-        "shared_tags": [
-          "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
-        "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
-        "date": "2026-07-12",
         "shared_tags": [
           "prompting"
         ]
@@ -944,6 +993,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills the idea of learning and practicing the full engineering flow end to end rather than optimizing only for isolated technical skills. The core message is that strong engineers do not just write code: they move from problem understanding to implementation, validation, communication, and iteration.\n\nThis matters because many engineers get stuck becoming locally excellent at one stage of delivery while struggling to ship complete outcomes. If you care about becoming more effective in real-world product work, freelancing, startup engineering, or technical leadership, an end-to-end skill model helps you identify gaps and build a more complete practice loop.\n\n## Key Concepts\n\n- **End-to-end ownership**: End-to-end ownership means taking responsibility for the whole path from idea or bug report to validated result. It includes understanding the problem, making tradeoffs, implementing changes, testing, deploying, and confirming that the change had the intended effect.\n- **Skill bottlenecks**: A delivery flow is only as fast as its weakest stage. An engineer can be excellent at coding but still underperform if they are weak at scoping, debugging, communicating, or validating requirements.\n- **Feedback loops**: Fast learning depends on closing the loop between action and evidence. That means getting quick feedback from tests, users, logs, code review, or demos so you can correct mistakes before they become expensive.\n- **Problem framing**: Before implementation, you need a clear statement of what success looks like and what constraints matter. Good framing reduces wasted effort by making the target explicit and helping you choose simpler solutions.\n- **Visible outputs**: Engineering work becomes more valuable when intermediate and final outputs are visible to others. Specs, prototypes, PR descriptions, demos, and post-deploy notes help teams align and make your thinking inspectable.\n- **Deliberate practice across the flow**: Improvement comes from training each stage of the workflow, not just repeating the parts you already enjoy. Deliberate practice means isolating weak points, setting constraints, and repeating the full cycle until it becomes reliable.\n\n## How It Works\n\nThe main idea is to treat engineering as a connected system rather than a single act of programming. In practice, most valuable work follows a repeatable flow:\n\n1. **Identify a problem**\n2. **Clarify requirements and constraints**\n3. **Design an approach**\n4. **Implement the change**\n5. **Verify correctness**\n6. **Ship or present the result**\n7. **Observe outcomes and iterate**\n\nA common failure mode is overinvesting in only one of these stages. For example, you might be able to write elegant code quickly, but if you cannot identify the minimum useful scope, you may still ship slowly. Likewise, if you cannot explain your solution in a PR or demo, the team pays a collaboration cost even if the code is solid.\n\nAn end-to-end mindset changes how you learn:\n\n- Instead of asking, \"How do I get better at coding?\" ask, \"Where does my delivery process break down?\"\n- Instead of measuring output only by lines of code or task count, measure whether the work solved the intended problem.\n- Instead of practicing isolated exercises forever, include stages like requirement gathering, naming, documentation, testing, and handoff.\n\nA useful way to think about the mechanics is as a pipeline with handoffs:\n\n- **Input:** user request, bug report, product goal, or personal project idea\n- **Refinement:** turn ambiguity into a concrete task with constraints\n- **Build:** write code, configuration, scripts, tests, or UI\n- **Validation:** check functionality, edge cases, and regressions\n- **Communication:** explain what changed and why\n- **Outcome review:** inspect usage, correctness, or stakeholder feedback\n\nEach handoff is a potential failure point. If the input is unclear, implementation drifts. If validation is weak, defects escape. If communication is poor, reviews slow down. If outcome review never happens, you do not know whether the work mattered.\n\nFor a working engineer, this suggests a practical improvement model:\n\n- **Map your current flow.** Write down how you currently go from task intake to completion.\n- **Find the friction.** Note where work repeatedly stalls: uncertainty, coding speed, debugging, test setup, deployment, or review.\n- **Add instrumentation.** Use checklists, templates, tests, logs, or metrics to make the flow observable.\n- **Shorten the loop.** Prefer smaller tasks, earlier demos, and faster validation.\n- **Repeat intentionally.** Run the whole cycle many times on small pieces of work.\n\nYou can also model this with a lightweight personal checklist:\n\n```text\n[ ] What problem am I solving?\n[ ] What does success look like?\n[ ] What constraints matter?\n[ ] What is the smallest useful version?\n[ ] How will I test it?\n[ ] How will I communicate the change?\n[ ] How will I know it worked after shipping?\n```\n\nThe deeper lesson is that engineering effectiveness compounds when you become reliable across all stages. Teams trust engineers who can turn ambiguity into shipped, validated outcomes. Learning the whole flow end to end is therefore not just a productivity trick; it is a model for becoming more useful in real software environments.\n\n## Training Exercise\n\nBuild and ship a tiny feature using a full end-to-end loop, even if the project is just local.\n\n### Goal\nAdd a small but complete feature to an existing app or toy project, such as:\n\n- a search box\n- a dark mode toggle\n- a form validation rule\n- a CLI flag\n- a bug fix with a regression test\n\n### Steps\n1. **Choose a tiny project**\n   Pick an app or script you can run locally in under 2 minutes.\n\n2. **Write a one-paragraph problem statement**\n   Include:\n   - what the user wants\n   - what success looks like\n   - one or two constraints\n\n   Example:\n   ```text\n   Users need a way to filter the task list by title. Success means they can type text and see only matching tasks. Constraint: keep the implementation client-side and do not introduce new dependencies.\n   ```\n\n3. **Define the smallest useful scope**\n   Write 3 acceptance criteria.\n\n   Example:\n   ```text\n   - A text input appears above the task list.\n   - Typing filters visible tasks by case-insensitive title match.\n   - Clearing the input restores the full list.\n   ```\n\n4. **Design before coding**\n   In 5-10 bullet points, describe where the change will go:\n   - UI component to update\n   - state to add\n   - filtering logic\n   - test locations\n\n5. **Implement the change**\n   Keep a timebox of 30-60 minutes. If you exceed it, reduce scope.\n\n6. **Validate it**\n   Run the app and test the acceptance criteria manually. If possible, add at least one automated test.\n\n7. **Write a short PR-style summary**\n   Use this template:\n   ```text\n   Summary:\n   Adds client-side filtering to the task list.\n\n   Why:\n   Users need a quick way to find tasks in long lists.\n\n   How:\n   Added local search state, derived filtered results, and a small UI input.\n\n   Validation:\n   Tested exact match, partial match, mixed case, and clearing the input.\n   ```\n\n8. **Do an outcome review**\n   Answer these questions:\n   - Where did I lose the most time?\n   - What was unclear at the start?\n   - What would I automate or template next time?\n   - Which stage of the flow is currently my bottleneck?\n\n### Stretch version\nRepeat the same exercise three times in one week with different tiny features. Compare where your bottlenecks move over time. The goal is not bigger projects; the goal is making the entire loop smoother and more predictable.\n\n## Further Reading\n\n- [The Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)\n- [Accelerate: The Science of Lean Software and DevOps](https://itrevolution.com/product/accelerate/)\n- [Shape Up by Basecamp](https://basecamp.com/shapeup)\n- [Working Backwards](https://www.stmartinspress.com/titles/colin-bryar/working-backwards/9781250267597/)",
     "related": [
       {
+        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "productivity"
+        ]
+      },
+      {
         "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
         "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
         "date": "2026-07-17",
@@ -963,14 +1020,6 @@ source_characters: 18420
         "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
         "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
         "date": "2026-07-12",
-        "shared_tags": [
-          "productivity"
-        ]
-      },
-      {
-        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
-        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
-        "date": "2026-07-09",
         "shared_tags": [
           "productivity"
         ]
@@ -2212,6 +2261,14 @@ source_characters: 18420
     "content": "## Overview\n\nJevons Paradox describes a counterintuitive pattern: when a resource is used more efficiently, total consumption of that resource can rise rather than fall. The idea matters because engineers, product teams, and policy makers often assume that better efficiency automatically reduces costs, energy demand, or environmental impact, but real-world systems frequently respond through changes in behavior, demand, and market expansion.\n\nThis lesson explains the paradox in practical terms, shows the mechanism that causes it, and outlines how to reason about it when designing technology or evaluating policy. If you work on infrastructure, AI systems, energy-intensive software, hardware, or sustainability planning, understanding this concept helps you avoid simplistic conclusions about optimization.\n\n## Key Concepts\n\n- **Jevons Paradox**: Jevons Paradox is the claim that improvements in efficiency can increase the total use of a resource. The paradox arises because efficiency lowers the effective cost of using that resource, which can stimulate more demand. It is especially relevant in systems where demand is elastic or where cheaper usage enables entirely new applications.\n- **Rebound effect**: The rebound effect is the mechanism behind the paradox. If a device, process, or service becomes more efficient, each unit of output costs less, so people may use more of it. A small rebound means some expected savings are lost; a large rebound can erase the savings entirely or even push total usage above the starting point.\n- **Direct and indirect demand growth**: Direct demand growth happens when cheaper operation causes more of the same activity, such as driving more because fuel costs per mile fall. Indirect demand growth happens when saved money or capacity is spent elsewhere in the economy, potentially increasing total resource consumption in other forms. Both effects matter when evaluating whether efficiency actually reduces system-wide use.\n- **Elasticity of demand**: Demand elasticity describes how strongly usage responds to changes in price or cost. Jevons-style outcomes are more likely when lower effective prices unlock many additional users, use cases, or operating hours. Engineers should treat elasticity as a system property, not just a business metric.\n- **System-level optimization**: Local optimization improves one component, but system-level optimization asks what happens after users, markets, and adjacent systems respond. An efficient model, server, or process may reduce per-unit cost while increasing total workload. The relevant question is not only whether the unit is cheaper, but whether the system expands because it is cheaper.\n- **Policy and constraint design**: Efficiency alone often does not guarantee lower absolute consumption. To ensure reductions, organizations or governments may need caps, budgets, pricing, quotas, or operational limits alongside efficiency gains. This distinction is important in energy planning, cloud cost control, and environmental policy.\n\n## How It Works\n\nAt the core of Jevons Paradox is a simple sequence:\n\n1. A technology becomes more efficient.\n2. The cost per unit of useful output falls.\n3. Lower cost makes the activity more attractive.\n4. Usage expands through existing demand, new users, or new applications.\n5. Total resource consumption may fall less than expected, stay flat, or even increase.\n\nA classic historical example is coal and steam power. If steam engines use coal more efficiently, it seems intuitive that coal consumption should drop. But the improved efficiency also makes steam-powered work cheaper, which encourages broader industrial adoption. More factories, machines, and use cases can lead to higher total coal demand even though each engine is individually better.\n\nThis logic shows up repeatedly in modern engineering:\n\n- **Compute efficiency**: If inference becomes 10x cheaper, teams may run far more experiments, serve more requests, or embed models into many more products.\n- **Network efficiency**: Better compression can reduce bandwidth per video stream, but lower delivery cost can increase streaming volume and video quality.\n- **Vehicle efficiency**: More efficient cars reduce fuel per mile, but people may drive more, buy larger vehicles, or shift farther from work.\n- **Data storage efficiency**: Cheaper storage encourages retention of more logs, media, and backups.\n\nThe important analytical distinction is between **per-unit efficiency** and **absolute consumption**. Engineers often measure the first very well: milliseconds per request, joules per inference, cost per transaction, grams of CO2 per mile. But decision makers often care about the second: total cloud spend, total electricity consumed, total emissions, or total hardware deployed.\n\nTo reason about the paradox in practice, break the system into three layers:\n\n- **Unit economics**: What got cheaper or more efficient?\n- **Behavior response**: How will users, product teams, or customers react?\n- **Scale response**: Does lower cost enable more traffic, larger models, more automation, or new markets?\n\nA practical mental model is:\n\n```text\nTotal resource use = resource per unit of activity × total activity\n```\n\nEfficiency improves the first term. Jevons Paradox asks whether the second term grows enough to offset the improvement.\n\nFor example, suppose an API call used to cost 10 units of energy and now costs 4. If usage stays fixed at 1,000 calls, total energy drops from 10,000 to 4,000. But if the lower cost causes usage to rise to 3,000 calls, total energy becomes 12,000. The system is more efficient per call and yet uses more energy overall.\n\nThis does not mean efficiency is bad. In many cases efficiency is necessary and beneficial. The lesson is that efficiency by itself is not a guarantee of lower aggregate usage. If your goal is absolute reduction, you must pair efficiency with some mechanism that limits or guides total demand.\n\nIn engineering organizations, that can mean:\n\n- setting workload budgets,\n- defining hard capacity limits,\n- pricing internal resource use,\n- measuring total demand after optimization,\n- forecasting induced demand before rollout,\n- and evaluating whether new efficiency enables product expansion.\n\nSo the practical takeaway is not \"don't optimize.\" It is \"optimize with a system model.\" If you only track the efficiency gain and ignore induced demand, you can misread the business, infrastructure, or environmental outcome.\n\n## Training Exercise\n\nBuild a simple rebound model in a spreadsheet or a short script to see when efficiency decreases total usage and when it increases it.\n\n### Goal\nModel how a drop in per-unit resource cost changes total consumption when demand grows.\n\n### Steps\n1. Pick a resource-driven activity, such as API inference calls, vehicle miles, or video streaming hours.\n2. Define a baseline:\n   - resource per unit: `R0`\n   - number of units consumed: `U0`\n   - total resource use: `T0 = R0 * U0`\n3. Define an efficiency improvement:\n   - new resource per unit: `R1 = R0 * efficiency_factor`\n   - Example: a 40% improvement means `efficiency_factor = 0.6`\n4. Define a demand response multiplier:\n   - new usage: `U1 = U0 * demand_multiplier`\n5. Compute new total usage:\n   - `T1 = R1 * U1`\n6. Vary `demand_multiplier` to find the break-even point where `T1 = T0`.\n7. Write 3-5 sentences explaining whether your example shows no rebound, partial rebound, or a Jevons-style increase.\n\n### Example Python snippet\n```python\nR0 = 10      # resource units per task\nU0 = 1000    # tasks\nT0 = R0 * U0\n\nfor demand_multiplier in [1.0, 1.2, 1.5, 2.0, 3.0]:\n    R1 = R0 * 0.4   # 60% more efficient\n    U1 = U0 * demand_multiplier\n    T1 = R1 * U1\n    print({\n        \"demand_multiplier\": demand_multiplier,\n        \"baseline_total\": T0,\n        \"new_total\": T1,\n        \"change_pct\": round((T1 - T0) / T0 * 100, 1)\n    })\n```\n\n### Stretch task\nApply the same model to an engineering scenario you know well, such as LLM inference, CI builds, GPU training jobs, or mobile data usage. Then propose one policy or product constraint that would ensure total consumption actually falls even after efficiency improves.\n\n## Further Reading\n\n- [Jevons paradox - Wikipedia](https://en.wikipedia.org/wiki/Jevons_paradox)\n- [The Coal Question by William Stanley Jevons](https://archive.org/details/coalquestionanin00jevouoft)\n- [Rebound Effect - The Economist](https://www.economist.com/the-economist-explains/2018/03/07/what-is-the-rebound-effect)\n- [Energy Efficiency and the Rebound Effect - International Energy Agency](https://www.iea.org/topics/energy-efficiency)",
     "related": [
       {
+        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "systems-thinking"
+        ]
+      },
+      {
         "id": "2026-07-18-enterprise-ai-economics-token-costs-model-pricing-and-governance-risk-508cefb6d9",
         "title": "Enterprise AI Economics: Token Costs, Model Pricing, and Governance Risk",
         "date": "2026-07-18",
@@ -2231,12 +2288,6 @@ source_characters: 18420
         "id": "2026-07-09-gpt-56-model-family-efficiency-agentic-tool-use-and-safety-by-design",
         "title": "GPT-5.6 Model Family: Efficiency, Agentic Tool Use, and Safety by Design",
         "date": "2026-07-09",
-        "shared_tags": []
-      },
-      {
-        "id": "2026-05-02-graphrag-sdk-and-why-graph-based-retrieval-can-beat-vector-rag",
-        "title": "GraphRAG-SDK and Why Graph-Based Retrieval Can Beat Vector RAG",
-        "date": "2026-05-02",
         "shared_tags": []
       }
     ]
@@ -5299,6 +5350,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-workflows",
+          "productivity"
+        ]
+      },
+      {
         "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
         "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
         "date": "2026-07-12",
@@ -5314,15 +5374,6 @@ source_characters: 18420
         "shared_tags": [
           "developer-tools",
           "productivity"
-        ]
-      },
-      {
-        "id": "2026-05-20-copilot-cli-agent-uis-and-the-shift-from-terminal-first-to-ide-assisted-ai-devel",
-        "title": "Copilot CLI, Agent UIs, and the Shift from Terminal-First to IDE-Assisted AI Development",
-        "date": "2026-05-20",
-        "shared_tags": [
-          "cli",
-          "developer-tools"
         ]
       }
     ]
