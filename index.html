@@ -346,6 +346,59 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+    "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+    "date": "2026-07-21",
+    "tags": [
+      "ai-agents",
+      "orchestration",
+      "systems-design",
+      "prompt-engineering",
+      "evaluation"
+    ],
+    "source": "https://www.youtube.com/watch?v=Xxuxg8PcBvc",
+    "content": "## Overview\n\nThis lesson reframes an AI agent as `model + harness`, where the harness includes prompts, tools, memory, orchestration, verification, and safety logic. The source argues that, in multiple 2026 research examples, changing harness design produced larger performance differences than changing the underlying model. Evidence in the transcript is strongest for the high-level pattern and selected benchmark results; it is thinner on exact paper metadata because the papers are described but not named in the supplied source.\n\n## Key Concepts\n\n- **Agent = model + harness**: The transcript defines the harness as everything around model weights: system prompts, tool definitions, orchestration logic, memory handling, verification loops, and guardrails. If you are not training the model itself, this is the main engineering surface you control.\n- **Operating-system analogy**: The source compares the raw language model to a CPU: powerful but inert on its own. The context window behaves like limited RAM, external storage acts like disk, tools act like device drivers, and the harness acts like the operating system coordinating work.\n- **Canonical orchestration patterns**: Anthropic's five patterns in the transcript are prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer loops. Production agents are presented as combinations of these patterns rather than single-prompt systems.\n- **Execution contracts and externalized state**: The natural-language agent harness described in the source uses execution contracts with required inputs, budgets, permissions, completion conditions, and output paths. It also stores state in files so progress survives truncation, restarts, and delegation.\n- **Representation affects outcomes**: A central claim in the transcript is that expressing the same harness strategy in a different representation can materially change performance and runtime. The example given is migrating OS Symphony logic into a natural-language harness representation and seeing better benchmark results with fewer calls.\n- **Ablation over intuition**: The source emphasizes controlled experiments: swapping one harness layer while holding others fixed, then measuring pass rate, runtime, tool calls, and token cost. It also claims that some seemingly helpful modules, such as verifiers or multi-candidate search, sometimes reduced performance in tested setups.\n- **Narrowing beats broadening**: The only consistently helpful module in one cited ablation was self-evolution via an acceptance-gated attempt loop. The practical principle is to keep the agent's search narrow until failure signals justify broader exploration.\n- **Harnesses are moving targets**: The transcript argues that harness components encode assumptions about model weaknesses, and those assumptions expire as models improve. Mature harness work therefore includes pruning unnecessary tools, resets, and repair logic rather than only adding more structure.\n\n## How It Works\n\nTreat agent development as harness engineering. Start by writing down the full control surface around the model: prompts, tool access, state format, delegation rules, verification steps, completion criteria, and safety constraints. Then make that structure explicit enough to test. For each task, define what inputs the agent receives, what resources it may spend, what tools it may call, what output artifact counts as done, and where intermediate state is stored outside the context window. Run ablations one variable at a time: remove or replace one verifier, one memory rule, one delegation pattern, or one tool set while holding the rest steady. Measure not only success rate but also token cost, tool-call count, and wall-clock runtime. Prefer designs that narrow the search space first, because the source repeatedly presents disciplined narrowing as more reliable than expensive broadening. Finally, revisit the harness as models change; the lesson from the transcript is that better agents often come from removing obsolete structure, not layering on more of it.\n\n## Training Exercise\n\nPick one agent task you already understand well, such as repository bug fixing or document extraction. Write a one-page harness spec with: allowed tools, state files, completion conditions, budgets, and one failure taxonomy. Implement three paper-style variants on paper or in pseudocode: `baseline`, `baseline + verifier`, and `baseline + narrowed retry loop`. For each variant, predict which metric should change: success rate, token use, runtime, or reliability after interruption. Then review one real or imagined failure trace and rewrite only the harness, not the model choice. The goal is to practice isolating harness decisions as experimental variables rather than mixing prompt, tool, and memory changes together.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=Xxuxg8PcBvc)",
+    "related": [
+      {
+        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
+        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
+        "shared_tags": [
+          "ai-agents",
+          "orchestration"
+        ]
+      },
+      {
+        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
+        "title": "Human-in-the-Loop Design for Reliable AI Agents",
+        "date": "2026-07-16",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation"
+        ]
+      },
+      {
+        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
+        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
     "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
     "date": "2026-07-21",
@@ -359,6 +412,16 @@ source_characters: 18420
     "source": "https://www.youtube.com/watch?v=r5iBG1s_MDk",
     "content": "## Overview\n\nThis lesson distills a YouTube transcript about using \"loops\" with an AI agent such as Claude Code. In the source, a loop is described as an agent repeating a cycle of work until a stop condition is met. The video presents four loop types: turn-based, goal-based, time-based, and proactive. The practical value is not the specific brand or slash-command syntax, but the operating idea: make the model do work, check the result, and continue only until a defined standard is reached. Evidence is strongest for the general pattern and the examples shown in the transcript; specific claims about official product behavior, commands, or team practices are reported by the speaker and should be treated as secondhand unless you verify them in primary docs.\n\n## Key Concepts\n\n- **Loop**: A loop is a repeated work cycle for an AI agent. The agent performs a task, checks progress against a condition, and either stops or iterates again.\n- **Stop condition**: The stop condition is the core control mechanism. It can be a verification pass, a target score, a schedule boundary, or a requirement that all detected items have been handled.\n- **Turn-based verification**: This is the simplest loop in the lesson: after completing a prompt, the agent verifies the result before returning it. The source uses a landing-page example where the agent checks that frontend functionality actually works and fixes a bug before finishing.\n- **Goal-based evaluation**: A goal loop keeps iterating until the output reaches a measurable threshold, such as a quality score. The source gives examples like improving a webpage until it reaches a Lighthouse score target or rewriting an email until a custom evaluator rates it highly enough.\n- **Evaluator or cartridge**: The video describes reusable scoring logic packaged as a skill or cartridge. Examples include checking whether writing sounds human, matches a marketing style, or is likely to get higher open rates. The important idea is externalized criteria, not the branding of the evaluator.\n- **Time-based scheduling**: A time loop runs on an interval, such as every five minutes or daily at 9:00 a.m. In the source, this is used for recurring operational work like summarizing a meeting and assigning follow-up tasks.\n- **Proactive loop**: A proactive loop combines scheduled triggering with a goal or completion rule. Instead of waiting for a human to prompt each run, it watches for inputs, performs work, and keeps going until all work found in that run is handled.\n\n## How It Works\n\nThe source teaches a general control pattern for AI work:\n\n1. Define the task clearly.\n2. Define how the result will be checked.\n3. Let the agent act.\n4. Feed the check result back into the next iteration.\n5. Stop only when the condition is satisfied.\n\nApplied to the four loop types from the video:\n\nTurn-based loops add a verification step to an ordinary prompt. You ask for a result, but the agent must inspect the result before presenting it. In the source, this is framed as a skill file that verifies a frontend change actually works.\n\nGoal-based loops add a measurable target. The agent keeps revising until a score or threshold is reached. The transcript uses custom evaluators for email quality and mentions webpage metrics such as Lighthouse.\n\nTime-based loops add a schedule. The agent reruns the task at fixed intervals. The example shown is daily meeting summarization and task follow-up.\n\nProactive loops combine scheduling with completion criteria. The agent checks for new work, processes it, and does not stop until everything discovered in that run has been triaged or completed. The source illustrates this with bug-report handling and competitor-content monitoring.\n\nThe durable lesson is that good looping depends on explicit checks. If your criterion is vague, the loop will drift or spin. If your criterion is measurable and relevant, looping turns a one-shot prompt into a controlled workflow. The transcript is persuasive about the pattern, but many implementation details are examples rather than verified product specifications, so treat the architecture as a method to adapt rather than a guaranteed command set.\n\n## Training Exercise\n\nPick one recurring task you already do, such as drafting a weekly update, reviewing a landing page, or preparing meeting notes.\n\nWrite four versions of the workflow:\n\n1. Turn loop: Ask the AI to produce the output, then verify one concrete property before finishing. Example: \"Draft the update, then verify every claim is supported by the notes I provided.\"\n2. Goal loop: Add a threshold. Example: \"Revise until the update scores at least 8/10 for clarity using this rubric: concise, specific, action-oriented, evidence-backed.\"\n3. Time loop: Put it on a schedule. Example: \"Every Friday at 3:00 p.m., create the first draft from this week's project notes.\"\n4. Proactive loop: Add monitoring plus completion rules. Example: \"Every day, scan new project notes, update the weekly draft, and do not stop until every new note is either incorporated or marked irrelevant with a reason.\"\n\nAfter writing the four versions, compare them:\n- Which stop condition is objectively testable?\n- Which loop would fail if the rubric were vague?\n- Which parts require outside tools or data access?\n- Which loop would save you the most repeated effort?\n\nFinally, refine one version into a reusable template with three parts: task, evaluator, and stop rule.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=r5iBG1s_MDk)",
     "related": [
+      {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation",
+          "prompt-engineering"
+        ]
+      },
       {
         "id": "2026-05-22-build-reliable-ai-workflows-before-autonomous-agents",
         "title": "Build Reliable AI Workflows Before Autonomous Agents",
@@ -386,15 +449,6 @@ source_characters: 18420
           "ai-agents",
           "evaluation"
         ]
-      },
-      {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
-        ]
       }
     ]
   },
@@ -412,6 +466,15 @@ source_characters: 18420
     "source": "https://www.youtube.com/watch?v=AQl5Q-0l7FQ",
     "content": "## Overview\n\nThis lesson teaches a practical pattern for agentic engineering: use multiple AI models together instead of choosing a single winner. In the source, this pattern is called \"model fusion\" and is shown through a custom agent harness with three commands: `/opinion`, `/fusion`, and `/auto validate`. The central idea is to gather parallel perspectives, merge them into one decision-ready result, and validate implementation with an explicit gate written before the builder starts. The source argues that this improves planning and review, but most evidence shown is demo-based and anecdotal rather than a controlled benchmark, so treat the performance claims as observed examples rather than universal results.\n\n## Key Concepts\n\n- **And, Not Or**: The lesson rejects the idea of picking one best model. Instead, it recommends combining models so their different strengths, context windows, and reasoning styles contribute to better engineering decisions.\n- **Model Fusion**: Model fusion is the practice of collecting outputs from multiple agents or models and consolidating them into a single result. The source presents it as a renamed but longstanding pattern related to architect-editor flows, prompt chaining, and agent chaining.\n- **Parallel Opinions First**: The `/opinion` step asks two agents to solve the same problem independently. This is useful when you want multiple perspectives before committing to an architecture, implementation, or tradeoff.\n- **Consensus, Divergence, and Discards**: The `/fusion` step does more than merge text. It identifies where agents agree, where they differ, and what ideas are dropped. That structure helps an engineer see tradeoffs instead of blindly accepting a single answer.\n- **Validation Before Execution**: The `/auto validate` workflow has one agent write a validation script before another agent builds the solution. The builder then has to satisfy that gate, which turns review into an explicit, testable process rather than an informal check.\n- **Harness Ownership**: The source strongly argues that the agent harness matters as much as the models. A customizable harness lets you define roles, prompts, validation rules, and coordination patterns instead of waiting for a vendor tool to support them.\n- **Tight Coordination vs. Loose Delegation**: This pattern is presented as more than simple task splitting. The goal is a tightly coordinated team of agents that compare, fuse, validate, and loop on each other's work rather than acting as isolated subagents.\n\n## How It Works\n\nStart with two agents assigned the same engineering prompt. First, run an opinion step so both agents respond independently. Next, run a fusion step that combines the two outputs into one artifact while explicitly listing consensus points, divergences, and discarded ideas. Then run an auto-validation step: a validator agent writes a gate or test script before the builder begins, and the builder must produce work that passes that script. In the source, this pattern is used for example tasks like comparing scikit-learn models and designing a benchmark for bulk SQLite inserts. The claimed benefit is better decision quality and less manual review, because the engineer sees multiple viewpoints and receives implementation guarded by explicit checks. A careful reading of the source suggests the real reusable idea is not any specific model ranking, but the workflow shape: parallel reasoning, structured synthesis, and predeclared validation.\n\n## Training Exercise\n\nPick a small engineering problem you can verify locally, such as choosing a data structure, comparing two API designs, or drafting a small benchmark. Write three prompts for a two-agent harness: 1. an `/opinion` prompt asking each agent for its independent recommendation with pros, cons, and assumptions, 2. a `/fusion` prompt asking a synthesizer to produce one final decision with sections for consensus, divergence, and discarded ideas, and 3. an `/auto validate` prompt asking a validator to define a concrete pass/fail script before implementation begins. After running the workflow, review whether the fused result actually exposed useful disagreements and whether the validation gate caught anything a normal single-agent flow would likely miss.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=AQl5Q-0l7FQ)",
     "related": [
+      {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "orchestration"
+        ]
+      },
       {
         "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
         "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
@@ -435,14 +498,6 @@ source_characters: 18420
         "date": "2026-07-09",
         "shared_tags": [
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents"
         ]
       }
     ]
@@ -540,11 +595,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
-        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
-        "date": "2026-07-17",
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
         "shared_tags": [
-          "software-engineering"
+          "ai-agents"
         ]
       }
     ]
@@ -591,9 +646,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
-        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
-        "date": "2026-05-20",
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
@@ -1041,6 +1096,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson covers a core engineering idea behind production-grade AI agents: the best systems are rarely fully autonomous. Instead, they are designed so humans participate at key decision points, especially where judgment, ambiguity, risk, or exception handling matter. For engineers building agentic workflows, this shift is important because it replaces the simplistic goal of “remove the human” with the more practical goal of “use human attention where it creates the most leverage.”\n\nIf you build LLM-powered tools, workflow automation, copilots, or decision-support systems, this perspective helps you design systems that are safer, easier to operate, and more likely to succeed in real organizations. It also clarifies where to invest engineering effort: task decomposition, escalation logic, observability, and interfaces for review rather than blind end-to-end autonomy.\n\n## Key Concepts\n\n- **Human-in-the-loop**: Human-in-the-loop systems deliberately include people in the execution path of an AI workflow. The human may approve actions, resolve ambiguity, correct outputs, or handle exceptions. This is often the difference between a demo that looks impressive and a production system that organizations trust.\n- **Autonomy vs reliability tradeoff**: As agent autonomy increases, the number of ways a system can fail often increases too. High-autonomy systems may save labor when they work, but they can also create larger, harder-to-detect errors. Practical agent design balances automation gains against operational risk and the cost of supervision.\n- **Escalation boundaries**: A strong agent architecture defines when the system should continue automatically and when it should escalate to a person. These boundaries can be based on confidence, cost, compliance, missing data, or irreversible actions. Explicit escalation criteria prevent brittle behavior and reduce the chance of silent failures.\n- **Task decomposition**: Many successful agents do not solve an entire business process end to end. Instead, they break the process into smaller steps such as retrieval, drafting, classification, validation, and approval. This makes it easier to automate low-risk parts while preserving human control over high-risk steps.\n- **Operational observability**: AI agents need logs, traces, intermediate outputs, and review queues so operators can understand what happened. Observability is especially important when a human reviewer must audit or intervene in the workflow. Without it, teams cannot improve prompts, tools, or routing logic in a disciplined way.\n- **Feedback-driven improvement**: Human corrections are not just a safety net; they are valuable training and product signals. Review outcomes can be used to refine prompts, improve routing, set better confidence thresholds, and identify recurring failure modes. Over time, this lets teams automate more safely and intentionally.\n\n## How It Works\n\nA practical AI agent system is usually better understood as a **workflow with controlled autonomy** than as a fully independent actor. The central idea is that humans are not a sign of failure in the system; they are an intentional design component. In many real-world deployments, the AI handles speed, scale, and draft generation, while humans provide judgment, accountability, and exception handling.\n\nA useful mental model is to split work into three categories:\n\n- **Good candidates for automation**: repetitive, low-risk, well-bounded tasks\n- **Good candidates for assistance**: tasks where the model can draft, summarize, classify, or recommend\n- **Poor candidates for full autonomy**: ambiguous, high-stakes, regulated, or irreversible actions\n\nIn practice, agent design often follows this pattern:\n\n1. **Receive a task or event**\n   - A user submits a request, or a system emits an event.\n   - The agent identifies the task type and required tools or data.\n\n2. **Break the task into sub-steps**\n   - Retrieve context\n   - Generate a plan or draft\n   - Validate against rules or constraints\n   - Decide whether confidence is sufficient to proceed\n\n3. **Apply automation selectively**\n   - If the step is low risk and well understood, the system executes automatically.\n   - If the step is uncertain or consequential, it routes to a human for review.\n\n4. **Collect feedback and outcomes**\n   - Human edits, approvals, rejections, and escalation reasons are logged.\n   - These logs become the basis for improving prompts, tool use, and process design.\n\nA simple conceptual flow looks like this:\n\n```text\nInput -> classify task -> gather context -> generate output\n      -> validate output -> confidence/risk check\n      -> if safe: execute\n      -> if uncertain/high-risk: human review\n      -> capture feedback -> improve system\n```\n\nThe most important engineering decision is often **not** which model to use, but **where to place the human checkpoints**. Useful checkpoints include:\n\n- Before external actions like sending emails, issuing refunds, modifying records, or calling expensive APIs\n- After ambiguous interpretation steps, such as extracting requirements from messy text\n- When the model’s output conflicts with policy, business rules, or prior data\n- When confidence is low or the evidence retrieved is weak\n\nThis approach has several advantages over chasing full autonomy too early:\n\n- **Higher trust**: stakeholders are more willing to adopt a system they can inspect and override\n- **Lower blast radius**: mistakes are caught before they become customer-facing or costly\n- **Faster deployment**: teams can ship useful partial automation instead of waiting for perfection\n- **Better learning loop**: human interventions reveal exactly where the system struggles\n\nFrom an architecture perspective, a production agent stack often includes:\n\n- An **orchestrator** that manages steps, tools, and routing\n- A **model layer** for planning, drafting, extraction, or classification\n- A **tool layer** for retrieval, APIs, databases, and business actions\n- A **policy/validation layer** for rules, constraints, and confidence checks\n- A **human review interface** for approvals, edits, and exception handling\n- An **observability layer** for traces, logs, metrics, and feedback capture\n\nEven for a simple internal workflow, these pieces matter. For example, suppose you are automating customer support refund requests:\n\n- The model reads the customer message.\n- A classifier detects refund intent.\n- Retrieval pulls account history and company policy.\n- The model drafts a response and suggests an action.\n- A rule engine checks refund amount, account standing, and exception conditions.\n- Low-value, clearly eligible refunds may be auto-approved.\n- Larger or ambiguous cases are routed to a human reviewer.\n- The reviewer’s edits and decision are stored for future improvement.\n\nThis is often what “strong agents” look like in real life: not magical autonomy, but **well-engineered cooperation between models and humans**. The design goal is to concentrate human attention on the small subset of cases where it is most valuable while letting the machine handle the repetitive and scalable parts.\n\n## Training Exercise\n\nBuild a small human-in-the-loop agent workflow for a support triage use case.\n\n### Goal\nCreate a simple process that decides whether a support ticket can be handled automatically or should be escalated to a human.\n\n### Scenario\nYou receive inbound support messages asking for one of three things:\n- password reset\n- billing question\n- refund request\n\nYour workflow should:\n1. classify the request\n2. draft a response\n3. assign a risk level\n4. route high-risk items to human review\n\n### Step-by-step\n\n1. **Create a few sample tickets**\n\n```text\n1. \"I forgot my password and can't log in.\"\n2. \"Why was I charged twice this month?\"\n3. \"I want a refund for an annual plan I bought 5 months ago.\"\n4. \"Refund this immediately or I'm reporting your company.\"\n```\n\n2. **Define simple routing rules**\n   - Password resets: low risk, auto-handle\n   - Billing questions: medium risk, auto-draft but review if account data is missing\n   - Refund requests: high risk, always review\n   - Threatening or escalated language: always review\n\n3. **Implement the workflow in pseudocode or your preferred language**\n\n```python\nfrom dataclasses import dataclass\n\n@dataclass\nclass TicketResult:\n    category: str\n    draft_response: str\n    risk: str\n    needs_human_review: bool\n\n\ndef classify_ticket(text: str) -> str:\n    t = text.lower()\n    if \"password\" in t or \"log in\" in t:\n        return \"password_reset\"\n    if \"refund\" in t:\n        return \"refund_request\"\n    if \"charged\" in t or \"billing\" in t:\n        return \"billing_question\"\n    return \"unknown\"\n\n\ndef is_escalated_language(text: str) -> bool:\n    t = text.lower()\n    return \"immediately\" in t or \"reporting\" in t or \"angry\" in t\n\n\ndef draft_response(category: str) -> str:\n    drafts = {\n        \"password_reset\": \"Here's a secure password reset link and instructions.\",\n        \"billing_question\": \"We are reviewing your billing question and checking your account history.\",\n        \"refund_request\": \"We received your refund request and will review it under our refund policy.\",\n        \"unknown\": \"We received your request and a support specialist will review it.\"\n    }\n    return drafts[category]\n\n\ndef route_ticket(text: str) -> TicketResult:\n    category = classify_ticket(text)\n    risk = \"low\"\n    review = False\n\n    if category == \"billing_question\":\n        risk = \"medium\"\n    elif category == \"refund_request\":\n        risk = \"high\"\n        review = True\n    elif category == \"unknown\":\n        risk = \"high\"\n        review = True\n\n    if is_escalated_language(text):\n        risk = \"high\"\n        review = True\n\n    return TicketResult(\n        category=category,\n        draft_response=draft_response(category),\n        risk=risk,\n        needs_human_review=review,\n    )\n```\n\n4. **Run each ticket through the workflow**\n   - Confirm that low-risk tickets are auto-handled.\n   - Confirm that refund and aggressive messages go to review.\n\n5. **Add a review queue**\n   - Store all `needs_human_review=True` tickets in a list or file.\n   - For each reviewed ticket, record:\n     - final decision\n     - edits to the draft\n     - reason for escalation\n\n6. **Reflect on failure modes**\n   Ask yourself:\n   - What happens if classification is wrong?\n   - What actions are safe to automate?\n   - Which thresholds should be stricter?\n   - What reviewer feedback would help improve the system?\n\n### Stretch goal\nReplace the rule-based classifier with an LLM prompt, but keep the same review policy. Compare the outputs and note where human review remains necessary despite better language understanding.\n\n## Further Reading\n\n- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)\n- [OpenAI Cookbook](https://cookbook.openai.com/)\n- [LangChain: Human-in-the-Loop](https://python.langchain.com/docs/concepts/human_in_the_loop/)\n- [Google Cloud Architecture Center: MLOps and Responsible AI](https://cloud.google.com/architecture)",
     "related": [
       {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation"
+        ]
+      },
+      {
         "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
         "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
         "date": "2026-07-13",
@@ -1062,15 +1126,6 @@ source_characters: 18420
         "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
         "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
-        ]
-      },
-      {
-        "id": "2026-05-27-evaluating-long-running-ai-coding-agents-in-practice",
-        "title": "Evaluating Long-Running AI Coding Agents in Practice",
-        "date": "2026-05-27",
         "shared_tags": [
           "ai-agents",
           "evaluation"
@@ -1251,6 +1306,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation"
+        ]
+      },
+      {
         "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
         "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
@@ -1266,15 +1330,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
-        "shared_tags": [
-          "ai-agents",
-          "workflow-design"
         ]
       }
     ]
@@ -4464,17 +4519,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
         "shared_tags": [
           "evaluation"
         ]
       },
       {
-        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
-        "title": "Human-in-the-Loop Design for Reliable AI Agents",
-        "date": "2026-07-16",
+        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
+        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "date": "2026-07-21",
         "shared_tags": [
           "evaluation"
         ]
@@ -4899,6 +4954,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "evaluation"
+        ]
+      },
+      {
         "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
         "title": "Human-in-the-Loop Design for Reliable AI Agents",
         "date": "2026-07-16",
@@ -4914,15 +4978,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
         ]
       }
     ]
@@ -5156,9 +5211,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
-        "title": "Human-in-the-Loop Design for Reliable AI Agents",
-        "date": "2026-07-16",
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
         "shared_tags": [
           "ai-agents"
         ]
@@ -5412,18 +5467,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
         ]
       },
       {
-        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
-        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
-        "date": "2026-05-20",
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
@@ -6443,6 +6498,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-05-20-github-copilot-app-technical-preview-agentic-development-across-repos-worktrees-",
         "title": "GitHub Copilot App Technical Preview: Agentic Development Across Repos, Worktrees, and GitHub",
         "date": "2026-05-20",
@@ -6458,15 +6522,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
-        "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
-        "date": "2026-06-05",
-        "shared_tags": [
-          "ai-agents",
-          "github"
         ]
       }
     ]
