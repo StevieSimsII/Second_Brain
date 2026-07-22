@@ -398,6 +398,55 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-21-graph-engineering-as-connected-loop-based-agent-workflows-0ce2bd09a2",
+    "title": "Graph Engineering as Connected Loop-Based Agent Workflows",
+    "date": "2026-07-21",
+    "tags": [
+      "agent-systems",
+      "automation",
+      "workflow-design",
+      "multi-agent",
+      "evaluation"
+    ],
+    "source": "https://www.youtube.com/watch?v=Joqh7Tui9B8",
+    "content": "## Overview\n\nThis lesson explains graph engineering as presented in the source: an evolution of loop engineering where multiple agents handle narrower tasks and pass results to one another. The core claim is practical rather than hype-driven: graph engineering can improve quality, speed, and debuggability when a single looping agent becomes too broad, too slow, or too hard to verify. The evidence in the source is conceptual and example-based, not empirical, so treat the benefits as design guidance rather than measured guarantees.\n\n## Key Concepts\n\n- **Loop engineering**: A loop has three core parts: a trigger, a task, and success criteria. In the source, a daily morning report is the example: it runs at 7:00 a.m., gathers information, and checks whether the report meets defined requirements.\n- **Graph engineering**: Graph engineering connects multiple agents, each responsible for a narrower subtask, into one workflow. Instead of one agent doing everything, separate agents gather and synthesize information, then a report agent combines their outputs.\n- **Atomic subtasks**: The source argues that breaking work into smaller, more specific tasks makes it easier to define what good output looks like. For example, a YouTube research agent can be required to find at least five sources and produce a synthesis of a certain length.\n- **Parallel execution**: A graph can run several agents at once, such as separate agents for YouTube, Twitter, Reddit, and email. This is presented as faster than one agent doing those steps sequentially.\n- **Independent review**: A separate review agent can judge whether the final output meets the success criteria. The source presents this as especially useful when the task is higher-stakes or when self-evaluation by the producing agent is not trustworthy enough.\n- **When to use a graph**: The source gives three main triggers for graph engineering: context problems in long loops, the need for independent review, and the need for faster execution through parallelism.\n\n## How It Works\n\nStart with a normal loop: define what triggers the workflow, what task it performs, and how success will be judged. Then ask whether the task is too broad for one agent. If it is, split the work into narrow subtasks and assign each subtask to its own agent. Keep each agent loop-like: it still has a trigger, a task, and explicit success criteria. Connect the agents so their outputs feed into a downstream synthesizer or decision-maker. Optionally add a reviewer agent that compares the final artifact against the success criteria and decides whether the workflow should rerun. In practice, this means graph engineering is not a replacement for loop engineering; it is multiple loop-engineered units connected into a coordinated system.\n\n## Training Exercise\n\nDesign a graph-engineered version of a daily research report. First, write the single-agent loop with its trigger, task, and success criteria. Next, decompose it into at least four atomic agents: one source-gathering agent for each information source, one synthesis agent, and one review agent. For each agent, define one concrete output requirement and one concrete success check. Then answer three questions: 1. Which parts can run in parallel? 2. Where could context overload appear in a single-agent version? 3. Does this task truly need an independent reviewer, or would a simpler loop be enough? Finish by stating whether the graph is justified or whether the simpler loop is the better design.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=Joqh7Tui9B8)",
+    "related": [
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "evaluation",
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "evaluation"
+        ]
+      },
+      {
+        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
+        "title": "Human-in-the-Loop Design for Reliable AI Agents",
+        "date": "2026-07-16",
+        "shared_tags": [
+          "evaluation"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
     "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
     "date": "2026-07-21",
@@ -1510,6 +1559,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-21-graph-engineering-as-connected-loop-based-agent-workflows-0ce2bd09a2",
+        "title": "Graph Engineering as Connected Loop-Based Agent Workflows",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "evaluation",
+          "workflow-design"
+        ]
+      },
+      {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
@@ -1525,15 +1583,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "evaluation"
-        ]
-      },
-      {
-        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
-        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
-        "date": "2026-07-19",
-        "shared_tags": [
-          "ai-agents",
-          "prompting"
         ]
       }
     ]
@@ -7049,11 +7098,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-kimi-k3-quickstart-calling-a-1m-context-reasoning-model-through-the-open-c63207fa01",
-        "title": "Kimi K3 Quickstart: Calling a 1M-Context Reasoning Model Through the OpenAI SDK",
+        "id": "2026-07-21-graph-engineering-as-connected-loop-based-agent-workflows-0ce2bd09a2",
+        "title": "Graph Engineering as Connected Loop-Based Agent Workflows",
         "date": "2026-07-21",
         "shared_tags": [
-          "tool-calling"
+          "agent-systems"
         ]
       }
     ]
