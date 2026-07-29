@@ -343,6 +343,58 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+    "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+    "date": "2026-07-29",
+    "tags": [
+      "agent-design",
+      "prompting",
+      "evaluation",
+      "software-engineering",
+      "ai-systems"
+    ],
+    "source": "https://www.youtube.com/watch?v=qyPCVqFUyDo",
+    "content": "## Overview\n\nThis lesson distills one practitioner view of building AI coding agents from an interview with Boris, described here as the creator of Claude Code. The central idea is that strong agent behavior comes less from elaborate prompting and more from repeatedly removing unnecessary scaffolding, giving the model a hard task, and providing reliable ways to verify progress. Much of the evidence in the source is anecdotal or based on internal product experience, so treat the claims as operating heuristics rather than settled facts.\n\n## Key Concepts\n\n- **Ablation-First Harness Design**: When a new model arrives, start by deleting prompts, tools, or harness logic, then add back only what repeated failures justify. The transcript presents ablation as the main way to discover which instructions still matter.\n- **Product Overhang and Unhobbling**: The source argues that models often can do more than current products allow. 'Unhobbling' means removing rigid workflows or over-specific instructions that block the model from expressing capabilities it already has.\n- **High-Level Task Framing**: Instead of prescribing every step, describe the goal, guardrails, and exit criteria. The speaker argues that newer models respond better to harder, more open-ended tasks than to tightly scripted instructions.\n- **Verification Over Prompt Cleverness**: The most important support for long-running work is not a clever prompt but a way for the model to check its own output. Test suites, screenshots, comparisons, and static or dynamic analysis are presented as examples.\n- **Dynamic Workflows for Test-Time Compute**: The interview describes dynamic workflows as a way to orchestrate many agents in sequence and parallel, effectively increasing test-time compute for difficult tasks. This is presented as useful for large rewrites or multi-stage engineering work.\n- **Loops and Routines for Maintenance**: For repetitive tasks, the source distinguishes recurring loops or cloud routines from one-off dynamic workflows. Examples given include deleting dead code, shipping completed experiments, and improving test coverage.\n- **Evals Are Useful but Short-Lived**: The speaker says evals can outlive a harness for a few model generations, but fast model progress often saturates them. The practical implication is to keep updating evals from observed failures rather than treating them as permanent assets.\n\n## How It Works\n\nUse an empirical loop. First, remove as much prompt and harness complexity as you safely can. Second, run a real task that is slightly harder than you think the model can handle. Third, observe where it repeatedly fails instead of guessing in advance. Fourth, add back only minimal instructions, tools, or context that address those recurring failures. Fifth, strengthen verification so the model can test, compare, or inspect its own work. Sixth, separate one-off hard tasks from recurring maintenance: use multi-agent orchestration for the former and scheduled routines for the latter. The source frames this as scientific iteration rather than classic upfront system design, and it repeatedly warns that techniques may need to change with each model generation.\n\n## Training Exercise\n\nPick a small but real coding task in a repo you know, such as refactoring a module or adding tests. Run it in three passes: (1) minimal prompt with only the goal, guardrails, and exit criteria; (2) same task plus a verification mechanism such as a test command or visual comparison; (3) same task after adding one carefully chosen instruction based on an observed failure. After each pass, record what failed, what verification caught, and which instruction actually helped. Finish by writing a one-page harness note listing only the prompts, tools, and checks that survived ablation.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=qyPCVqFUyDo)",
+    "related": [
+      {
+        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
+        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
+        "date": "2026-07-22",
+        "shared_tags": [
+          "evaluation",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "evaluation",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
+        "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
+        "date": "2026-07-12",
+        "shared_tags": [
+          "evaluation",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "prompting",
+          "software-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-29-lesson-how-a-frontier-ai-company-thinks-about-focus-compute-safety-and-a-69bf582d3e",
     "title": "Lesson: How a Frontier AI Company Thinks About Focus, Compute, Safety, and Adoption",
     "date": "2026-07-29",
@@ -602,6 +654,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-27-build-products-for-yourself-a-practical-lesson-in-small-team-cost-aware--12a2954604",
         "title": "Build Products for Yourself: A Practical Lesson in Small-Team, Cost-Aware Product Design",
         "date": "2026-07-27",
@@ -613,14 +673,6 @@ source_characters: 18420
         "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
         "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
         "date": "2026-07-12",
-        "shared_tags": [
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
         "shared_tags": [
           "software-engineering"
         ]
@@ -738,6 +790,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "evaluation",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
@@ -753,15 +814,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
-        "title": "Human-in-the-Loop Design for Reliable AI Agents",
-        "date": "2026-07-16",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
         ]
       }
     ]
@@ -844,11 +896,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
         "shared_tags": [
-          "ai-agents"
+          "prompting"
         ]
       }
     ]
@@ -986,17 +1038,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
         "shared_tags": [
           "evaluation"
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
+        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
+        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
+        "date": "2026-07-22",
         "shared_tags": [
           "evaluation"
         ]
@@ -1399,18 +1451,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
         "shared_tags": [
-          "ai-agents",
+          "prompting",
           "software-engineering"
         ]
       },
       {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -1760,6 +1812,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
         "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
         "date": "2026-07-21",
@@ -1771,14 +1831,6 @@ source_characters: 18420
         "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
         "title": "Practical Patterns for Using Codex as an Engineering Workbench",
         "date": "2026-07-15",
-        "shared_tags": [
-          "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
         "shared_tags": [
           "prompting"
         ]
@@ -2118,6 +2170,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "evaluation",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-21-graph-engineering-as-connected-loop-based-agent-workflows-0ce2bd09a2",
         "title": "Graph Engineering as Connected Loop-Based Agent Workflows",
         "date": "2026-07-21",
@@ -2129,15 +2190,6 @@ source_characters: 18420
       {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
-        ]
-      },
-      {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
         "shared_tags": [
           "ai-agents",
@@ -2322,6 +2374,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "evaluation",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
         "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
         "date": "2026-07-13",
@@ -2337,15 +2398,6 @@ source_characters: 18420
         "shared_tags": [
           "agents",
           "llms"
-        ]
-      },
-      {
-        "id": "2026-05-28-skillopt-training-reusable-natural-language-skills-for-frozen-llm-agents",
-        "title": "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents",
-        "date": "2026-05-28",
-        "shared_tags": [
-          "agents",
-          "evaluation"
         ]
       }
     ]
@@ -6117,11 +6169,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
-        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
-        "date": "2026-07-21",
+        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
+        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
+        "date": "2026-07-29",
         "shared_tags": [
-          "prompt-engineering"
+          "agent-design"
         ]
       }
     ]
