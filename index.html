@@ -297,6 +297,54 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
+    "title": "AI-Assisted Project Controls for Construction Projects",
+    "date": "2026-07-30",
+    "tags": [
+      "project-controls",
+      "construction-management",
+      "work-breakdown-structure",
+      "cost-control",
+      "ai-workflows"
+    ],
+    "source": "https://www.youtube.com/watch?v=4qCbJ1WBenU",
+    "content": "## Overview\n\nThis lesson turns the source into a practical method for using AI in project controls after contract award. In the transcript, project controls is defined as the feedback loop for managing performance against fixed baselines for cost, schedule, scope, and handover requirements. The core claim is not that AI should run the project for you, but that it can reduce admin work, lower the tooling barrier, and make a lightweight control system easier to maintain. Evidence in the source is mostly practitioner experience and a demonstrated prototype workflow, not a formal comparison study, so treat the approach as a field-tested pattern rather than a universal best practice.\n\n## Key Concepts\n\n- **Project controls as a post-contract feedback loop**: Once estimate, schedule, and scope are fixed by contract, project controls tracks actual performance against those baselines so the team can detect deviations early and act before the project is nearly complete.\n- **Unified work breakdown structure**: The lesson centers on one shared structure for cost, schedule, and quality so the same activity can be evaluated across budget, timing, and deliverables. This avoids separate breakdowns that make diagnosis harder.\n- **AI as a data transformation layer**: The source uses AI to convert unstructured inputs such as voice notes into structured records for quantities, site diary entries, issues, RFIs, and possible variations. The value is speed and reduced administrative friction.\n- **Measurement logic by activity type**: Activities are measured in different ways: time-driven tasks for duration-based overheads, milestone-driven tasks for discrete deliverables, and quantity-driven tasks for production work where percent complete can be tied to measurable output.\n- **Human-led forecasting**: The source explicitly argues that forecasting final cost and completion should stay manual. Forecasting forces the project team to inspect each code and apply site knowledge that may not exist in the database.\n- **AI-supported root cause analysis and reporting**: After humans create the forecast, AI can help summarize deviations, investigate likely causes, brainstorm corrective actions, and reformat internal data into client-facing reports without exposing sensitive internal cost detail.\n\n## How It Works\n\n1. Define the project controls baseline from tender-stage inputs: estimate, baseline schedule, scope documents, drawings, specifications, bill of quantities, and handover requirements.\n2. Use AI to generate a unified work breakdown structure with clear layers such as preliminaries, design/approvals, trade packages, commissioning/handover, and contingency.\n3. Add rules for each control dimension.\nFor cost: structure codes around how money will actually be spent, and separate labor, plant, materials, subcontracts, overheads, and risk where useful.\nFor schedule: keep the plan as simple as possible while still covering the method of delivery.\nFor quality: only create quality items where there is a client deliverable or handover obligation.\n4. Assign a measurement method to each activity.\nUse time-based measurement for duration costs, milestone-based measurement for discrete steps, and quantity-based measurement for production work.\n5. Build a database-backed control system.\nIn the source, the app is described as a visualization layer over a database, with daily records flowing into structured tables.\n6. Capture daily site reality.\nRecord quantities completed, costs incurred, labor/plant/material usage, activity starts and finishes, and quality progress. The transcript's example uses voice notes that AI converts into structured database entries.\n7. Forecast manually.\nReview each cost code and activity yourself, including known risks, variations, scope gaps, and production issues. Do not rely on simple automatic extrapolation when site conditions are changing.\n8. Compare forecast versus baseline and revised baseline.\nTrack gain/loss by code, update for approved or pending client variations where relevant, and identify the few red items that need management attention.\n9. Use AI selectively after the forecast.\nAsk it to summarize overruns, investigate root causes, support contract-related reasoning, and generate report outputs for clients or internal teams.\n10. Keep the architecture simple.\nThe source recommends separating concerns: AI for structuring and querying data, a database for storage, and an app for visualization rather than embedding all AI behavior directly into the application.\n\n## Training Exercise\n\nCreate a small practice system for a single trade package. Start with one scope item such as trenching or bulk earthworks. Write a 2-level work breakdown structure that aligns cost, schedule, and quality. For each activity, label it as time-driven, milestone-driven, or quantity-driven. Then draft three sample voice-note updates from site conditions and manually convert them into structured fields: date, activity, quantity completed, labor hours, delays, quality issue, and potential variation. Finally, produce a manual forecast for one cost code, explain why it is red or green, and list one corrective action plus one question you would ask AI to investigate root cause. The goal is to practice the division of labor: AI structures and summarizes, while the project team owns judgment and forecasting.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=4qCbJ1WBenU)",
+    "related": [
+      {
+        "id": "2026-06-06-using-plain-html-as-a-high-leverage-medium-for-ai-assisted-engineering-work",
+        "title": "Using Plain HTML as a High-Leverage Medium for AI-Assisted Engineering Work",
+        "date": "2026-06-06",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
+        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
+        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
+        "date": "2026-07-17",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
+        "id": "2026-07-29-using-chatgpt-voice-as-an-ambient-ai-chief-of-staff-815133adab",
+        "title": "Using ChatGPT Voice as an Ambient AI Chief of Staff",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
+        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
+        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
     "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
     "date": "2026-07-30",
@@ -580,16 +628,16 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
+        "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
+        "title": "AI-Assisted Project Controls for Construction Projects",
+        "date": "2026-07-30",
         "shared_tags": [
-          "knowledge-management"
+          "ai-workflows"
         ]
       },
       {
-        "id": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
-        "title": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
         "date": "2026-07-29",
         "shared_tags": [
           "knowledge-management"
@@ -1974,6 +2022,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
+        "title": "AI-Assisted Project Controls for Construction Projects",
+        "date": "2026-07-30",
+        "shared_tags": [
+          "ai-workflows"
+        ]
+      },
+      {
         "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
         "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
         "date": "2026-07-29",
@@ -1987,14 +2043,6 @@ source_characters: 18420
         "date": "2026-07-21",
         "shared_tags": [
           "ai-workflows"
-        ]
-      },
-      {
-        "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
-        "title": "Practical Patterns for Using Codex as an Engineering Workbench",
-        "date": "2026-07-15",
-        "shared_tags": [
-          "prompting"
         ]
       }
     ]
@@ -4564,19 +4612,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
-        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
-        "date": "2026-07-17",
+        "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
+        "title": "AI-Assisted Project Controls for Construction Projects",
+        "date": "2026-07-30",
         "shared_tags": [
           "ai-workflows"
         ]
       },
       {
-        "id": "2026-07-09-introducing-the-next-chapter-for-chatgpt-product-platform-and-agentic-ai-concept",
-        "title": "Introducing the Next Chapter for ChatGPT: Product Platform and Agentic AI Concepts",
-        "date": "2026-07-09",
+        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
+        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
+        "date": "2026-07-17",
         "shared_tags": [
-          "ux"
+          "ai-workflows"
         ]
       }
     ]
