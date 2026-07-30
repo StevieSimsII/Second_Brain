@@ -395,6 +395,60 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+    "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+    "date": "2026-07-29",
+    "tags": [
+      "ai-agents",
+      "prompt-engineering",
+      "knowledge-management",
+      "automation",
+      "workflows"
+    ],
+    "source": "https://www.youtube.com/watch?v=5p-sq8v3OXw",
+    "content": "## Overview\n\nThis lesson teaches a durable mental model for using AI agents productively at work. In the source, the speaker contrasts chat systems with agents: chat is \"question to answer,\" while agents are \"goal to result.\" The practical claim is that agents become useful when you onboard them like an employee: give them context about you and the business, connect the tools they need, and teach them repeatable ways of working. The strongest evidence in the excerpt supports context design, connector setup, and the basic agent loop. Evidence for the later \"skills\" layer is thinner here because the transcript excerpt ends before that section is fully developed.\n\n## Key Concepts\n\n- **Chat vs. agents**: The source frames chat as answering questions and agents as pursuing a goal until they deliver a finished result. The important shift is from advice you must execute yourself to delegated work that can continue through multiple steps.\n- **Observe-think-act loop**: The speaker says an agent repeatedly observes the situation, thinks about the next step, and acts, looping until the defined output is complete. This explains why clear definitions of done matter: the stop condition comes from the goal you gave it.\n- **Onboard the agent like an employee**: The core teaching is to treat an agent as a capable stranger. To make it useful, you must supply business context, tool access, and process guidance, just as you would for a new hire.\n- **Context as owned markdown assets**: The source recommends storing durable context in simple markdown files such as an about file, business info, offer catalog, brand voice, and ideal customer profile. The point is to own and transport this context across tools instead of relying on opaque app memory.\n- **North-star session file**: A central file such as `CLAUDE.md` or `AGENTS.md` is described as the file that loads at the start of each session and points the agent toward other context files. This gives the agent immediate orientation without forcing it to rediscover key information every time.\n- **Memory and lessons**: The speaker adds a separate memory file for preferences and corrections, such as style rules or recurring instructions. The practical idea is to capture lessons explicitly so future sessions improve instead of repeating the same mistakes.\n- **MCPs and connectors**: MCPs are explained as the mechanism that lets an agent use outside tools like email, calendars, project management apps, and web scrapers. The useful mental model is translation: connectors let the model act through external systems without custom glue each time.\n- **Lean context and permission boundaries**: The source warns that too much context can fill the session window and degrade performance. It also recommends starting tool permissions conservatively, such as read-only access, then expanding once trust and reliability are established.\n\n## How It Works\n\nUse this workflow. First, define a task as a goal with a concrete deliverable, not as a vague request. Second, create a small set of markdown files that state who you are, what the business does, who the customer is, what the offer is, and how the brand should sound. Third, place a session-start file such as `CLAUDE.md` or `AGENTS.md` at the top level and make it direct the agent to those context files plus a memory file for learned preferences. Fourth, connect the external tools the task actually needs through connectors or MCPs, starting with low-risk read access when appropriate. Fifth, run the task and watch for failures caused by missing context, unclear done criteria, or missing tools. Sixth, when you correct the output, save the correction as a durable rule in memory so the next session starts better. One limitation from the supplied excerpt: the speaker names \"skills\" as a third pillar and describes them as SOP-like guidance, but the transcript segment provided here does not fully show the implementation details for that layer.\n\n## Training Exercise\n\nCreate a folder for one recurring task you do every week. Add three files: `CLAUDE.md` or `AGENTS.md`, `context/about.md`, and `memory.md`. In `about.md`, write a factual summary of your role, audience, and priorities. In the main session file, instruct the agent to read the context and memory before any task and to ask questions when facts are missing. In `memory.md`, add 3 style or workflow preferences you care about. Then give the agent a concrete goal such as: \"Draft a weekly performance summary for my team with 5 bullets, 2 risks, and 2 next actions.\" Review the result, make 3 corrections, and save those corrections back into `memory.md`. Repeat once and compare whether the second run needs fewer edits.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=5p-sq8v3OXw)",
+    "related": [
+      {
+        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
+        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering",
+          "workflows"
+        ]
+      },
+      {
+        "id": "2026-05-22-build-reliable-ai-workflows-before-autonomous-agents",
+        "title": "Build Reliable AI Workflows Before Autonomous Agents",
+        "date": "2026-05-22",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering",
+          "workflows"
+        ]
+      },
+      {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-29-lesson-how-a-frontier-ai-company-thinks-about-focus-compute-safety-and-a-69bf582d3e",
     "title": "Lesson: How a Frontier AI Company Thinks About Focus, Compute, Safety, and Adoption",
     "date": "2026-07-29",
@@ -473,17 +527,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
-        "title": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
         "date": "2026-07-29",
         "shared_tags": [
           "knowledge-management"
         ]
       },
       {
-        "id": "2026-07-20-practical-rag-knowledge-bases-for-team-memory-afde5f9d0e",
-        "title": "Practical RAG Knowledge Bases for Team Memory",
-        "date": "2026-07-20",
+        "id": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "title": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "date": "2026-07-29",
         "shared_tags": [
           "knowledge-management"
         ]
@@ -505,6 +559,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains a research workflow described in the video: using the open-source \"last 30 days\" skill as a middle ground between shallow web search and slow, expensive deep-research agent runs. The source presents it as a way to gather cross-platform user sentiment from places like Reddit, YouTube, Hacker News, GitHub, TikTok, Instagram, and X/Twitter, then synthesize repeated patterns into a brief plus raw Markdown/JSON outputs. Because the evidence here is a video transcript rather than the repository itself, implementation details should be treated as reported behavior, not independently verified internals.\n\n## Key Concepts\n\n- **Research middle ground**: The main idea is to avoid choosing only between fast but shallow web search and very slow deep research. The skill is presented as a practical in-between option for questions where user sentiment matters.\n- **Sentiment from primary discussion spaces**: Instead of relying mainly on articles that rank well in search engines, the workflow pulls from discussion-heavy platforms and includes comments or transcripts, aiming to capture what people are actually saying.\n- **Cross-platform synthesis**: The reported value comes from checking many platforms at once and then ranking themes that recur across multiple sources, which reduces the chance that one isolated post dominates the summary.\n- **Deterministic collection plus AI summarization**: The video says execution uses a deterministic Python script to collect data, after which the results are synthesized into a brief. This suggests a split between structured gathering and model-based interpretation.\n- **Selective source scoping**: The user can apparently run the skill across all relevant platforms or narrow it to one source such as Reddit, YouTube, or Twitter/X when they want tighter or cheaper research.\n- **Operational tradeoffs**: The source emphasizes setup and cost differences across platforms: some sources need no API key, some need extra dependencies, and some require paid APIs. X/Twitter is described as the main paid source, while some other services are presented as subsidized or free for many calls.\n\n## How It Works\n\nUse the skill when your question depends on grassroots reactions, comment-level feedback, or repeated patterns across communities. Start with a topic prompt such as \"What are people saying about X?\" The video says the skill rewrites the prompt, chooses relevant communities or accounts, searches sources in parallel, reads beyond titles into comments/transcripts, and then ranks themes that appear repeatedly across platforms. Treat the final brief as a synthesized map of sentiment, then inspect the raw Markdown or JSON when you need to verify claims, pull examples, or build your own notes. A practical rule from the source is: use ordinary web search for quick surface facts, use this skill for sentiment-heavy research, and reserve deep research for cases that truly need much broader or slower investigation.\n\n## Training Exercise\n\nPick one product, tool, or public announcement you care about. Write three research questions: one about general reception, one about criticism, and one about practical adoption. For each, imagine running the skill once with all relevant sources and once with only a single platform such as Reddit or YouTube. Compare what kinds of insights each run would likely produce, note which claims would still need manual verification in the raw outputs, and write a short rule for when you would choose this workflow over web search or deep research.\n\n## Further Reading\n\n- [YouTube video source](https://www.youtube.com/watch?v=ShYfGB3x5mM)",
     "related": [
       {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      },
+      {
         "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
         "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
         "date": "2026-06-20",
@@ -524,14 +587,6 @@ source_characters: 18420
         "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
         "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents"
-        ]
-      },
-      {
-        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
-        "title": "Model Fusion for Agentic Engineering",
-        "date": "2026-07-20",
         "shared_tags": [
           "ai-agents"
         ]
@@ -1222,6 +1277,16 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a YouTube transcript about using \"loops\" with an AI agent such as Claude Code. In the source, a loop is described as an agent repeating a cycle of work until a stop condition is met. The video presents four loop types: turn-based, goal-based, time-based, and proactive. The practical value is not the specific brand or slash-command syntax, but the operating idea: make the model do work, check the result, and continue only until a defined standard is reached. Evidence is strongest for the general pattern and the examples shown in the transcript; specific claims about official product behavior, commands, or team practices are reported by the speaker and should be treated as secondhand unless you verify them in primary docs.\n\n## Key Concepts\n\n- **Loop**: A loop is a repeated work cycle for an AI agent. The agent performs a task, checks progress against a condition, and either stops or iterates again.\n- **Stop condition**: The stop condition is the core control mechanism. It can be a verification pass, a target score, a schedule boundary, or a requirement that all detected items have been handled.\n- **Turn-based verification**: This is the simplest loop in the lesson: after completing a prompt, the agent verifies the result before returning it. The source uses a landing-page example where the agent checks that frontend functionality actually works and fixes a bug before finishing.\n- **Goal-based evaluation**: A goal loop keeps iterating until the output reaches a measurable threshold, such as a quality score. The source gives examples like improving a webpage until it reaches a Lighthouse score target or rewriting an email until a custom evaluator rates it highly enough.\n- **Evaluator or cartridge**: The video describes reusable scoring logic packaged as a skill or cartridge. Examples include checking whether writing sounds human, matches a marketing style, or is likely to get higher open rates. The important idea is externalized criteria, not the branding of the evaluator.\n- **Time-based scheduling**: A time loop runs on an interval, such as every five minutes or daily at 9:00 a.m. In the source, this is used for recurring operational work like summarizing a meeting and assigning follow-up tasks.\n- **Proactive loop**: A proactive loop combines scheduled triggering with a goal or completion rule. Instead of waiting for a human to prompt each run, it watches for inputs, performs work, and keeps going until all work found in that run is handled.\n\n## How It Works\n\nThe source teaches a general control pattern for AI work:\n\n1. Define the task clearly.\n2. Define how the result will be checked.\n3. Let the agent act.\n4. Feed the check result back into the next iteration.\n5. Stop only when the condition is satisfied.\n\nApplied to the four loop types from the video:\n\nTurn-based loops add a verification step to an ordinary prompt. You ask for a result, but the agent must inspect the result before presenting it. In the source, this is framed as a skill file that verifies a frontend change actually works.\n\nGoal-based loops add a measurable target. The agent keeps revising until a score or threshold is reached. The transcript uses custom evaluators for email quality and mentions webpage metrics such as Lighthouse.\n\nTime-based loops add a schedule. The agent reruns the task at fixed intervals. The example shown is daily meeting summarization and task follow-up.\n\nProactive loops combine scheduling with completion criteria. The agent checks for new work, processes it, and does not stop until everything discovered in that run has been triaged or completed. The source illustrates this with bug-report handling and competitor-content monitoring.\n\nThe durable lesson is that good looping depends on explicit checks. If your criterion is vague, the loop will drift or spin. If your criterion is measurable and relevant, looping turns a one-shot prompt into a controlled workflow. The transcript is persuasive about the pattern, but many implementation details are examples rather than verified product specifications, so treat the architecture as a method to adapt rather than a guaranteed command set.\n\n## Training Exercise\n\nPick one recurring task you already do, such as drafting a weekly update, reviewing a landing page, or preparing meeting notes.\n\nWrite four versions of the workflow:\n\n1. Turn loop: Ask the AI to produce the output, then verify one concrete property before finishing. Example: \"Draft the update, then verify every claim is supported by the notes I provided.\"\n2. Goal loop: Add a threshold. Example: \"Revise until the update scores at least 8/10 for clarity using this rubric: concise, specific, action-oriented, evidence-backed.\"\n3. Time loop: Put it on a schedule. Example: \"Every Friday at 3:00 p.m., create the first draft from this week's project notes.\"\n4. Proactive loop: Add monitoring plus completion rules. Example: \"Every day, scan new project notes, update the weekly draft, and do not stop until every new note is either incorporated or marked irrelevant with a reason.\"\n\nAfter writing the four versions, compare them:\n- Which stop condition is objectively testable?\n- Which loop would fail if the rubric were vague?\n- Which parts require outside tools or data access?\n- Which loop would save you the most repeated effort?\n\nFinally, refine one version into a reusable template with three parts: task, evaluator, and stop rule.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=r5iBG1s_MDk)",
     "related": [
       {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering",
+          "workflows"
+        ]
+      },
+      {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
@@ -1248,15 +1313,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-16-human-in-the-loop-design-for-reliable-ai-agents",
-        "title": "Human-in-the-Loop Design for Reliable AI Agents",
-        "date": "2026-07-16",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
         ]
       }
     ]
@@ -1536,6 +1592,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a transcripted discussion about how to get an AI coding agent to work longer, more reliably, and with less micromanagement. The core idea is that strong agent use is not just better prompting; it is designing feedback loops, clear exit conditions, lightweight prototypes, and verification steps. The speakers describe tools such as `/loop`, `/goal`, and reusable workflows, plus a practical video-editing example that combines transcription, UI generation, and rendering. Evidence is strongest for the workflow principles and examples shown in the transcript. Product-specific names appear to come from auto-transcribed audio and may contain recognition errors, so treat exact tool branding as approximate unless verified elsewhere.\n\n## Key Concepts\n\n- **Exit conditions over open-ended prompting**: A long-running agent needs a clear definition of done. In the transcript, `/goal` is presented as a way to remind the agent of its exit condition and discourage premature stopping when it hits friction or ambiguity.\n- **Planning as unknown-reduction**: Planning is framed less as writing one perfect spec and more as iteratively removing unknowns. That includes researching edge cases, learning how a subsystem works, generating mockups, and refining the request as new constraints appear.\n- **Prototype before expensive implementation**: The speakers recommend testing the smallest version that can validate the idea. For example, explore video overlay designs in HTML first, then move to a more expensive React or rendering pipeline only after the concept is proven.\n- **Separate creation from verification**: Workflows become more reliable when one agent produces output and another checks it against a rubric. The transcript argues this reduces self-referential bias, where a model is too lenient about its own work.\n- **Use artifacts and reports as shared working memory**: HTML artifacts, implementation notes, and explainers make agent work inspectable and reusable. They help humans review decisions and let future agent runs inherit context without starting from scratch.\n- **Keep context lean**: As models improve, the speakers argue they often need fewer examples, fewer rigid constraints, and shorter instruction files. Overly long system prompts, skills, or repo instructions can narrow the model unnecessarily and consume useful context window space.\n- **Match workflow style to task shape**: Deterministic tasks benefit from hard checks like latency targets or file matches. Squishier tasks, such as design judgment or clip quality, benefit from rubrics, exploration, and multi-agent review rather than a single pass.\n\n## How It Works\n\nUse this workflow when you want an agent to handle a substantial task with less babysitting. First, define the outcome in a way the agent can test: a rendered file, a design match, a latency target, or a rubric-scored deliverable. Second, spend time removing unknowns before asking for full execution: have the agent explain the subsystem, list failure modes, and generate a few design or implementation options. Third, ask for the smallest proof first, not the polished version. In the transcript's example, the agent transcribes a short video, creates caption and overlay UI, and renders a basic result from one prompt. Fourth, if quality is subjective, split the work into roles: one agent plans or coordinates, sub-agents generate candidate outputs, and separate verification agents review them against a rubric. Fifth, save useful instructions, scripts, notes, and artifacts so the next run starts from a better workspace instead of rebuilding everything from scratch. Throughout, prefer concise guidance that states goals and principles rather than long lists of brittle examples or prohibitions.\n\n## Training Exercise\n\nPick a task you repeat, such as generating short video clips, writing release notes, or preparing a bug-fix summary. Write a one-sentence outcome, then ask an agent to do three things in order: 1. explain the relevant subsystem and likely failure modes, 2. produce a low-cost prototype or artifact with 2-3 variations, and 3. propose a workflow that separates generation from verification using a rubric. After reviewing the result, shorten any bloated instructions and rerun the task with a clearer exit condition. Compare the second run to the first and note which unknowns mattered most.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=aVO6E181cNU)",
     "related": [
       {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
         "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
@@ -1557,15 +1622,6 @@ source_characters: 18420
         "id": "2026-05-22-build-reliable-ai-workflows-before-autonomous-agents",
         "title": "Build Reliable AI Workflows Before Autonomous Agents",
         "date": "2026-05-22",
-        "shared_tags": [
-          "ai-agents",
-          "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
@@ -6171,9 +6227,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
         "shared_tags": [
           "ai-agents"
         ]
@@ -6408,6 +6464,16 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a practical engineering message from Barry Zhang's guidance on agent infrastructure at Anthropic: most teams should not start by building autonomous agents. They should start by building workflows. The core argument is that reliability, speed of iteration, and operational simplicity matter more than autonomy for most production AI systems.\n\nThis matters to engineers designing LLM-powered products, internal tools, and automations. If you can enumerate the decision points in your task, a workflow-based design is usually cheaper, faster, easier to debug, and more dependable than an open-ended agent loop. Agents still have a place, but mainly for ambiguous, high-value problems where the environment cannot be fully scripted in advance.\n\n## Key Concepts\n\n- **Reliability over autonomy**: The lesson's central principle is that autonomy is not the product goal; dependable task completion is. A system that does fewer things but does them consistently is usually more valuable in production than a more autonomous system that fails unpredictably.\n- **Workflow-first design**: A workflow is a predefined sequence of steps, decisions, and tool calls. If you can map the decision tree ahead of time, a workflow generally outperforms an agent on cost, latency, and observability because the execution path is constrained and easier to validate.\n- **Agents for ambiguity**: Agents are best reserved for tasks with unclear paths, changing contexts, or open-ended reasoning requirements. They are justified when the value of handling ambiguity outweighs the additional complexity, unpredictability, and monitoring burden.\n- **Minimal agent architecture**: A useful mental model for an agent is just three parts: environment, tools, and system prompt. Everything else—multi-agent coordination, orchestration layers, caching, memory systems—is secondary and should only be added after a simple version proves necessary.\n- **Context-window realism**: Engineers often design from their own full understanding of a problem, but the model only sees the tokens in its current context. Tool descriptions, prompts, and visible state must be precise because the agent cannot infer missing intent from the broader project background in your head.\n- **Prompt ambiguity testing**: A practical technique is to paste your prompt and tool descriptions back into the model and explicitly ask what is unclear or underspecified. This helps expose vague instructions, hidden assumptions, and missing constraints before those issues become runtime failures.\n\n## How It Works\n\nThe article argues for a design hierarchy: start with the simplest structure that can solve the task, and only move toward agency when the task truly requires it.\n\nAt a mechanical level, the distinction looks like this:\n\n- **Workflow**: fixed stages, known branches, predictable tool usage\n- **Agent**: model decides what to do next, which tools to call, and when to stop\n\nA workflow-oriented system typically follows a pattern like:\n\n1. Accept input\n2. Classify or route the request\n3. Execute one of a small number of predefined steps\n4. Call a tool if needed\n5. Validate the output\n6. Return or escalate\n\nThat structure is operationally attractive because each stage can be measured and tested independently. You can log branch frequencies, detect regressions, set explicit failure policies, and add guardrails at deterministic points.\n\nBy contrast, an agent loop might look like:\n\n1. Receive a goal\n2. Inspect available tools and current environment state\n3. Decide the next action\n4. Execute the tool call\n5. Observe results\n6. Repeat until completion or timeout\n\nThat flexibility is powerful, but it creates multiple sources of failure:\n\n- the model may choose the wrong next action\n- it may misunderstand a tool description\n- it may loop too long or stop too early\n- it may miss key context because it only sees a limited token window\n- the execution path becomes harder to predict and debug\n\nThe source also emphasizes keeping the system \"embarrassingly simple\" at first. For an engineer, that means resisting common early abstractions:\n\n- don't introduce multi-agent patterns before a single-agent or no-agent design works\n- don't build elaborate orchestration if a few explicit stages will do\n- don't add memory and caching layers until you can show they solve a measured problem\n\nA minimal agent, when one is truly needed, has three core pieces:\n\n1. **Environment**: the state the agent can observe and act within\n2. **Tools**: the explicit actions it can take\n3. **System prompt**: the policy defining goals, constraints, and tool usage rules\n\nThis framing is useful because it forces clarity. If the task is failing, the problem is often one of these:\n\n- the environment doesn't expose enough relevant state\n- the tools are too vague, too broad, or badly documented\n- the prompt leaves room for conflicting interpretations\n\nThe article's strongest practical advice is to design for the model's perspective rather than the human builder's perspective. Engineers often assume the model has access to all the background knowledge they do, but the model only has what is included in its context. That means:\n\n- tool descriptions should specify inputs, outputs, side effects, and failure modes\n- prompts should define completion criteria and escalation rules\n- important constraints should be repeated near the decision point, not buried elsewhere\n\nFor example, a weak tool description might be:\n\n```text\nsearch_customer_data(query)\nSearches customer info.\n```\n\nA stronger version would be:\n\n```text\nsearch_customer_data(customer_id: string) -> CustomerRecord\nUse only when you already know the exact customer_id.\nReturns account status, subscription tier, and recent support tickets.\nDo not use for free-text lookup. If customer_id is missing, ask for it.\n```\n\nThat additional specificity reduces bad tool selection and ambiguous reasoning.\n\nThe final implication is organizational as much as technical: teams that ship dependable AI systems often choose boring architectures intentionally. The winning pattern is not maximum cleverness; it is the fastest path to a system that behaves consistently under real usage. In practice, that usually means starting with a workflow, instrumenting it heavily, and only introducing autonomy where deterministic control breaks down.\n\n## Training Exercise\n\nBuild the same task twice—first as a workflow, then as a lightweight agent—and compare reliability.\n\n## Goal\nCreate a small AI system for handling inbound support requests. The system should classify requests into one of three actions:\n\n- answer directly from a knowledge base\n- request missing information\n- escalate to a human\n\n## Part 1: Build a workflow\n1. Define a fixed decision tree for support tickets.\n2. Create a prompt that classifies each ticket into one of the three actions.\n3. Add explicit rules such as:\n   - escalate billing disputes over $100\n   - request missing information if order ID is absent\n   - answer directly only for known FAQ topics\n4. Test the workflow on 10 sample tickets.\n5. Measure:\n   - classification accuracy\n   - number of invalid outputs\n   - average latency\n\nExample structured prompt:\n\n```text\nYou are a support triage system.\nChoose exactly one action: ANSWER, REQUEST_INFO, or ESCALATE.\nRules:\n- If the issue is a billing dispute over $100, choose ESCALATE.\n- If the request requires an order lookup and no order ID is present, choose REQUEST_INFO.\n- If the issue matches a known FAQ, choose ANSWER.\nReturn JSON: {\"action\": \"...\", \"reason\": \"...\"}\n```\n\n## Part 2: Build a simple agent\n1. Give the model a broader goal: resolve the support request as effectively as possible.\n2. Provide tools such as:\n   - `lookup_order(order_id)`\n   - `search_faq(question)`\n   - `create_escalation(summary)`\n3. Write tool descriptions carefully.\n4. Let the model decide which tool to call and when to stop.\n5. Run the same 10 sample tickets.\n\n## Part 3: Compare results\nFor each approach, record:\n\n- correctness of final action\n- tool misuse frequency\n- ambiguous responses\n- ease of debugging failures\n- total tokens consumed\n\n## Part 4: Prompt ambiguity review\nTake your agent system prompt and tool descriptions and ask the model:\n\n```text\nReview the following system prompt and tool definitions.\nList every ambiguity, missing constraint, or confusing instruction that could cause incorrect behavior.\nPrioritize issues that would affect tool selection or stopping behavior.\n```\n\nThen revise the prompt and rerun the tests.\n\n## What to learn\nBy the end, you should be able to answer:\n\n- Was the task actually an agent problem or a workflow problem?\n- Which approach was easier to validate and debug?\n- What prompt or tool-description ambiguities caused failures?\n- At what point, if any, did the extra autonomy pay for itself?\n\n## Further Reading\n\n- [Anthropic Documentation](https://docs.anthropic.com/)\n- [OpenAI Cookbook: Building Reliable LLM Applications](https://cookbook.openai.com/)\n- [LangChain: Agents vs Chains](https://python.langchain.com/docs/concepts/)\n- [Google Cloud Architecture Framework: Reliability](https://cloud.google.com/architecture/framework/reliability)",
     "related": [
       {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering",
+          "workflows"
+        ]
+      },
+      {
         "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
         "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
@@ -6430,15 +6496,6 @@ source_characters: 18420
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents",
-          "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
@@ -7475,9 +7532,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
-        "date": "2026-07-21",
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
