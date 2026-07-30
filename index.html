@@ -297,6 +297,59 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+    "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+    "date": "2026-07-30",
+    "tags": [
+      "planning",
+      "ai-agents",
+      "project-management",
+      "software-engineering",
+      "knowledge-work"
+    ],
+    "source": "https://www.youtube.com/watch?v=F3lL98Pj90o",
+    "content": "## Overview\n\nThis lesson presents Wayfinder as a planning method for work that is too ambiguous or too large for a single AI-agent session. The source argues that instead of forcing a big task into one context window, you create a map of decision tickets, resolve them across multiple sessions, and track what is known, blocked, and still uncertain. The evidence is experiential rather than formal: the speaker describes how the method works, how it is used with issue trackers, and how it supports coding and non-coding projects.\n\n## Key Concepts\n\n- **Fog of war**: Wayfinder is meant for tasks where the destination is roughly known but the path is unclear. The method treats uncertainty as normal and plans to reduce it over time rather than pretending the full path is already known.\n- **Map and frontier**: The central artifact is a map of decision tickets. The frontier is the set of tickets that can be worked on now, while other parts remain blocked or hidden by unresolved questions.\n- **Decision tickets**: Each node on the map is a ticket handled in its own agent session. The source describes four ticket types: research, prototype, grilling, and task.\n- **Blocking relationships**: Some decisions depend on earlier decisions. Wayfinder tracks these dependencies so that finishing one ticket can unlock new work on the frontier.\n- **Prototype-driven planning**: The speaker explicitly uses prototypes to avoid low-fidelity, waterfall-style planning. In this approach, prototypes are not implementation polish; they are a fast way to test and clarify decisions.\n- **Issue-tracker-backed memory**: Wayfinder stores maps and ticket outcomes in an issue tracker. The source shows GitHub issues and claims the approach is issue-tracker agnostic with setup, but only GitHub is directly demonstrated in the transcript.\n- **Spec as a temporary destination document**: In the speaker’s workflow, the map can be converted into a dense spec, then into implementation tickets. The spec is described as a temporary coordination artifact rather than a permanent source of truth.\n\n## How It Works\n\nStart by defining the destination: what 'done' should look like, such as a spec or another concrete outcome. Use an initial session to grill the problem, inspect relevant context, and create the first map of decision tickets. Work only the tickets on the current frontier, usually by opening a fresh agent session per ticket. As tickets are resolved, write the outcome back to the map so the system records what was learned, what remains blocked, and what new tickets are now available. Use research tickets to gather facts, prototype tickets to make ideas concrete, grilling tickets to clarify decisions through discussion, and task tickets for real-world or scheduled actions. When the fog has cleared enough, convert the completed map into a spec or directly into implementation tickets. The practical rule from the source is simple: use Wayfinder when a task cannot be planned cleanly in one session; skip it when the path is already clear enough to execute directly.\n\n## Training Exercise\n\nPick one real project that feels too large or unclear for a single session. Write a destination in one sentence, then draft an initial map with 6-10 decision tickets split across the four ticket types from the source: research, prototype, grilling, and task. Mark which tickets are immediately takable and which are blocked by dependencies. Resolve two frontier tickets, then update the map with what changed: what uncertainty was removed, what new tickets opened up, and whether the destination now needs refinement. Finish by writing a short temporary spec that summarizes the decisions and links each major decision back to its ticket.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=F3lL98Pj90o)",
+    "related": [
+      {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-work",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
+        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
+        "date": "2026-07-22",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-07-29-analyzing-ai-abundance-and-governance-claims-in-elon-musks-2036-forecast-0459bbdec6",
     "title": "Analyzing AI Abundance and Governance Claims in Elon Musk's 2036 Forecast",
     "date": "2026-07-29",
@@ -799,6 +852,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson turns the talk into a practical engineering stance: AI coding agents can speed up implementation, but speed alone does not preserve codebase quality. The speaker argues that current agent loops and harnesses are good at producing code that passes tests, yet weak at maintaining long-term design quality, especially in complex or aging codebases. The core lesson is to keep humans responsible for code comprehension and to shift effort earlier into product review, architecture, program design, and staged implementation so code review stays fast enough to remain mandatory.\n\n## Key Concepts\n\n- **Harness engineering vs. model limits**: The talk argues that better loops, sandboxes, review bots, and more tokens cannot fully solve quality decay if the underlying model was not trained to optimize for maintainability. In the speaker's framing, this is a training and verification problem, not just an orchestration problem.\n- **Software factory failure mode**: A 'lights off software factory' removes human code reading and relies on agents, tests, monitoring, and automated review. The speaker claims this fails in practice because teams eventually hit issues that require understanding a codebase whose quality has already eroded.\n- **Maintainability as the missing objective**: Passing tests is easier to verify than preserving good design. The talk defines the real problem as maintainability: keeping a codebase easy to change without causing unrelated breakage. The speaker links poor maintainability to classic design problems like 'shotgun surgery.'\n- **Why current coding benchmarks are insufficient**: The transcript describes benchmark setups where models are rewarded for fixing a task and not breaking tests. That reward structure encourages correctness on the measured task, but it does not directly penalize awkward abstractions, defensive clutter, or other design choices that may hurt the codebase months later.\n- **Front-loaded alignment reduces review cost**: The proposed remedy is to spend time before coding on product review, architecture, component contracts, data models, constraints, and program design. The claimed payoff is shorter, higher-quality pull requests that humans can still review line by line.\n- **Program design and vertical slices**: The talk emphasizes planning at the level of types, method signatures, call paths, and implementation order. 'Vertical slices' means choosing an incremental build sequence across the system, with checks between phases, instead of letting an agent make broad horizontal changes all at once.\n- **Human ownership remains necessary**: The practical conclusion is not to avoid AI agents, but to use them where they help most while keeping humans accountable for understanding, reviewing, and steering the code. The speaker treats code reading as a constraint that current teams still need to accept.\n\n## How It Works\n\nUse AI to accelerate analysis and implementation, but keep a human-reviewed delivery path. Start with a short product review that states the user problem, expected behavior, and any mockups. Then write an architecture note covering components, data models, interfaces, and constraints. Add a program-design pass that names key types, method signatures, call flows, and boundaries between modules. After that, break the work into vertical slices with an explicit implementation order and tests at each stage. Let the agent implement one slice at a time. Review every line against the earlier design artifacts, not just against test results. If review feels overwhelming, treat that as a signal that planning or decomposition was weak, not as evidence that review should be removed. The speaker presents this as the workable compromise: AI makes coding faster, while upfront alignment keeps review cheap enough to preserve quality.\n\n## Training Exercise\n\nPick a real feature in a codebase you know. First, write a one-page product review with the problem, expected behavior, and edge cases. Next, write a short architecture note listing the components touched, data model changes, and constraints. Then create a program-design sketch with the main types, function signatures, and call flow. Break the work into 3 vertical slices, each with a test or verification step. Only after that, ask an AI coding agent to implement slice 1. Review the result line by line and note where the code diverged from your design, where tests were sufficient, and where maintainability concerns appeared even though tests passed.\n\n## Further Reading\n\n- [Talk Source](https://www.youtube.com/watch?v=Ib5GBkD555M)\n- [Human Layer](https://humanlayer.com)",
     "related": [
       {
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
         "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
         "date": "2026-07-22",
@@ -822,14 +884,6 @@ source_characters: 18420
         "date": "2026-07-19",
         "shared_tags": [
           "ai-agents",
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
-        "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
-        "date": "2026-05-27",
-        "shared_tags": [
           "software-engineering"
         ]
       }
@@ -1463,11 +1517,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-26-constraint-driven-product-design-simplicity-defaults-and-durable-softwar-9fcd0a1270",
-        "title": "Constraint-Driven Product Design: Simplicity, Defaults, and Durable Software",
-        "date": "2026-07-26",
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
         "shared_tags": [
-          "decision-making",
+          "ai-agents",
           "software-engineering"
         ]
       }
@@ -1540,6 +1594,16 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson turns the talk into a practical method for getting more value from AI agents. The core claim is that many failures are not proof that the model is incapable; they are often signs that the user has not yet supplied the right tools, context, or problem framing. The speaker calls this gap a form of capability overhang: models can sometimes do much more than typical usage reveals. The practical skill, then, is not just writing prompts. It is learning how to work with an agent, expose missing context, prototype cheaply, and reduce your own unknown unknowns so you can steer the system toward valuable output.\n\n## Key Concepts\n\n- **Capability overhang**: The transcript argues that what models can do and what users usually ask them to do are often mismatched. A model may fail in a plain chat setting yet succeed once given code execution, search, or a better task setup.\n- **Human-agent interaction**: The speaker frames this as a new high-leverage skill, similar to writing or public speaking. Good interaction with agents involves framing goals, supplying constraints, and adapting based on how the model actually behaves.\n- **Models are grown, not designed**: The talk says model abilities emerge in spiky, unexpected ways rather than along a clean, predictable path. Because of that, you cannot assume the best workflow in advance; you have to discover it empirically.\n- **Unhobbling the model**: A recurring idea is that users often restrict models unintentionally. Giving the model tools, better context, or a more suitable format can unlock behavior that was not visible in a simpler setup.\n- **Unknown unknowns**: The speaker argues that progress often stalls because the user lacks domain understanding they do not yet know they need. In the video-editing example, color grading became a hidden bottleneck that had to be learned before the agent could be directed well.\n- **Staying in the loop**: The workflow is not fully hands-off automation. The user explores, asks follow-up questions, studies intermediate artifacts, and uses cheap prototypes to discover what they actually want before pushing for a full implementation.\n\n## How It Works\n\nUse this workflow when an agent seems underpowered or slow. Start by defining the outcome, not just the task: what should exist at the end, who it is for, and what level of depth or quality is needed. Next, expose missing context explicitly. The talk's example of explaining a module improves when the user states their skill level, unfamiliarity with the code, and that the task is high-compute enough to justify subagents. Then check whether the model is being hobbled by the environment. A plain chat request may fail where a coding agent with code execution succeeds, as in the Pokemon example where searching a list programmatically works better than relying on recall. After that, iterate through cheap representations before full implementation: HTML mockups, reports, transcripts, or prototypes. When output quality stalls, assume there may be an unknown unknown in your own understanding. Learn just enough of the missing domain to steer the model better, as the speaker did with color grading. The practical pattern is: specify outcome, add context, give tools, inspect intermediate artifacts, learn the missing concept, and rerun with sharper direction.\n\n## Training Exercise\n\nPick a task that feels slightly beyond what you would normally trust an AI agent to do, such as explaining a code module, drafting a small internal tool, or transforming raw media into a polished artifact. First, write a weak prompt with minimal context. Record the result and note where it fails. Second, rewrite the prompt to include your role, your level of familiarity, the desired output, available tools, and any reason the task may require deeper exploration. Third, ask the agent to produce an intermediate artifact before the final result, such as a plan, HTML mockup, report, or transcript. Fourth, identify one place where the output is weak and ask: is this a model limitation, or do I lack a concept needed to direct it? Spend 15 minutes learning that missing concept with the agent, then retry. Finish by writing a short reflection on what changed after you improved context, tooling, and your own understanding.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=IHbsfvbfAto)",
     "related": [
       {
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-work",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
         "title": "Model Fusion for Agentic Engineering",
         "date": "2026-07-20",
@@ -1563,15 +1627,6 @@ source_characters: 18420
         "date": "2026-07-29",
         "shared_tags": [
           "prompting",
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
-        "shared_tags": [
-          "ai-agents",
           "software-engineering"
         ]
       }
@@ -2390,17 +2445,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-27-build-products-for-yourself-a-practical-lesson-in-small-team-cost-aware--12a2954604",
-        "title": "Build Products for Yourself: A Practical Lesson in Small-Team, Cost-Aware Product Design",
-        "date": "2026-07-27",
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
         "shared_tags": [
-          "product-design"
+          "knowledge-work"
         ]
       },
       {
-        "id": "2026-07-26-constraint-driven-product-design-simplicity-defaults-and-durable-softwar-9fcd0a1270",
-        "title": "Constraint-Driven Product Design: Simplicity, Defaults, and Durable Software",
-        "date": "2026-07-26",
+        "id": "2026-07-27-build-products-for-yourself-a-practical-lesson-in-small-team-cost-aware--12a2954604",
+        "title": "Build Products for Yourself: A Practical Lesson in Small-Team, Cost-Aware Product Design",
+        "date": "2026-07-27",
         "shared_tags": [
           "product-design"
         ]
@@ -2729,6 +2784,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
+        "shared_tags": [
+          "knowledge-work"
+        ]
+      },
+      {
         "id": "2026-07-17-vs-code-1127-agent-workflows-browser-automation-and-enterprise-controls",
         "title": "VS Code 1.127: Agent Workflows, Browser Automation, and Enterprise Controls",
         "date": "2026-07-17",
@@ -2739,14 +2802,6 @@ source_characters: 18420
       {
         "id": "2026-07-09-field-guide-to-fable-practical-patterns-for-agentic-software-systems",
         "title": "Field Guide to Fable: Practical Patterns for Agentic Software Systems",
-        "date": "2026-07-09",
-        "shared_tags": [
-          "agents"
-        ]
-      },
-      {
-        "id": "2026-07-09-introducing-the-next-chapter-for-chatgpt-product-platform-and-agentic-ai-concept",
-        "title": "Introducing the Next Chapter for ChatGPT: Product Platform and Agentic AI Concepts",
         "date": "2026-07-09",
         "shared_tags": [
           "agents"
@@ -6176,6 +6231,14 @@ source_characters: 18420
         "date": "2026-07-17",
         "shared_tags": [
           "workflow"
+        ]
+      },
+      {
+        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
+        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
+        "date": "2026-07-30",
+        "shared_tags": [
+          "planning"
         ]
       },
       {
