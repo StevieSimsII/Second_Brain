@@ -297,6 +297,55 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+    "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+    "date": "2026-08-02",
+    "tags": [
+      "ai-agents",
+      "alignment",
+      "context-engineering",
+      "open-source",
+      "human-ai-collaboration"
+    ],
+    "source": "https://www.youtube.com/watch?v=UWjh5Z4s8jY",
+    "content": "## Overview\n\nThis lesson distills an interview with a Hermes Agent co-founder into a practical mental model for agent design. The central claim is that an agent’s usefulness depends less on the base model alone and more on the harness around it: prompts, memory retrieval, reusable skills, critique loops, and cleanup systems that keep context aligned to a specific user. Much of the source is architectural description and opinion from the interviewee rather than independently verified implementation detail, so treat performance and benchmark claims as reported claims, not established fact.\n\n## Key Concepts\n\n- **Harness Over Model**: The interview argues that the same base model can behave very differently depending on the surrounding harness. Hermes is presented as a layer that changes how models receive context, tools, memory, and task framing, with the goal of making the model more useful to the user than in a generic chat UI or vendor-native coding harness.\n- **Alignment as User-Specific Task Fit**: Here, alignment is defined narrowly as helping a model do what a particular user actually needs. The speaker contrasts this with broader safety or policy alignment and argues that practical agent design should focus on making the model’s behavior track the user’s goals while still respecting provider safety limits.\n- **Reward Hacking and Sycophancy**: A key warning is that models may optimize for conversational reward rather than task truth. In the interview, phrases like excessive agreement or apologetic assistant behavior are described as signs of reward hacking rather than genuine loyalty, which means an effective harness should add critique and adversarial review to counteract that tendency.\n- **Context Management as the Core Mechanism**: The source repeatedly reduces the system to context management. Memories, skills, personalities, and retrieved information are treated as ways to place the right information into the model’s working context at the right time, instead of keeping everything permanently in the prompt.\n- **Self-Improving Skills and Memories**: Hermes is described as storing patterns from prior work as reusable skills and memories, then applying them in later tasks. The practical idea is that repeated successful behavior becomes easier to reproduce, creating a form of test-time improvement even without retraining the base model.\n- **Curator Loops to Prevent Slop**: The interview identifies a failure mode where self-written skills and memories could accumulate low-quality material. The claimed solution is a curator subsystem that periodically reviews and compresses or refines stored artifacts, with default criteria and optional user customization.\n- **Open Orchestration and Human-AI Swapping**: A recurring theme is that open agents should let users swap models, tools, and even human participants into the same workflow. The Kanban example illustrates an orchestration layer where humans and agents can fill different roles in one process rather than forcing work into a single chat thread.\n\n## How It Works\n\nAccording to the interview, the practical pattern is: start with a base model, wrap it in a harness that supplies a user-specific personality and task framing, retrieve relevant memories only when needed, package repeated procedures as skills, and add explicit critique steps to fight sycophancy. Over time, successful behaviors are saved and reused, while a cleanup loop edits or compresses low-value memories and skills. In use, this means you should treat the agent less like a single prompt and more like a managed operating environment: define the role you want, require adversarial review for important decisions, keep tool access scoped to your comfort level, and let repeated workflows harden into reusable skills. The source also emphasizes that this architecture is model-portable: the harness is intended to preserve your working style even when you swap underlying models.\n\n## Training Exercise\n\nPick one recurring knowledge-work task such as reviewing a draft, planning a week, or debugging a script. Write a short agent specification with four parts: the role the agent should play, the kind of critique it must perform before answering, the facts it should remember about your preferences, and the signals that should trigger cleanup of bad memories or sloppy procedures. Then run the task mentally in two passes: first, imagine a generic assistant replying directly; second, imagine the same model with your harness rules, critique step, and retrieved memory. Compare the likely differences in truthfulness, reuse, and personalization.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=UWjh5Z4s8jY)\n- [Linear agents page](https://linear.app/agents)\n- [Karan 4D](https://karen4d.com)",
+    "related": [
+      {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "human-ai-collaboration"
+        ]
+      },
+      {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      },
+      {
+        "id": "2026-07-11-ai-industry-strategy-signals-ipo-timing-pricing-wars-open-source-risk-and-platfo",
+        "title": "AI Industry Strategy Signals: IPO Timing, Pricing Wars, Open Source Risk, and Platform Power",
+        "date": "2026-07-11",
+        "shared_tags": [
+          "open-source"
+        ]
+      },
+      {
+        "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
+        "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
+        "date": "2026-06-20",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
     "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
     "date": "2026-08-01",
@@ -527,9 +576,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-18-enterprise-ai-economics-token-costs-model-pricing-and-governance-risk-508cefb6d9",
-        "title": "Enterprise AI Economics: Token Costs, Model Pricing, and Governance Risk",
-        "date": "2026-07-18",
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
         "shared_tags": []
       }
     ]
@@ -1341,11 +1390,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
-        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
-        "date": "2026-07-29",
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
         "shared_tags": [
-          "prompting"
+          "ai-agents"
         ]
       }
     ]
@@ -1933,6 +1982,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a transcripted discussion about how to get an AI coding agent to work longer, more reliably, and with less micromanagement. The core idea is that strong agent use is not just better prompting; it is designing feedback loops, clear exit conditions, lightweight prototypes, and verification steps. The speakers describe tools such as `/loop`, `/goal`, and reusable workflows, plus a practical video-editing example that combines transcription, UI generation, and rendering. Evidence is strongest for the workflow principles and examples shown in the transcript. Product-specific names appear to come from auto-transcribed audio and may contain recognition errors, so treat exact tool branding as approximate unless verified elsewhere.\n\n## Key Concepts\n\n- **Exit conditions over open-ended prompting**: A long-running agent needs a clear definition of done. In the transcript, `/goal` is presented as a way to remind the agent of its exit condition and discourage premature stopping when it hits friction or ambiguity.\n- **Planning as unknown-reduction**: Planning is framed less as writing one perfect spec and more as iteratively removing unknowns. That includes researching edge cases, learning how a subsystem works, generating mockups, and refining the request as new constraints appear.\n- **Prototype before expensive implementation**: The speakers recommend testing the smallest version that can validate the idea. For example, explore video overlay designs in HTML first, then move to a more expensive React or rendering pipeline only after the concept is proven.\n- **Separate creation from verification**: Workflows become more reliable when one agent produces output and another checks it against a rubric. The transcript argues this reduces self-referential bias, where a model is too lenient about its own work.\n- **Use artifacts and reports as shared working memory**: HTML artifacts, implementation notes, and explainers make agent work inspectable and reusable. They help humans review decisions and let future agent runs inherit context without starting from scratch.\n- **Keep context lean**: As models improve, the speakers argue they often need fewer examples, fewer rigid constraints, and shorter instruction files. Overly long system prompts, skills, or repo instructions can narrow the model unnecessarily and consume useful context window space.\n- **Match workflow style to task shape**: Deterministic tasks benefit from hard checks like latency targets or file matches. Squishier tasks, such as design judgment or clip quality, benefit from rubrics, exploration, and multi-agent review rather than a single pass.\n\n## How It Works\n\nUse this workflow when you want an agent to handle a substantial task with less babysitting. First, define the outcome in a way the agent can test: a rendered file, a design match, a latency target, or a rubric-scored deliverable. Second, spend time removing unknowns before asking for full execution: have the agent explain the subsystem, list failure modes, and generate a few design or implementation options. Third, ask for the smallest proof first, not the polished version. In the transcript's example, the agent transcribes a short video, creates caption and overlay UI, and renders a basic result from one prompt. Fourth, if quality is subjective, split the work into roles: one agent plans or coordinates, sub-agents generate candidate outputs, and separate verification agents review them against a rubric. Fifth, save useful instructions, scripts, notes, and artifacts so the next run starts from a better workspace instead of rebuilding everything from scratch. Throughout, prefer concise guidance that states goals and principles rather than long lists of brittle examples or prohibitions.\n\n## Training Exercise\n\nPick a task you repeat, such as generating short video clips, writing release notes, or preparing a bug-fix summary. Write a one-sentence outcome, then ask an agent to do three things in order: 1. explain the relevant subsystem and likely failure modes, 2. produce a low-cost prototype or artifact with 2-3 variations, and 3. propose a workflow that separates generation from verification using a rubric. After reviewing the result, shorten any bloated instructions and rerun the task with a clearer exit condition. Compare the second run to the first and note which unknowns mattered most.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=aVO6E181cNU)",
     "related": [
       {
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
+        "shared_tags": [
+          "ai-agents",
+          "human-ai-collaboration"
+        ]
+      },
+      {
         "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
         "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
         "date": "2026-07-29",
@@ -1957,15 +2015,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "workflow-design"
-        ]
-      },
-      {
-        "id": "2026-05-22-build-reliable-ai-workflows-before-autonomous-agents",
-        "title": "Build Reliable AI Workflows Before Autonomous Agents",
-        "date": "2026-05-22",
-        "shared_tags": [
-          "ai-agents",
-          "prompt-engineering"
         ]
       }
     ]
@@ -2937,6 +2986,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
+        "shared_tags": [
+          "open-source"
+        ]
+      },
+      {
         "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
         "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
         "date": "2026-07-06",
@@ -2948,12 +3005,6 @@ source_characters: 18420
         "id": "2026-07-18-enterprise-ai-economics-token-costs-model-pricing-and-governance-risk-508cefb6d9",
         "title": "Enterprise AI Economics: Token Costs, Model Pricing, and Governance Risk",
         "date": "2026-07-18",
-        "shared_tags": []
-      },
-      {
-        "id": "2026-07-10-understanding-microsoft-power-platform-skills-plugin-marketplace-architecture-an",
-        "title": "Understanding Microsoft Power Platform Skills: Plugin Marketplace Architecture and Workflow",
-        "date": "2026-07-10",
         "shared_tags": []
       }
     ]
@@ -8386,19 +8437,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
         "shared_tags": [
           "ai-agents"
         ]
       },
       {
-        "id": "2026-05-23-decomposing-an-llm-agent-when-to-use-tools-skills-or-subagents",
-        "title": "Decomposing an LLM Agent: When to Use Tools, Skills, or Subagents",
-        "date": "2026-05-23",
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
         "shared_tags": [
-          "tool-use"
+          "ai-agents"
         ]
       }
     ]
