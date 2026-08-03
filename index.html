@@ -352,6 +352,57 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+    "title": "Context Engineering for a Personal Knowledge Base",
+    "date": "2026-08-03",
+    "tags": [
+      "ai-agents",
+      "context-engineering",
+      "knowledge-management",
+      "prompting"
+    ],
+    "source": "https://www.youtube.com/watch?v=gQeRjkb_Hlc",
+    "content": "## Overview\n\nThis lesson distills a YouTube transcript about \"new rules\" for working with Claude-style coding agents. The core takeaway is that stronger models may need less rigid prompting and more structured context design: thin top-level routing, selective loading of files, lightweight tool descriptions, richer reference artifacts, and deliberate memory capture. Evidence in the source is partly second-hand: the speaker summarizes an Anthropic engineer's article and mixes it with examples from his own workspace.\n\n## Key Concepts\n\n- **Context engineering**: A model's output depends on more than the current prompt. In the source, context includes connected applications and tools, recurring routines, stored memory, and reusable skills or procedures.\n- **Judgment over rigid rules**: The transcript argues that newer models can perform better when given higher-level guidance instead of many narrow rules. The practical implication is to describe intent and style, then let the agent adapt to local context.\n- **Design interfaces instead of many examples**: Rather than constraining the model with repeated examples, the source recommends giving it a design system or brand interface. This preserves consistency while still allowing exploration.\n- **Progressive disclosure**: Do not front-load every rule and reference into one giant root file. Use a thin top-level router that points to sub-routers and only load detailed context when the task actually needs it.\n- **Token efficiency**: A thinner always-loaded instruction file reduces repeated token spend at session start. The lesson is operational as much as conceptual: better context structure can improve both cost and responsiveness.\n- **Automatic and deliberate memory**: The transcript claims newer tooling can save useful memories automatically, but the speaker still recommends explicit end-of-session review to update skills, memory files, and workflow docs when the session produced durable learning.\n- **Richer references**: Markdown is still useful, but the source argues that newer models can work with more expressive artifacts such as HTML. These can be better for visual systems like brand books, infographics, and interface specs.\n\n## How It Works\n\nTreat your knowledge base as a layered context system. Start with a small root instruction file whose job is routing, not storing every rule. Under that, create domain-specific index files for areas like content, product, operations, or personal work. For each domain, store reusable skills, memory files, and references close to the work they support. When defining agent behavior, prefer short intent-level guidance over long rule lists, and prefer design systems over many copied examples. Keep tool descriptions simple unless the task truly needs more detail. When a concept is visual or structural, consider a richer artifact such as HTML instead of plain markdown. After productive sessions, capture durable learnings by updating memory or skills so the system improves over time. The six shifts presented in the transcript are: more judgment, design interfaces over examples, progressive disclosure over loading everything up front, less repetition in tool instructions, more automatic memory behavior, and richer references over simple specs.\n\n## Training Exercise\n\nPick one area of your knowledge base, such as writing or research. Create a thin root router file with links to 3 sub-files only. In one sub-file, replace a long block of rules with 5-7 high-level principles. In another, replace example-heavy guidance with a small design interface or checklist. Then run the same task twice: once with your old setup and once with the routed setup. Compare output quality, token usage if visible, and how easily you can maintain the files. Finish by writing a short calibration note describing one rule, one memory, and one reference artifact you would keep.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=gQeRjkb_Hlc)",
+    "related": [
+      {
+        "id": "2026-05-23-llm-wiki-structured-personal-knowledge-as-an-alternative-to-naive-rag",
+        "title": "LLM Wiki: Structured Personal Knowledge as an Alternative to Naive RAG",
+        "date": "2026-05-23",
+        "shared_tags": [
+          "knowledge-management",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
+        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
+        "date": "2026-08-02",
+        "shared_tags": [
+          "ai-agents",
+          "context-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      },
+      {
+        "id": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "title": "2026-07-29-using-the-last-30-days-skill-for-fast-sentiment-focused-research-in-clau-63704534b1",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
     "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
     "date": "2026-08-03",
@@ -427,6 +478,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-agents",
+          "context-engineering"
+        ]
+      },
+      {
         "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
         "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
         "date": "2026-08-03",
@@ -440,14 +500,6 @@ source_characters: 18420
         "date": "2026-07-29",
         "shared_tags": [
           "ai-agents"
-        ]
-      },
-      {
-        "id": "2026-07-11-ai-industry-strategy-signals-ipo-timing-pricing-wars-open-source-risk-and-platfo",
-        "title": "AI Industry Strategy Signals: IPO Timing, Pricing Wars, Open Source Risk, and Platform Power",
-        "date": "2026-07-11",
-        "shared_tags": [
-          "open-source"
         ]
       }
     ]
@@ -933,12 +985,12 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents",
-          "prompt-engineering"
+          "knowledge-management"
         ]
       }
     ]
@@ -1030,9 +1082,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
-        "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
-        "date": "2026-08-01",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "knowledge-management"
         ]
@@ -1054,6 +1106,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains a research workflow described in the video: using the open-source \"last 30 days\" skill as a middle ground between shallow web search and slow, expensive deep-research agent runs. The source presents it as a way to gather cross-platform user sentiment from places like Reddit, YouTube, Hacker News, GitHub, TikTok, Instagram, and X/Twitter, then synthesize repeated patterns into a brief plus raw Markdown/JSON outputs. Because the evidence here is a video transcript rather than the repository itself, implementation details should be treated as reported behavior, not independently verified internals.\n\n## Key Concepts\n\n- **Research middle ground**: The main idea is to avoid choosing only between fast but shallow web search and very slow deep research. The skill is presented as a practical in-between option for questions where user sentiment matters.\n- **Sentiment from primary discussion spaces**: Instead of relying mainly on articles that rank well in search engines, the workflow pulls from discussion-heavy platforms and includes comments or transcripts, aiming to capture what people are actually saying.\n- **Cross-platform synthesis**: The reported value comes from checking many platforms at once and then ranking themes that recur across multiple sources, which reduces the chance that one isolated post dominates the summary.\n- **Deterministic collection plus AI summarization**: The video says execution uses a deterministic Python script to collect data, after which the results are synthesized into a brief. This suggests a split between structured gathering and model-based interpretation.\n- **Selective source scoping**: The user can apparently run the skill across all relevant platforms or narrow it to one source such as Reddit, YouTube, or Twitter/X when they want tighter or cheaper research.\n- **Operational tradeoffs**: The source emphasizes setup and cost differences across platforms: some sources need no API key, some need extra dependencies, and some require paid APIs. X/Twitter is described as the main paid source, while some other services are presented as subsidized or free for many calls.\n\n## How It Works\n\nUse the skill when your question depends on grassroots reactions, comment-level feedback, or repeated patterns across communities. Start with a topic prompt such as \"What are people saying about X?\" The video says the skill rewrites the prompt, chooses relevant communities or accounts, searches sources in parallel, reads beyond titles into comments/transcripts, and then ranks themes that appear repeatedly across platforms. Treat the final brief as a synthesized map of sentiment, then inspect the raw Markdown or JSON when you need to verify claims, pull examples, or build your own notes. A practical rule from the source is: use ordinary web search for quick surface facts, use this skill for sentiment-heavy research, and reserve deep research for cases that truly need much broader or slower investigation.\n\n## Training Exercise\n\nPick one product, tool, or public announcement you care about. Write three research questions: one about general reception, one about criticism, and one about practical adoption. For each, imagine running the skill once with all relevant sources and once with only a single platform such as Reddit or YouTube. Compare what kinds of insights each run would likely produce, note which claims would still need manual verification in the raw outputs, and write a short rule for when you would choose this workflow over web search or deep research.\n\n## Further Reading\n\n- [YouTube video source](https://www.youtube.com/watch?v=ShYfGB3x5mM)",
     "related": [
       {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      },
+      {
         "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
         "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
         "date": "2026-07-29",
@@ -1073,14 +1134,6 @@ source_characters: 18420
       {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents"
-        ]
-      },
-      {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
         "date": "2026-07-21",
         "shared_tags": [
           "ai-agents"
@@ -1470,6 +1523,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson argues that the highest-leverage way to improve AI-assisted software development is not obsessing over the newest model, but improving the harness around it: task scoping, codebase design, tests, documentation, skills, and execution environment. The source presents this mainly as practitioner opinion and workflow advice rather than controlled evidence. The central claim is that AI is strongest at tactical programming work, so humans gain more by staying responsible for strategy, architecture, product intent, and system improvement.\n\n## Key Concepts\n\n- **Strategic vs. tactical programming**: Using John Ousterhout’s distinction, the speaker frames tactical work as writing code, fixing syntax, and handling local bugs, while strategic work is shaping architecture, interfaces, task boundaries, and long-term velocity. The lesson’s core recommendation is to let AI absorb more tactical work while the human stays accountable for strategic decisions.\n- **Harness over model**: The speaker repeatedly argues that teams over-focus on the model and under-focus on the surrounding system. In this lesson, 'harness' includes prompts, skills, sandboxing, codebase quality, tests, documentation, and review loops. The claim is not that models do not matter, but that harness quality is more controllable and often more durable than model-specific tuning.\n- **Procedure skills vs. ability skills**: The source distinguishes between skills the user explicitly invokes ('procedures') and skills the model may invoke on its own ('abilities'). The speaker prefers procedures because they keep the human in control and avoid leaking many skill descriptions into the context window. A short 'grill me' skill is given as an example of a lightweight, high-leverage procedure.\n- **Stateful teaching workflows**: The demonstrated 'teach' skill is described as stateful because it stores mission context, learning records, references, and lessons in the workspace. The educational idea is that a good teacher should remember the learner’s goal, current level, and prior progress rather than treat each interaction as stateless prompting.\n- **AFK agents, queues, and checkpoints**: The speaker prefers 'away-from-keyboard' agent work for scoped tasks, especially when run in sandboxes or CI. He pushes back on hype around endless 'agentic loops' and instead describes software work as a queue of tasks with human-in-the-loop checkpoints placed as far to the right as safety allows.\n- **Agent experience (AX)**: Alongside developer experience (DX), the source introduces 'agent experience': how easy a codebase is for an AI agent to navigate and change safely. Better architecture, clearer boundaries, useful docs, and stronger tests are presented as improvements that help both humans and agents.\n- **Self-improving systems**: When an AI finds a bug or security issue, the recommended response is not just to patch that instance but to ask why the system allowed it. The speaker treats review, tests, refactoring, recurring audits, and richer observability as feedback loops that improve the harness over time.\n\n## How It Works\n\nUse AI as a scalable tactical workforce, but do not delegate product vision or architectural judgment. Start with a clean setup rather than a bloated one: remove unnecessary skills, plugins, and global instructions, then observe the agent’s default behavior. Add back only the procedures you can justify. Scope tasks tightly, design interfaces up front, and give the agent a codebase that is easy to change. Prefer AFK execution for bounded tasks, ideally inside sandboxes and automation systems such as GitHub Actions, but keep human review checkpoints for risky or poorly understood changes. Treat every surprising success or failure as harness feedback: if an agent found a deep bug, improve the review, testing, or auditing system so similar issues are found systematically next time. Several concrete examples in the source support this workflow, including a stateful 'teach' skill that generates HTML lessons and a sandbox-based setup for parallel agent execution. Broader claims, such as seniors getting '10x' more value from AI or tactical programming being 'gone,' are presented as experience-based opinions, not formal evidence.\n\n## Training Exercise\n\nCreate a small repo or scratch workspace and run this five-step harness audit. 1. Write a `mission.md` with one concrete software goal, success criteria, and the user problem. 2. Remove optional AI setup bloat: extra skills, plugins, or standing instructions you cannot justify. 3. Pick one narrow task and write a brief that specifies scope, interfaces to touch, tests to run, and what not to change. 4. After the task is completed, review not only the code change but the process: where did the agent hesitate, waste tokens, or need clarification? 5. Make one harness improvement based on that review, such as better docs, a clearer interface, a regression test, or a reusable procedure skill. Repeat this on three tasks and compare whether later tasks require less steering.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=nQwJVHCtDDY)\n- [AI Hero](https://aihero.dev)\n- [AI Hero Skills](https://aihero.dev/skills)",
     "related": [
       {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-agents",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
         "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
         "date": "2026-07-19",
@@ -1494,14 +1556,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "software-design"
-        ]
-      },
-      {
-        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
-        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
-        "date": "2026-08-02",
-        "shared_tags": [
-          "ai-agents"
         ]
       }
     ]
@@ -2055,21 +2109,21 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents",
           "prompting"
         ]
       },
       {
-        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
-        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
-        "date": "2026-07-29",
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
         "shared_tags": [
-          "prompting",
-          "software-engineering"
+          "ai-agents",
+          "prompting"
         ]
       }
     ]
@@ -2419,6 +2473,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
         "title": "AI-Assisted Project Controls for Construction Projects",
         "date": "2026-07-30",
@@ -2432,14 +2494,6 @@ source_characters: 18420
         "date": "2026-07-29",
         "shared_tags": [
           "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-21-designing-practical-ai-automations-bottlenecks-proactivity-traces-and-ob-299bb40e9f",
-        "title": "Designing Practical AI Automations: Bottlenecks, Proactivity, Traces, and Objectives",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-workflows"
         ]
       }
     ]
@@ -2744,19 +2798,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
-        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
-        "date": "2026-07-19",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "prompting"
         ]
       },
       {
-        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
-        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
-        "date": "2026-07-17",
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
         "shared_tags": [
-          "ai-coding"
+          "prompting"
         ]
       }
     ]
@@ -2785,6 +2839,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-agents",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
         "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
         "date": "2026-07-29",
@@ -2800,15 +2863,6 @@ source_characters: 18420
         "shared_tags": [
           "evaluation",
           "workflow-design"
-        ]
-      },
-      {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "ai-agents",
-          "evaluation"
         ]
       }
     ]
@@ -4334,9 +4388,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
-        "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
-        "date": "2026-06-20",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents"
         ]
