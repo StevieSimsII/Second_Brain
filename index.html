@@ -506,6 +506,58 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-08-03-using-a-long-voice-first-prompt-to-brief-a-coding-llm-814ea4acd9",
+    "title": "Using a Long Voice-First Prompt to Brief a Coding LLM",
+    "date": "2026-08-03",
+    "tags": [
+      "prompting",
+      "llm-workflows",
+      "voice-input",
+      "ai-coding",
+      "web-design"
+    ],
+    "source": "https://www.youtube.com/watch?v=r8ih5HRRLLU",
+    "content": "## Overview\n\nThis lesson teaches a practical prompting pattern from the source: give a coding LLM a long, messy, spoken brief instead of over-editing a short typed prompt. The claimed benefit is better context gathering up front, which reduces later corrections. The source demonstrates this with a website request for a naturopath audience, but it is a transcript of a video demo, not formal product documentation, so interface details and capability claims should be treated as reported by the speaker rather than independently verified facts.\n\n## Key Concepts\n\n- **Ramble session**: Start with a long, stream-of-consciousness description of the project. The source argues that modern LLMs can reconstruct messy intent surprisingly well and return a cleaner version of the user's thinking.\n- **Voice over typing**: The source recommends speaking when you have many partially formed ideas. This lowers friction, captures more context, and avoids spending effort on wording before the model understands the task.\n- **Goal framing**: Even in a messy brief, the model works better when the desired outcome is explicit. The source mentions a specific goal command and also recommends restating the goal in one line at the end.\n- **Useful briefing dimensions**: The source lists several dimensions to mention: desire, quality bar, tools available, discovery, creative freedom, verification loop, and delivery format. These act like a checklist for richer project context.\n- **Plan mode vs. execution mode**: If you want control before any building happens, ask for a plan first. The source says plan mode lets the human review the approach before the model starts implementation.\n- **Verification loop**: A strong prompt should say how the model checks its own work. In the example, the speaker claims the system researched the audience, generated assets, and checked mobile optimization before finishing.\n\n## How It Works\n\nUse this pattern when you know the outcome you want better than the exact instructions. First, describe the project in plain language for several minutes, including uncertainties. Second, give the model enough structure to act: what you want, what good looks like, what tools it may use, how much autonomy it has, how it should verify quality, and what final artifact to produce. Third, restate the goal clearly in one sentence. If you want a checkpoint, ask for a plan before execution.\n\nA reusable template based on the source is:\n\"I want to build [outcome]. I am not fully sure about [uncertainties]. Research the audience, language, design direction, and any missing domain context. Aim for [quality bar]. Use any available tools, repositories, internet research, or existing skills as needed. Make reasonable creative decisions on your own. Verify the result by checking [criteria]. Deliver it as [format] in [location]. Final goal: [single-sentence goal].\"\n\nIn the source's example, the user asks for a beautiful naturopath website without knowing the domain well. The model is instructed to research the audience, choose visuals and copy, decide on a CTA, and produce a local HTML site. The transcript claims the result included audience-specific copy, generated images, pricing research, and mobile checks. Because this is a narrated demo, treat those outputs as claims about what happened in that session, not guaranteed behavior in every run.\n\n## Training Exercise\n\nExercise: brief a coding LLM to create a one-page site for a niche service you do not know well.\n\n1. Pick a domain such as \"sleep coach,\" \"estate planner,\" or \"dog behavior consultant.\"\n2. Speak or write a 5-10 minute ramble covering: what you think the service might be, who the audience could be, what action you want visitors to take, what style might fit, and what you are unsure about.\n3. Convert the ramble into a structured brief with these headings: desire, quality bar, tools/discovery, creative freedom, verification loop, delivery, final goal.\n4. Ask the model for a plan first. Review whether the plan fills in your missing domain knowledge instead of guessing blindly.\n5. Then allow execution and compare the final result against your original ramble.\n\nSuccess criteria: the final brief is clearer than your raw notes, the model identifies missing information instead of hiding uncertainty, and the deliverable matches the stated goal and verification criteria.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=r8ih5HRRLLU)",
+    "related": [
+      {
+        "id": "2026-05-22-practical-prompting-patterns-for-claude-code-from-anthropic-engineer-workflows",
+        "title": "Practical Prompting Patterns for Claude Code from Anthropic Engineer Workflows",
+        "date": "2026-05-22",
+        "shared_tags": [
+          "ai-coding",
+          "llm-workflows",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
+        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
+        "date": "2026-05-25",
+        "shared_tags": [
+          "ai-coding",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
+        "title": "Practical Patterns for Using Codex as an Engineering Workbench",
+        "date": "2026-07-15",
+        "shared_tags": [
+          "ai-coding",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-07-22-strategic-programming-with-ai-build-the-harness-not-just-the-prompt-f834d63396",
+        "title": "Strategic Programming With AI: Build the Harness, Not Just the Prompt",
+        "date": "2026-07-22",
+        "shared_tags": [
+          "prompting"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
     "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
     "date": "2026-08-02",
@@ -2533,19 +2585,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-using-a-long-voice-first-prompt-to-brief-a-coding-llm-814ea4acd9",
+        "title": "Using a Long Voice-First Prompt to Brief a Coding LLM",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
         "title": "AI-Assisted Project Controls for Construction Projects",
         "date": "2026-07-30",
         "shared_tags": [
           "ai-workflows"
-        ]
-      },
-      {
-        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
-        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
-        "date": "2026-07-29",
-        "shared_tags": [
-          "prompting"
         ]
       }
     ]
@@ -2841,6 +2893,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-using-a-long-voice-first-prompt-to-brief-a-coding-llm-814ea4acd9",
+        "title": "Using a Long Voice-First Prompt to Brief a Coding LLM",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-coding",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
         "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
         "date": "2026-05-25",
@@ -2853,14 +2914,6 @@ source_characters: 18420
         "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
         "title": "Context Engineering for a Personal Knowledge Base",
         "date": "2026-08-03",
-        "shared_tags": [
-          "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
-        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
-        "date": "2026-07-19",
         "shared_tags": [
           "prompting"
         ]
@@ -6782,12 +6835,12 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
-        "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
-        "date": "2026-05-27",
+        "id": "2026-08-03-using-a-long-voice-first-prompt-to-brief-a-coding-llm-814ea4acd9",
+        "title": "Using a Long Voice-First Prompt to Brief a Coding LLM",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-coding",
-          "developer-tools"
+          "prompting"
         ]
       }
     ]
@@ -7327,6 +7380,16 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-using-a-long-voice-first-prompt-to-brief-a-coding-llm-814ea4acd9",
+        "title": "Using a Long Voice-First Prompt to Brief a Coding LLM",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "ai-coding",
+          "llm-workflows",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-07-15-practical-patterns-for-using-codex-as-an-engineering-workbench",
         "title": "Practical Patterns for Using Codex as an Engineering Workbench",
         "date": "2026-07-15",
@@ -7342,14 +7405,6 @@ source_characters: 18420
         "shared_tags": [
           "claude-code",
           "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-06-06-claude-code-routines-event-driven-and-scheduled-automations-for-engineering-work",
-        "title": "Claude Code Routines: Event-Driven and Scheduled Automations for Engineering Workflows",
-        "date": "2026-06-06",
-        "shared_tags": [
-          "claude-code"
         ]
       }
     ]
