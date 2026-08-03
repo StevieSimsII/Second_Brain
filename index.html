@@ -403,6 +403,57 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+    "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+    "date": "2026-08-03",
+    "tags": [
+      "agent-workflows",
+      "prompt-engineering",
+      "developer-tools",
+      "knowledge-management"
+    ],
+    "source": "https://github.com/shanraisshan/claude-code-best-practice/blob/main/tips/claude-thariq-tips-17-mar-26.md",
+    "content": "## Overview\n\nThis lesson distills what the supplied repository explicitly shows about Claude Code skills. The strongest evidence comes from the README’s architecture tables, the skills tips attributed to Thariq on March 17, 2026, and the repository file tree. The repo is documentation-first: it includes `best-practice/`, `implementation/`, `reports/`, and `tips/` directories plus `.claude/agents`, `.claude/commands`, `.claude/rules`, hooks, and config files. The README says skills live at `.claude/skills/\u003cname>/SKILL.md`, but that folder is not visible in the provided file tree, so treat skill structure guidance here as recommended practice documented by the repo rather than an observed implemented skill directory in this snapshot.\n\n## Key Concepts\n\n- **Skills as structured folders**: The source says skills are folders, not single files. A skill is centered on `SKILL.md` and may include subdirectories like `references/`, `scripts/`, and `examples/` for progressive disclosure.\n- **Progressive disclosure**: A recurring theme is to give the model targeted supporting material only when relevant. The repo links this idea to skills and recommends subfolders and embedded assets so the model can use existing context, scripts, and examples instead of reconstructing them.\n- **Skill triggers are operational**: The source says the skill description field should be written as a trigger condition, not as a summary. In practice, that means describing when the skill should fire, so invocation becomes more reliable.\n- **Goals and constraints over rigid procedures**: Thariq’s tips explicitly advise against over-explaining obvious steps and against railroading the model. The lesson is to specify the outcome, constraints, and failure modes rather than a brittle step-by-step script.\n- **Gotchas as high-signal memory**: The source recommends a 'Gotchas' section in every skill. Its purpose is to accumulate known failure points over time, making the skill more durable and more useful than a generic instruction file.\n- **Context isolation with skills**: The README’s skills tips mention `context: fork`, which runs a skill in an isolated subagent so the main context receives the result rather than all intermediate tool output. This is presented as a way to keep the primary session cleaner.\n\n## How It Works\n\nStart by framing a skill as a reusable unit for a repeated workflow. According to the source, the recommended pattern is: define a clear trigger in the skill description, store the skill as a folder with `SKILL.md`, and add only the non-obvious guidance that changes model behavior. Put detailed domain references, reusable scripts, and examples in subfolders so the model can pull them in progressively. Add a 'Gotchas' section to capture mistakes the model keeps making. When a task would otherwise flood the main session with searches and dead ends, use isolated execution patterns such as `context: fork` so only the conclusion returns. In the supplied repo, this skill philosophy sits inside a broader architecture of commands, agents, rules, hooks, reports, and implementation notes, which reinforces that skills are one primitive in a larger workflow system rather than a standalone magic file.\n\n## Training Exercise\n\nDraft a skill for a workflow you repeat often, such as release verification or bug triage. Write a one-paragraph trigger description that says when the skill should be used. Then outline a `SKILL.md` with four sections: goal, constraints, gotchas, and outputs. Add three supporting assets you would want in a real folder structure: one reference note, one script, and one example. Finally, revise the skill by deleting any obvious instructions and replacing them with one or two high-signal failure cases the model should avoid.\n\n## Further Reading\n\n- [Claude Code Skills Documentation](https://code.claude.com/docs/en/skills)\n- [Lessons from Building Claude Code: How We Use Skills (Thariq)](https://x.com/trq212/status/2033949937936085378)\n- [Skills for Mono-repos](reports/claude-skills-for-larger-mono-repos.md)\n- [Official Skills](https://github.com/anthropics/skills/tree/main/skills)",
+    "related": [
+      {
+        "id": "2026-05-22-karpathy-inspired-agent-coding-rules-as-a-reusable-claude-code-skill",
+        "title": "Karpathy-Inspired Agent Coding Rules as a Reusable Claude Code Skill",
+        "date": "2026-05-22",
+        "shared_tags": [
+          "developer-tools",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
+        "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
+        "date": "2026-08-01",
+        "shared_tags": [
+          "developer-tools",
+          "knowledge-management"
+        ]
+      },
+      {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "knowledge-management",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
+        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "developer-tools",
+          "prompt-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
     "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
     "date": "2026-08-03",
@@ -527,6 +578,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "developer-tools",
+          "knowledge-management"
+        ]
+      },
+      {
         "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
         "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
         "date": "2026-07-29",
@@ -538,14 +598,6 @@ source_characters: 18420
         "id": "2026-07-17-vs-code-1127-agent-workflows-browser-automation-and-enterprise-controls",
         "title": "VS Code 1.127: Agent Workflows, Browser Automation, and Enterprise Controls",
         "date": "2026-07-17",
-        "shared_tags": [
-          "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-07-16-vs-code-1129-agent-host-agents-window-workflow-and-modern-ui-preview",
-        "title": "VS Code 1.129: Agent Host, Agents Window Workflow, and Modern UI Preview",
-        "date": "2026-07-16",
         "shared_tags": [
           "developer-tools"
         ]
@@ -1900,18 +1952,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
-        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
-        "date": "2026-07-09",
+        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+        "date": "2026-08-03",
         "shared_tags": [
           "developer-tools",
-          "llm"
+          "prompt-engineering"
         ]
       },
       {
-        "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
-        "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
-        "date": "2026-07-06",
+        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
+        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
+        "date": "2026-07-09",
         "shared_tags": [
           "developer-tools",
           "llm"
@@ -6869,11 +6921,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
-        "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
-        "date": "2026-08-01",
+        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+        "date": "2026-08-03",
         "shared_tags": [
-          "multi-agent-systems"
+          "prompt-engineering"
         ]
       }
     ]
@@ -7221,6 +7273,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "developer-tools",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-05-22-practical-prompting-patterns-for-claude-code-from-anthropic-engineer-workflows",
         "title": "Practical Prompting Patterns for Claude Code from Anthropic Engineer Workflows",
         "date": "2026-05-22",
@@ -7236,15 +7297,6 @@ source_characters: 18420
         "shared_tags": [
           "developer-tools",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
-        "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
-        "date": "2026-05-27",
-        "shared_tags": [
-          "cursor",
-          "developer-tools"
         ]
       }
     ]
