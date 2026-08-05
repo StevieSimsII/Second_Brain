@@ -297,6 +297,57 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+    "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+    "date": "2026-08-05",
+    "tags": [
+      "ai-coding",
+      "documentation",
+      "workflow-design",
+      "prompt-engineering",
+      "knowledge-management"
+    ],
+    "source": "https://www.youtube.com/watch?v=gaDdrDdczO4",
+    "content": "## Overview\n\nThis lesson extracts a practical pattern from a video about a skills repo release. The core idea is to treat AI assistance as a set of explicit, documented, reusable skills rather than a pile of ad hoc prompts. The speaker describes a workflow that starts with documentation, moves through specification and implementation, and adds support skills for clarification, agent-facing writing, deterministic setup flows, and collaboration. Some claims in the source, such as repository ranking, model quality, and tool behavior across coding harnesses, are presented as the speaker's account rather than independently verified evidence.\n\n## Key Concepts\n\n- **Skills as reusable operating procedures**: A skill is presented as a durable instruction bundle that helps an agent perform a recurring task consistently. In the source, skills are documented individually and organized into a broader engineering flow.\n- **Documentation as the entry point**: The speaker emphasizes a documentation site that explains both the overall flow and each skill. This turns the skill library into a teachable system, not just a collection of files.\n- **Explicit invocation and context control**: A recurring concern is keeping unnecessary skill text out of the agent context until needed. The source describes sidecar OpenAI YAML files and an `allow implicit invocation false` setting so some skills are only pulled in when invoked.\n- **Clarification skills for bad model output**: The `wait what?` skill addresses verbose or unclear model responses by forcing simpler language and grounding the reply in the team's own vocabulary from context documents.\n- **Question graphs instead of one-question turns**: The updated `Grill Me` skill treats questions as a dependency graph. It asks only the questions that are currently answerable, grouped into rounds, which reduces slow back-and-forth when many questions are easy.\n- **Writing for agents as a separate discipline**: The `writing for agents` skill generalizes beyond writing skills themselves. It is meant to improve agent-readable documents such as `agents.md` or similar configuration files so they are concise and predictable.\n- **Deterministic human-in-the-loop automation**: The `wizard` skill generates interactive bash wizards for steps an agent should not fully automate, such as logging into services or pasting secrets. The value is guided execution without handing control to an autonomous browser workflow.\n- **Exporting decisions for collaboration**: The `to questionnaire` skill converts an agent's questions into a document that other people can review outside the chat. This is a workaround for teams that cannot yet collaborate directly with an agent in shared tools.\n\n## How It Works\n\nA practical way to apply the lesson is to build your knowledge base around repeatable AI workflows. First, document the main path of work in plain language so a reader can see the sequence of tasks and the purpose of each skill. Second, separate always-on guidance from on-demand guidance: keep specialized instructions hidden until explicitly invoked when possible. Third, add repair skills for common failure modes such as unclear output; the source's example is a simplification skill that rewrites answers in plain technical language and the user's own terminology. Fourth, model discovery and planning as structured questioning: instead of asking one question per turn, group only the currently answerable questions into rounds based on dependencies. Fifth, write agent-facing documents intentionally, because the source argues that better-written instructions improve both readability and performance. Sixth, automate only the parts that benefit from automation; for sensitive or awkward setup work, generate deterministic human-guided scripts rather than giving the agent full control. Finally, when other humans need to weigh in, export the open questions into a shareable questionnaire and bring the answers back into the workflow.\n\n## Training Exercise\n\nPick one recurring task you do with an AI coding agent, such as setting up a service, refining a spec, or reviewing implementation decisions. Write a mini skill pack for it with six parts: 1. a one-paragraph purpose statement, 2. a short step-by-step workflow, 3. one explicit trigger for when the skill should be invoked, 4. one clarification rule that forces plain language, 5. a round-based question list that separates prerequisite questions from follow-up questions, and 6. a questionnaire version that a non-technical collaborator could answer in a document. Then test whether a new reader could use your lesson without extra context.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=gaDdrDdczO4)\n- [Skills documentation site mentioned in the source](aihero.dev/skills)",
+    "related": [
+      {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "prompt-engineering",
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
+        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "knowledge-management",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "knowledge-management",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
+        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "prompt-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-04-ai-compute-scaling-semiconductors-bottlenecks-and-why-capacity-is-won-ye-fe6f03aed0",
     "title": "AI Compute Scaling: Semiconductors, Bottlenecks, and Why Capacity Is Won Years Ahead",
     "date": "2026-08-04",
@@ -799,6 +850,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills what the supplied repository explicitly shows about Claude Code skills. The strongest evidence comes from the README’s architecture tables, the skills tips attributed to Thariq on March 17, 2026, and the repository file tree. The repo is documentation-first: it includes `best-practice/`, `implementation/`, `reports/`, and `tips/` directories plus `.claude/agents`, `.claude/commands`, `.claude/rules`, hooks, and config files. The README says skills live at `.claude/skills/\u003cname>/SKILL.md`, but that folder is not visible in the provided file tree, so treat skill structure guidance here as recommended practice documented by the repo rather than an observed implemented skill directory in this snapshot.\n\n## Key Concepts\n\n- **Skills as structured folders**: The source says skills are folders, not single files. A skill is centered on `SKILL.md` and may include subdirectories like `references/`, `scripts/`, and `examples/` for progressive disclosure.\n- **Progressive disclosure**: A recurring theme is to give the model targeted supporting material only when relevant. The repo links this idea to skills and recommends subfolders and embedded assets so the model can use existing context, scripts, and examples instead of reconstructing them.\n- **Skill triggers are operational**: The source says the skill description field should be written as a trigger condition, not as a summary. In practice, that means describing when the skill should fire, so invocation becomes more reliable.\n- **Goals and constraints over rigid procedures**: Thariq’s tips explicitly advise against over-explaining obvious steps and against railroading the model. The lesson is to specify the outcome, constraints, and failure modes rather than a brittle step-by-step script.\n- **Gotchas as high-signal memory**: The source recommends a 'Gotchas' section in every skill. Its purpose is to accumulate known failure points over time, making the skill more durable and more useful than a generic instruction file.\n- **Context isolation with skills**: The README’s skills tips mention `context: fork`, which runs a skill in an isolated subagent so the main context receives the result rather than all intermediate tool output. This is presented as a way to keep the primary session cleaner.\n\n## How It Works\n\nStart by framing a skill as a reusable unit for a repeated workflow. According to the source, the recommended pattern is: define a clear trigger in the skill description, store the skill as a folder with `SKILL.md`, and add only the non-obvious guidance that changes model behavior. Put detailed domain references, reusable scripts, and examples in subfolders so the model can pull them in progressively. Add a 'Gotchas' section to capture mistakes the model keeps making. When a task would otherwise flood the main session with searches and dead ends, use isolated execution patterns such as `context: fork` so only the conclusion returns. In the supplied repo, this skill philosophy sits inside a broader architecture of commands, agents, rules, hooks, reports, and implementation notes, which reinforces that skills are one primitive in a larger workflow system rather than a standalone magic file.\n\n## Training Exercise\n\nDraft a skill for a workflow you repeat often, such as release verification or bug triage. Write a one-paragraph trigger description that says when the skill should be used. Then outline a `SKILL.md` with four sections: goal, constraints, gotchas, and outputs. Add three supporting assets you would want in a real folder structure: one reference note, one script, and one example. Finally, revise the skill by deleting any obvious instructions and replacing them with one or two high-signal failure cases the model should avoid.\n\n## Further Reading\n\n- [Claude Code Skills Documentation](https://code.claude.com/docs/en/skills)\n- [Lessons from Building Claude Code: How We Use Skills (Thariq)](https://x.com/trq212/status/2033949937936085378)\n- [Skills for Mono-repos](reports/claude-skills-for-larger-mono-repos.md)\n- [Official Skills](https://github.com/anthropics/skills/tree/main/skills)",
     "related": [
       {
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "knowledge-management",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-05-22-karpathy-inspired-agent-coding-rules-as-a-reusable-claude-code-skill",
         "title": "Karpathy-Inspired Agent Coding Rules as a Reusable Claude Code Skill",
         "date": "2026-05-22",
@@ -822,15 +882,6 @@ source_characters: 18420
         "date": "2026-07-29",
         "shared_tags": [
           "knowledge-management",
-          "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-21-prompt-caching-in-ai-coding-tools-how-cache-misses-inflate-token-costs-d78b497e80",
-        "title": "Prompt Caching in AI Coding Tools: How Cache Misses Inflate Token Costs",
-        "date": "2026-07-21",
-        "shared_tags": [
-          "developer-tools",
           "prompt-engineering"
         ]
       }
@@ -931,11 +982,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-22-strategic-programming-with-ai-build-the-harness-not-just-the-prompt-f834d63396",
-        "title": "Strategic Programming With AI: Build the Harness, Not Just the Prompt",
-        "date": "2026-07-22",
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
         "shared_tags": [
-          "prompting"
+          "ai-coding"
         ]
       }
     ]
@@ -1464,21 +1515,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "knowledge-management",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
         "title": "Designing Longer-Running AI Agent Loops and Workflows",
         "date": "2026-07-19",
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
-        "title": "Context Engineering for a Personal Knowledge Base",
-        "date": "2026-08-03",
-        "shared_tags": [
-          "ai-agents",
-          "knowledge-management"
         ]
       }
     ]
@@ -1562,19 +1613,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "knowledge-management"
+        ]
+      },
+      {
         "id": "2026-08-03-agentic-software-workflows-lessons-from-anthropics-claude-centered-engin-b0e2b379f9",
         "title": "Agentic Software Workflows: Lessons from Anthropic's Claude-Centered Engineering",
         "date": "2026-08-03",
         "shared_tags": [
           "productivity"
-        ]
-      },
-      {
-        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
-        "title": "Context Engineering for a Personal Knowledge Base",
-        "date": "2026-08-03",
-        "shared_tags": [
-          "knowledge-management"
         ]
       }
     ]
@@ -1620,11 +1671,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
         "shared_tags": [
-          "ai-agents"
+          "knowledge-management"
         ]
       }
     ]
@@ -2197,19 +2248,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "workflow-design"
+        ]
+      },
+      {
         "id": "2026-08-01-buzz-as-an-agent-first-collaboration-layer-a56972fb9d",
         "title": "Buzz as an Agent-First Collaboration Layer",
         "date": "2026-08-01",
         "shared_tags": [
           "agent-systems"
-        ]
-      },
-      {
-        "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
-        "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
-        "date": "2026-07-29",
-        "shared_tags": [
-          "evaluation"
         ]
       }
     ]
@@ -2646,6 +2697,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a transcripted discussion about how to get an AI coding agent to work longer, more reliably, and with less micromanagement. The core idea is that strong agent use is not just better prompting; it is designing feedback loops, clear exit conditions, lightweight prototypes, and verification steps. The speakers describe tools such as `/loop`, `/goal`, and reusable workflows, plus a practical video-editing example that combines transcription, UI generation, and rendering. Evidence is strongest for the workflow principles and examples shown in the transcript. Product-specific names appear to come from auto-transcribed audio and may contain recognition errors, so treat exact tool branding as approximate unless verified elsewhere.\n\n## Key Concepts\n\n- **Exit conditions over open-ended prompting**: A long-running agent needs a clear definition of done. In the transcript, `/goal` is presented as a way to remind the agent of its exit condition and discourage premature stopping when it hits friction or ambiguity.\n- **Planning as unknown-reduction**: Planning is framed less as writing one perfect spec and more as iteratively removing unknowns. That includes researching edge cases, learning how a subsystem works, generating mockups, and refining the request as new constraints appear.\n- **Prototype before expensive implementation**: The speakers recommend testing the smallest version that can validate the idea. For example, explore video overlay designs in HTML first, then move to a more expensive React or rendering pipeline only after the concept is proven.\n- **Separate creation from verification**: Workflows become more reliable when one agent produces output and another checks it against a rubric. The transcript argues this reduces self-referential bias, where a model is too lenient about its own work.\n- **Use artifacts and reports as shared working memory**: HTML artifacts, implementation notes, and explainers make agent work inspectable and reusable. They help humans review decisions and let future agent runs inherit context without starting from scratch.\n- **Keep context lean**: As models improve, the speakers argue they often need fewer examples, fewer rigid constraints, and shorter instruction files. Overly long system prompts, skills, or repo instructions can narrow the model unnecessarily and consume useful context window space.\n- **Match workflow style to task shape**: Deterministic tasks benefit from hard checks like latency targets or file matches. Squishier tasks, such as design judgment or clip quality, benefit from rubrics, exploration, and multi-agent review rather than a single pass.\n\n## How It Works\n\nUse this workflow when you want an agent to handle a substantial task with less babysitting. First, define the outcome in a way the agent can test: a rendered file, a design match, a latency target, or a rubric-scored deliverable. Second, spend time removing unknowns before asking for full execution: have the agent explain the subsystem, list failure modes, and generate a few design or implementation options. Third, ask for the smallest proof first, not the polished version. In the transcript's example, the agent transcribes a short video, creates caption and overlay UI, and renders a basic result from one prompt. Fourth, if quality is subjective, split the work into roles: one agent plans or coordinates, sub-agents generate candidate outputs, and separate verification agents review them against a rubric. Fifth, save useful instructions, scripts, notes, and artifacts so the next run starts from a better workspace instead of rebuilding everything from scratch. Throughout, prefer concise guidance that states goals and principles rather than long lists of brittle examples or prohibitions.\n\n## Training Exercise\n\nPick a task you repeat, such as generating short video clips, writing release notes, or preparing a bug-fix summary. Write a one-sentence outcome, then ask an agent to do three things in order: 1. explain the relevant subsystem and likely failure modes, 2. produce a low-cost prototype or artifact with 2-3 variations, and 3. propose a workflow that separates generation from verification using a rubric. After reviewing the result, shorten any bloated instructions and rerun the task with a clearer exit condition. Compare the second run to the first and note which unknowns mattered most.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=aVO6E181cNU)",
     "related": [
       {
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "prompt-engineering",
+          "workflow-design"
+        ]
+      },
+      {
         "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
         "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
         "date": "2026-08-02",
@@ -2670,15 +2730,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
-        "shared_tags": [
-          "ai-agents",
-          "workflow-design"
         ]
       }
     ]
@@ -5607,11 +5658,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-17-using-fable-5-for-workflow-redesign-mission-control-and-guided-vibe-codi-a94f5a9d67",
-        "title": "Using Fable 5 for workflow redesign, mission control, and guided vibe coding",
-        "date": "2026-07-17",
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
         "shared_tags": [
-          "ai-workflows"
+          "documentation"
         ]
       }
     ]
@@ -7399,9 +7450,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-03-designing-effective-claude-code-skills-from-a-documentation-first-repo-d9adf4c3a0",
-        "title": "Designing Effective Claude Code Skills from a Documentation-First Repo",
-        "date": "2026-08-03",
+        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
+        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
+        "date": "2026-08-05",
         "shared_tags": [
           "prompt-engineering"
         ]
