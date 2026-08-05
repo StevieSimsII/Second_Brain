@@ -348,6 +348,54 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-08-05-mobile-canvas-local-simulator-control-for-github-copilot-via-canvas-and--358f4eebd1",
+    "title": "Mobile Canvas: local simulator control for GitHub Copilot via canvas and MCP",
+    "date": "2026-08-05",
+    "tags": [
+      "csharp",
+      "mcp",
+      "mobile-testing",
+      "simulators",
+      "developer-tools"
+    ],
+    "source": "https://github.com/Redth/mobile-canvas-ghcp",
+    "content": "## Overview\n\nThis repository shows how to turn local mobile simulators into an interactive tool surface for both humans and agents. It packages a GitHub Copilot canvas extension, a CLI/MCP server, platform-specific iOS and Android backends, embedded web UI assets, and prebuilt runtime bundles. The practical lesson is that the project is not just a viewer: it is a loopback-only local control plane for discovering devices, booting them, streaming their screens, sending input, and exposing the same actions to an agent through MCP.\n\n## Key Concepts\n\n- **Canvas and MCP parity**: The README states that 24 canvas actions map one-to-one to 24 MCP tools named `mobile_device_*`. This makes the UI and automation surface consistent, so an agent can perform the same operations a human can trigger from the canvas.\n- **Per-user local host**: The observed architecture centers on a `mobile-canvas host`, described as a per-user singleton that starts on demand, binds only to `127.0.0.1`, authenticates canvas panels with a bootstrap secret, and exits after an idle period. This keeps the system local-first and avoids implicitly shutting down devices.\n- **Platform backends split by responsibility**: The repo separates cross-platform logic from device-specific implementations. `src/MobileCanvas.Core` holds shared service and process-running logic, while `src/MobileCanvas.iOS` and `src/MobileCanvas.Android` implement lifecycle, input, parsing, recording, and live-video behavior for each platform.\n- **Video and input are intentionally decoupled**: The README explicitly says video is split from input on both platforms. On iOS, capture uses ScreenCaptureKit and input uses `idb`; on Android, emulator gRPC handles both video and input, with encoding done before frames reach the browser. This separation supports lower-bandwidth streaming and clearer failure boundaries.\n- **Shipped binaries are part of the product**: The file tree includes `runtimes/` with prebuilt compressed binaries for multiple platforms and a native Swift helper under `native/mobile-screencap`. The README warns that source changes affecting shipped executables require rebuilding and recommitting runtime artifacts because plugin installs execute that bundle, not the raw source tree.\n- **Embedded web UI with a copied extension shell**: The lesson from the development notes is that `web/` assets are embedded resources inside the binary, while `extension.mjs` is copied directly. That affects iteration: web changes need republishing, but extension changes do not follow the same packaging path.\n\n## How It Works\n\nAt a high level, the Copilot app loads `extension.mjs`, which exposes canvas actions to a local host. That host also serves the browser-facing UI over HTTP/WebSocket and exposes MCP over stdio for VS Code, CLI, or agent use. Shared contracts live in `src/MobileCanvas.Contracts`, reusable orchestration lives in `src/MobileCanvas.Core`, and the executable entrypoint is in `src/MobileCanvas.Tool` with grouped MCP tool files such as `DeviceDiscoveryTools.cs`, `DeviceLifecycleTools.cs`, `DeviceInteractionTools.cs`, and `DeviceMediaTools.cs`. iOS support is macOS-only and depends on Xcode simulators plus `idb_companion`; Android support depends on the Android SDK tools and works cross-platform, though non-macOS video falls back to screenshot polling. The repository also includes scripts for build, install, bundle verification, and release, plus tests covering parsers, CLI behavior, services, serialization, and UI tree logic. A practical architectural pattern to reuse here is: keep a shared local host as the system of record, let both UI and agent clients talk to it, and keep device-specific code behind backend interfaces rather than inside the UI layer.\n\n## Training Exercise\n\nMap one end-to-end flow without assuming anything beyond the repository. Start from the README's agent flow `list -> select -> read udid -> deploy -> drive input`. Then inspect the file tree conceptually: use `src/MobileCanvas.Tool/Mcp/DeviceDiscoveryTools.cs` and `DeviceInteractionTools.cs` as the MCP surface, `src/MobileCanvas.Core/DeviceService.cs` as shared orchestration, and `src/MobileCanvas.iOS/IosSimulatorBackend.cs` or `src/MobileCanvas.Android/AndroidEmulatorBackend.cs` as concrete execution paths. Write a short note answering three questions: which layer owns tool definitions, which layer owns cross-platform device coordination, and which files likely hold platform-specific command execution. As a stretch goal, explain why the repo keeps `web/` embedded but `extension.mjs` copied separately, and what that implies for rebuilding after UI changes.\n\n## Further Reading\n\n- [Redth/mobile-canvas-ghcp](https://github.com/Redth/mobile-canvas-ghcp)\n- [idb_companion / fbidb](https://fbidb.io)",
+    "related": [
+      {
+        "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
+        "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
+        "date": "2026-06-05",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-05-27-ai-engineering-coach-for-vs-code-local-analytics-and-coaching-for-ai-assisted-de",
+        "title": "AI Engineering Coach for VS Code: Local Analytics and Coaching for AI-Assisted Development",
+        "date": "2026-05-27",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-05-27-using-the-microsoft-learn-mcp-server-and-typescript-cli-for-trusted-docs-retriev",
+        "title": "Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval",
+        "date": "2026-05-27",
+        "shared_tags": [
+          "mcp"
+        ]
+      },
+      {
+        "id": "2026-05-20-github-copilot-app-technical-preview-agentic-development-across-repos-worktrees-",
+        "title": "GitHub Copilot App Technical Preview: Agentic Development Across Repos, Worktrees, and GitHub",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-04-ai-compute-scaling-semiconductors-bottlenecks-and-why-capacity-is-won-ye-fe6f03aed0",
     "title": "AI Compute Scaling: Semiconductors, Bottlenecks, and Why Capacity Is Won Years Ahead",
     "date": "2026-08-04",
@@ -6035,6 +6083,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-05-mobile-canvas-local-simulator-control-for-github-copilot-via-canvas-and--358f4eebd1",
+        "title": "Mobile Canvas: local simulator control for GitHub Copilot via canvas and MCP",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "csharp"
+        ]
+      },
+      {
         "id": "2026-07-10-understanding-microsoft-power-platform-skills-plugin-marketplace-architecture-an",
         "title": "Understanding Microsoft Power Platform Skills: Plugin Marketplace Architecture and Workflow",
         "date": "2026-07-10",
@@ -6043,12 +6099,6 @@ source_characters: 18420
       {
         "id": "2026-06-05-dynamic-simulation-in-dwsim-concepts-architecture-and-a-minimal-implementation-p",
         "title": "Dynamic Simulation in DWSIM: Concepts, Architecture, and a Minimal Implementation Path",
-        "date": "2026-06-05",
-        "shared_tags": []
-      },
-      {
-        "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
-        "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
         "date": "2026-06-05",
         "shared_tags": []
       }
@@ -6085,17 +6135,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-04-28-beginner-setup-guide-for-karpathys-llm-wiki-and-local-llm-environment",
-        "title": "Beginner Setup Guide for Karpathy’s LLM Wiki and Local LLM Environment",
-        "date": "2026-04-28",
+        "id": "2026-08-05-mobile-canvas-local-simulator-control-for-github-copilot-via-canvas-and--358f4eebd1",
+        "title": "Mobile Canvas: local simulator control for GitHub Copilot via canvas and MCP",
+        "date": "2026-08-05",
         "shared_tags": [
           "developer-tools"
         ]
       },
       {
-        "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
-        "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
-        "date": "2026-07-06",
+        "id": "2026-04-28-beginner-setup-guide-for-karpathys-llm-wiki-and-local-llm-environment",
+        "title": "Beginner Setup Guide for Karpathy’s LLM Wiki and Local LLM Environment",
+        "date": "2026-04-28",
         "shared_tags": [
           "developer-tools"
         ]
@@ -10871,6 +10921,14 @@ source_characters: 18420
     "content": "## Overview\n\nThese notes explain how to configure GitHub Copilot CLI to use Ollama as the model backend through Ollama’s OpenAI-compatible API. The key idea is that Copilot CLI can send requests to a provider exposing an OpenAI-style interface, and Ollama serves that interface locally at `http://localhost:11434/v1`. This makes it possible to keep the Copilot CLI workflow while choosing local or Ollama-hosted models.\n\nThis setup is useful for developers who want more control over model selection, prefer local-first workflows, or need repeatable terminal-based AI behavior in scripts, Docker, or CI/CD. It is especially relevant for repository-level reasoning tasks, where larger context windows and coding-capable models matter.\n\n## Key Concepts\n\n- **Copilot CLI**: GitHub Copilot CLI is a terminal coding agent that can inspect repositories, answer codebase questions, suggest edits, and run commands. It supports both interactive shell use and non-interactive automation.\n- **Ollama as a provider**: Ollama acts as the backend model server, exposing local and some cloud models through a single interface that Copilot CLI can call.\n- **OpenAI-compatible API**: The integration depends on Ollama exposing an OpenAI-style endpoint at `http://localhost:11434/v1`, which matches the request format Copilot CLI expects.\n- **Wire API selection**: `COPILOT_PROVIDER_WIRE_API=responses` tells Copilot CLI which API semantics to use when talking to Ollama.\n- **Headless mode**: Headless execution lets Copilot CLI run without interactive prompts, which is helpful for scripts and CI. In this mode, `--yes` skips selection prompts and `--model` must be set explicitly.\n- **Context window requirements**: Copilot CLI often needs to read large portions of a repository and prior conversation history, so models with at least a 64k token context window are recommended.\n\n## How It Works\n\nAt a high level, Copilot CLI remains the terminal interface while Ollama becomes the LLM serving layer. Instead of talking to a default hosted provider, Copilot CLI is redirected to Ollama’s local OpenAI-compatible API.\n\nThere are two main ways to launch it:\n\n1. **Quick launcher via Ollama**\n   ```bash\n   ollama launch copilot\n   ```\n\n   Or with an explicit model:\n\n   ```bash\n   ollama launch copilot --model kimi-k2.5:cloud\n   ```\n\n   This is the simplest approach because Ollama handles the provider configuration automatically.\n\n2. **Manual configuration via environment variables**\n   ```bash\n   export COPILOT_PROVIDER_BASE_URL=http://localhost:11434/v1\n   export COPILOT_PROVIDER_API_KEY=\n   export COPILOT_PROVIDER_WIRE_API=responses\n   export COPILOT_MODEL=qwen3.5\n   copilot\n   ```\n\n   You can also run this inline for one-off commands:\n\n   ```bash\n   COPILOT_PROVIDER_BASE_URL=http://localhost:11434/v1 \\\n   COPILOT_PROVIDER_API_KEY= \\\n   COPILOT_PROVIDER_WIRE_API=responses \\\n   COPILOT_MODEL=glm-5:cloud \\\n   copilot\n   ```\n\nThe environment variables do the following:\n\n- `COPILOT_PROVIDER_BASE_URL`: points Copilot CLI to the Ollama API endpoint.\n- `COPILOT_PROVIDER_API_KEY`: typically left empty for a local Ollama instance.\n- `COPILOT_PROVIDER_WIRE_API=responses`: ensures compatible request/response behavior.\n- `COPILOT_MODEL`: selects the model, such as `qwen3.5` or `glm-5:cloud`.\n\nFor automation, headless mode is the important pattern:\n\n```bash\nollama launch copilot --model kimi-k2.5:cloud --yes -- -p \"how does this repository work?\"\n```\n\nHow that command is interpreted:\n\n1. `ollama launch copilot` starts the Copilot CLI integration.\n2. `--model kimi-k2.5:cloud` selects the backend model.\n3. `--yes` disables interactive confirmation and allows model pull behavior.\n4. `--` separates Ollama launcher arguments from native Copilot CLI arguments.\n5. `-p \"...\"` passes a prompt directly to Copilot CLI.\n\nThis makes the integration practical for repository summaries, diff explanations, scripted architecture questions, and CI-based documentation tasks.\n\nModel choice matters because Copilot CLI is usually operating on more than a short prompt. It may need to reason across multiple files and previous turns, so larger-context models generally perform better. Recommended examples from the notes include:\n\n- `kimi-k2.5:cloud`\n- `glm-5:cloud`\n- `minimax-m2.7:cloud`\n- `qwen3.5:cloud`\n- `glm-4.7-flash`\n- `qwen3.5`\n\nA practical workflow is:\n\n- Use **interactive mode** during local development to explore a repository and ask architecture questions.\n- Use **headless mode** in scripts or CI to generate summaries, notes, or implementation guidance.\n\nThe integration is lightweight: there is no custom plugin layer involved. Copilot CLI simply talks to a compatible API, and Ollama provides that API.",
     "related": [
       {
+        "id": "2026-08-05-mobile-canvas-local-simulator-control-for-github-copilot-via-canvas-and--358f4eebd1",
+        "title": "Mobile Canvas: local simulator control for GitHub Copilot via canvas and MCP",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      },
+      {
         "id": "2026-05-12-building-multi-model-ai-workflows-with-github-copilot-cli",
         "title": "Building Multi-Model AI Workflows with GitHub Copilot CLI",
         "date": "2026-05-12",
@@ -10892,15 +10950,6 @@ source_characters: 18420
         "date": "2026-04-23",
         "shared_tags": [
           "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-05-22-connecting-lm-studio-local-models-to-vs-code-for-ai-assisted-development",
-        "title": "Connecting LM Studio Local Models to VS Code for AI-Assisted Development",
-        "date": "2026-05-22",
-        "shared_tags": [
-          "developer-tools",
-          "openai-api"
         ]
       }
     ]
