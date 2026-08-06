@@ -297,6 +297,57 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+    "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+    "date": "2026-08-06",
+    "tags": [
+      "developer-tools",
+      "agent-workflows",
+      "github",
+      "automation",
+      "project-management"
+    ],
+    "source": "https://www.youtube.com/watch?v=nO-BLN2X7Jg",
+    "content": "## Overview\n\nThis lesson explains GitHub Copilot app canvases as demonstrated in the supplied video transcript. A canvas is presented as a generated, repo-aware interface that helps a developer inspect issues, PRs, releases, deployments, and actions, then take follow-up actions without leaving the Copilot app. The transcript gives strong anecdotal evidence for several workflows: issue triage with scoring, dashboard-style repo hubs, starting new agent sessions from UI actions, triggering GitHub Actions workflows, and importing community canvases. Because the source is a product demo transcript rather than formal documentation, treat the exact commands, scopes, and capabilities as demonstrated behavior, not guaranteed platform specification.\n\n## Key Concepts\n\n- **Canvas as a task-specific interface**: The speaker shows a canvas as a custom interface generated inside the GitHub Copilot app for a concrete job, such as issue triage or monitoring repository actions.\n- **Prompt-to-tool generation**: A canvas can be created from a short request such as `/create canvas`, after which the agent builds the interface based on the repo context and requested workflow.\n- **Local triage state and ranking**: In the issue-triage example, the user assigns values like urgency and effort, saves them locally, and uses those scores to stack-rank work.\n- **Repo-aware dashboards**: The transcript describes hub-style canvases that surface open PRs, open issues, stale releases, failed deployments, and other signals for selected repositories.\n- **Agent session handoff**: Canvas actions can launch new agent sessions for narrowly scoped work, such as refining a spec, planning implementation, or assigning work to a cloud session.\n- **Operational control from the canvas**: The actions-focused example shows a canvas listing workflows, recent runs, and status details, and attempting to trigger workflows when the repo supports that path.\n- **Importing and sharing canvases**: The speaker describes sharing canvases with a team or community and importing them from a Gister URL with user, project, or session scope.\n\n## How It Works\n\nUse this pattern when you want a reusable control surface for repetitive repository work. Start by defining one narrow task: triage issues, inspect workflows, review PRs, or prepare submissions. In the transcript, the speaker creates a canvas with a short prompt and lets the agent generate a working UI. The practical design principle is to ask for visible context plus a small set of actions. For issue triage, that means showing issue details, opening the issue on GitHub, assigning urgency and effort, saving scores, and optionally posting updates. For a repo hub, it means summarizing only the repositories you actively care about rather than everything you own. For agent collaboration, the canvas should expose actions that spin up focused sessions with explicit instructions like “refine the spec” instead of “implement code.” For workflow operations, the canvas can show recent runs and attempt execution, but the transcript also shows a limitation: one workflow could not be dispatched because it did not declare workflow dispatch. That is an important lesson in designing durable agent tooling: the canvas can organize and initiate work, but repository capabilities still constrain what actions succeed. Finally, canvases are shown as shareable and importable, which makes them useful as personal workflow assets or team-standard operating surfaces.\n\n## Training Exercise\n\nDesign a canvas prompt for your own repository. Keep it limited to one job: issue triage, PR review prep, or workflow monitoring. Specify 1) the data to show, 2) the actions to expose, 3) any scoring or prioritization rules, and 4) what should happen when the user clicks an action. Then evaluate your design against the transcript: does it reduce context switching, create focused agent handoffs, and respect repo-level constraints such as whether a workflow is dispatchable?\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=nO-BLN2X7Jg)",
+    "related": [
+      {
+        "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
+        "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
+        "date": "2026-06-05",
+        "shared_tags": [
+          "developer-tools",
+          "github"
+        ]
+      },
+      {
+        "id": "2026-05-20-github-copilot-app-technical-preview-agentic-development-across-repos-worktrees-",
+        "title": "GitHub Copilot App Technical Preview: Agentic Development Across Repos, Worktrees, and GitHub",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "developer-tools",
+          "github"
+        ]
+      },
+      {
+        "id": "2026-08-05-mobile-canvas-local-simulator-control-for-github-copilot-via-canvas-and--358f4eebd1",
+        "title": "Mobile Canvas: local simulator control for GitHub Copilot via canvas and MCP",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-05-12-choosing-the-right-github-copilot-plan",
+        "title": "Choosing the Right GitHub Copilot Plan",
+        "date": "2026-05-12",
+        "shared_tags": [
+          "developer-tools",
+          "github"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
     "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
     "date": "2026-08-05",
@@ -362,6 +413,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis repository shows how to turn local mobile simulators into an interactive tool surface for both humans and agents. It packages a GitHub Copilot canvas extension, a CLI/MCP server, platform-specific iOS and Android backends, embedded web UI assets, and prebuilt runtime bundles. The practical lesson is that the project is not just a viewer: it is a loopback-only local control plane for discovering devices, booting them, streaming their screens, sending input, and exposing the same actions to an agent through MCP.\n\n## Key Concepts\n\n- **Canvas and MCP parity**: The README states that 24 canvas actions map one-to-one to 24 MCP tools named `mobile_device_*`. This makes the UI and automation surface consistent, so an agent can perform the same operations a human can trigger from the canvas.\n- **Per-user local host**: The observed architecture centers on a `mobile-canvas host`, described as a per-user singleton that starts on demand, binds only to `127.0.0.1`, authenticates canvas panels with a bootstrap secret, and exits after an idle period. This keeps the system local-first and avoids implicitly shutting down devices.\n- **Platform backends split by responsibility**: The repo separates cross-platform logic from device-specific implementations. `src/MobileCanvas.Core` holds shared service and process-running logic, while `src/MobileCanvas.iOS` and `src/MobileCanvas.Android` implement lifecycle, input, parsing, recording, and live-video behavior for each platform.\n- **Video and input are intentionally decoupled**: The README explicitly says video is split from input on both platforms. On iOS, capture uses ScreenCaptureKit and input uses `idb`; on Android, emulator gRPC handles both video and input, with encoding done before frames reach the browser. This separation supports lower-bandwidth streaming and clearer failure boundaries.\n- **Shipped binaries are part of the product**: The file tree includes `runtimes/` with prebuilt compressed binaries for multiple platforms and a native Swift helper under `native/mobile-screencap`. The README warns that source changes affecting shipped executables require rebuilding and recommitting runtime artifacts because plugin installs execute that bundle, not the raw source tree.\n- **Embedded web UI with a copied extension shell**: The lesson from the development notes is that `web/` assets are embedded resources inside the binary, while `extension.mjs` is copied directly. That affects iteration: web changes need republishing, but extension changes do not follow the same packaging path.\n\n## How It Works\n\nAt a high level, the Copilot app loads `extension.mjs`, which exposes canvas actions to a local host. That host also serves the browser-facing UI over HTTP/WebSocket and exposes MCP over stdio for VS Code, CLI, or agent use. Shared contracts live in `src/MobileCanvas.Contracts`, reusable orchestration lives in `src/MobileCanvas.Core`, and the executable entrypoint is in `src/MobileCanvas.Tool` with grouped MCP tool files such as `DeviceDiscoveryTools.cs`, `DeviceLifecycleTools.cs`, `DeviceInteractionTools.cs`, and `DeviceMediaTools.cs`. iOS support is macOS-only and depends on Xcode simulators plus `idb_companion`; Android support depends on the Android SDK tools and works cross-platform, though non-macOS video falls back to screenshot polling. The repository also includes scripts for build, install, bundle verification, and release, plus tests covering parsers, CLI behavior, services, serialization, and UI tree logic. A practical architectural pattern to reuse here is: keep a shared local host as the system of record, let both UI and agent clients talk to it, and keep device-specific code behind backend interfaces rather than inside the UI layer.\n\n## Training Exercise\n\nMap one end-to-end flow without assuming anything beyond the repository. Start from the README's agent flow `list -> select -> read udid -> deploy -> drive input`. Then inspect the file tree conceptually: use `src/MobileCanvas.Tool/Mcp/DeviceDiscoveryTools.cs` and `DeviceInteractionTools.cs` as the MCP surface, `src/MobileCanvas.Core/DeviceService.cs` as shared orchestration, and `src/MobileCanvas.iOS/IosSimulatorBackend.cs` or `src/MobileCanvas.Android/AndroidEmulatorBackend.cs` as concrete execution paths. Write a short note answering three questions: which layer owns tool definitions, which layer owns cross-platform device coordination, and which files likely hold platform-specific command execution. As a stretch goal, explain why the repo keeps `web/` embedded but `extension.mjs` copied separately, and what that implies for rebuilding after UI changes.\n\n## Further Reading\n\n- [Redth/mobile-canvas-ghcp](https://github.com/Redth/mobile-canvas-ghcp)\n- [idb_companion / fbidb](https://fbidb.io)",
     "related": [
       {
+        "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+        "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+        "date": "2026-08-06",
+        "shared_tags": [
+          "developer-tools"
+        ]
+      },
+      {
         "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
         "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
         "date": "2026-06-05",
@@ -383,14 +442,6 @@ source_characters: 18420
         "date": "2026-05-27",
         "shared_tags": [
           "mcp"
-        ]
-      },
-      {
-        "id": "2026-05-20-github-copilot-app-technical-preview-agentic-development-across-repos-worktrees-",
-        "title": "GitHub Copilot App Technical Preview: Agentic Development Across Repos, Worktrees, and GitHub",
-        "date": "2026-05-20",
-        "shared_tags": [
-          "developer-tools"
         ]
       }
     ]
@@ -968,21 +1019,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+        "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+        "date": "2026-08-06",
+        "shared_tags": [
+          "agent-workflows",
+          "developer-tools"
+        ]
+      },
+      {
         "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
         "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
         "date": "2026-08-01",
         "shared_tags": [
           "developer-tools",
           "knowledge-management"
-        ]
-      },
-      {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
-        "shared_tags": [
-          "knowledge-management",
-          "prompt-engineering"
         ]
       }
     ]
@@ -1173,19 +1224,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-05-vs-code-1132-practical-agent-dictation-and-markdown-workflows-e429dcbc68",
-        "title": "VS Code 1.132: Practical Agent, Dictation, and Markdown Workflows",
-        "date": "2026-08-05",
+        "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+        "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+        "date": "2026-08-06",
         "shared_tags": [
           "developer-tools"
         ]
       },
       {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
+        "id": "2026-08-05-vs-code-1132-practical-agent-dictation-and-markdown-workflows-e429dcbc68",
+        "title": "VS Code 1.132: Practical Agent, Dictation, and Markdown Workflows",
+        "date": "2026-08-05",
         "shared_tags": [
-          "knowledge-management"
+          "developer-tools"
         ]
       }
     ]
@@ -3127,6 +3178,12 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+        "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+        "date": "2026-08-06",
+        "shared_tags": []
+      },
+      {
         "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
         "title": "Context Engineering for a Personal Knowledge Base",
         "date": "2026-08-03",
@@ -3140,14 +3197,6 @@ source_characters: 18420
         "date": "2026-08-03",
         "shared_tags": [
           "prompting"
-        ]
-      },
-      {
-        "id": "2026-07-30-ai-assisted-project-controls-for-construction-projects-e7c5a92622",
-        "title": "AI-Assisted Project Controls for Construction Projects",
-        "date": "2026-07-30",
-        "shared_tags": [
-          "ai-workflows"
         ]
       }
     ]
@@ -11244,19 +11293,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
-        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
-        "date": "2026-06-23",
+        "id": "2026-08-06-github-copilot-canvases-for-repo-triage-agent-handoffs-and-workflow-cont-a18ce4f684",
+        "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
+        "date": "2026-08-06",
         "shared_tags": [
           "github"
         ]
       },
       {
-        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
-        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
-        "date": "2026-05-25",
+        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
+        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
+        "date": "2026-06-23",
         "shared_tags": [
-          "claude-code"
+          "github"
         ]
       }
     ]
