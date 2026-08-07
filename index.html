@@ -297,6 +297,57 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+    "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+    "date": "2026-08-07",
+    "tags": [
+      "powerbi",
+      "microsoft-fabric",
+      "source-control",
+      "semantic-modeling",
+      "ai-agents"
+    ],
+    "source": "https://www.youtube.com/watch?v=-YH-Yue_pPY",
+    "content": "## Overview\n\nThis lesson explains how Power BI project artifacts make report and semantic-model development easier to inspect, version, automate, and hand off to AI agents. The interview’s strongest evidence is around architecture and intent: PBIP exposes Power BI work as files and folders, TMDL gives semantic models a textual form, PBIR restructures report metadata for safer editing, and agent tooling layers on top through MCPs, APIs, desktop bridging, and skills. Roadmap claims in the interview such as GA timing, default-on behavior, and upcoming auto-reload should be treated as time-bound statements from the speaker, not guaranteed current product status.\n\n## Key Concepts\n\n- **PBIP as the code-behind for Power BI artifacts**: PBIP, or Power BI Project, represents a report and semantic model as a folder-based project instead of a single PBIX file. In the interview, its main purpose is enabling collaboration, source control, scripting, and supported metadata edits that are difficult with an opaque packaged file.\n- **PBIX remains useful for packaging and sharing**: The speaker explicitly says PBIX is not going away and may remain the main sharing format because it is easy to send as one file. The practical distinction is that PBIX is convenient for distribution, while PBIP is better for team development and automation.\n- **TMDL for semantic models**: TMDL is described as a declarative textual representation of a semantic model. Its value is that developers and tools can inspect, diff, script, and modify model definitions directly instead of relying only on the desktop UI.\n- **PBIR for report metadata**: PBIR is the enhanced report format intended to replace an older single-JSON internal structure that was poor for source control and machine editing. The interview frames PBIR as a key enabler for safer report diffs, finer-grained files such as page and visual artifacts, and more reliable AI or scripted edits.\n- **Hardening enables supported automation**: A major theme is product hardening: Power BI must tolerate metadata changes made outside the desktop UI. That matters for external tools, scripts, and AI agents, because unsupported edits can otherwise break desktop or service behavior.\n- **Agentic authoring needs tools plus knowledge**: The speaker separates AI success into two parts. Tools include MCPs, service APIs, and a desktop IPC bridge for reloading, testing, and screenshots. Knowledge lives in skills, which provide process guidance, conventions, and reusable context so agents behave more like a team’s preferred developer.\n\n## How It Works\n\nStart by choosing the right artifact form for the job. Use PBIX when the main need is simple packaging or sharing. Use PBIP when you need version control, parallel development, scripted bulk changes, or AI-assisted authoring. Within PBIP, treat the semantic model and report as editable code assets: TMDL represents the model textually, while PBIR organizes report metadata into smaller, more manageable pieces. Once artifacts are file-based, standard engineering workflows become possible: diffing changes, reviewing pull requests, applying conventions, and generating edits with scripts or agents. AI then becomes practical only when two layers are present. The first layer is tooling: MCPs and APIs let an agent read and write artifacts, while the desktop IPC bridge lets it reload a project, capture screenshots, and verify results instead of editing blindly. The second layer is knowledge: skills encode steps, constraints, and style rules such as naming conventions. The lesson’s operational takeaway is that durable AI workflows are not just “prompt the model.” They depend on observable files, supported mutation paths, and explicit team standards the agent can follow and test against.\n\n## Training Exercise\n\nCreate a short written workflow for a fictional three-person BI team. First, decide when they should use PBIX and when they should use PBIP. Second, define three naming or modeling conventions an AI skill should enforce. Third, describe how an agent would make a report change, reload the project, and verify the result using the interview’s tool pattern of editable files plus desktop testing. Finish by listing two risks the team should watch for, such as relying on preview features or assuming roadmap statements are already shipped.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=-YH-Yue_pPY)",
+    "related": [
+      {
+        "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
+        "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
+        "date": "2026-06-20",
+        "shared_tags": [
+          "ai-agents",
+          "powerbi"
+        ]
+      },
+      {
+        "id": "2026-06-10-using-pbir-cli-with-power-bi-desktop-for-agentic-report-editing-and-screenshots",
+        "title": "Using pbir-cli with Power BI Desktop for Agentic Report Editing and Screenshots",
+        "date": "2026-06-10",
+        "shared_tags": [
+          "microsoft-fabric",
+          "powerbi"
+        ]
+      },
+      {
+        "id": "2026-05-20-power-apps-code-apps-unifying-bi-actions-and-ai-under-enterprise-governance",
+        "title": "Power Apps Code Apps: Unifying BI, Actions, and AI Under Enterprise Governance",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "powerbi"
+        ]
+      },
+      {
+        "id": "2026-06-07-building-microsoft-fabric-apps-with-rayfin-and-power-platform-data",
+        "title": "Building Microsoft Fabric Apps with Rayfin and Power Platform Data",
+        "date": "2026-06-07",
+        "shared_tags": [
+          "microsoft-fabric"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-06-autonomous-agent-security-failures-lessons-from-a-claimed-openai-hugging-27265e7a00",
     "title": "Autonomous Agent Security Failures: Lessons from a Claimed OpenAI-Hugging Face Incident",
     "date": "2026-08-06",
@@ -4284,6 +4335,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains the architecture behind a real-time train tracking experience built in Microsoft Fabric using Realtime Intelligence, KQL, and Icon Map for Fabric. The source material describes a system that ingests both live vehicle positions and static route definitions, then visualizes moving trains on an interactive map with route-aware behavior, filtering, tooltips, and historical context.\n\nThis matters to engineers building operational dashboards, fleet monitoring systems, or geospatial analytics products. The same design pattern applies beyond rail: aircraft, buses, vans, trucks, trams, and other moving assets can all be tracked by combining streaming telemetry, static network data, and an interactive map layer that turns raw coordinates into operational insight.\n\n## Key Concepts\n\n- **Realtime Intelligence in Fabric**: Microsoft Fabric Realtime Intelligence provides the ingestion, query, and visualization foundations for streaming operational data. In this scenario, it enables live vehicle position updates to be queried with KQL and surfaced in a low-latency monitoring experience.\n- **KQL for streaming geospatial analytics**: Kusto Query Language is well suited to filtering, aggregating, and enriching live telemetry. Engineers can use it to isolate delayed trains, compute reliability statistics, join position feeds with route metadata, and prepare map-friendly result sets.\n- **GTFS static and realtime data**: GTFS-style transportation data typically comes in two forms: static schedule/route definitions and live position or trip updates. Combining both is essential because coordinates alone do not tell you which line a vehicle belongs to or how it should traverse complex junctions.\n- **Route-aware map rendering**: A route-aware visualization does more than drop markers on latitude and longitude. It uses route and destination context from the static network files so trains can be shown moving along the correct corridor and branching correctly at junctions.\n- **Interactive operational map layers**: The map is not just a display surface; it is a query and exploration tool. Users can select trains, inspect tooltips, filter by route or delay status, and overlay supporting layers such as stations, catchment areas, or infrastructure.\n- **3D asset visualization from OneLake**: The source notes that the vehicle layer includes built-in 3D models and can also load custom models from OneLake. This allows different train classes or vehicle types to be represented with domain-specific visuals instead of generic map symbols.\n\n## How It Works\n\nAt a high level, the system combines three data concerns and one presentation concern:\n\n1. **Live vehicle positions** from a real-time feed.\n2. **Static route/network definitions** describing lines, junctions, and destinations.\n3. **Operational enrichment data** such as delays, reliability history, or passenger loading.\n4. **An interactive geospatial layer** that renders vehicles and supports filtering and inspection.\n\nThe source describes a rail example using an in-house GTFS data source. The important idea is that a moving asset feed by itself is incomplete. A latitude/longitude pair tells you where a train is now, but not necessarily which branch it will take at a junction, what service it is operating, or how to color and classify it. By reading both the real-time positions feed and the static route files, the map can associate each train with its intended route and next destination.\n\nA practical data flow looks like this:\n\n- **Ingest static network data** such as routes, shapes, stops, service patterns, and train classes.\n- **Ingest live position events** for trains, including identifiers, timestamps, coordinates, heading, speed, and trip references.\n- **Join or enrich the events** using KQL so each incoming position is connected to route metadata, destination information, and operational status.\n- **Prepare a map-ready result** containing geometry, labels, styling metadata, and optional model references.\n- **Render the result in Icon Map for Fabric** with interactive behaviors such as selection, tooltips, and filtering.\n\nThe route-awareness is a key engineering detail. Transportation networks contain forks, parallel tracks, and overlapping services. If you only animate based on raw coordinates, the map can become visually misleading. When the system also knows the planned route and next destination, it can disambiguate movement across junctions and keep the visualization semantically correct.\n\nThe map experience itself is operationally rich rather than decorative. According to the source, users can:\n\n- select individual trains\n- view tooltips\n- inspect reliability history\n- inspect passenger loading\n- filter to a route, network, or delayed vehicles\n- combine train positions with other geospatial layers such as station catchments or infrastructure\n\nThis layering model is what makes geospatial telemetry useful in production. The moving vehicle layer provides the live state, while contextual layers explain why that state matters. For example, an engineer or operator could compare delayed trains against station areas, track assets, or historical trouble spots.\n\nThe mention of built-in and custom 3D models adds another implementation dimension. Instead of simple markers, the vehicle layer can represent different train classes with different visual assets. Storing uploaded models in OneLake makes them part of the broader Fabric data estate, which is useful for governance and reuse.\n\nA minimal conceptual query pipeline in KQL might look like this:\n\n```kusto\nlet StaticTrips = Trips\n| project trip_id, route_id, destination, train_class;\n\nlet LivePositions = TrainPositions\n| where Timestamp > ago(5m)\n| summarize arg_max(Timestamp, *) by vehicle_id;\n\nLivePositions\n| join kind=leftouter StaticTrips on trip_id\n| project vehicle_id, Timestamp, latitude, longitude, heading, speed,\n          route_id, destination, train_class, delay_minutes\n```\n\nThat result can then be bound to the map visual, where fields control:\n\n- icon or 3D model selection\n- tooltip contents\n- color by route or delay status\n- filters by network, route, or service health\n\nThe broader lesson is that this is a reusable real-time geospatial pattern:\n\n- **stream telemetry** gives you freshness\n- **static network data** gives you meaning\n- **KQL enrichment** gives you operational logic\n- **map interactivity** gives users a decision surface\n\nAlthough the example is rail in Barcelona and Madrid, the same pattern extends naturally to planes from ADS-B feeds, buses from GTFS-realtime, delivery fleets, or municipal vehicles.\n\n## Training Exercise\n\nBuild a simplified real-time transit tracking prototype in Fabric-style terms using static route metadata plus a simulated live positions table.\n\n### Goal\nCreate a query that joins live train positions to route metadata, then produces a dataset suitable for an interactive map showing route, destination, and delay status.\n\n### Step 1: Define a static metadata table\nCreate a small table or CSV with trip and route details:\n\n```csv\ntrip_id,route_id,destination,train_class\nT100,R1,Barcelona Sants,regional\nT101,R2,Madrid Atocha,highspeed\nT102,R1,Barcelona Sants,regional\n```\n\n### Step 2: Define a live positions table\nCreate or simulate a stream with records like:\n\n```csv\nvehicle_id,trip_id,timestamp,latitude,longitude,heading,speed,delay_minutes\nV1,T100,2026-07-09T10:00:00Z,41.379,2.140,90,62,1\nV2,T101,2026-07-09T10:00:05Z,40.416,-3.703,180,120,8\nV3,T102,2026-07-09T10:00:10Z,41.385,2.173,45,55,0\n```\n\n### Step 3: Write a KQL enrichment query\nUse a query similar to this:\n\n```kusto\nlet StaticTrips = datatable(trip_id:string, route_id:string, destination:string, train_class:string)\n[\n  \"T100\", \"R1\", \"Barcelona Sants\", \"regional\",\n  \"T101\", \"R2\", \"Madrid Atocha\", \"highspeed\",\n  \"T102\", \"R1\", \"Barcelona Sants\", \"regional\"\n];\n\nlet TrainPositions = datatable(vehicle_id:string, trip_id:string, Timestamp:datetime, latitude:real, longitude:real, heading:int, speed:int, delay_minutes:int)\n[\n  \"V1\", \"T100\", datetime(2026-07-09 10:00:00), 41.379, 2.140, 90, 62, 1,\n  \"V2\", \"T101\", datetime(2026-07-09 10:00:05), 40.416, -3.703, 180, 120, 8,\n  \"V3\", \"T102\", datetime(2026-07-09 10:00:10), 41.385, 2.173, 45, 55, 0\n];\n\nTrainPositions\n| join kind=leftouter StaticTrips on trip_id\n| extend status = case(delay_minutes >= 5, \"delayed\", delay_minutes > 0, \"minor_delay\", \"on_time\")\n| project vehicle_id, Timestamp, latitude, longitude, route_id, destination, train_class, speed, heading, delay_minutes, status\n```\n\n### Step 4: Design the map fields\nPrepare the output so a map visual can use:\n\n- `latitude`, `longitude` for position\n- `vehicle_id` as the item key\n- `route_id` or `status` for color\n- `destination`, `speed`, `delay_minutes` in the tooltip\n- `train_class` to drive icon/model selection\n\n### Step 5: Add basic operational filters\nCreate three filtered views or queries:\n\n1. only delayed trains\n2. only route `R1`\n3. only trains above a speed threshold\n\nExample:\n\n```kusto\n...\n| where status == \"delayed\"\n```\n\n### Step 6: Extend the exercise\nAdd a station table with station coordinates and names, then think about how you would overlay it as a second map layer. As a stretch task, add a reliability metric per route and include it in the tooltip.\n\n### What to learn from the exercise\nBy the end, you should be able to explain why live coordinates alone are not enough, how KQL enrichment turns telemetry into operational context, and how an interactive map becomes much more valuable when backed by both static network data and real-time updates.\n\n## Further Reading\n\n- [Microsoft Fabric documentation](https://learn.microsoft.com/fabric/)\n- [Kusto Query Language overview](https://learn.microsoft.com/azure/data-explorer/kusto/query/)\n- [General Transit Feed Specification (GTFS)](https://gtfs.org/)\n- [GTFS Realtime reference](https://gtfs.org/documentation/realtime/reference/)",
     "related": [
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "microsoft-fabric"
+        ]
+      },
+      {
         "id": "2026-06-07-building-microsoft-fabric-apps-with-rayfin-and-power-platform-data",
         "title": "Building Microsoft Fabric Apps with Rayfin and Power Platform Data",
         "date": "2026-06-07",
@@ -4306,12 +4365,6 @@ source_characters: 18420
         "shared_tags": [
           "microsoft-fabric"
         ]
-      },
-      {
-        "id": "2026-07-10-understanding-microsoft-power-platform-skills-plugin-marketplace-architecture-an",
-        "title": "Understanding Microsoft Power Platform Skills: Plugin Marketplace Architecture and Workflow",
-        "date": "2026-07-10",
-        "shared_tags": []
       }
     ]
   },
@@ -4925,6 +4978,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "ai-agents",
+          "powerbi"
+        ]
+      },
+      {
         "id": "2026-06-18-using-pbir-cli-to-automate-pbir-power-bi-report-development",
         "title": "Using pbir-cli to Automate PBIR Power BI Report Development",
         "date": "2026-06-18",
@@ -4940,15 +5002,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "copilot"
-        ]
-      },
-      {
-        "id": "2026-05-20-power-apps-code-apps-unifying-bi-actions-and-ai-under-enterprise-governance",
-        "title": "Power Apps Code Apps: Unifying BI, Actions, and AI Under Enterprise Governance",
-        "date": "2026-05-20",
-        "shared_tags": [
-          "ai-agents",
-          "powerbi"
         ]
       }
     ]
@@ -5192,20 +5245,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "ai-agents",
+          "semantic-modeling"
+        ]
+      },
+      {
         "id": "2026-05-02-graphrag-sdk-and-why-graph-based-retrieval-can-beat-vector-rag",
         "title": "GraphRAG-SDK and Why Graph-Based Retrieval Can Beat Vector RAG",
         "date": "2026-05-02",
         "shared_tags": [
           "knowledge-graphs",
           "retrieval"
-        ]
-      },
-      {
-        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
-        "title": "Context Engineering for a Personal Knowledge Base",
-        "date": "2026-08-03",
-        "shared_tags": [
-          "ai-agents"
         ]
       }
     ]
@@ -5393,19 +5447,20 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "microsoft-fabric",
+          "powerbi"
+        ]
+      },
+      {
         "id": "2026-05-26-agentic-power-bi-development-with-a-plugin-marketplace-for-claude-code-and-copil",
         "title": "Agentic Power BI Development with a Plugin Marketplace for Claude Code and Copilot CLI",
         "date": "2026-05-26",
         "shared_tags": [
           "agentic-development"
-        ]
-      },
-      {
-        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
-        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
-        "date": "2026-06-23",
-        "shared_tags": [
-          "cli"
         ]
       }
     ]
@@ -5630,6 +5685,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains the core idea behind Microsoft Rayfin as presented in the source: an open-source SDK and CLI for quickly building fully managed, enterprise-grade applications that run directly in Microsoft Fabric. The example scenario connects a Power App to Fabric through Link to Fabric, stores and organizes data in OneLake, exposes it through a semantic model, and then uses a Rayfin app as the user-facing experience.\n\nThis matters to engineers and solution architects working on internal business apps, analytics-driven operational tools, or low-code/data-platform integrations. The interesting shift is that app development is no longer isolated from the data platform: Rayfin suggests a pattern where app UI, governed data, and Fabric-native deployment come together in one managed environment.\n\n## Key Concepts\n\n- **Rayfin**: Rayfin is described as an open-source SDK and CLI for building apps that run directly in Microsoft Fabric. Its value proposition is speed, managed deployment, and enterprise readiness, which suggests developers can create applications without assembling a large amount of hosting and infrastructure plumbing themselves.\n- **Microsoft Fabric-native apps**: A Fabric-native app runs in the same broader platform where data storage, transformation, analytics, and governance already exist. This reduces friction between app logic and analytics assets, and can simplify security, deployment, and operational management.\n- **OneLake**: OneLake is Microsoft Fabric's unified data lake layer. In the scenario from the post, application data ultimately lands in OneLake, making it available for downstream modeling and consumption by both analytics and operational-facing applications.\n- **Semantic model**: A semantic model provides a curated, business-friendly representation of underlying data. Instead of querying raw tables directly, applications and reports can rely on a governed model with consistent metrics, dimensions, and relationships.\n- **Power Apps and Link to Fabric**: Power Apps can act as the operational front end for entering and managing business data. Link to Fabric connects that operational data into Fabric so it can be stored, analyzed, modeled, and then surfaced again through other experiences such as Rayfin apps.\n- **Managed enterprise app delivery**: The post emphasizes that Rayfin apps are fully managed and enterprise-grade. Practically, this implies a focus on governance, repeatable deployment, integration with Fabric assets, and a developer workflow that is more standardized than building a custom app stack from scratch.\n\n## How It Works\n\nThe source describes a simple but important architecture pattern:\n\n1. **Operational data is created in Power Apps**.\n2. **That data is connected into Microsoft Fabric using Link to Fabric**.\n3. **Fabric stores or exposes the data through OneLake**.\n4. **A semantic model is built on top of the OneLake-backed data**.\n5. **A Rayfin app reads from that semantic model and provides the application experience**.\n\nThis is notable because the application is not presented as a standalone web app with a separate backend and custom data-access tier. Instead, the app is positioned as a Fabric-native experience, where the data platform is already the system of record for analytics and governance.\n\n### End-to-end flow\n\nThe post's demo uses a \"space program\" management app as the example. Even though the domain is playful, the architecture maps well to real business scenarios such as inventory management, project tracking, service operations, or asset control.\n\n- A **Power App** captures data changes from users.\n- **Link to Fabric** moves or mirrors that data into the Fabric environment.\n- **OneLake** acts as the centralized storage layer.\n- A **semantic model** organizes the data into something consumable by business users and applications.\n- **Rayfin** uses that semantic layer to create an app quickly.\n\n### Why the semantic model matters\n\nUsing a semantic model in the middle is a strong architectural signal. Rather than binding the app directly to raw storage, the app can consume a curated layer that defines:\n\n- business entities\n- relationships\n- calculations and measures\n- naming conventions\n- governed access patterns\n\nThat makes the app more resilient to physical data changes and better aligned with the same definitions used in reports and dashboards.\n\n### What Rayfin likely contributes\n\nThe post does not include implementation details, but from the description we can infer the main developer workflow:\n\n- install the **Rayfin CLI**\n- initialize a new app project\n- connect the app to Fabric resources\n- bind views or components to a semantic model\n- deploy into Fabric as a managed app\n\nThe key idea is acceleration. Instead of setting up hosting, authentication layers, custom APIs, deployment pipelines, and environment plumbing independently, Rayfin appears to package these concerns into a Fabric-aware app model.\n\n### Reasoning behind this pattern\n\nThis pattern is attractive in enterprise environments because it unifies app development and analytics governance:\n\n- **Data lives where the platform already governs it**.\n- **Apps consume shared business definitions** via semantic models.\n- **Operational and analytical workflows converge** rather than being duplicated.\n- **Low-code and pro-code assets can cooperate**: Power Apps for capture, Fabric for data, Rayfin for app experiences.\n\n### Mental model for engineers\n\nThink of Rayfin as an app layer sitting close to Fabric's governed data assets. In a traditional architecture, you might build:\n\n- a frontend\n- a backend API\n- a database\n- ETL pipelines\n- a BI model\n\nIn the pattern described here, Fabric already provides much of the data and governance foundation, and Rayfin reduces the amount of custom application scaffolding needed to turn that foundation into a usable managed app.\n\n## Training Exercise\n\nBuild a small architecture blueprint for a Fabric-native operational app using the pattern from the post.\n\n### Goal\n\nDesign a lightweight app where business users submit and review records in Power Apps, and a Rayfin app later consumes the same data through a semantic model in Fabric.\n\n### Steps\n\n1. **Pick a simple business domain**\n   Choose one of these examples:\n   - equipment maintenance requests\n   - office room reservations\n   - field inspection tracking\n   - launch mission tracking, inspired by the post\n\n2. **Define the operational data**\n   Write down 2-3 entities and their fields. Example:\n   - `Mission`\n     - `MissionId`\n     - `MissionName`\n     - `LaunchDate`\n     - `Status`\n   - `Spacecraft`\n     - `SpacecraftId`\n     - `Name`\n     - `Type`\n   - `MissionAssignment`\n     - `MissionId`\n     - `SpacecraftId`\n\n3. **Map the platform flow**\n   Create a short design note describing:\n   - what users edit in **Power Apps**\n   - how data reaches **Fabric via Link to Fabric**\n   - where it lands in **OneLake**\n   - what the **semantic model** exposes\n   - what screens the **Rayfin app** would need\n\n4. **Draft the semantic model**\n   Define:\n   - dimensions and fact-like tables\n   - one or two measures\n\n   Example:\n   ```text\n   Tables:\n   - DimMission\n   - DimSpacecraft\n   - FactMissionAssignment\n\n   Measures:\n   - Total Missions = COUNTROWS(DimMission)\n   - Active Missions = CALCULATE(COUNTROWS(DimMission), DimMission[Status] = \"Active\")\n   ```\n\n5. **Describe the Rayfin app experience**\n   Write a one-page spec for three screens:\n   - overview dashboard\n   - mission detail page\n   - status summary page\n\n   For each screen, specify:\n   - which semantic model entities it uses\n   - what filters it supports\n   - what actions a user can take\n\n6. **Optional CLI practice**\n   Since the source references an SDK and CLI, sketch the commands you would expect in a project workflow:\n   ```bash\n   rayfin init mission-control\n   cd mission-control\n   rayfin connect fabric\n   rayfin bind semantic-model mission-analytics\n   rayfin deploy\n   ```\n   These commands are illustrative, not confirmed syntax. The point is to think through the lifecycle: initialize, connect, bind data, deploy.\n\n### Deliverable\n\nProduce a short design document with:\n- the entity model\n- the data flow diagram\n- the semantic model definition\n- the Rayfin screen list\n- 2-3 reasons why this architecture is preferable to a standalone custom app for your scenario\n\n## Further Reading\n\n- [Introducing Rayfin: A new AI-first way to build, deploy, and govern apps in Microsoft Fabric](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Introducing-Rayfin-A-new-AI-first-way-to-build-deploy-and-govern/ba-p/5191676)\n- [Microsoft Fabric documentation](https://learn.microsoft.com/fabric/)\n- [OneLake in Microsoft Fabric](https://learn.microsoft.com/fabric/onelake/)\n- [Power Apps documentation](https://learn.microsoft.com/power-apps/)\n- [Power BI semantic models documentation](https://learn.microsoft.com/power-bi/connect-data/service-datasets-understand)",
     "related": [
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "microsoft-fabric"
+        ]
+      },
+      {
         "id": "2026-07-10-understanding-microsoft-power-platform-skills-plugin-marketplace-architecture-an",
         "title": "Understanding Microsoft Power Platform Skills: Plugin Marketplace Architecture and Workflow",
         "date": "2026-07-10",
@@ -5651,14 +5714,6 @@ source_characters: 18420
         "date": "2026-05-20",
         "shared_tags": [
           "power-platform"
-        ]
-      },
-      {
-        "id": "2026-06-10-using-pbir-cli-with-power-bi-desktop-for-agentic-report-editing-and-screenshots",
-        "title": "Using pbir-cli with Power BI Desktop for Agentic Report Editing and Screenshots",
-        "date": "2026-06-10",
-        "shared_tags": [
-          "microsoft-fabric"
         ]
       }
     ]
@@ -6495,18 +6550,18 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "powerbi"
+        ]
+      },
+      {
         "id": "2026-06-07-building-microsoft-fabric-apps-with-rayfin-and-power-platform-data",
         "title": "Building Microsoft Fabric Apps with Rayfin and Power Platform Data",
         "date": "2026-06-07",
         "shared_tags": []
-      },
-      {
-        "id": "2026-05-26-agentic-power-bi-development-with-a-plugin-marketplace-for-claude-code-and-copil",
-        "title": "Agentic Power BI Development with a Plugin Marketplace for Claude Code and Copilot CLI",
-        "date": "2026-05-26",
-        "shared_tags": [
-          "fabric"
-        ]
       }
     ]
   },
@@ -7655,9 +7710,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
         "shared_tags": [
           "ai-agents"
         ]
@@ -8796,6 +8851,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "ai-agents",
+          "powerbi"
+        ]
+      },
+      {
         "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
         "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
         "date": "2026-06-20",
@@ -8811,14 +8875,6 @@ source_characters: 18420
         "shared_tags": [
           "fabric",
           "powerbi"
-        ]
-      },
-      {
-        "id": "2026-06-18-june-2026-power-platform-updates-agents-automation-and-governance-converge",
-        "title": "June 2026 Power Platform Updates: Agents, Automation, and Governance Converge",
-        "date": "2026-06-18",
-        "shared_tags": [
-          "powerapps"
         ]
       }
     ]
@@ -11238,6 +11294,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
+        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
+        "date": "2026-08-07",
+        "shared_tags": [
+          "microsoft-fabric"
+        ]
+      },
+      {
         "id": "2026-06-10-using-pbir-cli-with-power-bi-desktop-for-agentic-report-editing-and-screenshots",
         "title": "Using pbir-cli with Power BI Desktop for Agentic Report Editing and Screenshots",
         "date": "2026-06-10",
@@ -11251,14 +11315,6 @@ source_characters: 18420
         "date": "2026-06-20",
         "shared_tags": [
           "pbip"
-        ]
-      },
-      {
-        "id": "2026-06-07-building-microsoft-fabric-apps-with-rayfin-and-power-platform-data",
-        "title": "Building Microsoft Fabric Apps with Rayfin and Power Platform Data",
-        "date": "2026-06-07",
-        "shared_tags": [
-          "microsoft-fabric"
         ]
       }
     ]
