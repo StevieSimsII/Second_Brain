@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+    "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+    "date": "2026-08-09",
+    "tags": [
+      "ai-agents",
+      "prompt-engineering",
+      "software-architecture",
+      "test-driven-development",
+      "code-review"
+    ],
+    "source": "https://www.youtube.com/watch?v=8D8ewFBJfFM",
+    "content": "## Overview\n\nThis lesson explains a modular approach to using AI for software development, based on the video’s description of Matt Pocock-style “skills.” The core idea is to reduce AI randomness by gathering missing context, freezing decisions into lightweight specs, splitting work into feature-based tickets, implementing with tests where possible, and reviewing code with a compact checklist. A key claim in the source is that these skills are intentionally short and modular so they can be run in any order instead of forcing a rigid end-to-end pipeline. Some popularity claims in the video, such as download rankings and totals, are presented by the speaker and not independently verified in the supplied source.\n\n## Key Concepts\n\n- **Context Gathering Before Coding**: The lesson argues that AI often misses the target because it lacks the full story: desired behavior, style, constraints, and priorities. The proposed fix is to interview the user until both sides reach a shared understanding.\n- **Modular Skills Instead of One Locked Pipeline**: Rather than forcing brainstorming, planning, implementation, and review into one chained workflow, the source recommends small reusable skills that can be invoked in any order. This makes it easier to revisit one step without rerunning everything.\n- **Grooming as Structured Interviewing**: The “grooming” skill is described as asking questions relentlessly until ambiguity is removed. It follows a decision-tree style: focus on one branch at a time, wait for answers, offer recommendations, and avoid acting before confirmation.\n- **Specs Without Embedded Code**: After agreement is reached, the next step is to convert decisions into a written spec. The source emphasizes keeping code blocks out of the spec so the AI is pushed to inspect the real codebase later instead of blindly following stale snippets.\n- **Feature-Sliced Tickets**: The source contrasts slicing work by feature versus by technical layer. Feature-based tickets are preferred because each ticket can produce an end-to-end testable increment, such as a complete login flow, instead of isolated database or UI work.\n- **Test-Driven Implementation**: Implementation is described as triggering TDD when possible: write tests first, observe failure, then implement until tests pass. The lesson frames this as a way to shape code against explicit requirements rather than letting tests merely mirror buggy code.\n- **Vocabulary-Driven Code Review**: The review approach uses a short checklist built from refactoring vocabulary like “shotgun surgery,” “feature envy,” and “data clumps.” The point is to compress rich engineering guidance into compact terms that a capable model can act on.\n- **Architecture for Token Efficiency**: The source claims AI struggles when logic is scattered across too many files and call chains. The proposed architectural improvement is not one giant file, but clearer entry points and deletion tests so the model can understand behavior with fewer hops and fewer tokens.\n\n## How It Works\n\nUse the workflow as a loop, not a one-way conveyor belt. First, run a grooming-style interview to surface requirements, tradeoffs, and unstated assumptions. Ask one decision at a time, recommend concrete options, and do not move forward until the answer is clear enough to record. Next, freeze the result into a spec that describes behavior, constraints, and design intent without embedding code snippets that may age badly. Then convert the spec into feature-based tickets so each task can produce something testable end to end. During implementation, prefer writing tests first when the behavior is concrete enough to express. After coding, review from a fresh context using compact refactoring vocabulary to check for misplaced logic, duplicated concepts, and change-fragile structure. Finally, inspect the architecture itself: look for dead code, overly shallow wrappers, duplicated modules, and call patterns that force the model to jump through too many files to understand one behavior. The practical principle across all steps is minimal but precise guidance: short prompts, strong shared context, and just enough guardrails to steer a capable model without over-constraining it.\n\n## Training Exercise\n\nPick a small app feature, such as user login or checkout. First, write 8-12 grooming questions that narrow one branch of decisions at a time, and answer them as if you were the stakeholder. Second, turn the answers into a one-page spec with no code blocks. Third, split the spec into 3 feature-based tickets, each producing a testable slice of value. Fourth, for one ticket, write the tests before the implementation and list what should fail initially. Fifth, perform a review using these terms: shotgun surgery, feature envy, and data clumps. End by naming one architectural change that would make the feature easier for an AI model to understand in fewer file hops.\n\n## Further Reading\n\n- [YouTube Source Video](https://www.youtube.com/watch?v=8D8ewFBJfFM)",
+    "related": [
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "ai-agents",
+          "code-review"
+        ]
+      },
+      {
+        "id": "2026-05-20-spec-driven-development-for-ai-coding-agents-with-github-spec-kit",
+        "title": "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
+        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
+        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
+        "date": "2026-07-21",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-07-compute-allocation-talent-flight-and-cloud-monetization-in-googles-ai-st-4a58c85963",
     "title": "Compute Allocation, Talent Flight, and Cloud Monetization in Google's AI Strategy",
     "date": "2026-08-07",
@@ -636,9 +688,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-practical-lesson-ai-loops-for-verification-goals-schedules-and-proactive-30a24d77e0",
-        "title": "Practical Lesson: AI Loops for Verification, Goals, Schedules, and Proactive Work",
-        "date": "2026-07-21",
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
         "shared_tags": [
           "prompt-engineering"
         ]
@@ -1068,15 +1120,15 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-03-compute-scarcity-ai-revenue-growth-and-why-model-efficiency-could-matter-b4274fbda7",
-        "title": "Compute Scarcity, AI Revenue Growth, and Why Model Efficiency Could Matter More Than Raw Scale",
-        "date": "2026-08-03",
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
         "shared_tags": []
       },
       {
-        "id": "2026-07-27-build-products-for-yourself-a-practical-lesson-in-small-team-cost-aware--12a2954604",
-        "title": "Build Products for Yourself: A Practical Lesson in Small-Team, Cost-Aware Product Design",
-        "date": "2026-07-27",
+        "id": "2026-08-03-compute-scarcity-ai-revenue-growth-and-why-model-efficiency-could-matter-b4274fbda7",
+        "title": "Compute Scarcity, AI Revenue Growth, and Why Model Efficiency Could Matter More Than Raw Scale",
+        "date": "2026-08-03",
         "shared_tags": []
       }
     ]
@@ -2072,11 +2124,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
-        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
-        "date": "2026-08-05",
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
         "shared_tags": [
-          "knowledge-management"
+          "ai-agents"
         ]
       }
     ]
@@ -2288,6 +2340,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson turns the talk into a practical engineering stance: AI coding agents can speed up implementation, but speed alone does not preserve codebase quality. The speaker argues that current agent loops and harnesses are good at producing code that passes tests, yet weak at maintaining long-term design quality, especially in complex or aging codebases. The core lesson is to keep humans responsible for code comprehension and to shift effort earlier into product review, architecture, program design, and staged implementation so code review stays fast enough to remain mandatory.\n\n## Key Concepts\n\n- **Harness engineering vs. model limits**: The talk argues that better loops, sandboxes, review bots, and more tokens cannot fully solve quality decay if the underlying model was not trained to optimize for maintainability. In the speaker's framing, this is a training and verification problem, not just an orchestration problem.\n- **Software factory failure mode**: A 'lights off software factory' removes human code reading and relies on agents, tests, monitoring, and automated review. The speaker claims this fails in practice because teams eventually hit issues that require understanding a codebase whose quality has already eroded.\n- **Maintainability as the missing objective**: Passing tests is easier to verify than preserving good design. The talk defines the real problem as maintainability: keeping a codebase easy to change without causing unrelated breakage. The speaker links poor maintainability to classic design problems like 'shotgun surgery.'\n- **Why current coding benchmarks are insufficient**: The transcript describes benchmark setups where models are rewarded for fixing a task and not breaking tests. That reward structure encourages correctness on the measured task, but it does not directly penalize awkward abstractions, defensive clutter, or other design choices that may hurt the codebase months later.\n- **Front-loaded alignment reduces review cost**: The proposed remedy is to spend time before coding on product review, architecture, component contracts, data models, constraints, and program design. The claimed payoff is shorter, higher-quality pull requests that humans can still review line by line.\n- **Program design and vertical slices**: The talk emphasizes planning at the level of types, method signatures, call paths, and implementation order. 'Vertical slices' means choosing an incremental build sequence across the system, with checks between phases, instead of letting an agent make broad horizontal changes all at once.\n- **Human ownership remains necessary**: The practical conclusion is not to avoid AI agents, but to use them where they help most while keeping humans accountable for understanding, reviewing, and steering the code. The speaker treats code reading as a constraint that current teams still need to accept.\n\n## How It Works\n\nUse AI to accelerate analysis and implementation, but keep a human-reviewed delivery path. Start with a short product review that states the user problem, expected behavior, and any mockups. Then write an architecture note covering components, data models, interfaces, and constraints. Add a program-design pass that names key types, method signatures, call flows, and boundaries between modules. After that, break the work into vertical slices with an explicit implementation order and tests at each stage. Let the agent implement one slice at a time. Review every line against the earlier design artifacts, not just against test results. If review feels overwhelming, treat that as a signal that planning or decomposition was weak, not as evidence that review should be removed. The speaker presents this as the workable compromise: AI makes coding faster, while upfront alignment keeps review cheap enough to preserve quality.\n\n## Training Exercise\n\nPick a real feature in a codebase you know. First, write a one-page product review with the problem, expected behavior, and edge cases. Next, write a short architecture note listing the components touched, data model changes, and constraints. Then create a program-design sketch with the main types, function signatures, and call flow. Break the work into 3 vertical slices, each with a test or verification step. Only after that, ask an AI coding agent to implement slice 1. Review the result line by line and note where the code diverged from your design, where tests were sufficient, and where maintainability concerns appeared even though tests passed.\n\n## Further Reading\n\n- [Talk Source](https://www.youtube.com/watch?v=Ib5GBkD555M)\n- [Human Layer](https://humanlayer.com)",
     "related": [
       {
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
+        "shared_tags": [
+          "ai-agents",
+          "code-review"
+        ]
+      },
+      {
         "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
         "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
         "date": "2026-07-30",
@@ -2309,15 +2370,6 @@ source_characters: 18420
         "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
         "title": "Model Fusion for Agentic Engineering",
         "date": "2026-07-20",
-        "shared_tags": [
-          "ai-agents",
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
-        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
-        "date": "2026-07-19",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -7867,9 +7919,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
-        "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
-        "date": "2026-08-05",
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
         "shared_tags": [
           "prompt-engineering"
         ]
@@ -9109,6 +9161,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
+        "shared_tags": [
+          "ai-agents",
+          "prompt-engineering"
+        ]
+      },
+      {
         "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
         "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
         "date": "2026-07-21",
@@ -9124,15 +9185,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "github"
-        ]
-      },
-      {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
-        "shared_tags": [
-          "ai-agents",
-          "prompt-engineering"
         ]
       }
     ]
