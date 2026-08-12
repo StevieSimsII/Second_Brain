@@ -297,6 +297,54 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-12-govern-github-copilot-harness-costs-in-copilot-studio-f247315811",
+    "title": "Govern GitHub Copilot Harness Costs in Copilot Studio",
+    "date": "2026-08-12",
+    "tags": [
+      "copilot-studio",
+      "governance",
+      "cost-management",
+      "power-platform",
+      "api"
+    ],
+    "source": "https://microsoft.github.io/mcscatblog/posts/copilot-harness-cost-governance",
+    "content": "## Overview\n\nThis lesson teaches a repeatable governance approach for controlling Copilot Credit consumption from GitHub Copilot harness agents in Copilot Studio. The source emphasizes that costs can occur during maker development, not just after production release, so organizations should discover harness agents, classify their environments, apply environment and agent controls, and repeat the review through manual or automated checks.\n\n## Key Concepts\n\n- **Design-time consumption risk**: Agents using the GitHub Copilot harness can consume Copilot Credits while makers build, preview, and evaluate them. Governance therefore has to start before production deployment.\n- **Environment classification**: The source separates environments into maker development and funded production usage. That classification determines how strict allocations, overage access, and continuity controls should be.\n- **Inventory-driven discovery**: A repeatable process starts by finding harness agents, their environments, and their owners. The source says the `isCLIAgent` property identifies GitHub Copilot harness agents in Power Platform Inventory.\n- **Environment-level controls**: Environment controls govern reserved credits, access to the tenant pool, pay-as-you-go billing, and what happens when capacity is exhausted. These controls define the shared boundary for all agents in an environment.\n- **Agent-level limits**: Agent limits add a monthly boundary for a single use case. The source recommends default limits for maker-development agents and production-specific limits based on expected usage and service criticality.\n- **PPAC versus API operations**: The same governance model can be implemented manually in the Power Platform admin center or programmatically through Power Platform API endpoints for inventory, allocation, entitlement, and threshold management.\n- **Review and remediation loop**: Governance is not one-time setup. The source recommends periodically scanning for new environments and agents, comparing actual controls with approved settings, preserving approved exceptions, and remediating drift.\n\n## How It Works\n\nStart by identifying Copilot Studio agents that use the GitHub Copilot harness and mapping each one to its environment and owner. Classify each environment as either maker development or funded production usage, then choose controls that match that purpose. For environments, review whether credits should be reserved, whether tenant-pool draw should be allowed, whether pay-as-you-go billing is acceptable, and whether alerts or denial rules should apply when capacity is exhausted. For individual agents, set monthly limits where needed, especially for maker-development agents that should have bounded exploration. Implement the controls in PPAC for small estates or use the Power Platform API for scale. Then repeat the process regularly: scan inventory, compare actual settings with approved controls, preserve approved exceptions, and remediate drift. One limitation stated in the source is that agent limits do not cap total environment consumption; the article notes that environment-level limits were announced as of August 2026 but describes them as not yet available.\n\n## Training Exercise\n\nCreate a governance checklist for a fictional tenant with two environments: one maker sandbox and one production environment. For each, specify the intended funding model, whether tenant-pool draw is allowed, whether pay-as-you-go is enabled, and what alert or deny behavior should occur at capacity exhaustion. Then define a default monthly agent limit for maker-development agents, identify who should approve exceptions, and outline which steps you would automate through inventory and allocation APIs.\n\n## Further Reading\n\n- [Adopting the GitHub Copilot Harness: Cost Control and Governance in Copilot Studio](https://microsoft.github.io/mcscatblog/posts/copilot-harness-cost-governance)\n- [Power Platform Inventory API query endpoint](https://api.powerplatform.com/resourcequery/resources/query?api-version=2024-10-01)\n- [Allocations by environment endpoint](https://api.powerplatform.com/licensing/allocationsByEnvironment?api-version=2024-10-01)\n- [Environment allocation read endpoint](https://api.powerplatform.com/licensing/allocationsByEnvironment/\u003cenvironment-id>?api-version=2024-10-01)\n- [Environment entitlements endpoint](https://api.powerplatform.com/licensing/environments/\u003cenvironment-id>/entitlements?api-version=2024-10-01)\n- [Agent threshold endpoint](https://api.powerplatform.com/licensing/environments/\u003cenvironment-id>/entitlements/MCSMessages/resources/\u003cagent-resource-id>/threshold?api-version=2024-10-01)",
+    "related": [
+      {
+        "id": "2026-04-27-microsoft-agent-platform-landscape-copilot-foundry-studio-and-agent-365",
+        "title": "Microsoft Agent Platform Landscape: Copilot, Foundry, Studio, and Agent 365",
+        "date": "2026-04-27",
+        "shared_tags": [
+          "governance"
+        ]
+      },
+      {
+        "id": "2026-07-18-enterprise-ai-economics-token-costs-model-pricing-and-governance-risk-508cefb6d9",
+        "title": "Enterprise AI Economics: Token Costs, Model Pricing, and Governance Risk",
+        "date": "2026-07-18",
+        "shared_tags": [
+          "governance"
+        ]
+      },
+      {
+        "id": "2026-06-17-microsoft-365-copilot-cowork-ga-consumption-pricing-cost-drivers-and-governance",
+        "title": "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance",
+        "date": "2026-06-17",
+        "shared_tags": [
+          "governance"
+        ]
+      },
+      {
+        "id": "2026-04-17-claude-code-routines-for-scheduled-api-and-github-automation",
+        "title": "Claude Code Routines for Scheduled, API, and GitHub Automation",
+        "date": "2026-04-17",
+        "shared_tags": [
+          "api"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-11-building-an-open-source-ai-agent-product-from-personal-friction-02b635c857",
     "title": "Building an Open-Source AI Agent Product from Personal Friction",
     "date": "2026-08-11",
