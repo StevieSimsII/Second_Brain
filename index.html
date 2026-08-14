@@ -297,6 +297,53 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+    "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+    "date": "2026-08-14",
+    "tags": [
+      "llm-evaluation",
+      "ai-models",
+      "benchmarking",
+      "coding-agents",
+      "knowledge-work"
+    ],
+    "source": "https://www.youtube.com/watch?v=rdYBjpylJUQ",
+    "content": "## Overview\n\nThis lesson turns an opinionated video transcript about xAI's Grok 4.6 into a reusable framework for judging frontier AI models. The source argues that model quality alone is not enough: you should compare benchmarks, real coding behavior, and cost per completed task. It also claims that coding products create a feedback loop in which usage data, revenue, and model training reinforce each other. Because the source is a commentary transcript rather than primary documentation, treat product, benchmark, acquisition, and roadmap claims as reported by the speaker unless independently verified.\n\n## Key Concepts\n\n- **Benchmark scores are only a starting point**: The speaker highlights several benchmarks and uses them to argue that Grok 4.6 is competitive with leading models. The practical takeaway is that benchmark rank can signal capability, but it should not be treated as conclusive proof of real-world usefulness.\n- **Cost per task matters more than token price alone**: The lesson emphasizes that a cheap token price can still produce an expensive workflow if the model uses many tokens. A better comparison combines model quality with the effective cost to complete a task.\n- **Coding evaluation differs from general knowledge evaluation**: The transcript separates knowledge-work benchmarks from coding-oriented benchmarks and demos. This suggests that model selection should be task-specific: a model that looks strong on broad evals may still feel weaker in hands-on coding use.\n- **The coding flywheel**: The speaker argues that AI labs improve by focusing on coding tools: developers use the product, that usage generates data and revenue, and both feed back into better future models. In the source, this is presented as a major reason Anthropic, OpenAI, and xAI improved.\n- **Recursive self-improvement through model-assisted training**: According to the transcript, Grok 4.5 was used to help generate or curate training data for Grok 4.6. The practical idea is not full autonomous self-improvement, but model-assisted post-training that can accelerate iteration.\n- **Product design changes who can use a model**: The speaker contrasts developer-facing tools such as Cursor with a broader audience product called Grokbot. Hiding model selection and code details can make strong models accessible to less technical users, even if the underlying capability comes from coding-focused training.\n- **Narratives about market position require caution**: The source presents strong claims about acquisitions, compute partnerships, and xAI becoming a third major US AI lab. These claims explain the speaker's thesis, but the transcript itself provides limited evidence, so they should be treated as informed interpretation rather than settled fact.\n\n## How It Works\n\nUse this four-step evaluation loop when choosing an AI model for practical work. First, define the task class you care about, such as coding, legal drafting, or general knowledge work. Second, review benchmarks that actually match that task, but do not stop there. Third, estimate cost per completed task by combining token pricing with how much context and output the model typically consumes. Fourth, run a small hands-on comparison with the same prompt and judge output quality, speed, and failure modes. The source applies this logic by arguing that Grok 4.6 improved on benchmark quality, remained relatively inexpensive, and benefited from a coding-data feedback loop after tighter integration with coding products. That argument is strongest as a decision framework, and weaker as hard evidence for specific business or roadmap claims.\n\n## Training Exercise\n\nPick three current AI models and test them on one realistic task from your work, such as implementing a small UI component, summarizing a technical document, or drafting a legal-style memo. For each model, record: 1. the task result quality, 2. the time to usable output, 3. approximate cost per completed task, and 4. one concrete failure mode. Then write a short recommendation naming the best model for that task and explain whether your decision was driven more by benchmark-style performance, subjective output quality, or total cost.\n\n## Further Reading\n\n- [YouTube source](https://www.youtube.com/watch?v=rdYBjpylJUQ)",
+    "related": [
+      {
+        "id": "2026-07-10-evaluating-a-frontier-llm-in-practice-a-month-long-testing-framework",
+        "title": "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework",
+        "date": "2026-07-10",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
+        "id": "2026-07-31-recursive-self-improvement-model-pricing-and-cost-per-task-in-frontier-a-c1248d471b",
+        "title": "Recursive Self-Improvement, Model Pricing, and Cost per Task in Frontier AI",
+        "date": "2026-07-31",
+        "shared_tags": []
+      },
+      {
+        "id": "2026-07-18-kimmy-k3-what-the-transcript-claims-about-an-open-weight-frontier-coding-90882e76e8",
+        "title": "Kimmy K3: What the transcript claims about an open-weight frontier coding model",
+        "date": "2026-07-18",
+        "shared_tags": [
+          "benchmarking"
+        ]
+      },
+      {
+        "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
+        "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
+        "date": "2026-07-09",
+        "shared_tags": [
+          "benchmarking"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
     "title": "Founder Judgment and Agentic Workflows in the AI Era",
     "date": "2026-08-13",
@@ -2074,19 +2121,17 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
+        "shared_tags": []
+      },
+      {
         "id": "2026-07-29-empirical-agent-harness-design-ablate-verify-and-unhobble-the-model-d34e660871",
         "title": "Empirical Agent Harness Design: Ablate, Verify, and Unhobble the Model",
         "date": "2026-07-29",
         "shared_tags": [
           "ai-systems"
-        ]
-      },
-      {
-        "id": "2026-08-07-continual-learning-in-ai-why-deployment-safety-and-competition-change-6d38e0b672",
-        "title": "Continual Learning in AI: Why Deployment, Safety, and Competition Change",
-        "date": "2026-08-07",
-        "shared_tags": [
-          "machine-learning"
         ]
       }
     ]
@@ -3660,6 +3705,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis transcript argues that Moonshot AI's Kimmy K3 may represent a major moment for open-weight models, especially in front-end and web engineering tasks. The speaker highlights benchmark results claiming Kimmy K3 leads proprietary models on certain coding evaluations, while also emphasizing practical caveats: benchmark saturation, uncertainty about generalization, allegations of distillation, and the difference between headline token pricing and real task cost.\n\nWhy this matters is not just model quality. The source frames Kimmy K3 as part of a broader shift in the AI ecosystem: open models can pressure closed labs, lower prices, spread algorithmic advances, and change who captures value across the stack. At the same time, the transcript repeatedly notes that strong point-benchmark results do not prove overall leadership, and that real production testing is still necessary.\n\n## Key Concepts\n\n- **Open-source vs open weights**: The speaker repeatedly describes Kimmy K3 as both 'open-source' and 'open weights.' In the transcript, this primarily means the model is released publicly rather than kept proprietary, and that its weights and training details are described as available enough for others to inspect or replicate. The source treats this openness as strategically important because it lets others study the model's methods and build on them.\n- **Specialized benchmark leadership**: A central claim is that Kimmy K3 ranks first on a front-end development benchmark and performs strongly on web engineering and writing benchmarks. The transcript uses these results to argue that Kimmy K3 is highly competitive, especially for front-end coding tasks. However, the speaker also says proprietary models such as Claude/\"Fable\" and GPT variants remain more generalized overall.\n- **Context window and scale**: The transcript describes Kimmy K3 as a 2.8 trillion parameter model with a 1 million token context window. The stated implication is that the model is aimed at long-horizon coding, reasoning, and knowledge work. The speaker also notes that a model of this size is not practical for home hardware and instead requires data-center-style serving.\n- **Price per token vs effective task cost**: The source warns against comparing models only by token pricing. Kimmy K3 is described as cheaper per token than a GPT competitor, but the speaker says that if the model needs more tokens to achieve the same task result, the effective cost may end up similar. The transcript calls this 'intelligence per token' or 'intelligence density.'\n- **Benchmark caveats and uncertainty**: The speaker explicitly cautions that benchmark results may be saturated and should not be treated as definitive proof of broad superiority. The transcript also mentions Anthropic's accusation that Moonshot used distillation from Anthropic models. The source does not resolve this claim; it presents it as an important caveat that should temper confidence.\n- **Ecosystem effects of strong open models**: According to the transcript, powerful open models benefit most of the AI stack by reducing model costs, increasing token usage, enabling better applications, and helping infrastructure providers. The main exception, in the speaker's framing, is that closed frontier labs face more pressure. The transcript also raises a geopolitical concern: dependence on models or chips aligned with another country's ecosystem.\n\n## How It Works\n\n## What the transcript says Kimmy K3 is\n\nThe source describes **Kimmy K3** as:\n\n- a **2.8 trillion parameter** model\n- the **largest open-source/open-weight model to date** according to the speaker\n- equipped with a **1 million token context window**\n- intended for **long-horizon coding, knowledge work, and reasoning**\n- large enough that it likely must be **served from a data center**, not a typical home machine\n\nThese claims are presented by the video narrator; the transcript does not independently verify them.\n\n## Why people are paying attention\n\nThe strongest evidence cited in the transcript is benchmark performance, especially on software tasks.\n\n### 1. Front-end development benchmark\n\nThe speaker points to an Arena AI front-end development benchmark where Kimmy K3 reportedly scores:\n\n- **76%** for Kimmy K3\n- **63%** for the next model listed, described as Fable 5\n\nThe transcript interprets this as Kimmy K3 being the best model currently available **for front-end development**, not necessarily the best model overall.\n\n### 2. Web engineering / agent benchmark\n\nThe transcript also cites a statement from the Vercel CEO claiming Kimmy K3 is the top performer on **Next.js.org evals**, with an agent success rate around **92%** in the referenced graphic. The speaker presents this as evidence that an open model can beat proprietary ones on a comprehensive web engineering benchmark.\n\n### 3. Writing benchmark\n\nA third cited result says Kimmy K3 moved from **21st to 1st** on an internal writing benchmark for an editorial voice, and that it was **five times cheaper** than the model it displaced at the top. Again, this is reported from the transcript, not independently validated.\n\n## Cost: cheaper tokens do not guarantee cheaper work\n\nA practical lesson from the transcript is that **token pricing can mislead**.\n\nThe speaker gives an example price for Kimmy K3:\n\n- **$3 per million input tokens**\n- **$15 per million output tokens**\n\nThis is described as about half the price of a GPT competitor on paper. But the speaker then argues that what matters is the **cost per completed task**, not the cost per token.\n\nThe transcript's logic is:\n\n1. If Model A is half the price per token,\n2. but uses twice as many tokens to solve the same task,\n3. then the real task cost is roughly the same.\n\nThis is what the speaker means by **\"intelligence per token\"** or **\"intelligence density.\"**\n\nIn the cited DeepSuite-style comparison, Kimmy K3 is said to sit near GPT 5.6 Soul in success-vs-cost space, implying that lower token prices may be offset by greater token consumption.\n\n## Speed and token hunger\n\nThe transcript notes an operational downside: **Kimmy K3 appears slow** in the narrator's test.\n\nThe example used is a Rubik's Cube simulator generation task:\n\n- the run reportedly took about **30 minutes**\n- the speaker says Kimmy K3 is **\"token hungry and slow\"**\n- despite that, the final output is described as successful and visually strong\n\nThis illustrates an important deployment tradeoff:\n\n- a model can be **capable**\n- yet still be **expensive in latency** or **verbose in token use**\n\nFor production systems, those factors matter alongside quality.\n\n## Why the transcript still adds caution\n\nAlthough the tone is enthusiastic, the speaker includes several caveats.\n\n### Benchmark saturation\n\nThe transcript says many benchmarks may already be saturated. That means high scores may no longer cleanly separate models in the way they once did.\n\n### Distillation allegation\n\nThe source mentions that Anthropic accused Moonshot of **distillation** from Anthropic models. The transcript does not provide evidence proving or disproving the allegation. It is presented as an unresolved concern.\n\n### Specialization vs generality\n\nThe speaker explicitly says Kimmy K3 may be excellent on front-end development and similar tasks, but that GPT and Claude/Fable-style models are still likely **more generalized across a wider range of tasks**.\n\n### Public release timing matters\n\nAnother nuanced point in the transcript is that open models may look closer to the frontier partly because they are released immediately after training, while closed labs may hold back stronger systems for safety testing and post-training. So public benchmark comparisons may not reflect everything proprietary labs already have internally.\n\n## The broader ecosystem argument\n\nThe transcript treats Kimmy K3 as more than a single model release. It argues that strong open models can:\n\n- reduce model costs\n- increase competition\n- spread useful algorithmic ideas\n- help application builders\n- increase inference demand\n- benefit infrastructure and chip suppliers\n\nBut it also raises a strategic risk: if enterprises build heavily on foreign open models and those models become optimized for foreign chip ecosystems, that could create long-term dependency.\n\n## Practical takeaway\n\nFrom this source alone, the most durable takeaway is:\n\n> A model can look revolutionary on benchmark charts, but real evaluation should combine **task success**, **token efficiency**, **latency**, **generality**, and **trust in the training story**.\n\nThat is the core framework the transcript keeps circling back to, even while praising Kimmy K3's apparent strength.\n\n## Training Exercise\n\n## Exercise: Evaluate a model claim the way this transcript does\n\nUse this exercise to build a repeatable evaluation checklist for any newly released model.\n\n### Step 1: Extract explicit claims\n\nFrom a model announcement, write down:\n\n- model size\n- context window\n- target use cases\n- deployment assumptions\n- price claims\n- benchmark claims\n\nFor this transcript, examples would include:\n\n- 2.8T parameters\n- 1M token context\n- long-horizon coding and reasoning\n- likely data-center served\n- $3/M input and $15/M output\n- first place on front-end benchmark\n\n### Step 2: Separate task-specific wins from general intelligence claims\n\nCreate two columns:\n\n- **specialized evidence**\n- **generalized evidence**\n\nPlace each benchmark into one column. Notice that the transcript has more evidence for **front-end/web engineering** than for broad all-purpose superiority.\n\n### Step 3: Convert token pricing into task-cost questions\n\nWrite 3 questions you would ask before accepting a price claim:\n\n1. How many tokens does the model use on a typical task?\n2. How often does it finish successfully on the first try?\n3. What is the latency to a usable answer?\n\nThen write a short note explaining why \"half the token price\" does not necessarily mean \"half the real cost.\"\n\n### Step 4: List all caveats in the source\n\nMake a checklist of caution signals. For this transcript, include:\n\n- benchmark saturation\n- unresolved distillation allegation\n- possible specialization rather than broad dominance\n- proprietary labs may have stronger unreleased models\n- slow inference / high token usage in at least one anecdotal test\n\n### Step 5: Build a deployment decision memo\n\nIn 5 bullet points, decide whether you would test the model for:\n\n- front-end coding\n- agentic web tasks\n- writing\n- long-context workflows\n- latency-sensitive production use\n\nYour memo should clearly distinguish between:\n\n- what the transcript provides as evidence\n- what still requires hands-on validation\n\n### Step 6: Optional scoring rubric\n\nScore the model from 1-5 on each axis based only on the transcript:\n\n- coding capability\n- generality\n- price transparency\n- speed\n- trust/confidence in evaluation\n\nThen write one paragraph on why some scores are necessarily uncertain.",
     "related": [
       {
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
+        "shared_tags": [
+          "benchmarking"
+        ]
+      },
+      {
         "id": "2026-07-29-analyzing-ai-abundance-and-governance-claims-in-elon-musks-2036-forecast-0459bbdec6",
         "title": "Analyzing AI Abundance and Governance Claims in Elon Musk's 2036 Forecast",
         "date": "2026-07-29",
@@ -3681,14 +3734,6 @@ source_characters: 18420
         "date": "2026-07-18",
         "shared_tags": [
           "artificial-intelligence"
-        ]
-      },
-      {
-        "id": "2026-07-10-evaluating-a-frontier-llm-in-practice-a-month-long-testing-framework",
-        "title": "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework",
-        "date": "2026-07-10",
-        "shared_tags": [
-          "benchmarking"
         ]
       }
     ]
@@ -4329,17 +4374,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
-        "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
-        "date": "2026-08-06",
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
         "shared_tags": [
           "knowledge-work"
         ]
       },
       {
-        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
-        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
-        "date": "2026-07-30",
+        "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
+        "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
+        "date": "2026-08-06",
         "shared_tags": [
           "knowledge-work"
         ]
@@ -4713,6 +4758,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson turns a sparse video reference about testing a frontier language model over a month into a practical framework for engineers who need to evaluate new LLMs systematically. Instead of focusing on marketing claims, it shows how to compare a model across realistic workflows such as coding, writing, analysis, and reliability under repeated use.\n\nIf you are choosing between models for engineering teams, internal tooling, or AI-assisted development, a structured evaluation process matters more than a one-off demo. The goal here is to help you build a repeatable test harness, define useful criteria, and interpret results in a way that leads to better deployment decisions.\n\n## Key Concepts\n\n- **Long-horizon model evaluation**: A useful model assessment should happen over days or weeks, not just a single session. Real strengths and weaknesses emerge through repeated use across varied tasks, especially when you track consistency, failure modes, and adaptation to different prompting styles.\n- **Task-based benchmarking**: Generic benchmark scores rarely map cleanly to your actual work. A stronger approach is to define representative tasks such as debugging code, summarizing documents, planning architecture, or generating tests, then measure model performance directly on those tasks.\n- **Qualitative and quantitative scoring**: Evaluation should combine hard metrics like latency, cost, and success rate with softer criteria like clarity, initiative, and usefulness. This mixed method captures both operational viability and human-perceived value.\n- **Prompt robustness**: A strong model should perform well even when prompts are imperfect, underspecified, or iteratively refined. Testing prompt robustness helps distinguish models that require careful prompt crafting from those that generalize well in everyday use.\n- **Failure mode analysis**: It is not enough to note that a model failed; you should classify how it failed. Common categories include hallucination, incomplete reasoning, incorrect code changes, overconfidence, instruction drift, and context loss.\n- **Model fit for workflow**: Different models excel at different jobs. The best model for exploratory ideation may not be the best for exact code transformations or fact-sensitive business tasks, so evaluation must be tied to intended usage.\n\n## How It Works\n\nA month-long LLM test is best understood as an engineering evaluation loop rather than a casual review. The process starts by defining a fixed set of workflows that represent real usage. For a software engineer, that might include code generation, code review, refactoring, debugging, documentation writing, architecture Q&A, and data analysis. For each workflow, you prepare multiple tasks with known expectations so you can compare outputs over time.\n\nNext, build a scoring rubric. A practical rubric usually includes:\n\n- **Accuracy**: Did the model produce a correct or mostly correct result?\n- **Completeness**: Did it address all parts of the request?\n- **Latency**: How long did it take to respond?\n- **Edit distance to usefulness**: How much human correction was required?\n- **Reliability**: Did it behave consistently across similar prompts?\n- **Cost efficiency**: Was the quality worth the token or subscription cost?\n\nThe evaluation should include both **first-pass performance** and **iterative performance**. First-pass performance tells you whether the model is useful in fast workflows where you want a good answer immediately. Iterative performance tells you whether the model improves effectively when given feedback, which matters for pair-programming and research tasks.\n\nA practical testing loop might look like this:\n\n1. Choose 20-50 recurring tasks from your real work.\n2. Save the exact prompts and any supporting context.\n3. Run the same tasks on the target model and one or two comparison models.\n4. Score each output using a consistent rubric.\n5. Record notable failures and surprising successes.\n6. Repeat over multiple weeks as your usage broadens.\n\nOne of the most important mechanics is separating **novelty** from **utility**. New models often feel impressive in early sessions because they phrase answers confidently or appear more fluent. Over longer periods, what matters more is whether they reduce rework, catch subtle issues, and remain dependable when tasks become ambiguous or messy.\n\nYou should also test across multiple prompt styles:\n\n- Short, direct prompts\n- Detailed specification prompts\n- Multi-turn refinement\n- Context-heavy prompts with pasted logs or code\n- Adversarial or ambiguous prompts\n\nThis reveals whether the model needs heavy prompt engineering to succeed. In day-to-day engineering work, models that tolerate imperfect prompts often create more value because they reduce the operator burden.\n\nA useful way to structure your findings is with a table like this:\n\n```text\nTask Category | Success Rate | Avg. Latency | Avg. Rework | Common Failure\nCoding        | 78%          | 12s          | Medium      | subtle logic bugs\nDebugging     | 65%          | 18s          | High        | wrong root cause\nDocs          | 90%          | 8s           | Low         | mild repetition\nPlanning      | 84%          | 10s          | Medium      | vague tradeoffs\n```\n\nFrom there, draw conclusions by workflow rather than trying to crown a universal winner. For example:\n\n- Model A may be best for document synthesis and broad planning.\n- Model B may be stronger for precise code edits.\n- Model C may be cheap enough for high-volume draft generation but too unreliable for production-facing tasks.\n\nIf the video's thesis is that a model was tested for a month, the durable lesson is that serious LLM evaluation requires **repeated, instrumented usage**. The real question is not \"Is this model smart?\" but \"Under what conditions does this model reliably improve my work?\" That framing leads to better technical and product decisions.\n\n## Training Exercise\n\nBuild your own two-week LLM evaluation harness for engineering work.\n\n### Goal\nCompare two models on realistic tasks and decide which one is better for your actual workflow.\n\n### Step 1: Create task categories\nPick 4 categories and write 3 tasks for each. Example categories:\n\n- Code generation\n- Debugging\n- Test writing\n- Technical documentation\n\nMake each task concrete. Example:\n\n- \"Given this Python function and failing test output, identify the bug and propose a fix.\"\n- \"Write unit tests for this edge-case-heavy parser.\"\n\n### Step 2: Define a scoring rubric\nScore each response from 1-5 on:\n\n- Correctness\n- Completeness\n- Clarity\n- Rework required\n\nAlso record:\n\n- Response time\n- Approximate cost\n- Whether the answer was usable on the first try\n\n### Step 3: Create a simple results sheet\nUse a CSV or spreadsheet with columns like:\n\n```text\nmodel,task_id,category,correctness,completeness,clarity,rework,latency_s,usable_first_try,notes\n```\n\n### Step 4: Run both models on the same tasks\nKeep prompts identical for the first pass. Then do one follow-up turn where you ask for corrections or improvements.\n\n### Step 5: Summarize outcomes\nAt the end, calculate:\n\n- Average score by category\n- First-pass success rate\n- Average latency\n- Most common failure types\n\n### Optional: automate scoring capture with Python\n\n```python\nimport csv\nfrom statistics import mean\n\nrows = []\nwith open(\"results.csv\", newline=\"\") as f:\n    reader = csv.DictReader(f)\n    rows = list(reader)\n\nfor category in sorted(set(r[\"category\"] for r in rows)):\n    cat = [r for r in rows if r[\"category\"] == category]\n    avg_correctness = mean(float(r[\"correctness\"]) for r in cat)\n    avg_rework = mean(float(r[\"rework\"]) for r in cat)\n    print(category, round(avg_correctness, 2), round(avg_rework, 2))\n```\n\n### Deliverable\nWrite a 1-page conclusion answering:\n\n1. Which model is best for which task category?\n2. Where did each model fail most often?\n3. Did the more impressive model actually save more time?\n4. Would you deploy it for production-assisted workflows, personal productivity, or not at all?\n\n## Further Reading\n\n- [OpenAI Evals](https://github.com/openai/evals)\n- [LangSmith Evaluation Concepts](https://docs.smith.langchain.com/evaluation)\n- [HELM: Holistic Evaluation of Language Models](https://crfm.stanford.edu/helm/latest/)\n- [The Batch: Evaluating Generative AI Systems](https://www.deeplearning.ai/the-batch/)",
     "related": [
       {
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
         "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
         "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
         "date": "2026-07-09",
@@ -4735,12 +4789,6 @@ source_characters: 18420
         "shared_tags": [
           "prompt-engineering"
         ]
-      },
-      {
-        "id": "2026-05-27-evaluating-long-running-ai-coding-agents-in-practice",
-        "title": "Evaluating Long-Running AI Coding Agents in Practice",
-        "date": "2026-05-27",
-        "shared_tags": []
       }
     ]
   },
