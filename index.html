@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+    "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+    "date": "2026-08-27",
+    "tags": [
+      "software-engineering",
+      "ai-agents",
+      "programming",
+      "product-design",
+      "open-source"
+    ],
+    "source": "https://www.youtube.com/watch?v=NYFGCESmikA",
+    "content": "## Overview\n\nThis lesson distills David Heinemeier Hansson's account of how AI changed his software workflow from code-first programming to agent-steered product building. The source is a long-form interview, so its strongest claims are experiential and argumentative rather than experimentally verified. Treat statements about model capability, productivity gains, and the future of programming as informed opinions from one practitioner, not settled evidence. The durable takeaway is a working method: define outcomes, let agents generate and revise implementations, preserve architectural judgment where it matters, and evaluate software by using it rather than over-specifying it upfront.\n\n## Key Concepts\n\n- **From implementation-first to outcome-first**: The source argues that the biggest change is not just better autocomplete, but a shift from telling computers exactly how to build something toward describing the problem and evaluating the result. In this model, the human contribution moves upward toward goals, constraints, and taste.\n- **Agentic development is not the same as traditional programming**: DHH distinguishes between understanding and writing low-level program structures versus directing an agent to produce software. His claim is that these are related but different skills, and that product judgment can matter more than manual coding speed in the new workflow.\n- **Architecture still matters, especially in existing codebases**: A central caution in the interview is that unrestricted AI-generated changes can damage coherence in a mature product. The lesson is not 'let the model do anything,' but 'use agents aggressively while keeping a strong review standard for structure, boundaries, and long-term maintainability.'\n- **Iterate through use, not exhaustive upfront specification**: The source connects modern AI workflows to agile ideas: people often do not know what they want until they can interact with a working version. Agents make this cheaper, so rapid prototyping, comparison, and refinement become the main design loop.\n- **Taste becomes a primary bottleneck**: The interview argues that many teams are constrained less by implementation capacity than by vision, prioritization, and judgment. If software becomes cheaper to produce, selecting what should exist and what should be rejected becomes more important.\n- **Open source shifts from contribution scarcity to contribution filtering**: DHH describes a world where more people can propose changes because agents lower the skill barrier. That does not remove the need for maintainers; it changes their job from writing everything themselves to filtering, validating, and selecting high-value contributions.\n\n## How It Works\n\nUse this workflow. Start with a concrete user problem, not a detailed implementation plan. Ask the agent for a working version, or for 2-3 distinct approaches if the shape is unclear. Interact with the result immediately and record what feels wrong, missing, slow, or awkward. Feed back observations in product terms first, and only drop to code-level instructions when architecture, security, or performance genuinely require it. In an existing codebase, review for cohesion before merging: a locally reasonable patch can still weaken the system as a whole. For collaborative or open-source work, let agents handle drudge work such as test scaffolding, bug reproduction, PR summaries, and first-pass review, then keep human judgment focused on direction, standards, and tradeoffs. The operating principle is simple: widen the option space with agents, then narrow it with human taste.\n\n## Training Exercise\n\nPick a tool you use often that feels 80% right but 20% annoying. Write a one-paragraph problem statement describing the user, the job to be done, and the 3 most important frustrations. Then do three rounds: first, have an agent generate a minimal prototype; second, use it and list only observed problems, not implementation ideas; third, ask for two alternative revisions and choose one based on clarity, speed, or usability. After that, write a short review answering: what decisions required taste, what required technical review, and where the agent improved or harmed architectural quality.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=NYFGCESmikA)",
+    "related": [
+      {
+        "id": "2026-07-26-constraint-driven-product-design-simplicity-defaults-and-durable-softwar-9fcd0a1270",
+        "title": "Constraint-Driven Product Design: Simplicity, Defaults, and Durable Software",
+        "date": "2026-07-26",
+        "shared_tags": [
+          "product-design",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
+        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-26-ai-compute-economics-how-frontier-labs-turn-capacity-capital-and-scarcit-b386521ee0",
     "title": "AI Compute Economics: How Frontier Labs Turn Capacity, Capital, and Scarcity into Power",
     "date": "2026-08-26",
@@ -1470,21 +1522,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "open-source"
+        ]
+      },
+      {
         "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
         "title": "Founder Judgment and Agentic Workflows in the AI Era",
         "date": "2026-08-13",
         "shared_tags": [
           "ai-agents",
           "product-strategy"
-        ]
-      },
-      {
-        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
-        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
-        "date": "2026-08-09",
-        "shared_tags": [
-          "ai-agents",
-          "software-architecture"
         ]
       }
     ]
@@ -3053,6 +3105,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
         "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
         "date": "2026-08-06",
@@ -3065,15 +3126,6 @@ source_characters: 18420
         "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
         "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
         "date": "2026-07-24",
-        "shared_tags": [
-          "ai-agents",
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -3524,11 +3576,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-14-preparing-learners-for-an-ai-future-11ee4f7536",
-        "title": "Preparing Learners for an AI Future",
-        "date": "2026-08-14",
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
         "shared_tags": [
-          "entrepreneurship"
+          "product-design"
         ]
       }
     ]
@@ -3547,6 +3599,15 @@ source_characters: 18420
     "source": "https://www.youtube.com/watch?v=76rR68ktQvo",
     "content": "## Overview\n\nThis lesson distills a product philosophy centered on subtraction, constraints, and strong defaults. The source argues that many great products, essays, and tools become better when their creators remove features, reduce scope, and protect the user's mental load. It also claims that abundant resources, including AI-assisted development, can make bloat easier to create, so teams must impose constraints deliberately rather than rely on scarcity to do it for them. Evidence in the transcript is strongest for software product strategy and personal working style; broader claims about what all users want should be treated as informed opinion, not universal law.\n\n## Key Concepts\n\n- **Distillation Beats Expansion**: The source repeatedly treats quality as the result of cutting, not adding. Examples include reducing a 50,000-word manuscript to 25,000 words and valuing short, direct chapters in earlier writing. The practical lesson is to improve clarity by removing what does not carry the idea.\n- **Constraints Are a Product Design Tool**: The first version of Basecamp is described as having been built in about 380 hours under severe time limits, which forced focus on essentials. The source argues that unlimited time, money, or staffing tends to produce bloated products unless teams recreate constraints on purpose.\n- **Simplicity Is a Competitive Advantage**: The transcript claims customers choose Basecamp because it is simpler to use than competitors and requires less training. In this view, simplicity is not a slogan but an observable user outcome: fewer features, less to learn, and lower onboarding friction.\n- **Stable Software Can Be Valuable**: The source compares some software to a reliable printer: users may want it to keep doing the same job, not to evolve constantly. That supports a lesson many teams underuse: preserving stable versions can be a valid strategy when customers value familiarity more than novelty.\n- **Opinionated Defaults Can Help Users**: The 'omakase' idea in the transcript argues that users often cannot specify the best configuration in advance, but they can recognize quality when they see it. The lesson is to package expert judgment into sensible defaults rather than always offering a build-your-own experience.\n- **Deep Work Requires Environmental Control**: The speaker links strong output to long, uninterrupted blocks of time, remote work, and control over the physical workspace. Open offices, constant interruption, and clutter are presented as direct threats to builder-style work, especially programming and design.\n- **Hands-On Experience Changes Judgment**: The source describes moving from skepticism about AI coding tools to adoption after direct use and repeated exposure to better examples. The durable lesson is that tool evaluation should come from firsthand practice, not only abstract argument or secondhand summaries.\n\n## How It Works\n\nApply this philosophy as a sequence. First, define the job the product must do in one sentence. Second, impose hard limits before designing: cap time, feature count, or user flows. Third, remove anything that does not strengthen the core job. Fourth, decide which parts should remain stable for existing users and which parts truly need change. Fifth, prefer strong defaults when users would benefit from expert curation, but be honest that this trades off flexibility. Sixth, protect maker time operationally with long interruption-free blocks and minimal workspace friction. Finally, when new tools such as AI promise leverage, treat that leverage as a risk as well as a benefit: faster implementation makes disciplined subtraction more important, not less.\n\n## Training Exercise\n\nPick one product, feature, or workflow you own. Write its core job in one sentence. Then redesign it under three constraints: no more than 3 primary features, no more than 2 user choices before first success, and no more than 1 hour of explanation needed for a new user. List what you removed, what you kept stable for existing users, and which default you would set on the user's behalf. End by writing a short note describing one place where added resources or AI tooling might tempt you to bloat the design.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=76rR68ktQvo)",
     "related": [
+      {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "product-design",
+          "software-engineering"
+        ]
+      },
       {
         "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
         "title": "Model Fusion for Agentic Engineering",
@@ -3570,14 +3631,6 @@ source_characters: 18420
         "date": "2026-07-27",
         "shared_tags": [
           "product-design"
-        ]
-      },
-      {
-        "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
-        "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
-        "date": "2026-07-12",
-        "shared_tags": [
-          "software-engineering"
         ]
       }
     ]
@@ -3606,6 +3659,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
         "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
         "date": "2026-07-30",
@@ -3618,15 +3680,6 @@ source_characters: 18420
         "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
         "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
         "date": "2026-07-22",
-        "shared_tags": [
-          "ai-agents",
-          "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
-        "title": "Model Fusion for Agentic Engineering",
-        "date": "2026-07-20",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -4270,21 +4323,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
         "title": "Founder Judgment and Agentic Workflows in the AI Era",
         "date": "2026-08-13",
         "shared_tags": [
           "ai-agents",
           "decision-making"
-        ]
-      },
-      {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
-        "shared_tags": [
-          "ai-agents",
-          "software-engineering"
         ]
       }
     ]
@@ -4375,18 +4428,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
-        "title": "Context Engineering for a Personal Knowledge Base",
-        "date": "2026-08-03",
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
         "shared_tags": [
           "ai-agents",
-          "prompting"
+          "software-engineering"
         ]
       },
       {
-        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
-        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
-        "date": "2026-07-13",
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents",
           "prompting"
@@ -5244,17 +5297,17 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
-        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
-        "date": "2026-08-14",
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
         "shared_tags": [
-          "knowledge-work"
+          "product-design"
         ]
       },
       {
-        "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
-        "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
-        "date": "2026-08-06",
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
         "shared_tags": [
           "knowledge-work"
         ]
@@ -6286,6 +6339,14 @@ source_characters: 18420
     "source": "https://youtu.be/F4a8aMLb678?is=0yKRGvri5Vyul2bR",
     "content": "## Overview\n\nThis lesson distills a practical set of advanced looping patterns that show up constantly in real engineering work, even when the original source does not provide detailed transcript content. Rather than treating loops as only `for` and `while` syntax, the focus here is on higher-value iteration strategies: nested traversal, sentinel-controlled loops, early exits, infinite event loops, accumulation, and pattern-based iteration over data structures.\n\nEngineers care about these patterns because performance bugs, correctness issues, and readability problems often come from poorly structured iteration. If you already know basic loop syntax, this lesson helps you recognize which loop shape fits a given problem and how to implement it safely and maintainably.\n\n## Key Concepts\n\n- **Counter-controlled loops**: A counter-controlled loop runs a known number of times, usually over a numeric range or indexed collection. This is the most predictable loop form and is often the easiest to analyze for correctness and time complexity.\n- **Sentinel-controlled loops**: A sentinel-controlled loop continues until a specific condition or marker is encountered, such as end-of-file, null input, or a special token. These loops are common in streaming, parsing, and interactive programs where the total amount of work is not known in advance.\n- **Nested loops**: Nested loops iterate over combinations or multi-dimensional structures such as matrices, grids, and pairwise comparisons. They are powerful but can quickly become expensive, so engineers must understand the multiplicative cost of inner loops.\n- **Early exit and loop pruning**: Using `break`, `continue`, and guard conditions can dramatically reduce unnecessary work. Pruning is especially useful in search, validation, and optimization tasks where you can stop as soon as a result is found or a constraint is violated.\n- **Accumulator patterns**: An accumulator loop builds a result over time, such as a sum, frequency map, transformed list, or rolling state. This pattern underlies many reductions and is a foundation for efficient one-pass algorithms.\n- **Infinite and event-driven loops**: Some systems intentionally run forever until externally stopped, such as servers, game loops, and message consumers. The engineering challenge is not syntax but ensuring safe termination paths, backoff behavior, and resource management.\n\n## How It Works\n\nLooping is less about syntax and more about selecting the correct control-flow pattern for the problem.\n\nA useful way to think about loops is to classify them by what determines termination:\n\n1. **Fixed work**: you know exactly how many iterations are needed.\n2. **Data-driven work**: you continue until input is exhausted.\n3. **State-driven work**: you continue until the system reaches a valid or stable state.\n4. **Open-ended work**: you continue indefinitely while reacting to events.\n\n### 1. Fixed iteration: the baseline pattern\nUse a counter-controlled loop when traversing arrays, generating ranges, or repeatedly applying a procedure a known number of times.\n\n```python\nfor i in range(len(items)):\n    process(items[i])\n```\n\nThis pattern is easy to reason about, but direct indexing is not always the best choice. If you do not need the index, iterate over values instead. If you need both, prefer an explicit mechanism like `enumerate()` in Python or iterator APIs in other languages.\n\n### 2. Data-driven iteration: read until the stream ends\nWhen processing files, network messages, or user input, the number of loop iterations is unknown beforehand. In those cases, the loop should be controlled by the availability of data rather than a numeric counter.\n\n```python\nwhile True:\n    line = stream.readline()\n    if not line:\n        break\n    handle(line)\n```\n\nThis is safer than guessing how much input exists. The core engineering concern is making the termination condition explicit and ensuring malformed input does not trap the program in an unintended infinite loop.\n\n### 3. Nested loops: combining dimensions of work\nNested loops appear whenever you compare each item with many others, traverse 2D structures, or generate combinations.\n\n```python\nfor row in grid:\n    for cell in row:\n        inspect(cell)\n```\n\nThe important detail is complexity. If the outer loop runs `n` times and the inner loop runs `m` times, the total work is typically `O(n*m)`. In square pairwise comparisons, that often becomes `O(n^2)`. Engineers should ask whether the nested traversal is truly necessary or whether indexing, hashing, sorting, or precomputation can reduce the cost.\n\n### 4. Early exit: avoid wasted iterations\nA loop should stop as soon as it has enough information to produce the answer.\n\n```python\ndef contains_negative(nums):\n    for n in nums:\n        if n \u003c 0:\n            return True\n    return False\n```\n\nThis is better than scanning the entire list after the answer is already known. Similarly, `continue` can skip irrelevant cases early and keep the main body focused on meaningful work.\n\n### 5. Accumulator loops: one-pass state updates\nMany production tasks can be solved with a single pass over the data by carrying forward a small amount of state.\n\n```python\ncounts = {}\nfor word in words:\n    counts[word] = counts.get(word, 0) + 1\n```\n\nThis pattern is common in metrics, logs, ETL pipelines, compilers, and analytics jobs. The engineering advantage is both performance and clarity: one well-structured pass is usually easier to test than several loosely connected passes.\n\n### 6. Infinite loops: deliberate, not accidental\nInfinite loops are valid in systems that continuously react to work.\n\n```python\nwhile True:\n    event = queue.get()\n    handle(event)\n```\n\nWhat makes this pattern robust is everything around it: timeout handling, signal-based shutdown, exception recovery, backpressure, and observability. In real systems, an infinite loop should almost always include a clear operational exit strategy.\n\n### 7. Choosing the right loop pattern\nA practical decision framework:\n\n- If the work count is known: use a counter-controlled loop.\n- If input availability controls progress: use a sentinel/data-driven loop.\n- If traversing combinations or dimensions: use nested loops, but check complexity.\n- If the result may be found early: add `break` or `return`.\n- If aggregating a result: use an accumulator.\n- If building a service or consumer: use an intentional event loop with safe shutdown.\n\nThe biggest mistakes engineers make with loops are:\n\n- hiding termination conditions\n- mutating loop state in too many places\n- using nested loops without considering complexity\n- failing to short-circuit when the answer is already known\n- writing open-ended loops without operational safeguards\n\nThe best loops are boring in the best way: easy to read, easy to terminate mentally, and obviously correct.\n\n## Training Exercise\n\nPractice the loop patterns by implementing a small command-line log analyzer.\n\n### Goal\nWrite a program that reads lines from a file and reports:\n\n1. total number of lines\n2. number of lines containing `ERROR`\n3. whether any line contains `FATAL`\n4. the first line number where `FATAL` appears\n\n### Step-by-step\n1. Create a file named `sample.log` with contents like:\n\n```text\nINFO service started\nWARN retrying request\nERROR failed to connect\nINFO fallback enabled\nFATAL unrecoverable state\nINFO shutdown\n```\n\n2. Write a program that uses a **sentinel/data-driven loop** to read the file line by line.\n3. Use **accumulators** for `total_lines` and `error_count`.\n4. Use an **early exit decision** for detecting the first `FATAL`, but keep scanning if your exercise requires full statistics. Then try a second version that exits immediately when `FATAL` is found.\n5. Print the final report.\n6. Refactor the program to compare the tradeoff between:\n   - scanning the entire file\n   - stopping early after `FATAL`\n\n### Example in Python\n\n```python\ntotal_lines = 0\nerror_count = 0\nfatal_found = False\nfatal_line = None\n\nwith open(\"sample.log\", \"r\") as f:\n    for line_no, line in enumerate(f, start=1):\n        total_lines += 1\n\n        if \"ERROR\" in line:\n            error_count += 1\n\n        if not fatal_found and \"FATAL\" in line:\n            fatal_found = True\n            fatal_line = line_no\n\nprint({\n    \"total_lines\": total_lines,\n    \"error_count\": error_count,\n    \"fatal_found\": fatal_found,\n    \"fatal_line\": fatal_line,\n})\n```\n\n### Stretch tasks\n- Implement the same logic with a `while True` loop and explicit `readline()` termination.\n- Add nested loops by analyzing multiple log files in a directory.\n- Measure runtime on a large generated file and compare full-scan vs early-exit behavior.\n- Reimplement in your primary language and identify the language-specific iteration idioms.\n\n## Further Reading\n\n- [Python Tutorial: Control Flow Tools](https://docs.python.org/3/tutorial/controlflow.html)\n- [The Algorithm Design Manual](https://www.algorist.com/)\n- [MDN: Loops and Iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)\n- [Refactoring Guru: Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)",
     "related": [
+      {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "programming"
+        ]
+      },
       {
         "id": "2026-05-22-practical-prompting-patterns-for-claude-code-from-anthropic-engineer-workflows",
         "title": "Practical Prompting Patterns for Claude Code from Anthropic Engineer Workflows",
