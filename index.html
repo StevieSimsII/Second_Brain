@@ -297,6 +297,53 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
+    "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
+    "date": "2026-08-28",
+    "tags": [
+      "sharepoint",
+      "html-dashboards",
+      "ai-workflows",
+      "data-contracts"
+    ],
+    "source": "https://lnkd.in/p/gFQgcTuM",
+    "content": "## Overview\n\nThis lesson describes a proof-of-concept pattern for generating a SharePoint HTML dashboard with a local AI model that has no direct SharePoint access. The core idea is to separate schema understanding from code generation: SharePoint-side tooling produces a structured description of a list or library, and a local model uses that description plus SharePoint HTML and LiveData rules to generate the dashboard. The evidence is limited to a short LinkedIn post, so treat this as an observed architecture and workflow, not a validated production blueprint.\n\n## Key Concepts\n\n- **LiveData in SharePoint**: The post says SharePoint's LiveData capability lets JavaScript-based HTML pages connect to lists and document libraries while staying inside the SharePoint sandbox.\n- **Data Source Contract**: A SharePoint skill analyzes a list or library and creates a contract describing fields, data types, choices, relationships, views, and useful KPI or filter information. This contract is the main input to the local model.\n- **No direct model access to SharePoint**: The local AI does not query SharePoint directly. Instead, it receives the Data Source Contract and a reusable system prompt containing the relevant SharePoint and sandbox rules.\n- **Reusable system prompt**: The system prompt is described as containing the SharePoint `/_html` specification, LiveData structure, sandbox restrictions, and design guidelines. This gives the model the constraints needed to generate compatible code.\n- **Local code generation**: The dashboard HTML and JavaScript are generated locally in LM Studio from the contract plus a short task prompt. The post specifically reports success with `Qwen3-Coder-30B-A3B-Instruct` on a Mac mini M4 with 32 GB RAM.\n- **Runtime data binding in SharePoint**: After upload, SharePoint provides current list data when the generated page opens. In this pattern, SharePoint is responsible for live data delivery at runtime, not the local model.\n\n## How It Works\n\nA practical way to understand this pattern is as a four-stage pipeline. First, inspect the target SharePoint list or library and extract a schema-level description rather than exporting records. Second, package that description as a Data Source Contract containing structure, field semantics, and view or KPI hints. Third, give a local model two inputs: the contract and a reusable prompt that explains SharePoint `/_html`, LiveData, sandbox limits, and dashboard design rules. Fourth, upload the generated HTML file to SharePoint, where the page receives live data at runtime through LiveData. The architectural benefit is that business data does not need to be sent to the local model. The main uncertainty is operational breadth: the author says it is a small proof of concept and only hopes it works across all sites in the tenant.\n\n## Training Exercise\n\nWrite a mini lesson plan for yourself using this pattern. Define a fictional SharePoint list with 5 fields, 1 relationship, and 2 useful filters. Then draft a compact Data Source Contract for it, including field names, types, allowed values, and one KPI. Next, write a short system prompt section that lists the constraints your HTML generator must follow: sandbox-safe JavaScript, no direct SharePoint access, and runtime binding through LiveData. Finally, outline the HTML dashboard you want the model to generate: one summary KPI card, one filter control, and one table. As a reflection step, note which parts are supported directly by the source and which parts you are inferring for your exercise.\n\n## Further Reading\n\n- [LinkedIn source post](https://lnkd.in/p/gFQgcTuM)",
+    "related": [
+      {
+        "id": "2026-08-26-building-a-sharepoint-asset-dashboard-with-copilot-and-two-lists-3ec5d1ae9d",
+        "title": "Building a SharePoint Asset Dashboard with Copilot and Two Lists",
+        "date": "2026-08-26",
+        "shared_tags": [
+          "sharepoint"
+        ]
+      },
+      {
+        "id": "2026-08-26-copilot-for-sharepoint-portable-skills-skill-self-improvement-and-sharep-84a4d3191a",
+        "title": "Copilot for SharePoint: Portable Skills, Skill Self-Improvement, and SharePoint-Safe HTML",
+        "date": "2026-08-26",
+        "shared_tags": [
+          "sharepoint"
+        ]
+      },
+      {
+        "id": "2026-08-12-practical-lesson-embedding-copilot-generated-html-artifacts-in-sharepoin-bab18486f5",
+        "title": "Practical Lesson: Embedding Copilot-Generated HTML Artifacts in SharePoint",
+        "date": "2026-08-12",
+        "shared_tags": [
+          "sharepoint"
+        ]
+      },
+      {
+        "id": "2026-05-08-ai-in-sharepoint-interactive-html-from-lists-excel-and-metadata",
+        "title": "AI in SharePoint: Interactive HTML from Lists, Excel, and Metadata",
+        "date": "2026-05-08",
+        "shared_tags": [
+          "sharepoint"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
     "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
     "date": "2026-08-27",
@@ -536,11 +583,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
-        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
-        "date": "2026-06-23",
+        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
+        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
+        "date": "2026-08-28",
         "shared_tags": [
-          "copilot"
+          "sharepoint"
         ]
       }
     ]
@@ -3118,9 +3165,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-using-chatgpt-voice-as-an-ambient-ai-chief-of-staff-815133adab",
-        "title": "Using ChatGPT Voice as an Ambient AI Chief of Staff",
-        "date": "2026-07-29",
+        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
+        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
+        "date": "2026-08-28",
         "shared_tags": [
           "ai-workflows"
         ]
@@ -3425,11 +3472,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-26-building-a-sharepoint-asset-dashboard-with-copilot-and-two-lists-3ec5d1ae9d",
-        "title": "Building a SharePoint Asset Dashboard with Copilot and Two Lists",
-        "date": "2026-08-26",
+        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
+        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
+        "date": "2026-08-28",
         "shared_tags": [
-          "knowledge-management"
+          "ai-workflows"
         ]
       }
     ]
@@ -7517,9 +7564,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-19-designing-a-practical-ai-skill-system-for-coding-workflows-87a95b666b",
-        "title": "Designing a Practical AI Skill System for Coding Workflows",
-        "date": "2026-08-19",
+        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
+        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
+        "date": "2026-08-28",
         "shared_tags": [
           "ai-workflows"
         ]
