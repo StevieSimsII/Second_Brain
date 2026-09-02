@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+    "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+    "date": "2026-09-02",
+    "tags": [
+      "software-development",
+      "ai-agents",
+      "sdlc",
+      "testing",
+      "workflow-design"
+    ],
+    "source": "https://www.youtube.com/watch?v=LoMOPj-lO8U",
+    "content": "## Overview\n\nThis lesson explains an AI-native software development life cycle (SDLC) as described in the supplied video transcript. The core claim is that coding is no longer the main bottleneck; process design, artifact quality, governance, and testing become the limiting factors once agents speed up implementation. Evidence is moderate rather than primary: the source is a speaker's walkthrough of Anthropic's playbook, not the playbook itself, so details should be treated as an informed summary.\n\n## Key Concepts\n\n- **Process Becomes the Bottleneck**: The transcript argues that agents compress the time spent writing code, which shifts attention to planning, design, testing, deployment, and maintenance. Improving only implementation speed is not enough; the rest of the lifecycle must also be redesigned.\n- **Artifact Chain**: The workflow is organized around durable documents passed between humans and agents. The transcript names an artifact chain that begins with `intent.md`, then moves to `spec.md`, then `plan.md`, with later stages producing pull requests, test results, and review outputs.\n- **Intent as the Starting Point**: Instead of beginning with a traditional backlog handoff, the originator of a feature, bug, or improvement works with an agent to capture goals, context, and pain points in `intent.md`. The source emphasizes that the originator can be anyone, not just an engineer.\n- **Spec and Plan as Handoff Documents**: After intent is reviewed, an agent generates a spec that translates goals into requirements and design. A later planning step produces `plan.md`, which should be detailed enough that an engineer or another agent could implement the work without revisiting earlier conversations.\n- **Parallel Agent Execution**: The transcript describes using multiple agents or subagents, sometimes with Git worktrees, to execute independent tasks in parallel. This only works well if the artifacts are strong enough to replace missing conversational context.\n- **Deterministic Checks and Evals**: Testing is not just human QA. The source stresses linting, build checks, automated tests, browser or end-to-end checks, and longer-lived eval suites used to detect regressions when models, skills, or workflows change.\n- **Governance and Hooks**: Hooks, permissions, policy files, and review gates constrain what agents may do. The transcript frames governance as essential for safety, auditability, and measurement, including versioning artifacts and tracking who changed them.\n- **Maintenance as an Automated Entry Point**: In the most ambitious form of the workflow, operational signals such as alerts, tickets, or messages can trigger an agent to diagnose issues and generate a new `intent.md`. Maintenance becomes another agent-driven entry point into the same lifecycle.\n\n## How It Works\n\nTreat the SDLC as a document-driven loop rather than a conversation-driven one. First, an originator works with an agent to produce `intent.md`, capturing the problem, goals, constraints, and relevant context. Second, an agent converts that intent into `spec.md`, adding requirements and design details while applying team policies, style guides, or skills. Third, an engineer or agent turns the spec into `plan.md`, listing files to change, work order, risks, constraints, and proof or success checks. Fourth, agents implement the plan, ideally inside bounded permissions and with hooks that prevent unsafe actions. Fifth, the system runs deterministic checks such as linting, builds, tests, and possibly browser-based validation before human review. Sixth, deployment flows through pull requests, policy checks, security review, and release gates. Finally, maintenance events can re-enter the loop by generating a fresh intent from logs, incidents, or tickets. The practical lesson is that durable artifacts let separate humans and agents collaborate without depending on a single long context window.\n\n## Training Exercise\n\nPick one small feature or bug in a real project and run it through the artifact chain. Write a short `intent.md` with problem statement, user impact, constraints, and desired outcome. Then draft `spec.md` with requirements, design notes, and non-goals. Next, create `plan.md` listing files to change, implementation order, risks, and tests you will use as proof. Before coding, check whether the plan is complete enough that another engineer could execute it without the prior chat. After implementation, run linting, tests, and one manual or browser-based verification step. End by writing a brief retrospective: which parts of the work were accelerated by the agent, and which process bottlenecks remained.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=LoMOPj-lO8U)",
+    "related": [
+      {
+        "id": "2026-08-28-harness-engineering-building-reliable-agents-around-the-model-4a59947586",
+        "title": "Harness Engineering: Building Reliable Agents Around the Model",
+        "date": "2026-08-28",
+        "shared_tags": [
+          "ai-agents",
+          "testing"
+        ]
+      },
+      {
+        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
+        "title": "Designing Longer-Running AI Agent Loops and Workflows",
+        "date": "2026-07-19",
+        "shared_tags": [
+          "ai-agents",
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-08-12-evaluating-multi-agent-ai-assistants-through-a-grockbot-case-study-2fc3439fd5",
+        "title": "Evaluating Multi-Agent AI Assistants Through a Grockbot Case Study",
+        "date": "2026-08-12",
+        "shared_tags": [
+          "ai-agents",
+          "workflow-design"
+        ]
+      },
+      {
+        "id": "2026-07-13-building-strong-ai-agent-skills-core-practices-for-reliable-agentic-systems",
+        "title": "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Systems",
+        "date": "2026-07-13",
+        "shared_tags": [
+          "ai-agents",
+          "workflow-design"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-01-lesson-how-to-analyze-claims-about-scientific-stagnation-incentives-and--3ade5a69b0",
     "title": "Lesson: How to Analyze Claims About Scientific Stagnation, Incentives, and Speculative Physics",
     "date": "2026-09-01",
@@ -618,18 +670,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
+        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+        "date": "2026-09-02",
         "shared_tags": [
           "ai-agents",
-          "software-engineering"
+          "testing"
         ]
       },
       {
-        "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
-        "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
-        "date": "2026-07-19",
+        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
+        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
+        "date": "2026-07-22",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -1708,17 +1760,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
-        "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
-        "date": "2026-08-03",
+        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+        "date": "2026-09-02",
         "shared_tags": [
-          "ai-agents"
+          "ai-agents",
+          "workflow-design"
         ]
       },
       {
-        "id": "2026-08-11-building-an-open-source-ai-agent-product-from-personal-friction-02b635c857",
-        "title": "Building an Open-Source AI Agent Product from Personal Friction",
-        "date": "2026-08-11",
+        "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
+        "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
+        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents"
         ]
@@ -9629,9 +9682,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-28-harness-engineering-building-reliable-agents-around-the-model-4a59947586",
-        "title": "Harness Engineering: Building Reliable Agents Around the Model",
-        "date": "2026-08-28",
+        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+        "date": "2026-09-02",
         "shared_tags": [
           "ai-agents"
         ]
