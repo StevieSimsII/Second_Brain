@@ -297,6 +297,57 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+    "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+    "date": "2026-09-03",
+    "tags": [
+      "agentic-coding",
+      "llm-evaluation",
+      "prompt-design",
+      "software-engineering",
+      "benchmarking"
+    ],
+    "source": "https://www.youtube.com/watch?v=r_dw-1109Ag",
+    "content": "## Overview\n\nThis lesson turns a practitioner review of \"Fable 5.1\" into a reusable method for assessing coding models in production-like workflows. The source combines vendor release notes, public benchmark discussion, and the speaker's own heavy usage across real repositories. The central takeaway is practical: for agentic coding, the best model is not necessarily the one with the best headline benchmark or cheapest one-shot cost, but the one that carries work cleanly through tool use, review, fixes, and merge. The evidence is mixed in places. Some claims come from official benchmark and pricing notes cited in the video, while others are anecdotal observations from the speaker's first 24 hours of use, so treat them as field reports rather than universal truths.\n\n## Key Concepts\n\n- **Agentic cost is dominated by caching behavior**: The source argues that multi-step coding agents repeatedly restart generation after tool calls, so cached context reads matter more than in simple chat. A large reduction in cache-read price can make an agentic model cheaper overall even when base token prices or output volume stay high. The speaker also notes an important counterweight: cache writes still cost money and can dominate spend.\n- **Benchmark gains do not guarantee better shipping behavior**: The video explicitly warns against trusting benchmarks alone. The speaker contrasts prior experiences where a model looked strong in tests but felt worse when code had to survive PR review and merging. The practical lesson is to measure review findings, follow-up commits, merge time, and abandoned PRs, not just benchmark scores.\n- **Instruction-following quality is task-dependent**: According to the source, Fable 5.1 follows instructions better in many real coding tasks but can still miss intent or overgeneralize. One cited failure was a mistaken conclusion during an audit of how PRs linked to threads. This shows that model quality should be assessed as reliability under your task definitions, not as a single global trait.\n- **Effort levels are a real tuning knob**: The source says lower reasoning settings can handle more work than expected, while higher settings increase the chance the model notices subtle complexity. The recommended practice is empirical: start with the default, then compare low, medium, and high against your own tasks rather than assuming the highest level is always worth the cost.\n- **Progress updates and autonomy can be prompted explicitly**: A notable behavior change in the source is that the model may emit fewer user-facing updates during long tool-use stretches. The practical response is not hidden configuration but clearer instructions: ask for brief progress updates, define the stopping condition, and tell the model to proceed autonomously on reversible actions.\n- **Scope control improves real-world usefulness**: The source notes that strong models may still over-fix nearby code, broaden tasks, or add unnecessary tests. Clear negative constraints such as what not to change, how much testing is warranted, and when to stop help preserve velocity and reduce review churn.\n- **The strongest signal is review-and-merge tail performance**: The speaker's most important observation is that Fable 5.1 did not merely draft code quickly; it reduced high-severity review findings, required fewer follow-up commits after PR creation, and completed broader cross-package changes. In this framing, a model acts less like autocomplete and more like a maintainer that can carry work to done.\n\n## How It Works\n\nUse the source's evaluation method as a repeatable workflow. First, separate vendor claims from your own evidence: note pricing changes, safeguard changes, and benchmark results, but label them as external claims until validated in your environment. Second, test the model on real backlog tasks, takeovers of messy PRs, and repo audits rather than toy prompts. Third, record operational metrics that matter to shipping: PR size, files touched, cross-package completeness, review-bot findings, number of post-PR fix commits, time from PR open to merge, and how often work is abandoned or superseded. Fourth, tune prompting around autonomy: specify desired progress updates, define the exact completion point, and state what the model must not expand. Fifth, tune reasoning level by task complexity instead of defaulting to maximum effort. Finally, judge success by whether the model reduces supervision load while keeping quality acceptable. In the source, the strongest claimed improvement was not raw speed but the ability to finish more substantial work with less review churn. That is promising, but because much of the evidence comes from one user's workflows and trust thresholds, you should expect results to vary by repository, tooling, and risk tolerance.\n\n## Training Exercise\n\nPick one real repository and run a three-part evaluation on a coding model. 1. Choose three tasks: a small bug fix, a cross-file feature tweak, and a takeover of an already-open PR that needs cleanup. 2. For each task, run the model at two effort levels and use a fixed prompt that states the goal, scope limits, desired progress-update style, and autonomous stopping rule. 3. Compare outcomes with a scorecard: correctness, files touched, unnecessary scope growth, review findings, follow-up commits after PR creation, and time to merge-ready. Write a short conclusion answering: Did the model mainly speed up drafting, or did it improve the full review-to-merge loop? Where evidence is thin, say so explicitly.",
+    "related": [
+      {
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
+        "id": "2026-08-14-evaluating-an-agent-focused-model-release-grok-46-in-practice-9afca9ae17",
+        "title": "Evaluating an Agent-Focused Model Release: Grok 4.6 in Practice",
+        "date": "2026-08-14",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
+        "id": "2026-07-10-evaluating-a-frontier-llm-in-practice-a-month-long-testing-framework",
+        "title": "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework",
+        "date": "2026-07-10",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
+        "id": "2026-06-03-mai-code-1-flash-efficient-agentic-coding-for-real-world-github-copilot-workflow",
+        "title": "MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows",
+        "date": "2026-06-03",
+        "shared_tags": [
+          "benchmarking"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
     "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
     "date": "2026-09-02",
@@ -1553,6 +1604,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
+      {
         "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
         "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
         "date": "2026-08-14",
@@ -1565,14 +1625,6 @@ source_characters: 18420
         "id": "2026-08-03-evaluating-ai-agent-infrastructure-cost-context-permissions-and-evidence-6b5a5bd027",
         "title": "Evaluating AI Agent Infrastructure: Cost, Context, Permissions, and Evidence",
         "date": "2026-08-03",
-        "shared_tags": [
-          "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-05-27-evaluating-long-running-ai-coding-agents-in-practice",
-        "title": "Evaluating Long-Running AI Coding Agents in Practice",
-        "date": "2026-05-27",
         "shared_tags": [
           "developer-tools"
         ]
@@ -1593,6 +1645,15 @@ source_characters: 18420
     "source": "https://www.youtube.com/watch?v=rdYBjpylJUQ",
     "content": "## Overview\n\nThis lesson turns an opinionated video transcript about xAI's Grok 4.6 into a reusable framework for judging frontier AI models. The source argues that model quality alone is not enough: you should compare benchmarks, real coding behavior, and cost per completed task. It also claims that coding products create a feedback loop in which usage data, revenue, and model training reinforce each other. Because the source is a commentary transcript rather than primary documentation, treat product, benchmark, acquisition, and roadmap claims as reported by the speaker unless independently verified.\n\n## Key Concepts\n\n- **Benchmark scores are only a starting point**: The speaker highlights several benchmarks and uses them to argue that Grok 4.6 is competitive with leading models. The practical takeaway is that benchmark rank can signal capability, but it should not be treated as conclusive proof of real-world usefulness.\n- **Cost per task matters more than token price alone**: The lesson emphasizes that a cheap token price can still produce an expensive workflow if the model uses many tokens. A better comparison combines model quality with the effective cost to complete a task.\n- **Coding evaluation differs from general knowledge evaluation**: The transcript separates knowledge-work benchmarks from coding-oriented benchmarks and demos. This suggests that model selection should be task-specific: a model that looks strong on broad evals may still feel weaker in hands-on coding use.\n- **The coding flywheel**: The speaker argues that AI labs improve by focusing on coding tools: developers use the product, that usage generates data and revenue, and both feed back into better future models. In the source, this is presented as a major reason Anthropic, OpenAI, and xAI improved.\n- **Recursive self-improvement through model-assisted training**: According to the transcript, Grok 4.5 was used to help generate or curate training data for Grok 4.6. The practical idea is not full autonomous self-improvement, but model-assisted post-training that can accelerate iteration.\n- **Product design changes who can use a model**: The speaker contrasts developer-facing tools such as Cursor with a broader audience product called Grokbot. Hiding model selection and code details can make strong models accessible to less technical users, even if the underlying capability comes from coding-focused training.\n- **Narratives about market position require caution**: The source presents strong claims about acquisitions, compute partnerships, and xAI becoming a third major US AI lab. These claims explain the speaker's thesis, but the transcript itself provides limited evidence, so they should be treated as informed interpretation rather than settled fact.\n\n## How It Works\n\nUse this four-step evaluation loop when choosing an AI model for practical work. First, define the task class you care about, such as coding, legal drafting, or general knowledge work. Second, review benchmarks that actually match that task, but do not stop there. Third, estimate cost per completed task by combining token pricing with how much context and output the model typically consumes. Fourth, run a small hands-on comparison with the same prompt and judge output quality, speed, and failure modes. The source applies this logic by arguing that Grok 4.6 improved on benchmark quality, remained relatively inexpensive, and benefited from a coding-data feedback loop after tighter integration with coding products. That argument is strongest as a decision framework, and weaker as hard evidence for specific business or roadmap claims.\n\n## Training Exercise\n\nPick three current AI models and test them on one realistic task from your work, such as implementing a small UI component, summarizing a technical document, or drafting a legal-style memo. For each model, record: 1. the task result quality, 2. the time to usable output, 3. approximate cost per completed task, and 4. one concrete failure mode. Then write a short recommendation naming the best model for that task and explain whether your decision was driven more by benchmark-style performance, subjective output quality, or total cost.\n\n## Further Reading\n\n- [YouTube source](https://www.youtube.com/watch?v=rdYBjpylJUQ)",
     "related": [
+      {
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "benchmarking",
+          "llm-evaluation"
+        ]
+      },
       {
         "id": "2026-07-10-evaluating-a-frontier-llm-in-practice-a-month-long-testing-framework",
         "title": "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework",
@@ -1616,14 +1677,6 @@ source_characters: 18420
         "title": "Recursive Self-Improvement, Model Pricing, and Cost per Task in Frontier AI",
         "date": "2026-07-31",
         "shared_tags": []
-      },
-      {
-        "id": "2026-07-18-kimmy-k3-what-the-transcript-claims-about-an-open-weight-frontier-coding-90882e76e8",
-        "title": "Kimmy K3: What the transcript claims about an open-weight frontier coding model",
-        "date": "2026-07-18",
-        "shared_tags": [
-          "benchmarking"
-        ]
       }
     ]
   },
@@ -5072,19 +5125,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-14-evaluating-an-agent-focused-model-release-grok-46-in-practice-9afca9ae17",
-        "title": "Evaluating an Agent-Focused Model Release: Grok 4.6 in Practice",
-        "date": "2026-08-14",
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
         "shared_tags": [
           "benchmarking"
         ]
       },
       {
-        "id": "2026-07-29-analyzing-ai-abundance-and-governance-claims-in-elon-musks-2036-forecast-0459bbdec6",
-        "title": "Analyzing AI Abundance and Governance Claims in Elon Musk's 2036 Forecast",
-        "date": "2026-07-29",
+        "id": "2026-08-14-evaluating-an-agent-focused-model-release-grok-46-in-practice-9afca9ae17",
+        "title": "Evaluating an Agent-Focused Model Release: Grok 4.6 in Practice",
+        "date": "2026-08-14",
         "shared_tags": [
-          "artificial-intelligence"
+          "benchmarking"
         ]
       }
     ]
@@ -6146,17 +6199,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
-        "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
-        "date": "2026-07-09",
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
         "shared_tags": [
-          "benchmarking"
+          "benchmarking",
+          "llm-evaluation"
         ]
       },
       {
-        "id": "2026-07-18-kimmy-k3-what-the-transcript-claims-about-an-open-weight-frontier-coding-90882e76e8",
-        "title": "Kimmy K3: What the transcript claims about an open-weight frontier coding model",
-        "date": "2026-07-18",
+        "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
+        "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
+        "date": "2026-07-09",
         "shared_tags": [
           "benchmarking"
         ]
@@ -6555,19 +6609,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
-        "title": "Model Fusion for Agentic Engineering",
-        "date": "2026-07-20",
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
         "shared_tags": [
           "software-engineering"
         ]
       },
       {
-        "id": "2026-07-06-12-open-source-ai-projects-worth-exploring-for-real-world-engineering-use",
-        "title": "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Use",
-        "date": "2026-07-06",
+        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
+        "title": "Model Fusion for Agentic Engineering",
+        "date": "2026-07-20",
         "shared_tags": [
-          "llm"
+          "software-engineering"
         ]
       }
     ]
