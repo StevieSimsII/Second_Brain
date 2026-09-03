@@ -348,6 +348,61 @@ source_characters: 18420
     ]
   },
   {
+    "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+    "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+    "date": "2026-09-03",
+    "tags": [
+      "prompting",
+      "llm",
+      "context-engineering",
+      "ai-workflows",
+      "knowledge-management"
+    ],
+    "source": "https://www.youtube.com/watch?v=HDmBwU5uvEE",
+    "content": "## Overview\n\nThis lesson teaches a practical prompting style for newer, long-running language models, based on a YouTube transcript summarizing Anthropic guides and keynote advice. The central shift is to stop micromanaging the model step by step and instead hand over a complete job: state the task, why it matters, the guardrails, and what a finished result should look like. Evidence in the source is partly second-hand: several claims are presented as Anthropic or speaker guidance rather than shown directly from the original docs, so treat them as reported best practices from the video rather than independently verified product behavior.\n\n## Key Concepts\n\n- **Give the whole job up front**: For complex work, the source recommends providing the full task specification at the start instead of walking the model through numbered steps. The model is expected to handle an end-to-end assignment better when it sees the goal, constraints, and success criteria together.\n- **Clarify the task before execution**: If the task is underspecified, do a short discovery phase first. The source suggests an 'interview me' style skill that asks follow-up questions, surfaces unknowns, and turns rough intent into a clearer brief.\n- **Explain why, not just what**: The transcript argues that models make better local decisions when they understand the broader purpose of the task, the audience, and what the output is meant to enable. This mirrors good human delegation: context improves judgment.\n- **Define done precisely**: Long-running models may overproduce unless you set explicit exit criteria. Good prompts specify what finished work looks like, how much detail is needed, and the preferred output format or tone.\n- **Use guardrails with reasons**: Instead of hard negatives like 'never do X,' the source recommends phrasing constraints with rationale. The reported idea is that newer models respond better when they understand why a rule exists.\n- **Avoid redundant self-check instructions**: The speaker says these models are already trained to verify and correct themselves, so extra prompts to re-check everything may add cost without much benefit. This is a reported claim from the talk, not something demonstrated in the transcript.\n- **Set a default voice**: If outputs become verbose or jargon-heavy, define a standing style instruction such as brief, plain-English, low-jargon writing. The source presents this as a simple way to improve readability across tasks.\n\n## How It Works\n\nUse this prompt pattern when assigning substantial work to a modern LLM. First, write the job in one sentence. Second, add the why: who the output is for and what it should help them do. Third, list guardrails as positive instructions with reasons where possible. Fourth, define done with concrete exit criteria such as scope, format, evidence standard, and tone. If your task is fuzzy, do a short interview or voice dump first, then convert that raw context into a cleaner brief. After that, let the model run instead of interrupting it with step-by-step control. A reusable template is: 'Job: [complete task]. Why: [audience, purpose, decision or action enabled]. Guardrails: [constraints plus reasons]. Done looks like: [specific deliverable, scope, structure, style, stopping point].'\n\n## Training Exercise\n\nTake a real task from your knowledge base workflow, such as summarizing an article, drafting a lesson, or planning a dashboard. First write a weak prompt that only says what to do. Then rewrite it using the four-part structure: job, why, guardrails, and done. Add one style instruction to control voice. Compare the two outputs for clarity, relevance, verbosity, and how much follow-up correction each one needs. Record which prompt elements most improved the result.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=HDmBwU5uvEE)",
+    "related": [
+      {
+        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
+        "title": "Context Engineering for a Personal Knowledge Base",
+        "date": "2026-08-03",
+        "shared_tags": [
+          "context-engineering",
+          "knowledge-management",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-05-23-llm-wiki-structured-personal-knowledge-as-an-alternative-to-naive-rag",
+        "title": "LLM Wiki: Structured Personal Knowledge as an Alternative to Naive RAG",
+        "date": "2026-05-23",
+        "shared_tags": [
+          "knowledge-management",
+          "llm",
+          "prompting"
+        ]
+      },
+      {
+        "id": "2026-05-08-karpathys-llm-wiki-persistent-knowledge-files-vs-basic-rag",
+        "title": "Karpathy’s LLM Wiki: Persistent Knowledge Files vs Basic RAG",
+        "date": "2026-05-08",
+        "shared_tags": [
+          "context-engineering",
+          "knowledge-management",
+          "llm"
+        ]
+      },
+      {
+        "id": "2026-08-19-designing-a-practical-ai-skill-system-for-coding-workflows-87a95b666b",
+        "title": "Designing a Practical AI Skill System for Coding Workflows",
+        "date": "2026-08-19",
+        "shared_tags": [
+          "ai-workflows",
+          "knowledge-management"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
     "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
     "date": "2026-09-02",
@@ -3048,6 +3103,16 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson distills a YouTube transcript about \"new rules\" for working with Claude-style coding agents. The core takeaway is that stronger models may need less rigid prompting and more structured context design: thin top-level routing, selective loading of files, lightweight tool descriptions, richer reference artifacts, and deliberate memory capture. Evidence in the source is partly second-hand: the speaker summarizes an Anthropic engineer's article and mixes it with examples from his own workspace.\n\n## Key Concepts\n\n- **Context engineering**: A model's output depends on more than the current prompt. In the source, context includes connected applications and tools, recurring routines, stored memory, and reusable skills or procedures.\n- **Judgment over rigid rules**: The transcript argues that newer models can perform better when given higher-level guidance instead of many narrow rules. The practical implication is to describe intent and style, then let the agent adapt to local context.\n- **Design interfaces instead of many examples**: Rather than constraining the model with repeated examples, the source recommends giving it a design system or brand interface. This preserves consistency while still allowing exploration.\n- **Progressive disclosure**: Do not front-load every rule and reference into one giant root file. Use a thin top-level router that points to sub-routers and only load detailed context when the task actually needs it.\n- **Token efficiency**: A thinner always-loaded instruction file reduces repeated token spend at session start. The lesson is operational as much as conceptual: better context structure can improve both cost and responsiveness.\n- **Automatic and deliberate memory**: The transcript claims newer tooling can save useful memories automatically, but the speaker still recommends explicit end-of-session review to update skills, memory files, and workflow docs when the session produced durable learning.\n- **Richer references**: Markdown is still useful, but the source argues that newer models can work with more expressive artifacts such as HTML. These can be better for visual systems like brand books, infographics, and interface specs.\n\n## How It Works\n\nTreat your knowledge base as a layered context system. Start with a small root instruction file whose job is routing, not storing every rule. Under that, create domain-specific index files for areas like content, product, operations, or personal work. For each domain, store reusable skills, memory files, and references close to the work they support. When defining agent behavior, prefer short intent-level guidance over long rule lists, and prefer design systems over many copied examples. Keep tool descriptions simple unless the task truly needs more detail. When a concept is visual or structural, consider a richer artifact such as HTML instead of plain markdown. After productive sessions, capture durable learnings by updating memory or skills so the system improves over time. The six shifts presented in the transcript are: more judgment, design interfaces over examples, progressive disclosure over loading everything up front, less repetition in tool instructions, more automatic memory behavior, and richer references over simple specs.\n\n## Training Exercise\n\nPick one area of your knowledge base, such as writing or research. Create a thin root router file with links to 3 sub-files only. In one sub-file, replace a long block of rules with 5-7 high-level principles. In another, replace example-heavy guidance with a small design interface or checklist. Then run the same task twice: once with your old setup and once with the routed setup. Compare output quality, token usage if visible, and how easily you can maintain the files. Finish by writing a short calibration note describing one rule, one memory, and one reference artifact you would keep.\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=gQeRjkb_Hlc)",
     "related": [
       {
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "context-engineering",
+          "knowledge-management",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
         "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
         "date": "2026-08-06",
@@ -3072,15 +3137,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "knowledge-management"
-        ]
-      },
-      {
-        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
-        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
-        "date": "2026-08-02",
-        "shared_tags": [
-          "ai-agents",
-          "context-engineering"
         ]
       }
     ]
@@ -3231,11 +3287,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-20-using-a-terminal-embedded-browser-beside-an-ai-coding-agent-fbcdd3d71e",
-        "title": "Using a Terminal-Embedded Browser Beside an AI Coding Agent",
-        "date": "2026-08-20",
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
         "shared_tags": [
-          "ai-coding"
+          "prompting"
         ]
       }
     ]
@@ -3570,9 +3626,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
-        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
-        "date": "2026-08-28",
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
         "shared_tags": [
           "ai-workflows"
         ]
@@ -3850,6 +3906,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains a workflow from the source video in which ChatGPT Voice is used less like dictation and more like an always-available coordinator for other AI tasks. The presenter argues that voice becomes useful when it can inspect project context, start separate threads for work, and control a main computer from other devices. The practical takeaway is not the hype, but the operating pattern: ask for status, ask what to do next, then delegate execution to separate threads. Because the source is a single transcripted demo, treat specific product claims as reported behavior from the presenter, not independently verified documentation.\n\n## Key Concepts\n\n- **Ambient AI**: The source uses this term for an AI that is continuously available, can be consulted from anywhere, and reduces friction between having an idea and turning it into action.\n- **Voice as orchestration, not dictation**: The lesson distinguishes simple speech-to-text prompting from a voice interface that can inspect context, coordinate work, and trigger separate task threads.\n- **Chief-of-staff model**: The presenter recommends treating the voice agent as a coordinator that routes work to other agents or chats instead of doing every task directly in the main voice conversation.\n- **Thread delegation**: A repeated tactic in the source is to ask for a next step, then say 'spin up a thread' for each approved action so work is isolated by project or task.\n- **Compass docs**: The source recommends creating markdown files that state short-term and long-term project goals so agents can recommend actions against explicit objectives.\n- **Headquarters device**: The presenter suggests choosing one always-on computer as the main execution node and letting mobile devices issue voice commands that operate through that machine.\n\n## How It Works\n\nStart by treating the voice interface as a control layer over your projects rather than a place to type with your mouth. In the source workflow, the first move is a status review: ask for updates across active projects and request one recommended next step for each. After hearing the recommendations, approve only the useful ones and explicitly delegate them into separate threads. This keeps the voice conversation focused on coordination while execution happens elsewhere.\n\nA practical pattern from the source is: morning kickoff, stream-of-consciousness capture, and end-of-day debrief. In a morning kickoff, ask for current project status and one concrete next action per project. During a walk or commute, dump ideas, constraints, and goals out loud, then ask what should be built or advanced based on that discussion. At the end of the day, ask what work could continue overnight, then spin up threads for those tasks.\n\nThe source also emphasizes asking more questions than commands. Instead of specifying every step yourself, ask what the system thinks should happen next, how it would approach the goal, or what blockers it sees. This reduces cognitive load and can surface options you had not considered. To improve answer quality, create a 'compass doc' for each project that records its short-term and long-term goals. That gives future recommendations a stable reference point.\n\nOperationally, the presenter recommends one main computer as headquarters and other devices as remote control points. In the transcript, mobile voice sessions are described as controlling the main machine, while some approvals still require the human to complete visible consent steps. That implies a useful boundary for your own workflow: let voice handle coordination and preparation, but expect sensitive approvals and final judgment to remain human tasks.\n\n## Training Exercise\n\nPick one real project and create a short compass doc with: current goal, long-term goal, active blockers, and what 'done' looks like this week. Then run a three-step drill: 1. Ask for a status summary and one next step. 2. Ask what you may be missing or what should happen next. 3. Approve only one action and restate it as a delegated thread. Afterward, review whether the voice session helped you decide faster, reduced context switching, or exposed missing information. Record the result in your knowledge base as a reusable workflow note.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=EyIYybdLK0M)",
     "related": [
       {
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "ai-workflows",
+          "knowledge-management"
+        ]
+      },
+      {
         "id": "2026-08-19-designing-a-practical-ai-skill-system-for-coding-workflows-87a95b666b",
         "title": "Designing a Practical AI Skill System for Coding Workflows",
         "date": "2026-08-19",
@@ -3874,14 +3939,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-workflows",
           "productivity"
-        ]
-      },
-      {
-        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
-        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
-        "date": "2026-08-28",
-        "shared_tags": [
-          "ai-workflows"
         ]
       }
     ]
@@ -5316,6 +5373,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "ai-workflows",
+          "prompting"
+        ]
+      },
+      {
         "id": "2026-08-19-designing-a-practical-ai-skill-system-for-coding-workflows-87a95b666b",
         "title": "Designing a Practical AI Skill System for Coding Workflows",
         "date": "2026-08-19",
@@ -5328,14 +5394,6 @@ source_characters: 18420
         "title": "GitHub Copilot Canvases for Repo Triage, Agent Handoffs, and Workflow Control",
         "date": "2026-08-06",
         "shared_tags": []
-      },
-      {
-        "id": "2026-08-03-context-engineering-for-a-personal-knowledge-base-83c9a988c3",
-        "title": "Context Engineering for a Personal Knowledge Base",
-        "date": "2026-08-03",
-        "shared_tags": [
-          "prompting"
-        ]
       }
     ]
   },
@@ -7892,6 +7950,14 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explains what it means to run a 12B-parameter language model like Gemma 4 locally on a 16GB Mac Mini, why that is notable, and what engineering tradeoffs make it possible. The core story is not just that a model fits, but that modern local inference stacks, quantization formats, and Apple Silicon's unified memory architecture let engineers do useful work with surprisingly capable models on consumer hardware.\n\nIf you build AI-powered developer tools, experiment with private on-device inference, or want to understand the practical limits of local LLM deployment, this topic matters. The lesson focuses on the mechanics behind memory usage, performance bottlenecks, and evaluation criteria so you can reason about whether a similar setup will work for your own prompts, latency expectations, and application constraints.\n\n## Key Concepts\n\n- **12B local inference**: A 12B model is large enough to offer noticeably stronger reasoning and general capability than small edge models, but small enough to be compressed and run on high-end consumer devices. Local inference means the model weights and token generation run on your own machine rather than a hosted API.\n- **Quantization**: Quantization reduces model weight precision from formats like FP16 to lower-bit representations such as 8-bit, 6-bit, or 4-bit. This drastically cuts memory usage and often makes the difference between a model fitting into 16GB RAM or not, at the cost of some quality and sometimes throughput.\n- **Unified memory on Apple Silicon**: Apple Silicon systems share memory between CPU and GPU instead of maintaining separate VRAM and system RAM pools. For local LLM inference, this can be advantageous because model weights and runtime state can be scheduled flexibly across the platform, though total memory pressure still remains the limiting factor.\n- **Context window overhead**: The model weights are only part of the memory budget. KV cache growth from longer prompts and ongoing conversation history can consume substantial additional memory, which impacts both maximum context size and the number of parallel tasks the machine can handle.\n- **Tokens per second vs usability**: Raw generation speed matters, but practical usability depends on the interaction pattern. For coding assistance, summarization, and low-volume chat, modest tokens-per-second can still feel very usable, while agentic workflows or long-form generation may expose latency more sharply.\n- **Capability-per-dollar**: A local Mac Mini setup changes the economics of experimentation by turning a one-time hardware purchase into repeated private inference without per-token API cost. Engineers often evaluate such a system not only on benchmark quality, but also on privacy, offline use, and recurring operational cost.\n\n## How It Works\n\nA practical way to understand the claim that \"Gemma 4 12B runs on a 16GB Mac Mini\" is to break the system into four layers: model size, compression, runtime, and workload.\n\nFirst, the raw model is too large to run comfortably in full precision on a 16GB machine. A 12B-parameter model in FP16 would require far more memory than is available once you account for the operating system and runtime overhead. The only reason this becomes feasible is that local inference tools rely on **quantized checkpoints**, typically in formats designed for efficient CPU/GPU execution on commodity hardware.\n\nSecond, the runtime matters as much as the model. On Apple Silicon, common local stacks use Metal-backed acceleration and memory-mapped model loading to reduce startup and runtime overhead. In practice, engineers often run quantized models through tools such as Ollama, llama.cpp-based frontends, LM Studio, or similar wrappers. These runtimes handle:\n\n- loading quantized weights\n- allocating KV cache for the prompt and generated tokens\n- scheduling compute across CPU/GPU resources\n- streaming tokens back to the user\n\nThird, workload shape determines whether the experience feels \"surprisingly capable\" or frustrating. Short prompts, moderate context lengths, and single-user interactive sessions are the sweet spot. The machine is far less likely to perform well when you:\n\n- push very large contexts\n- run multiple models simultaneously\n- expect cloud-like throughput\n- use agent loops that repeatedly expand context\n\nA useful mental model is:\n\n1. **Model weights** consume the base memory budget.\n2. **KV cache** grows with prompt + generated sequence length.\n3. **Runtime overhead** adds allocator, buffering, and framework costs.\n4. **macOS background usage** reduces what is realistically available.\n\nThat means \"fits in 16GB\" usually means \"fits under a careful, realistic setup\" rather than \"has abundant headroom.\"\n\nFrom an engineering standpoint, the system behavior often looks like this:\n\n- You choose a quantized Gemma 4 12B variant.\n- A local runner loads the model, often partially memory-mapped from disk.\n- The runtime offloads some operations to Apple GPU/Metal where beneficial.\n- Prompt tokens are processed first; this initial pass is often slower for long prompts.\n- Once generation begins, the model emits tokens sequentially, with speed depending on quantization level, prompt length, thermal state, and memory pressure.\n\nThe key tradeoff is simple: **lower-bit quantization improves fit and often speed, but may reduce output quality**. In practice, many users find that a well-quantized 12B model can still be strong enough for coding help, brainstorming, editing, summarization, and structured extraction. That is why the setup can feel surprisingly good despite the hardware limits.\n\nThere are also some important caveats:\n\n- **Responsiveness is not uniform.** Prompt ingestion can be much slower than generation for long inputs.\n- **Memory pressure causes instability.** If the context grows too large, macOS may swap heavily, collapsing performance.\n- **Benchmarks do not equal workflow quality.** A model may score well but still feel slow or inconsistent in a local interactive loop.\n- **Tooling defaults matter.** Context length, number of GPU layers, batch size, and quantization variant can meaningfully change the result.\n\nIf you were implementing this setup yourself, your decision process would look something like:\n\n```text\nHardware budget -> choose Mac Mini RAM size\nModel target -> Gemma 4 12B\nNeed to fit? -> select quantized checkpoint\nNeed reasonable UX? -> tune context size and runtime settings\nNeed reliability? -> monitor memory pressure and avoid oversized prompts\n```\n\nThe broader lesson is that local LLM deployment is now a systems engineering problem, not just a model selection problem. Capability depends on the interaction between model architecture, compression strategy, runtime implementation, and the hardware memory hierarchy. A 16GB Mac Mini is viable because those layers have improved enough that the combined system can deliver useful real-world performance for many engineering tasks.\n\n## Training Exercise\n\nSet up a small experiment to evaluate whether a 12B-class local model is usable on your own Apple Silicon machine and to identify the breakpoints where memory or latency becomes unacceptable.\n\n1. **Install a local inference runtime** such as Ollama or LM Studio.\n2. **Choose a 12B-class quantized model** that is available in the runtime, ideally a Gemma-family or comparable model if Gemma 4 12B is not directly exposed.\n3. **Record your baseline system state**:\n   - total RAM\n   - free memory before launch\n   - macOS Activity Monitor memory pressure\n4. **Run three prompt categories**:\n   - short Q&A: 1-2 paragraphs\n   - coding task: ask for a function implementation\n   - long-context summarization: paste 1,500-3,000 words\n5. **Measure**:\n   - time to first token\n   - tokens per second during generation\n   - memory pressure during prompt ingestion and generation\n   - output quality for each task\n6. **Repeat with a smaller quantization or shorter context** and compare the results.\n7. **Write a one-page conclusion** stating whether the setup is good enough for your actual workflow.\n\nExample prompt set:\n\n```text\nPrompt 1:\nExplain the difference between threads and async I/O in a systems programming context.\n\nPrompt 2:\nWrite a Python function that merges overlapping intervals and include 3 unit tests.\n\nPrompt 3:\nSummarize the following technical design doc into:\n- core problem\n- proposed solution\n- risks\n- open questions\n```\n\nIf your runtime supports a CLI, a typical workflow may look like:\n\n```bash\n# Example using a local model runner\nollama run \u003cmodel-name>\n```\n\nOptional extension:\n\n- Run the same prompts on a smaller model and a hosted API.\n- Compare privacy, latency, and quality.\n- Decide which tasks should stay local and which should use the cloud.\n\n## Further Reading\n\n- [Google Gemma documentation](https://ai.google.dev/gemma)\n- [llama.cpp project](https://github.com/ggerganov/llama.cpp)\n- [Ollama documentation](https://ollama.com/library)\n- [Apple Metal overview](https://developer.apple.com/metal/)",
     "related": [
       {
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "llm"
+        ]
+      },
+      {
         "id": "2026-08-01-buzz-as-a-multi-agent-workspace-centralized-context-adversarial-ai-and-s-a50ed3bfd3",
         "title": "Buzz as a Multi-Agent Workspace: Centralized Context, Adversarial AI, and Shared Compute",
         "date": "2026-08-01",
@@ -7910,14 +7976,6 @@ source_characters: 18420
       {
         "id": "2026-05-27-cursors-new-ai-coding-workflow-why-it-matters-for-engineers",
         "title": "Cursor's New AI Coding Workflow: Why It Matters for Engineers",
-        "date": "2026-05-27",
-        "shared_tags": [
-          "llm"
-        ]
-      },
-      {
-        "id": "2026-05-27-using-the-microsoft-learn-mcp-server-and-typescript-cli-for-trusted-docs-retriev",
-        "title": "Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval",
         "date": "2026-05-27",
         "shared_tags": [
           "llm"
@@ -9736,11 +9794,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
-        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
-        "date": "2026-09-02",
+        "id": "2026-09-03-prompting-long-running-llms-a-practical-lesson-from-a-claude-5-prompting-8a3f6047f9",
+        "title": "Prompting Long-Running LLMs: A Practical Lesson from a Claude 5 Prompting Talk",
+        "date": "2026-09-03",
         "shared_tags": [
-          "ai-agents"
+          "llm"
         ]
       }
     ]
