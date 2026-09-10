@@ -297,6 +297,59 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+    "title": "Designing AI Agents That Feel Like Trusted Teammates",
+    "date": "2026-09-10",
+    "tags": [
+      "ai-agents",
+      "product-design",
+      "knowledge-work",
+      "user-research",
+      "automation",
+      "product-strategy"
+    ],
+    "source": "https://www.youtube.com/watch?v=maSdsTLaMuU",
+    "content": "## Overview\n\nThis lesson distills product-design principles from an interview about “Grockbot,” as rendered in the supplied transcript. The central idea is to design knowledge-work agents as persistent teammates rather than disposable chat sessions: they retain relevant context, operate asynchronously in the cloud, use their own computer and connected tools, and return completed work. The account is promotional and anecdotal rather than an independent evaluation, so claims about popularity, reliability, and business impact should be treated as interviewees’ observations. The most reusable lesson is that agent quality depends not only on model intelligence, but also on runtime design, tool access, focused user research, reliability, and disciplined simplification.\n\n## Key Concepts\n\n- **Delegate outcomes, not individual prompts**: The interview distinguishes conversational assistance from genuine delegation. An agent that completes only 90% of a task may leave the user monitoring, correcting, and finishing it; that remaining uncertainty preserves much of the cognitive burden. Design workflows around meaningful outcomes, explicit completion criteria, and a clear handoff back to the user.\n- **Persistent agents with defined roles**: Instead of opening a fresh chat for every task, users reportedly created long-lived bots for recurring lanes of work. Some organized them as a team, with a chief-of-staff bot coordinating specialists. Persistence lets an agent accumulate relevant working context, while defined roles make delegation easier to understand and control.\n- **Cloud runtime and a dedicated computer**: Two design decisions are presented as foundational: run agents in the cloud and give them their own computers. A cloud runtime can continue when the user’s device is unavailable and preserve state across devices. Computer use can cover workflows without reliable APIs or MCP integrations, although the transcript also indicates that pixel-level interaction and authentication were significant reliability challenges.\n- **Design from the teammate analogy**: When a product decision is ambiguous, the team asks how a capable human colleague should behave. That analogy leads toward asynchronous work, selective progress updates, independent tools, long-term context, natural-language instructions, and occasional real-time collaboration. It is a design heuristic, not proof that an agent has human judgment or accountability.\n- **Hide mechanics while preserving useful visibility**: The prototype exposed model reasoning, stored memories, and implementation details for debugging, but much of this was removed before launch. Users reportedly preferred concise progress signals and possibly a high-level task list over streams of tool calls or internal reasoning. The practical balance is to hide operational noise while still exposing status, outputs, decisions requiring approval, and recovery paths.\n- **Research through diverse, hands-on onboarding**: The small team manually onboarded roughly 200–300 early users over about two weeks. Watching failures in real time created urgency around setup and reliability, while including people outside the company’s technical bubble—such as a coffee-shop owner—revealed different workflows and integration problems. The team also avoided prescribing every usage pattern so it could observe which structures emerged naturally.\n- **Simplify around capabilities**: The team reframed roadmap questions from “the product now has…” to “the agent can now….” This discourages accumulating buttons, menus, and setup screens when a capability can be invoked conversationally. One example is defining recurring automations in natural language rather than requiring users to assemble triggers and actions in a separate interface.\n- **Reliability creates the category change**: The transcript repeatedly emphasizes making complete workflows “just work.” Improvements to browser visibility, clicking, login handling, and other infrastructure could unlock whole categories of tasks without adding visible features. A useful evaluation program should therefore measure end-to-end task completion, intervention frequency, recovery from failure, and output quality—not merely whether isolated tool calls succeed.\n\n## How It Works\n\nA teammate-oriented agent system begins with one or more persistent agents, each assigned a stable role or workstream. The user connects only the tools and information required for those roles and provides context about goals, preferences, constraints, and escalation rules. Tasks run in a persistent cloud environment, allowing the agent to continue asynchronously and maintain consistent state across devices. It first uses structured integrations such as APIs or MCP tools when available, then may use its dedicated computer to operate interfaces that lack suitable integrations. The system reports compact progress updates, requests user intervention for blocked or sensitive decisions, stores outputs in an agreed location, and returns a finished artifact or a clearly described exception. Reliability data from real workflows feeds back into infrastructure improvements. Over time, recurring instructions can become natural-language automations, and coordinating agents can route work among specialized agents. This architecture also requires boundaries that the transcript raises but does not resolve in detail, including separation of personal and workplace context, credential isolation, permissions, auditability, and control over proactive actions.\n\n## Training Exercise\n\nChoose one recurring knowledge-work task that currently takes 30–60 minutes, such as producing a daily project digest. Write a one-page delegation brief containing: the desired outcome, source systems, permitted actions, prohibited actions, completion criteria, output location, schedule, and conditions requiring human approval. Define one persistent agent role for the task; add a coordinator only if the work genuinely contains multiple independent specialties. Run or simulate the workflow on five real examples. For each attempt, record whether it completed end to end, where intervention was needed, whether the final result was trustworthy, and which failure came from missing context, tool access, computer interaction, or poor judgment. Then remove one unnecessary control or interface step, add one missing safeguard, and rerun the tests. The goal is not a flashy demonstration but a workflow the user can safely delegate without monitoring continuously.\n\n## Further Reading\n\n- [Source interview on YouTube](https://www.youtube.com/watch?v=maSdsTLaMuU)",
+    "related": [
+      {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "product-design"
+        ]
+      },
+      {
+        "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
+        "title": "Founder Judgment and Agentic Workflows in the AI Era",
+        "date": "2026-08-13",
+        "shared_tags": [
+          "ai-agents",
+          "product-strategy"
+        ]
+      },
+      {
+        "id": "2026-08-11-building-an-open-source-ai-agent-product-from-personal-friction-02b635c857",
+        "title": "Building an Open-Source AI Agent Product from Personal Friction",
+        "date": "2026-08-11",
+        "shared_tags": [
+          "ai-agents",
+          "product-strategy"
+        ]
+      },
+      {
+        "id": "2026-08-06-personal-agi-as-a-durable-system-of-context-skills-and-ownership-e7d6d7a3e3",
+        "title": "Personal AGI as a Durable System of Context, Skills, and Ownership",
+        "date": "2026-08-06",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-work"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-09-build-and-maintain-a-file-based-ai-second-brain-e53276e18e",
     "title": "Build and Maintain a File-Based AI Second Brain",
     "date": "2026-09-09",
@@ -2176,12 +2229,12 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-15-building-an-ai-native-company-as-self-improving-loops-317ad2e274",
-        "title": "Building an AI-Native Company as Self-Improving Loops",
-        "date": "2026-08-15",
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
         "shared_tags": [
-          "organizational-design",
-          "startups"
+          "ai-agents",
+          "product-strategy"
         ]
       }
     ]
@@ -2422,21 +2475,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
+        "shared_tags": [
+          "ai-agents",
+          "product-strategy"
+        ]
+      },
+      {
         "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
         "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
         "date": "2026-08-27",
         "shared_tags": [
           "ai-agents",
           "open-source"
-        ]
-      },
-      {
-        "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
-        "title": "Founder Judgment and Agentic Workflows in the AI Era",
-        "date": "2026-08-13",
-        "shared_tags": [
-          "ai-agents",
-          "product-strategy"
         ]
       }
     ]
@@ -2835,9 +2888,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
-        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
-        "date": "2026-07-30",
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
         "shared_tags": [
           "ai-agents",
           "knowledge-work"
@@ -4021,18 +4074,18 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-28-harness-engineering-building-reliable-agents-around-the-model-4a59947586",
-        "title": "Harness Engineering: Building Reliable Agents Around the Model",
-        "date": "2026-08-28",
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
         "shared_tags": [
           "ai-agents",
-          "software-engineering"
+          "knowledge-work"
         ]
       },
       {
-        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
-        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
-        "date": "2026-08-27",
+        "id": "2026-08-28-harness-engineering-building-reliable-agents-around-the-model-4a59947586",
+        "title": "Harness Engineering: Building Reliable Agents Around the Model",
+        "date": "2026-08-28",
         "shared_tags": [
           "ai-agents",
           "software-engineering"
@@ -6192,6 +6245,15 @@ source_characters: 18420
     "content": "## Overview\n\nThis lesson explores the idea that, in AI-assisted software and knowledge tools, the limiting factor is no longer only generating output but helping humans and systems achieve reliable understanding. The talk framing this idea, attributed to Geoffrey Litt at Notion, points toward a shift from traditional automation concerns toward designing products that clarify intent, context, and meaning before acting.\n\nThis matters to engineers building AI features, internal tools, and user-facing assistants. If models can produce text, summaries, code, or plans cheaply and quickly, the harder engineering and product problem becomes ensuring that the system understands the user’s goal well enough to do the right thing, and that the user understands what the system inferred, assumed, and changed.\n\n## Key Concepts\n\n- **Understanding vs. generation**: Earlier generations of AI products treated output generation as the hard problem: write the paragraph, answer the question, or produce the draft. With modern LLMs, generation is abundant, but correctness and usefulness now depend on whether the system accurately understands the user’s intent, constraints, and surrounding context.\n- **Intent capture**: Users often express goals incompletely, ambiguously, or incrementally. AI systems need mechanisms to capture intent through clarifying questions, structured inputs, retrieval from prior context, or interactive refinement rather than assuming the first prompt is fully specified.\n- **Context as product infrastructure**: Useful AI behavior depends on high-quality context: document state, workspace structure, history, permissions, user preferences, and domain-specific data. Engineers should treat context assembly as a first-class system component, not as an afterthought appended to a prompt.\n- **Interpretability in the user interface**: When AI acts on behalf of a user, the UI must expose what the model thinks is happening. That can include showing the source material it used, the assumptions it made, the plan it inferred, and editable intermediate representations before committing changes.\n- **Human-AI collaboration loops**: The most effective AI workflows are often iterative rather than one-shot. Systems should support cycles of propose, inspect, correct, and rerun so that understanding improves over time and mistakes are caught before they propagate.\n- **Product quality beyond model quality**: A stronger base model helps, but product outcomes often hinge more on workflow design, grounding, safeguards, and feedback channels. Teams that focus only on model benchmarks can miss larger gains available from better context management and interaction design.\n\n## How It Works\n\nThe core argument can be understood as a product and systems-design shift: once language models can generate plausible outputs on demand, the scarce resource becomes accurate shared understanding between user, model, and application state.\n\nIn a traditional software flow, the user provides explicit commands through forms, menus, or code. The system then executes deterministic logic. In an LLM-enabled flow, the user may provide a high-level request like \"summarize this project and draft the next steps.\" The model can generate an answer immediately, but the real challenge is hidden in several layers:\n\n1. **What does \"this project\" refer to?**\n   - A single page?\n   - A database row?\n   - A collection of related docs?\n   - Recent comments and tasks?\n\n2. **What does \"summarize\" mean here?**\n   - Executive summary?\n   - Risks and blockers?\n   - Decision log?\n   - Status update for a manager?\n\n3. **What counts as \"next steps\"?**\n   - Suggested tasks?\n   - Assigned tasks based on current owners?\n   - Calendar actions?\n   - Open questions requiring clarification?\n\nA strong product cannot leave all of that latent. It needs a way to build and expose understanding.\n\nA practical AI product architecture for this idea usually looks like this:\n\n- **Input layer**: captures raw user requests from chat, commands, selections, or structured forms.\n- **Context assembly layer**: gathers relevant state such as current document content, linked items, metadata, user identity, permissions, and recent history.\n- **Interpretation layer**: infers the user’s likely goal, identifies ambiguities, and optionally asks follow-up questions.\n- **Planning layer**: decides whether the task should be answered directly, decomposed into subtasks, or turned into an editable proposal.\n- **Execution/generation layer**: uses the model to draft, transform, summarize, classify, or trigger tool calls.\n- **Review layer**: presents output with evidence, assumptions, and opportunities for correction.\n- **Feedback layer**: learns from user edits, approvals, and rejections to improve future behavior.\n\nThe most important engineering implication is that prompt construction alone is insufficient. You need explicit machinery for context retrieval and state modeling. For example, in a workspace product like Notion, context might include:\n\n- The current page and its block structure\n- Parent/child relationships between pages\n- References to people, projects, and deadlines\n- Prior edits and comments\n- User role and access scope\n- Templates or conventions used by the team\n\nWithout this, the model can produce fluent output that is structurally disconnected from the user’s actual work.\n\nAnother key mechanism is **interactive disambiguation**. Rather than immediately acting, the system can improve reliability by asking small, targeted questions. For example:\n\n```text\nYou asked for next steps for the launch plan.\nDo you want:\n1. A short executive summary\n2. Action items grouped by owner\n3. Risks and open decisions\n```\n\nThis pattern reduces hidden assumptions and transforms understanding into an explicit interface concern.\n\nA related product design principle is to expose intermediate representations. Instead of only showing the final answer, the system can show:\n\n- the sources it used,\n- the inferred objective,\n- extracted entities,\n- a proposed outline or action plan,\n- fields the user can edit before generation.\n\nThat matters because users are often better at spotting a misinterpreted assumption than at diagnosing a fully generated bad output after the fact.\n\nFrom an engineering quality perspective, this reframes evaluation. Instead of measuring only output fluency or task completion, teams should also measure:\n\n- clarification rate,\n- source grounding accuracy,\n- user correction frequency,\n- action reversal rate,\n- confidence calibration,\n- time-to-correct-output.\n\nThese metrics better capture whether the system truly understood the task.\n\nThe broader lesson is that AI product value increasingly comes from reducing ambiguity. Better systems do not just generate more; they help users specify, inspect, and refine meaning. In that sense, understanding becomes the new bottleneck because it sits upstream of every useful generation and every trustworthy action.\n\n## Training Exercise\n\nBuild a small prototype that turns an ambiguous user request into a clarified, grounded workflow.\n\n### Goal\nCreate a command-line or simple web tool that accepts a vague task like:\n\n```text\nSummarize this project and suggest next steps.\n```\n\nThe tool should not answer immediately. Instead, it should:\n1. Gather context from a local file or note.\n2. Detect ambiguities.\n3. Ask 2-3 clarifying questions.\n4. Produce a final summary and action list using the clarified intent.\n\n### Step-by-step\n1. **Create a sample project note**\n   Put this in `project.txt`:\n\n```text\nProject: Mobile onboarding refresh\nStatus: Engineering is blocked on final copy. Design mockups are approved. QA found two analytics issues. Launch target is August 15. Owner is Mia. Stakeholders want a weekly update and risk visibility.\n```\n\n2. **Write a small script**\n   Use any language. The script should:\n   - load `project.txt`\n   - accept a user request\n   - identify likely ambiguities such as audience, format, and level of detail\n   - prompt the user for answers\n   - compose a final prompt using both the note and the clarifications\n\n3. **Implement simple ambiguity rules**\n   For example, if the request contains words like `summarize`, ask for the audience. If it contains `next steps`, ask whether the user wants tasks, risks, or decisions.\n\n4. **Generate the result**\n   Send the assembled prompt to your model or simulate the result manually if you are not using an API.\n\n5. **Inspect the difference**\n   Compare:\n   - one-shot generation from the original request\n   - clarified generation after asking questions\n\n6. **Add an explainability section**\n   Print:\n   - the context source used\n   - the clarifications collected\n   - the final interpreted task\n\n### Minimal Python skeleton\n```python\nfrom pathlib import Path\n\ncontext = Path(\"project.txt\").read_text()\nrequest = input(\"Request: \")\n\nclarifications = {}\n\nif \"summarize\" in request.lower():\n    clarifications[\"audience\"] = input(\"Who is the summary for? \")\n\nif \"next steps\" in request.lower():\n    clarifications[\"next_steps_type\"] = input(\n        \"Do you want tasks, risks, or open decisions? \"\n    )\n\nclarifications[\"length\"] = input(\"Short or detailed output? \")\n\nfinal_prompt = f\"\"\"\nYou are helping with project analysis.\n\nContext:\n{context}\n\nUser request:\n{request}\n\nClarifications:\n{clarifications}\n\nProduce:\n1. A summary tailored to the audience\n2. Next steps in the requested format\n3. A short note listing any remaining uncertainties\n\"\"\"\n\nprint(\"\\n=== Final interpreted task ===\")\nprint(final_prompt)\n```\n\n### What to observe\n- How often the initial request was underspecified\n- Whether clarifying questions materially improved usefulness\n- Which ambiguities recur and could become structured UI fields later\n- How showing the interpreted task helps users catch mistakes early\n\n### Stretch goal\nTurn repeated clarifications into product affordances. For example, replace free-text follow-up questions with dropdowns for audience, output type, and confidence level. This demonstrates how an AI feature evolves from open-ended chat toward a more reliable hybrid interface.\n\n## Further Reading\n\n- [Notion AI](https://www.notion.so/product/ai)\n- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)\n- [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)\n- [Context Engineering for AI Agents](https://www.pinecone.io/learn/context-engineering/)",
     "related": [
       {
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
+        "shared_tags": [
+          "knowledge-work",
+          "product-design"
+        ]
+      },
+      {
         "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
         "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
         "date": "2026-07-12",
@@ -6214,14 +6276,6 @@ source_characters: 18420
         "date": "2026-09-04",
         "shared_tags": [
           "llms"
-        ]
-      },
-      {
-        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
-        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
-        "date": "2026-08-27",
-        "shared_tags": [
-          "product-design"
         ]
       }
     ]
@@ -10151,9 +10205,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
-        "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
-        "date": "2026-09-09",
+        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
+        "title": "Designing AI Agents That Feel Like Trusted Teammates",
+        "date": "2026-09-10",
         "shared_tags": [
           "ai-agents"
         ]
