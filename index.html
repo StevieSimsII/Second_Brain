@@ -297,6 +297,58 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-09-build-and-maintain-a-file-based-ai-second-brain-e53276e18e",
+    "title": "Build and Maintain a File-Based AI Second Brain",
+    "date": "2026-09-09",
+    "tags": [
+      "knowledge-management",
+      "ai-agents",
+      "markdown",
+      "automation",
+      "information-architecture"
+    ],
+    "source": "https://www.youtube.com/watch?v=Puzgmzv7t3Q",
+    "content": "## Overview\n\nA second brain can be implemented as a folder of Markdown files containing durable context about a person, team, or business. An AI agent with access to the folder can consult that context when performing tasks and add newly learned information. The source recommends a three-part lifecycle: create and route the initial knowledge base, automate updates from connected systems, and periodically optimize the growing collection. The examples and performance claims come from the presenter’s own system and promotional demonstration; the transcript does not provide independent benchmarks, the downloadable skill definitions, or enough implementation detail to reproduce every automation exactly.\n\n## Key Concepts\n\n- **Plain-text knowledge base**: The core system is a local folder of Markdown files rather than a proprietary database. Files can cover strategy, people, products, customers, decisions, meetings, leads, and daily activity. This makes the knowledge readable by people and accessible to AI tools that can operate on the folder.\n- **Routing document**: A root-level instruction file acts as a map between the agent and the knowledge base. Its routing table tells the agent which files or folders are relevant to different kinds of requests, reducing the need to load every document. The video calls this file “cloud.md,” although that name may reflect transcription or tool-specific terminology rather than a universal convention.\n- **Structured initialization**: The setup process gathers context across topics such as the user, company, market, and offer, then turns that material into organized Markdown documents and subfolders. Context can be supplied through written or transcribed explanations, connected software, and uploaded files. The quality of this initial material affects the usefulness of later AI output.\n- **Continuous capture**: A scheduled operator can collect recent information from systems such as meeting transcription, email, team chat, and a CRM. It may create daily summaries, update existing records, and preserve links to source material for deeper inspection. Which systems should be included depends on where meaningful changes actually occur.\n- **Local tasks versus cloud routines**: A locally scheduled task may run only while the computer is available. A cloud routine can run while the laptop is closed, but it cannot directly access a local folder. The demonstrated workaround exposes the second brain through a connector, then gives the routine access to that connector and the source applications.\n- **Knowledge hygiene**: Accumulated context can become duplicated, contradictory, stale, or unnecessarily large. The source recommends recurring audits that identify conflicts, remove irrelevant material, reorganize files, and report what changed. It suggests running this optimization weekly or every two weeks, but provides no comparative evidence establishing the ideal frequency.\n- **Team governance**: A shared second brain can align multiple team members’ AI tools around common business context. The demonstrated application offers synchronization and file- or folder-level permissions. The presenter recommends assigning one person to oversee updates and optimization, which establishes accountability for accuracy and access control.\n\n## How It Works\n\n1. Create a dedicated folder and give the chosen AI agent access to it. 2. Define a small folder structure around stable domains such as organization, people, customers, products, projects, decisions, and daily records. 3. Capture initial context using detailed explanations and relevant source documents; label assumptions and uncertain information instead of presenting them as facts. 4. Add a root routing document that maps common task types to the smallest relevant set of files and states rules for updating the knowledge base. 5. Use the same folder in future agent sessions so the agent can retrieve durable context and, when authorized, record new information. 6. Connect high-value operational sources and schedule a daily ingestion process. Preserve dates and source references so summaries remain traceable. 7. If updates must run without the local computer, expose the knowledge base through an authenticated connector and use a cloud routine. 8. Audit the collection regularly for stale records, duplicates, contradictions, broken links, excessive file size, and misplaced content. Review proposed deletions carefully because the source says its operator and optimizer may delete or rewrite files. 9. For teams, configure permissions, nominate an owner, and document who may edit sensitive or authoritative records.\n\n## Training Exercise\n\nBuild a small pilot rather than importing everything at once. Create a folder with subfolders for profile, work, projects, decisions, and daily notes. Add five concise Markdown files based on information you can verify. Then create a root routing file that maps three requests—project status, decision history, and personal preferences—to the relevant documents. Ask an AI agent to answer one question in each category and require it to name the files it used and flag missing evidence. Next, add one dated daily note and manually propagate an important change into the appropriate durable file. Finally, run a hygiene review: identify duplicates, stale statements, contradictions, oversized documents, and information lacking a source or date. Record proposed changes before applying them. Success means the agent retrieves only relevant context, distinguishes facts from uncertainty, and leaves a traceable update history.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=Puzgmzv7t3Q)\n- [Balder website mentioned in the transcript](https://balder.com)",
+    "related": [
+      {
+        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
+        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
+        "date": "2026-08-11",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      },
+      {
+        "id": "2026-08-05-vs-code-1132-practical-agent-dictation-and-markdown-workflows-e429dcbc68",
+        "title": "VS Code 1.132: Practical Agent, Dictation, and Markdown Workflows",
+        "date": "2026-08-05",
+        "shared_tags": [
+          "ai-agents",
+          "markdown"
+        ]
+      },
+      {
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
+        "shared_tags": [
+          "ai-agents",
+          "knowledge-management"
+        ]
+      },
+      {
+        "id": "2026-05-21-whats-new-in-vs-code-121x-native-mermaid-preview-agent-sessions-and-better-markd",
+        "title": "What’s New in VS Code 1.21x: Native Mermaid Preview, Agent Sessions, and Better Markdown",
+        "date": "2026-05-21",
+        "shared_tags": [
+          "ai-agents",
+          "markdown"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
     "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
     "date": "2026-09-04",
@@ -4227,19 +4279,20 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
-        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
-        "date": "2026-07-29",
+        "id": "2026-09-09-build-and-maintain-a-file-based-ai-second-brain-e53276e18e",
+        "title": "Build and Maintain a File-Based AI Second Brain",
+        "date": "2026-09-09",
         "shared_tags": [
           "ai-agents",
           "knowledge-management"
         ]
       },
       {
-        "id": "2026-08-26-copilot-for-sharepoint-portable-skills-skill-self-improvement-and-sharep-84a4d3191a",
-        "title": "Copilot for SharePoint: Portable Skills, Skill Self-Improvement, and SharePoint-Safe HTML",
-        "date": "2026-08-26",
+        "id": "2026-07-29-from-chat-to-agents-a-practical-lesson-on-context-tools-and-ai-workflows-c92d364ede",
+        "title": "From Chat to Agents: A Practical Lesson on Context, Tools, and AI Workflows",
+        "date": "2026-07-29",
         "shared_tags": [
+          "ai-agents",
           "knowledge-management"
         ]
       }
@@ -7561,21 +7614,21 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-09-build-and-maintain-a-file-based-ai-second-brain-e53276e18e",
+        "title": "Build and Maintain a File-Based AI Second Brain",
+        "date": "2026-09-09",
+        "shared_tags": [
+          "ai-agents",
+          "information-architecture"
+        ]
+      },
+      {
         "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
         "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
         "date": "2026-08-07",
         "shared_tags": [
           "ai-agents",
           "semantic-modeling"
-        ]
-      },
-      {
-        "id": "2026-05-02-graphrag-sdk-and-why-graph-based-retrieval-can-beat-vector-rag",
-        "title": "GraphRAG-SDK and Why Graph-Based Retrieval Can Beat Vector RAG",
-        "date": "2026-05-02",
-        "shared_tags": [
-          "knowledge-graphs",
-          "retrieval"
         ]
       }
     ]
@@ -12693,21 +12746,21 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-05-vs-code-1132-practical-agent-dictation-and-markdown-workflows-e429dcbc68",
-        "title": "VS Code 1.132: Practical Agent, Dictation, and Markdown Workflows",
-        "date": "2026-08-05",
+        "id": "2026-09-09-build-and-maintain-a-file-based-ai-second-brain-e53276e18e",
+        "title": "Build and Maintain a File-Based AI Second Brain",
+        "date": "2026-09-09",
         "shared_tags": [
           "ai-agents",
           "markdown"
         ]
       },
       {
-        "id": "2026-07-21-agentic-tool-extension-from-handwritten-plugins-to-on-demand-capabilitie-08355af8ac",
-        "title": "Agentic Tool Extension: From Handwritten Plugins to On-Demand Capabilities",
-        "date": "2026-07-21",
+        "id": "2026-08-05-vs-code-1132-practical-agent-dictation-and-markdown-workflows-e429dcbc68",
+        "title": "VS Code 1.132: Practical Agent, Dictation, and Markdown Workflows",
+        "date": "2026-08-05",
         "shared_tags": [
           "ai-agents",
-          "tooling"
+          "markdown"
         ]
       }
     ]
