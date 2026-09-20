@@ -297,6 +297,54 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
+    "title": "Using Jev for Fast, Structured Decisions in Software",
+    "date": "2026-09-20",
+    "tags": [
+      "ai-models",
+      "decision-systems",
+      "structured-output",
+      "typescript",
+      "application-design"
+    ],
+    "source": "https://www.youtube.com/watch?v=ZgXej_9isxY",
+    "content": "## Overview\n\nJev is a decision-focused AI model from Type Safe. It acts like a semantic “if statement”: an application sends some information, called the state, plus one or more questions, and receives structured probabilities, choices, or scores. Unlike general-purpose generative models, Jev is intended to judge information rather than write replies, summaries, or code. The source reports end-to-end response times of 70–500 milliseconds and a price of 4.2 cents per million input tokens, with output tokens free at the time described. These are vendor-reported and time-sensitive figures, so verify current performance, access, and pricing before designing around them.\n\n## Key Concepts\n\n- **Semantic decision-making**: Jev handles conditions that are difficult to express with exact rules, such as whether a customer sounds frustrated. Use ordinary code when the answer is deterministic—for example, checking whether a basket contains at least three items.\n- **State and questions**: A request contains the state—the information to evaluate—as plain text, a JSON object, or an array. It also contains named questions. The response associates each structured answer with its question name.\n- **Null questions**: A null question represents a yes-or-no judgment but returns the probability of “yes” between 0 and 1. A result near 0 indicates evidence for “no,” not uncertainty; a value near 0.5 indicates little preference either way.\n- **Choice questions**: A choice question selects from options supplied by the application and returns probabilities for every option. Include a fallback such as “other” when inputs may not fit the main categories.\n- **Score questions**: A score question evaluates state against a described scale. Levels start at zero, and the result is a probability-weighted average, so it may fall between levels. Descriptive levels are more actionable than an unexplained numeric scale.\n- **Parallel, independent evaluation**: Multiple questions about the same state can be submitted in one request. Jev evaluates them independently and in parallel, so each question must make sense from the state alone and cannot depend on another answer.\n- **Confidence and thresholds**: Choice and score answers include confidence based on their probability distributions; null answers expose the yes probability directly. Confidence does not guarantee correctness. Production thresholds should be calibrated with representative examples, with ambiguous cases routed to human review.\n- **Decision model versus generator**: Jev is suitable for routing, classification, claim-support checks, guardrails, model selection, and other repeated judgments. It is not a replacement for a generative model when the task requires composing text, summarizing material, explaining an answer, or generating code.\n\n## How It Works\n\nDefine a narrowly scoped decision and collect representative inputs. Put the relevant input into the request state, preferably as clearly named JSON fields. Add one or more named questions using the appropriate type: null for a binary judgment, choice for a closed set of categories, or score for a described ordinal scale. For choice questions, make the options exhaustive or add an “other” category. For score questions, explain what every level means. Send the request through Type Safe’s playground or SDK; the source demonstrates the TypeScript SDK, a Typesafe client, and client.system1. The response contains the model version, token usage, and an answer for each question. Null returns the probability of yes. Choice returns the selected option, option probabilities, and confidence. Score returns a weighted score, level probabilities, confidence, and a legend. Application code then applies a calibrated threshold: high-confidence results can trigger an action, while uncertain or consequential cases should be reviewed. Test against labeled, realistic examples because even confident judgments can be wrong. Also compare the model with a deterministic implementation first—AI adds value only when the condition requires semantic judgment.\n\n## Training Exercise\n\nBuild a customer-support triage prototype. Use JSON state containing a message and submit three questions in one request: (1) a null question asking whether the message expresses frustration; (2) a choice question classifying the main request as update, refund, replacement, or other; and (3) a score question with levels 0 = request without frustration, 1 = dissatisfaction without strong anger, and 2 = strong anger. Create at least 20 representative messages, including polite complaints, implicit frustration, mixed requests, and irrelevant messages. Record the outputs and manually label the expected decisions. Choose action and review thresholds from these examples rather than copying the demonstration threshold of 0.8. Then test new messages and measure incorrect automatic actions, review frequency, latency, and token usage. Finally, identify one condition in the workflow that should remain deterministic code and explain why.\n\n## Further Reading\n\n- [Source video: Jev overview and TypeScript demonstration](https://www.youtube.com/watch?v=ZgXej_9isxY)",
+    "related": [
+      {
+        "id": "2026-09-18-designing-fast-ai-classification-workflows-with-typed-outputs-and-confid-cae08480a9",
+        "title": "Designing Fast AI Classification Workflows with Typed Outputs and Confidence Scores",
+        "date": "2026-09-18",
+        "shared_tags": [
+          "decision-systems"
+        ]
+      },
+      {
+        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
+        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
+        "date": "2026-08-11",
+        "shared_tags": [
+          "typescript"
+        ]
+      },
+      {
+        "id": "2026-05-27-ai-engineer-coach-building-a-local-first-vs-code-analytics-extension-for-ai-codi",
+        "title": "AI Engineer Coach: Building a Local-First VS Code Analytics Extension for AI Coding Sessions",
+        "date": "2026-05-27",
+        "shared_tags": [
+          "typescript"
+        ]
+      },
+      {
+        "id": "2026-05-27-using-the-microsoft-learn-mcp-server-and-typescript-cli-for-trusted-docs-retriev",
+        "title": "Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval",
+        "date": "2026-05-27",
+        "shared_tags": [
+          "typescript"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-19-beyond-rlhf-from-human-pleasing-assistants-to-reliable-automation-b816f6fb01",
     "title": "Beyond RLHF: From Human-Pleasing Assistants to Reliable Automation",
     "date": "2026-09-19",
@@ -355,6 +403,14 @@ source_characters: 18420
     "content": "## Overview\n\nThe source presents Jev as a specialized AI classifier rather than a conversational text generator. An application supplies an input object, such as an email or support request, together with a predefined output schema. The model returns structured classifications and probability-like scores that software can use immediately. Demonstrations include email triage, lead scoring, support routing, video-clip selection, service matching, and browser control. The speakers claim very low latency and cost—for example, classifying 1,700 emails containing 4.2 million input tokens and 500,000 output tokens for $0.18, plus roughly 200 ms per query—but the transcript supplies no independent benchmark or methodological details, so these figures should be treated as anecdotal. The model also performed poorly in an experimental Bitcoin-trading use case, illustrating that fast classification is not a substitute for deep analysis, current information, or high-stakes judgment.\n\n## Key Concepts\n\n- **Classifier rather than chatbot**: Jev is described as accepting data and selecting among predefined outcomes. It is not primarily used by asking an open-ended question, and it does not ordinarily generate explanations or conversational prose.\n- **Schema-constrained output**: The developer defines the permitted output fields and types in advance—for example, category, priority, spam score, and reply likelihood. The result can then be consumed directly by application code instead of being parsed from free-form text.\n- **Confidence-based decisions**: Outputs may represent degrees of confidence rather than absolute truth. A spam score of 0.90, for example, can be interpreted as strong evidence of spam while still preserving uncertainty for downstream policy.\n- **Decision thresholds and routing**: Applications convert scores into actions: ignore low-value items, automate routine cases, or escalate important and ambiguous cases to a person. Jev therefore acts like a traffic controller at the front of an information queue.\n- **High-volume triage**: The strongest examples involve repetitive decisions over many inputs: categorizing email, ranking inbound leads, routing support requests, matching service inquiries, or scoring moments in a transcript for short-form clips.\n- **Speed and cost as design enablers**: The speakers argue that inexpensive, low-latency classification makes per-item decisions practical inside interactive workflows. Their numerical claims are demonstrations rather than independently verified performance guarantees.\n- **Task boundaries and risk**: The source reports weak results when the model was used for Bitcoin buy, hold, or sell signals. Classification should remain advisory when mistakes have serious financial or operational consequences, particularly when a task requires external research or sophisticated reasoning.\n\n## How It Works\n\nFirst, represent the item to be classified as structured input, such as an email containing its sender, subject, body, and metadata. Next, define a compact output schema containing only the decisions the workflow needs—for example, category from a fixed list, priority from a fixed scale, spam probability from 0 to 1, and reply probability from 0 to 1. Submit the input and schema to the classifier. The returned typed object can be evaluated by ordinary program logic: discard messages above a conservative spam threshold, route finance messages to the finance queue, request human review when confidence is weak, and immediately escalate urgent messages with high reply likelihood. Record the input, output, subsequent human decision, latency, and error outcome so that thresholds can be tested and refined. Because the model does not provide a visible rationale in the described interface, reliability must be established through evaluation on representative labeled examples rather than by trusting persuasive explanations.\n\n## Training Exercise\n\nBuild a paper prototype for support-ticket triage. Define an input with a subject, body, customer tier, and product name. Define outputs for destination team, urgency score, spam score, and human-review score. Create 20 varied tickets, including obvious cases, ambiguous cases, spam, and one potentially severe account problem. Manually assign expected outcomes before running any classifier. Then design routing rules such as: escalate when urgency is at least 0.85; send to human review when the winning category is below 0.70 confidence; otherwise route automatically. Compare predicted and expected outcomes, inspect false escalations and missed urgent cases, and adjust thresholds without changing the test labels. Conclude by listing decisions that are safe to automate, decisions that require review, and high-stakes decisions—such as trading—that should remain outside the system.\n\n## Further Reading\n\n- [Source video: Jev discussion and demonstrations](https://www.youtube.com/watch?v=4mTLpuQpB80)",
     "related": [
       {
+        "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
+        "title": "Using Jev for Fast, Structured Decisions in Software",
+        "date": "2026-09-20",
+        "shared_tags": [
+          "decision-systems"
+        ]
+      },
+      {
         "id": "2026-05-13-computer-use-in-codex-browser-controlled-agent-workflows",
         "title": "Computer Use in Codex: Browser-Controlled Agent Workflows",
         "date": "2026-05-13",
@@ -373,14 +429,6 @@ source_characters: 18420
         "title": "Designing Longer-Running AI Agent Loops and Workflows",
         "date": "2026-07-19",
         "shared_tags": []
-      },
-      {
-        "id": "2026-08-01-buzz-as-an-agent-first-collaboration-layer-a56972fb9d",
-        "title": "Buzz as an Agent-First Collaboration Layer",
-        "date": "2026-08-01",
-        "shared_tags": [
-          "workflow-automation"
-        ]
       }
     ]
   },
@@ -5510,19 +5558,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
+        "title": "Using Jev for Fast, Structured Decisions in Software",
+        "date": "2026-09-20",
+        "shared_tags": [
+          "structured-output"
+        ]
+      },
+      {
         "id": "2026-07-09-introducing-the-next-chapter-for-chatgpt-product-platform-and-agentic-ai-concept",
         "title": "Introducing the Next Chapter for ChatGPT: Product Platform and Agentic AI Concepts",
         "date": "2026-07-09",
         "shared_tags": [
           "multimodal"
-        ]
-      },
-      {
-        "id": "2026-05-28-skillopt-training-reusable-natural-language-skills-for-frozen-llm-agents",
-        "title": "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents",
-        "date": "2026-05-28",
-        "shared_tags": [
-          "python"
         ]
       }
     ]
@@ -8658,19 +8706,19 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
+        "title": "Using Jev for Fast, Structured Decisions in Software",
+        "date": "2026-09-20",
+        "shared_tags": [
+          "typescript"
+        ]
+      },
+      {
         "id": "2026-08-12-recursive-self-improvement-how-automated-ai-rd-could-accelerate-capabili-2a3800b98a",
         "title": "Recursive Self-Improvement: How Automated AI R&D Could Accelerate Capability and Risk",
         "date": "2026-08-12",
         "shared_tags": [
           "forecasting"
-        ]
-      },
-      {
-        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
-        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
-        "date": "2026-08-11",
-        "shared_tags": [
-          "typescript"
         ]
       }
     ]
@@ -10178,19 +10226,19 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
-        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
-        "date": "2026-08-11",
+        "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
+        "title": "Using Jev for Fast, Structured Decisions in Software",
+        "date": "2026-09-20",
         "shared_tags": [
           "typescript"
         ]
       },
       {
-        "id": "2026-07-09-github-copilot-in-vs-code-june-2026-agentic-workflow-updates",
-        "title": "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates",
-        "date": "2026-07-09",
+        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
+        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
+        "date": "2026-08-11",
         "shared_tags": [
-          "agentic-ai"
+          "typescript"
         ]
       }
     ]
