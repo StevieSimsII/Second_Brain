@@ -297,6 +297,55 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-22-jev-and-the-complicated-input-simple-choice-pattern-1b2506d0a2",
+    "title": "Jev and the “Complicated Input, Simple Choice” Pattern",
+    "date": "2026-09-22",
+    "tags": [
+      "ai-classification",
+      "software-architecture",
+      "llm-systems",
+      "workflow-automation",
+      "ai-evaluation"
+    ],
+    "source": "https://www.youtube.com/watch?v=tYugqJ9YytQ",
+    "content": "## Overview\n\nJev is presented as a general-purpose language classifier: it reads complex text but returns only choices, scores, or probabilities from outcomes defined in advance. This makes it suitable for tasks that require interpretation but not open-ended writing—such as routing support tickets, prioritizing documents, selecting workflow steps, or reviewing proposed agent actions. The source calls these tasks “semi-deterministic”: the judgment remains probabilistic, while the permitted outputs and subsequent actions are controlled by software. The video reports major speed and cost advantages over generative LLM calls, but many figures come from launch materials or individual developer examples, so they should be validated on representative data before production use.\n\n## Key Concepts\n\n- **Classifier-shaped problems**: A suitable problem has complicated information going in and a small, predefined set of outcomes coming out. Examples include choosing a ticket category, rating urgency, deciding whether an action needs approval, or ranking research questions. If the output must explain, invent, or draft substantial text, it is more naturally an LLM-shaped problem.\n- **Semi-deterministic software**: The application deterministically defines the allowed outcomes and what each outcome triggers, while a probabilistic model interprets the input and selects among them. This connects flexible language understanding to predictable program control flow without pretending that model judgment is perfectly reliable.\n- **Three complementary primitives**: The source divides AI-era software into deterministic code, classifiers, and generative LLMs. Code calculates and retrieves; a classifier interprets information and chooses among bounded outcomes; an LLM reasons, plans, explains, and writes. Effective systems assign each step to the least expensive primitive capable of doing it well.\n- **Classification as a routing layer**: A classifier can sit between messy incoming information and existing processes. It may label a support request as billing-related, assign urgency, and flag churn risk; ordinary software can then route the request, while an LLM is invoked only if a written response is needed.\n- **Classifier-led orchestration**: A classifier can operate in the outer loop of a workflow, selecting whether the next step should call a deterministic tool, invoke a generative model, escalate to a stronger model, or ask a human. The same pattern can select browser actions or interface components when the available operations are bounded.\n- **Cheap, pervasive judgment**: The source argues that sharply lower classification costs make previously uneconomical checks practical—for example, evaluating every customer call, reconsidering every document when priorities change, or checking an agent at multiple steps. Published pricing and reported benchmarks are promising but should be treated as claims to test, not universal guarantees.\n- **Evaluation and failure boundaries**: Jev can still make mistakes, and broad applicability does not imply correctness for every domain. A deployment should compare accuracy, latency, cost, calibration, and failure consequences against deterministic rules, an existing classifier, an LLM, and human review. High-risk or uncertain decisions need escalation paths.\n\n## How It Works\n\nFirst, identify a decision currently embedded in a manual process or generative-model call. Define a short list of mutually exclusive outcomes—for example, `proceed`, `block`, and `ask_human`—and describe what each means. Supply the relevant text or workflow state to the classifier along with those options. The classifier returns selected choices and associated scores or probabilities rather than composing an unrestricted answer. Deterministic application code validates the response and maps it to a known action. For a support ticket, this could mean selecting a department, urgency level, and churn-risk band in one evaluation; code then sets the queue and service level, and a generative LLM drafts a reply only when required. In an agent workflow, the classifier can inspect a proposed command and select whether it may run, must be rejected, or requires user approval. Production designs should include confidence thresholds, human escalation, logging, and ongoing evaluation because the bounded output improves integration but does not remove probabilistic errors.\n\n## Training Exercise\n\nChoose one workflow containing complex text and a simple downstream decision, such as inbox triage or support-ticket routing. Define three to five allowed labels with clear criteria, then assemble at least 50 representative examples, including ambiguous and high-risk cases. Establish the expected label for each example before testing. Implement or simulate two versions: one using your current method—rules, manual review, or an LLM—and one using a bounded classifier. Compare label accuracy, costly false positives and false negatives, latency, and estimated cost. Add an `ask_human` outcome and a confidence threshold, then rerun the evaluation. Adopt the classifier only if its measured tradeoffs fit the workflow; otherwise refine the labels, retain the existing method, or use a hybrid design.\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=tYugqJ9YytQ)",
+    "related": [
+      {
+        "id": "2026-09-18-designing-fast-ai-classification-workflows-with-typed-outputs-and-confid-cae08480a9",
+        "title": "Designing Fast AI Classification Workflows with Typed Outputs and Confidence Scores",
+        "date": "2026-09-18",
+        "shared_tags": [
+          "ai-classification",
+          "workflow-automation"
+        ]
+      },
+      {
+        "id": "2026-09-17-scaling-reasoning-with-multi-agent-systems-coordination-measurement-and--ea603a59e6",
+        "title": "Scaling Reasoning with Multi-Agent Systems: Coordination, Measurement, and Safety",
+        "date": "2026-09-17",
+        "shared_tags": [
+          "ai-evaluation"
+        ]
+      },
+      {
+        "id": "2026-09-11-reliable-ai-analysis-of-construction-drawings-evaluation-qa-and-task-rou-74571b8c8b",
+        "title": "Reliable AI Analysis of Construction Drawings: Evaluation, QA, and Task-Routed Skills",
+        "date": "2026-09-11",
+        "shared_tags": [
+          "ai-evaluation"
+        ]
+      },
+      {
+        "id": "2026-09-03-practical-lesson-evaluating-an-ai-model-for-coding-analysis-and-writing-554da820af",
+        "title": "Practical Lesson: Evaluating an AI Model for Coding, Analysis, and Writing",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "ai-evaluation"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-21-building-startups-when-ai-expands-what-small-experienced-teams-can-do-39ccaecf9c",
     "title": "Building Startups When AI Expands What Small, Experienced Teams Can Do",
     "date": "2026-09-21",
@@ -501,6 +550,15 @@ source_characters: 18420
     "content": "## Overview\n\nThe source presents Jev as a specialized AI classifier rather than a conversational text generator. An application supplies an input object, such as an email or support request, together with a predefined output schema. The model returns structured classifications and probability-like scores that software can use immediately. Demonstrations include email triage, lead scoring, support routing, video-clip selection, service matching, and browser control. The speakers claim very low latency and cost—for example, classifying 1,700 emails containing 4.2 million input tokens and 500,000 output tokens for $0.18, plus roughly 200 ms per query—but the transcript supplies no independent benchmark or methodological details, so these figures should be treated as anecdotal. The model also performed poorly in an experimental Bitcoin-trading use case, illustrating that fast classification is not a substitute for deep analysis, current information, or high-stakes judgment.\n\n## Key Concepts\n\n- **Classifier rather than chatbot**: Jev is described as accepting data and selecting among predefined outcomes. It is not primarily used by asking an open-ended question, and it does not ordinarily generate explanations or conversational prose.\n- **Schema-constrained output**: The developer defines the permitted output fields and types in advance—for example, category, priority, spam score, and reply likelihood. The result can then be consumed directly by application code instead of being parsed from free-form text.\n- **Confidence-based decisions**: Outputs may represent degrees of confidence rather than absolute truth. A spam score of 0.90, for example, can be interpreted as strong evidence of spam while still preserving uncertainty for downstream policy.\n- **Decision thresholds and routing**: Applications convert scores into actions: ignore low-value items, automate routine cases, or escalate important and ambiguous cases to a person. Jev therefore acts like a traffic controller at the front of an information queue.\n- **High-volume triage**: The strongest examples involve repetitive decisions over many inputs: categorizing email, ranking inbound leads, routing support requests, matching service inquiries, or scoring moments in a transcript for short-form clips.\n- **Speed and cost as design enablers**: The speakers argue that inexpensive, low-latency classification makes per-item decisions practical inside interactive workflows. Their numerical claims are demonstrations rather than independently verified performance guarantees.\n- **Task boundaries and risk**: The source reports weak results when the model was used for Bitcoin buy, hold, or sell signals. Classification should remain advisory when mistakes have serious financial or operational consequences, particularly when a task requires external research or sophisticated reasoning.\n\n## How It Works\n\nFirst, represent the item to be classified as structured input, such as an email containing its sender, subject, body, and metadata. Next, define a compact output schema containing only the decisions the workflow needs—for example, category from a fixed list, priority from a fixed scale, spam probability from 0 to 1, and reply probability from 0 to 1. Submit the input and schema to the classifier. The returned typed object can be evaluated by ordinary program logic: discard messages above a conservative spam threshold, route finance messages to the finance queue, request human review when confidence is weak, and immediately escalate urgent messages with high reply likelihood. Record the input, output, subsequent human decision, latency, and error outcome so that thresholds can be tested and refined. Because the model does not provide a visible rationale in the described interface, reliability must be established through evaluation on representative labeled examples rather than by trusting persuasive explanations.\n\n## Training Exercise\n\nBuild a paper prototype for support-ticket triage. Define an input with a subject, body, customer tier, and product name. Define outputs for destination team, urgency score, spam score, and human-review score. Create 20 varied tickets, including obvious cases, ambiguous cases, spam, and one potentially severe account problem. Manually assign expected outcomes before running any classifier. Then design routing rules such as: escalate when urgency is at least 0.85; send to human review when the winning category is below 0.70 confidence; otherwise route automatically. Compare predicted and expected outcomes, inspect false escalations and missed urgent cases, and adjust thresholds without changing the test labels. Conclude by listing decisions that are safe to automate, decisions that require review, and high-stakes decisions—such as trading—that should remain outside the system.\n\n## Further Reading\n\n- [Source video: Jev discussion and demonstrations](https://www.youtube.com/watch?v=4mTLpuQpB80)",
     "related": [
       {
+        "id": "2026-09-22-jev-and-the-complicated-input-simple-choice-pattern-1b2506d0a2",
+        "title": "Jev and the “Complicated Input, Simple Choice” Pattern",
+        "date": "2026-09-22",
+        "shared_tags": [
+          "ai-classification",
+          "workflow-automation"
+        ]
+      },
+      {
         "id": "2026-09-20-using-jev-for-fast-structured-decisions-in-software-c5bce77a14",
         "title": "Using Jev for Fast, Structured Decisions in Software",
         "date": "2026-09-20",
@@ -520,12 +578,6 @@ source_characters: 18420
         "id": "2026-08-05-designing-reusable-ai-coding-skills-for-clearer-workflows-and-better-col-93bc609ba5",
         "title": "Designing Reusable AI Coding Skills for Clearer Workflows and Better Collaboration",
         "date": "2026-08-05",
-        "shared_tags": []
-      },
-      {
-        "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
-        "title": "Designing Longer-Running AI Agent Loops and Workflows",
-        "date": "2026-07-19",
         "shared_tags": []
       }
     ]
@@ -617,9 +669,9 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-09-11-reliable-ai-analysis-of-construction-drawings-evaluation-qa-and-task-rou-74571b8c8b",
-        "title": "Reliable AI Analysis of Construction Drawings: Evaluation, QA, and Task-Routed Skills",
-        "date": "2026-09-11",
+        "id": "2026-09-22-jev-and-the-complicated-input-simple-choice-pattern-1b2506d0a2",
+        "title": "Jev and the “Complicated Input, Simple Choice” Pattern",
+        "date": "2026-09-22",
         "shared_tags": [
           "ai-evaluation"
         ]
@@ -1670,11 +1722,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-09-17-evaluating-the-ai-infrastructure-trade-through-revenue-capacity-and-risk-ea28a75c8a",
-        "title": "Evaluating the AI Infrastructure Trade Through Revenue, Capacity, and Risk",
-        "date": "2026-09-17",
+        "id": "2026-09-22-jev-and-the-complicated-input-simple-choice-pattern-1b2506d0a2",
+        "title": "Jev and the “Complicated Input, Simple Choice” Pattern",
+        "date": "2026-09-22",
         "shared_tags": [
-          "artificial-intelligence"
+          "software-architecture"
         ]
       }
     ]
