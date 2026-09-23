@@ -26,6 +26,10 @@ LESSON_OUTPUT_SCHEMA: dict[str, Any] = {
     "required": [
         "title",
         "tags",
+        "tldr",
+        "key_takeaways",
+        "key_moments",
+        "review_questions",
         "overview",
         "key_concepts",
         "how_it_works",
@@ -35,6 +39,32 @@ LESSON_OUTPUT_SCHEMA: dict[str, Any] = {
     "properties": {
         "title": {"type": "string"},
         "tags": {"type": "array", "items": {"type": "string"}},
+        "tldr": {"type": "string"},
+        "key_takeaways": {"type": "array", "items": {"type": "string"}},
+        "key_moments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["timestamp", "label"],
+                "properties": {
+                    "timestamp": {"type": "string"},
+                    "label": {"type": "string"},
+                },
+            },
+        },
+        "review_questions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["question", "answer"],
+                "properties": {
+                    "question": {"type": "string"},
+                    "answer": {"type": "string"},
+                },
+            },
+        },
         "overview": {"type": "string"},
         "key_concepts": {
             "type": "array",

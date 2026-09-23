@@ -13,7 +13,12 @@ from ingest.github import _find_local_source, build_page_id
 from ingest.lesson import generate_lesson, render_markdown
 from ingest.sources import FetchedSource, SourceQualityError, validate_source
 from ingest.urls import normalize_url, source_fingerprint, youtube_video_id
-from ingest.youtube import fetch_transcript
+from ingest.youtube import (
+    fetch_video,
+    parse_chapters,
+    parse_watch_page,
+    timestamped_transcript,
+)
 
 
 class UrlTests(unittest.TestCase):
@@ -39,11 +44,79 @@ class SourceQualityTests(unittest.TestCase):
         with self.assertRaises(SourceQualityError):
             validate_source(source)
 
+    def test_long_description_does_not_rescue_a_thin_transcript(self) -> None:
+        source = FetchedSource(
+            url="https://www.youtube.com/watch?v=abc123",
+            kind="youtube",
+            content="description " * 500,
+            metadata={"transcript_characters": 200},
+        )
+        with self.assertRaises(SourceQualityError):
+            validate_source(source)
+
     @patch("ingest.youtube.subprocess.run")
     def test_transcript_worker_has_a_hard_timeout(self, run) -> None:
         run.side_effect = subprocess.TimeoutExpired(cmd="youtube", timeout=5)
         with self.assertRaises(TimeoutError):
-            fetch_transcript("abc123", timeout=5)
+            fetch_video("abc123", timeout=5)
+
+    @patch("ingest.youtube.subprocess.run")
+    def test_worker_returns_transcript_and_metadata(self, run) -> None:
+        payload = {"transcript": "[0:00] hello", "metadata": {"duration_seconds": 754}}
+        run.return_value = subprocess.CompletedProcess(
+            args=[], returncode=0, stdout=json.dumps(payload), stderr=""
+        )
+        video = fetch_video("abc123", timeout=5)
+        self.assertEqual(video.transcript, "[0:00] hello")
+        self.assertEqual(video.metadata["duration_seconds"], 754)
+
+
+WATCH_PAGE = (
+    "<html><script>var ytInitialPlayerResponse = "
+    + json.dumps(
+        {
+            "videoDetails": {
+                "title": "Classifiers vs LLMs",
+                "author": "Nate B Jones",
+                "lengthSeconds": "1843",
+                "viewCount": "12345",
+                "shortDescription": "Intro text\n0:00 Intro\n2:15 Why {braces} matter\n1:02:03 Wrap up",
+            },
+            "microformat": {
+                "playerMicroformatRenderer": {
+                    "publishDate": "2026-09-20T07:00:00-07:00",
+                    "category": "Science & Technology",
+                }
+            },
+        }
+    )
+    + ";var meta = {};</script></html>"
+)
+
+
+class YouTubeMetadataTests(unittest.TestCase):
+    def test_watch_page_metadata_is_extracted(self) -> None:
+        metadata = parse_watch_page(WATCH_PAGE)
+        self.assertEqual(metadata["title"], "Classifiers vs LLMs")
+        self.assertEqual(metadata["channel"], "Nate B Jones")
+        self.assertEqual(metadata["duration_seconds"], 1843)
+        self.assertEqual(metadata["published"], "2026-09-20")
+        self.assertEqual(
+            [chapter["start"] for chapter in metadata["chapters"]], [0, 135, 3723]
+        )
+
+    def test_unparseable_page_yields_no_metadata(self) -> None:
+        self.assertEqual(parse_watch_page("<html>consent wall</html>"), {})
+
+    def test_chapters_require_a_zero_start(self) -> None:
+        self.assertEqual(parse_chapters("1:00 Late start\n2:00 Next"), [])
+
+    def test_transcript_is_grouped_into_timestamped_paragraphs(self) -> None:
+        segments = [(0.0, 2.0, "hello"), (10.0, 2.0, "world"), (31.0, 2.0, "next"), (95.5, 1.0, "later")]
+        self.assertEqual(
+            timestamped_transcript(segments),
+            "[0:00] hello world\n[0:31] next\n[1:35] later",
+        )
 
 
 class MarkdownTests(unittest.TestCase):
@@ -70,6 +143,48 @@ class MarkdownTests(unittest.TestCase):
         self.assertIn('source_fingerprint: "abc123def0"', markdown)
         self.assertIn("tags: [ai-agents, retrieval]", markdown)
         self.assertIn("## Key Concepts", markdown)
+        self.assertNotIn("## TL;DR", markdown)
+
+    def test_youtube_page_has_time_metadata_and_skimmable_layer(self) -> None:
+        source = FetchedSource(
+            url="https://www.youtube.com/watch?v=abc123",
+            kind="youtube",
+            content="x" * 2000,
+            metadata={"channel": "Nate B Jones", "duration_seconds": 1843, "published": "2026-09-20"},
+        )
+        lesson = {
+            "title": "Classifier-Shaped Problems",
+            "tags": ["llm-systems"],
+            "tldr": "Use a  classifier when the input is messy but the choice is small.",
+            "key_takeaways": ["Route with classifiers.", "", "Generate only when needed."],
+            "key_moments": [
+                {"timestamp": "2:15", "label": "Defines the pattern"},
+                {"timestamp": "0:40", "label": "Motivating example"},
+                {"timestamp": "2:00:00", "label": "Past the end"},
+                {"timestamp": "soon", "label": "Malformed"},
+            ],
+            "review_questions": [{"question": "When is a <classifier> enough?", "answer": "Bounded outputs."}],
+            "overview": "Overview.",
+            "key_concepts": [{"name": "Routing", "explanation": "Pick a lane."}],
+            "how_it_works": "Mechanics.",
+            "training_exercise": "Try it.",
+            "further_reading": [{"title": "Source", "url": "https://example.com"}],
+        }
+        markdown = render_markdown(lesson, source=source, date="2026-09-22", fingerprint="f00")
+        self.assertIn('channel: "Nate B Jones"', markdown)
+        self.assertIn("duration_seconds: 1843", markdown)
+        self.assertIn("## TL;DR\n\n> Use a classifier when the input is messy", markdown)
+        self.assertIn("1. Route with classifiers.\n2. Generate only when needed.", markdown)
+        self.assertIn(
+            "- [0:40](https://www.youtube.com/watch?v=abc123&t=40s) — Motivating example\n"
+            "- [2:15](https://www.youtube.com/watch?v=abc123&t=135s) — Defines the pattern\n",
+            markdown,
+        )
+        self.assertNotIn("Past the end", markdown)
+        self.assertNotIn("Malformed", markdown)
+        self.assertIn("<summary>When is a &lt;classifier&gt; enough?</summary>", markdown)
+        self.assertLess(markdown.index("## TL;DR"), markdown.index("## Overview"))
+        self.assertLess(markdown.index("## Test Yourself"), markdown.index("## Further Reading"))
 
     def test_page_id_is_stable_and_contains_fingerprint(self) -> None:
         page_id = build_page_id("A Useful Lesson", "abc123def0", "2026-07-16")

@@ -65,6 +65,31 @@ launchctl kickstart -k gui/$(id -u)/com.stevie.secondbrain
 
 If Codex returns auth errors after a long idle period, run `codex login` again on the Mac mini under the same OS user that owns the launch agent, then restart the service.
 
+## Upgrading Existing Lessons
+
+Older lessons predate video metadata and the TL;DR/takeaways layer. Upgrade them in
+place from the Mac mini (it has YouTube access and Codex auth):
+
+```bash
+cd /Users/steviecopilot/Stevie_Code/Second_Brain
+git pull --ff-only
+source .venv/bin/activate
+
+# 1. Video length, channel, and publish date (fast, no Codex usage)
+python -m ingest.backfill --metadata-only
+
+# 2. Preview the summary upgrade on a few pages, then run it for real
+python -m ingest.backfill --summaries-only --limit 3 --dry-run
+python -m ingest.backfill --summaries-only --limit 25
+
+git add wiki/pages && git commit -m "backfill: summaries and video metadata" && git push
+```
+
+Every step is idempotent, so run the summary step in batches and pick up where the
+last one stopped. It processes newest pages first. When a transcript is available it
+also adds timestamped key moments; use `--no-transcripts` to summarize from the lesson
+text only. `--match <text>` limits the run to matching filenames.
+
 ## Safe Development
 
 - Use a separate development Telegram bot token.

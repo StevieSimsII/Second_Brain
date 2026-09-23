@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import base64
 import logging
-from dataclasses import dataclass
+import math
+from dataclasses import dataclass, field
+from typing import Any
 from urllib.parse import urlparse
 
 import requests
@@ -11,13 +13,14 @@ from bs4 import BeautifulSoup
 
 from ingest import config
 from ingest.urls import normalize_url, youtube_video_id
-from ingest.youtube import fetch_transcript
+from ingest.youtube import fetch_video, format_timestamp
 
 
 log = logging.getLogger(__name__)
 GITHUB_API = "https://api.github.com"
 USER_AGENT = "Mozilla/5.0 (compatible; SecondBrainCapture/2.0)"
 MAX_SOURCE_CHARS = 80_000
+READING_WORDS_PER_MINUTE = 230
 
 
 class SourceQualityError(ValueError):
@@ -29,6 +32,7 @@ class FetchedSource:
     url: str
     kind: str
     content: str
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
     def character_count(self) -> int:
@@ -102,14 +106,45 @@ def _fetch_github(url: str) -> FetchedSource:
             "\n".join(paths),
         ]
     )[:MAX_SOURCE_CHARS]
-    return FetchedSource(url=url, kind="github", content=content)
+    return FetchedSource(
+        url=url,
+        kind="github",
+        content=content,
+        metadata={"reading_minutes": reading_minutes(readme)} if readme else {},
+    )
+
+
+def reading_minutes(text: str) -> int:
+    return max(1, math.ceil(len(text.split()) / READING_WORDS_PER_MINUTE))
+
+
+def _youtube_header(url: str, video_id: str, metadata: dict[str, Any]) -> str:
+    lines = [f"YOUTUBE VIDEO ID: {video_id}", f"URL: {url}"]
+    if metadata.get("title"):
+        lines.append(f"VIDEO TITLE: {metadata['title']}")
+    if metadata.get("channel"):
+        lines.append(f"CHANNEL: {metadata['channel']}")
+    if metadata.get("duration_seconds"):
+        lines.append(f"DURATION: {format_timestamp(metadata['duration_seconds'])}")
+    if metadata.get("published"):
+        lines.append(f"PUBLISHED: {metadata['published']}")
+    chapters = metadata.get("chapters") or []
+    if chapters:
+        lines.append("\n===== CREATOR CHAPTERS =====")
+        lines.extend(
+            f"[{format_timestamp(chapter['start'])}] {chapter['title']}"
+            for chapter in chapters
+        )
+    description = str(metadata.get("description") or "").strip()
+    if description:
+        lines.append("\n===== DESCRIPTION =====")
+        lines.append(description[:3000])
+    return "\n".join(lines)
 
 
 def _fetch_youtube(url: str, video_id: str) -> FetchedSource:
     try:
-        transcript = fetch_transcript(
-            video_id, timeout=config.YOUTUBE_FETCH_TIMEOUT_SECONDS
-        )
+        video = fetch_video(video_id, timeout=config.YOUTUBE_FETCH_TIMEOUT_SECONDS)
     except TimeoutError as exc:
         raise SourceQualityError(
             "YouTube did not return a transcript before the capture timeout."
@@ -118,11 +153,19 @@ def _fetch_youtube(url: str, video_id: str) -> FetchedSource:
         raise SourceQualityError(
             "I could not retrieve a usable transcript for that YouTube video."
         ) from exc
+    metadata = {
+        key: value
+        for key, value in video.metadata.items()
+        if key in {"title", "channel", "duration_seconds", "published", "chapters"}
+    }
+    metadata["transcript_characters"] = len(video.transcript)
     content = (
-        f"YOUTUBE VIDEO ID: {video_id}\nURL: {url}\n\n"
-        f"===== TRANSCRIPT =====\n{transcript}"
+        f"{_youtube_header(url, video_id, video.metadata)}\n\n"
+        f"===== TRANSCRIPT (timestamped) =====\n{video.transcript}"
     )
-    return FetchedSource(url=url, kind="youtube", content=content[:MAX_SOURCE_CHARS])
+    return FetchedSource(
+        url=url, kind="youtube", content=content[:MAX_SOURCE_CHARS], metadata=metadata
+    )
 
 
 def _fetch_web(url: str) -> FetchedSource:
@@ -140,7 +183,12 @@ def _fetch_web(url: str) -> FetchedSource:
     lines = [line.strip() for line in candidate.get_text("\n").splitlines() if line.strip()]
     text = "\n".join(lines)
     content = f"TITLE: {title}\nURL: {url}\n\n{text}"[:MAX_SOURCE_CHARS]
-    return FetchedSource(url=url, kind="web", content=content)
+    return FetchedSource(
+        url=url,
+        kind="web",
+        content=content,
+        metadata={"reading_minutes": reading_minutes(text)},
+    )
 
 
 def validate_source(source: FetchedSource) -> FetchedSource:
@@ -151,10 +199,12 @@ def validate_source(source: FetchedSource) -> FetchedSource:
     )
     if source.kind == "github":
         minimum = 1_000
-    if source.character_count < minimum:
+    # Judge videos by the transcript alone; a long description is not evidence.
+    evidence = source.metadata.get("transcript_characters", source.character_count)
+    if evidence < minimum:
         host = urlparse(source.url).netloc
         raise SourceQualityError(
-            f"I only retrieved {source.character_count:,} characters from {host}; "
+            f"I only retrieved {evidence:,} characters from {host}; "
             f"at least {minimum:,} are required for a trustworthy lesson."
         )
     return source

@@ -82,10 +82,13 @@ async def handle_url(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         prefix = "Already saved."
     else:
         prefix = "Saved."
-    await update.message.reply_text(
-        f"{prefix}\n\n{result['title']}\n{result['site_url']}",
-        disable_web_page_preview=False,
-    )
+    parts = [prefix, "", str(result["title"])]
+    if result.get("time_label"):
+        parts.append(f"⏱ {result['time_label']}")
+    if result.get("tldr"):
+        parts.extend(["", f"TL;DR: {result['tldr']}"])
+    parts.extend(["", str(result["site_url"])])
+    await update.message.reply_text("\n".join(parts), disable_web_page_preview=False)
 
 
 async def handle_error(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:

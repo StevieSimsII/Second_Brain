@@ -12,19 +12,20 @@ Send a link to Telegram
 Normalize the URL and check for duplicates
         ↓
 Retrieve source evidence
-  • YouTube transcript
+  • YouTube timestamped transcript + length, channel, chapters
   • GitHub metadata, README, and file tree
   • Readable article content
         ↓
 Reject thin sources instead of inventing a lesson
         ↓
-Generate a structured lesson with Codex (ChatGPT plan auth)
+Generate a lesson with Codex (ChatGPT plan auth):
+TL;DR · key takeaways · key moments · study notes · self-test
         ↓
 Commit canonical Markdown to wiki/pages/
         ↓
 GitHub Actions rebuilds the searchable site
         ↓
-Telegram returns the direct article link
+Telegram returns the TL;DR, the video length, and the direct link
 ```
 
 Markdown is the source of truth. Notion, email, and OpenAI Platform API keys are not part of the pipeline.
@@ -56,6 +57,21 @@ Every new capture stores stable metadata with the lesson:
 - a URL fingerprint used for deduplication
 - reusable topic tags
 - capture date
+- time to consume it: video length (plus channel and publish date) or reading time
+
+## Every Lesson Has Two Layers
+
+- **Skim (30 seconds):** a TL;DR, 3-7 key takeaways, and, for videos, timestamped
+  key moments that play right on the page.
+- **Study (5 minutes):** overview, key concepts, how it works, a hands-on exercise,
+  and *Test Yourself* questions with hidden answers.
+
+## Learning Time
+
+The **📊 Learning** view totals the time behind your captures: this week, this month,
+a 12-week trend, your weekly capture streak, and time by format, channel, and topic.
+Set your usual playback speed there so 1.5× viewers aren't over-counted. **🎲 Resurface**
+opens a random note from two or more weeks ago, and `/` jumps to search.
 
 The site automatically connects each lesson to related notes using shared topics and title concepts. This is deliberately transparent and inexpensive: no vector database is needed for the first intelligence layer.
 
@@ -105,9 +121,21 @@ tags: [agents, retrieval, knowledge-management]
 source_type: "web"
 source_fingerprint: "d8c66f8213"
 source_characters: 18420
+channel: "Example Channel"      # videos only
+published: "2026-07-10"         # videos only
+duration_seconds: 1843          # videos only
+reading_minutes: 12             # articles and repos
 ---
 
+## TL;DR
+## Key Takeaways
+## Key Moments                  # videos only
 ## Overview
+## Key Concepts
+## How It Works
+## Training Exercise
+## Test Yourself
+## Further Reading
 ...
 ```
 

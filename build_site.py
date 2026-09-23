@@ -120,14 +120,67 @@ def _parse_page(path: Path) -> dict | None:
     # Strip the ## Personal Notes section (contains raw email body / Notion links)
     body = re.sub(r"\n## Personal Notes\b.*?(?=\n## |\Z)", "", body, flags=re.DOTALL).strip()
 
+    source_type = _fm("source_type") or _infer_source_type(source)
+    minutes, estimated = _learning_minutes(
+        source_type,
+        duration_seconds=_fm_int(fm_raw, "duration_seconds"),
+        reading_minutes=_fm_int(fm_raw, "reading_minutes"),
+        source_characters=_fm_int(fm_raw, "source_characters"),
+    )
+
     return {
         "id":     path.stem,
         "title":  title,
         "date":   date,
         "tags":   tags,
         "source": source,
+        "source_type": source_type,
+        "channel": _fm("channel"),
+        "published": _fm("published"),
+        "duration_seconds": _fm_int(fm_raw, "duration_seconds"),
+        "minutes": minutes,
+        "minutes_estimated": estimated,
+        "tldr": _extract_tldr(body),
         "content": body,
     }
+
+
+def _fm_int(fm_raw: str, key: str) -> int | None:
+    m = re.search(rf'^{key}:\s*"?(\d+)"?\s*$', fm_raw, re.MULTILINE)
+    return int(m.group(1)) if m else None
+
+
+def _infer_source_type(source: str) -> str:
+    if re.match(r"^https?://(www\.|m\.)?(youtube\.com|youtu\.be)/", source):
+        return "youtube"
+    if re.match(r"^https?://(www\.)?github\.com/[^/]+/[^/]+", source):
+        return "github"
+    return "web" if source.startswith("http") else "notes"
+
+
+def _learning_minutes(
+    source_type: str,
+    *,
+    duration_seconds: int | None,
+    reading_minutes: int | None,
+    source_characters: int | None,
+) -> tuple[float | None, bool]:
+    """Time the source takes to consume: video length, or reading time for text."""
+    if duration_seconds:
+        return round(duration_seconds / 60, 1), False
+    if reading_minutes:
+        return float(reading_minutes), False
+    if source_type in {"web", "github"} and source_characters:
+        # ~230 words/minute at ~5.7 characters per word, including spaces.
+        return float(max(1, round(source_characters / 1300))), True
+    return None, False
+
+
+def _extract_tldr(body: str) -> str:
+    m = re.search(r"^## TL;DR\s*\n+((?:>.*\n?)+)", body, re.MULTILINE)
+    if not m:
+        return ""
+    return " ".join(line.lstrip(">").strip() for line in m.group(1).splitlines()).strip()
 
 
 def _title_tokens(title: str) -> set[str]:
@@ -296,6 +349,56 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   .md-body th { background: var(--code-bg); font-weight: 600; }
   .md-body hr { border: none; border-top: 1px solid var(--border); margin: 2em 0; }
 
+  /* ── Sidebar tools ── */
+  .sidebar-actions { display: flex; gap: 6px; margin-top: 10px; }
+  .tool-btn { flex: 1; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; font-size: 12px; cursor: pointer; }
+  .tool-btn:hover, .tool-btn.active { border-color: var(--accent); color: var(--accent); }
+  .type-filter { display: flex; gap: 4px; padding: 8px 16px 0; }
+  .type-btn { flex: 1; background: none; border: 1px solid var(--border); color: var(--muted); border-radius: 6px; padding: 3px 0; font-size: 11px; cursor: pointer; }
+  .type-btn.active { background: var(--tag-bg); color: var(--text); border-color: var(--muted); }
+  .card-tldr { font-size: 12px; color: var(--muted); margin: 2px 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .type-badge { font-size: 10px; letter-spacing: .3px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); border-radius: 3px; padding: 0 5px; }
+
+  /* ── Article extras ── */
+  .video-embed { position: relative; margin: 0 0 24px; max-width: 480px; aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .video-embed img, .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+  .video-embed button { position: absolute; inset: 0; width: 100%; background: none; border: 0; cursor: pointer; }
+  .video-embed .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(13,17,23,.85); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 10px 18px; font-size: 14px; }
+  .md-body blockquote.tldr { border-left-color: var(--accent2); color: var(--text); font-size: 16px; padding: 10px 16px; }
+  .md-body a.moment { font-family: "SFMono-Regular", Consolas, monospace; font-size: 13px; }
+  .md-body details { background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; margin: 8px 0; }
+  .md-body details summary { cursor: pointer; font-weight: 600; }
+  .md-body details[open] summary { margin-bottom: 6px; }
+
+  /* ── Learning dashboard ── */
+  .dash { padding: 40px 48px; max-width: 980px; width: 100%; }
+  .dash h1 { font-size: 24px; margin-bottom: 4px; }
+  .dash .sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .dash .sub select { background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 4px; font-size: 12px; padding: 1px 4px; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 28px; }
+  .tile { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .tile .label { font-size: 12px; color: var(--muted); }
+  .tile .value { font-size: 26px; font-weight: 700; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .tile .hint { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .panel { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .panel h2 { font-size: 14px; margin-bottom: 12px; }
+  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .cols { display: flex; align-items: flex-end; gap: 2px; height: 160px; border-bottom: 1px solid var(--border); }
+  .col { flex: 1; height: 100%; display: flex; align-items: flex-end; position: relative; cursor: default; }
+  .col .bar { width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 0; }
+  .col:hover .bar { filter: brightness(1.25); }
+  .col-labels { display: flex; gap: 2px; margin-top: 4px; }
+  .col-labels span { flex: 1; font-size: 10px; color: var(--muted); text-align: center; white-space: nowrap; overflow: hidden; }
+  .hbar { display: grid; grid-template-columns: minmax(90px, 38%) 1fr auto; gap: 8px; align-items: center; font-size: 12px; margin: 5px 0; }
+  .hbar .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hbar .track { height: 10px; }
+  .hbar .fill { height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }
+  .hbar .val { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .hbar.clickable { cursor: pointer; } .hbar.clickable:hover .name { color: var(--accent); }
+  .tip { position: fixed; pointer-events: none; background: #010409; border: 1px solid var(--border); border-radius: 6px; padding: 6px 9px; font-size: 12px; color: var(--text); z-index: 10; display: none; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+  .note code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; }
+
   /* ── Sidebar footer ── */
   .sidebar-footer { padding: 12px 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
   .sidebar-footer a { color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .15s; }
@@ -330,7 +433,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     }
     .mobile-back:hover { color: var(--text); }
 
-    .article-view { padding: 20px 16px; }
+    .article-view, .dash { padding: 20px 16px; }
     .article-view .art-title { font-size: 20px; }
   }
 </style>
@@ -341,10 +444,15 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     <div class="sidebar-header">
       <h1>&#129504; Stevie's Second Brain</h1>
       <div class="count" id="count"></div>
+      <div class="sidebar-actions">
+        <button class="tool-btn" id="stats-btn" title="Learning time dashboard">&#128202; Learning</button>
+        <button class="tool-btn" id="resurface-btn" title="Open a random note you captured 2+ weeks ago">&#127922; Resurface</button>
+      </div>
     </div>
     <div class="search-wrap">
       <input id="search" type="text" placeholder="Search articles..." autocomplete="off"/>
     </div>
+    <div class="type-filter" id="types"></div>
     <div class="tags-wrap" id="tags"></div>
     <div class="article-list" id="list"></div>
     <div class="sidebar-footer">
@@ -373,6 +481,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </main>
 </div>
 
+<div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">__ARTICLES_JSON__</script>
 
 <script>
@@ -381,7 +490,9 @@ const ARTICLES = JSON.parse(document.getElementById("articles-data").textContent
 // ── State ─────────────────────────────────────────────────────────────────────
 let activeId     = null;
 let activeTag    = null;
+let activeType   = null;
 let searchQuery  = "";
+const TYPES = { youtube: "Video", web: "Article", github: "Repo", notes: "Note" };
 const WELCOME_HTML = document.getElementById("main").innerHTML;
 
 // ── Tag index ─────────────────────────────────────────────────────────────────
@@ -404,12 +515,26 @@ function renderTags() {
   }));
 }
 
+// ── Type filter ───────────────────────────────────────────────────────────────
+function renderTypes() {
+  const present = Object.keys(TYPES).filter(t => ARTICLES.some(a => a.source_type === t));
+  const wrap = document.getElementById("types");
+  wrap.innerHTML = [null, ...present].map(t =>
+    `<button class="type-btn${activeType === t ? " active" : ""}" data-type="${t || ""}">${t ? TYPES[t] + "s" : "All"}</button>`
+  ).join("");
+  wrap.querySelectorAll(".type-btn").forEach(el => el.addEventListener("click", () => {
+    activeType = el.dataset.type || null;
+    renderTypes(); renderList();
+  }));
+}
+
 // ── Filter articles ───────────────────────────────────────────────────────────
 function filtered() {
   const q = searchQuery.toLowerCase();
   return ARTICLES.filter(a => {
     if (activeTag && !(a.tags || []).includes(activeTag)) return false;
-    if (q && !a.title.toLowerCase().includes(q) && !a.content.toLowerCase().includes(q)) return false;
+    if (activeType && a.source_type !== activeType) return false;
+    if (q && ![a.title, a.content, a.channel || ""].some(text => text.toLowerCase().includes(q))) return false;
     return true;
   });
 }
@@ -423,9 +548,13 @@ function renderList() {
   list.innerHTML = items.map(a => `
     <div class="article-card${a.id === activeId ? " active" : ""}" data-id="${a.id}">
       <div class="card-title">${escHtml(a.title)}</div>
+      ${a.tldr ? `<div class="card-tldr">${escHtml(a.tldr)}</div>` : ""}
       <div class="card-meta">
+        <span class="type-badge">${TYPES[a.source_type] || "Note"}</span>
         <span>${fmtDate(a.date)}</span>
-        ${a.source && a.source !== "personal notes" ? `<span>· ${escHtml(friendlySource(a.source))}</span>` : ""}
+        ${a.channel ? `<span>· ${escHtml(a.channel)}</span>`
+          : a.source && a.source !== "personal notes" ? `<span>· ${escHtml(friendlySource(a.source))}</span>` : ""}
+        ${a.minutes ? `<span>· ${timeLabel(a)}</span>` : ""}
       </div>
       ${a.tags && a.tags.length ? `<div class="card-tags">${a.tags.map(t => `<span class="card-tag">${t}</span>`).join("")}</div>` : ""}
     </div>`).join("");
@@ -437,6 +566,7 @@ function isMobile() { return window.innerWidth <= 768; }
 
 function showList() {
   activeId = null;
+  document.getElementById("stats-btn").classList.remove("active");
   document.querySelector(".app").classList.remove("article-open");
   window.location.hash = "";
   renderList();
@@ -447,7 +577,9 @@ function openArticle(id) {
   const a = ARTICLES.find(x => x.id === id);
   if (!a) return;
   activeId = id;
+  document.getElementById("stats-btn").classList.remove("active");
   renderList();
+  const videoId = youtubeId(a.source);
 
   const sourceHtml = a.source && a.source !== "personal notes"
     ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ Link to Source</a></div>`
@@ -478,10 +610,18 @@ function openArticle(id) {
         <div class="art-title">${escHtml(a.title)}</div>
         ${sourceHtml}
         <div class="art-meta">
-          <span>${fmtDate(a.date)}</span>
+          <span class="type-badge">${TYPES[a.source_type] || "Note"}</span>
+          <span>Captured ${fmtDate(a.date)}</span>
+          ${a.channel ? `<span>${escHtml(a.channel)}</span>` : ""}
+          ${a.minutes ? `<span>&#9201; ${timeLabel(a)}</span>` : ""}
+          ${a.published ? `<span>Published ${fmtDate(a.published)}</span>` : ""}
         </div>
         ${tagsHtml ? `<div class="art-tags">${tagsHtml}</div>` : ""}
       </div>
+      ${videoId ? `<div class="video-embed" id="video">
+          <img src="https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg" alt="" loading="lazy"/>
+          <button aria-label="Play video"><span class="play">&#9654; Play here</span></button>
+        </div>` : ""}
       <div class="md-body">${bodyHtml}</div>
       ${relatedHtml}
     </div>`;
@@ -502,9 +642,203 @@ function openArticle(id) {
     el.addEventListener("click", () => openArticle(el.dataset.relatedId))
   );
 
+  // Highlight the TL;DR and let key moments seek the embedded player.
+  document.getElementById("main").querySelectorAll(".md-body h2").forEach(h => {
+    if (h.textContent.trim() === "TL;DR" && h.nextElementSibling && h.nextElementSibling.tagName === "BLOCKQUOTE")
+      h.nextElementSibling.classList.add("tldr");
+  });
+  if (videoId) {
+    document.querySelector("#video button").addEventListener("click", () => playAt(videoId, 0));
+    document.getElementById("main").querySelectorAll(".md-body a[href]").forEach(link => {
+      const m = link.getAttribute("href").match(/[?&]t=(\d+)s?/);
+      if (!m || youtubeId(link.href) !== videoId) return;
+      link.classList.add("moment");
+      link.addEventListener("click", e => { e.preventDefault(); playAt(videoId, +m[1]); });
+    });
+  }
+
   window.location.hash = id;
   document.getElementById("main").scrollTop = 0;
 }
+
+function playAt(videoId, seconds) {
+  const box = document.getElementById("video");
+  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&start=${seconds}"
+    allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Video player"></iframe>`;
+  box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+// ── Learning dashboard ────────────────────────────────────────────────────────
+function storageGet(key, fallback) {
+  try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
+}
+function storageSet(key, value) {
+  try { localStorage.setItem(key, value); } catch {}
+}
+
+function effectiveMinutes(a, speed) {
+  if (!a.minutes) return 0;
+  return a.source_type === "youtube" ? a.minutes / speed : a.minutes;
+}
+
+function fmtHours(minutes) {
+  if (minutes < 60) return `${Math.round(minutes)}m`;
+  const h = Math.floor(minutes / 60), m = Math.round(minutes % 60);
+  return m ? `${h}h ${m}m` : `${h}h`;
+}
+
+function weekStart(dateStr) {
+  const d = new Date(dateStr + "T00:00:00");
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return d;
+}
+function isoDay(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function hbars(rows, total, opts = {}) {
+  if (!rows.length) return `<div class="note">Nothing yet.</div>`;
+  const max = Math.max(...rows.map(r => r.value)) || 1;
+  return rows.map(r => `
+    <div class="hbar${opts.clickable ? " clickable" : ""}" data-key="${escHtml(r.key)}" data-tip="${escHtml(r.tip)}">
+      <span class="name">${escHtml(r.label)}</span>
+      <span class="track"><div class="fill" style="width:${(r.value / max * 100).toFixed(1)}%"></div></span>
+      <span class="val">${escHtml(r.valueLabel)}</span>
+    </div>`).join("");
+}
+
+function groupMinutes(items, keyFn, speed) {
+  const map = {};
+  items.forEach(a => (keyFn(a) || []).forEach(k => {
+    map[k] = map[k] || { minutes: 0, count: 0 };
+    map[k].minutes += effectiveMinutes(a, speed);
+    map[k].count += 1;
+  }));
+  return Object.entries(map).map(([key, v]) => ({ key, ...v }));
+}
+
+function showStats() {
+  activeId = null;
+  renderList();
+  document.getElementById("stats-btn").classList.add("active");
+  const speed = parseFloat(storageGet("sb-speed", "1")) || 1;
+  const timed = ARTICLES.filter(a => a.minutes);
+  const total = timed.reduce((sum, a) => sum + effectiveMinutes(a, speed), 0);
+
+  const today = new Date();
+  const thisWeek = isoDay(weekStart(isoDay(today)));
+  const monthPrefix = isoDay(today).slice(0, 7);
+  const sumWhere = pred => timed.filter(pred).reduce((sum, a) => sum + effectiveMinutes(a, speed), 0);
+  const weekMinutes = sumWhere(a => a.date && isoDay(weekStart(a.date)) === thisWeek);
+  const monthMinutes = sumWhere(a => (a.date || "").startsWith(monthPrefix));
+
+  // Last 12 weeks, oldest first.
+  const weeks = [];
+  for (let i = 11; i >= 0; i--) {
+    const d = weekStart(isoDay(today)); d.setDate(d.getDate() - 7 * i);
+    weeks.push({ key: isoDay(d), minutes: 0, count: 0 });
+  }
+  ARTICLES.forEach(a => {
+    if (!a.date) return;
+    const w = weeks.find(x => x.key === isoDay(weekStart(a.date)));
+    if (w) { w.minutes += effectiveMinutes(a, speed); w.count += 1; }
+  });
+  const activeWeeks = new Set(ARTICLES.filter(a => a.date).map(a => isoDay(weekStart(a.date))));
+  let streak = 0;
+  for (const d = weekStart(isoDay(today)); activeWeeks.has(isoDay(d)); d.setDate(d.getDate() - 7)) streak++;
+  const maxWeek = Math.max(...weeks.map(w => w.minutes)) || 1;
+  const weekLabel = k => { const [, m, d] = k.split("-"); return `${+m}/${+d}`; };
+
+  const byType = groupMinutes(ARTICLES, a => [a.source_type], speed)
+    .sort((a, b) => b.minutes - a.minutes)
+    .map(r => ({ key: r.key, label: TYPES[r.key] + "s", value: r.minutes, valueLabel: fmtHours(r.minutes),
+      tip: `${r.count} captured · ${fmtHours(r.minutes)} of known time` }));
+  const channels = groupMinutes(ARTICLES.filter(a => a.channel), a => [a.channel], speed)
+    .sort((a, b) => b.minutes - a.minutes).slice(0, 8)
+    .map(r => ({ key: r.key, label: r.key, value: r.minutes, valueLabel: fmtHours(r.minutes), tip: `${r.count} videos` }));
+  const topics = groupMinutes(ARTICLES, a => a.tags, speed)
+    .filter(r => r.minutes > 0)
+    .sort((a, b) => b.minutes - a.minutes).slice(0, 10)
+    .map(r => ({ key: r.key, label: r.key, value: r.minutes, valueLabel: fmtHours(r.minutes), tip: `${r.count} notes` }));
+
+  const videos = ARTICLES.filter(a => a.source_type === "youtube");
+  const videosTimed = videos.filter(a => a.duration_seconds).length;
+  const estimated = timed.filter(a => a.minutes_estimated).length;
+
+  const backBtn = isMobile() ? `<div class="mobile-back" id="back-btn">&#8592; All Articles</div>` : "";
+  document.getElementById("main").innerHTML = `
+    ${backBtn}
+    <div class="dash">
+      <h1>Learning time</h1>
+      <div class="sub">Time is the length of what you captured: video runtime, and reading time for articles and repos.
+        I watch videos at <select id="speed">${[1, 1.25, 1.5, 1.75, 2].map(v =>
+          `<option value="${v}"${v === speed ? " selected" : ""}>${v}×</option>`).join("")}</select></div>
+      <div class="tiles">
+        <div class="tile"><div class="label">Total learning time</div><div class="value">${fmtHours(total)}</div>
+          <div class="hint">across ${timed.length} timed notes</div></div>
+        <div class="tile"><div class="label">This week</div><div class="value">${fmtHours(weekMinutes)}</div>
+          <div class="hint">${weeks[weeks.length - 1].count} captured</div></div>
+        <div class="tile"><div class="label">This month</div><div class="value">${fmtHours(monthMinutes)}</div>
+          <div class="hint">${ARTICLES.filter(a => (a.date || "").startsWith(monthPrefix)).length} captured</div></div>
+        <div class="tile"><div class="label">Weekly streak</div><div class="value">${streak}</div>
+          <div class="hint">consecutive weeks with a capture</div></div>
+      </div>
+      <div class="panel">
+        <h2>Learning time per week</h2>
+        <div class="cols">${weeks.map(w => `<div class="col" data-tip="Week of ${weekLabel(w.key)}: ${fmtHours(w.minutes)} · ${w.count} captured">
+          <div class="bar" style="height:${(w.minutes / maxWeek * 100).toFixed(1)}%"></div></div>`).join("")}</div>
+        <div class="col-labels">${weeks.map((w, i) => `<span>${i % 2 ? "" : weekLabel(w.key)}</span>`).join("")}</div>
+      </div>
+      <div class="panels">
+        <div class="panel"><h2>By format</h2>${hbars(byType, total, { clickable: true })}</div>
+        <div class="panel"><h2>Top channels</h2>${channels.length ? hbars(channels, total)
+          : `<div class="note">Channels appear once video metadata is captured.</div>`}</div>
+        <div class="panel"><h2>Top topics by time</h2>${hbars(topics, total, { clickable: true })}</div>
+      </div>
+      <div class="note">Coverage: ${videosTimed} of ${videos.length} videos have a known length${estimated ? `; ${estimated} article times are estimated from captured text` : ""}.
+        ${videosTimed < videos.length ? `Fill the gaps on the capture host with <code>python -m ingest.backfill --metadata-only</code>.` : ""}</div>
+    </div>`;
+
+  const main = document.getElementById("main");
+  main.scrollTop = 0;
+  if (isMobile()) {
+    document.querySelector(".app").classList.add("article-open");
+    document.getElementById("back-btn").addEventListener("click", showList);
+  }
+  document.getElementById("speed").addEventListener("change", e => { storageSet("sb-speed", e.target.value); showStats(); });
+  const tip = document.getElementById("tip");
+  main.querySelectorAll("[data-tip]").forEach(el => {
+    el.addEventListener("mousemove", e => {
+      tip.textContent = el.dataset.tip; tip.style.display = "block";
+      tip.style.left = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + "px";
+      tip.style.top = (e.clientY + 12) + "px";
+    });
+    el.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+  });
+  main.querySelectorAll(".panel .hbar.clickable").forEach(el => el.addEventListener("click", () => {
+    tip.style.display = "none";
+    if (TYPES[el.dataset.key]) { activeType = el.dataset.key; renderTypes(); }
+    else { activeTag = el.dataset.key; renderTags(); }
+    renderList();
+    if (isMobile()) showList();
+  }));
+  window.location.hash = "stats";
+}
+
+function resurface() {
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 14);
+  const pool = ARTICLES.filter(a => a.date && a.date <= isoDay(cutoff));
+  const choices = pool.length ? pool : ARTICLES;
+  if (choices.length) openArticle(choices[Math.floor(Math.random() * choices.length)].id);
+}
+
+document.getElementById("stats-btn").addEventListener("click", showStats);
+document.getElementById("resurface-btn").addEventListener("click", resurface);
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "SELECT") {
+    e.preventDefault(); document.getElementById("search").focus();
+  }
+});
 
 // ── Search ────────────────────────────────────────────────────────────────────
 document.getElementById("search").addEventListener("input", e => {
@@ -559,6 +893,27 @@ function friendlySource(url) {
   }
 }
 
+function youtubeId(url) {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^(www|m)\./, "");
+    if (host === "youtu.be") return u.pathname.slice(1).split("/")[0];
+    if (host === "youtube.com") {
+      if (u.pathname === "/watch") return u.searchParams.get("v") || "";
+      const parts = u.pathname.split("/").filter(Boolean);
+      if (["embed", "live", "shorts"].includes(parts[0])) return parts[1] || "";
+    }
+  } catch {}
+  return "";
+}
+
+function timeLabel(a) {
+  const m = Math.round(a.minutes);
+  const amount = m >= 60 ? fmtHours(m) : `${m} min`;
+  if (a.source_type === "youtube") return `${amount} video`;
+  return `${a.minutes_estimated ? "~" : ""}${amount} read`;
+}
+
 function fmtDate(d) {
   if (!d) return "";
   const [y, m, day] = d.split("-");
@@ -577,12 +932,15 @@ function showWelcome() {
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
+renderTypes();
 renderTags();
 renderList();
 
 // Open article from URL hash on load, otherwise show README
 const hash = window.location.hash.slice(1);
-if (hash && ARTICLES.find(a => a.id === hash)) {
+if (hash === "stats") {
+  showStats();
+} else if (hash && ARTICLES.find(a => a.id === hash)) {
   openArticle(hash);
 } else {
   showWelcome();

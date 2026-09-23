@@ -9,6 +9,7 @@ from ingest import config
 from ingest.github import PublishResult, find_existing, publish_markdown
 from ingest.lesson import generate_lesson, render_markdown
 from ingest.sources import fetch_source
+from ingest.youtube import format_timestamp
 from ingest.urls import normalize_url, source_fingerprint
 
 
@@ -38,13 +39,33 @@ def process_link(raw_url: str) -> dict[str, str | bool]:
         check_existing=False,
     )
     log.info("Published %s", published.path)
-    return _result(published, title=lesson["title"])
+    return _result(
+        published,
+        title=lesson["title"],
+        tldr=str(lesson.get("tldr") or ""),
+        time_label=_time_label(source.metadata),
+    )
 
 
-def _result(published: PublishResult, *, title: str) -> dict[str, str | bool]:
+def _time_label(metadata: dict) -> str:
+    duration = metadata.get("duration_seconds")
+    if duration:
+        channel = metadata.get("channel")
+        label = f"{format_timestamp(duration)} video"
+        return f"{label} · {channel}" if channel else label
+    if metadata.get("reading_minutes"):
+        return f"{metadata['reading_minutes']} min read"
+    return ""
+
+
+def _result(
+    published: PublishResult, *, title: str, tldr: str = "", time_label: str = ""
+) -> dict[str, str | bool]:
     return {
         "title": title,
         "site_url": published.site_url,
         "path": published.path,
         "duplicate": published.duplicate,
+        "tldr": tldr,
+        "time_label": time_label,
     }

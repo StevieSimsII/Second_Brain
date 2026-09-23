@@ -1,27 +1,51 @@
 """Generate and render grounded Second Brain lessons via Codex ChatGPT auth."""
 from __future__ import annotations
 
+import html
 import re
 from typing import Any
 
 from ingest import config
 from ingest.codex import LESSON_OUTPUT_SCHEMA, run_codex_structured
 from ingest.sources import FetchedSource
+from ingest.urls import youtube_video_id
+from ingest.youtube import format_timestamp, parse_timestamp
 
 
 SYSTEM_PROMPT = """You are an expert technical educator building a durable personal
-knowledge base. Transform the supplied source into a self-contained, practical lesson.
+knowledge base. Transform the supplied source into a self-contained, practical lesson
+that the reader can skim in 30 seconds and study in 5 minutes.
 
 Return only JSON matching the provided schema.
 
 Rules:
 - Base factual claims on the supplied source. Never conceal thin or uncertain evidence.
+- When a speaker makes claims (benchmarks, prices, predictions), attribute them
+  ("the presenter reports...") instead of stating them as established fact.
 - For repositories, describe the observed architecture and files, not an imagined codebase.
-- Use 4-8 key concepts.
-- Include further-reading URLs only when they appear in the supplied source; otherwise use [].
-- Prefer reusable topic tags over news-cycle or marketing tags.
-- Title at most 120 characters.
-- Tags should be 3-6 stable lowercase topic tags.
+- Title at most 120 characters. Name the idea, not the video ("X explains Y" is weak).
+- Tags should be 3-6 stable lowercase topic tags. Prefer reusable topic tags over
+  news-cycle or marketing tags.
+
+Skimmable layer:
+- tldr: one or two plain-language sentences with the single most important idea and
+  why it matters. No hedging preamble, no "this video/article".
+- key_takeaways: 3-7 standalone statements a reader could act on or repeat to a
+  colleague. Lead with the insight; keep concrete numbers, names, and conditions from
+  the source. Never start with "The speaker" or "The video".
+- key_moments: only for YouTube sources with a timestamped transcript. Choose 3-8
+  moments worth rewatching, using timestamps copied from the [m:ss] markers or creator
+  chapters (format "m:ss" or "h:mm:ss"). Label each with what is learned there, not a
+  topic heading. For every other source return [].
+- review_questions: 3 questions that test understanding rather than recall of trivia,
+  each with a 1-3 sentence answer grounded in the source.
+
+Study layer:
+- overview: 1-2 short paragraphs on what this is, why it matters, and who should care.
+- key_concepts: 4-8 concepts, each with a 2-4 sentence explanation.
+- how_it_works: short paragraphs, numbered steps, or bullets. Never one wall of text.
+- training_exercise: a concrete hands-on exercise with numbered steps.
+- further_reading: URLs only when they appear in the supplied source; otherwise [].
 """
 
 
@@ -43,13 +67,92 @@ def generate_lesson(source: FetchedSource) -> dict[str, Any]:
     missing = [key for key in required if not lesson.get(key)]
     if missing:
         raise ValueError(f"Generated lesson is missing: {', '.join(missing)}")
-    lesson.setdefault("tags", [])
-    lesson.setdefault("further_reading", [])
+    for key in ("tags", "key_takeaways", "key_moments", "review_questions", "further_reading"):
+        lesson.setdefault(key, [])
+    lesson.setdefault("tldr", "")
     return lesson
 
 
 def _yaml_quote(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def metadata_frontmatter(metadata: dict[str, Any]) -> list[str]:
+    """Frontmatter lines for time and provenance metadata, in a stable order."""
+    lines: list[str] = []
+    for key in ("channel", "published"):
+        if metadata.get(key):
+            lines.append(f'{key}: "{_yaml_quote(str(metadata[key]))}"')
+    for key in ("duration_seconds", "reading_minutes"):
+        value = metadata.get(key)
+        if isinstance(value, int) and value > 0:
+            lines.append(f"{key}: {value}")
+    return lines
+
+
+def _clean_moments(
+    moments: list[dict[str, Any]], duration_seconds: int | None
+) -> list[tuple[int, str]]:
+    cleaned: dict[int, str] = {}
+    for moment in moments or []:
+        seconds = parse_timestamp(str(moment.get("timestamp", "")))
+        label = " ".join(str(moment.get("label", "")).split())
+        if seconds is None or not label:
+            continue
+        if duration_seconds and seconds > duration_seconds:
+            continue
+        cleaned.setdefault(seconds, label)
+    return sorted(cleaned.items())
+
+
+def render_summary_sections(
+    lesson: dict[str, Any], *, source_url: str, duration_seconds: int | None = None
+) -> list[str]:
+    """Render the skimmable layer: TL;DR, takeaways, and key moments."""
+    lines: list[str] = []
+    tldr = " ".join(str(lesson.get("tldr") or "").split())
+    if tldr:
+        lines.extend(["## TL;DR", "", f"> {tldr}", ""])
+
+    takeaways = [
+        " ".join(str(item).split()) for item in lesson.get("key_takeaways") or []
+    ]
+    takeaways = [item for item in takeaways if item]
+    if takeaways:
+        lines.extend(["## Key Takeaways", ""])
+        lines.extend(f"{index}. {item}" for index, item in enumerate(takeaways, 1))
+        lines.append("")
+
+    video_id = youtube_video_id(source_url)
+    moments = _clean_moments(lesson.get("key_moments") or [], duration_seconds)
+    if video_id and moments:
+        lines.extend(["## Key Moments", ""])
+        for seconds, label in moments:
+            link = f"https://www.youtube.com/watch?v={video_id}&t={seconds}s"
+            lines.append(f"- [{format_timestamp(seconds)}]({link}) — {label}")
+        lines.append("")
+    return lines
+
+
+def render_review_questions(lesson: dict[str, Any]) -> list[str]:
+    lines: list[str] = []
+    for item in lesson.get("review_questions") or []:
+        question = " ".join(str(item.get("question", "")).split())
+        answer = str(item.get("answer", "")).strip()
+        if question and answer:
+            lines.extend(
+                [
+                    f"<details><summary>{html.escape(question)}</summary>",
+                    "",
+                    answer,
+                    "",
+                    "</details>",
+                    "",
+                ]
+            )
+    if lines:
+        lines = ["## Test Yourself", "", *lines]
+    return lines
 
 
 def render_markdown(
@@ -70,8 +173,14 @@ def render_markdown(
         f'source_type: "{source.kind}"',
         f'source_fingerprint: "{fingerprint}"',
         f"source_characters: {source.character_count}",
+        *metadata_frontmatter(source.metadata),
         "---",
         "",
+        *render_summary_sections(
+            lesson,
+            source_url=source.url,
+            duration_seconds=source.metadata.get("duration_seconds"),
+        ),
         "## Overview",
         "",
         str(lesson["overview"]).strip(),
@@ -95,11 +204,13 @@ def render_markdown(
             "## Training Exercise",
             "",
             str(lesson["training_exercise"]).strip(),
+            "",
+            *render_review_questions(lesson),
         ]
     )
     reading = lesson.get("further_reading") or []
     if reading:
-        lines.extend(["", "## Further Reading", ""])
+        lines.extend(["## Further Reading", ""])
         for item in reading:
             item_title = str(item.get("title", "")).strip()
             item_url = str(item.get("url", "")).strip()
