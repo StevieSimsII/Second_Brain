@@ -1,8 +1,10 @@
-# Running Gemma 4 12B Locally on a 16GB Mac Mini: Feasibility, Tradeoffs, and Workflow
-
-Date: 2026-06-06
-Source: https://youtu.be/PDxKrp-dTDA?si=3vIAJFARcni5PUPd
-Tags: llm, gemma, macos, apple-silicon, local-inference, quantization
+---
+title: "Running Gemma 4 12B Locally on a 16GB Mac Mini: Feasibility, Tradeoffs, and Workflow"
+source: "https://youtu.be/PDxKrp-dTDA?si=3vIAJFARcni5PUPd"
+date: "2026-06-06"
+tags: [llm, gemma, macos, apple-silicon, local-inference, quantization]
+source_type: "youtube"
+---
 
 ## Overview
 

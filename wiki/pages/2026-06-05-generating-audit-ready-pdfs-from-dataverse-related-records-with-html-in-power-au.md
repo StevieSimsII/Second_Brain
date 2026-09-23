@@ -1,8 +1,10 @@
-# Generating Audit-Ready PDFs from Dataverse Related Records with HTML in Power Automate
-
-Date: 2026-06-05
-Source: https://chrismvnro.com/generating-pdfs-of-related-records-in-dataverse-tables-in-power-automate-without-word-templates-for-audit-type-requests/
-Tags: power-automate, dataverse, html, pdf, css, audit
+---
+title: "Generating Audit-Ready PDFs from Dataverse Related Records with HTML in Power Automate"
+source: "https://chrismvnro.com/generating-pdfs-of-related-records-in-dataverse-tables-in-power-automate-without-word-templates-for-audit-type-requests/"
+date: "2026-06-05"
+tags: [power-automate, dataverse, html, pdf, css, audit]
+source_type: "web"
+---
 
 ## Overview
 

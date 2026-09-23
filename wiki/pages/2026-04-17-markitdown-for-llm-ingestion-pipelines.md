@@ -1,8 +1,9 @@
 ---
 title: "MarkItDown for LLM Ingestion Pipelines"
-source: "personal notes"
+source: "https://github.com/microsoft/markitdown"
 date: "2026-04-17"
 tags: [python, markdown, llm, document-conversion, plugins]
+source_type: "github"
 ---
 
 ## Overview

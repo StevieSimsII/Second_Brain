@@ -3,6 +3,7 @@ title: "GitHub Copilot in VS Code: June 2026 Agentic Workflow Updates"
 source: "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/"
 date: "2026-07-09"
 tags: [vscode, github-copilot, agentic-ai, developer-tools, llm, productivity]
+source_type: "web"
 ---
 
 ## Overview

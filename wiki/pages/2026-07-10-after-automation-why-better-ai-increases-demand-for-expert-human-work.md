@@ -3,6 +3,7 @@ title: "After Automation: Why Better AI Increases Demand for Expert Human Work"
 source: "https://every.to/p/after-automation?utm_source=onboarding_email_bottom&utm_campaign=onboarding"
 date: "2026-07-10"
 tags: [ai, automation, knowledge-work, agents, benchmarks, human-in-the-loop]
+source_type: "web"
 ---
 
 ## Overview

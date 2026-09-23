@@ -3,6 +3,7 @@ title: "Grok 4.5 in Cursor: Training a Generalist Tool-Using Model for Real Comp
 source: "https://cursor.com/blog/grok-4-5"
 date: "2026-07-09"
 tags: [llm, reinforcement-learning, tool-use, software-engineering, mixture-of-experts]
+source_type: "web"
 ---
 
 ## Overview

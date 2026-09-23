@@ -1,8 +1,9 @@
 ---
 title: "Using GitHub Copilot CLI with Ollama via OpenAI-Compatible API"
-source: "personal notes"
+source: "https://docs.ollama.com/integrations/copilot-cli"
 date: "2026-04-19"
 tags: [ollama, copilot-cli, openai-api, terminal-ai, developer-tools]
+source_type: "web"
 ---
 
 ## Overview

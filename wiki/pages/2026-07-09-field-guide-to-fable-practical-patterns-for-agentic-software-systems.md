@@ -3,6 +3,7 @@ title: "Field Guide to Fable: Practical Patterns for Agentic Software Systems"
 source: "https://youtu.be/9fubhllmsBU?is=naMYCD__pKA4lox4"
 date: "2026-07-09"
 tags: [agents, llm, system-design, ai-engineering, workflows]
+source_type: "youtube"
 ---
 
 ## Overview

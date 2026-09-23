@@ -1,8 +1,10 @@
-# Claude Opus 4.8: Effort Control, Dynamic Workflows, and More Reliable Agentic AI
-
-Date: 2026-05-29
-Source: https://www.anthropic.com/news/claude-opus-4-8?utm_content=hero_cta&utm_source=it&utm_medium=email&utm_campaign=2026_Q2_PMM_MKTG_Claude_Code_Newsletter_May_2026&utm_term=claude_code&utm_campaignId=18319166
-Tags: llms, agentic-ai, anthropic, api, evaluation, reasoning
+---
+title: "Claude Opus 4.8: Effort Control, Dynamic Workflows, and More Reliable Agentic AI"
+source: "https://www.anthropic.com/news/claude-opus-4-8?utm_content=hero_cta&utm_source=it&utm_medium=email&utm_campaign=2026_Q2_PMM_MKTG_Claude_Code_Newsletter_May_2026&utm_term=claude_code&utm_campaignId=18319166"
+date: "2026-05-29"
+tags: [llms, agentic-ai, anthropic, api, evaluation, reasoning]
+source_type: "web"
+---
 
 ## Overview
 

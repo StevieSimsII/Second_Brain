@@ -1,8 +1,9 @@
 ---
 title: "Computer Use in Codex: Browser-Controlled Agent Workflows"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=D_FCYsshMI4"
 date: "2026-05-13"
 tags: [ai-agents, browser-automation, codex, tool-use, human-in-the-loop]
+source_type: "youtube"
 ---
 
 ## Overview

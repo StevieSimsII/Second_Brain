@@ -3,6 +3,7 @@ title: "VS Code AI Cost Tracking, Model Tuning, and Parallel Agent Workflows"
 source: "https://www.linkedin.com/posts/vs-code_the-latest-vs-code-release-makes-model-ugcPost-7475548872308633601-TqeA?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via"
 date: "2026-07-06"
 tags: [vscode, ai-tools, cost-management, model-tuning, developer-productivity]
+source_type: "web"
 ---
 
 ## Overview

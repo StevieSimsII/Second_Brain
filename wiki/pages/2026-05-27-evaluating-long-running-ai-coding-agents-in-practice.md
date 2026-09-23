@@ -1,8 +1,10 @@
-# Evaluating Long-Running AI Coding Agents in Practice
-
-Date: 2026-05-27
-Source: https://youtu.be/2wLJl9A2CnA?si=ETL9sXLR2e5ZtRg6
-Tags: ai-agents, coding-assistants, evaluation, automation, developer-tools
+---
+title: "Evaluating Long-Running AI Coding Agents in Practice"
+source: "https://youtu.be/2wLJl9A2CnA?si=ETL9sXLR2e5ZtRg6"
+date: "2026-05-27"
+tags: [ai-agents, coding-assistants, evaluation, automation, developer-tools]
+source_type: "youtube"
+---
 
 ## Overview
 

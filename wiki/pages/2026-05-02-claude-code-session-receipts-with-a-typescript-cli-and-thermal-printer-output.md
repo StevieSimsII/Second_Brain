@@ -1,8 +1,9 @@
 ---
 title: "Claude Code session receipts with a TypeScript CLI and thermal printer output"
-source: "personal notes"
+source: "https://github.com/chrishutchinson/claude-receipts"
 date: "2026-05-02"
 tags: [typescript, cli, claude-code, escpos, receipts]
+source_type: "github"
 ---
 
 ## Overview

@@ -1,8 +1,10 @@
-# Adding Power Platform CLI Context to an oh-my-posh PowerShell Prompt
-
-Date: 2026-06-07
-Source: https://github.com/jukkan/oh-my-pac
-Tags: powershell, oh-my-posh, power-platform, pac, cli
+---
+title: "Adding Power Platform CLI Context to an oh-my-posh PowerShell Prompt"
+source: "https://github.com/jukkan/oh-my-pac"
+date: "2026-06-07"
+tags: [powershell, oh-my-posh, power-platform, pac, cli]
+source_type: "github"
+---
 
 ## Overview
 

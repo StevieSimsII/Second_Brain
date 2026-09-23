@@ -1,8 +1,10 @@
-# AI Engineer Coach: Building a Local-First VS Code Analytics Extension for AI Coding Sessions
-
-Date: 2026-05-27
-Source: https://github.com/microsoft/AI-Engineering-Coach
-Tags: typescript, vscode-extension, analytics, agentic-ai, rule-engine, webview
+---
+title: "AI Engineer Coach: Building a Local-First VS Code Analytics Extension for AI Coding Sessions"
+source: "https://github.com/microsoft/AI-Engineering-Coach"
+date: "2026-05-27"
+tags: [typescript, vscode-extension, analytics, agentic-ai, rule-engine, webview]
+source_type: "github"
+---
 
 ## Overview
 

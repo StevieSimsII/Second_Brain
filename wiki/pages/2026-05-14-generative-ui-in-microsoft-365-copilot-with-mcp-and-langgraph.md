@@ -1,8 +1,9 @@
 ---
 title: "Generative UI in Microsoft 365 Copilot with MCP and LangGraph"
-source: "personal notes"
+source: "https://linkedin.com/posts/andreasadner_microsoftcopilot-agui-copilotkit-ugcPost-7460401668283854850-wqmW?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-14"
 tags: [mcp, copilot, generative-ui, langgraph, agents]
+source_type: "web"
 ---
 
 ## Overview

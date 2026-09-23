@@ -3,6 +3,7 @@ title: "How Modern AI and Platform Shifts Are Changing Software Engineering"
 source: "https://youtu.be/xUnRQ9vLXxo?is=PLsVjz4bmrg8waUB"
 date: "2026-07-12"
 tags: [software-engineering, ai, developer-tools, architecture, productivity]
+source_type: "youtube"
 ---
 
 ## Overview

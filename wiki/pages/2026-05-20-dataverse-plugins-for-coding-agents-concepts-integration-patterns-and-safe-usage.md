@@ -3,6 +3,7 @@ title: "Dataverse Plugins for Coding Agents: Concepts, Integration Patterns, and
 source: "https://youtu.be/ya-MOAL08bY?si=B07wVB7zns5WZxyj"
 date: "2026-05-20"
 tags: [dataverse, plugins, ai-agents, microsoft-power-platform, tooling]
+source_type: "youtube"
 ---
 
 ## Overview

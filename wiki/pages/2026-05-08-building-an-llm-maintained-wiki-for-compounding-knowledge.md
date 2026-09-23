@@ -1,8 +1,9 @@
 ---
 title: "Building an LLM-Maintained Wiki for Compounding Knowledge"
-source: "personal notes"
+source: "https://open.substack.com/pub/nandigamharikrishna/p/andrej-karpathys-llm-wiki-full-breakdown?r=7692ad"
 date: "2026-05-08"
 tags: [llm, knowledge-management, rag, obsidian, markdown]
+source_type: "web"
 ---
 
 ## Overview

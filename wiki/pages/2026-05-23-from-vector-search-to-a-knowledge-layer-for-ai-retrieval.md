@@ -1,8 +1,10 @@
-# From Vector Search to a Knowledge Layer for AI Retrieval
-
-Date: 2026-05-23
-Source: https://youtube.com/watch?v=lqiwQiDglGk&si=zkEbSeSXrol25glK
-Tags: rag, vector-search, knowledge-graphs, retrieval, ai-infrastructure
+---
+title: "From Vector Search to a Knowledge Layer for AI Retrieval"
+source: "https://youtube.com/watch?v=lqiwQiDglGk&si=zkEbSeSXrol25glK"
+date: "2026-05-23"
+tags: [rag, vector-search, knowledge-graphs, retrieval, ai-infrastructure]
+source_type: "youtube"
+---
 
 ## Overview
 

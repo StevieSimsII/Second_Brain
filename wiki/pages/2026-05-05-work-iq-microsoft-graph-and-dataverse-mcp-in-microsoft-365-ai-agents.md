@@ -1,8 +1,9 @@
 ---
 title: "Work IQ, Microsoft Graph, and Dataverse MCP in Microsoft 365 AI Agents"
-source: "personal notes"
+source: "https://linkedin.com/posts/sean-astrakhan_workiq-microsoft365-mcp-share-7457292115677736960-3LiN?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-05"
 tags: [microsoft365, mcp, dataverse, microsoft-graph, ai-agents]
+source_type: "web"
 ---
 
 ## Overview

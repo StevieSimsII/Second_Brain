@@ -3,6 +3,7 @@ title: "Deep-linking to Specific Records in Power Apps"
 source: "https://youtu.be/8JU9fIbxLXY"
 date: "2026-05-20"
 tags: [powerapps, deeplinking, canvas-apps, power-fx, dataverse]
+source_type: "youtube"
 ---
 
 ## Overview

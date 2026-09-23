@@ -1,8 +1,10 @@
-# SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents
-
-Date: 2026-05-28
-Source: https://github.com/microsoft/SkillOpt
-Tags: llm, agents, prompt-optimization, python, evaluation, training-loops
+---
+title: "SkillOpt: Training Reusable Natural-Language Skills for Frozen LLM Agents"
+source: "https://github.com/microsoft/SkillOpt"
+date: "2026-05-28"
+tags: [llm, agents, prompt-optimization, python, evaluation, training-loops]
+source_type: "github"
+---
 
 ## Overview
 

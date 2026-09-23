@@ -1,8 +1,10 @@
-# Understanding Claude’s Split Billing Model and the 25x Cost Shift
-
-Date: 2026-05-29
-Source: https://clawd.rip/
-Tags: llm-billing, anthropic, api-pricing, developer-tools, usage-limits
+---
+title: "Understanding Claude’s Split Billing Model and the 25x Cost Shift"
+source: "https://clawd.rip/"
+date: "2026-05-29"
+tags: [llm-billing, anthropic, api-pricing, developer-tools, usage-limits]
+source_type: "web"
+---
 
 ## Overview
 

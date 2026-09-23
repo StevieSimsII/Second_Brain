@@ -1,8 +1,9 @@
 ---
 title: "Building a Personal Developer Assistant with Copilot SDK and CLI"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=5TN6l7JGWvs"
 date: "2026-04-22"
 tags: [github-copilot, cli, sdk, ai-assistants, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

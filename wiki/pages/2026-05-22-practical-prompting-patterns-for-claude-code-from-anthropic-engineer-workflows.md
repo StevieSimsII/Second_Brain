@@ -1,8 +1,10 @@
-# Practical Prompting Patterns for Claude Code from Anthropic Engineer Workflows
-
-Date: 2026-05-22
-Source: https://youtu.be/qOvc9IUKEIc
-Tags: prompting, claude-code, ai-coding, llm-workflows, developer-tools
+---
+title: "Practical Prompting Patterns for Claude Code from Anthropic Engineer Workflows"
+source: "https://youtu.be/qOvc9IUKEIc"
+date: "2026-05-22"
+tags: [prompting, claude-code, ai-coding, llm-workflows, developer-tools]
+source_type: "youtube"
+---
 
 ## Overview
 

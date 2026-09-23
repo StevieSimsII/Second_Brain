@@ -3,6 +3,7 @@ title: "Understanding Jevons Paradox and Why Efficiency Can Increase Resource Us
 source: "https://youtu.be/a6sYYrLTOjQ?is=G7luggJVB68BFE4m"
 date: "2026-07-07"
 tags: [economics, efficiency, energy, sustainability, systems-thinking]
+source_type: "youtube"
 ---
 
 ## Overview

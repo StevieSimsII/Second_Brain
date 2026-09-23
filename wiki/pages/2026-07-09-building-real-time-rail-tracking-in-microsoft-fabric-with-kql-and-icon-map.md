@@ -3,6 +3,7 @@ title: "Building Real-Time Rail Tracking in Microsoft Fabric with KQL and Icon M
 source: "https://www.linkedin.com/posts/jamesdales_microsoftfabric-iconmapforfabric-iconmap-ugcPost-7480152240335458304-2HDz/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-07-09"
 tags: [microsoft-fabric, kql, geospatial, realtime-intelligence, gtfs, mapping]
+source_type: "web"
 ---
 
 ## Overview

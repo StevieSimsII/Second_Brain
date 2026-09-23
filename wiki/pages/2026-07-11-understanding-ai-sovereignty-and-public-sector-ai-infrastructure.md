@@ -3,6 +3,7 @@ title: "Understanding AI Sovereignty and Public-Sector AI Infrastructure"
 source: "https://youtu.be/wgdxSCsmS-Q?is=VmCEmZy5NcqF7BL_"
 date: "2026-07-11"
 tags: [ai, sovereignty, public-policy, nvidia, palantir, infrastructure]
+source_type: "youtube"
 ---
 
 ## Overview

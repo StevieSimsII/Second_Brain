@@ -3,6 +3,7 @@ title: "GitHub Copilot App Technical Preview: Agentic Development Across Repos, 
 source: "https://www.linkedin.com/posts/burkeholland_github-just-released-a-new-ai-development-ugcPost-7462169690942132225-6Ou0?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
 date: "2026-05-20"
 tags: [github, copilot, ai-agents, worktrees, developer-tools]
+source_type: "web"
 ---
 
 ## Overview

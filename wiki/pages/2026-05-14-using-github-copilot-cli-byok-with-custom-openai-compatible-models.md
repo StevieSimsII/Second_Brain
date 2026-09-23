@@ -1,8 +1,9 @@
 ---
 title: "Using GitHub Copilot CLI BYOK with Custom OpenAI-Compatible Models"
-source: "personal notes"
+source: "https://linkedin.com/posts/burkeholland_the-github-copilot-cli-now-supports-byok-ugcPost-7454977496137072640-qEYz?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-14"
 tags: [github-copilot, cli, byok, openrouter, llms]
+source_type: "web"
 ---
 
 ## Overview

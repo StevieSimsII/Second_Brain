@@ -1,8 +1,9 @@
 ---
 title: "Using the New Data Grid Control in Power Apps Canvas Apps"
-source: "personal notes"
+source: "https://linkedin.com/posts/deepika-jain-a9498977_powerapps-microsoft-lowcode-activity-7457386539799642113-nBOZ?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-05"
 tags: [powerapps, canvasapps, datagrid, lowcode, microsoft]
+source_type: "web"
 ---
 
 ## Overview

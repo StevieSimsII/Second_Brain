@@ -1,8 +1,10 @@
-# AI Layoffs as Narrative vs Reality: Capital Allocation, Trust, and Adoption
-
-Date: 2026-05-27
-Source: https://www.thestateofbrand.com/news/jensen-huang-ai-layoffs
-Tags: ai, leadership, workforce, change-management, capital-allocation
+---
+title: "AI Layoffs as Narrative vs Reality: Capital Allocation, Trust, and Adoption"
+source: "https://www.thestateofbrand.com/news/jensen-huang-ai-layoffs"
+date: "2026-05-27"
+tags: [ai, leadership, workforce, change-management, capital-allocation]
+source_type: "web"
+---
 
 ## Overview
 

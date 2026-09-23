@@ -1,8 +1,9 @@
 ---
 title: "From AI Pilots to Enterprise Transformation"
-source: "personal notes"
+source: "https://hbr.org/2026/04/how-to-move-from-ai-experimentation-to-ai-transformation"
 date: "2026-05-03"
 tags: [generative-ai, digital-transformation, corporate-strategy, process-management, ai-adoption]
+source_type: "web"
 ---
 
 ## Overview

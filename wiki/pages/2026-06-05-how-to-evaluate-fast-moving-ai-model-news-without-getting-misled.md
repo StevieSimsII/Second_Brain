@@ -1,8 +1,10 @@
-# How to Evaluate Fast-Moving AI Model News Without Getting Misled
-
-Date: 2026-06-05
-Source: https://youtu.be/h6_v1IBqmNI?si=y0kfSkbN-PqNoqJL
-Tags: llms, ai-news, model-evaluation, benchmarking, reasoning, mlops
+---
+title: "How to Evaluate Fast-Moving AI Model News Without Getting Misled"
+source: "https://youtu.be/h6_v1IBqmNI?si=y0kfSkbN-PqNoqJL"
+date: "2026-06-05"
+tags: [llms, ai-news, model-evaluation, benchmarking, reasoning, mlops]
+source_type: "youtube"
+---
 
 ## Overview
 

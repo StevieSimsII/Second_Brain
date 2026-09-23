@@ -3,6 +3,7 @@ title: "Human-in-the-Loop Design for Reliable AI Agents"
 source: "https://youtu.be/HbUznYhKFOc?is=T5eYyFEifEt_p38r"
 date: "2026-07-16"
 tags: [ai-agents, human-in-the-loop, automation, evaluation, reliability]
+source_type: "youtube"
 ---
 
 ## Overview

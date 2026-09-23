@@ -1,8 +1,10 @@
-# AI Engineering Coach for VS Code: Local Analytics and Coaching for AI-Assisted Development
-
-Date: 2026-05-27
-Source: https://www.linkedin.com/posts/joeunwin_aiengineering-githubcopilot-vscode-ugcPost-7465062561001136130-Nsgv/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: vscode, ai-engineering, copilot, developer-tools, privacy, agentic-workflows
+---
+title: "AI Engineering Coach for VS Code: Local Analytics and Coaching for AI-Assisted Development"
+source: "https://www.linkedin.com/posts/joeunwin_aiengineering-githubcopilot-vscode-ugcPost-7465062561001136130-Nsgv/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-05-27"
+tags: [vscode, ai-engineering, copilot, developer-tools, privacy, agentic-workflows]
+source_type: "web"
+---
 
 ## Overview
 

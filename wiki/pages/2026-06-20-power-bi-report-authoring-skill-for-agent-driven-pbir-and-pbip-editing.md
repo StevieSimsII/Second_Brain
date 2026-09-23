@@ -1,8 +1,10 @@
-# Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing
-
-Date: 2026-06-20
-Source: https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview
-Tags: powerbi, pbip, pbir, ai-agents, copilot, mcp
+---
+title: "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing"
+source: "https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-report-authoring-skill-overview"
+date: "2026-06-20"
+tags: [powerbi, pbip, pbir, ai-agents, copilot, mcp]
+source_type: "web"
+---
 
 ## Overview
 

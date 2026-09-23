@@ -1,8 +1,10 @@
-# Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval
-
-Date: 2026-05-27
-Source: https://github.com/microsoftdocs/mcp
-Tags: mcp, typescript, cli, documentation, llm, rag
+---
+title: "Using the Microsoft Learn MCP Server and TypeScript CLI for Trusted Docs Retrieval"
+source: "https://github.com/microsoftdocs/mcp"
+date: "2026-05-27"
+tags: [mcp, typescript, cli, documentation, llm, rag]
+source_type: "github"
+---
 
 ## Overview
 

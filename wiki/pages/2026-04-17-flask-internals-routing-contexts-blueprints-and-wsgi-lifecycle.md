@@ -1,8 +1,9 @@
 ---
 title: "Flask Internals: Routing, Contexts, Blueprints, and WSGI Lifecycle"
-source: "personal notes"
+source: "https://github.com/pallets/flask"
 date: "2026-04-17"
 tags: [python, flask, wsgi, routing, blueprints]
+source_type: "github"
 ---
 
 ## Overview

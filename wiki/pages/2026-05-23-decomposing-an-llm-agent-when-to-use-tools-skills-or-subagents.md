@@ -1,8 +1,10 @@
-# Decomposing an LLM Agent: When to Use Tools, Skills, or Subagents
-
-Date: 2026-05-23
-Source: https://youtu.be/mWvtOHlZM-I?si=o-fNoy43RFX7v2Ro
-Tags: llm-agents, agent-design, prompt-engineering, tool-use, multi-agent-systems
+---
+title: "Decomposing an LLM Agent: When to Use Tools, Skills, or Subagents"
+source: "https://youtu.be/mWvtOHlZM-I?si=o-fNoy43RFX7v2Ro"
+date: "2026-05-23"
+tags: [llm-agents, agent-design, prompt-engineering, tool-use, multi-agent-systems]
+source_type: "youtube"
+---
 
 ## Overview
 

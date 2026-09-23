@@ -3,6 +3,7 @@ title: "Spec-Driven Development for AI Coding Agents with GitHub Spec-Kit"
 source: "https://www.linkedin.com/posts/akshay-pachaar_github-wants-you-to-stop-vibe-coding-heres-share-7460769031210373120-ser6?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
 date: "2026-05-20"
 tags: [ai-agents, spec-driven-development, prompt-engineering, github, software-process]
+source_type: "web"
 ---
 
 ## Overview

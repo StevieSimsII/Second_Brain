@@ -1,8 +1,10 @@
-# Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance
-
-Date: 2026-06-17
-Source: https://www.linkedin.com/posts/wariowario_copilot-cowork-is-now-generally-available-share-7472908680951324672-3q6b/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: microsoft-365, copilot, finops, governance, ai-pricing
+---
+title: "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance"
+source: "https://www.linkedin.com/posts/wariowario_copilot-cowork-is-now-generally-available-share-7472908680951324672-3q6b/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-17"
+tags: [microsoft-365, copilot, finops, governance, ai-pricing]
+source_type: "web"
+---
 
 ## Overview
 

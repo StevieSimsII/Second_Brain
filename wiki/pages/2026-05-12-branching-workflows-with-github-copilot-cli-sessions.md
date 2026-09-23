@@ -1,8 +1,9 @@
 ---
 title: "Branching Workflows with GitHub Copilot CLI Sessions"
-source: "personal notes"
+source: "https://linkedin.com/posts/burkeholland_you-can-now-fork-conversations-in-the-github-ugcPost-7460074801844383746-VexF?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-12"
 tags: [github-copilot, cli, ai-workflows, sessions, prompt-engineering]
+source_type: "web"
 ---
 
 ## Overview

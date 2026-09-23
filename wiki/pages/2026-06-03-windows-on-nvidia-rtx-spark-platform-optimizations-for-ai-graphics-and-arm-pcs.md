@@ -1,8 +1,10 @@
-# Windows on NVIDIA RTX Spark: Platform Optimizations for AI, Graphics, and Arm PCs
-
-Date: 2026-06-03
-Source: https://blogs.windows.com/windowsexperience/2026/05/31/introducing-a-powerful-new-chapter-for-windows-pcs-accelerated-by-nvidia-rtx-spark/
-Tags: windows, nvidia, arm, ai, graphics, platform
+---
+title: "Windows on NVIDIA RTX Spark: Platform Optimizations for AI, Graphics, and Arm PCs"
+source: "https://blogs.windows.com/windowsexperience/2026/05/31/introducing-a-powerful-new-chapter-for-windows-pcs-accelerated-by-nvidia-rtx-spark/"
+date: "2026-06-03"
+tags: [windows, nvidia, arm, ai, graphics, platform]
+source_type: "web"
+---
 
 ## Overview
 

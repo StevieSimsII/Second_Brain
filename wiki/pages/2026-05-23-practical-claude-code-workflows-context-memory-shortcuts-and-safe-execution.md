@@ -1,8 +1,10 @@
-# Practical Claude Code Workflows: Context, Memory, Shortcuts, and Safe Execution
-
-Date: 2026-05-23
-Source: https://open.substack.com/pub/nandigamharikrishna/p/claude-shortcuts-and-power-workflows?r=7692ad&utm_medium=ios
-Tags: claude, developer-tools, context-management, ai-workflows, cli, productivity
+---
+title: "Practical Claude Code Workflows: Context, Memory, Shortcuts, and Safe Execution"
+source: "https://open.substack.com/pub/nandigamharikrishna/p/claude-shortcuts-and-power-workflows?r=7692ad&utm_medium=ios"
+date: "2026-05-23"
+tags: [claude, developer-tools, context-management, ai-workflows, cli, productivity]
+source_type: "web"
+---
 
 ## Overview
 

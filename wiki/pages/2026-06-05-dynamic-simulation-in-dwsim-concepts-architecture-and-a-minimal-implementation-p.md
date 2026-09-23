@@ -1,8 +1,10 @@
-# Dynamic Simulation in DWSIM: Concepts, Architecture, and a Minimal Implementation Path
-
-Date: 2026-06-05
-Source: https://www.linkedin.com/pulse/building-dwsim-dynamic-simulation-code-miguel-angel-lopez-andreu-vhjge?utm_source=share&utm_medium=member_ios&utm_campaign=share_via
-Tags: dwsim, dynamic-simulation, process-modeling, numerical-methods, chemical-engineering
+---
+title: "Dynamic Simulation in DWSIM: Concepts, Architecture, and a Minimal Implementation Path"
+source: "https://www.linkedin.com/pulse/building-dwsim-dynamic-simulation-code-miguel-angel-lopez-andreu-vhjge?utm_source=share&utm_medium=member_ios&utm_campaign=share_via"
+date: "2026-06-05"
+tags: [dwsim, dynamic-simulation, process-modeling, numerical-methods, chemical-engineering]
+source_type: "web"
+---
 
 ## Overview
 

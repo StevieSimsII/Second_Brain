@@ -3,6 +3,7 @@ title: "Understanding Microsoft Power Platform Skills: Plugin Marketplace Archit
 source: "https://github.com/microsoft/power-platform-skills"
 date: "2026-07-10"
 tags: [power-platform, plugins, claude-code, github-copilot, javascript, pac-cli]
+source_type: "github"
 ---
 
 ## Overview

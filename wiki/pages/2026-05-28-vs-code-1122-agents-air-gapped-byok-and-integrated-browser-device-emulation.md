@@ -1,8 +1,10 @@
-# VS Code 1.122: Agents, Air-Gapped BYOK, and Integrated Browser Device Emulation
-
-Date: 2026-05-28
-Source: https://code.visualstudio.com/updates/v1_122
-Tags: vscode, ai-agents, byok, opentelemetry, web-debugging, remote-development
+---
+title: "VS Code 1.122: Agents, Air-Gapped BYOK, and Integrated Browser Device Emulation"
+source: "https://code.visualstudio.com/updates/v1_122"
+date: "2026-05-28"
+tags: [vscode, ai-agents, byok, opentelemetry, web-debugging, remote-development]
+source_type: "web"
+---
 
 ## Overview
 

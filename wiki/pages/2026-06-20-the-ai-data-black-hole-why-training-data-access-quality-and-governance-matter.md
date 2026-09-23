@@ -1,8 +1,10 @@
-# The AI Data Black Hole: Why Training Data Access, Quality, and Governance Matter
-
-Date: 2026-06-20
-Source: https://youtu.be/4pG3SJQPAwk?is=nsDjEHX49iB8qON9
-Tags: ai, data, mlops, governance, training-data
+---
+title: "The AI Data Black Hole: Why Training Data Access, Quality, and Governance Matter"
+source: "https://youtu.be/4pG3SJQPAwk?is=nsDjEHX49iB8qON9"
+date: "2026-06-20"
+tags: [ai, data, mlops, governance, training-data]
+source_type: "youtube"
+---
 
 ## Overview
 

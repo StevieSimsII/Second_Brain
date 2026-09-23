@@ -1,8 +1,10 @@
-# Remote Access with Dev Tunnels: Securely Exposing Local Services for Development
-
-Date: 2026-06-04
-Source: https://youtu.be/A98dW2kIg3Q
-Tags: dev-tunnels, remote-access, local-development, networking, developer-tools
+---
+title: "Remote Access with Dev Tunnels: Securely Exposing Local Services for Development"
+source: "https://youtu.be/A98dW2kIg3Q"
+date: "2026-06-04"
+tags: [dev-tunnels, remote-access, local-development, networking, developer-tools]
+source_type: "youtube"
+---
 
 ## Overview
 

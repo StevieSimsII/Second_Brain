@@ -1,8 +1,10 @@
-# Using HTML as a High-Leverage Medium for Engineering Communication
-
-Date: 2026-05-20
-Source: https://thariqs.github.io/html-effectiveness/
-Tags: html, ux, developer-tools, prototyping, documentation
+---
+title: "Using HTML as a High-Leverage Medium for Engineering Communication"
+source: "https://thariqs.github.io/html-effectiveness/"
+date: "2026-05-20"
+tags: [html, ux, developer-tools, prototyping, documentation]
+source_type: "web"
+---
 
 ## Overview
 

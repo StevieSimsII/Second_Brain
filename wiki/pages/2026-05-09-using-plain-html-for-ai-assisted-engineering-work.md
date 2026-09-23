@@ -1,8 +1,9 @@
 ---
 title: "Using Plain HTML for AI-Assisted Engineering Work"
-source: "personal notes"
+source: "https://thariqs.github.io/html-effectiveness"
 date: "2026-05-09"
 tags: [html, prototyping, engineering-workflows, visualization, ux]
+source_type: "web"
 ---
 
 ## Overview

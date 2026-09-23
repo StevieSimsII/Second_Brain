@@ -3,6 +3,7 @@ title: "Why Local AI, Why Now: Practical Lessons from the State of the Union Dis
 source: "https://youtu.be/KB41dTlX1Uc?is=N47Gb4kIp0UP9CBv"
 date: "2026-07-13"
 tags: [local-ai, llms, edge-computing, gpu, privacy, inference]
+source_type: "youtube"
 ---
 
 ## Overview

@@ -3,6 +3,7 @@ title: "Understanding as the New Bottleneck in Building with AI"
 source: "https://youtu.be/WkBPX-oDMnA?is=FQ_5mJxb3vDfFD2r"
 date: "2026-07-13"
 tags: [ai, product-design, llms, ux, knowledge-work]
+source_type: "youtube"
 ---
 
 ## Overview

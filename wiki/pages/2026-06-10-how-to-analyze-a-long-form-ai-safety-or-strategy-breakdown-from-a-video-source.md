@@ -1,8 +1,10 @@
-# How to Analyze a Long-Form AI Safety or Strategy Breakdown from a Video Source
-
-Date: 2026-06-10
-Source: https://youtu.be/haK1KoQWm18?is=0sLJAhwRjy7d_KWW
-Tags: ai-safety, document-analysis, video-summarization, research-workflows, critical-reading
+---
+title: "How to Analyze a Long-Form AI Safety or Strategy Breakdown from a Video Source"
+source: "https://youtu.be/haK1KoQWm18?is=0sLJAhwRjy7d_KWW"
+date: "2026-06-10"
+tags: [ai-safety, document-analysis, video-summarization, research-workflows, critical-reading]
+source_type: "youtube"
+---
 
 ## Overview
 

@@ -1,8 +1,9 @@
 ---
 title: "GraphRAG-SDK and Why Graph-Based Retrieval Can Beat Vector RAG"
-source: "personal notes"
+source: "https://linkedin.com/posts/akshay-pachaar_microsoft-graphrag-just-got-dethroned-ugcPost-7455594957853085696-8AU1?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-02"
 tags: [graphrag, rag, knowledge-graphs, retrieval, llm]
+source_type: "web"
 ---
 
 ## Overview

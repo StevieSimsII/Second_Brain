@@ -1,8 +1,9 @@
 ---
 title: "Power Apps Code Apps Plugin for AI-Assisted Development"
-source: "personal notes"
+source: "https://linkedin.com/posts/joshgiles94_code-apps-plugin-ugcPost-7452313816698195970-NWvp?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-04-26"
 tags: [powerapps, powerplatform, ai-agents, lowcode, plugins]
+source_type: "web"
 ---
 
 ## Overview

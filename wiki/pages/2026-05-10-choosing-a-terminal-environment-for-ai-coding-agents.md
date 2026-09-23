@@ -1,8 +1,9 @@
 ---
 title: "Choosing a Terminal Environment for AI Coding Agents"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=YTVwRu_uPxY"
 date: "2026-05-10"
 tags: [terminal, ai-agents, cli, automation, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

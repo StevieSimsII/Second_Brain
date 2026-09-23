@@ -1,8 +1,9 @@
 ---
 title: "Agentic Power BI Development with Skills, Hooks, and Validation Plugins"
-source: "personal notes"
+source: "https://github.com/data-goblin/power-bi-agentic-development"
 date: "2026-04-17"
 tags: [power-bi, microsoft-fabric, agentic, pbip, automation]
+source_type: "github"
 ---
 
 ## Overview

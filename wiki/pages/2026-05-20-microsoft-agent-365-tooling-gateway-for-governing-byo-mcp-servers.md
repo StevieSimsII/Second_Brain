@@ -3,6 +3,7 @@ title: "Microsoft Agent 365 Tooling Gateway for Governing BYO MCP Servers"
 source: "https://www.linkedin.com/posts/mahmoudhamedhassan_microsoft-agent-365-agent-365-tooling-gateway-ugcPost-7462163850033942529-XcGL?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
 date: "2026-05-20"
 tags: [mcp, agent365, microsoft365, ai-governance, security, enterprise-ai]
+source_type: "web"
 ---
 
 ## Overview

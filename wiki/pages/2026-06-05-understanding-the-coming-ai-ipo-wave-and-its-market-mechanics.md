@@ -1,8 +1,10 @@
-# Understanding the Coming AI IPO Wave and Its Market Mechanics
-
-Date: 2026-06-05
-Source: https://youtu.be/UIoV8rG_25s?si=BAZIZM6QmW43uPnt
-Tags: ai, ipos, venture-capital, public-markets, market-structure
+---
+title: "Understanding the Coming AI IPO Wave and Its Market Mechanics"
+source: "https://youtu.be/UIoV8rG_25s?si=BAZIZM6QmW43uPnt"
+date: "2026-06-05"
+tags: [ai, ipos, venture-capital, public-markets, market-structure]
+source_type: "youtube"
+---
 
 ## Overview
 

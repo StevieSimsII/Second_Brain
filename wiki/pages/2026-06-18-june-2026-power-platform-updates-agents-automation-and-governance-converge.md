@@ -1,8 +1,10 @@
-# June 2026 Power Platform Updates: Agents, Automation, and Governance Converge
-
-Date: 2026-06-18
-Source: https://www.linkedin.com/posts/tiffany-treacy_powerplatform-powerapps-powerautomate-share-7473373166552240128-ZxE5/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: powerplatform, powerapps, powerautomate, governance, aiagents, dataverse
+---
+title: "June 2026 Power Platform Updates: Agents, Automation, and Governance Converge"
+source: "https://www.linkedin.com/posts/tiffany-treacy_powerplatform-powerapps-powerautomate-share-7473373166552240128-ZxE5/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-18"
+tags: [powerplatform, powerapps, powerautomate, governance, aiagents, dataverse]
+source_type: "web"
+---
 
 ## Overview
 

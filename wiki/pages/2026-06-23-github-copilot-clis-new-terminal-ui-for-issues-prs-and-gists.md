@@ -1,8 +1,10 @@
-# GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists
-
-Date: 2026-06-23
-Source: https://www.linkedin.com/posts/copilot-cli-just-got-a-new-terminal-user-ugcPost-7475237629266067456-ZE9f/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: copilot, cli, terminal-ui, github, developer-workflow
+---
+title: "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists"
+source: "https://www.linkedin.com/posts/copilot-cli-just-got-a-new-terminal-user-ugcPost-7475237629266067456-ZE9f/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-23"
+tags: [copilot, cli, terminal-ui, github, developer-workflow]
+source_type: "web"
+---
 
 ## Overview
 

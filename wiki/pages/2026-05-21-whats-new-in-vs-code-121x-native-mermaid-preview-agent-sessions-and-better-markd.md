@@ -1,8 +1,10 @@
-# What’s New in VS Code 1.21x: Native Mermaid Preview, Agent Sessions, and Better Markdown
-
-Date: 2026-05-21
-Source: https://www.linkedin.com/posts/the-new-vs-code-release-adds-mermaid-diagram-ugcPost-7462961314181705729-Ebv7?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: vscode, markdown, mermaid, ai-agents, observability
+---
+title: "What’s New in VS Code 1.21x: Native Mermaid Preview, Agent Sessions, and Better Markdown"
+source: "https://www.linkedin.com/posts/the-new-vs-code-release-adds-mermaid-diagram-ugcPost-7462961314181705729-Ebv7?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-05-21"
+tags: [vscode, markdown, mermaid, ai-agents, observability]
+source_type: "web"
+---
 
 ## Overview
 

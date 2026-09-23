@@ -1,8 +1,10 @@
-# MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows
-
-Date: 2026-06-03
-Source: https://microsoft.ai/news/introducingmai-code-1-flash/
-Tags: llm, coding-models, github-copilot, agentic-tools, benchmarking
+---
+title: "MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows"
+source: "https://microsoft.ai/news/introducingmai-code-1-flash/"
+date: "2026-06-03"
+tags: [llm, coding-models, github-copilot, agentic-tools, benchmarking]
+source_type: "web"
+---
 
 ## Overview
 

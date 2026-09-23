@@ -1,8 +1,10 @@
-# Using pbir-cli to Automate PBIR Power BI Report Development
-
-Date: 2026-06-18
-Source: https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-reports-share-7473456154094809088-VKHN/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: powerbi, pbir, microsoftfabric, cli, reporting, tmdl
+---
+title: "Using pbir-cli to Automate PBIR Power BI Report Development"
+source: "https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-reports-share-7473456154094809088-VKHN/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-06-18"
+tags: [powerbi, pbir, microsoftfabric, cli, reporting, tmdl]
+source_type: "web"
+---
 
 ## Overview
 

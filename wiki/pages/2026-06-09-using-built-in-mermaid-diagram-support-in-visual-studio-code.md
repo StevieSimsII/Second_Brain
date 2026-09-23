@@ -1,8 +1,10 @@
-# Using Built-In Mermaid Diagram Support in Visual Studio Code
-
-Date: 2026-06-09
-Source: https://www.linkedin.com/posts/mermaid-diagrams-are-now-built-directly-into-ugcPost-7470236547636760576-tAgO/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: vscode, mermaid, diagrams, markdown, documentation
+---
+title: "Using Built-In Mermaid Diagram Support in Visual Studio Code"
+source: "https://www.linkedin.com/posts/mermaid-diagrams-are-now-built-directly-into-ugcPost-7470236547636760576-tAgO/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-06-09"
+tags: [vscode, mermaid, diagrams, markdown, documentation]
+source_type: "web"
+---
 
 ## Overview
 

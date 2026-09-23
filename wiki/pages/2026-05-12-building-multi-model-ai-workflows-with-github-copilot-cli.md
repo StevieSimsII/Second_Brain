@@ -1,8 +1,9 @@
 ---
 title: "Building Multi-Model AI Workflows with GitHub Copilot CLI"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=rJSsbHwkYAY"
 date: "2026-05-12"
 tags: [github-copilot, cli, llm, ai-workflows, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

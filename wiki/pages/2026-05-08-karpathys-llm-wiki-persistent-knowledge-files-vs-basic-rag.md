@@ -1,8 +1,9 @@
 ---
 title: "Karpathy’s LLM Wiki: Persistent Knowledge Files vs Basic RAG"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=aGXTV5MTqDY"
 date: "2026-05-08"
 tags: [llm, rag, context-engineering, knowledge-management, agents]
+source_type: "youtube"
 ---
 
 ## Overview

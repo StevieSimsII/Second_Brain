@@ -1,8 +1,9 @@
 ---
 title: "Power Apps Code Apps: Internal Order Supply Portal Workflow"
-source: "personal notes"
+source: "https://linkedin.com/posts/rezadorrani_powerapps-powerplatform-codeapps-activity-7459573229859319808-7erg?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-11"
 tags: [powerapps, powerplatform, dataverse, vscode, rbac, deployment]
+source_type: "web"
 ---
 
 ## Overview

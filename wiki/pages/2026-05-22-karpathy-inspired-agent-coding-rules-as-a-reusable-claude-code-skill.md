@@ -1,8 +1,10 @@
-# Karpathy-Inspired Agent Coding Rules as a Reusable Claude Code Skill
-
-Date: 2026-05-22
-Source: https://github.com/multica-ai/andrej-karpathy-skills
-Tags: llm-agents, claude-code, prompt-engineering, developer-tools, cursor, coding-workflows
+---
+title: "Karpathy-Inspired Agent Coding Rules as a Reusable Claude Code Skill"
+source: "https://github.com/multica-ai/andrej-karpathy-skills"
+date: "2026-05-22"
+tags: [llm-agents, claude-code, prompt-engineering, developer-tools, cursor, coding-workflows]
+source_type: "github"
+---
 
 ## Overview
 

@@ -1,8 +1,9 @@
 ---
 title: "Editing Long GitHub Copilot CLI Prompts in Your Preferred Editor"
-source: "personal notes"
+source: "https://linkedin.com/posts/burkeholland_editing-prompts-in-terminals-is-the-ick-ugcPost-7460480525078654976-4WvP?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-14"
 tags: [copilot, cli, terminal, editor, shell]
+source_type: "web"
 ---
 
 ## Overview

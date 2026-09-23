@@ -3,6 +3,7 @@ title: "Advanced Looping Patterns Every Engineer Should Practice"
 source: "https://youtu.be/F4a8aMLb678?is=0yKRGvri5Vyul2bR"
 date: "2026-07-06"
 tags: [programming, loops, control-flow, algorithms, iteration]
+source_type: "youtube"
 ---
 
 ## Overview

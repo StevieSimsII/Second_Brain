@@ -1,8 +1,10 @@
-# Connecting LM Studio Local Models to VS Code for AI-Assisted Development
-
-Date: 2026-05-22
-Source: https://youtu.be/l3hcewcrYjo?si=wasWdp9Zl6FPNrrt
-Tags: lm-studio, vscode, local-llm, developer-tools, openai-api
+---
+title: "Connecting LM Studio Local Models to VS Code for AI-Assisted Development"
+source: "https://youtu.be/l3hcewcrYjo?si=wasWdp9Zl6FPNrrt"
+date: "2026-05-22"
+tags: [lm-studio, vscode, local-llm, developer-tools, openai-api]
+source_type: "youtube"
+---
 
 ## Overview
 

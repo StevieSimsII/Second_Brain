@@ -1,8 +1,9 @@
 ---
 title: "Choosing the Right GitHub Copilot Plan"
-source: "personal notes"
+source: "https://docs.github.com/en/copilot/get-started/plans"
 date: "2026-05-12"
 tags: [github, copilot, pricing, enterprise, developer-tools]
+source_type: "web"
 ---
 
 ## Overview

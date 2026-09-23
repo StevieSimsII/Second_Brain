@@ -1,8 +1,9 @@
 ---
 title: "Using GitHub Copilot CLI Effectively from the Terminal"
-source: "personal notes"
+source: "https://linkedin.com/posts/github-copilot-cli-cheat-sheet-ugcPost-7460479811807911936-8hcU?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-14"
 tags: [github-copilot, cli, terminal, shell, productivity]
+source_type: "web"
 ---
 
 ## Overview

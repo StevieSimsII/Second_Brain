@@ -1,8 +1,10 @@
-# Building Microsoft Fabric Apps with Rayfin and Power Platform Data
-
-Date: 2026-06-07
-Source: https://www.linkedin.com/posts/andreasadner_rayfin-microsoftfabric-powerplatform-ugcPost-7469457251976577024-p4-N/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: rayfin, microsoft-fabric, power-platform, onelake, semantic-models
+---
+title: "Building Microsoft Fabric Apps with Rayfin and Power Platform Data"
+source: "https://www.linkedin.com/posts/andreasadner_rayfin-microsoftfabric-powerplatform-ugcPost-7469457251976577024-p4-N/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-06-07"
+tags: [rayfin, microsoft-fabric, power-platform, onelake, semantic-models]
+source_type: "web"
+---
 
 ## Overview
 

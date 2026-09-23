@@ -1,8 +1,10 @@
-# VS Code 1.120: Agents Window, BYOK Controls, Markdown Diffs, and Safer Agent Workflows
-
-Date: 2026-05-20
-Source: https://code.visualstudio.com/updates/v1_120
-Tags: vscode, agents, copilot, markdown, extensions, developer-tools
+---
+title: "VS Code 1.120: Agents Window, BYOK Controls, Markdown Diffs, and Safer Agent Workflows"
+source: "https://code.visualstudio.com/updates/v1_120"
+date: "2026-05-20"
+tags: [vscode, agents, copilot, markdown, extensions, developer-tools]
+source_type: "web"
+---
 
 ## Overview
 

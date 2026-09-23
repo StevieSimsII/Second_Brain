@@ -1,8 +1,9 @@
 ---
 title: "Working from Incomplete Web Sources: A Reliable Technical Reading Workflow"
-source: "personal notes"
+source: "https://x.com/claudeai/status/2041927687460024721?s=42"
 date: "2026-04-17"
 tags: [web, research, source-analysis, technical-learning, information-quality]
+source_type: "web"
 ---
 
 ## Overview

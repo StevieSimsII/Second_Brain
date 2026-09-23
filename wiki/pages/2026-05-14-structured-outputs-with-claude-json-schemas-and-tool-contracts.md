@@ -1,8 +1,9 @@
 ---
 title: "Structured Outputs with Claude: JSON Schemas and Tool Contracts"
-source: "personal notes"
+source: "https://claude.com/blog/structured-outputs-on-the-claude-developer-platform?hsa_acc=515731155&hsa_cam=780502254&hsa_grp=454823704&hsa_ad=1228202364&hsa_net=linkedin&hsa_ver=3"
 date: "2026-05-14"
 tags: [claude, json-schema, api-design, tool-calling, agent-systems]
+source_type: "web"
 ---
 
 ## Overview

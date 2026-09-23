@@ -3,6 +3,7 @@ title: "Evaluating Hype Around New Frontier LLM Releases When Source Details Are
 source: "https://youtu.be/mD1F5DsC5tc?is=VyGosuKVF9S4tJOc"
 date: "2026-07-09"
 tags: [llm, model-evaluation, ai-product, benchmarking, safety]
+source_type: "youtube"
 ---
 
 ## Overview

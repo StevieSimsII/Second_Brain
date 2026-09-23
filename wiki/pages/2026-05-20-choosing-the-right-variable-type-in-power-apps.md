@@ -3,6 +3,7 @@ title: "Choosing the Right Variable Type in Power Apps"
 source: "https://youtu.be/krhedsvD5tw"
 date: "2026-05-20"
 tags: [powerapps, variables, power-fx, canvas-apps, state-management]
+source_type: "youtube"
 ---
 
 ## Overview

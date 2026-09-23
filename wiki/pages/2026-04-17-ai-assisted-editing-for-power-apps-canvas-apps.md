@@ -1,8 +1,9 @@
 ---
 title: "AI-assisted editing for Power Apps Canvas Apps"
-source: "personal notes"
+source: "https://linkedin.com/posts/wariowario_i-tried-the-new-create-and-edit-canvas-apps-activity-7450805322119757824-adNF?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-04-17"
 tags: [powerapps, canvas-apps, ai-coding, copilot, governance]
+source_type: "web"
 ---
 
 ## Overview

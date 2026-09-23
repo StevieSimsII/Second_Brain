@@ -1,8 +1,10 @@
-# Building Interactive Microsoft 365 Copilot Widgets with an MCP App
-
-Date: 2026-06-06
-Source: https://www.linkedin.com/posts/shoebsayyed_microsoftcopilot-mcp-modelcontextprotocol-ugcPost-7468777854634422272-0D2N/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: microsoft365, copilot, mcp, azure, dotnet, agents
+---
+title: "Building Interactive Microsoft 365 Copilot Widgets with an MCP App"
+source: "https://www.linkedin.com/posts/shoebsayyed_microsoftcopilot-mcp-modelcontextprotocol-ugcPost-7468777854634422272-0D2N/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-06"
+tags: [microsoft365, copilot, mcp, azure, dotnet, agents]
+source_type: "web"
+---
 
 ## Overview
 

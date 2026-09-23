@@ -1,8 +1,9 @@
 ---
 title: "Building Agentic Knowledge Bases with Pinecone Assistant and Semantic Retrieval"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=0TPq43Wpbz0"
 date: "2026-05-08"
 tags: [llm, rag, pinecone, vector-search, agents]
+source_type: "youtube"
 ---
 
 ## Overview

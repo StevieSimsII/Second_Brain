@@ -1,8 +1,10 @@
-# Understanding Nvidia RTX Laptop Positioning, Power Limits, and Real-World Performance
-
-Date: 2026-06-03
-Source: https://youtu.be/0-VG9QBm8S8?si=GGKOpv5R2j4Z7S_Q
-Tags: gpu, laptops, nvidia, performance, power-management
+---
+title: "Understanding Nvidia RTX Laptop Positioning, Power Limits, and Real-World Performance"
+source: "https://youtu.be/0-VG9QBm8S8?si=GGKOpv5R2j4Z7S_Q"
+date: "2026-06-03"
+tags: [gpu, laptops, nvidia, performance, power-management]
+source_type: "youtube"
+---
 
 ## Overview
 

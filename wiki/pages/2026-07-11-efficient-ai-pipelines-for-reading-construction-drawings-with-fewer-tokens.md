@@ -3,6 +3,7 @@ title: "Efficient AI Pipelines for Reading Construction Drawings with Fewer Toke
 source: "https://youtu.be/ItW-ielFvGg?is=F_ll9FRyPC_tQD86"
 date: "2026-07-11"
 tags: [ai, document-processing, ocr, computer-vision, llm, construction]
+source_type: "youtube"
 ---
 
 ## Overview

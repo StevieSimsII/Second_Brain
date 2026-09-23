@@ -1,8 +1,9 @@
 ---
 title: "Choosing Blob Storage vs Base64 for File Handling in Power Apps"
-source: "personal notes"
+source: "https://linkedin.com/posts/radovan-santa-7aa737134_upload-files-without-limits-using-blob-ugcPost-7455155358647599104-Icog?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-05"
 tags: [powerapps, azure, blob-storage, base64, dataverse]
+source_type: "web"
 ---
 
 ## Overview

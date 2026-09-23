@@ -3,6 +3,7 @@ title: "Practical Patterns for Using Codex as an Engineering Workbench"
 source: "https://youtu.be/etduwo9Lu3M?is=aVE7opZRmN04OluU"
 date: "2026-07-15"
 tags: [ai-coding, codex, developer-workflow, prompting, automation]
+source_type: "youtube"
 ---
 
 ## Overview

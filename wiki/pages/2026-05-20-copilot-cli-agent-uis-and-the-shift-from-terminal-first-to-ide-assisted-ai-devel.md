@@ -1,8 +1,10 @@
-# Copilot CLI, Agent UIs, and the Shift from Terminal-First to IDE-Assisted AI Development
-
-Date: 2026-05-20
-Source: https://www.linkedin.com/posts/jukkaniiranen_claude-code-inside-microsoft-was-never-going-share-7460787128470265856-7IaX?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: copilot, cli, vscode, agents, developer-tools
+---
+title: "Copilot CLI, Agent UIs, and the Shift from Terminal-First to IDE-Assisted AI Development"
+source: "https://www.linkedin.com/posts/jukkaniiranen_claude-code-inside-microsoft-was-never-going-share-7460787128470265856-7IaX?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-05-20"
+tags: [copilot, cli, vscode, agents, developer-tools]
+source_type: "web"
+---
 
 ## Overview
 

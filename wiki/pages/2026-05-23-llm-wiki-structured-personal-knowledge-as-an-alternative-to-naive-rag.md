@@ -1,8 +1,10 @@
-# LLM Wiki: Structured Personal Knowledge as an Alternative to Naive RAG
-
-Date: 2026-05-23
-Source: https://youtu.be/aGXTV5MTqDY?si=x3grbblexBO5k44D
-Tags: llm, rag, knowledge-management, retrieval, prompting
+---
+title: "LLM Wiki: Structured Personal Knowledge as an Alternative to Naive RAG"
+source: "https://youtu.be/aGXTV5MTqDY?si=x3grbblexBO5k44D"
+date: "2026-05-23"
+tags: [llm, rag, knowledge-management, retrieval, prompting]
+source_type: "youtube"
+---
 
 ## Overview
 

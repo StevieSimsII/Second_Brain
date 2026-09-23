@@ -1,8 +1,9 @@
 ---
 title: "Claude Code Routines for Scheduled, API, and GitHub Automation"
-source: "personal notes"
+source: "https://claude.com/blog/introducing-routines-in-claude-code"
 date: "2026-04-17"
 tags: [claude-code, automation, github, api, devops]
+source_type: "web"
 ---
 
 ## Overview

@@ -1,8 +1,9 @@
 ---
 title: "Using Power Automate Directly from Power Apps Code Apps"
-source: "personal notes"
+source: "https://linkedin.com/posts/charlie-sexton_the-long-awaited-power-automate-integration-activity-7457383644672831488-Xctm?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-05"
 tags: [powerapps, powerautomate, code-apps, integration, microsoft-power-platform]
+source_type: "web"
 ---
 
 ## Overview

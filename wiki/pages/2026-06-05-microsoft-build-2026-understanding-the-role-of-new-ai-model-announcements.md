@@ -1,8 +1,10 @@
-# Microsoft Build 2026: Understanding the Role of New AI Model Announcements
-
-Date: 2026-06-05
-Source: https://youtu.be/OvLIae4HCeM?si=W4MfPrNFx4B9_Y2U
-Tags: ai, llms, multimodal, model-evaluation, cloud, product-strategy
+---
+title: "Microsoft Build 2026: Understanding the Role of New AI Model Announcements"
+source: "https://youtu.be/OvLIae4HCeM?si=W4MfPrNFx4B9_Y2U"
+date: "2026-06-05"
+tags: [ai, llms, multimodal, model-evaluation, cloud, product-strategy]
+source_type: "youtube"
+---
 
 ## Overview
 

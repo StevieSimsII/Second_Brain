@@ -1,8 +1,10 @@
-# Using an LLM Knowledge Map Plus Retrieval Skills to Learn Faster
-
-Date: 2026-05-28
-Source: https://youtu.be/v8rCHym0lXE?si=bjLrbrr47M_Qd_6j
-Tags: llm, retrieval, learning, rag, knowledge-management
+---
+title: "Using an LLM Knowledge Map Plus Retrieval Skills to Learn Faster"
+source: "https://youtu.be/v8rCHym0lXE?si=bjLrbrr47M_Qd_6j"
+date: "2026-05-28"
+tags: [llm, retrieval, learning, rag, knowledge-management]
+source_type: "youtube"
+---
 
 ## Overview
 

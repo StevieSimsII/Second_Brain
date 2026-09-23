@@ -3,6 +3,7 @@ title: "Microsoft MAI as a Model-Routing Strategy, Not a Benchmark Play"
 source: "https://www.linkedin.com/pulse/mai-either-microsofts-moat-its-next-copilot-mess-steve-mordue-mqjbf?utm_source=share&utm_medium=member_ios&utm_campaign=share_via"
 date: "2026-07-10"
 tags: [microsoft, enterprise-ai, model-routing, copilot, cloud-strategy]
+source_type: "web"
 ---
 
 ## Overview

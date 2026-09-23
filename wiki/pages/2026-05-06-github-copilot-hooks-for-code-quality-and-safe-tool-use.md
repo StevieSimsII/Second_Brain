@@ -1,8 +1,9 @@
 ---
 title: "GitHub Copilot Hooks for Code Quality and Safe Tool Use"
-source: "personal notes"
+source: "https://linkedin.com/posts/burkeholland_completely-understand-hooks-in-less-than-activity-7451064088840908800-ZYas?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-06"
 tags: [github-copilot, hooks, code-quality, linting, developer-workflow]
+source_type: "web"
 ---
 
 ## Overview

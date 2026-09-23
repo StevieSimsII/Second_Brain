@@ -1,8 +1,10 @@
-# Agentic Power BI Development with a Plugin Marketplace for Claude Code and Copilot CLI
-
-Date: 2026-05-26
-Source: https://github.com/data-goblin/power-bi-agentic-development
-Tags: power-bi, fabric, agentic-development, claude-code, copilot-cli, semantic-models
+---
+title: "Agentic Power BI Development with a Plugin Marketplace for Claude Code and Copilot CLI"
+source: "https://github.com/data-goblin/power-bi-agentic-development"
+date: "2026-05-26"
+tags: [power-bi, fabric, agentic-development, claude-code, copilot-cli, semantic-models]
+source_type: "github"
+---
 
 ## Overview
 

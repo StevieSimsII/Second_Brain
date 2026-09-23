@@ -1,8 +1,10 @@
-# Watts, Wafers, and AI Infrastructure Economics
-
-Date: 2026-05-31
-Source: https://youtu.be/Mmj_G9RlW-I?si=Me6GUmQ5aQVL5rRg
-Tags: ai-infrastructure, semiconductors, datacenters, power, economics
+---
+title: "Watts, Wafers, and AI Infrastructure Economics"
+source: "https://youtu.be/Mmj_G9RlW-I?si=Me6GUmQ5aQVL5rRg"
+date: "2026-05-31"
+tags: [ai-infrastructure, semiconductors, datacenters, power, economics]
+source_type: "youtube"
+---
 
 ## Overview
 

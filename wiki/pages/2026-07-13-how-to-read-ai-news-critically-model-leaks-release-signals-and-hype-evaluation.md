@@ -3,6 +3,7 @@ title: "How to Read AI News Critically: Model Leaks, Release Signals, and Hype E
 source: "https://youtu.be/mkWz2MOCTv8?is=NHacJ8u_2_fe87MG"
 date: "2026-07-13"
 tags: [ai-news, llms, model-evaluation, product-strategy, media-literacy]
+source_type: "youtube"
 ---
 
 ## Overview

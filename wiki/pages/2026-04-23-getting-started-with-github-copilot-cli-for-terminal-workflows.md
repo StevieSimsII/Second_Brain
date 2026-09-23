@@ -1,8 +1,9 @@
 ---
 title: "Getting Started with GitHub Copilot CLI for Terminal Workflows"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=fgHk28xljYw"
 date: "2026-04-23"
 tags: [github-copilot, cli, terminal, shell, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

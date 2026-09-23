@@ -1,8 +1,9 @@
 ---
 title: "AI-Assisted Markdown Presentations with Obsidian and Slidev"
-source: "personal notes"
+source: "https://linkedin.com/posts/jukkaniiranen_people-often-ask-me-how-i-build-my-presentations-share-7456019772883820545-bWY0?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-01"
 tags: [markdown, slidev, obsidian, ai-tools, presentations]
+source_type: "web"
 ---
 
 ## Overview

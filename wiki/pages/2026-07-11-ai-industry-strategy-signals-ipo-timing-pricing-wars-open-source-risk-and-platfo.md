@@ -3,6 +3,7 @@ title: "AI Industry Strategy Signals: IPO Timing, Pricing Wars, Open Source Risk
 source: "https://youtu.be/PHL1j2ti420?is=43nXZpYnKZ1tIunf"
 date: "2026-07-11"
 tags: [ai, strategy, startups, platforms, open-source, market-dynamics]
+source_type: "youtube"
 ---
 
 ## Overview

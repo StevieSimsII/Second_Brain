@@ -1,8 +1,9 @@
 ---
 title: "Making Semantic Models AI-Ready for Copilot and LLM Analytics"
-source: "personal notes"
+source: "https://tabulareditor.com/blog/ai-readiness-and-best-practices-for-semantic-models-a-comprehensive-guide"
 date: "2026-04-22"
 tags: [semantic-models, power-bi, llm, dax, copilot, fabric]
+source_type: "web"
 ---
 
 ## Overview

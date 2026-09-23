@@ -1,8 +1,10 @@
-# Understanding Microsoft Work IQ APIs, Billing, and Agent Integration
-
-Date: 2026-06-17
-Source: https://www.linkedin.com/posts/henryjammes_workiq-share-7472686844321898496-9Dmz/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: microsoft-365, copilot, agentic-ai, apis, enterprise-search
+---
+title: "Understanding Microsoft Work IQ APIs, Billing, and Agent Integration"
+source: "https://www.linkedin.com/posts/henryjammes_workiq-share-7472686844321898496-9Dmz/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-17"
+tags: [microsoft-365, copilot, agentic-ai, apis, enterprise-search]
+source_type: "web"
+---
 
 ## Overview
 

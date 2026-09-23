@@ -1,8 +1,10 @@
-# Google I/O 2026: Gemini 3.5, Agentic Search, XR, and Google's Expanding AI Platform
-
-Date: 2026-05-20
-Source: https://www.zdnet.com/article/google-io-05-19-2026-live-blog/
-Tags: google, gemini, ai-agents, search, android-xr, developer-tools
+---
+title: "Google I/O 2026: Gemini 3.5, Agentic Search, XR, and Google's Expanding AI Platform"
+source: "https://www.zdnet.com/article/google-io-05-19-2026-live-blog/"
+date: "2026-05-20"
+tags: [google, gemini, ai-agents, search, android-xr, developer-tools]
+source_type: "web"
+---
 
 ## Overview
 

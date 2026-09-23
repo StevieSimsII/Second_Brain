@@ -1,8 +1,10 @@
-# Implementing Scrum with GitHub Projects
-
-Date: 2026-05-24
-Source: https://www.youtube.com/live/hMEdSCrWOTk?si=TAa9JhU8w0kd88Cr
-Tags: scrum, github-projects, agile, issue-tracking, workflow, planning
+---
+title: "Implementing Scrum with GitHub Projects"
+source: "https://www.youtube.com/live/hMEdSCrWOTk?si=TAa9JhU8w0kd88Cr"
+date: "2026-05-24"
+tags: [scrum, github-projects, agile, issue-tracking, workflow, planning]
+source_type: "youtube"
+---
 
 ## Overview
 

@@ -1,8 +1,10 @@
-# Cursor's New AI Coding Workflow: Why It Matters for Engineers
-
-Date: 2026-05-27
-Source: https://youtu.be/GBISeUYMzoU?si=QIGdHYZJQumkcuJW
-Tags: ai-coding, developer-tools, cursor, llm, software-engineering
+---
+title: "Cursor's New AI Coding Workflow: Why It Matters for Engineers"
+source: "https://youtu.be/GBISeUYMzoU?si=QIGdHYZJQumkcuJW"
+date: "2026-05-27"
+tags: [ai-coding, developer-tools, cursor, llm, software-engineering]
+source_type: "youtube"
+---
 
 ## Overview
 

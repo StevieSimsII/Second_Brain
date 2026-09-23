@@ -1,8 +1,10 @@
-# Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control
-
-Date: 2026-05-25
-Source: https://www.linkedin.com/posts/eordax_ai-claude-ugcPost-7458734104067563520-x8B_/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: ai-coding, claude-code, developer-tools, prompting, code-review
+---
+title: "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control"
+source: "https://www.linkedin.com/posts/eordax_ai-claude-ugcPost-7458734104067563520-x8B_/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-05-25"
+tags: [ai-coding, claude-code, developer-tools, prompting, code-review]
+source_type: "web"
+---
 
 ## Overview
 

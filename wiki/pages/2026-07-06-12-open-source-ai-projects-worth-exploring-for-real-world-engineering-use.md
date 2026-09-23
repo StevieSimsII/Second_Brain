@@ -3,6 +3,7 @@ title: "12 Open-Source AI Projects Worth Exploring for Real-World Engineering Us
 source: "https://youtu.be/2lmBj_XQq0I?is=uwHO_4kRtaP5CY_8"
 date: "2026-07-06"
 tags: [open-source, ai, llm, agents, developer-tools, self-hosting]
+source_type: "youtube"
 ---
 
 ## Overview

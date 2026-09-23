@@ -1,8 +1,10 @@
-# Graphify: Building a Personal LLM-Ready Wiki as a Knowledge Graph
-
-Date: 2026-05-28
-Source: https://youtu.be/zR5tyP4Onkc?si=br9ZvGFixmcb2xj7
-Tags: llm, knowledge-graph, retrieval, personal-wiki, rag
+---
+title: "Graphify: Building a Personal LLM-Ready Wiki as a Knowledge Graph"
+source: "https://youtu.be/zR5tyP4Onkc?si=br9ZvGFixmcb2xj7"
+date: "2026-05-28"
+tags: [llm, knowledge-graph, retrieval, personal-wiki, rag]
+source_type: "youtube"
+---
 
 ## Overview
 

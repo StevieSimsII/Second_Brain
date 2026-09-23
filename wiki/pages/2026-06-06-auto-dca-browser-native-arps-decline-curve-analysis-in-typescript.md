@@ -1,8 +1,10 @@
-# Auto DCA: Browser-Native Arps Decline-Curve Analysis in TypeScript
-
-Date: 2026-06-06
-Source: https://github.com/workollab/auto-dca
-Tags: decline-curve-analysis, typescript, react, forecasting, optimization, oil-gas
+---
+title: "Auto DCA: Browser-Native Arps Decline-Curve Analysis in TypeScript"
+source: "https://github.com/workollab/auto-dca"
+date: "2026-06-06"
+tags: [decline-curve-analysis, typescript, react, forecasting, optimization, oil-gas]
+source_type: "github"
+---
 
 ## Overview
 

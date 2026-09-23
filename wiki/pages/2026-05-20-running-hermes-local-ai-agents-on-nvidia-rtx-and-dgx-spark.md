@@ -1,8 +1,10 @@
-# Running Hermes Local AI Agents on NVIDIA RTX and DGX Spark
-
-Date: 2026-05-20
-Source: https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/
-Tags: agentic-ai, local-llm, nvidia-rtx, dgx-spark, hermes, qwen
+---
+title: "Running Hermes Local AI Agents on NVIDIA RTX and DGX Spark"
+source: "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/"
+date: "2026-05-20"
+tags: [agentic-ai, local-llm, nvidia-rtx, dgx-spark, hermes, qwen]
+source_type: "web"
+---
 
 ## Overview
 

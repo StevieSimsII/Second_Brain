@@ -1,8 +1,10 @@
-# Claude Code Routines: Event-Driven and Scheduled Automations for Engineering Workflows
-
-Date: 2026-06-06
-Source: https://claude.com/blog/introducing-routines-in-claude-code
-Tags: claude-code, automation, webhooks, api, scheduling, devops
+---
+title: "Claude Code Routines: Event-Driven and Scheduled Automations for Engineering Workflows"
+source: "https://claude.com/blog/introducing-routines-in-claude-code"
+date: "2026-06-06"
+tags: [claude-code, automation, webhooks, api, scheduling, devops]
+source_type: "web"
+---
 
 ## Overview
 

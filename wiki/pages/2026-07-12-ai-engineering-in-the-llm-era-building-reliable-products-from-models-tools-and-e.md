@@ -3,6 +3,7 @@ title: "AI Engineering in the LLM Era: Building Reliable Products from Models, T
 source: "https://youtu.be/pMggiOb18tc?is=pid9_HnUieqibsX0"
 date: "2026-07-12"
 tags: [llms, ai-engineering, evaluation, agents, prompting, product-design]
+source_type: "youtube"
 ---
 
 ## Overview

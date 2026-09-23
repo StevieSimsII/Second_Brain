@@ -3,6 +3,7 @@ title: "Startup Lessons from a YC Closing Keynote"
 source: "https://youtu.be/eBUyTS7SzV4?is=6YQtl4dphZ00ngZJ"
 date: "2026-07-17"
 tags: [startups, ycombinator, founders, product, growth]
+source_type: "youtube"
 ---
 
 ## Overview

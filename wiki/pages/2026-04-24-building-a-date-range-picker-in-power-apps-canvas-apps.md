@@ -1,8 +1,9 @@
 ---
 title: "Building a Date Range Picker in Power Apps Canvas Apps"
-source: "personal notes"
+source: "https://linkedin.com/posts/powerappstools_pick-a-date-range-in-power-apps-without-activity-7450635629643759621-RK6Y?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-04-24"
 tags: [powerapps, canvas-apps, date-picker, ux, low-code]
+source_type: "web"
 ---
 
 ## Overview

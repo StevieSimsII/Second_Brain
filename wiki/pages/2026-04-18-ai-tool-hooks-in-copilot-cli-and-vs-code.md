@@ -1,8 +1,9 @@
 ---
 title: "AI Tool Hooks in Copilot CLI and VS Code"
-source: "personal notes"
+source: "https://linkedin.com/posts/burkeholland_completely-understand-hooks-in-less-than-share-7451064088069210112-80hr?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-04-18"
 tags: [ai-agents, hooks, copilot, vscode, developer-tools]
+source_type: "web"
 ---
 
 ## Overview

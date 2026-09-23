@@ -3,6 +3,7 @@ title: "VS Code 1.129: Agent Host, Agents Window Workflow, and Modern UI Preview
 source: "https://code.visualstudio.com/updates/v1_129"
 date: "2026-07-16"
 tags: [vscode, agents, copilot, developer-tools, editor-ui]
+source_type: "web"
 ---
 
 ## Overview

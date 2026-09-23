@@ -1,8 +1,10 @@
-# OpenClaw Windows Hub: Tray App, Gateway Client, Node Mode, and Setup Architecture
-
-Date: 2026-06-04
-Source: https://github.com/openclaw/openclaw-windows-node
-Tags: csharp, winui, websocket, windows, tray-app, wsl
+---
+title: "OpenClaw Windows Hub: Tray App, Gateway Client, Node Mode, and Setup Architecture"
+source: "https://github.com/openclaw/openclaw-windows-node"
+date: "2026-06-04"
+tags: [csharp, winui, websocket, windows, tray-app, wsl]
+source_type: "github"
+---
 
 ## Overview
 

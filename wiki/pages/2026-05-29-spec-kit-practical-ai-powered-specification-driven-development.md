@@ -1,8 +1,10 @@
-# Spec Kit: Practical AI-Powered Specification-Driven Development
-
-Date: 2026-05-29
-Source: https://speckit.org/
-Tags: spec-driven-development, ai-agents, cli, software-design, requirements, developer-workflow
+---
+title: "Spec Kit: Practical AI-Powered Specification-Driven Development"
+source: "https://speckit.org/"
+date: "2026-05-29"
+tags: [spec-driven-development, ai-agents, cli, software-design, requirements, developer-workflow]
+source_type: "web"
+---
 
 ## Overview
 

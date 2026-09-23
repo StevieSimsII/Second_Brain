@@ -3,6 +3,7 @@ title: "Introducing the Next Chapter for ChatGPT: Product Platform and Agentic A
 source: "https://www.youtube.com/live/Wq45rvPGNHs?is=CeZ5am9USWcHM5Nn"
 date: "2026-07-09"
 tags: [chatgpt, ai-products, agents, multimodal, ux, llm-platforms]
+source_type: "youtube"
 ---
 
 ## Overview

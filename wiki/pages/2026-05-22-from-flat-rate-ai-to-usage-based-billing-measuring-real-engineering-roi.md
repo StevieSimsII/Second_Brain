@@ -1,8 +1,10 @@
-# From Flat-Rate AI to Usage-Based Billing: Measuring Real Engineering ROI
-
-Date: 2026-05-22
-Source: https://www.linkedin.com/posts/colbynricker_one-github-copilot-user-did-the-math-their-activity-7463288960933330944-OAmt?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via
-Tags: ai-costs, copilot, finops, engineering-management, developer-productivity
+---
+title: "From Flat-Rate AI to Usage-Based Billing: Measuring Real Engineering ROI"
+source: "https://www.linkedin.com/posts/colbynricker_one-github-copilot-user-did-the-math-their-activity-7463288960933330944-OAmt?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via"
+date: "2026-05-22"
+tags: [ai-costs, copilot, finops, engineering-management, developer-productivity]
+source_type: "web"
+---
 
 ## Overview
 

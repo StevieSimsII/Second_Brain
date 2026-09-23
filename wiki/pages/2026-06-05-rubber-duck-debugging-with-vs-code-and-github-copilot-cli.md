@@ -1,8 +1,10 @@
-# Rubber Duck Debugging with VS Code and GitHub Copilot CLI
-
-Date: 2026-06-05
-Source: https://www.linkedin.com/posts/in-todays-video-were-showing-how-to-share-7468674363865862144-Emxc/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: debugging, vscode, github-copilot, cli, developer-workflow
+---
+title: "Rubber Duck Debugging with VS Code and GitHub Copilot CLI"
+source: "https://www.linkedin.com/posts/in-todays-video-were-showing-how-to-share-7468674363865862144-Emxc/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-05"
+tags: [debugging, vscode, github-copilot, cli, developer-workflow]
+source_type: "web"
+---
 
 ## Overview
 

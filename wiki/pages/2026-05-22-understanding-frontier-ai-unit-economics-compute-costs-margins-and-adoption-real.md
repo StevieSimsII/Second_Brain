@@ -1,8 +1,10 @@
-# Understanding Frontier AI Unit Economics: Compute Costs, Margins, and Adoption Reality
-
-Date: 2026-05-22
-Source: https://www.linkedin.com/posts/emollick_there-has-been-a-lot-of-online-speculation-activity-7463104184934940672-VvA3?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via
-Tags: ai-economics, llm, unit-economics, cloud-compute, enterprise-ai
+---
+title: "Understanding Frontier AI Unit Economics: Compute Costs, Margins, and Adoption Reality"
+source: "https://www.linkedin.com/posts/emollick_there-has-been-a-lot-of-online-speculation-activity-7463104184934940672-VvA3?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via"
+date: "2026-05-22"
+tags: [ai-economics, llm, unit-economics, cloud-compute, enterprise-ai]
+source_type: "web"
+---
 
 ## Overview
 

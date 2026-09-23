@@ -1,8 +1,10 @@
-# Understanding Microsoft Work IQ APIs for Enterprise Agents in Microsoft 365
-
-Date: 2026-06-18
-Source: https://www.linkedin.com/posts/awaiskhawar_microsofts-work-iq-apis-are-generally-available-share-7472877250250514432-H4Bn/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: microsoft-365, copilot, enterprise-agents, apis, governance
+---
+title: "Understanding Microsoft Work IQ APIs for Enterprise Agents in Microsoft 365"
+source: "https://www.linkedin.com/posts/awaiskhawar_microsofts-work-iq-apis-are-generally-available-share-7472877250250514432-H4Bn/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-18"
+tags: [microsoft-365, copilot, enterprise-agents, apis, governance]
+source_type: "web"
+---
 
 ## Overview
 

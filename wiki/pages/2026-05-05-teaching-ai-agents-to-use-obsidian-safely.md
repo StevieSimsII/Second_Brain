@@ -1,8 +1,9 @@
 ---
 title: "Teaching AI Agents to Use Obsidian Safely"
-source: "personal notes"
+source: "https://linkedin.com/posts/stasbel_obsidian-ceo-personally-wrote-a-set-of-skills-activity-7457097428387905537-NRIq?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-05"
 tags: [obsidian, ai-agents, markdown, metadata, tooling]
+source_type: "web"
 ---
 
 ## Overview

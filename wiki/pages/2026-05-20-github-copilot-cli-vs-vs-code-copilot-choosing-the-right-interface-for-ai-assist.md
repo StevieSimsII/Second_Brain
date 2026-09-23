@@ -3,6 +3,7 @@ title: "GitHub Copilot CLI vs VS Code Copilot: Choosing the Right Interface for 
 source: "https://www.linkedin.com/posts/sean-astrakhan_githubcopilot-vscode-copilotcli-activity-7461033910286573568-x9tz?utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_source=social_share_send&utm_campaign=share_via"
 date: "2026-05-20"
 tags: [github-copilot, vscode, cli, developer-productivity, ai-tools]
+source_type: "web"
 ---
 
 ## Overview

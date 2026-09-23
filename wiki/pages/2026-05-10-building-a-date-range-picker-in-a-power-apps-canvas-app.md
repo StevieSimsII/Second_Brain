@@ -1,8 +1,9 @@
 ---
 title: "Building a Date Range Picker in a Power Apps Canvas App"
-source: "personal notes"
+source: "https://powerappstools.com/snippet-details/221"
 date: "2026-05-10"
 tags: [powerapps, canvas-apps, date-picker, power-fx, ui]
+source_type: "web"
 ---
 
 ## Overview

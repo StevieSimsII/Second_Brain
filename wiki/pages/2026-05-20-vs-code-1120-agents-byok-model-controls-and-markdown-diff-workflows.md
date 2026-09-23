@@ -1,8 +1,10 @@
-# VS Code 1.120: Agents, BYOK Model Controls, and Markdown Diff Workflows
-
-Date: 2026-05-20
-Source: https://code.visualstudio.com/updates/v1_120
-Tags: vscode, agents, copilot, markdown, extensions, llm
+---
+title: "VS Code 1.120: Agents, BYOK Model Controls, and Markdown Diff Workflows"
+source: "https://code.visualstudio.com/updates/v1_120"
+date: "2026-05-20"
+tags: [vscode, agents, copilot, markdown, extensions, llm]
+source_type: "web"
+---
 
 ## Overview
 

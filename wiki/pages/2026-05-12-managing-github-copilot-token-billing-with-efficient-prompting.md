@@ -1,8 +1,9 @@
 ---
 title: "Managing GitHub Copilot Token Billing with Efficient Prompting"
-source: "personal notes"
+source: "https://linkedin.com/posts/silvia-rodenas-vaquero_githubcopilot-github-ai-share-7457823224064745472-dhEu?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-12"
 tags: [github-copilot, token-billing, prompting, developer-tools, enterprise]
+source_type: "web"
 ---
 
 ## Overview

@@ -1,8 +1,9 @@
 ---
 title: "Beginner Setup Guide for Karpathy’s LLM Wiki and Local LLM Environment"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=iXd0t60YmMw"
 date: "2026-04-28"
 tags: [llm, python, environment-setup, machine-learning, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

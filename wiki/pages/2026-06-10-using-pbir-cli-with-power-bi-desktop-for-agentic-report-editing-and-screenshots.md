@@ -1,8 +1,10 @@
-# Using pbir-cli with Power BI Desktop for Agentic Report Editing and Screenshots
-
-Date: 2026-06-10
-Source: https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-agenticdevelopment-ugcPost-7470590768936628224-UsjC/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: powerbi, microsoft-fabric, cli, agentic-development, automation
+---
+title: "Using pbir-cli with Power BI Desktop for Agentic Report Editing and Screenshots"
+source: "https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-agenticdevelopment-ugcPost-7470590768936628224-UsjC/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-06-10"
+tags: [powerbi, microsoft-fabric, cli, agentic-development, automation]
+source_type: "web"
+---
 
 ## Overview
 

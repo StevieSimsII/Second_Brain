@@ -1,8 +1,9 @@
 ---
 title: "Microsoft Agent Platform Landscape: Copilot, Foundry, Studio, and Agent 365"
-source: "personal notes"
+source: "https://microsoft.github.io/agent-resources"
 date: "2026-04-27"
 tags: [microsoft, ai-agents, copilot, governance, architecture]
+source_type: "web"
 ---
 
 ## Overview

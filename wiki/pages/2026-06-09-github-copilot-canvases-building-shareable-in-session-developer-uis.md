@@ -1,8 +1,10 @@
-# GitHub Copilot Canvases: Building Shareable In-Session Developer UIs
-
-Date: 2026-06-09
-Source: https://www.linkedin.com/posts/burkeholland_the-new-canvas-feature-of-the-github-copilot-ugcPost-7470218595776503808-Kos0/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: github-copilot, developer-tools, ui, worktrees, automation
+---
+title: "GitHub Copilot Canvases: Building Shareable In-Session Developer UIs"
+source: "https://www.linkedin.com/posts/burkeholland_the-new-canvas-feature-of-the-github-copilot-ugcPost-7470218595776503808-Kos0/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-06-09"
+tags: [github-copilot, developer-tools, ui, worktrees, automation]
+source_type: "web"
+---
 
 ## Overview
 

@@ -3,6 +3,7 @@ title: "VS Code 1.127: Agent Workflows, Browser Automation, and Enterprise Contr
 source: "https://code.visualstudio.com/updates/v1_127"
 date: "2026-07-17"
 tags: [vscode, agents, copilot, browser, enterprise, developer-tools]
+source_type: "web"
 ---
 
 ## Overview

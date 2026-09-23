@@ -1,8 +1,10 @@
-# Build Reliable AI Workflows Before Autonomous Agents
-
-Date: 2026-05-22
-Source: https://www.linkedin.com/posts/john-r-rymer-a65b2211_autonomy-isnt-the-goal-reliability-is-ugcPost-7463304891663409152-_a8R?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via
-Tags: ai-agents, workflows, reliability, prompt-engineering, llm-systems
+---
+title: "Build Reliable AI Workflows Before Autonomous Agents"
+source: "https://www.linkedin.com/posts/john-r-rymer-a65b2211_autonomy-isnt-the-goal-reliability-is-ugcPost-7463304891663409152-_a8R?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
+date: "2026-05-22"
+tags: [ai-agents, workflows, reliability, prompt-engineering, llm-systems]
+source_type: "web"
+---
 
 ## Overview
 

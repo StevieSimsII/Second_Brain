@@ -1,8 +1,10 @@
-# Building a Business LLM Knowledge Base with Retrieval-Augmented Generation
-
-Date: 2026-05-28
-Source: https://youtu.be/FAWm7DuFSPc?si=aHL4D1TiYqGDgEot
-Tags: llm, rag, embeddings, vector-database, knowledge-base
+---
+title: "Building a Business LLM Knowledge Base with Retrieval-Augmented Generation"
+source: "https://youtu.be/FAWm7DuFSPc?si=aHL4D1TiYqGDgEot"
+date: "2026-05-28"
+tags: [llm, rag, embeddings, vector-database, knowledge-base]
+source_type: "youtube"
+---
 
 ## Overview
 

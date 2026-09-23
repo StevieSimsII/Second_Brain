@@ -3,6 +3,7 @@ title: "From CRM App to AI Infrastructure: Rethinking Salesforce, Microsoft, and
 source: "https://www.linkedin.com/posts/stevemordue_salesforce-won-enterprise-crm-and-it-no-share-7460428080537559040-1tLr?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY&utm_campaign=share_via"
 date: "2026-05-20"
 tags: [crm, ai, enterprise-software, headless-architecture, microsoft, salesforce]
+source_type: "web"
 ---
 
 ## Overview

@@ -1,8 +1,9 @@
 ---
 title: "Building a Personal Assistant with GitHub Copilot SDK and CLI"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=5TN6l7JGWvs"
 date: "2026-04-27"
 tags: [github-copilot, cli, sdk, ai-agents, developer-tools]
+source_type: "youtube"
 ---
 
 ## Overview

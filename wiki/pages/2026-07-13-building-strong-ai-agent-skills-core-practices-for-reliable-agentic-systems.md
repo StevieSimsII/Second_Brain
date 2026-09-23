@@ -3,6 +3,7 @@ title: "Building Strong AI Agent Skills: Core Practices for Reliable Agentic Sys
 source: "https://youtu.be/UNzCG3lw6O0?is=nvGpH0CUNf3h_V8O"
 date: "2026-07-13"
 tags: [ai-agents, prompting, tool-use, evaluation, workflow-design]
+source_type: "youtube"
 ---
 
 ## Overview

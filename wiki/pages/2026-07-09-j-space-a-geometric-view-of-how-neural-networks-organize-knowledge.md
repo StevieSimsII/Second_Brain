@@ -3,6 +3,7 @@ title: "J-Space: A Geometric View of How Neural Networks Organize Knowledge"
 source: "https://youtu.be/bjHuGNo3spk?is=Uy40_ykoAFJdKF0b"
 date: "2026-07-09"
 tags: [machine-learning, representation-learning, neural-networks, geometry, interpretability]
+source_type: "youtube"
 ---
 
 ## Overview

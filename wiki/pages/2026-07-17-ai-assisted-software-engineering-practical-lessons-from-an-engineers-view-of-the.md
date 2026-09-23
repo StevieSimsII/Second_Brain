@@ -3,6 +3,7 @@ title: "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s
 source: "https://youtu.be/O-1VXHRlH54?is=Qd1D0CCBmmLAlirC"
 date: "2026-07-17"
 tags: [ai-coding, developer-tools, software-engineering, llms, productivity]
+source_type: "youtube"
 ---
 
 ## Overview

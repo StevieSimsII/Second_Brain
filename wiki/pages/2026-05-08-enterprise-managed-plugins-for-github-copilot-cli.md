@@ -1,8 +1,9 @@
 ---
 title: "Enterprise-Managed Plugins for GitHub Copilot CLI"
-source: "personal notes"
+source: "https://linkedin.com/posts/evan-boyle-107a1445_copilot-cli-now-supports-enterprise-managed-activity-7458553867669016576-jneI?rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
 date: "2026-05-08"
 tags: [github, copilot, cli, enterprise, plugins]
+source_type: "web"
 ---
 
 ## Overview

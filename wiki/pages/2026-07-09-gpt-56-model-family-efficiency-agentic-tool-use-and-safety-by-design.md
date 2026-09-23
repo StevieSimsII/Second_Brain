@@ -3,6 +3,7 @@ title: "GPT-5.6 Model Family: Efficiency, Agentic Tool Use, and Safety by Design
 source: "https://openai.com/index/gpt-5-6/"
 date: "2026-07-09"
 tags: [llms, agents, tool-calling, model-evaluation, safety, api]
+source_type: "web"
 ---
 
 ## Overview

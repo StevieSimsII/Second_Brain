@@ -1,8 +1,10 @@
-# Microsoft Fabric Data Apps: Building Visualization-as-Code Dashboards on Semantic Models
-
-Date: 2026-06-03
-Source: https://tabulareditor.com/blog/fabric-apps-explained-visualization-as-code-in-a-data-app-dashboard
-Tags: fabric, powerbi, dax, vega-lite, react, webapps
+---
+title: "Microsoft Fabric Data Apps: Building Visualization-as-Code Dashboards on Semantic Models"
+source: "https://tabulareditor.com/blog/fabric-apps-explained-visualization-as-code-in-a-data-app-dashboard"
+date: "2026-06-03"
+tags: [fabric, powerbi, dax, vega-lite, react, webapps]
+source_type: "web"
+---
 
 ## Overview
 

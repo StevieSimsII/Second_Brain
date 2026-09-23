@@ -1,8 +1,10 @@
-# Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI
-
-Date: 2026-06-05
-Source: https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/?utm_source=live-blog-copilot-app-desktop-blog-cta&utm_medium=blog&utm_campaign=msbuild-2026
-Tags: github, copilot, developer-tools, ai-agents, desktop-apps
+---
+title: "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI"
+source: "https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/?utm_source=live-blog-copilot-app-desktop-blog-cta&utm_medium=blog&utm_campaign=msbuild-2026"
+date: "2026-06-05"
+tags: [github, copilot, developer-tools, ai-agents, desktop-apps]
+source_type: "web"
+---
 
 ## Overview
 

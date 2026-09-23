@@ -1,8 +1,10 @@
-# Using the Ralph Loop Pattern with GitHub Copilot CLI
-
-Date: 2026-05-29
-Source: https://sakari.niittymaa.com/blog_making-the-ralph-loop-work-with-github-copilot-cli
-Tags: ai-agents, github-copilot, cli, automation, llmops
+---
+title: "Using the Ralph Loop Pattern with GitHub Copilot CLI"
+source: "https://sakari.niittymaa.com/blog_making-the-ralph-loop-work-with-github-copilot-cli"
+date: "2026-05-29"
+tags: [ai-agents, github-copilot, cli, automation, llmops]
+source_type: "web"
+---
 
 ## Overview
 

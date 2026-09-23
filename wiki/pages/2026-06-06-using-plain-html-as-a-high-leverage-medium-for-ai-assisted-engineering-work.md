@@ -1,8 +1,10 @@
-# Using Plain HTML as a High-Leverage Medium for AI-Assisted Engineering Work
-
-Date: 2026-06-06
-Source: https://thariqs.github.io/html-effectiveness/
-Tags: html, ux, ai-workflows, prototyping, documentation
+---
+title: "Using Plain HTML as a High-Leverage Medium for AI-Assisted Engineering Work"
+source: "https://thariqs.github.io/html-effectiveness/"
+date: "2026-06-06"
+tags: [html, ux, ai-workflows, prototyping, documentation]
+source_type: "web"
+---
 
 ## Overview
 

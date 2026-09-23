@@ -1,8 +1,10 @@
-# Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack
-
-Date: 2026-06-03
-Source: https://youtu.be/gw0HBKJlX-w?si=Ku18zXxZkN3_ndH1
-Tags: microsoft-build, azure, copilot, ai-agents, developer-tools
+---
+title: "Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack"
+source: "https://youtu.be/gw0HBKJlX-w?si=Ku18zXxZkN3_ndH1"
+date: "2026-06-03"
+tags: [microsoft-build, azure, copilot, ai-agents, developer-tools]
+source_type: "youtube"
+---
 
 ## Overview
 

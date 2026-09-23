@@ -1,8 +1,10 @@
-# What’s New in VS Code Agents: Background Sessions, Autopilot, and Managed Agent Tooling
-
-Date: 2026-06-10
-Source: https://www.linkedin.com/posts/in-the-latest-vs-code-release-the-agents-ugcPost-7470534675556515840-0iWU/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY
-Tags: vscode, agents, ai-tools, developer-workflow, enterprise
+---
+title: "What’s New in VS Code Agents: Background Sessions, Autopilot, and Managed Agent Tooling"
+source: "https://www.linkedin.com/posts/in-the-latest-vs-code-release-the-agents-ugcPost-7470534675556515840-0iWU/?utm_source=share&utm_medium=member_ios&rcm=ACoAADqTv_wBXXGPo353jX-XXfFlsn3ZQBpJzsY"
+date: "2026-06-10"
+tags: [vscode, agents, ai-tools, developer-workflow, enterprise]
+source_type: "web"
+---
 
 ## Overview
 

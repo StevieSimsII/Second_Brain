@@ -1,8 +1,10 @@
-# Google OKF: Structuring Knowledge for Agent-Centric Systems
-
-Date: 2026-06-17
-Source: https://youtu.be/MY9F9K7wWX4?is=j8oyCcP_y8Ae1eBU
-Tags: knowledge-graphs, ai-agents, information-architecture, semantic-modeling, retrieval
+---
+title: "Google OKF: Structuring Knowledge for Agent-Centric Systems"
+source: "https://youtu.be/MY9F9K7wWX4?is=j8oyCcP_y8Ae1eBU"
+date: "2026-06-17"
+tags: [knowledge-graphs, ai-agents, information-architecture, semantic-modeling, retrieval]
+source_type: "youtube"
+---
 
 ## Overview
 

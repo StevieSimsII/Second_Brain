@@ -1,8 +1,10 @@
-# Building Claude-Powered AI Agents in Microsoft Foundry
-
-Date: 2026-05-23
-Source: https://youtu.be/TQd_YQvydVg?si=4d3kuA0QQ1qZqnwJ
-Tags: ai-agents, claude, microsoft-foundry, llm, agentic-systems
+---
+title: "Building Claude-Powered AI Agents in Microsoft Foundry"
+source: "https://youtu.be/TQd_YQvydVg?si=4d3kuA0QQ1qZqnwJ"
+date: "2026-05-23"
+tags: [ai-agents, claude, microsoft-foundry, llm, agentic-systems]
+source_type: "youtube"
+---
 
 ## Overview
 

@@ -1,8 +1,9 @@
 ---
 title: "Beginner Setup Guide for Karpathy's LLM Wiki Learning Environment"
-source: "personal notes"
+source: "https://www.youtube.com/watch?v=iXd0t60YmMw"
 date: "2026-04-23"
 tags: [llm, python, pytorch, setup, environment]
+source_type: "youtube"
 ---
 
 ## Overview

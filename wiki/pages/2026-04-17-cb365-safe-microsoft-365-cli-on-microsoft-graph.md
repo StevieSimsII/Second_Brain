@@ -1,8 +1,9 @@
 ---
 title: "cb365: Safe Microsoft 365 CLI on Microsoft Graph"
-source: "personal notes"
+source: "https://github.com/nz365guy/cb365"
 date: "2026-04-17"
 tags: [golang, cli, microsoft-graph, microsoft-365, automation]
+source_type: "github"
 ---
 
 ## Overview

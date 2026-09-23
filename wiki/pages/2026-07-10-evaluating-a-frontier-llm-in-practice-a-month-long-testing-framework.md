@@ -3,6 +3,7 @@ title: "Evaluating a Frontier LLM in Practice: A Month-Long Testing Framework"
 source: "https://youtu.be/13tHN3iP5kQ?is=PyCoECHbtpRZk9FD"
 date: "2026-07-10"
 tags: [llm-evaluation, prompt-engineering, benchmarking, ai-productivity, model-selection]
+source_type: "youtube"
 ---
 
 ## Overview
