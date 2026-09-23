@@ -90,6 +90,19 @@ def metadata_frontmatter(metadata: dict[str, Any]) -> list[str]:
     return lines
 
 
+def profile_frontmatter(lesson: dict[str, Any]) -> list[str]:
+    """Frontmatter lines for Jev's canonical topics and lesson profile, when present."""
+    lines: list[str] = []
+    if lesson.get("topics"):
+        lines.append(f"topics: [{', '.join(lesson['topics'])}]")
+    if lesson.get("kind"):
+        lines.append(f'kind: "{_yaml_quote(str(lesson["kind"]))}"')
+    for key in ("depth", "actionability"):
+        if isinstance(lesson.get(key), int):
+            lines.append(f"{key}: {lesson[key]}")
+    return lines
+
+
 def _clean_moments(
     moments: list[dict[str, Any]], duration_seconds: int | None
 ) -> list[tuple[int, str]]:
@@ -174,6 +187,7 @@ def render_markdown(
         f'source_fingerprint: "{fingerprint}"',
         f"source_characters: {source.character_count}",
         *metadata_frontmatter(source.metadata),
+        *profile_frontmatter(lesson),
         "---",
         "",
         *render_summary_sections(

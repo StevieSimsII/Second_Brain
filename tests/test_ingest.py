@@ -21,6 +21,17 @@ from ingest.youtube import (
 )
 
 
+# Keep these tests hermetic even when the host's .env.local holds a real TypeSafe key.
+_no_jev = patch("ingest.config.TYPESAFE_API_KEY", "")
+
+
+def setUpModule() -> None:
+    _no_jev.start()
+
+
+def tearDownModule() -> None:
+    _no_jev.stop()
+
 class UrlTests(unittest.TestCase):
     def test_youtube_variants_have_one_identity(self) -> None:
         shared = "https://youtu.be/abc123?si=tracking"

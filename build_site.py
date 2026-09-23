@@ -49,8 +49,8 @@ def _parse_page(path: Path) -> dict | None:
         m = re.search(rf'^{key}:\s*"?([^"\n]+)"?\s*$', fm_raw, re.MULTILINE)
         return m.group(1).strip() if m else default
 
-    def _fm_tags() -> list[str]:
-        m = re.search(r'^tags:\s*\[([^\]]*)\]', fm_raw, re.MULTILINE)
+    def _fm_tags(key: str = "tags") -> list[str]:
+        m = re.search(rf'^{key}:\s*\[([^\]]*)\]', fm_raw, re.MULTILINE)
         if not m:
             return []
         return [t.strip().strip('"').strip("'") for t in m.group(1).split(",") if t.strip()]
@@ -141,6 +141,10 @@ def _parse_page(path: Path) -> dict | None:
         "minutes": minutes,
         "minutes_estimated": estimated,
         "tldr": _extract_tldr(body),
+        "topics": _fm_tags("topics"),
+        "kind": _fm("kind"),
+        "depth": _fm_int(fm_raw, "depth"),
+        "actionability": _fm_int(fm_raw, "actionability"),
         "content": body,
     }
 
@@ -196,6 +200,7 @@ def add_related_articles(articles: list[dict], limit: int = 4) -> None:
     for article in articles:
         article_tags = {tag.lower() for tag in article.get("tags", [])}
         meaningful_tags = article_tags - GENERIC_TAGS
+        article_topics = set(article.get("topics", []))
         title_tokens = _title_tokens(article.get("title", ""))
         candidates: list[tuple[int, str, dict, list[str]]] = []
 
@@ -204,10 +209,12 @@ def add_related_articles(articles: list[dict], limit: int = 4) -> None:
                 continue
             candidate_tags = {tag.lower() for tag in candidate.get("tags", [])}
             shared_tags = sorted(meaningful_tags & (candidate_tags - GENERIC_TAGS))
+            shared_topics = sorted(article_topics & set(candidate.get("topics", [])))
             shared_words = title_tokens & _title_tokens(candidate.get("title", ""))
-            if not shared_tags and len(shared_words) < 2:
+            if not shared_tags and not shared_topics and len(shared_words) < 2:
                 continue
-            score = len(shared_tags) * 5 + len(shared_words) * 2
+            score = len(shared_topics) * 6 + len(shared_tags) * 5 + len(shared_words) * 2
+            shared_tags = sorted(set(shared_topics) | set(shared_tags))
             candidates.append((score, candidate.get("date", ""), candidate, shared_tags))
 
         candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
@@ -282,6 +289,8 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     transition: all .15s; user-select: none; white-space: nowrap;
   }
   .tag-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .tag-pill.topic, .art-tag.topic { border-color: var(--accent2); }
+  .art-profile { margin-top: 8px; font-size: 13px; color: var(--accent2); }
   .tag-pill.active { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 600; }
 
   .article-list { flex: 1; overflow-y: auto; padding: 8px 0; }
@@ -491,23 +500,33 @@ const ARTICLES = JSON.parse(document.getElementById("articles-data").textContent
 let activeId     = null;
 let activeTag    = null;
 let activeType   = null;
+let activeKind   = null;
+const KINDS = { tutorial: "Tutorial", "deep-dive": "Deep dive", news: "News", opinion: "Opinion", demo: "Demo", interview: "Interview" };
+const DEPTH = ["Headline", "Overview", "Practical", "Expert"];
+const ACTION = ["Awareness", "Ideas for later", "Try this week", "Apply today"];
+const topicsOf = a => (a.topics && a.topics.length ? a.topics : a.tags) || [];
 let searchQuery  = "";
 const TYPES = { youtube: "Video", web: "Article", github: "Repo", notes: "Note" };
 const WELCOME_HTML = document.getElementById("main").innerHTML;
 
 // ── Tag index ─────────────────────────────────────────────────────────────────
-const tagCounts = {};
-ARTICLES.forEach(a => (a.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; }));
-const allTags = Object.entries(tagCounts)
-  .filter(([, n]) => n >= 4)
-  .sort((a, b) => b[1] - a[1])
-  .map(e => e[0]);
+const tagCounts = {}, topicCounts = {};
+ARTICLES.forEach(a => {
+  (a.tags || []).forEach(t => { tagCounts[t] = (tagCounts[t] || 0) + 1; });
+  (a.topics || []).forEach(t => { topicCounts[t] = (topicCounts[t] || 0) + 1; });
+});
+const byCount = counts => Object.entries(counts).sort((a, b) => b[1] - a[1]).map(e => e[0]);
+const canonicalTopics = new Set(Object.keys(topicCounts));
+const allTags = [
+  ...byCount(topicCounts),
+  ...byCount(tagCounts).filter(t => tagCounts[t] >= 4 && !canonicalTopics.has(t)),
+];
 
 // ── Render tags ───────────────────────────────────────────────────────────────
 function renderTags() {
   const wrap = document.getElementById("tags");
   wrap.innerHTML = allTags.map(t =>
-    `<span class="tag-pill${activeTag === t ? " active" : ""}" data-tag="${t}">${t}</span>`
+    `<span class="tag-pill${activeTag === t ? " active" : ""}${canonicalTopics.has(t) ? " topic" : ""}" data-tag="${t}">${t}</span>`
   ).join("");
   wrap.querySelectorAll(".tag-pill").forEach(el => el.addEventListener("click", () => {
     activeTag = activeTag === el.dataset.tag ? null : el.dataset.tag;
@@ -532,8 +551,9 @@ function renderTypes() {
 function filtered() {
   const q = searchQuery.toLowerCase();
   return ARTICLES.filter(a => {
-    if (activeTag && !(a.tags || []).includes(activeTag)) return false;
+    if (activeTag && !(a.tags || []).includes(activeTag) && !(a.topics || []).includes(activeTag)) return false;
     if (activeType && a.source_type !== activeType) return false;
+    if (activeKind && a.kind !== activeKind) return false;
     if (q && ![a.title, a.content, a.channel || ""].some(text => text.toLowerCase().includes(q))) return false;
     return true;
   });
@@ -543,7 +563,10 @@ function filtered() {
 function renderList() {
   const list = document.getElementById("list");
   const items = filtered();
-  document.getElementById("count").textContent = `${items.length} of ${ARTICLES.length} articles`;
+  document.getElementById("count").innerHTML = `${items.length} of ${ARTICLES.length} articles` +
+    (activeKind ? ` · ${KINDS[activeKind]} <a href="#" id="clear-kind">clear</a>` : "");
+  const clearKind = document.getElementById("clear-kind");
+  if (clearKind) clearKind.addEventListener("click", e => { e.preventDefault(); activeKind = null; renderList(); });
   if (!items.length) { list.innerHTML = `<div class="no-results">No articles found</div>`; return; }
   list.innerHTML = items.map(a => `
     <div class="article-card${a.id === activeId ? " active" : ""}" data-id="${a.id}">
@@ -551,6 +574,7 @@ function renderList() {
       ${a.tldr ? `<div class="card-tldr">${escHtml(a.tldr)}</div>` : ""}
       <div class="card-meta">
         <span class="type-badge">${TYPES[a.source_type] || "Note"}</span>
+        ${a.kind && KINDS[a.kind] ? `<span class="type-badge">${KINDS[a.kind]}</span>` : ""}
         <span>${fmtDate(a.date)}</span>
         ${a.channel ? `<span>· ${escHtml(a.channel)}</span>`
           : a.source && a.source !== "personal notes" ? `<span>· ${escHtml(friendlySource(a.source))}</span>` : ""}
@@ -585,9 +609,9 @@ function openArticle(id) {
     ? `<div class="art-source"><a href="${escHtml(a.source)}" target="_blank" rel="noopener">↗ Link to Source</a></div>`
     : "";
 
-  const tagsHtml = (a.tags || []).map(t =>
-    `<span class="art-tag" data-tag="${t}">${t}</span>`
-  ).join("");
+  const tagsHtml = [...(a.topics || []).map(t => [t, " topic"]), ...(a.tags || []).filter(t => !(a.topics || []).includes(t)).map(t => [t, ""])]
+    .map(([t, cls]) => `<span class="art-tag${cls}" data-tag="${t}">${t}</span>`).join("");
+  const profile = [a.kind && KINDS[a.kind], a.depth != null && DEPTH[a.depth], a.actionability != null && ACTION[a.actionability]].filter(Boolean);
 
   const bodyHtml = marked.parse(a.content || "");
 
@@ -616,6 +640,7 @@ function openArticle(id) {
           ${a.minutes ? `<span>&#9201; ${timeLabel(a)}</span>` : ""}
           ${a.published ? `<span>Published ${fmtDate(a.published)}</span>` : ""}
         </div>
+        ${profile.length ? `<div class="art-profile" title="Judged by TypeSafe Jev">${profile.join(" · ")}</div>` : ""}
         ${tagsHtml ? `<div class="art-tags">${tagsHtml}</div>` : ""}
       </div>
       ${videoId ? `<div class="video-embed" id="video">
@@ -756,7 +781,11 @@ function showStats() {
   const channels = groupMinutes(ARTICLES.filter(a => a.channel), a => [a.channel], speed)
     .sort((a, b) => b.minutes - a.minutes).slice(0, 8)
     .map(r => ({ key: r.key, label: r.key, value: r.minutes, valueLabel: fmtHours(r.minutes), tip: `${r.count} videos` }));
-  const topics = groupMinutes(ARTICLES, a => a.tags, speed)
+  const kinds = groupMinutes(ARTICLES.filter(a => KINDS[a.kind]), a => [a.kind], speed)
+    .filter(r => r.minutes > 0).sort((a, b) => b.minutes - a.minutes)
+    .map(r => ({ key: "kind:" + r.key, label: KINDS[r.key], value: r.minutes, valueLabel: fmtHours(r.minutes), tip: `${r.count} notes` }));
+  const profiled = ARTICLES.filter(a => a.kind).length;
+  const topics = groupMinutes(ARTICLES, topicsOf, speed)
     .filter(r => r.minutes > 0)
     .sort((a, b) => b.minutes - a.minutes).slice(0, 10)
     .map(r => ({ key: r.key, label: r.key, value: r.minutes, valueLabel: fmtHours(r.minutes), tip: `${r.count} notes` }));
@@ -794,8 +823,11 @@ function showStats() {
         <div class="panel"><h2>Top channels</h2>${channels.length ? hbars(channels, total)
           : `<div class="note">Channels appear once video metadata is captured.</div>`}</div>
         <div class="panel"><h2>Top topics by time</h2>${hbars(topics, total, { clickable: true })}</div>
+        <div class="panel"><h2>What kind of learning</h2>${kinds.length ? hbars(kinds, total, { clickable: true })
+          : `<div class="note">Appears once lessons are profiled by Jev (<code>python -m ingest.backfill --jev-only</code>).</div>`}</div>
       </div>
       <div class="note">Coverage: ${videosTimed} of ${videos.length} videos have a known length${estimated ? `; ${estimated} article times are estimated from captured text` : ""}.
+        ${profiled ? `${profiled} of ${ARTICLES.length} notes have Jev topics and profile.` : ""}
         ${videosTimed < videos.length ? `Fill the gaps on the capture host with <code>python -m ingest.backfill --metadata-only</code>.` : ""}</div>
     </div>`;
 
@@ -818,6 +850,7 @@ function showStats() {
   main.querySelectorAll(".panel .hbar.clickable").forEach(el => el.addEventListener("click", () => {
     tip.style.display = "none";
     if (TYPES[el.dataset.key]) { activeType = el.dataset.key; renderTypes(); }
+    else if (el.dataset.key.startsWith("kind:")) { activeKind = el.dataset.key.slice(5); }
     else { activeTag = el.dataset.key; renderTags(); }
     renderList();
     if (isMobile()) showList();

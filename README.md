@@ -17,9 +17,13 @@ Retrieve source evidence
   • Readable article content
         ↓
 Reject thin sources instead of inventing a lesson
+  (+ optional TypeSafe Jev check: is this worth learning from?)
         ↓
 Generate a lesson with Codex (ChatGPT plan auth):
 TL;DR · key takeaways · key moments · study notes · self-test
+        ↓
+Optional Jev review: drop unsupported takeaways and off-target
+key moments; assign canonical topics, kind, depth, actionability
         ↓
 Commit canonical Markdown to wiki/pages/
         ↓
@@ -65,6 +69,25 @@ Every new capture stores stable metadata with the lesson:
   key moments that play right on the page.
 - **Study (5 minutes):** overview, key concepts, how it works, a hands-on exercise,
   and *Test Yourself* questions with hidden answers.
+
+## TypeSafe Jev Judgments (optional)
+
+Codex writes lessons; [TypeSafe](https://typesafe.ai)'s Jev model supplies fast, typed
+judgments that code acts on. Set `TYPESAFE_API_KEY` in `.env.local` to enable them:
+
+| Judgment | Primitive | What code does with it |
+| --- | --- | --- |
+| Is the source substantive? | Noul | Rejects consent walls, stubs, and ads before a Codex run |
+| Is each takeaway supported by the source? | Noul per takeaway | Drops unsupported takeaways |
+| Does each key moment's transcript window match its label? | Noul per moment | Drops off-target timestamps |
+| Which canonical topics is this about? | Noul per topic in `ingest/topics.py` | Writes `topics:`, used for learning time by topic and related notes |
+| What kind of source is it? | Choice | Writes `kind:` (tutorial, deep dive, news, opinion, demo, interview) |
+| How deep, and how actionable? | Score ×2 | Writes `depth:` and `actionability:` (0-3) |
+
+Everything is one request per capture after generation, plus one small request before
+it. Without a key, or if TypeSafe is unreachable, capture works exactly as before.
+Thresholds (`JEV_SOURCE_MIN`, `JEV_SUPPORT_MIN`, `JEV_TOPIC_MIN`) are starting points;
+tune them against your own captures.
 
 ## Learning Time
 
@@ -125,6 +148,10 @@ channel: "Example Channel"      # videos only
 published: "2026-07-10"         # videos only
 duration_seconds: 1843          # videos only
 reading_minutes: 12             # articles and repos
+topics: [ai-agents, mcp]        # canonical topics (Jev)
+kind: "tutorial"                # Jev
+depth: 2                        # 0 headline … 3 expert (Jev)
+actionability: 3                # 0 awareness … 3 apply today (Jev)
 ---
 
 ## TL;DR

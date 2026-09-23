@@ -34,6 +34,17 @@ Source: https://youtu.be/abc123?si=x
 """
 
 
+# Keep these tests hermetic even when the host's .env.local holds a real TypeSafe key.
+_no_jev = patch("ingest.config.TYPESAFE_API_KEY", "")
+
+
+def setUpModule() -> None:
+    _no_jev.start()
+
+
+def tearDownModule() -> None:
+    _no_jev.stop()
+
 class BackfillTests(unittest.TestCase):
     def test_legacy_page_becomes_frontmatter(self) -> None:
         page = backfill.parse_page(Path("2026-04-20-old.md"), LEGACY)

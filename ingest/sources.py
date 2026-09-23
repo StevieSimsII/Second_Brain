@@ -210,6 +210,26 @@ def validate_source(source: FetchedSource) -> FetchedSource:
     return source
 
 
+def transcript_of(source: FetchedSource) -> str:
+    marker = "===== TRANSCRIPT (timestamped) =====\n"
+    return source.content.split(marker, 1)[1] if marker in source.content else ""
+
+
+def judge_source(source: FetchedSource) -> FetchedSource:
+    """Ask Jev whether the evidence is worth a lesson before spending a Codex run."""
+    from ingest import jev
+
+    evidence = transcript_of(source) or source.content
+    probability = jev.substantive_probability(source.url, source.kind, evidence)
+    if probability is not None and probability < config.JEV_SOURCE_MIN:
+        host = urlparse(source.url).netloc
+        raise SourceQualityError(
+            f"The content from {host} does not look substantive enough for a lesson "
+            f"(Jev: {probability:.0%} likely to be worth learning from)."
+        )
+    return source
+
+
 def fetch_source(raw_url: str) -> FetchedSource:
     url = normalize_url(raw_url)
     video_id = youtube_video_id(url)
@@ -220,4 +240,4 @@ def fetch_source(raw_url: str) -> FetchedSource:
     else:
         source = _fetch_web(url)
     log.info("Fetched %s source (%d characters)", source.kind, source.character_count)
-    return validate_source(source)
+    return judge_source(validate_source(source))

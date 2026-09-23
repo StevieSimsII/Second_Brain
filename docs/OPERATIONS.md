@@ -85,6 +85,17 @@ python -m ingest.backfill --summaries-only --limit 25
 git add wiki/pages && git commit -m "backfill: summaries and video metadata" && git push
 ```
 
+With `TYPESAFE_API_KEY` in `.env.local`, add canonical topics and the lesson profile
+to every page. It's quick and uses no Codex:
+
+```bash
+python -m ingest.backfill --jev-only --limit 5 --dry-run
+python -m ingest.backfill --jev-only
+```
+
+The summary step also runs Jev (when configured) to drop takeaways and key moments the
+source does not support.
+
 Every step is idempotent, so run the summary step in batches and pick up where the
 last one stopped. It processes newest pages first. When a transcript is available it
 also adds timestamped key moments; use `--no-transcripts` to summarize from the lesson

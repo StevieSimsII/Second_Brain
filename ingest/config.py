@@ -33,6 +33,21 @@ MIN_WEB_SOURCE_CHARS = int(os.getenv("MIN_WEB_SOURCE_CHARS", "800"))
 MIN_YOUTUBE_SOURCE_CHARS = int(os.getenv("MIN_YOUTUBE_SOURCE_CHARS", "1500"))
 YOUTUBE_FETCH_TIMEOUT_SECONDS = int(os.getenv("YOUTUBE_FETCH_TIMEOUT_SECONDS", "60"))
 
+# Optional TypeSafe Jev judgments (source gate, grounding, topics, lesson profile).
+# Leave TYPESAFE_API_KEY unset to capture exactly as before.
+TYPESAFE_API_KEY = os.getenv("TYPESAFE_API_KEY", "").strip()
+TYPESAFE_BASE_URL = os.getenv("TYPESAFE_BASE_URL", "https://api.typesafe.ai")
+TYPESAFE_MODEL = os.getenv("TYPESAFE_MODEL", "jev-latest")
+JEV_TIMEOUT_SECONDS = float(os.getenv("JEV_TIMEOUT_SECONDS", "30"))
+# Reject a source before generation when P(substantive) falls below this.
+JEV_SOURCE_MIN = float(os.getenv("JEV_SOURCE_MIN", "0.15"))
+# Drop a takeaway or key moment when P(supported by the source) falls below this.
+JEV_SUPPORT_MIN = float(os.getenv("JEV_SUPPORT_MIN", "0.3"))
+# Assign a canonical topic when P(main subject) reaches this.
+JEV_TOPIC_MIN = float(os.getenv("JEV_TOPIC_MIN", "0.5"))
+# Ground takeaways only when the whole source fits; a truncated one would look unsupported.
+JEV_MAX_SOURCE_CHARS = int(os.getenv("JEV_MAX_SOURCE_CHARS", "60000"))
+
 
 def validate_runtime() -> None:
     """Fail once at startup with a concise list of missing settings."""

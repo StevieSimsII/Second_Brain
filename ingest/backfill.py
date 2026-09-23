@@ -4,6 +4,7 @@ Run on the host that has YouTube access and Codex auth:
 
     python -m ingest.backfill --normalize-only         # frontmatter + source types, offline
     python -m ingest.backfill --metadata-only          # durations/channels, no Codex
+    python -m ingest.backfill --jev-only               # topics + profile via TypeSafe Jev
     python -m ingest.backfill --limit 5 --dry-run      # preview the summary upgrade
     python -m ingest.backfill                          # everything, newest first
 
@@ -24,6 +25,7 @@ from typing import Any
 from ingest import config
 from ingest.lesson import (
     metadata_frontmatter,
+    profile_frontmatter,
     render_review_questions,
     render_summary_sections,
 )
@@ -235,8 +237,40 @@ def _summarize(page: Page, transcript: str) -> dict[str, Any]:
     return lesson
 
 
+def _needs_profile(page: Page) -> bool:
+    return not page.get("kind")
+
+
+def _review_with_jev(page: Page, lesson: dict[str, Any], transcript: str) -> dict[str, Any]:
+    """Ground new takeaways/moments and profile the page (topics, kind, depth, actionability)."""
+    from ingest import jev
+
+    tldr = lesson.get("tldr") or ""
+    if not tldr:
+        existing = re.search(r"^## TL;DR\s*\n+>\s*(.+)$", page.body, re.MULTILINE)
+        tldr = existing.group(1) if existing else ""
+    body = re.sub(r"\n## Personal Notes\b.*?(?=\n## |\Z)", "", page.body, flags=re.DOTALL)
+    review_input = {
+        **lesson,
+        "title": page.get("title"),
+        "tldr": tldr,
+        "overview": body,
+        "key_concepts": [],
+    }
+    reviewed = jev.review_lesson(review_input, source_text=transcript or body, transcript=transcript)
+    for key in ("key_takeaways", "key_moments", "topics", "kind", "depth", "actionability"):
+        if key in reviewed:
+            lesson[key] = reviewed[key]
+    return lesson
+
+
 def upgrade_page(
-    page: Page, *, metadata: bool, summaries: bool, use_transcripts: bool
+    page: Page,
+    *,
+    metadata: bool,
+    summaries: bool,
+    use_transcripts: bool,
+    profile: bool = True,
 ) -> list[str]:
     """Upgrade one page in memory and return a list of what changed."""
     from ingest.youtube import fetch_video, fetch_video_metadata
@@ -280,11 +314,23 @@ def upgrade_page(
                 page.set(key, line)
                 changes.append(key)
 
+    from ingest import jev
+
+    wants_profile = profile and jev.enabled() and _needs_profile(page)
+    lesson: dict[str, Any] = {}
+    if wants_summary:
+        lesson = _summarize(page, transcript)
+    if wants_profile or (wants_summary and jev.enabled()):
+        lesson = _review_with_jev(page, lesson, transcript)
     if wants_summary:
         duration = page.get("duration_seconds")
-        lesson = _summarize(page, transcript)
         insert_summary(page, lesson, duration=int(duration) if duration.isdigit() else None)
         changes.append("summary+moments" if lesson.get("key_moments") else "summary")
+    if wants_profile:
+        for line in profile_frontmatter(lesson):
+            page.set(line.partition(":")[0], line)
+        if lesson.get("kind"):
+            changes.append("profile")
     return changes
 
 
@@ -293,6 +339,7 @@ def run(
     metadata: bool,
     summaries: bool,
     use_transcripts: bool,
+    profile: bool = True,
     limit: int,
     match: str,
     dry_run: bool,
@@ -310,7 +357,11 @@ def run(
         page = parse_page(path, original.replace("\r\n", "\n"))
         try:
             changes = upgrade_page(
-                page, metadata=metadata, summaries=summaries, use_transcripts=use_transcripts
+                page,
+                metadata=metadata,
+                summaries=summaries,
+                use_transcripts=use_transcripts,
+                profile=profile,
             )
         except Exception:  # noqa: BLE001 - keep going; report at the end
             log.exception("%s: upgrade failed", path.name)
@@ -341,6 +392,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--metadata-only", action="store_true", help="only add video metadata (no Codex)")
     parser.add_argument("--summaries-only", action="store_true", help="only add TL;DR/takeaways/questions")
+    parser.add_argument("--jev-only", action="store_true",
+                        help="only add topics and kind/depth/actionability with TypeSafe Jev")
     parser.add_argument("--normalize-only", action="store_true",
                         help="only fix frontmatter, source URLs, and source types (no network)")
     parser.add_argument("--no-transcripts", action="store_true", help="summarize from the lesson text only")
@@ -349,12 +402,15 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="print upgrades without writing")
     parser.add_argument("--pause", type=float, default=1.0, help="seconds between YouTube requests")
     args = parser.parse_args()
-    if args.metadata_only + args.summaries_only + args.normalize_only > 1:
+    if args.metadata_only + args.summaries_only + args.normalize_only + args.jev_only > 1:
         parser.error("choose at most one of the --*-only modes")
+    if args.jev_only and not config.TYPESAFE_API_KEY:
+        parser.error("--jev-only needs TYPESAFE_API_KEY in .env.local")
     raise SystemExit(
         run(
-            metadata=not (args.summaries_only or args.normalize_only),
-            summaries=not (args.metadata_only or args.normalize_only),
+            metadata=not (args.summaries_only or args.normalize_only or args.jev_only),
+            summaries=not (args.metadata_only or args.normalize_only or args.jev_only),
+            profile=not (args.metadata_only or args.summaries_only or args.normalize_only),
             use_transcripts=not args.no_transcripts,
             limit=args.limit,
             match=args.match,

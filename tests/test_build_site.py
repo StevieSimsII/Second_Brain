@@ -32,6 +32,15 @@ class RelatedArticlesTests(unittest.TestCase):
         ]
         add_related_articles(articles)
         self.assertEqual(articles[0]["related"][0]["id"], "retrieval-two")
+
+    def test_shared_canonical_topics_link_notes_with_different_tags(self) -> None:
+        articles = [
+            {"id": "a", "title": "Agent loops", "date": "2026-09-01", "tags": ["agents"], "topics": ["ai-agents"]},
+            {"id": "b", "title": "Multi-step tools", "date": "2026-09-02", "tags": ["agentic-ai"], "topics": ["ai-agents"]},
+        ]
+        add_related_articles(articles)
+        self.assertEqual(articles[0]["related"][0]["id"], "b")
+        self.assertEqual(articles[0]["related"][0]["shared_tags"], ["ai-agents"])
         self.assertNotIn("unrelated", [item["id"] for item in articles[0]["related"]])
 
 
@@ -62,6 +71,14 @@ class PageMetadataTests(unittest.TestCase):
         self.assertEqual(page["minutes"], 10.0)
         self.assertTrue(page["minutes_estimated"])
         self.assertEqual(page["tldr"], "")
+
+    def test_jev_profile_fields_are_exposed(self) -> None:
+        page = self._parse(
+            '---\ntitle: "P"\nsource: "https://example.com/p"\ntags: [llms]\n'
+            'topics: [ai-agents, mcp]\nkind: "tutorial"\ndepth: 2\nactionability: 3\n---\n\nBody.'
+        )
+        self.assertEqual(page["topics"], ["ai-agents", "mcp"])
+        self.assertEqual((page["kind"], page["depth"], page["actionability"]), ("tutorial", 2, 3))
 
     def test_video_without_length_has_unknown_time(self) -> None:
         page = self._parse(
