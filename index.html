@@ -297,6 +297,56 @@ source_characters: 18420
 
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+    "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+    "date": "2026-09-24",
+    "tags": [
+      "ai-agents",
+      "software-architecture",
+      "developer-productivity",
+      "automation",
+      "application-design"
+    ],
+    "source": "https://www.youtube.com/watch?v=vDjW_dRyKXY",
+    "content": "## Overview\n\nThis lesson distills an enthusiastic, deliberately provocative argument for agent-first software development. Its central analogy is photography: when technology sharply lowers the cost of producing something, established crafts do not simply disappear; their economics, workflows, and creative possibilities change. The speaker argues that coding agents now make implementation cheap enough to shift developers from manually writing code toward specifying outcomes, evaluating behavior, and improving the systems that guide agents. Several dramatic productivity and efficiency figures in the talk are personal anecdotes or back-of-the-envelope estimates, not independently substantiated benchmarks. Treat them as hypotheses to test in your own environment rather than universal forecasts.\n\n## Key Concepts\n\n- **Falling production costs change what gets built**: The talk compares coding agents with mass-market and digital photography. Lowering production friction can increase total output, enable previously uneconomical work, and redirect human effort. In software, this may make small utilities, aggressive optimization, native clients, and neglected improvements affordable. The durable lesson is to revisit decisions originally justified by implementation cost whenever that cost changes materially.\n- **Shift from task assignment to outcome assignment**: More capable agents can receive a problem or desired result rather than a sequence of implementation steps. The human role moves toward defining success, supplying constraints, and judging the finished behavior. The speaker cautions that excessive prescription may prevent an agent from discovering a better implementation, especially when the human is unfamiliar with the target technology.\n- **Use asynchronous agent workflows**: The speaker recommends treating agents more like coworkers than live autocomplete: assign a bounded problem, let the agent work independently, and review an artifact when it is ready. This avoids waiting on token-by-token output and permits several work streams to progress concurrently. Such delegation still requires clear acceptance criteria, isolated work, and review checkpoints.\n- **Evaluate unfamiliar implementations as black boxes**: The speaker reports using agents to produce Rust and C++ without inspecting every line, judging the programs through their external behavior instead. A responsible version of this approach combines acceptance tests, performance measurements, interface contracts, security checks, and operational limits. The source presents strong confidence in black-box evaluation but offers little evidence about its reliability in safety-critical or long-lived systems.\n- **Recalculate native, web, and language tradeoffs**: Some products are web-based or cross-platform primarily because multiple native implementations were too expensive to maintain. If agents reduce that expense, higher-fidelity native clients may become viable. The web remains valuable when instant access, links, and zero installation matter. Likewise, efficient but human-unfriendly languages may become more attractive if agents absorb much of their implementation burden. These choices should follow measured lifecycle costs, not excitement alone.\n- **Optimize systems for agents as well as humans**: Rails conventions are presented as potentially agent-friendly because predictable structure reduces ambiguity and token usage. The talk also argues that applications should expose command-line interfaces so personal agents can operate them without navigating a graphical UI or relying on an app-specific chatbot. Stable schemas, composable commands, useful error messages, and machine-readable output make software easier to automate.\n- **Revisit abstraction and duplication cautiously**: Traditional abstractions reduce repetition and centralize change, but they can also become coordination bottlenecks when many agents modify a system simultaneously. The speaker suggests that cheap generation and synchronization may alter this tradeoff. This remains speculative: duplicated logic can still diverge, conceal defects, and raise verification costs. Experiment in bounded areas and compare change failure rates before altering architectural principles broadly.\n- **Pair optimism with verification and security**: The talk advocates acting despite uncertain economic predictions while acknowledging genuine security risks. Productive optimism means running experiments and building defenses, not assuming favorable outcomes. Agents can generate vulnerable code or take harmful actions, so teams need least-privilege access, isolated execution, dependency scanning, tests, audit logs, and human approval for consequential operations.\n\n## How It Works\n\nAn agent-first workflow begins with a result rather than a code prescription. Define the user-visible outcome, relevant constraints, forbidden changes, and objective acceptance tests. Give the agent the repository context and a narrow work area, then allow it to implement asynchronously. Evaluate the result at the system boundary: run tests, exercise workflows, inspect performance and resource consumption, scan dependencies, and review risky code paths. If the result fails, first improve the specification, tests, tools, or environment—the development 'factory'—before manually patching the output. Record where human intervention was necessary so future tasks can be automated more reliably. For architectural decisions, compare alternatives empirically: prototype the web, native, or systems-language version; measure latency, binary size, resource use, maintainability, and defect rates; then choose based on evidence. The talk reports striking gains from this style, including much greater code output and large backend resource reductions, but those are speaker-reported examples without enough methodology in the source to generalize.\n\n## Training Exercise\n\nChoose one small, reversible improvement in an existing application, such as adding an export command, improving a slow operation, or building a tiny native utility. Write a one-page outcome brief containing: the user problem, observable success criteria, performance and security limits, files or systems that must not change, and automated tests. Give the brief to an agent without specifying implementation steps. Review only the first result's behavior and test evidence, then identify where the brief or tooling was ambiguous. Revise the development harness—tests, fixtures, documentation, permissions, or CLI contracts—and run the task again. Compare elapsed time, human attention, defects, resource usage, and maintainability with a conventional implementation. Conclude whether the agent changed the economics enough to justify a different architecture; do not infer a universal productivity multiplier from one trial.\n\n## Further Reading\n\n- [Source keynote on YouTube](https://www.youtube.com/watch?v=vDjW_dRyKXY)",
+    "related": [
+      {
+        "id": "2026-08-11-building-an-open-source-ai-agent-product-from-personal-friction-02b635c857",
+        "title": "Building an Open-Source AI Agent Product from Personal Friction",
+        "date": "2026-08-11",
+        "shared_tags": [
+          "ai-agents",
+          "software-architecture"
+        ]
+      },
+      {
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
+        "shared_tags": [
+          "ai-agents",
+          "software-architecture"
+        ]
+      },
+      {
+        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
+        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
+        "date": "2026-08-11",
+        "shared_tags": [
+          "ai-agents"
+        ]
+      },
+      {
+        "id": "2026-08-28-ai-agents-systems-of-record-and-the-next-layer-of-enterprise-software-7c6bd7a371",
+        "title": "AI Agents, Systems of Record, and the Next Layer of Enterprise Software",
+        "date": "2026-08-28",
+        "shared_tags": [
+          "software-architecture"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-24-evaluating-frontier-ai-progress-recursive-self-improvement-and-safety-cl-69e88212cf",
     "title": "Evaluating Frontier AI Progress, Recursive Self-Improvement, and Safety Claims",
     "date": "2026-09-24",
@@ -417,6 +467,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "software-architecture"
+        ]
+      },
+      {
         "id": "2026-09-17-scaling-reasoning-with-multi-agent-systems-coordination-measurement-and--ea603a59e6",
         "title": "Scaling Reasoning with Multi-Agent Systems: Coordination, Measurement, and Safety",
         "date": "2026-09-17",
@@ -428,14 +486,6 @@ source_characters: 18420
         "id": "2026-09-11-reliable-ai-analysis-of-construction-drawings-evaluation-qa-and-task-rou-74571b8c8b",
         "title": "Reliable AI Analysis of Construction Drawings: Evaluation, QA, and Task-Routed Skills",
         "date": "2026-09-11",
-        "shared_tags": [
-          "ai-evaluation"
-        ]
-      },
-      {
-        "id": "2026-09-03-practical-lesson-evaluating-an-ai-model-for-coding-analysis-and-writing-554da820af",
-        "title": "Practical Lesson: Evaluating an AI Model for Coding, Analysis, and Writing",
-        "date": "2026-09-03",
         "shared_tags": [
           "ai-evaluation"
         ]
@@ -555,6 +605,14 @@ source_characters: 18420
     "content": "## Overview\n\nJev is a decision-focused AI model from Type Safe. It acts like a semantic “if statement”: an application sends some information, called the state, plus one or more questions, and receives structured probabilities, choices, or scores. Unlike general-purpose generative models, Jev is intended to judge information rather than write replies, summaries, or code. The source reports end-to-end response times of 70–500 milliseconds and a price of 4.2 cents per million input tokens, with output tokens free at the time described. These are vendor-reported and time-sensitive figures, so verify current performance, access, and pricing before designing around them.\n\n## Key Concepts\n\n- **Semantic decision-making**: Jev handles conditions that are difficult to express with exact rules, such as whether a customer sounds frustrated. Use ordinary code when the answer is deterministic—for example, checking whether a basket contains at least three items.\n- **State and questions**: A request contains the state—the information to evaluate—as plain text, a JSON object, or an array. It also contains named questions. The response associates each structured answer with its question name.\n- **Null questions**: A null question represents a yes-or-no judgment but returns the probability of “yes” between 0 and 1. A result near 0 indicates evidence for “no,” not uncertainty; a value near 0.5 indicates little preference either way.\n- **Choice questions**: A choice question selects from options supplied by the application and returns probabilities for every option. Include a fallback such as “other” when inputs may not fit the main categories.\n- **Score questions**: A score question evaluates state against a described scale. Levels start at zero, and the result is a probability-weighted average, so it may fall between levels. Descriptive levels are more actionable than an unexplained numeric scale.\n- **Parallel, independent evaluation**: Multiple questions about the same state can be submitted in one request. Jev evaluates them independently and in parallel, so each question must make sense from the state alone and cannot depend on another answer.\n- **Confidence and thresholds**: Choice and score answers include confidence based on their probability distributions; null answers expose the yes probability directly. Confidence does not guarantee correctness. Production thresholds should be calibrated with representative examples, with ambiguous cases routed to human review.\n- **Decision model versus generator**: Jev is suitable for routing, classification, claim-support checks, guardrails, model selection, and other repeated judgments. It is not a replacement for a generative model when the task requires composing text, summarizing material, explaining an answer, or generating code.\n\n## How It Works\n\nDefine a narrowly scoped decision and collect representative inputs. Put the relevant input into the request state, preferably as clearly named JSON fields. Add one or more named questions using the appropriate type: null for a binary judgment, choice for a closed set of categories, or score for a described ordinal scale. For choice questions, make the options exhaustive or add an “other” category. For score questions, explain what every level means. Send the request through Type Safe’s playground or SDK; the source demonstrates the TypeScript SDK, a Typesafe client, and client.system1. The response contains the model version, token usage, and an answer for each question. Null returns the probability of yes. Choice returns the selected option, option probabilities, and confidence. Score returns a weighted score, level probabilities, confidence, and a legend. Application code then applies a calibrated threshold: high-confidence results can trigger an action, while uncertain or consequential cases should be reviewed. Test against labeled, realistic examples because even confident judgments can be wrong. Also compare the model with a deterministic implementation first—AI adds value only when the condition requires semantic judgment.\n\n## Training Exercise\n\nBuild a customer-support triage prototype. Use JSON state containing a message and submit three questions in one request: (1) a null question asking whether the message expresses frustration; (2) a choice question classifying the main request as update, refund, replacement, or other; and (3) a score question with levels 0 = request without frustration, 1 = dissatisfaction without strong anger, and 2 = strong anger. Create at least 20 representative messages, including polite complaints, implicit frustration, mixed requests, and irrelevant messages. Record the outputs and manually label the expected decisions. Choose action and review thresholds from these examples rather than copying the demonstration threshold of 0.8. Then test new messages and measure incorrect automatic actions, review frequency, latency, and token usage. Finally, identify one condition in the workflow that should remain deterministic code and explain why.\n\n## Further Reading\n\n- [Source video: Jev overview and TypeScript demonstration](https://www.youtube.com/watch?v=ZgXej_9isxY)",
     "related": [
       {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "application-design"
+        ]
+      },
+      {
         "id": "2026-09-22-designing-fast-typed-classification-pipelines-with-system-1-models-6c6e210fa9",
         "title": "Designing Fast, Typed Classification Pipelines with System 1 Models",
         "date": "2026-09-22",
@@ -574,14 +632,6 @@ source_characters: 18420
         "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
         "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
         "date": "2026-08-11",
-        "shared_tags": [
-          "typescript"
-        ]
-      },
-      {
-        "id": "2026-05-27-ai-engineer-coach-building-a-local-first-vs-code-analytics-extension-for-ai-codi",
-        "title": "AI Engineer Coach: Building a Local-First VS Code Analytics Extension for AI Coding Sessions",
-        "date": "2026-05-27",
         "shared_tags": [
           "typescript"
         ]
@@ -1803,6 +1853,14 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "software-architecture"
+        ]
+      },
+      {
         "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
         "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
         "date": "2026-09-09",
@@ -1816,14 +1874,6 @@ source_characters: 18420
         "date": "2026-05-20",
         "shared_tags": [
           "enterprise-software"
-        ]
-      },
-      {
-        "id": "2026-09-24-evaluating-frontier-ai-progress-recursive-self-improvement-and-safety-cl-69e88212cf",
-        "title": "Evaluating Frontier AI Progress, Recursive Self-Improvement, and Safety Claims",
-        "date": "2026-09-24",
-        "shared_tags": [
-          "artificial-intelligence"
         ]
       }
     ]
@@ -3197,6 +3247,15 @@ source_characters: 18420
         ]
       },
       {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "ai-agents",
+          "software-architecture"
+        ]
+      },
+      {
         "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
         "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
         "date": "2026-08-11",
@@ -3212,15 +3271,6 @@ source_characters: 18420
         "shared_tags": [
           "ai-agents",
           "product-strategy"
-        ]
-      },
-      {
-        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
-        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
-        "date": "2026-08-27",
-        "shared_tags": [
-          "ai-agents",
-          "open-source"
         ]
       }
     ]
@@ -3320,12 +3370,12 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-07-21-harness-engineering-for-ai-agents-why-orchestration-can-matter-more-than-3564b9ff91",
-        "title": "Harness Engineering for AI Agents: Why Orchestration Can Matter More Than the Model",
-        "date": "2026-07-21",
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
         "shared_tags": [
           "ai-agents",
-          "prompt-engineering"
+          "software-architecture"
         ]
       }
     ]
@@ -11305,11 +11355,11 @@ source_characters: 18420
         ]
       },
       {
-        "id": "2026-09-15-building-high-velocity-technical-organizations-reuse-risk-and-external-v-eb1a850466",
-        "title": "Building High-Velocity Technical Organizations: Reuse, Risk, and External Validation",
-        "date": "2026-09-15",
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
         "shared_tags": [
-          "engineering-management"
+          "developer-productivity"
         ]
       }
     ]
