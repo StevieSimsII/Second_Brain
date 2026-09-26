@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Prefer formulas over stored state, then use the narrowest variable type that fits the need. This avoids duplicate sources of truth and makes Power Apps easier to debug, maintain, and keep synchronized.
+
+## Key Takeaways
+
+1. Use a direct formula when a value can be derived from existing data; Power Apps will recalculate it automatically when dependencies change.
+2. Use `UpdateContext()` or navigation context for temporary, screen-local UI state such as an open dialog, selected tab, or detail record.
+3. Use `Set()` sparingly for state that genuinely must be shared across multiple screens, such as a user role or app-wide feature flag.
+4. Use collections for mutable, in-memory tables such as carts, favorites, cached records, or locally reshaped data—not as the default container for every value.
+5. Treat collections as local snapshots: upstream data changes will not appear automatically unless the collection is refreshed and rebuilt.
+6. Avoid copying values already available through controls or navigation, such as storing `GalleryCustomers.Selected` in another variable without a clear need.
+7. Choose state in this order: control formula, context variable, global variable, then collection when tabular mutation is required.
+
 ## Overview
 
 This lesson explains how Power Apps variables work and how to choose the right kind of state for a canvas app. In Power Apps, many bugs and maintenance problems come from using a variable where a formula, control property, or collection would be more appropriate, so understanding the tradeoffs is essential for building reliable apps.
@@ -242,6 +256,26 @@ Create a short decision table for your app with columns:
 - Best storage choice
 
 Use it to justify each variable or formula you introduced.
+
+## Test Yourself
+
+<details><summary>Why is a direct formula usually better than storing a derived value in a variable?</summary>
+
+A formula recalculates automatically when its dependencies change. A stored copy must be updated manually and can become a second, stale source of truth.
+
+</details>
+
+<details><summary>When should you choose a context variable instead of a global variable?</summary>
+
+Choose a context variable when the value is only needed on one screen, such as popup visibility or a record passed to a detail screen. Its narrower scope reduces accidental coupling across the app.
+
+</details>
+
+<details><summary>What makes a collection appropriate, and what synchronization risk does it introduce?</summary>
+
+A collection is appropriate for a mutable client-side table whose rows need to be added, removed, cached, or reshaped. It does not automatically reflect changes in its upstream data source, so it must be refreshed and rebuilt when synchronization matters.
+
+</details>
 
 ## Further Reading
 

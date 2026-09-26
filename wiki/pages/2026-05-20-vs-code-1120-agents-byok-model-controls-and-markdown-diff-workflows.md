@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> VS Code 1.120 makes AI-assisted development more manageable by adding a dedicated Agents window, visible BYOK token and reasoning controls, safer terminal workflows, and rendered Markdown diffs. These features help developers coordinate agents, control model cost and context, and review changes more effectively.
+
+## Key Takeaways
+
+1. Use the Agents window to run, switch between, and review multiple agent sessions across projects in a dedicated workspace.
+2. Enable `chat.tools.compressOutput.enabled` to reduce token-heavy noise from commands such as `git diff`, `ls -l`, and `npm install` before output reaches the model.
+3. Enable `chat.tools.riskAssessment.enabled` to add Safe, Caution, or Review carefully classifications and short explanations to terminal command confirmations.
+4. Monitor actual token usage for BYOK models and adjust thinking effort on reasoning models served through OpenAI-compatible endpoints to balance quality, latency, and cost.
+5. Associate `*.md` diffs with `vscode.markdown.preview.editor` to review headings, tables, images, and document structure as rendered content.
+6. Explicitly enable non-static extensions in the Agents window with `extensions.supportAgentsWindow`, keyed by extension ID.
+7. Extension authors can explore the proposed `customEditorDiffs` and `documentDiff` APIs to build semantic comparison interfaces without recreating VS Code's diff engine.
+
 ## Overview
 
 Visual Studio Code 1.120 is a release centered on agent-driven development, better large-language-model controls, and improved documentation review workflows. The headline feature is the new Agents window in Stable preview, which gives developers a workspace specifically designed for running and reviewing multiple agent sessions across projects rather than treating AI assistance as a single chat sidebar inside one editor window.
@@ -127,6 +141,26 @@ npm install
      - Would your current extensions need explicit enablement in the Agents window?
 
 If you want an extra challenge, create a tiny extension prototype and review the proposed `customEditorDiffs` and `documentDiff` APIs. Sketch how you would render a semantic diff for a structured file type instead of falling back to raw text.
+
+## Test Yourself
+
+<details><summary>Why is terminal output compression useful in agent workflows?</summary>
+
+Terminal output can consume a large portion of a model's context window without adding proportional value. Compression removes noise such as unchanged diff hunks, progress bars, lockfile changes, and audit chatter while preserving provenance and access to raw output when needed.
+
+</details>
+
+<details><summary>What practical controls does VS Code 1.120 add for BYOK models?</summary>
+
+It shows actual token usage and context-window percentage for BYOK models. For reasoning models on OpenAI-compatible endpoints, it also exposes thinking effort so users can tune the tradeoff among response quality, latency, and cost.
+
+</details>
+
+<details><summary>How do rendered Markdown diffs improve documentation review?</summary>
+
+They show semantic structure—such as headings, lists, tables, images, and sections—instead of requiring reviewers to interpret raw Markdown punctuation. They support side-by-side and inline modes and can be configured as the default diff editor for `*.md` files.
+
+</details>
 
 ## Further Reading
 

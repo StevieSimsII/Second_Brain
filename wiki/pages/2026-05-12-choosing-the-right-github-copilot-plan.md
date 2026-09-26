@@ -10,6 +10,20 @@ depth: 1
 actionability: 2
 ---
 
+## TL;DR
+
+> Choose the minimum GitHub Copilot plan that supports your actual workflow: individuals mainly need to compare usage and model access, while organizations also need governance and administration. This matters because the selected tier determines both developer capabilities and operational control.
+
+## Key Takeaways
+
+1. Choose Copilot Free for experimentation, Student when eligible, Pro for daily professional use, and Pro+ for broader model access and a larger premium-request allowance.
+2. Choose Copilot Business when centralized seat management and organization-wide policies are required; choose Enterprise for additional enterprise-scale administration, governance, and premium-request capacity.
+3. Free limits completions, while Student, Pro, Pro+, Business, and Enterprise provide unlimited completions according to the lesson.
+4. Check cloud agent, agent mode, code review, MCP, and third-party-agent support explicitly because availability differs by plan.
+5. Treat monthly premium requests as a capacity constraint for heavy AI-assisted workflows, especially when comparing Pro with Pro+.
+6. Verify support in the intended client—such as VS Code, Visual Studio, JetBrains IDEs, Xcode, Eclipse, GitHub Mobile, or Windows Terminal—because features can be platform-specific.
+7. The lesson notes that GitHub plans to shift from request-based to usage-based billing on June 1, 2026, and that enterprise offerings apply to GitHub Enterprise Cloud rather than GitHub Enterprise Server.
+
 ## Overview
 
 These notes compare GitHub Copilot plans across individual, team, and enterprise use cases, focusing on what actually changes between tiers: model access, completion limits, premium request quotas, agent features, and governance controls. The core takeaway is that plan choice is not just about price; it directly shapes developer workflow, available AI features, and how much administrative control an organization has.
@@ -73,6 +87,26 @@ A practical selection rule emerges:
 - Choose **Pro+** for maximum model choice and larger premium request volume.
 - Choose **Business** for centralized team rollout and policy control.
 - Choose **Enterprise** for enterprise-scale administration and governance.
+
+## Test Yourself
+
+<details><summary>What is the main distinction between individual and managed Copilot plans?</summary>
+
+Individual plans primarily scale usage limits, premium-request capacity, and model access. Managed Business and Enterprise plans add centralized rollout, policy, auditing, exclusion, and seat-management capabilities.
+
+</details>
+
+<details><summary>When is Copilot Pro+ a better fit than Copilot Pro?</summary>
+
+Pro+ is intended for power users who need a larger premium-request allowance and the broadest available model choice. Pro is the baseline paid option for sustained professional use with unlimited completions.
+
+</details>
+
+<details><summary>What should an organization verify before selecting a plan for agentic workflows?</summary>
+
+It should confirm that the plan and intended IDE or platform support the required features, including cloud agent, agent mode, code review, MCP, and third-party agents. These capabilities should not be assumed to be available uniformly across tiers or clients.
+
+</details>
 
 ## Personal Notes
 

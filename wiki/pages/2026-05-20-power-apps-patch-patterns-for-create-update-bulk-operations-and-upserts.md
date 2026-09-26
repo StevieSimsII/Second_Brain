@@ -9,6 +9,20 @@ depth: 3
 actionability: 3
 ---
 
+## TL;DR
+
+> Use Power Fx `Patch()` to create, update, upsert, and connect records while controlling exactly what a Canvas App writes. Capturing its returned record enables dependent writes, while set-oriented bulk patterns may reduce overhead when the connector supports them.
+
+## Key Takeaways
+
+1. Create a record with `Patch(DataSource, Defaults(DataSource), { ...fields... })`.
+2. Update only the required fields by passing an existing record or a unique identifier such as `{ ID: 2 }` as the base record.
+3. Capture the record returned by `Patch()` when later operations need generated IDs, timestamps, or server-side defaults.
+4. For parent-child writes, save the parent first and use the returned parent ID in the child record's `Patch()`.
+5. Implement an upsert with `Coalesce(LookUp(...), Defaults(DataSource))` so an existing match is updated and a missing match is created.
+6. For bulk changes, the lesson recommends testing `Patch(DataSource, ForAll(...))` instead of `ForAll(..., Patch(...))`; actual batching and performance depend on the connector.
+7. For thousands of rows, account for delegation limits, throttling, and backend batch support rather than assuming `Patch()` alone will scale.
+
 ## Overview
 
 This lesson explains how the Power Fx `Patch()` function is used in Power Apps to create, update, and coordinate data operations without relying entirely on forms. The source material is a short social post, but the surrounding comments reveal the practical patterns engineers actually use in production: targeted updates, capturing return values, bulk modifications, upserts, and chaining writes across related tables or lists.
@@ -298,6 +312,26 @@ Patch(
 ```
 
    Record which one is easier to maintain and whether your connector shows any performance difference.
+
+## Test Yourself
+
+<details><summary>How does the base-record argument distinguish a create from an update?</summary>
+
+`Defaults(DataSource)` tells `Patch()` to create a new record. Passing an existing record or a record with a unique identifier, such as `{ ID: 2 }`, targets an existing record for update.
+
+</details>
+
+<details><summary>Why should an app capture the record returned by `Patch()`?</summary>
+
+The returned record can contain generated values such as an ID, timestamp, or server default. The app can then use those values in notifications or subsequent writes, including creating related child records.
+
+</details>
+
+<details><summary>How does the lesson implement an upsert, and what limitation should be considered?</summary>
+
+It uses `Coalesce(LookUp(DataSource, matchCondition), Defaults(DataSource))` as the base record, updating a match or creating a new record when none exists. The matching field should be reliably unique, and connector delegation or concurrency behavior may affect production use.
+
+</details>
 
 ## Further Reading
 

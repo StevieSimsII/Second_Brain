@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use GitHub Copilot CLI as a terminal-native command drafter and explainer, not a substitute for shell knowledge. Clear constraints and careful review make its suggestions safer and more useful while reducing context switching.
+
+## Key Takeaways
+
+1. Describe the intended task in plain language, inspect the proposed command, validate it, and refine or run it.
+2. Add the operating system or shell, scope, output format, and safety requirements to prompts for more reliable results.
+3. Use generate mode to draft commands and explain mode to understand flags, pipelines, and copied one-liners.
+4. Request a dry run or preview before destructive operations, and test commands on a small sample first.
+5. Check flags and edge cases against `man` pages or official documentation, especially for commands involving `sudo`, `rm`, `chmod`, networking, installations, or credentials.
+6. Practice in a sandbox directory with common Git, filesystem, process, and Unix pipeline tasks before using generated commands on important data.
+
 ## Overview
 
 These notes cover how GitHub Copilot CLI can be used as a terminal-native assistant for generating shell commands, explaining unfamiliar commands, and reducing context switching during command-line work. The source material points to a cheat sheet and official documentation, but the main practical takeaway is how to use Copilot CLI as a fast interface for common terminal tasks rather than as a replacement for shell knowledge.
@@ -61,6 +74,26 @@ The notes also stress good shell discipline alongside Copilot CLI use:
 - Be extra cautious with `sudo`, `rm`, `chmod`, networking, installs, or credentials
 
 A useful training approach is to practice both generation and explanation in a safe sandbox directory. The included exercise reinforces three habits: generate commands from intent, verify explanations by decomposing pipelines manually, and refine prompts for safer behavior before running anything destructive.
+
+## Test Yourself
+
+<details><summary>What is the recommended mental model for GitHub Copilot CLI?</summary>
+
+Treat it as an interactive drafting and explanation tool for terminal work, not as automatic shell execution or a replacement for shell knowledge.
+
+</details>
+
+<details><summary>Which prompt details can improve a generated command?</summary>
+
+Specify the operating system or shell, safety requirements, task scope, and desired output—for example, macOS, preview only, current directory, and filenames only.
+
+</details>
+
+<details><summary>How should you handle a generated command that could modify or delete data?</summary>
+
+Inspect its paths, flags, and quoting; request a dry run or preview; and test it on a small sample or in a sandbox before executing it against important data.
+
+</details>
 
 ## Personal Notes
 

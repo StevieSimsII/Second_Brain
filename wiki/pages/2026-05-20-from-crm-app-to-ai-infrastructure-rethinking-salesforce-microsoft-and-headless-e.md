@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The source argues that AI shifts CRM’s strategic value away from its user interface and toward governed data, permissions, APIs, workflows, and safe write-back capabilities. This matters because the platform that exposes the broadest trusted work context—not merely the strongest CRM application—may become the control point for enterprise agents.
+
+## Key Takeaways
+
+1. Treat AI-ready CRM as an integration and platform problem, not primarily a chatbot or user-interface project.
+2. Give agents four essentials: an understandable data model, permissions they can respect, workflows they can trigger, and a reliable place to write results.
+3. Assess customer context across email, meetings, chat, documents, approvals, analytics, and operational systems—not just CRM records.
+4. The source argues that Microsoft’s Outlook, Teams, Office, Entra ID, Power Platform, Azure, Dataverse, and Copilot provide broader “work gravity,” while Salesforce retains strong “customer gravity.”
+5. Do not mistake headless CRM for a new invention; Salesforce has long supported APIs and custom front ends, while AI agents are a new class of API consumer.
+6. Prioritize clean APIs, canonical entities, event notifications, role-aware authorization, auditable write-back, and observability before adding agentic features.
+7. Keep structured human interfaces for review, exception handling, and governance even when agents become a major interaction layer.
+
 ## Overview
 
 This lesson distills a debate about how AI changes the role of CRM in enterprise software. The source argues that Salesforce decisively won the classic CRM application market, but that this victory may matter less in an AI-driven world where the key assets are not screens and forms, but data models, permissions, workflow engines, collaboration context, and execution surfaces across the business.
@@ -234,6 +248,26 @@ Answer these questions:
 - Where would governance break first?
 
 By the end of the exercise, you should have a concrete view of whether your enterprise stack is truly AI-ready or simply exposing AI features on top of legacy application boundaries.
+
+## Test Yourself
+
+<details><summary>What changes when CRM is treated as infrastructure rather than primarily as an application?</summary>
+
+The interface becomes only one possible interaction layer, while APIs, business entities, permissions, workflows, and write-back paths become more strategically important. Agents can then use CRM capabilities without operating its traditional screens.
+
+</details>
+
+<details><summary>Why does the source argue that “work gravity” may matter more than “customer gravity” for enterprise AI?</summary>
+
+Useful agents need context from communications, calendars, meetings, files, approvals, identity, and automation as well as customer records. The source claims that platforms spanning more of this daily work environment may provide agents with richer context and a broader execution surface.
+
+</details>
+
+<details><summary>How would you determine whether an enterprise stack is genuinely ready for an AI account manager?</summary>
+
+Map each required task to its source of truth, API, permission boundary, write-back destination, and audit trail. Then score data-model clarity, API completeness, permissions, workflow triggers, identity, document access, write-back safety, and auditability to identify the weakest capability.
+
+</details>
 
 ## Further Reading
 

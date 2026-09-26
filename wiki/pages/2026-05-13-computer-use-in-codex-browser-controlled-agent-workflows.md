@@ -13,6 +13,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Browser-controlled agents automate software by repeatedly observing the interface, choosing an action, executing it, and verifying the result. They can handle systems without suitable APIs, but dependable use requires state checks, recovery logic, and human approval for sensitive actions.
+
+## Key Takeaways
+
+1. Build computer-use workflows as a perception-action loop: observe, plan, execute, re-observe, and verify.
+2. Prefer API automation when a suitable API exists because it is generally faster and more deterministic; use computer control when no adequate API exists or exact end-user behavior matters.
+3. Combine visual reasoning with structured DOM, accessibility, or browser-automation selectors to gain flexibility without relying entirely on brittle coordinate clicks.
+4. Gate sensitive actions—including entering secrets, sending messages, submitting forms, making purchases, and changing production data—behind explicit user approval.
+5. Handle redirects, stale pages, expired logins, modal dialogs, and missing elements with state history, expected-transition checks, safe retries, timeouts, and stop conditions.
+6. Start a Playwright prototype with one complete loop: observe page state, choose one action, execute it, verify the outcome, and optionally request manual approval.
+
 ## Overview
 These notes cover the concept of **computer use** in Codex-style AI systems: agents that interact with a live graphical environment, especially a browser, by observing state, choosing actions, and executing UI operations like clicking, typing, scrolling, and navigating. The focus is less on traditional API integrations and more on multimodal, environment-aware workflows that let an agent operate software through the same interface a human would use.
 
@@ -77,6 +90,26 @@ Compared with API-based automation:
 - **Computer use** is more flexible when no suitable API exists or when reproducing exact end-user behavior matters.
 
 The included exercise outlines a minimal prototype using Playwright in Node.js. The aim is to build the agent skeleton: observe page state, choose one action, execute it, verify the result, and optionally insert a manual approval gate. This is a useful practical starting point for understanding browser-agent mechanics.
+
+## Test Yourself
+
+<details><summary>What is the core loop of a browser-controlled agent?</summary>
+
+The agent observes the browser, plans the next action, executes it, re-observes the environment, and verifies progress. It continues until the goal is complete, the task fails, or escalation is required.
+
+</details>
+
+<details><summary>Why is a hybrid of visual and structured control often preferable?</summary>
+
+Screenshots help the model interpret unfamiliar layouts, while DOM selectors, accessibility labels, or automation hooks execute actions more deterministically. Combining them reduces the brittleness of coordinate-only control.
+
+</details>
+
+<details><summary>When should computer use be chosen over API-based automation?</summary>
+
+Choose computer use when no suitable API exists or when reproducing the exact end-user workflow is important. Prefer APIs when available because they are typically faster, cleaner, and more reliable.
+
+</details>
 
 ## Personal Notes
 Email subject: [Lesson] Computer Use in Codex: Browser-Controlled Agent Workflows

@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Press `Ctrl+G` in GitHub Copilot CLI to edit a long prompt in the editor configured by `EDITOR`, then save and close to return the revised text to the terminal. This makes complex, multiline prompts easier to structure and refine.
+
+## Key Takeaways
+
+1. Press `Ctrl+G` to open the current GitHub Copilot CLI prompt in the configured external editor.
+2. Set `EDITOR="code --wait"` for VS Code; `--wait` keeps the CLI paused until editing is complete.
+3. Set `EDITOR="nano"` for a lightweight terminal editor that blocks automatically until you exit.
+4. Use `export EDITOR="…"` in bash or zsh, and `$env:EDITOR = "…"` in PowerShell.
+5. Put the editor setting in the appropriate shell startup file or PowerShell profile to persist it across sessions.
+6. Saving and closing the editor returns the modified temporary text buffer to Copilot CLI.
+7. The same `EDITOR` concept improves workflows in other command-line tools, including Git commit editing and `crontab -e`.
+
 ## Overview
 These notes capture a practical workflow improvement for GitHub Copilot CLI: editing long prompts in a real text editor instead of fighting with a cramped terminal input. The key idea is that Copilot CLI can open the current prompt in your configured editor, making it much easier to write, restructure, and refine multi-line requests.
 
@@ -67,6 +81,26 @@ A useful mental model:
 - Saving and closing hands control—and the final text—back to the CLI.
 
 This pattern also appears in other tools like Git commit editing and `crontab -e`, so learning it improves general command-line ergonomics beyond Copilot CLI.
+
+## Test Yourself
+
+<details><summary>How do you edit a long GitHub Copilot CLI prompt in an external editor?</summary>
+
+Press `Ctrl+G`, edit the prompt in the editor selected by `EDITOR`, then save and close the editor. Copilot CLI resumes with the revised prompt content.
+
+</details>
+
+<details><summary>Why should VS Code be configured as `code --wait` rather than just `code`?</summary>
+
+Without `--wait`, VS Code may return control immediately after opening, causing the CLI to continue before editing is finished. The flag makes the editor process block until the file is closed.
+
+</details>
+
+<details><summary>How do you make the editor choice persist across terminal sessions?</summary>
+
+Add the `EDITOR` assignment to the relevant bash or zsh startup file, or to the PowerShell profile. A setting entered only in the current session is temporary.
+
+</details>
 
 ## Personal Notes
 Editing Long GitHub Copilot CLI Prompts with Your Preferred Editor

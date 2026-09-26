@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Define what to build before asking an AI coding agent to build it: move from specification to plan to tasks to implementation. This makes requirements traceable, reduces agent guesswork, and gives humans clear checkpoints for review and revision.
+
+## Key Takeaways
+
+1. Use the four-stage workflow—specify, plan, tasks, implement—instead of prompting an agent with a broad product request.
+2. Include goals, scope, constraints, assumptions, non-functional requirements, and acceptance criteria in the specification so the agent has a stable target.
+3. Chain each artifact into the next: the specification informs the technical plan, the plan becomes executable tasks, and the tasks constrain implementation prompts.
+4. Validate generated code against the original acceptance criteria, not merely whether it compiles or passes basic tests.
+5. Treat specifications as living artifacts: update the spec, plan, and tasks when implementation reveals hidden assumptions, edge cases, or changing requirements.
+6. Keep the workflow agent-agnostic so the same engineering process can work across Copilot, Claude Code, Gemini CLI, and future tools.
+7. For a CSV export of up to 10,000 rows, specify measurable conditions such as a 5-second completion limit, authentication requirements, current-filter behavior, column order, and spreadsheet compatibility.
+
 ## Overview
 
 This lesson introduces Spec-Driven Development as described in the source post about GitHub's open-source spec-kit. The core idea is simple but powerful: instead of giving an AI coding agent loose, ad-hoc prompts, you first define a structured specification, then derive a plan, then concrete tasks, and only then move into implementation. That workflow turns AI-assisted coding from improvisation into an engineering process with explicit artifacts and handoff points.
@@ -176,6 +190,26 @@ After the agent responds, verify:
 
 ### Stretch exercise
 Revise the spec after review to address one ambiguity, such as CSV formatting for commas, null values, or time zones. Then rerun the plan/task/implementation cycle and compare the quality of the generated result.
+
+## Test Yourself
+
+<details><summary>What are the four stages of the spec-driven development workflow?</summary>
+
+The stages are specify, plan, tasks, and implement. Each produces an artifact that constrains and informs the next stage.
+
+</details>
+
+<details><summary>Why should generated code be reviewed against acceptance criteria rather than only checked for compilation?</summary>
+
+Compiling proves that code is syntactically valid, not that it satisfies user needs, scope, constraints, or expected behavior. Acceptance criteria connect implementation results back to the original intent.
+
+</details>
+
+<details><summary>How does the lesson reconcile up-front specification with the iterative nature of software development?</summary>
+
+It recommends treating specifications as living artifacts. When implementation exposes missing assumptions or edge cases, revise the spec and plan, regenerate the affected tasks, and continue with the updated constraints.
+
+</details>
 
 ## Further Reading
 

@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> A Power Apps deep-link passes a record’s unique ID in the app URL, reads it with `Param()`, and uses `LookUp()` to open the matching record. This lets users move directly from emails, workflows, dashboards, or QR codes to the item they need.
+
+## Key Takeaways
+
+1. Pass a stable record identifier, such as a Dataverse GUID or SharePoint item ID, in a query parameter like `recordId`.
+2. Read the incoming identifier with `Param("recordId")`; URL parameters arrive as text and may require `GUID()` or `Value()` before lookup.
+3. Resolve the target record with `LookUp()`, store it in a variable such as `varTargetRecord`, and bind the detail form’s `Item` property to that variable.
+4. Navigate to the detail screen when a matching record exists, but preserve the normal browse-screen path when no parameter is supplied.
+5. Handle blank, malformed, inaccessible, and nonexistent record IDs with a notification and a safe fallback screen.
+6. Use the same target-record variable for deep-links and gallery selections so one app supports both direct entry and ordinary browsing.
+7. Treat deep-links as navigation context, not authorization; connector and data-source permissions still determine whether the user can access the record.
+
 ## Overview
 
 This lesson explains how deep-linking works in Power Apps Canvas apps, with a practical focus on opening an app directly to a specific record. Deep-links are useful when users launch an app from an email, a workflow, a dashboard, a QR code, or another system and need to land on the exact item they should review rather than starting at a generic home screen.
@@ -204,6 +218,26 @@ If(
    - Click the link and verify the app opens directly to the created record.
 
 By the end of the exercise, you should have one app that supports both standard browse navigation and parameter-driven direct record access.
+
+## Test Yourself
+
+<details><summary>What are the three core steps in opening a specific Power Apps record from a deep-link?</summary>
+
+Add the record identifier to the app URL, read it with `Param()`, and use it to find the record with `LookUp()`. If the record is found, navigate to the appropriate detail or edit screen.
+
+</details>
+
+<details><summary>Why might `Param(&quot;recordId&quot;)` need to be wrapped in `GUID()` or `Value()`?</summary>
+
+Query-string parameters arrive as text. The value must match the data source key’s type, so Dataverse GUIDs commonly require `GUID()` and numeric IDs commonly require `Value()`.
+
+</details>
+
+<details><summary>How should an app respond when a deep-link contains no ID or an invalid ID?</summary>
+
+With no ID, it should follow the normal startup path, such as opening the browse or home screen. If the ID is present but no accessible record is found, it should notify the user and navigate to a safe fallback screen.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 1
 actionability: 1
 ---
 
+## TL;DR
+
+> Define JSON schemas or tool input contracts in the API request so Claude returns the exact structure downstream software expects. According to the lesson, this reduces parsing, repair, retry, and integration failures, allowing engineers to focus on whether the content and chosen actions are correct.
+
+## Key Takeaways
+
+1. Treat output structure as an API contract instead of prompting Claude to “return valid JSON.”
+2. Use JSON Schema responses for extraction, classification, and converting unstructured content into typed records.
+3. Use schema-conformant tool calls for assistants, multi-agent systems, workflow engines, and API orchestration.
+4. Replace raw-text parsing, key and type repair, and formatting retries with schema definition followed by business-rule validation.
+5. Keep validating semantic correctness: schema conformance does not prove that an extracted value, selected filter, tool, or action is appropriate.
+6. Use structured contracts for reliable agent handoffs involving plans, observations, task states, and action parameters.
+7. Apply structured outputs where exact fields and types matter, including OCR, invoices, support tickets, documents, and complex search tools.
+
 ## Overview
 
 These notes cover Claude’s structured outputs feature, which enforces response shape at the API level using either JSON Schema or tool definitions. The main idea is to stop relying on prompts like “return valid JSON” and instead define output structure as part of the request contract, making responses far more reliable for programmatic use.
@@ -66,6 +80,26 @@ High-value scenarios called out in the notes include:
 - **Complex search and workflow tools**: Calls with typed parameters, optional filters, allowed values, and downstream constraints.
 
 A useful architectural takeaway is that structured outputs improve interface guarantees without requiring prompt-heavy formatting tricks. This can simplify integration design and reduce operational complexity in production systems.
+
+## Test Yourself
+
+<details><summary>What engineering change distinguishes structured outputs from prompting a model to return JSON?</summary>
+
+The expected JSON Schema or tool input definition becomes part of the API request contract. The lesson says Claude then produces output conforming to that declared structure rather than leaving the application to recover structure from raw text.
+
+</details>
+
+<details><summary>When should JSON-structured response mode be used instead of tool-based structured mode?</summary>
+
+Use JSON-structured responses for extraction, classification, and typed-record generation. Use tool-based mode when Claude must supply conformant arguments for assistants, agents, workflows, or external API actions.
+
+</details>
+
+<details><summary>What validation remains necessary after structural conformance is guaranteed?</summary>
+
+Applications must still enforce business rules and evaluate semantic correctness. A structurally valid response can contain the wrong value, an illogical filter, or an inappropriate tool or action.
+
+</details>
 
 ## Personal Notes
 

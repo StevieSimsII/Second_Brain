@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Generate constrained, machine-readable UI schemas from user prompts, then let a trusted renderer decide which components and actions appear. This separation enables dynamic interfaces inside Microsoft 365 Copilot while improving safety, validation, and portability.
+
+## Key Takeaways
+
+1. Use Microsoft 365 Copilot as the chat and app-hosting surface, with a custom MCP server defining the boundary to external capabilities.
+2. Pass requests through an AG-UI-compatible bridge to a LangGraph agent that can reason, use tools, and produce a structured UI description.
+3. Return a constrained schema containing fields such as component type, props, layout, allowed actions, validation rules, and data bindings—not arbitrary React, HTML, or executable UI code.
+4. Validate every generated response against an allowlist of supported components before rendering it; the lesson’s prototype starts with text, form, input, select, button, and card.
+5. Keep generation separate from rendering so the same UI definition can be validated consistently and potentially rendered across multiple host environments.
+6. Prototype the pattern with a POST endpoint that accepts a prompt, maps it to a JSON UI specification, and returns either a task-specific form or a fallback card.
+7. Test the prototype with prompts such as “Create a project intake form” and “Show me an expense approval card,” then extend it with conditional fields, schema versioning, and form submission.
+
 ## Overview
 These notes describe an architecture for generating interactive UI inside Microsoft 365 Copilot at runtime, using a combination of MCP, AG-UI, LangGraph, and CopilotKit’s OpenGenerativeUI ideas. The central pattern is that a user submits a prompt in Copilot, an external MCP app/server handles the request, and an agent produces a structured UI definition that Copilot can render safely in chat.
 
@@ -153,6 +167,26 @@ Prompts like these should render different UIs without manually creating each pa
 
 - `Create a project intake form`
 - `Show me an expense approval card`
+
+## Test Yourself
+
+<details><summary>Why should the agent emit a structured UI schema instead of raw React or HTML?</summary>
+
+A structured schema can be restricted to approved components and validated before rendering. According to the lesson, this makes the interface safer, more deterministic, and easier to reuse across hosts.
+
+</details>
+
+<details><summary>What role does each architectural layer play in the request flow?</summary>
+
+Copilot hosts the chat experience, the MCP server exposes the capability boundary, AG-UI transports the UI representation, and LangGraph interprets the request and generates structured output. A trusted renderer converts the approved schema into interactive controls.
+
+</details>
+
+<details><summary>What is the minimum validation requirement for the prototype?</summary>
+
+Before rendering, verify that the returned schema contains only supported component types from the allowlist. Unsupported or malformed components should not be rendered.
+
+</details>
 
 ## Personal Notes
 Generative UI in Microsoft 365 Copilot with MCP, AG-UI, LangGraph, and OpenGenerativeUI

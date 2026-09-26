@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> AI coding tools should be evaluated as complete systems—not just by model quality—because the harness, interface, execution environment, and review workflow determine how useful and trustworthy they are. The lesson argues that Microsoft’s shift toward Copilot CLI and agent-oriented IDE experiences reflects growing competition over the integrated developer experience.
+
+## Key Takeaways
+
+1. Compare AI coding tools across the foundation model, harness, interface, execution environment, and human-review workflow—not model benchmarks alone.
+2. The lesson argues that Microsoft wants to own the Copilot harness and user experience even if some underlying capabilities continue to use models from other providers.
+3. Terminal-first agents offer direct access to repository context, commands, and automation, but they can make plans, file changes, and execution state less discoverable for non-terminal users.
+4. Agent-oriented GUIs can increase trust by exposing plans, repository files, contextual diffs, execution traces, and source-control actions in one workspace.
+5. Sandboxed cloud execution may improve enterprise safety by isolating tool use and constraining credentials, according to comments discussed in the source.
+6. Standardizing internal developers on Copilot tooling could give Microsoft stronger feedback and telemetry while reducing dependence on a competitor’s product surface.
+7. Run the same repository task through CLI and IDE-assisted workflows, then compare planning visibility, repo awareness, diff quality, ease of use, and confidence before accepting changes.
+
 ## Overview
 
 This lesson examines a short but revealing industry discussion about Microsoft discontinuing internal use of Claude Code as a developer harness and consolidating around Copilot CLI and related GitHub/Microsoft agent experiences. The source is not a deep technical specification, but it highlights an important product and workflow transition: AI coding tools are no longer just model choices, but full environments made of interfaces, safety constraints, repository awareness, and integration into real developer workflows.
@@ -186,6 +200,26 @@ If your tool supports cloud or sandboxed agent execution, repeat the exercise th
 - reproducibility
 
 The point of the exercise is not to prove that GUI beats CLI or vice versa. It is to separate model quality from harness quality and to evaluate the developer experience as a full system.
+
+## Test Yourself
+
+<details><summary>Why does the lesson distinguish between an AI model and its harness?</summary>
+
+The model generates plans, explanations, and code, while the harness manages repository context, tool calls, edits, approvals, and review flows. The lesson’s central claim is that these surrounding capabilities increasingly determine a coding assistant’s practical value.
+
+</details>
+
+<details><summary>How can an agent-first IDE interface improve trust compared with a terminal-only workflow?</summary>
+
+It can show the agent’s plan, relevant files, exact diffs, execution progress, and source-control state in context. This supports both behavioral trust in what the agent intends to do and artifact trust in the changes it produces.
+
+</details>
+
+<details><summary>What should the training exercise reveal about CLI and IDE-assisted agents?</summary>
+
+Using the same task in both interfaces separates model capability from harness and UI quality. The comparison should reveal which workflow is faster, easier to review, and more approachable for users with limited terminal experience.
+
+</details>
 
 ## Further Reading
 

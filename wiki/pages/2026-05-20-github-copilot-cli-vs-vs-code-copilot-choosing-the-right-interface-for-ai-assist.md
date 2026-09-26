@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot’s editor, CLI, and cloud interfaces have different context models, integrations, and workflows, so choose the surface that fits the task instead of treating them as interchangeable. Testing the same task in multiple interfaces reveals which one produces the best results with the least steering.
+
+## Key Takeaways
+
+1. Use VS Code Copilot for inline assistance, file-oriented iteration, model switching, and tasks that benefit from rich editor and workspace context.
+2. Use Copilot CLI for terminal-first automation, command-oriented work, documentation-driven setups, and agent-style orchestration.
+3. Verify plugins and integrations on the exact Copilot surface you intend to use because the lesson’s source says VS Code and CLI plugin formats do not overlap.
+4. Distinguish editor-level context—such as files, selections, and workspace metadata—from the CLI’s directory-, shell-, and command-level context.
+5. Treat interface choice as an empirical engineering decision: run the same task in both surfaces and compare first-pass correctness, steering effort, context use, and integration support.
+6. In the source author’s UI-generation example, VS Code produced HTML that failed to render correctly, while the documentation-recommended CLI workflow succeeded; this demonstrates one task-specific result, not a universal ranking.
+7. Consider a cloud agent for asynchronous, remotely executed work that can be reviewed later through pull requests and checks.
+
 ## Overview
 
 This lesson explains the practical differences between GitHub Copilot in VS Code and GitHub Copilot in the terminal/CLI, based on an engineer’s real-world experience where the CLI succeeded on a task that the editor-based experience struggled with. Although both products sit under the GitHub Copilot umbrella, they are not interchangeable: they differ in context visibility, plugin ecosystems, user interaction model, and the kinds of workflows they support best.
@@ -167,6 +181,26 @@ Repeat the comparison with a second task such as:
 - creating a simple API client
 
 This will help you determine whether your preference is task-specific or general.
+
+## Test Yourself
+
+<details><summary>Why can VS Code Copilot and Copilot CLI produce different results even if they use similar AI capabilities?</summary>
+
+They expose different context, interaction models, plugins, and execution environments. Those interface-level differences can affect prompting, tool access, and whether generated work runs correctly.
+
+</details>
+
+<details><summary>What practical test should you use to choose between the two Copilot surfaces?</summary>
+
+Run the same small implementation task in both, then compare first-pass correctness, number of iterations, ease of steering, context awareness, model options, and required integrations.
+
+</details>
+
+<details><summary>When is Copilot CLI likely to be a better fit than VS Code Copilot?</summary>
+
+The lesson recommends considering the CLI for terminal-first automation, scripted or documentation-driven workflows, and agent-style orchestration. The choice should still be validated against the specific task and required plugins.
+
+</details>
 
 ## Further Reading
 

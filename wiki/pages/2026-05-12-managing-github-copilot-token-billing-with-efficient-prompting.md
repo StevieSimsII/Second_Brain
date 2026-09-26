@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat GitHub Copilot usage as an optimization problem across model choice, context size, and response length. Improving the signal-to-token ratio can reduce token-based costs while keeping the assistant useful.
+
+## Key Takeaways
+
+1. Default to Auto selection or a mid-cost model, and reserve premium models for architectural tradeoffs, broad refactors, or coordinated multi-file changes.
+2. Send only the context required for the current task—such as the relevant function, diff, stack trace, or requirement—instead of an entire file or repository.
+3. Use `/context` to inspect how instructions, files, logs, history, and tool output consume the available context window.
+4. Use automatic compaction or run `/compact` during long sessions so a concise state summary replaces repeatedly carried conversation history.
+5. Constrain responses with instructions such as “Only show the diff,” “Return only the changed function,” or “Summarize in 5 bullets” to reduce generation cost and review effort.
+6. Review `/usage` regularly to find expensive patterns, including oversized attachments, broad prompts, premium-model overuse, and long sessions without compaction.
+7. At team scale, use consumption data to guide default model policies, budgets, quotas, guardrails, and training.
+
 ## Overview
 
 These notes cover how GitHub Copilot’s move to token-based billing changes day-to-day usage strategy for developers and engineering teams. Instead of evaluating Copilot only on usefulness, the focus shifts to efficiency: selecting the right model, limiting unnecessary context, compacting long sessions, and requesting tightly scoped outputs.
@@ -57,6 +71,26 @@ A practical operating model from the notes:
 5. Use `/compact` during long sessions.
 6. Ask for tightly constrained output.
 7. Review `/usage` regularly to identify expensive workflows.
+
+## Test Yourself
+
+<details><summary>What three variables should be optimized in a token-billed Copilot workflow?</summary>
+
+Optimize model choice, context size, and response size. The goal is to increase the useful signal produced per token rather than simply using Copilot less.
+
+</details>
+
+<details><summary>When should a premium model be used instead of Auto selection or a mid-cost model?</summary>
+
+Use a premium model when the task clearly requires deeper reasoning or broader scope, such as architectural decisions, large refactors, or coordinated changes across multiple files.
+
+</details>
+
+<details><summary>How do `/context`, `/compact`, and `/usage` support cost control?</summary>
+
+`/context` helps identify unnecessary context, `/compact` replaces long session history with a shorter state summary, and `/usage` helps reveal costly workflows that can be improved or governed.
+
+</details>
 
 ## Personal Notes
 

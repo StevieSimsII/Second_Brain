@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> NVIDIA argues that a capable local agent depends as much on orchestration as on the underlying model: Hermes decomposes work, uses tools, and preserves reusable skills. Efficient Qwen 3.6 models plus RTX or DGX Spark hardware make persistent, private, and responsive local agents more practical.
+
+## Key Takeaways
+
+1. Treat orchestration quality as a core performance factor; task decomposition, controlled tool use, and reusable skills can improve results without changing the base model.
+2. Use contained, short-lived sub-agents for focused tasks to limit context pollution and help smaller local models work effectively.
+3. Turn successful procedures and corrective feedback into reusable skills so repeated workflows become more consistent over time.
+4. NVIDIA claims Qwen 3.6 35B can run in roughly 20GB of memory while outperforming earlier 120B-class models, expanding what can run on local workstations.
+5. Evaluate agent hardware by end-to-end workflow speed, not just single-response latency, because planning, tool calls, retries, and refinement multiply inference costs.
+6. Start with Ollama or LM Studio, which the article says Hermes supports out of the box, instead of building a model-serving stack from scratch.
+7. Compare monolithic and decomposed runs using completion time, focus, repeated context, and output quality before choosing an agent architecture.
+
 ## Overview
 
 This lesson explains NVIDIA’s positioning of Hermes Agent as a practical framework for always-on local AI agents, especially when paired with modern open-weight models like Qwen 3.6 and accelerated by NVIDIA RTX GPUs or DGX Spark systems. The article focuses on why local execution matters for agentic workloads, what makes Hermes different from simpler wrappers around language models, and how newer model architectures make high-quality agents feasible on workstation-class hardware.
@@ -178,6 +192,26 @@ Compare how hardware, model size, and orchestration assumptions affect a local a
 ### What you should learn
 
 By the end, you should have a concrete sense of why orchestration quality matters, why isolated subtasks can outperform one giant prompt, and how local hardware constraints shape the practical design of always-on AI agents.
+
+## Test Yourself
+
+<details><summary>Why does the lesson argue that the model alone does not determine agent quality?</summary>
+
+Hermes adds task decomposition, tool coordination, reusable skills, and isolated sub-agents. According to NVIDIA's framing, these orchestration choices can produce better practical outcomes from the same underlying model.
+
+</details>
+
+<details><summary>Why are efficient models such as Qwen 3.6 important for local agents?</summary>
+
+Local systems are constrained by GPU memory or unified memory. NVIDIA claims newer Qwen models achieve strong results with fewer parameters and lower memory requirements, making capable always-on agents feasible on workstation-class hardware.
+
+</details>
+
+<details><summary>How can you test whether decomposition and reusable skills improve a local agent workflow?</summary>
+
+Run the same multistep task once as a single prompt and once as planning, evidence gathering, execution, and verification stages. Compare latency, completion time, focus, repeated context, and quality, then repeat the task with a saved procedure to measure consistency or speed gains.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot CLI’s BYOK support can route requests to custom models through an OpenAI-compatible provider, giving engineers more control over model choice and cost while preserving the familiar terminal workflow. The `cpm` utility makes this setup repeatable by managing provider, model, token-limit, and API-key environment variables.
+
+## Key Takeaways
+
+1. Use an OpenAI-compatible provider and your own API key to run Copilot CLI with models outside the default Copilot catalog.
+2. Configure the provider’s base URL, type (`openai`), API key, exact model ID, prompt/context token limit, and output token limit.
+3. Enter model IDs exactly as the provider specifies them; an incorrect identifier will cause requests to fail.
+4. Set accurate context and output limits so Copilot CLI does not send requests that exceed the model’s constraints.
+5. Use OpenRouter as a gateway when you want one OpenAI-compatible endpoint and account for accessing multiple vendors’ models with prepaid spend controls.
+6. Run `cpm add` to register a provider and model once, then run `cpm` to select a configuration and launch Copilot CLI with the appropriate environment variables.
+7. Protect API keys stored in local configuration or environment variables with appropriate secret hygiene.
+
 ## Overview
 
 These notes explain how to use GitHub Copilot CLI's BYOK (Bring Your Own Key) support with custom models exposed through an OpenAI-compatible API. The main idea is that Copilot CLI does not have to be limited to the default models included in a Copilot subscription; instead, it can be pointed at third-party providers such as OpenRouter and used with alternative models like Qwen, Kimi, or MiniMax.
@@ -89,6 +103,26 @@ The main tradeoffs noted are:
 - **Security**: API keys now live in local config or environment variables, so secret hygiene matters
 
 If doing this without `cpm`, the real challenge is reproducible environment management. You need to ensure the correct base URL, auth token, model name, and token settings are exported in the shell session before launching Copilot CLI. A wrapper script or shell profile can help, but `cpm` turns that into a simpler, more repeatable workflow.
+
+## Test Yourself
+
+<details><summary>What must a provider support to work cleanly with Copilot CLI’s BYOK configuration?</summary>
+
+It must expose an OpenAI-compatible API. Copilot CLI uses the configured base URL, credentials, model ID, and token limits to format requests for that interface.
+
+</details>
+
+<details><summary>Why must the model ID and token limits be configured accurately?</summary>
+
+The model ID must match the backend’s expected identifier or the request can fail. Accurate limits keep prompts and requested outputs within the model’s supported constraints.
+
+</details>
+
+<details><summary>What problem does `cpm` solve?</summary>
+
+According to the lesson, `cpm` lets users register provider and model settings once, switch among them interactively, and launch Copilot CLI with the required environment variables active instead of managing them manually for each session.
+
+</details>
 
 ## Personal Notes
 

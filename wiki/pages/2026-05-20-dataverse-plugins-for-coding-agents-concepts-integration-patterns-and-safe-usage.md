@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Expose Dataverse to coding agents through narrowly scoped, schema-aware tools instead of unrestricted database access. This preserves Dataverse security and business logic while making agent actions safer, auditable, and easier to validate.
+
+## Key Takeaways
+
+1. Define strict tool contracts for operations such as `describe_table` and `query_rows`, including valid argument types and limits.
+2. Use Dataverse metadata to validate table names, columns, data types, required fields, option sets, lookups, and relationships before executing requests.
+3. Restrict access with table allowlists, blocked-column lists, row-count caps, and operation-specific permissions; the exercise limits `top` to 1–50 and allows reads only.
+4. Choose authentication deliberately: service principals suit tightly scoped backend automation, while delegated identities better preserve user-level and row-level security.
+5. Call supported Dataverse APIs so existing workflows, validation rules, plugins, calculated behavior, and other platform logic remain authoritative.
+6. Require confirmations or approvals for destructive operations, and consider disabling delete and bulk-update tools entirely.
+7. Log sanitized tool inputs, Dataverse correlation IDs, execution time, result status, and every mutation for troubleshooting and auditability.
+
 ## Overview
 
 This lesson introduces the idea of exposing Microsoft Dataverse functionality to coding agents through a plugin interface, so an AI agent can inspect data, perform operations, and participate in enterprise workflows under controlled rules. Even though the source content is only a video reference with no transcript, the topic strongly suggests a practical integration pattern: wrapping Dataverse actions and queries as agent-callable tools while preserving Dataverse security, schema constraints, and business logic.
@@ -214,6 +228,26 @@ By the end, you should have:
 - a validation strategy based on Dataverse metadata
 - a safety model for enterprise use
 - a plan for how an agent would discover and query business data without unrestricted access
+
+## Test Yourself
+
+<details><summary>Why should an agent call structured Dataverse tools instead of accessing tables directly?</summary>
+
+Structured tools can enforce schemas, allowlists, permissions, and row limits while preserving Dataverse-native business logic. They also make operations easier to audit and constrain.
+
+</details>
+
+<details><summary>What validation should `query_rows` perform before sending a request to Dataverse?</summary>
+
+It should confirm that the table is allowed, every selected column exists in metadata, blocked columns are excluded, and `top` is between 1 and 50. The implementation should also restrict filters and permissions as required by its safety policy.
+
+</details>
+
+<details><summary>How do service-principal and delegated-user authentication differ in this design?</summary>
+
+A service principal provides a dedicated automation identity with tightly scoped privileges. Delegated authentication acts within the current user's permissions and is preferable when user attribution or row-level security must be preserved.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,19 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Use a lightweight HTML file when an engineering idea depends on layout, comparison, navigation, or interaction. The article argues that this preserves structure better than linear prose and produces a browser-ready artifact people can inspect, edit, and share immediately.
+
+## Key Takeaways
+
+1. Choose the output format to match the problem: use columns for comparisons, diagrams for system relationships, controls for interaction testing, and templates for repeatable workflows.
+2. Start with a single HTML file containing semantic markup, CSS, and small amounts of JavaScript; many useful engineering artifacts need no framework or build step.
+3. Use tabs, anchors, accordions, and sticky summaries to make complex technical material easier to scan and navigate.
+4. Embed inline SVG diagrams so illustrations remain editable, copyable, and composable with the surrounding explanation.
+5. Turn awkward text-based decisions into temporary visual interfaces, then export the human's choices as reusable markdown, configuration, or other machine-readable output.
+6. Evaluate an HTML artifact against its markdown equivalent by testing which is easier to scan, compare, and navigate in under 30 seconds.
+
 ## Overview
 
 This article argues that plain HTML is an unusually effective output format for AI-assisted engineering work. Instead of producing long linear markdown or prose, an agent can generate structured, interactive artifacts such as side-by-side comparisons, annotated diffs, design system sheets, clickable prototypes, slide decks, and incident reports. The core idea is that many engineering tasks are spatial, visual, or interactive, and HTML preserves that structure better than text alone.
@@ -207,6 +220,26 @@ After building it, compare your HTML page to a plain markdown version of the sam
 - Which version is easier to scan?
 - Which better supports comparison and navigation?
 - What information became clearer once it had layout and interaction?
+
+## Test Yourself
+
+<details><summary>When does the article suggest choosing HTML instead of plain markdown?</summary>
+
+Choose HTML when the information is spatial, visual, interactive, or difficult to navigate linearly—for example, side-by-side alternatives, architecture maps, annotated diffs, or clickable prototypes.
+
+</details>
+
+<details><summary>Why is a single HTML file a high-leverage engineering artifact?</summary>
+
+The article argues that it combines structure, styling, diagrams, and interaction in a universally viewable file that can often run without a framework or build step.
+
+</details>
+
+<details><summary>What should an annotated feature explainer contain in the training exercise?</summary>
+
+It should include a TL;DR box, collapsible flow steps, at least two tabbed code or configuration variants, a glossary, and an inline SVG system-flow diagram.
+
+</details>
 
 ## Further Reading
 

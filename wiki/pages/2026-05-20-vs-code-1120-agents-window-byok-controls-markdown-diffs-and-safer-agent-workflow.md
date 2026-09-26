@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> VS Code 1.120 makes agent-driven development easier to orchestrate, inspect, and approve through a dedicated Agents window, accurate BYOK controls, compressed terminal output, command-risk badges, and rendered Markdown diffs. Together, these features reduce wasted model context and make AI-generated work safer and faster to review.
+
+## Key Takeaways
+
+1. Use the Stable-preview Agents window to create, revisit, compare, and switch among agent sessions across multiple projects.
+2. Enable `chat.tools.compressOutput.enabled` to reduce token use from verbose `git diff`, `ls -l`, and `npm install` output while preserving notice that compression occurred.
+3. Enable `chat.tools.riskAssessment.enabled` to triage proposed commands as safe, caution, or review carefully, but still review commands before approving them.
+4. Monitor actual token counts and context-window fullness for BYOK models to control costs and avoid losing important conversation state.
+5. Set reasoning effort for compatible BYOK models served through OpenAI-compatible endpoints to trade response quality against latency and API cost.
+6. Associate `*.md` with `vscode.markdown.preview.editor` to review headings, lists, images, and structure as rendered Markdown instead of raw syntax.
+7. Extension authors can use the proposed `customEditorDiffs` API for purpose-built comparisons and `workspace.getTextDiff(...)` to reuse VS Code’s built-in diff engine.
+
 ## Overview
 
 Visual Studio Code 1.120 focuses on making agent-driven development more practical inside the editor. The release promotes the new Agents window to Stable preview, improves bring-your-own-key (BYOK) model controls, adds safety features around terminal command execution, and introduces Markdown-specific review improvements that better fit documentation-heavy workflows.
@@ -186,6 +200,26 @@ rm -rf ../some-other-folder
    - Sketch how your custom editor could benefit from `customEditorDiffs` or `workspace.getTextDiff(...)`.
 
 **Goal:** by the end, you should be able to explain which 1.120 features improve agent orchestration, which reduce model waste, which improve review ergonomics, and which open new possibilities for extension developers.
+
+## Test Yourself
+
+<details><summary>Which VS Code 1.120 features reduce context-window waste and improve BYOK observability?</summary>
+
+Terminal-output compression removes predictable noise from supported command output before it reaches the model, while explicitly telling the model that compression occurred. BYOK token reporting shows actual token consumption and context fullness for externally configured models.
+
+</details>
+
+<details><summary>How does command risk assessment help, and what limitation does the lesson emphasize?</summary>
+
+It labels proposed terminal commands as safe, caution, or review carefully based on behaviors such as file modification, network access, or destructive effects. The lesson says this is a fast triage layer, not a replacement for human review.
+
+</details>
+
+<details><summary>How does VS Code 1.120 improve diff review for users and extension authors?</summary>
+
+Users can inspect Markdown changes as rendered inline or side-by-side previews, making document structure easier to evaluate. Extension authors can build custom diff interfaces with `customEditorDiffs` and access VS Code’s diff algorithm through `workspace.getTextDiff(...)`.
+
+</details>
 
 ## Further Reading
 

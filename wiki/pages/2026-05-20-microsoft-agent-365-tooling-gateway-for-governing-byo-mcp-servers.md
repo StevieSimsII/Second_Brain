@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Microsoft Agent 365 Tooling Gateway gives enterprises a managed control point for registering, approving, authenticating, and monitoring bring-your-own MCP servers. It matters because MCP tools connected directly to agents can otherwise operate outside centralized security and governance.
+
+## Key Takeaways
+
+1. Route registered MCP servers through Agent 365 Tooling Gateway to centralize tool discovery, administrative approval, authentication, and telemetry.
+2. Require authorized administrators to approve or reject each registered MCP server in the Microsoft 365 Admin Center before making its tools broadly available.
+3. Choose among NoAuth, APIKey, ExternalOAuth, and EntraOAuth based on the server’s identity architecture and security requirements; EntraOAuth typically aligns best with Microsoft-centric identity governance.
+4. The source lists Copilot Studio, VS Code, Claude Code, and GitHub Copilot CLI as supported client surfaces, while Azure AI Foundry and Microsoft 365 Declarative Agents are not yet supported.
+5. According to the source, Microsoft Defender advanced hunting can show which agents invoked particular MCP servers, when they did so, and related invocation metadata.
+6. Classify every exposed tool by data sensitivity and business impact, with extra scrutiny for write or action-oriented operations.
+7. The gateway governs only traffic routed through it; organizations also need policy and technical controls to reduce direct access to unregistered MCP servers.
+
 ## Overview
 
 This lesson explains Microsoft Agent 365 Tooling Gateway, a preview capability for governing bring-your-own Model Context Protocol (MCP) servers in enterprise environments. The core problem it addresses is that many organizations already run internal or third-party MCP servers outside centralized governance, leaving gaps in approval workflows, policy control, observability, and security oversight.
@@ -194,6 +208,26 @@ For each model, score the following from 1-5:
 - enterprise scalability
 
 Then write a short recommendation for which model should be used in production.
+
+## Test Yourself
+
+<details><summary>What enterprise problem is Agent 365 Tooling Gateway intended to solve?</summary>
+
+It is intended to bring existing internal or third-party MCP servers under centralized registration, approval, authentication, and monitoring. Without that managed path, agents may invoke tools with limited organizational visibility or oversight.
+
+</details>
+
+<details><summary>What happens between registering an MCP server and making it available to supported clients?</summary>
+
+The registered server appears in the Microsoft 365 Admin Center, where an authorized administrator reviews and approves or rejects it. Approved tools can then be exposed through supported client surfaces and monitored through the gateway’s telemetry.
+
+</details>
+
+<details><summary>Why does adopting the gateway not automatically eliminate unmanaged MCP risk?</summary>
+
+The gateway can govern only the MCP servers and invocations routed through it. Organizations must also discourage or block direct connections to unregistered servers through policy enforcement and technical controls.
+
+</details>
 
 ## Further Reading
 

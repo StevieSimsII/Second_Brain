@@ -10,6 +10,19 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> A coding agent’s quality depends on its harness—not just its model—because the harness assembles context, exposes and executes tools, controls iterative work, and adapts behavior by model. Evaluating that full system against realistic editor workflows is essential for making reliable improvements.
+
+## Key Takeaways
+
+1. Treat context assembly, tool selection, execution, and loop control as core product behavior rather than a thin wrapper around the model.
+2. Rebuild the prompt after every tool call so the model receives updated workspace state, conversation history, tool results, custom instructions, and memory.
+3. Distinguish a user-visible turn from a round of model-and-tool activity and from the complete run containing all rounds for that turn.
+4. Bound agent runs with tool-call limits, cancellation checks, stop hooks, and conversation summarization to control cost, latency, and context usage.
+5. Tune prompts and tools by model: the article says Claude uses `replace_string_in_file`, GPT uses `apply_patch`, and Gemini needs stronger instructions to invoke tools explicitly.
+6. Validate harness changes on realistic product workflows; the VS Code team says VSC-Bench measures correctness, resolution rate, token efficiency, latency, and agent effort in reproducible workspaces.
+
 ## Overview
 
 This lesson explains the coding harness that powers GitHub Copilot’s agent experience in Visual Studio Code. The article’s main point is that model quality alone does not determine developer experience: the harness is the layer that assembles context, exposes tools, executes tool calls, manages the agent loop, and adapts behavior across different model providers.
@@ -229,6 +242,26 @@ After implementing the extension, answer these questions:
 3. How would you benchmark whether a prompt or tool-schema change actually improved outcomes?
 
 This exercise mirrors the article’s central lesson: reliable coding agents are built from orchestration, tooling, and evaluation, not just a strong base model.
+
+## Test Yourself
+
+<details><summary>What three primary responsibilities does a coding harness perform?</summary>
+
+It assembles context for each model call, exposes the tools permitted for the task, and executes requested tools before returning their results to the model.
+
+</details>
+
+<details><summary>Why does a multi-model coding product need model-specific harness behavior?</summary>
+
+The article says model families differ in tool-calling APIs, prompt sensitivity, context limits, structured-output reliability, and preferred editing tools. A single prompt and tool configuration therefore may not work equally well across providers.
+
+</details>
+
+<details><summary>Why are public coding benchmarks insufficient for evaluating harness changes?</summary>
+
+The authors argue that they do not fully represent editor workflows such as scaffolding, migrations, extension interaction, browser and terminal use, and multi-turn tasks. Product-specific evaluations can test those workflows while also measuring latency, token usage, and agent effort.
+
+</details>
 
 ## Further Reading
 

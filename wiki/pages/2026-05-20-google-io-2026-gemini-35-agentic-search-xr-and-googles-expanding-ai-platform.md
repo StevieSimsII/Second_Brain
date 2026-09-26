@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Google’s I/O 2026 announcements point toward AI as an execution layer: fast multimodal models combine personal context, tool-using agents, and dynamically generated interfaces to complete tasks. For engineers, this means designing applications that are usable by both people and agents while making permissions, confirmations, and provenance explicit.
+
+## Key Takeaways
+
+1. Treat model quality as only one layer of the product; connected context, orchestration, and task-specific interfaces determine whether an assistant can deliver useful outcomes.
+2. Google positions Gemini 3.5 Flash as a fast, lower-cost default for Search, Gemini, coding tools, and APIs, including longer-horizon agentic tasks.
+3. Design agentic workflows to decompose goals, call external tools, preserve state, and require explicit confirmation before consequential actions such as purchases or bookings.
+4. Expose stable actions, clear semantics, and machine-readable affordances so software agents can reliably operate websites and web applications.
+5. Distinguish user-stated constraints from inferred preferences, disclose the external tools used, and limit access to calendars, email, files, and other personal context.
+6. Use generative UI to present task-specific cards, timelines, warnings, and actions instead of forcing every result into a plain chat response.
+7. Google’s emphasis on SynthID and C2PA suggests that origin metadata and standards-based content credentials should be built into generative media pipelines.
+
 ## Overview
 
 This lesson distills the major technical themes from Google's I/O 2026 keynote coverage: a new Gemini 3.5 model family, increasingly agentic product behavior across Search and Gemini, multimodal creation tools, developer-facing web agent tooling, and Android XR hardware expansion. Rather than treating the event as a list of announcements, the goal is to help an engineer understand the platform direction Google is signaling and how the pieces fit together.
@@ -148,6 +162,26 @@ Answer these questions in writing:
 
 ### Stretch goal
 Adapt the same design for an XR interface. Explain what changes when the user interacts through smart glasses instead of a laptop or phone.
+
+## Test Yourself
+
+<details><summary>What four layers make up the AI stack described in the lesson?</summary>
+
+The stack consists of models, context, orchestration, and experience. A fast multimodal model supplies core capabilities, personal data provides relevance, agents coordinate tools and steps, and generated interfaces present actionable results.
+
+</details>
+
+<details><summary>What makes the proposed trip assistant an agent rather than a chatbot?</summary>
+
+It decomposes a goal into multiple steps, retrieves user context, calls travel and mapping tools, ranks options, maintains task state, and can prepare an action for confirmation. A chatbot that only returns recommendations without executing this workflow would not provide the same agentic behavior.
+
+</details>
+
+<details><summary>Which safeguards should be included in the trip-planning workflow?</summary>
+
+The system should require explicit approval before booking, separate inferred preferences from stated constraints, log external tool usage, and show provenance for generated recommendations. It should also request only the personal-data permissions needed for the task.
+
+</details>
 
 ## Further Reading
 

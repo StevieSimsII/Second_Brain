@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Power Apps code apps bring analytics, operational actions, and context-aware AI into one application built with modern developer tools but governed by Power Platform. This matters because teams can shorten the loop from insight to action without rebuilding enterprise identity, security, deployment, and data controls for every app.
+
+## Key Takeaways
+
+1. Treat dashboards as operational control planes: as AI takes more actions, users need trusted metrics and visual context to monitor outcomes.
+2. Use a unified flow—Observe, Understand, Decide, Act, Monitor—when users currently switch between reporting, workflow, and AI tools.
+3. Build code apps with VS Code, React, TypeScript, Git, and CI/CD while using the managed Power Platform runtime for enterprise controls.
+4. Ground embedded agents in the data, visuals, selections, and workflow context currently visible to the user; the source argues this makes responses more relevant and auditable.
+5. Apply Entra ID, Conditional Access, DLP policies, sharing controls, and ALM as part of the architecture rather than adding governance after development.
+6. Consider a code app when analytics must lead directly to corrective action, AI needs governed enterprise context, and the organization already relies on Microsoft's platform ecosystem.
+
 ## Overview
 
 This lesson explains the core idea behind Microsoft Power Apps code apps as presented in the source: combining the analytical experience historically associated with Power BI with the action-oriented workflows of Power Apps, and increasingly with embedded AI agents, all in a single governed application surface. The message is not that dashboards are going away, but that they are becoming more important as operational control panels in organizations where AI can take actions on behalf of users.
@@ -207,6 +220,26 @@ Compare them on:
 - auditability
 - operational overhead
 - suitability for internal enterprise users
+
+## Test Yourself
+
+<details><summary>How does a Power Apps code app change the traditional relationship between BI and operational workflows?</summary>
+
+It makes one application the surface for viewing metrics, understanding their drivers, and taking corrective action. The source presents this as a way to avoid splitting the Observe-to-Monitor loop across separate reports, apps, and assistants.
+
+</details>
+
+<details><summary>Why does the source argue that AI increases rather than eliminates the importance of dashboards?</summary>
+
+Autonomous or semi-autonomous actions still need trusted metrics, visual context, and observable outcomes. Dashboards therefore become control planes through which users can supervise whether AI-driven activity remains within acceptable limits.
+
+</details>
+
+<details><summary>What is the central tradeoff of using a Power Apps code app instead of an independently hosted React SPA?</summary>
+
+A code app retains pro-code flexibility through React, TypeScript, Git, and CI/CD while operating inside Power Platform's governance boundary. According to the source, this can reduce identity, compliance, sharing, and lifecycle-management overhead, particularly for organizations already invested in Microsoft platforms.
+
+</details>
 
 ## Further Reading
 

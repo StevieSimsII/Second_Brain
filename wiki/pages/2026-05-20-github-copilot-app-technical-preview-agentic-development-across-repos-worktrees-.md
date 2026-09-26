@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> The preview presents the GitHub Copilot App as a GitHub-centered development workspace where agents can handle multiple isolated tasks through branches and worktrees. This matters because repository context, code changes, review, execution, and UI inspection can stay within one workflow.
+
+## Key Takeaways
+
+1. Use a separate Git worktree for each concurrent task to prevent branch collisions and keep changes isolated.
+2. Create full agentic sessions for branch-scoped implementation work; reserve quick chat for temporary questions such as build instructions.
+3. Ground prompts in repository artifacts such as issues, pull requests, selected code, and UI elements instead of relying only on free-text descriptions.
+4. Review every agent-generated change with status and diff tools before committing, checking for unrelated edits and clean task boundaries.
+5. The preview claims integrated terminals and browser views close the loop between generating changes, running the application, inspecting results, and iterating.
+6. The preview positions MCP servers, skills, and plugins as extension points for connecting the agent to external or organization-specific capabilities.
+
 ## Overview
 
 The GitHub Copilot App, as described in this preview walkthrough, is positioned as more than an AI chat client: it is a desktop surface for development workflows centered on GitHub. The key idea is a unified environment where agentic coding sessions, repository context, issues, diffs, notifications, workflows, terminal access, and even browser-based UI inspection live in one place.
@@ -181,6 +194,26 @@ Update the navbar component to be 8px taller, preserve responsive behavior, and 
 ```
 
 This exercise teaches the underlying engineering model even if you do not yet have access to the GitHub Copilot App preview.
+
+## Test Yourself
+
+<details><summary>Why does the preview associate each agentic session with a Git worktree?</summary>
+
+A worktree gives each task its own working directory and branch, allowing multiple sessions to operate concurrently without colliding. It also makes diffs and commits easier to review by keeping task changes separate.
+
+</details>
+
+<details><summary>When should you use a full task session instead of quick chat?</summary>
+
+Use a full session for code changes, investigation, or other work that needs persistent repository context and branch isolation. Use quick chat for transient questions that do not require a dedicated workstream.
+
+</details>
+
+<details><summary>How does the browser-to-chat handoff improve front-end development according to the lesson?</summary>
+
+It lets a developer select a visible UI element and add it directly to the agent's context. The preview suggests this can reduce ambiguity compared with describing the target only in words.
+
+</details>
 
 ## Further Reading
 
