@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Treat recurring AI coding work as explicit, documented skills instead of repeatedly improvising prompts. The speaker argues that separating always-on guidance from on-demand procedures makes workflows clearer, more consistent, and easier to share with collaborators.
+
+## Key Takeaways
+
+1. Document the complete workflow and each individual skill so the skill library functions as a teachable system, not merely a collection of instruction files.
+2. Keep specialized instructions out of the agent’s context until needed; the speaker recommends explicit invocation controls such as `allow implicit invocation false`.
+3. Use a clarification skill such as `wait what?` to turn verbose or unclear model output into plain technical language grounded in the team’s vocabulary.
+4. Organize discovery questions as a dependency graph, asking currently answerable questions in rounds instead of forcing one-question-per-turn exchanges.
+5. Treat agent-facing documents such as `agents.md` as a distinct writing discipline: make instructions concise, predictable, and easy for an agent to follow.
+6. Use deterministic, human-guided scripts for sensitive setup steps such as logging in or entering secrets instead of fully autonomous browser workflows.
+7. Export unresolved decisions into a shareable questionnaire when collaborators cannot participate directly in the agent conversation.
+
 ## Overview
 
 This lesson extracts a practical pattern from a video about a skills repo release. The core idea is to treat AI assistance as a set of explicit, documented, reusable skills rather than a pile of ad hoc prompts. The speaker describes a workflow that starts with documentation, moves through specification and implementation, and adds support skills for clarification, agent-facing writing, deterministic setup flows, and collaboration. Some claims in the source, such as repository ranking, model quality, and tool behavior across coding harnesses, are presented as the speaker's account rather than independently verified evidence.
@@ -37,6 +51,26 @@ A practical way to apply the lesson is to build your knowledge base around repea
 ## Training Exercise
 
 Pick one recurring task you do with an AI coding agent, such as setting up a service, refining a spec, or reviewing implementation decisions. Write a mini skill pack for it with six parts: 1. a one-paragraph purpose statement, 2. a short step-by-step workflow, 3. one explicit trigger for when the skill should be invoked, 4. one clarification rule that forces plain language, 5. a round-based question list that separates prerequisite questions from follow-up questions, and 6. a questionnaire version that a non-technical collaborator could answer in a document. Then test whether a new reader could use your lesson without extra context.
+
+## Test Yourself
+
+<details><summary>Why should specialized skills be explicitly invoked rather than always included in an agent’s context?</summary>
+
+Explicit invocation keeps irrelevant instructions out of the context until they are needed. According to the speaker, this reduces clutter and gives teams more control over agent behavior.
+
+</details>
+
+<details><summary>How does the `Grill Me` approach improve requirements discovery?</summary>
+
+It models questions as a dependency graph and groups the currently answerable ones into rounds. This reduces slow back-and-forth while ensuring prerequisite answers come before dependent questions.
+
+</details>
+
+<details><summary>When does the lesson recommend using a wizard or questionnaire?</summary>
+
+Use a deterministic wizard when a human should perform sensitive or awkward setup steps, such as authentication or secret entry. Use a questionnaire when other people need to review and answer the agent’s open questions outside the chat.
+
+</details>
 
 ## Further Reading
 

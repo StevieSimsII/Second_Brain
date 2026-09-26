@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Reduce AI coding randomness by turning vague ideas into shared context, lightweight specs, feature-sized tickets, tests, and focused reviews. Keeping these skills short and modular lets you revisit the step that needs work without rerunning a rigid pipeline.
+
+## Key Takeaways
+
+1. Interview the user one decision branch at a time until behavior, constraints, style, and priorities are clear enough to record.
+2. Freeze agreed decisions in a lightweight spec without embedded code, so the AI must inspect the current codebase instead of copying stale snippets.
+3. Slice work by end-to-end features, such as a complete login flow, rather than by technical layers like database, backend, and UI.
+4. When requirements are concrete, write tests first, confirm that they fail, and implement until they pass.
+5. Review code with compact refactoring vocabulary—including “shotgun surgery,” “feature envy,” and “data clumps”—to identify change-fragile or misplaced logic.
+6. Use the skills as independent modules in any order; revisit grooming, specification, ticketing, implementation, or review whenever that stage needs refinement.
+7. Favor clear entry points and fewer unnecessary file hops so an AI model can understand behavior with less context and fewer tokens.
+
 ## Overview
 
 This lesson explains a modular approach to using AI for software development, based on the video’s description of Matt Pocock-style “skills.” The core idea is to reduce AI randomness by gathering missing context, freezing decisions into lightweight specs, splitting work into feature-based tickets, implementing with tests where possible, and reviewing code with a compact checklist. A key claim in the source is that these skills are intentionally short and modular so they can be run in any order instead of forcing a rigid end-to-end pipeline. Some popularity claims in the video, such as download rankings and totals, are presented by the speaker and not independently verified in the supplied source.
@@ -37,6 +51,26 @@ Use the workflow as a loop, not a one-way conveyor belt. First, run a grooming-s
 ## Training Exercise
 
 Pick a small app feature, such as user login or checkout. First, write 8-12 grooming questions that narrow one branch of decisions at a time, and answer them as if you were the stakeholder. Second, turn the answers into a one-page spec with no code blocks. Third, split the spec into 3 feature-based tickets, each producing a testable slice of value. Fourth, for one ticket, write the tests before the implementation and list what should fail initially. Fifth, perform a review using these terms: shotgun surgery, feature envy, and data clumps. End by naming one architectural change that would make the feature easier for an AI model to understand in fewer file hops.
+
+## Test Yourself
+
+<details><summary>Why should a specification avoid embedded code snippets?</summary>
+
+Code snippets can become stale and encourage the AI to follow outdated implementation details. A behavior-focused spec pushes the model to inspect the actual codebase before implementing.
+
+</details>
+
+<details><summary>Why are feature-based tickets preferred over tickets divided by technical layer?</summary>
+
+A feature-based ticket can deliver a complete, end-to-end behavior that is independently testable. Layer-based tickets often produce isolated pieces that provide no usable value until several tasks are combined.
+
+</details>
+
+<details><summary>How do modular skills reduce randomness without creating a rigid workflow?</summary>
+
+Each skill adds a focused guardrail—such as gathering context, recording decisions, testing behavior, or reviewing structure—while remaining independently reusable. This lets the developer repeat only the step that needs improvement and run the skills in the order the situation requires.
+
+</details>
 
 ## Further Reading
 

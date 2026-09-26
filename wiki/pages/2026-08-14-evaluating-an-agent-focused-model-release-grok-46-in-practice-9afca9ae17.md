@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Evaluate agent-focused model releases as tradeoff changes across intelligence, reliability, speed, cost, and tooling—not as simple leaderboard upgrades. The speaker finds Grok 4.6 stronger than Grok 4.5 on long-running agent work, but less distinctive on speed and end-to-end cost.
+
+## Key Takeaways
+
+1. Measure whether an agent stays coherent across research, planning, implementation, verification, and follow-up work—not just whether it solves a single prompt.
+2. Treat benchmark gains as signals; validate them with representative tasks because high scores may still produce cleanup-heavy or impractical results.
+3. Calculate end-to-end task cost from token usage, output length, cache pricing, and reasoning time—not just the advertised per-token price.
+4. Stress-test models with the work you actually value, such as codebase audits, migration plans, UI generation, and small end-to-end applications.
+5. Check every release for regressions as well as gains; the speaker’s assessment is that Grok 4.6 improves intelligence while weakening Grok 4.5’s speed and cost advantages.
+6. Evaluate the model and its harness separately because CLI bugs, event-handling failures, and plan-mode issues can make a capable model feel unreliable.
+7. Do not assume better agent behavior requires a new base model; the speaker attributes Grok 4.6’s gains to additional post-training on Grok 4.5.
+
 ## Overview
 
 This lesson turns a model-review video into a reusable framework for evaluating frontier coding models. The speaker’s core claim is that Grok 4.6 looks stronger than Grok 4.5 for long-running agent tasks and benchmark scores, but loses some of the speed and cost advantages that made the earlier version distinctive. The transcript is opinionated and includes noisy benchmark/model names, so treat it as a practitioner case study rather than a neutral lab report.
@@ -35,6 +49,26 @@ Use the transcript’s evaluation method as a four-part rubric. First, separate 
 ## Training Exercise
 
 Pick one model you currently use and evaluate it with the transcript’s rubric. Run four tasks: 1. a codebase audit, 2. a migration or refactor plan, 3. a simple UI generation task, and 4. a small end-to-end implementation. For each task, record: whether it stayed on task, whether it verified its own work, how much cleanup you had to do, approximate latency, and approximate cost. Then write a one-paragraph conclusion answering: what is this model uniquely good at, and what advantage would you lose if the next version became smarter but slower or more expensive?
+
+## Test Yourself
+
+<details><summary>Why are benchmark scores insufficient for choosing an agent-focused coding model?</summary>
+
+The speaker argues that benchmarks do not reliably predict practical usefulness. A model can score well yet lose context, generate cleanup-heavy code, or struggle with the multi-step tasks that matter in real workflows.
+
+</details>
+
+<details><summary>How should the true cost of an agent run be evaluated?</summary>
+
+Measure total token consumption, output length, cache pricing, reasoning duration, and the amount of human cleanup required. The speaker says Grok 4.6 can cost more in practice than Grok 4.5 despite competitive listed prices because it uses more tokens.
+
+</details>
+
+<details><summary>What four probes does the lesson recommend for evaluating a model release?</summary>
+
+Run a codebase audit, a migration or refactor plan, a simple UI-generation task, and a small end-to-end implementation. Record task coherence, self-verification, cleanup effort, latency, and approximate cost for each.
+
+</details>
 
 ## Further Reading
 

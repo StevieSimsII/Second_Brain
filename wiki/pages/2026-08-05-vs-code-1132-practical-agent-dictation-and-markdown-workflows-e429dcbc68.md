@@ -12,6 +12,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> VS Code 1.132 brings agent sessions, editing, browser feedback, dictation, and document review into one connected workflow, reducing context switching during long-running tasks. The release notes also caution that rollout is gradual and hybrid Markdown diffs remain experimental.
+
+## Key Takeaways
+
+1. Run Copilot, Claude, and Codex harnesses in the dedicated agent host, which the release notes say allows the same agent session to connect across multiple VS Code windows.
+2. Use the Agents window and live status pills to start and monitor concurrent sessions, including file changes, Markdown previews, subagent activity, and integrated browser work.
+3. Open a contextual side chat with /btw to ask a question without interrupting the primary agent turn; side chats share its context and prompt cache.
+4. Use on-device dictation in chat, editors, and the terminal; Nemotron 3.5 supports multilingual input, while terminal dictation applies shell-aware cleanup.
+5. Add comments to specific elements in the integrated browser to give agents precise UI feedback instead of describing an entire page.
+6. Review and edit Markdown changes in the hybrid Markdown diff editor, but treat the capability as experimental and potentially subject to change.
+
 ## Overview
 
 This lesson explains the major workflow changes introduced in Visual Studio Code 1.132, released on August 5, 2026. The release centers on agent-driven work: a separate agent host process, an Agents window for monitoring sessions, side chats that preserve context, multilingual on-device dictation, element-level comments in the integrated browser, and experimental Markdown diffs in the hybrid Markdown editor. A practical takeaway is that VS Code is treating chat, editing, browser feedback, terminal use, and document review as one connected loop rather than separate tools. Evidence is strong for the listed features because they are explicitly described in the release notes, but the notes are brief on implementation details and do not fully specify edge cases or performance behavior.
@@ -32,6 +45,26 @@ A practical workflow in VS Code 1.132 looks like this: start an agent session, m
 ## Training Exercise
 
 Open VS Code 1.132 and perform a single end-to-end task: ask an agent to create or revise a Markdown document, monitor progress through the Agents window, open a side chat with /btw to ask one clarifying question, then review the result in the hybrid Markdown diff editor if available. Next, open a web preview in the integrated browser and leave feedback on at least two specific page elements. Finish by dictating one terminal command and one sentence of prose so you can compare shell-aware dictation cleanup with normal text dictation. As you work, note which steps reduce context switching and which still feel manual.
+
+## Test Yourself
+
+<details><summary>How does /btw help during a long-running agent task?</summary>
+
+It opens a side chat that shares the primary chat's context and prompt cache without interrupting the current agent turn. This lets you ask clarifying questions while the main task continues.
+
+</details>
+
+<details><summary>What makes dictation in VS Code 1.132 useful for both prose and terminal commands?</summary>
+
+The release notes say multilingual dictation runs on device and works across chat, editors, and the terminal. Terminal input receives shell-aware cleanup, whereas ordinary text dictation is cleaned up as prose.
+
+</details>
+
+<details><summary>Which VS Code 1.132 feature should be treated most cautiously, and why?</summary>
+
+Hybrid Markdown diffs should be treated cautiously because the release notes label them experimental. They allow editing a modified Markdown document while viewing diff markers, but their behavior may not yet be fully settled.
+
+</details>
 
 ## Further Reading
 

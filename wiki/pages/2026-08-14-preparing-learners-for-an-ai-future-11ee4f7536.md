@@ -11,6 +11,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Diamandis argues that industrial-era schooling underprepares students for an AI-shaped economy. Families and educators can close the gap by developing adaptable mindsets, entrepreneurship, and practical AI literacy through real-world projects.
+
+## Key Takeaways
+
+1. Treat the Moonshots community’s 4.3-out-of-10 future-readiness rating as directional evidence, not a representative population finding, because Diamandis acknowledges the sample may be biased.
+2. Audit learning environments by asking whether students are learning to think with AI, adapt to change, and create real value.
+3. Use Diamandis’s three pillars—mindset, entrepreneurship, and AI skills—to identify gaps in a class, program, or learning routine.
+4. Teach AI literacy as prompting, AI-assisted reasoning, research, critical evaluation, and creative collaboration—not merely traditional programming.
+5. Replace some recall-heavy assignments with projects that require better questions, critical review of AI output, and a useful artifact such as a proposal, explainer, or prototype.
+6. Develop purpose, curiosity, abundance, moonshot ambition, and exponential thinking as habits for responding to rapid change.
+7. Measure whether redesigned learning activities improve readiness instead of assuming that AI use or project-based work is automatically effective.
+
 ## Overview
 
 This lesson turns Peter H. Diamandis's article into a practical framework for evaluating whether education is preparing students for an AI-shaped economy. The source argues that traditional schooling is misaligned with future needs and supports that claim with a survey of the author's Moonshots community. The author explicitly notes that this audience is likely biased, so treat the numbers as directional evidence from a like-minded community, not as a representative population study. The core takeaway is still actionable: if schools underteach AI, families, teachers, and students can still prioritize AI literacy, adaptable thinking, and real-world value creation.
@@ -32,6 +46,26 @@ Use the lesson as a diagnostic and redesign tool. First, audit a learning enviro
 ## Training Exercise
 
 Run a 45-minute redesign exercise. Step 1: Write down one class, program, or learning routine you know well. Step 2: Score it from 1-10 on the three pillars in the source: mindset, entrepreneurship, and AI literacy. Step 3: List one existing activity that mainly rewards recall. Step 4: Rewrite that activity into an AI-age version: require students to ask better questions, use AI as a research partner, evaluate the output critically, and produce a real artifact such as a proposal, explainer, or prototype. Step 5: Add one mindset prompt from the article, such as purpose or curiosity, and ask how the work helps another person. Step 6: Note what evidence you would need to know whether the redesign actually improved readiness, since the source provides a strong argument but only limited survey evidence.
+
+## Test Yourself
+
+<details><summary>What are the three pillars in Diamandis’s proposed education model?</summary>
+
+The three pillars are mindset, entrepreneurship, and AI skills. They are intended to help students keep learning, create value, and work effectively with AI.
+
+</details>
+
+<details><summary>Why should the reported 4.3-out-of-10 future-readiness score be interpreted cautiously?</summary>
+
+It comes from a survey of Diamandis’s Moonshots community, an audience he acknowledges is likely biased. The result is useful as directional evidence from a like-minded group, not as a representative population estimate.
+
+</details>
+
+<details><summary>How can a recall-focused assignment be redesigned for AI-era readiness?</summary>
+
+Require students to formulate strong questions, use AI as a research partner, evaluate its output critically, and create a useful artifact such as a proposal, explainer, or prototype. Add a mindset prompt and define evidence that would show whether the redesign improved readiness.
+
+</details>
 
 ## Further Reading
 

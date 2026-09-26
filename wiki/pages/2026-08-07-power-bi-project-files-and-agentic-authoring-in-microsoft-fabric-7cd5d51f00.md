@@ -15,6 +15,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Power BI Project (PBIP) turns reports and semantic models into inspectable files that teams, scripts, and AI agents can version, edit, and test. Reliable agentic authoring requires both supported tools for changing and verifying artifacts and explicit skills that encode team standards.
+
+## Key Takeaways
+
+1. Use PBIX for convenient single-file packaging and sharing; use PBIP for source control, collaboration, scripted changes, and AI-assisted development.
+2. Treat TMDL as the textual, diffable representation of a semantic model and PBIR as the finer-grained structure for report metadata.
+3. Build automation only on supported metadata-editing paths hardened to tolerate changes made outside Power BI Desktop.
+4. Give agents tools such as MCPs, APIs, and a desktop IPC bridge so they can edit artifacts, reload projects, capture screenshots, and verify results.
+5. Encode naming conventions, modeling rules, and repeatable procedures in skills so agents follow the team’s preferred development practices.
+6. Treat the speaker’s statements about GA timing, default-on behavior, and automatic reloading as time-bound roadmap claims rather than current guarantees.
+
 ## Overview
 
 This lesson explains how Power BI project artifacts make report and semantic-model development easier to inspect, version, automate, and hand off to AI agents. The interview’s strongest evidence is around architecture and intent: PBIP exposes Power BI work as files and folders, TMDL gives semantic models a textual form, PBIR restructures report metadata for safer editing, and agent tooling layers on top through MCPs, APIs, desktop bridging, and skills. Roadmap claims in the interview such as GA timing, default-on behavior, and upcoming auto-reload should be treated as time-bound statements from the speaker, not guaranteed current product status.
@@ -35,6 +48,26 @@ Start by choosing the right artifact form for the job. Use PBIX when the main ne
 ## Training Exercise
 
 Create a short written workflow for a fictional three-person BI team. First, decide when they should use PBIX and when they should use PBIP. Second, define three naming or modeling conventions an AI skill should enforce. Third, describe how an agent would make a report change, reload the project, and verify the result using the interview’s tool pattern of editable files plus desktop testing. Finish by listing two risks the team should watch for, such as relying on preview features or assuming roadmap statements are already shipped.
+
+## Test Yourself
+
+<details><summary>When should a team choose PBIP instead of PBIX?</summary>
+
+Choose PBIP when the work requires version control, parallel development, scripted bulk changes, inspectable diffs, or AI-assisted authoring. PBIX remains useful when easy packaging and sharing as one file are the priority.
+
+</details>
+
+<details><summary>What roles do TMDL and PBIR play in a Power BI project?</summary>
+
+TMDL expresses semantic-model definitions as editable text. PBIR divides report metadata into smaller artifacts, such as pages and visuals, making changes easier to inspect, compare, and automate.
+
+</details>
+
+<details><summary>What two layers are needed for reliable agentic authoring?</summary>
+
+Agents need tools—including MCPs, APIs, and desktop bridging—to edit, reload, test, and observe artifacts. They also need skills that encode procedures, constraints, naming conventions, and other team knowledge.
+
+</details>
 
 ## Further Reading
 

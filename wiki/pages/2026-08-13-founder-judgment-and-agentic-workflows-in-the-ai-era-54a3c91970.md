@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Founder judgment comes from direct experience and earnest conviction, while AI turns that judgment into leverage through reusable instructions, tests, and feedback loops. This matters because documented workflows can preserve learning, reduce coordination costs, and let small teams accomplish more.
+
+## Key Takeaways
+
+1. Choose problems you understand firsthand instead of following prestige, trends, or secondhand narratives.
+2. Treat claims about the future of SaaS, management, and consumer AI as the speaker’s informed speculation, not established fact.
+3. Turn each successfully completed AI-assisted task into a reusable asset containing markdown instructions, supporting code, tests, and a clear success check.
+4. Improve agentic workflows through a repeated loop: run the task, inspect failures, encode fixes, and rerun it.
+5. Add provenance, recency, and conflict-resolution rules as stored workflows and facts multiply.
+6. Use AI to expose blockers, share context, and reduce coordination overhead—not merely to generate code faster.
+7. Keep human judgment focused on selecting worthwhile problems and defining good outcomes; delegate repeatable execution only after verification.
+
 ## Overview
 
 This lesson distills an interview about founder psychology, startup culture, and AI-enabled ways of working. The core argument is that strong builders should rely less on status signals and more on direct experience, unusual insight, and repeated practice. The speaker ties that mindset to a practical operating model for AI: treat prompts, markdown instructions, tests, and retrieval systems as reusable operational assets that can encode business processes. Much of the source is personal anecdote and forward-looking opinion rather than hard evidence, so claims about the future of SaaS, management, or consumer AI should be treated as informed speculation, not settled fact.
@@ -36,6 +50,26 @@ Use the lesson as a decision and operations playbook. First, choose a problem wh
 ## Training Exercise
 
 Pick one recurring knowledge-work task you personally do at least weekly, such as summarizing meetings, preparing bug reports, triaging customer feedback, or drafting product briefs. Write a one-page note with four sections: the task goal, the exact inputs, the definition of a good output, and the common failure modes. Then run the task once with an AI assistant and inspect the result. Revise the note into a reusable operating procedure, adding one verification step and one rule for how to resolve conflicting information. Finally, reflect on two questions: what part required your judgment, and what part can now be delegated reliably to a repeatable workflow?
+
+## Test Yourself
+
+<details><summary>Why does the lesson favor direct experience over trend-following when choosing startup problems?</summary>
+
+The speaker argues that firsthand contact with users and systems reveals opportunities that status signals and social consensus may obscure. This is presented as founder advice grounded largely in personal experience.
+
+</details>
+
+<details><summary>How does a one-off AI-assisted task become a durable operational asset?</summary>
+
+Document the task in reusable markdown instructions, include any supporting code and tests, define a clear success check, and encode fixes discovered through repeated runs.
+
+</details>
+
+<details><summary>Why do agentic systems need provenance and conflict-resolution rules?</summary>
+
+As instructions and facts accumulate, they may become outdated or contradict one another. Provenance, recency, and conflict rules help the system decide which information is more trustworthy.
+
+</details>
 
 ## Further Reading
 

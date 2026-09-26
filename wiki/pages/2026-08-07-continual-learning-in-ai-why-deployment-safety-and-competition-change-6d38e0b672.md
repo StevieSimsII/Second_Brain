@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> True continual learning would make real-world deployment part of an AI system’s training, because complex skills may require experience to be internalized rather than merely saved as notes. The speaker argues that this shift would reshape safety oversight, competition, customer lock-in, and the economics of personalized models.
+
+## Key Takeaways
+
+1. Treat deployment as an ongoing training phase when a model’s weights continue changing through real-world use.
+2. Replace one-time pre-release evaluation with periodic inspection if deployed systems keep learning and changing.
+3. Design alignment methods for continuously updated weights, including defenses against jailbreaks and malicious user influence.
+4. Expect AI systems to diverge as different users, firms, and deployments expose them to different experiences.
+5. Account for stronger early-release incentives because the speaker argues that usage data could become a primary source of model improvement.
+6. Plan for higher switching costs when an assistant internalizes organization-specific experience that cannot be transferred through notes alone.
+7. Evaluate whether large-scale request batching makes personalized model serving more economical for large organizations than for individual users.
+
 ## Overview
 
 This lesson explains a transcripted argument for why AI systems may need true continual learning, not just session-to-session notes, to perform complex work reliably. The speaker’s core claim is that some skills require experience to accumulate inside the model itself, much like a person learning an instrument. From that premise, the lesson traces several consequences the speaker expects if models keep updating during real-world use: safety regulation can no longer treat training and deployment as cleanly separated stages; alignment research must handle systems whose weights change constantly; model behavior may diversify across users and firms; leading labs may gain stronger advantages from usage data; and switching costs, enterprise lock-in, and inference economics may all shift. These are presented as forward-looking claims and strategic implications, not established outcomes.
@@ -36,6 +50,26 @@ Use the transcript as a causal chain. Start with the premise: some valuable skil
 ## Training Exercise
 
 Pick one AI product category such as coding assistants, customer support agents, or enterprise research tools. Write a one-page analysis with four sections: 1. What would the system need to learn from real usage that notes or prompts cannot capture? 2. How would safety evaluation need to change if the model updates weekly? 3. What new business moat or lock-in would continual learning create for the provider and for customers? 4. Would scale make personalized serving cheaper for large organizations than for individual users? For each section, label every claim as either directly supported by the transcript, a reasonable inference from it, or an open speculation.
+
+## Test Yourself
+
+<details><summary>Why does the lesson distinguish continual learning from agents passing notes between sessions?</summary>
+
+The speaker claims that notes can preserve explicit information but cannot fully reproduce experience internalized by a learner. If complex practical skills depend on that internalized experience, the model itself must continue learning.
+
+</details>
+
+<details><summary>How would continual learning change AI safety evaluation after deployment?</summary>
+
+A one-time pre-release check would become less informative because the model’s weights and behavior could keep changing. The speaker suggests periodic inspection and alignment methods that remain effective under constant updates and potentially malicious inputs.
+
+</details>
+
+<details><summary>What competitive effects does the speaker expect from continual learning?</summary>
+
+The speaker argues that usage data could reward earlier deployment, strengthen leading labs’ advantages, and increase customer lock-in as systems accumulate organization-specific experience. Large providers may also gain cost advantages by batching personalized inference across many users.
+
+</details>
 
 ## Further Reading
 

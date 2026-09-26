@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Treat scarce compute allocation as a company's revealed AI strategy: directing capacity toward external cloud customers can strengthen near-term platform revenue while limiting internal frontier-model research. Evaluate that tradeoff by separating reported personnel, usage, and financial signals from the source's interpretations.
+
+## Key Takeaways
+
+1. Track who controls chips, TPUs, and long-term capacity; the source argues that compute ownership determines whether an AI company behaves more like a frontier lab or a cloud supplier.
+2. Separate first-party model demand from platform demand; GCP can grow through enterprise access to third-party models such as Claude even if Gemini's own API growth slows.
+3. Monitor senior technical departures alongside hardware access; the source interprets repeated DeepMind exits, especially in reinforcement learning and research leadership, as a warning about future frontier capability.
+4. Classify evidence before accepting a strategic narrative: reported leadership changes and usage figures are observations, while claims that DeepMind is no longer a frontier lab are judgments.
+5. Trace the tradeoff from contract to outcome: external TPU commitments may reduce internal research flexibility while increasing backlog, bookings, margins, and earnings.
+6. Use concrete indicators to detect a strategic shift, including researcher inflows and outflows, first-party token growth, platform revenue growth, and external compute backlog.
+7. Treat the reported Gemini growth from 10B to 16B to 22B tokens per minute and estimated 82% GCP growth as source-reported figures that require validation, not established facts.
+
 ## Overview
 
 This lesson turns an opinionated market note into a reusable framework for analyzing AI platform strategy. The source argues that Google is prioritizing Google Cloud Platform (GCP) revenue and external compute sales over DeepMind/Gemini frontier-model ambition, using leadership changes, reported talent departures, token growth deceleration, and estimated TPU backlog as evidence. Because many claims are estimates or interpretations from SemiAnalysis rather than primary company disclosures, the practical goal is not to memorize the verdict, but to learn how to evaluate compute allocation, incentives, and business model tradeoffs inside an AI company.
@@ -32,6 +46,26 @@ Use the source as a strategy-reading template. First, identify the thesis: GCP i
 ## Training Exercise
 
 Build a two-column memo called 'Observed facts' and 'Interpretations.' From the source, place items like the August 2026 leadership overhaul, reported Gemini token growth from 10B to 16B to 22B tokens per minute, estimated 82% GCP growth, and estimated TPU backlog in the first column. Put claims such as 'DeepMind is no longer a frontier lab' and 'Thomas Kurian won' in the second. Then write a short conclusion answering one question: if you were evaluating another AI company, which three indicators would you track first to detect a shift from frontier-research focus to infrastructure monetization?
+
+## Test Yourself
+
+<details><summary>Why does the framework treat compute allocation as a strategic signal?</summary>
+
+Frontier research and external cloud sales compete for scarce chips, TPUs, and long-term capacity. The source argues that where management sends that capacity reveals whether it prioritizes model leadership or infrastructure monetization.
+
+</details>
+
+<details><summary>Why should Gemini demand be evaluated separately from GCP platform demand?</summary>
+
+A cloud platform can grow by serving enterprise customers and hosting third-party models such as Claude even when its first-party model slows. Platform success therefore does not necessarily prove that Gemini remains competitive at the frontier.
+
+</details>
+
+<details><summary>How should you test the source&#x27;s claim that Google is shifting away from frontier research?</summary>
+
+Separate observations from interpretations, then examine personnel changes, first-party usage growth, platform revenue, and external TPU commitments. Look for a credible causal link between those signals and reduced internal research capacity rather than treating an opinionated verdict as fact.
+
+</details>
 
 ## Further Reading
 

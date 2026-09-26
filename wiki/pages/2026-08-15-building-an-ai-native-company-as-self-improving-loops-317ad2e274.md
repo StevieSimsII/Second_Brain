@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> An AI-native company is designed as a set of closed loops that observe work, act through tools, check results, and learn from outcomes. This matters because narrow, measurable loops can improve continuously while humans concentrate on judgment, trust, and high-stakes exceptions.
+
+## Key Takeaways
+
+1. Start with one narrow workflow whose inputs, tools, and success or failure signals can be measured.
+2. Make organizational knowledge legible to AI by recording decisions, meetings, advice, and workflows in transcripts, documents, public discussions, or logs.
+3. Close each automation loop with outcome feedback so the system can identify recurring failures and propose or implement improvements.
+4. Use automated quality gates—such as tests, approval rules, audit logs, or an adversarial reviewer model—before allowing consequential actions.
+5. Keep ethical decisions, novel situations, cultural context, persuasion, and existentially risky choices under human control.
+6. The speaker recommends spending on computation and automation before adding headcount, while favoring small teams of directly responsible builders over management-heavy structures.
+7. Treat the model as experimental: the speaker says no settled playbook for building AI-native companies yet exists.
+
 ## Overview
 
 This lesson explains an emerging model for "AI-native" companies described in the source: instead of treating AI as a chatbot or productivity add-on, design the company as a set of self-improving loops that observe work, act through tools, evaluate results, and learn. The speaker is explicit that this is still theoretical and not fully solved; the ideas are based on experiments across many YC companies and internal YC systems rather than a settled playbook. The practical takeaway is to make company knowledge legible to AI, automate closed-loop improvement where outcomes are measurable, and keep humans focused on judgment, trust, and high-stakes edge cases.
@@ -50,6 +64,26 @@ Pick one recurring workflow in your organization and redesign it as a closed AI 
 7. Finally, decide which decisions remain human-only and explain why.
 
 A strong result is not a fully autonomous system. A strong result is a narrow loop that can run repeatedly, leave an audit trail, and improve from observed outcomes without pretending the uncertainty is solved.
+
+## Test Yourself
+
+<details><summary>What makes an AI workflow a self-improving loop rather than a one-time automation?</summary>
+
+It observes signals, acts through tools under defined policies, evaluates the result through quality gates, and feeds outcomes back into future improvements. The loop is closed when it can learn or initiate fixes without waiting for routine human intervention.
+
+</details>
+
+<details><summary>Why is legibility essential to the proposed AI-native company model?</summary>
+
+The speaker argues that AI can only use knowledge captured in readable artifacts. Transcripts, documents, shared discussions, telemetry, and logs turn otherwise hidden organizational knowledge into material AI systems can search, evaluate, and reuse.
+
+</details>
+
+<details><summary>What should remain human-controlled in an AI-native company?</summary>
+
+Humans should retain responsibility for ethical calls, ambiguous or novel situations, cultural judgment, trust, persuasion, and high-stakes risks. Narrow and measurable work can be automated more safely when escalation rules and audit trails are preserved.
+
+</details>
 
 ## Further Reading
 

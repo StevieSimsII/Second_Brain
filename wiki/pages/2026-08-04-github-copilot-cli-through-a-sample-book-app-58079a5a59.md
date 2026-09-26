@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot CLI is most useful when treated as part of a terminal-based engineering workflow, not merely as a question-answering tool. Specific, context-rich prompts let it support multi-file analysis, reviews, debugging, testing, and reusable automation.
+
+## Key Takeaways
+
+1. Follow chapters `00` through `07` in order to progress from setup and prompting to context management, specialized agents, reusable skills, MCP integration, and combined workflows.
+2. Provide relevant project and multi-file context instead of isolated prompts; the course treats context gathering as essential to useful Copilot CLI conversations.
+3. Apply Copilot CLI within normal engineering loops such as code review, debugging, refactoring, Git operations, and test generation.
+4. Use `samples/book-app-project` alongside `samples/book-app-buggy` to compare working and failing Python implementations and formulate concrete questions about structure, data flow, and failure points.
+5. Create role-specific behavior with agent files such as `.github/agents/python-reviewer.agent.md` when a recurring task needs more focused guidance than a generic prompt.
+6. Package repeated procedures as `SKILL.md` skills, and use MCP configuration such as `samples/mcp-configs/mcp-config.json` to connect the CLI with reusable capabilities and external systems.
+7. Judge the training exercise by whether successive prompts become more specific, context-rich, and workflow-oriented—not by whether the model produces a perfect first answer.
+
 ## Overview
 
 This repository is a beginner course for learning GitHub Copilot CLI from the terminal. The material is organized as a sequence of Markdown chapters, and it uses a recurring book-collection sample app to teach installation, first prompts, multi-file context, code review, debugging, test generation, custom agents, reusable skills, MCP server integration, and end-to-end workflows. The evidence supports a documentation-first repository with runnable examples and sample code in multiple languages rather than a single production application.
@@ -32,6 +46,26 @@ Observed architecture: the root contains course documentation (`README.md`, chap
 ## Training Exercise
 
 Open the repository's Python sample at `samples/book-app-project` and the buggy variant at `samples/book-app-buggy`. First, write down three concrete questions you would ask Copilot CLI about the code structure, data flow, and likely failure points. Next, compare those questions with the course progression: use the mindset of chapter `02` for context gathering, then chapter `03` for debugging or test generation. Finish by drafting one custom agent idea and one reusable skill idea that would help maintain the book app repeatedly. Your success criterion is not a perfect answer from the model, but whether your prompts become more specific, context-rich, and workflow-oriented across the exercise.
+
+## Test Yourself
+
+<details><summary>Why does the course emphasize project context rather than isolated prompts?</summary>
+
+The lesson presents Copilot CLI as more useful when it can analyze relevant files and continue a multi-turn conversation. That context supports better reasoning about code structure, data flow, and failures across a project.
+
+</details>
+
+<details><summary>How should a learner use the two Python book-app samples in the training exercise?</summary>
+
+Inspect `samples/book-app-project` and `samples/book-app-buggy`, then ask concrete questions about structure, data flow, and likely failure points. Apply chapter `02` habits for gathering context and chapter `03` techniques for debugging or generating tests.
+
+</details>
+
+<details><summary>What distinct roles do custom agents, reusable skills, and MCP servers play?</summary>
+
+Custom agents provide specialized role-based behavior, skills package procedures for repeated use, and MCP servers connect the CLI to external systems or capabilities. Together, the course presents them as ways to extend a basic terminal workflow.
+
+</details>
 
 ## Further Reading
 

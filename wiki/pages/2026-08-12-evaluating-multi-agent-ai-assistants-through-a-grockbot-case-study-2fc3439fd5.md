@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Evaluate agent platforms by how well they make work observable, interruptible, teachable, schedulable, and interoperable—not only by model quality. The Grockbot demo suggests convenience and rapid setup, but its claims require validation beyond one enthusiastic review.
+
+## Key Takeaways
+
+1. Use observability, interruptibility, teachability, scheduling, and interoperability as a five-part rubric for evaluating agent tools.
+2. Treat Grockbot’s named agents and shared context as reviewer-reported features, not independently verified capabilities.
+3. Teach-by-demonstration can turn a process performed once in the browser into a reusable skill, according to the reviewer.
+4. Clarifying questions can reduce ambiguity before an agent finalizes a task or learned workflow.
+5. Cloud-hosted agent desktops may let users watch actions, intervene, and grant account access within separate workspaces.
+6. Scheduled routines can convert successful one-off tasks into recurring processes with instructions and run histories.
+7. Choose polished, closed tools for faster onboarding; consider open-source alternatives such as Hermes or OpenClaw when deeper customization matters more.
+
 ## Overview
 
 This lesson uses a single YouTube transcript as a case study in how to evaluate an AI agent platform. The source presents Grockbot as a computer-using assistant with multiple named agents, shared context, cloud-hosted desktops, teach-by-demonstration workflows, plugins, and scheduled routines. Because the evidence is one reviewer-led demo, treat product claims as observed assertions from the transcript rather than verified facts. The practical takeaway is not just what Grockbot allegedly does, but how to assess any agent tool: setup cost, visibility into actions, ability to learn repeatable tasks, coordination across agents, and tradeoffs between convenience and customization.
@@ -36,6 +50,26 @@ Start by treating the source as a product-evaluation walkthrough. The reviewer's
 ## Training Exercise
 
 Pick one repetitive computer task you already do, such as collecting links, summarizing emails, or transforming notes into a document. Write a short evaluation memo for an agent platform using this five-part rubric derived from the transcript: 1. How would you show the agent the task: text instructions or live demonstration? 2. What actions would you need to observe in real time before trusting it? 3. What prior context or accounts would the agent need? 4. Should the task become a one-off execution or a scheduled routine? 5. Would you prefer a polished closed tool or a more customizable open system for this task, and why? Conclude by listing one risk, one likely productivity gain, and one missing piece of evidence you would want before adopting the tool.
+
+## Test Yourself
+
+<details><summary>What five criteria does the lesson recommend for evaluating an agent platform?</summary>
+
+Assess whether the platform is observable, interruptible, teachable, schedulable, and interoperable. These criteria focus on workflow reliability and control rather than raw model quality alone.
+
+</details>
+
+<details><summary>Why should the Grockbot claims be treated cautiously?</summary>
+
+The evidence comes from a single enthusiastic reviewer-led demonstration, without comparative benchmarks or supporting documentation. The lesson therefore treats the features as observed assertions rather than established facts.
+
+</details>
+
+<details><summary>When might an open-source agent platform be preferable to a polished closed tool?</summary>
+
+An open-source platform may be preferable when deep customization and control matter more than immediate productivity and minimal setup. The right choice depends on the task, required integrations, and tolerance for configuration work.
+
+</details>
 
 ## Further Reading
 

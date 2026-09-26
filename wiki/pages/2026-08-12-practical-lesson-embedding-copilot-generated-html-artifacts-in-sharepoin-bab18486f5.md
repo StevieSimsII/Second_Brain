@@ -12,6 +12,19 @@ depth: 1
 actionability: 2
 ---
 
+## TL;DR
+
+> Use a SharePoint Embed web part as an interim way to surface Copilot-generated HTML artifacts, but evaluate hosting, permissions, and unwanted viewer controls before relying on it. Because the guidance suggests more direct SharePoint support may be coming, avoid overinvesting in a workaround without checking the current roadmap.
+
+## Key Takeaways
+
+1. Embed Copilot-generated HTML artifacts in a test SharePoint page with an Embed web part before adopting the approach broadly.
+2. Define where the HTML artifact will be hosted and confirm that SharePoint users can reach it with the required permissions.
+3. Review the embedded experience for browser or viewer chrome that may make the artifact feel less integrated with SharePoint.
+4. Consider a custom web part when standard embedding controls are unacceptable or page and full-page modes are required.
+5. Reassess custom implementation work against Microsoft 365 roadmap item 569208, which the source comments cite as evidence of planned fuller HTML page support.
+6. Treat the workflow as field guidance from LinkedIn posts and comments because the source does not establish exact setup, security, compatibility, or hosting requirements.
+
 ## Overview
 
 This lesson covers a practical workaround described in the source: embedding Copilot-generated HTML artifacts into SharePoint pages by using SharePoint Embed web parts. The evidence is limited to a LinkedIn post and comments, so treat it as field guidance rather than full product documentation. The source also indicates that more direct SharePoint support for rendering generated HTML pages may be on the way, which could reduce the need for this workaround.
@@ -32,6 +45,26 @@ Observed workflow from the source: first, generate an HTML artifact with Copilot
 ## Training Exercise
 
 Create a short checklist for your own knowledge base: 1. Define the artifact you want Copilot to generate in HTML. 2. Note where that HTML will be hosted or made reachable to SharePoint. 3. Add a SharePoint Embed web part to a test page and embed the artifact. 4. Evaluate whether the result is acceptable with standard viewer controls. 5. Record when an Embed web part is sufficient versus when a cleaner custom web part or future native SharePoint support would be preferable. 6. Add an evidence note that this guidance comes from a LinkedIn post and comments, not complete official documentation.
+
+## Test Yourself
+
+<details><summary>What is the main workaround for displaying Copilot-generated HTML artifacts in SharePoint?</summary>
+
+Place the hosted HTML artifact inside a SharePoint page using an Embed web part. The source presents this as an interim workflow rather than documented native HTML-page support.
+
+</details>
+
+<details><summary>What should be evaluated after embedding the artifact?</summary>
+
+Confirm that users can access the hosted HTML and inspect the experience for extra viewer controls or browser chrome. Also verify permissions, compatibility, and other requirements that the source leaves unspecified.
+
+</details>
+
+<details><summary>Why should teams avoid overinvesting in a custom solution immediately?</summary>
+
+The source comments cite Microsoft 365 roadmap item 569208 as evidence that fuller SharePoint support for generated HTML may be planned. A custom web part may still help now, but future native support could make it unnecessary.
+
+</details>
 
 ## Further Reading
 

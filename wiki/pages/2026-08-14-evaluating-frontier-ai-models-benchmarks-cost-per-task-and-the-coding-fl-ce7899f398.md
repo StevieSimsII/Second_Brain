@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Choose frontier AI models by task-specific results and cost per completed task—not benchmark rank or token price alone. Hands-on comparisons reveal whether benchmark strength translates into useful, reliable work.
+
+## Key Takeaways
+
+1. Define the task class first—coding, legal drafting, or general knowledge—then use benchmarks that match it.
+2. Calculate cost per completed task because a low token price can still produce an expensive workflow when a model consumes more tokens.
+3. Run the same realistic prompt across candidate models and compare output quality, time to usable output, total cost, and concrete failure modes.
+4. Treat coding performance separately from broad knowledge performance; strength on general benchmarks does not guarantee strong hands-on coding behavior.
+5. The speaker argues that coding products create a flywheel: developer usage generates data and revenue that can support training better future models.
+6. The transcript describes Grok 4.5 assisting with Grok 4.6 training data as model-assisted post-training, not fully autonomous self-improvement.
+7. Treat the speaker’s claims about acquisitions, compute partnerships, market position, and roadmaps as interpretations unless independently verified.
+
 ## Overview
 
 This lesson turns an opinionated video transcript about xAI's Grok 4.6 into a reusable framework for judging frontier AI models. The source argues that model quality alone is not enough: you should compare benchmarks, real coding behavior, and cost per completed task. It also claims that coding products create a feedback loop in which usage data, revenue, and model training reinforce each other. Because the source is a commentary transcript rather than primary documentation, treat product, benchmark, acquisition, and roadmap claims as reported by the speaker unless independently verified.
@@ -36,6 +50,26 @@ Use this four-step evaluation loop when choosing an AI model for practical work.
 ## Training Exercise
 
 Pick three current AI models and test them on one realistic task from your work, such as implementing a small UI component, summarizing a technical document, or drafting a legal-style memo. For each model, record: 1. the task result quality, 2. the time to usable output, 3. approximate cost per completed task, and 4. one concrete failure mode. Then write a short recommendation naming the best model for that task and explain whether your decision was driven more by benchmark-style performance, subjective output quality, or total cost.
+
+## Test Yourself
+
+<details><summary>Why is cost per completed task more useful than token price alone?</summary>
+
+Token price does not show how many tokens or retries a model needs to finish useful work. Cost per task captures the effective expense of reaching an acceptable result.
+
+</details>
+
+<details><summary>What four factors should a hands-on model comparison record?</summary>
+
+Record result quality, time to usable output, approximate cost per completed task, and at least one concrete failure mode. Use the same realistic prompt so the comparison is meaningful.
+
+</details>
+
+<details><summary>What is the coding flywheel described in the lesson?</summary>
+
+The speaker argues that coding-product usage produces data and revenue, which can feed model training and product improvement. Better models can then attract more usage, reinforcing the cycle.
+
+</details>
 
 ## Further Reading
 

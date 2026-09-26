@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Govern GitHub Copilot harness costs before production because makers can consume Copilot Credits while building, previewing, and evaluating agents. A repeatable inventory, classification, control, and review cycle keeps experimentation bounded while preserving production continuity.
+
+## Key Takeaways
+
+1. Start governance during development because the source says GitHub Copilot harness agents can consume Copilot Credits while makers build, preview, and evaluate them.
+2. Use the `isCLIAgent` property in Power Platform Inventory to identify GitHub Copilot harness agents, then map each agent to its environment and owner.
+3. Classify every environment as maker development or funded production usage before choosing allocations, tenant-pool access, pay-as-you-go billing, and capacity-exhaustion behavior.
+4. Set default monthly limits for maker-development agents; size production-agent limits according to expected usage and service criticality.
+5. Apply both environment-level controls and agent-level limits because an individual agent limit does not cap total environment consumption.
+6. Use PPAC for manual governance in smaller estates and Power Platform APIs for scalable inventory, allocation, entitlement, and threshold management.
+7. Regularly rescan for new agents and environments, compare actual settings with approved controls, preserve authorized exceptions, and remediate drift.
+
 ## Overview
 
 This lesson teaches a repeatable governance approach for controlling Copilot Credit consumption from GitHub Copilot harness agents in Copilot Studio. The source emphasizes that costs can occur during maker development, not just after production release, so organizations should discover harness agents, classify their environments, apply environment and agent controls, and repeat the review through manual or automated checks.
@@ -33,6 +47,26 @@ Start by identifying Copilot Studio agents that use the GitHub Copilot harness a
 ## Training Exercise
 
 Create a governance checklist for a fictional tenant with two environments: one maker sandbox and one production environment. For each, specify the intended funding model, whether tenant-pool draw is allowed, whether pay-as-you-go is enabled, and what alert or deny behavior should occur at capacity exhaustion. Then define a default monthly agent limit for maker-development agents, identify who should approve exceptions, and outline which steps you would automate through inventory and allocation APIs.
+
+## Test Yourself
+
+<details><summary>Why must cost governance begin before a harness agent reaches production?</summary>
+
+The source says Copilot Credits can be consumed while makers build, preview, and evaluate agents. Waiting until production would leave design-time usage uncontrolled.
+
+</details>
+
+<details><summary>How should environment classification affect governance controls?</summary>
+
+Maker-development environments should generally receive bounded exploration through stricter allocations and agent limits. Funded production environments should use controls designed around expected demand, approved funding, and service continuity.
+
+</details>
+
+<details><summary>Why are agent-level limits insufficient by themselves?</summary>
+
+An agent limit creates a monthly boundary for one use case, but the source notes that it does not cap total consumption across the environment. Environment controls are also needed to govern reserved credits, tenant-pool access, pay-as-you-go billing, and exhaustion behavior.
+
+</details>
 
 ## Further Reading
 

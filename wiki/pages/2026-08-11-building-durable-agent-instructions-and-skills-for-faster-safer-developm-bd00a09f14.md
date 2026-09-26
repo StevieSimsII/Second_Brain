@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat agent instructions and skills as maintainable infrastructure: encode recurring preferences and observed failure modes, then refine them through real work. Theo reports that this makes coding agents faster, safer, and easier to collaborate with, though the evidence presented is experiential rather than experimental.
+
+## Key Takeaways
+
+1. Build global instruction files around durable cross-project defaults such as simplicity, destructive-action safety, proportionate verification, code style, and communication—not repository discovery.
+2. Write skill descriptions as intent-based triggers, such as “use when the user asks to file, open, or create a PR,” and keep the detailed workflow inside the skill body.
+3. Audit the last 10–20 agent-driven tasks to identify repeated failures before adding rules; useful evidence includes thread histories, shell logs, PRs, review comments, and recurring corrections.
+4. Separate skills when their triggers and goals differ—for example, filing a PR and babysitting an existing PR require different workflows and scope controls.
+5. Add project-level glossaries, architectural boundaries, supported surfaces, contract locations, and non-negotiables so the agent knows what must remain consistent.
+6. Turn concrete local risks into narrow guardrails, including process management, dev servers, credentials, cross-surface updates, verification, and preventing review feedback from expanding scope.
+7. Do not copy another person’s setup wholesale; observe your own workflows and encode only rules that address recurring problems you actually experience.
+
 ## Overview
 
 This lesson teaches a practical method for improving coding-agent performance by treating instruction files and skills as maintainable infrastructure. In the source, Theo reports large productivity gains after rewriting global agent instructions, adding task-specific skills, auditing real agent histories, and tuning project-level guidance for T3 Code. The core idea is not to build a perfect universal prompt, but to iteratively encode recurring preferences, failure modes, and communication patterns so agents behave more predictably across machines and repositories. Evidence is experiential rather than experimental: the transcript provides concrete examples and observed outcomes, but not controlled benchmarks.
@@ -49,3 +63,23 @@ Pick one repository you use often and review your last 10-20 agent-driven tasks.
 3. A project instruction file with a glossary, 3 non-negotiables, and one checklist for areas that must stay in sync.
 
 Next, run one real task using the new setup. Afterward, compare the result against a recent older task. Evaluate four things: prompt length, number of corrective messages you had to send, clarity of the final PR or summary, and whether the agent avoided the failure modes you targeted. Revise only the rules that clearly helped or clearly failed.
+
+## Test Yourself
+
+<details><summary>What belongs in global instructions rather than a task-specific skill or project instruction file?</summary>
+
+Global instructions should contain durable defaults that apply across projects, such as safety boundaries, simplicity preferences, verification habits, code style, and communication expectations. Task workflows belong in skills, while repository-specific terminology and constraints belong in project instructions.
+
+</details>
+
+<details><summary>Why should a skill description focus on trigger phrases?</summary>
+
+Its primary purpose is to help the agent decide when the skill should be loaded. Detailed checks, cautions, and workflow steps can then live in the skill body without making activation ambiguous.
+
+</details>
+
+<details><summary>How should you evaluate whether new agent guidance is helping?</summary>
+
+Run it on a real task and compare it with an older task using prompt length, corrective-message count, final PR or summary clarity, and avoidance of targeted failure modes. Revise only rules that clearly helped or failed.
+
+</details>

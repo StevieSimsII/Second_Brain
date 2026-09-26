@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot canvases can turn repository context into focused interfaces for triage, monitoring, agent handoffs, and workflow control, reducing context switching. The demo also shows that canvas actions remain constrained by repository configuration, such as whether a workflow supports manual dispatch.
+
+## Key Takeaways
+
+1. Define one narrow job—such as issue triage, PR review preparation, or workflow monitoring—before generating a canvas.
+2. Ask the canvas to combine relevant repository context with a small, explicit set of follow-up actions.
+3. Use locally saved urgency and effort scores to rank issues consistently before deciding what to tackle.
+4. Launch narrowly scoped agent sessions with explicit instructions such as “refine the spec” or “plan implementation.”
+5. Treat operational actions as attempts subject to repository configuration; the demonstrated workflow could not run without `workflow_dispatch`.
+6. Limit dashboard-style canvases to repositories and signals you actively monitor, such as open PRs, stale releases, and failed deployments.
+7. The speaker demonstrates importing and sharing canvases through a Gister URL with user, project, or session scope, but these behaviors should not be treated as guaranteed platform specifications.
+
 ## Overview
 
 This lesson explains GitHub Copilot app canvases as demonstrated in the supplied video transcript. A canvas is presented as a generated, repo-aware interface that helps a developer inspect issues, PRs, releases, deployments, and actions, then take follow-up actions without leaving the Copilot app. The transcript gives strong anecdotal evidence for several workflows: issue triage with scoring, dashboard-style repo hubs, starting new agent sessions from UI actions, triggering GitHub Actions workflows, and importing community canvases. Because the source is a product demo transcript rather than formal documentation, treat the exact commands, scopes, and capabilities as demonstrated behavior, not guaranteed platform specification.
@@ -36,6 +50,26 @@ Use this pattern when you want a reusable control surface for repetitive reposit
 ## Training Exercise
 
 Design a canvas prompt for your own repository. Keep it limited to one job: issue triage, PR review prep, or workflow monitoring. Specify 1) the data to show, 2) the actions to expose, 3) any scoring or prioritization rules, and 4) what should happen when the user clicks an action. Then evaluate your design against the transcript: does it reduce context switching, create focused agent handoffs, and respect repo-level constraints such as whether a workflow is dispatchable?
+
+## Test Yourself
+
+<details><summary>What makes a canvas useful for repetitive repository work?</summary>
+
+According to the demo, it combines relevant repository information and a few task-specific actions in one interface, reducing context switching and making the workflow reusable.
+
+</details>
+
+<details><summary>How should canvas actions hand work off to another agent session?</summary>
+
+They should create a focused session with explicit instructions, such as refining a specification or planning an implementation, rather than an ambiguous request to work on the repository.
+
+</details>
+
+<details><summary>Why might a workflow-triggering action fail even if the canvas supports it?</summary>
+
+Repository capabilities still govern execution. In the transcript, a workflow could not be triggered because it did not declare `workflow_dispatch`.
+
+</details>
 
 ## Further Reading
 
