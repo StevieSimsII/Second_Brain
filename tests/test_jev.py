@@ -175,5 +175,39 @@ class BackfillProfileTests(unittest.TestCase):
         ask.assert_not_called()
 
 
+
+@patch("ingest.jev.config.TYPESAFE_API_KEY", "test-key")
+class TopicPrecisionTests(unittest.TestCase):
+    def test_broad_topic_needs_stronger_evidence(self) -> None:
+        answers = _answers(**{
+            jev._key("topic", "software-engineering"): {"type": "noul", "noul": 0.7},
+            jev._key("topic", "developer-tools"): {"type": "noul", "noul": 0.7},
+        })
+        review = jev.parse_review(answers, takeaway_count=0, moment_count=0)
+        topics = [slug for slug, _ in review.topics]
+        self.assertIn("developer-tools", topics)
+        self.assertNotIn("software-engineering", topics)
+
+    @patch("ingest.jev.ask")
+    def test_retopic_rejudges_only_pages_with_that_topic(self, ask) -> None:
+        from tempfile import TemporaryDirectory
+        ask.return_value = _answers(**{jev._key("topic", slug): {"type": "noul", "noul": 0.1} for slug in TOPICS})
+        with TemporaryDirectory() as directory:
+            pages = Path(directory)
+            head = '---\ntitle: "{t}"\nsource: "https://example.com/{t}"\nsource_type: "web"\n'
+            tagged = pages / "2026-09-02-tagged.md"
+            tagged.write_text(head.format(t="a") + 'topics: [software-engineering, mcp]\nkind: "news"\n---\n\nBody.\n')
+            other = pages / "2026-09-01-other.md"
+            other.write_text(head.format(t="b") + 'topics: [mcp]\nkind: "news"\n---\n\nBody.\n')
+            before = other.read_text()
+            with patch.object(backfill, "PAGES_DIR", pages):
+                backfill.run(metadata=False, summaries=False, use_transcripts=False, profile=True,
+                             limit=0, match="", dry_run=False, pause=0, retopic="software-engineering")
+            self.assertEqual(ask.call_count, 1)
+            self.assertIn("topics: []", tagged.read_text())
+            self.assertIn('kind: "tutorial"', tagged.read_text())
+            self.assertEqual(other.read_text(), before)
+
+
 if __name__ == "__main__":
     unittest.main()

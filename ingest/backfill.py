@@ -5,6 +5,7 @@ Run on the host that has YouTube access and Codex auth:
     python -m ingest.backfill --normalize-only         # frontmatter + source types, offline
     python -m ingest.backfill --metadata-only          # durations/channels, no Codex
     python -m ingest.backfill --jev-only               # topics + profile via TypeSafe Jev
+    python -m ingest.backfill --retopic software-engineering  # re-judge pages with a topic
     python -m ingest.backfill --limit 5 --dry-run      # preview the summary upgrade
     python -m ingest.backfill                          # everything, newest first
 
@@ -271,6 +272,7 @@ def upgrade_page(
     summaries: bool,
     use_transcripts: bool,
     profile: bool = True,
+    force_profile: bool = False,
 ) -> list[str]:
     """Upgrade one page in memory and return a list of what changed."""
     from ingest.youtube import fetch_video, fetch_video_metadata
@@ -316,7 +318,7 @@ def upgrade_page(
 
     from ingest import jev
 
-    wants_profile = profile and jev.enabled() and _needs_profile(page)
+    wants_profile = profile and jev.enabled() and (force_profile or _needs_profile(page))
     lesson: dict[str, Any] = {}
     if wants_summary:
         lesson = _summarize(page, transcript)
@@ -329,6 +331,8 @@ def upgrade_page(
     if wants_profile:
         for line in profile_frontmatter(lesson):
             page.set(line.partition(":")[0], line)
+        if force_profile and not lesson.get("topics"):
+            page.set("topics", "topics: []")  # clear topics the new judgment no longer supports
         if lesson.get("kind"):
             changes.append("profile")
     return changes
@@ -344,10 +348,15 @@ def run(
     match: str,
     dry_run: bool,
     pause: float,
+    retopic: str = "",
 ) -> int:
     paths = sorted(PAGES_DIR.glob("*.md"), key=lambda path: path.name, reverse=True)
     if match:
         paths = [path for path in paths if match in path.name]
+    if retopic:
+        topic_line = re.compile(rf"^topics:\s*\[[^\]]*\b{re.escape(retopic)}\b", re.MULTILINE)
+        paths = [path for path in paths if topic_line.search(path.read_text(encoding="utf-8"))]
+        log.info("Re-judging %d pages tagged %s", len(paths), retopic)
 
     upgraded = failed = 0
     for path in paths:
@@ -362,6 +371,7 @@ def run(
                 summaries=summaries,
                 use_transcripts=use_transcripts,
                 profile=profile,
+                force_profile=bool(retopic),
             )
         except Exception:  # noqa: BLE001 - keep going; report at the end
             log.exception("%s: upgrade failed", path.name)
@@ -394,6 +404,8 @@ def main() -> None:
     parser.add_argument("--summaries-only", action="store_true", help="only add TL;DR/takeaways/questions")
     parser.add_argument("--jev-only", action="store_true",
                         help="only add topics and kind/depth/actionability with TypeSafe Jev")
+    parser.add_argument("--retopic", default="", metavar="TOPIC",
+                        help="re-run Jev topics and profile on pages that currently have TOPIC")
     parser.add_argument("--normalize-only", action="store_true",
                         help="only fix frontmatter, source URLs, and source types (no network)")
     parser.add_argument("--no-transcripts", action="store_true", help="summarize from the lesson text only")
@@ -402,10 +414,15 @@ def main() -> None:
     parser.add_argument("--dry-run", action="store_true", help="print upgrades without writing")
     parser.add_argument("--pause", type=float, default=1.0, help="seconds between YouTube requests")
     args = parser.parse_args()
-    if args.metadata_only + args.summaries_only + args.normalize_only + args.jev_only > 1:
+    if args.metadata_only + args.summaries_only + args.normalize_only + args.jev_only + bool(args.retopic) > 1:
         parser.error("choose at most one of the --*-only modes")
-    if args.jev_only and not config.TYPESAFE_API_KEY:
-        parser.error("--jev-only needs TYPESAFE_API_KEY in .env.local")
+    if (args.jev_only or args.retopic) and not config.TYPESAFE_API_KEY:
+        parser.error("--jev-only and --retopic need TYPESAFE_API_KEY in .env.local")
+    if args.retopic:
+        from ingest.topics import TOPICS
+        if args.retopic not in TOPICS:
+            parser.error(f"unknown topic {args.retopic!r}; see ingest/topics.py")
+        args.jev_only = True
     raise SystemExit(
         run(
             metadata=not (args.summaries_only or args.normalize_only or args.jev_only),
@@ -416,6 +433,7 @@ def main() -> None:
             match=args.match,
             dry_run=args.dry_run,
             pause=args.pause,
+            retopic=args.retopic,
         )
     )
 

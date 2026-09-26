@@ -25,7 +25,11 @@ TOPICS: dict[str, str] = {
     "ai-safety-and-governance": "AI risk, security, policy, compliance, governance, or responsible use.",
     "knowledge-management": "Personal knowledge bases, second brains, note-taking, wikis, and Obsidian.",
     "developer-tools": "Terminals, CLIs, editors, IDE features, and everyday developer tooling.",
-    "software-engineering": "Software design, architecture, testing, code review, and engineering practices.",
+    "software-engineering": (
+        "The craft of building software: system design, architecture, testing, code review, "
+        "refactoring, reliability, and engineering team practices. Not how-tos for a specific "
+        "tool or low-code app, and not AI news that merely involves code."
+    ),
     "web-development": "Building web apps and sites: HTML, CSS, JavaScript, TypeScript, frameworks, deployment.",
     "python": "Python programming, libraries, or packaging.",
     "automation-workflows": "Automating tasks and workflows with scripts, schedulers, bots, or no-code tools.",
@@ -38,4 +42,10 @@ TOPICS: dict[str, str] = {
     "productivity": "Personal productivity, focus, learning methods, and working habits.",
     "leadership-and-careers": "Leadership, teams, hiring, careers, and founder or startup lessons.",
     "product-and-design": "Product management, UX, UI design, and user research.",
+}
+
+# Broad topics attract passing matches; require stronger evidence for them.
+# Anything not listed uses JEV_TOPIC_MIN (0.5 by default).
+TOPIC_MIN_OVERRIDES: dict[str, float] = {
+    "software-engineering": 0.75,
 }

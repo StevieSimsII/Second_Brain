@@ -19,7 +19,7 @@ from typing import Any
 import requests
 
 from ingest import config
-from ingest.topics import TOPICS
+from ingest.topics import TOPIC_MIN_OVERRIDES, TOPICS
 from ingest.youtube import parse_timestamp
 
 
@@ -233,7 +233,8 @@ def parse_review(
     review = LessonReview()
     for slug in TOPICS:
         answer = answers.get(_key("topic", slug))
-        if answer and answer.get("noul", 0) >= config.JEV_TOPIC_MIN:
+        threshold = TOPIC_MIN_OVERRIDES.get(slug, config.JEV_TOPIC_MIN)
+        if answer and answer.get("noul", 0) >= threshold:
             review.topics.append((slug, float(answer["noul"])))
     review.topics.sort(key=lambda item: item[1], reverse=True)
     review.topics = review.topics[:TOPICS_PER_LESSON]

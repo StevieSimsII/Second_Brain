@@ -93,6 +93,14 @@ python -m ingest.backfill --jev-only --limit 5 --dry-run
 python -m ingest.backfill --jev-only
 ```
 
+After changing a topic's description or threshold in `ingest/topics.py`, re-judge
+just the pages that currently carry it:
+
+```bash
+python -m ingest.backfill --retopic software-engineering --limit 5 --dry-run
+python -m ingest.backfill --retopic software-engineering
+```
+
 The summary step also runs Jev (when configured) to drop takeaways and key moments the
 source does not support.
 
