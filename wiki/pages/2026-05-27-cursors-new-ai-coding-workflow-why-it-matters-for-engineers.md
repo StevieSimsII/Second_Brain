@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> An AI-native IDE matters when it can use repository context to make precise, coordinated changes—not merely generate isolated snippets. Its productivity gains depend on engineers inspecting diffs, running tests and linters, and treating model output as untrusted code until verified.
+
+## Key Takeaways
+
+1. Judge AI coding tools by performance on real repository tasks—code understanding, bug fixing, refactoring, and feature work—not by demonstrations or broad claims.
+2. Provide prompts with intent, constraints, acceptance criteria, and explicit scope to improve the accuracy and boundaries of generated changes.
+3. Use repository-aware context—including related files, symbols, imports, diagnostics, and project structure—to produce changes that better respect existing architecture and conventions.
+4. Keep a human verification loop: prompt for intent, inspect the diff, run tests and linting, refine the request, and commit only reviewed changes.
+5. Expect failure modes such as invented APIs, architectural misunderstandings, unrelated edits, and subtle regressions; increase supervision when their consequences are greater.
+6. Evaluate an assistant with the same task performed manually, scoring correctness, edit precision, test quality, speed, and required cleanup from 1 to 5.
+7. For multi-file work, verify that the assistant updates dependencies and tests coherently while preserving behavior and avoiding unnecessary rewrites.
+
 ## Overview
 
 This lesson examines the engineering significance of a new generation of AI-native coding tools, using the video topic "Cursor just beat EVERYONE" as a springboard for understanding what makes an AI IDE compelling in practice. Even without a full transcript, the core subject is clear: Cursor is being positioned as a leading tool in the race to integrate large language models directly into day-to-day software development workflows.
@@ -175,6 +189,26 @@ Run the same evaluation in two different tools if available, then write a short 
 - Would you trust either on a production codebase?
 
 This exercise gives you a concrete way to judge claims like "Tool X beat everyone" using engineering criteria instead of hype.
+
+## Test Yourself
+
+<details><summary>What distinguishes an AI-native IDE from a basic autocomplete tool?</summary>
+
+An AI-native IDE treats the model as part of the full development workflow: it assembles repository context, reasons across files, proposes coordinated edits, and supports debugging and refactoring. Basic autocomplete primarily predicts local code near the cursor.
+
+</details>
+
+<details><summary>What workflow should engineers use to control the risk of AI-generated code?</summary>
+
+Describe the intent and constraints, inspect the resulting diff, run tests and linters, refine the prompt when necessary, and commit only reviewed changes. The lesson argues that productivity gains scale with this verification discipline.
+
+</details>
+
+<details><summary>How can an engineer test whether one AI coding assistant is genuinely better than another?</summary>
+
+Give both tools the same code-understanding, bug-fixing, and refactoring tasks, then score them from 1 to 5 on correctness, edit precision, test quality, speed, and manual cleanup. Compare those results with completing the tasks without AI.
+
+</details>
 
 ## Further Reading
 

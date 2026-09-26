@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI-assisted coding works best as guided delegation: give the agent a bounded goal, repository context, constraints, and a definition of done, then verify its work. The critical engineering skill shifts from typing code to detecting drift and confirming semantic correctness.
+
+## Key Takeaways
+
+1. Frame each task with a goal, relevant files, constraints, and verification criteria to reduce ambiguity and keep the agent aligned.
+2. Ask for a 3–5-bullet plan before allowing code edits so misunderstandings surface before they spread across files.
+3. Prefer narrow, testable changes and review each diff; broad requests such as “improve this app” invite unnecessary work and agent drift.
+4. Check generated changes against explicit requirements, not merely whether the code compiles or looks plausible.
+5. Run tests, linters, type checks, and manual scenarios because polished explanations do not prove semantic correctness.
+6. When output drifts, identify the exact requirement mismatch and restate the constraints instead of simply asking the agent to try again.
+7. Treat AI coding as a supervision workflow: define, constrain, inspect, review, verify, and iterate.
+
 ## Overview
 
 This lesson distills the core ideas implied by a short LinkedIn post recommending a 30-minute workshop by Boris Cherny, creator of Claude Code, along with Anthropic's Claude Code best-practices documentation. Although the source itself is just a pointer, it highlights an important shift in software engineering: coding assistants are most valuable when used as collaborative agents that can explore, edit, and reason across a codebase, while the human developer remains responsible for intent, constraints, and review.
@@ -204,6 +218,26 @@ Write down:
 4. How would you turn your best prompt into a reusable team template?
 
 By the end of the exercise, you should have a concrete feel for the real skill in AI-assisted development: not generating code, but shaping and validating it.
+
+## Test Yourself
+
+<details><summary>What four elements should a well-structured coding-agent prompt include?</summary>
+
+It should state the desired outcome, identify relevant codebase files or modules, specify non-negotiable constraints, and define how success will be verified.
+
+</details>
+
+<details><summary>What is agent drift, and how should an engineer detect it?</summary>
+
+Agent drift occurs when the assistant gradually solves a different problem through overgeneralization or hidden assumptions. Detect it by comparing the plan and diff with explicit requirements, including scope, API behavior, conventions, and edge cases.
+
+</details>
+
+<details><summary>Why does review become the bottleneck in AI-assisted development?</summary>
+
+Code can be generated faster than engineers can safely validate it. Humans must still inspect diffs, run tooling, test edge cases, and confirm that changes fit the intended architecture and behavior.
+
+</details>
 
 ## Further Reading
 

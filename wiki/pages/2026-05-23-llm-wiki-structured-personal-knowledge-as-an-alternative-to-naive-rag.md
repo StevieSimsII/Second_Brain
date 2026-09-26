@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> A curated, structured LLM wiki can give models cleaner and more reliable context than naive RAG when the important knowledge fits in a compact document set. The lesson argues that improving knowledge organization can matter more than adding retrieval infrastructure.
+
+## Key Takeaways
+
+1. Optimize the knowledge representation before optimizing retrieval: distill noisy source material into canonical facts, definitions, decisions, and relationships.
+2. Use stable sections such as Overview, Glossary, Core Invariants, Architecture, Common Tasks, Pitfalls, and Open Questions.
+3. Provide the whole wiki when it fits the context window; otherwise provide its table of contents and the relevant sections.
+4. Treat model failures as maintenance signals: add missing facts, clarify definitions, record recurring questions, and normalize drifting terminology.
+5. The lesson argues that direct wiki context is often more robust than semantic retrieval for narrow domains such as project onboarding, coding assistance, research agendas, and team playbooks.
+6. Use a hybrid system when needed: keep stable, authoritative knowledge in the wiki and retrieve raw sources for long-tail details or supporting evidence.
+7. Test the approach by asking the same 5 questions against a curated wiki and comparable raw notes, then score correctness, specificity, completeness, terminology consistency, and usefulness from 1 to 5.
+
 ## Overview
 
 This lesson explains the idea of an "LLM wiki": a curated, structured knowledge file or small collection of files designed to be read directly by a large language model. The core claim is that for many personal, team, or project-specific workflows, a hand-maintained wiki can outperform naive retrieval-augmented generation (RAG) pipelines because it provides cleaner context, clearer organization, and less retrieval noise.
@@ -202,6 +216,26 @@ Use the wiki as the primary source of truth. Use the raw notes only for supporti
 ```
 
 Then compare whether the hybrid approach outperforms either source alone.
+
+## Test Yourself
+
+<details><summary>Why can a curated LLM wiki outperform a naive RAG pipeline?</summary>
+
+According to the lesson, the wiki supplies high-signal information with explicit structure and necessary framing, while naive RAG may retrieve fragmented, poorly ranked, or ambiguous chunks. This can make the model's answers more consistent and actionable.
+
+</details>
+
+<details><summary>What information belongs in an LLM wiki?</summary>
+
+It should contain concise overviews, canonical terminology, core facts and invariants, explicit relationships, architecture, common procedures, known pitfalls, and open questions. Stale, redundant, and low-value material should be removed.
+
+</details>
+
+<details><summary>When should a wiki be combined with RAG instead of replacing it?</summary>
+
+Use a hybrid approach when canonical knowledge fits in the wiki but users also need long-tail details or evidence from a larger raw corpus. The lesson recommends treating the wiki as the primary source of truth and retrieval as supporting lookup.
+
+</details>
 
 ## Further Reading
 

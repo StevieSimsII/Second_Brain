@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The article argues that many “AI layoffs” reflect cost cutting or shifts from payroll to AI infrastructure, not proven automation of eliminated work. Leaders’ framing matters because presenting AI as a threat can erode trust, hinder adoption, and reduce the value organizations gain from it.
+
+## Key Takeaways
+
+1. Distinguish mature automation, process redesign, and capital allocation before accepting an “AI-driven layoffs” claim.
+2. Look for evidence of production deployment, measured quality and cost improvements, and proof that eliminated work disappeared rather than moved to cheaper or offshore labor.
+3. Treat cuts that fund GPUs, platforms, or other AI infrastructure as capital reallocation unless AI systems demonstrably perform the eliminated roles.
+4. Measure expansion-oriented AI programs through faster delivery, greater service volume, increased code output, and new products or markets—not headcount reduction alone.
+5. Frame AI as a capability multiplier; the article claims that linking it to layoff threats encourages fear, information hoarding, resistance, and possible sabotage.
+6. Evaluate workforce messaging as a brand decision because employees, customers, investors, and regulators use it to judge the company’s stance on labor, technology, and responsibility.
+7. Preserve credibility by stating what is actually automated and separating technology progress from cost restructuring.
+
 ## Overview
 
 This lesson examines the article's central argument: many so-called AI-driven layoffs are not primarily caused by AI replacing work, but by leadership decisions about budgets, restructuring, and messaging. The piece uses public comments from NVIDIA CEO Jensen Huang and Google DeepMind CEO Demis Hassabis to argue that executives often overstate AI's current capabilities and use AI as a convenient explanation for cuts that are really about cost control or reallocating spending toward infrastructure.
@@ -120,6 +134,26 @@ Take a current AI initiative in your own organization and design two rollout mes
 - one framed around capability expansion.
 
 Then predict how each message would affect developer adoption, data sharing, and willingness to experiment.
+
+## Test Yourself
+
+<details><summary>What evidence would distinguish genuine AI automation from a layoff framed as AI transformation?</summary>
+
+Look for a mature production system, measured quality and cost results, and proof that the eliminated work is now performed by AI rather than transferred, outsourced, or left undone. Without that evidence, the lesson recommends considering process redesign, cost pressure, or capital reallocation as alternative explanations.
+
+</details>
+
+<details><summary>Why does the lesson treat AI layoff messaging as an operational issue rather than only a communications issue?</summary>
+
+The article argues that messaging shapes whether employees see AI as useful leverage or an existential threat. That interpretation affects experimentation, data sharing, adoption, and ultimately the business value produced by the technology.
+
+</details>
+
+<details><summary>What alternative AI strategy does the article advocate?</summary>
+
+It advocates capability expansion: using AI to help teams deliver faster, serve more customers, ship more code, and create new products or markets. Success should be measured by increased output and opportunity rather than immediate headcount reduction.
+
+</details>
 
 ## Further Reading
 

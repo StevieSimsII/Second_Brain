@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Turn isolated notes into connected entities with typed relationships, then combine semantic search with graph traversal. This gives LLMs more complete, precise, and explainable context than retrieving text chunks alone.
+
+## Key Takeaways
+
+1. Model important people, projects, concepts, papers, meetings, and tasks as distinct nodes instead of burying them inside long documents.
+2. Use typed edges such as `depends_on`, `implements`, `inspired_by`, and `caused_by` so retrieval can distinguish dependencies from citations or incidental links.
+3. Combine embeddings with graph structure: retrieve relevant seed nodes by similarity, then expand to selected neighbors for definitions, prerequisites, sources, and supporting facts.
+4. Assemble LLM context from node content, linked references, and relationship metadata rather than supplying only the top-matching chunk.
+5. Constrain graph expansion by relationship type and relevance to avoid pulling unrelated neighbors into the prompt.
+6. Keep humans responsible for curating durable concepts and important links while automation extracts entities and proposes relationships.
+7. Test the approach with 8–12 nodes and typed edges, then compare answers produced from a seed node alone against answers using its expanded neighborhood.
+
 ## Overview
 
 This lesson explains the idea behind an LLM-oriented personal wiki that turns notes, documents, and linked concepts into a graph structure that is easier for both humans and language models to navigate. The central theme is that flat document collections are often a poor fit for retrieval and reasoning, while explicit entities, relationships, and backlinks can create a richer substrate for question answering, exploration, and context building.
@@ -197,6 +211,26 @@ Write a short note covering:
 - how you would prevent irrelevant neighbor expansion
 
 If you want an extra challenge, feed the assembled context package into an LLM and compare its answer quality against using only the single top-matching node.
+
+## Test Yourself
+
+<details><summary>How does graph-aware retrieval differ from conventional top-k chunk retrieval?</summary>
+
+Conventional retrieval returns the most textually or semantically similar chunks. Graph-aware retrieval starts with relevant nodes and expands through selected relationships to collect structurally related context that similarity search might miss.
+
+</details>
+
+<details><summary>Why are typed relationships more useful than generic backlinks?</summary>
+
+Typed relationships record how two nodes are connected, such as one service depending on another or one document replacing another. The lesson argues that these semantics improve retrieval precision, traversal control, and explanation of why context was included.
+
+</details>
+
+<details><summary>What three layers make up the lesson&#x27;s practical model of a graphified wiki?</summary>
+
+The content layer holds raw notes and sources, the semantic layer adds entities, summaries, tags, and embeddings, and the graph layer stores links, typed edges, and traversal rules. Together they support both human navigation and intentional context assembly for LLMs.
+
+</details>
 
 ## Further Reading
 

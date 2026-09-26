@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> AI Engineer Coach turns local logs from multiple AI coding tools into a shared session model, then uses modular analyzers and configurable rules to surface actionable engineering insights without routinely sending session data off-device. Its architecture matters because normalization cleanly separates changing log formats from reusable analytics, detection, and webview presentation.
+
+## Key Takeaways
+
+1. Normalize every harness’s logs into one typed session schema so analyzers and rules do not need source-specific logic.
+2. Keep session analysis local and read-only; according to the lesson, model-backed features run only when explicitly invoked through VS Code’s built-in Copilot APIs.
+3. Move expensive parsing, cache writes, and warm-up work into background workers to keep the VS Code extension host responsive.
+4. Trace anti-pattern detection end to end: local logs → harness parser → normalized sessions → metrics and detectors → rule engine → findings → webview page.
+5. Treat rule evaluation as a pipeline—load, parse, compile, validate, execute, and present—rather than scattering hardcoded checks throughout the application.
+6. Add a new harness at the parser and normalization boundary; add a new anti-pattern through metrics, detectors, or the rule DSL.
+7. Protect against upstream log-format drift with harness-specific parser tests, rule-engine tests, end-to-end tests, and performance benchmarks.
+
 ## Overview
 
 AI Engineer Coach is a TypeScript-based VS Code extension that parses local logs from multiple AI coding harnesses—such as VS Code, Claude, Codex, OpenCode, and Xcode—and turns them into engineering insights. Its focus is practical: help developers understand how they use AI assistants, spot unproductive patterns, measure output, and improve prompt/context discipline without sending session data off the machine.
@@ -288,6 +302,26 @@ local logs
 ```
 
 Then explain, in 5-10 bullet points, where you would extend the system to support a new harness or a new anti-pattern category.
+
+## Test Yourself
+
+<details><summary>Why is the normalized session model the central architectural decision?</summary>
+
+It converts heterogeneous VS Code, Claude, Codex, OpenCode, and Xcode logs into a common representation. Downstream analyzers, rules, and UI models can therefore remain independent of each harness’s file locations and formats.
+
+</details>
+
+<details><summary>How does a raw session become an anti-pattern finding in the webview?</summary>
+
+A harness parser reads local logs and emits normalized sessions; metrics and detectors derive features that the compiled rules evaluate. The resulting findings are passed through the extension host’s RPC boundary and rendered by the anti-pattern webview page.
+
+</details>
+
+<details><summary>Where should you extend the system for a new harness versus a new anti-pattern?</summary>
+
+A new harness belongs in the source-specific parser and shared normalization layer, supported by parser tests. A new anti-pattern belongs in the rule definitions and, when necessary, the metric engine or detector registry, with rule-engine and end-to-end coverage.
+
+</details>
 
 ## Further Reading
 

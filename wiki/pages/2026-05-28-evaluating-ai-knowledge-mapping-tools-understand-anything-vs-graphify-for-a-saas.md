@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Choose AI knowledge tools by testing what they ingest, how accurately they represent your SaaS, and whether their outputs improve a real workflow. Human-readable explanations suit onboarding, while structured graphs better support search, retrieval, and automation.
+
+## Key Takeaways
+
+1. Evaluate tools on coverage, correctness, utility, and operational fit rather than demo polish.
+2. Test each tool with at least three representative artifacts, such as a product page, documentation page, and API or integration page.
+3. Use 8–10 questions drawn from real engineering or support workflows to expose missing concepts and hallucinations.
+4. Understanding-oriented tools can produce readable but overly generalized summaries; graph-oriented tools can produce precise-looking but noisy or incomplete relationships.
+5. Score summary quality, entity and relationship quality, missing concepts, hallucinations, ease of use, and export options on a consistent 1–5 scale.
+6. Use narrative outputs for onboarding and stakeholder communication, structured graphs for semantic search and automation, or combine both when the workflows require them.
+7. Treat specific claims about Understand-Anything and Graphify as unverified because no transcript or detailed product evidence is included in the lesson.
+
 ## Overview
 
 This lesson is about how to evaluate two classes of AI understanding tools in a practical SaaS context: tools that try to deeply explain a product or codebase, and tools that convert information into graph-like connected entities and relationships. The source only provides the video title, but that title alone points to a common engineering problem: deciding whether an AI system should optimize for human-readable understanding or structured knowledge extraction.
@@ -187,6 +201,26 @@ Implement a tiny graph extraction prototype yourself from documentation text. Us
 ```
 
 Then compare this structured view to a plain natural-language summary and note which one better answers different classes of questions.
+
+## Test Yourself
+
+<details><summary>What four dimensions should guide the evaluation of an AI knowledge tool for a SaaS?</summary>
+
+Evaluate coverage, correctness, utility, and operational fit. Together they test what the tool captures, whether it is accurate, whether people or systems can use it, and whether it can be maintained and integrated.
+
+</details>
+
+<details><summary>How do understanding-oriented and graph-oriented tools differ?</summary>
+
+Understanding-oriented tools compress source material into explanations, summaries, and Q&A for people. Graph-oriented tools extract entities and relationships for traversal, retrieval, recommendations, and automation.
+
+</details>
+
+<details><summary>Why should both tools be tested with the same artifacts and questions?</summary>
+
+A shared input set and 8–10 workflow-based questions make the comparison consistent. They also reveal differences in omissions, hallucinations, readability, relationship quality, and practical usefulness.
+
+</details>
 
 ## Further Reading
 

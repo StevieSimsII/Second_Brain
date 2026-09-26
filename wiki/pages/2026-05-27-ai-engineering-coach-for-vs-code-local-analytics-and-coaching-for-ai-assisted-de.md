@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Treat AI-assisted coding as an observable engineering practice by measuring prompt quality, context health, review habits, and reusable workflows. Local, read-only analysis can provide coaching while keeping source code and interaction history private.
+
+## Key Takeaways
+
+1. Track prompt quality, context setup, review behavior, and weekly trends instead of relying only on acceptance rates or token counts.
+2. According to the source, the VS Code extension analyzes session files locally with read-only access, no telemetry, and no external transmission of source data.
+3. Use anti-pattern rules to flag vague prompts, stale sessions, weak context, inadequate code review, and undisciplined tool usage; the source describes a set of 45 checks.
+4. Convert repeated prompts into durable templates, instruction files, or reusable skills so successful workflows become repeatable.
+5. Before requesting code, specify the file or module, desired behavior, constraints, and tests or acceptance criteria.
+6. Start a lightweight weekly review with prompts from 3–5 development sessions and compare vague prompts, context-rich prompts, and repeated prompts converted into templates.
+
 ## Overview
 
 This lesson explains the idea behind an open-source VS Code extension that acts as an AI Engineering Coach: it analyzes how you use AI coding assistants, surfaces patterns in your workflow, and helps you improve over time. The source describes a tool focused on measurable practice, anti-pattern detection, context quality, and reusable prompting skills rather than just raw usage metrics.
@@ -185,6 +198,26 @@ You should finish with:
 - one context checklist you can use before asking for code generation
 
 This exercise mirrors the extension's core value proposition: turning AI assistant usage into something observable, improvable, and privacy-preserving.
+
+## Test Yourself
+
+<details><summary>How does prescriptive coaching differ from descriptive analytics in AI-assisted development?</summary>
+
+Descriptive analytics reports what happened, such as generated-code volume, model usage, or repeated prompts. Prescriptive coaching recommends changes, such as improving instructions, cleaning session context, or reviewing generated code more rigorously.
+
+</details>
+
+<details><summary>What three simple anti-pattern rules does the training exercise propose?</summary>
+
+Flag prompts shorter than 12 characters, prompts containing phrases such as “fix this” or “make it better,” and entries with no attached notes or context.
+
+</details>
+
+<details><summary>What should a developer establish before asking an AI assistant to generate code?</summary>
+
+Identify the file or module in scope, the exact behavior to change, the constraints that must remain true, and the tests or acceptance criteria that define success.
+
+</details>
 
 ## Further Reading
 

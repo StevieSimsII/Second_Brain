@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> This VS Code release brings documentation previews, browser inspection, and AI-agent workflows closer together inside the editor. Native Mermaid rendering, persistent remote sessions, task-specific model routing, and OpenTelemetry observability can reduce tool switching while making automation easier to operate and inspect.
+
+## Key Takeaways
+
+1. Render Mermaid diagrams directly in VS Code’s built-in Markdown preview instead of requiring a separate diagram-preview extension.
+2. Use the preview’s YAML frontmatter table to inspect metadata such as title, tags, owner, and status in documentation and RFCs.
+3. Preview HTML in the Integrated Browser, then select multiple page elements for chat context when reviewing layout, accessibility, or content.
+4. Run agent sessions on remote machines through SSH or dev tunnels; the lesson says long-running work can continue after the local laptop is closed.
+5. Assign cheaper or faster models to commit messages and titles while reserving stronger models for complex coding and reasoning tasks.
+6. Use the described OpenTelemetry-backed Grafana dashboard to inspect agent latency, tool calls, failures, throughput, and usage patterns.
+
 ## Overview
 
 This VS Code release adds several workflow-focused features that reduce dependence on extensions and make documentation, AI assistance, and remote development feel more integrated. The most immediately useful updates are native Mermaid diagram rendering in Markdown preview, YAML frontmatter displayed as a table, and improvements to the Integrated Browser for HTML preview and selecting multiple page elements into chat context.
@@ -165,6 +178,26 @@ sequenceDiagram
 
 ### Stretch goal
 Add a second Mermaid diagram showing deployment or service dependencies, and keep all project documentation in native Markdown preview without relying on third-party diagram extensions.
+
+## Test Yourself
+
+<details><summary>How do the Markdown preview improvements simplify an architecture-documentation workflow?</summary>
+
+VS Code can display Mermaid diagrams and YAML frontmatter in its built-in preview. This lets engineers review prose, diagrams, and structured metadata together without depending on a separate diagram-preview extension.
+
+</details>
+
+<details><summary>Why are remote agent sessions different from ordinary local chat interactions?</summary>
+
+According to the lesson, their execution context can run on a remote host through SSH or dev tunnels and continue after the local client disconnects. That makes them suitable for long-running work near the repository, dependencies, credentials, or runtime environment.
+
+</details>
+
+<details><summary>What operational controls do model routing and OpenTelemetry observability provide?</summary>
+
+Model routing lets teams choose models by task to balance cost, speed, and quality. The described OpenTelemetry and Grafana integration gives teams visibility into agent execution, including latency, failures, tool behavior, and usage.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,19 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> The repository turns AI-assisted Power BI development into a layered workflow of domain-specific skills, specialized review agents, and deterministic validation hooks. This matters because scripts can catch structural and semantic errors that prompting alone may miss.
+
+## Key Takeaways
+
+1. Treat the repository root as a marketplace catalog; install only the child plugins needed for domains such as PBIP, semantic models, reports, Tabular Editor, or Fabric administration.
+2. Use skills for reusable guidance on tasks such as TMDL editing, DAX authoring, Power Query development, Deneb visuals, and Fabric CLI operations.
+3. Delegate multi-step audits to specialized agents such as `pbip-validator`, `semantic-model-auditor`, and the content-specific report reviewers.
+4. Rely on hooks and executable validators to check PBIR, TMDL, report bindings, DAX references, referential integrity, and model metadata after changes.
+5. Keep local PBIP and Power BI Desktop workflows distinct from remote Fabric CLI administration while composing them when a task crosses environments.
+6. The repository’s central design claim is that reliable agentic BI development requires scoped instructions, focused reviewers, and mechanical post-action checks—not prompting alone.
+
 ## Overview
 
 This repository is not a traditional C# application despite the language tag; it is an Anthropic-format plugin marketplace that packages domain-specific instructions, autonomous agents, validation hooks, and helper scripts for AI coding agents working on Power BI and Microsoft Fabric. Its goal is to make tools like Claude Code and GitHub Copilot CLI materially better at understanding and modifying semantic models, PBIP/TMDL/PBIR files, Tabular Editor assets, and Fabric administration workflows.
@@ -261,6 +274,26 @@ Write a short note answering:
 ### Optional extension
 
 Install the `reports` plugin and ask the agent to review a Deneb spec or theme JSON. Then compare the `reports` review-agent pattern to the `pbip` hook-validation pattern. The takeaway should be that different artifact types need different control surfaces: some are best reviewed semantically, others must be validated mechanically.
+
+## Test Yourself
+
+<details><summary>What different roles do skills, agents, and hooks play in this marketplace?</summary>
+
+Skills provide task-specific operating guidance, agents conduct focused multi-step reviews, and hooks run deterministic checks after relevant actions. The repository uses all three layers so reasoning and mechanical validation complement each other.
+
+</details>
+
+<details><summary>Why is the repository root described as a marketplace rather than a plugin?</summary>
+
+Its marketplace manifest advertises multiple installable child plugins under `plugins/`. Users register the marketplace once, then install only the capability areas relevant to their Power BI or Fabric workflows.
+
+</details>
+
+<details><summary>How does the `pbip` plugin demonstrate the repository’s core execution model?</summary>
+
+An agent edits PBIP, TMDL, or PBIR artifacts using embedded skills; specialized review can then inspect the work, while hooks validate syntax, structure, and bindings. Reported failures return to the agent for repair before errors accumulate.
+
+</details>
 
 ## Further Reading
 

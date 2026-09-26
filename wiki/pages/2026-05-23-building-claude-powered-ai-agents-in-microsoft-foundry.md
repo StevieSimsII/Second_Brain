@@ -13,6 +13,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> A reliable Claude-powered agent in Microsoft Foundry requires more than model selection: it needs clear prompt policies, well-defined tools, grounded data, evaluation, and observability. Claude supplies reasoning, Foundry supplies the application platform, and business-specific tools supply trusted data and actions.
+
+## Key Takeaways
+
+1. Treat the system prompt as an operating policy that defines the agent’s role, boundaries, tool-use rules, citation requirements, and escalation behavior.
+2. Use tools for current or proprietary facts; for example, require `search_docs` for internal policies and `get_ticket_status` for live ticket data instead of allowing guesses.
+3. Define narrow, unambiguous tool schemas and protect side effects and sensitive data, because poorly designed tools can make agent actions unreliable or unsafe.
+4. Ground responses in approved enterprise sources and require citations when accuracy depends on organization-specific documentation.
+5. Test behavior with task-specific evaluation cases, including when the agent should call a tool, request missing information, escalate, or handle a tool failure.
+6. Log traces, tool calls, latency, prompt versions, correctness, safety, and cost so failures and regressions can be diagnosed over time.
+7. Design orchestration—not merely model choice—as the core engineering problem connecting prompts, state, tools, safety controls, evaluation, and deployment.
+
 ## Overview
 
 This lesson explains how to think about building AI agents with Anthropic Claude inside Microsoft Foundry, based on a product-demo style source. Even though the source content is sparse, the core topic is highly relevant to engineers evaluating enterprise agent platforms: how a hosted AI development environment can connect a frontier model like Claude to tools, prompts, orchestration, and deployment workflows.
@@ -196,6 +210,26 @@ def handle_request(user_message, history):
 ```
 
 The outcome should be a one-page implementation blueprint you could map into Foundry's model, agent, and evaluation configuration screens.
+
+## Test Yourself
+
+<details><summary>What distinguishes an agent from a single-prompt application?</summary>
+
+An agent adds planning, state, tool use, and conditional control flow to the model interaction. These capabilities let it retrieve live information, call APIs, and complete multi-step tasks rather than return only one model response.
+
+</details>
+
+<details><summary>How should the support agent respond when asked for a ticket status without a ticket ID?</summary>
+
+It should ask the user for the missing ticket ID. It must not invent ticket data or call `get_ticket_status` without the required argument.
+
+</details>
+
+<details><summary>Why are evaluation and observability necessary even when an agent performs well in a demo?</summary>
+
+Anecdotal success does not establish production reliability. Regression tests, traces, tool-call logs, latency metrics, and prompt-version tracking reveal correctness, safety, cost, and behavior changes over time.
+
+</details>
 
 ## Further Reading
 

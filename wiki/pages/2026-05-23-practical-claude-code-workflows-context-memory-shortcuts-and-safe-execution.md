@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Reliable AI-assisted engineering depends less on clever prompts than on disciplined context, durable file-based memory, tight execution scope, and proof that changes work. Inspect before editing, interrupt drift early, and preserve handoffs so work remains accurate and recoverable across sessions.
+
+## Key Takeaways
+
+1. Inspect the repository and relevant instructions before editing; request the architecture, likely test commands, task-relevant files, and constraints first.
+2. Limit each task to the smallest useful set of files, facts, and tools to reduce token usage and prevent context rot.
+3. Interrupt Claude immediately when it targets the wrong layer, broadens scope, or proposes an unnecessary refactor; redirect it to a revised plan before allowing edits.
+4. Store recurring rules and state in `CLAUDE.md`, `project_specs.md`, `progress.md`, and `decisions.md` instead of repeatedly supplying them through chat.
+5. Use `/compact` at related-work breakpoints with explicit preservation instructions; use `/clear` for unrelated work only after recording a structured handoff.
+6. Assign sub-agents independent, bounded investigations with specific outputs, then have the main session compare their findings before edits begin.
+7. Require evidence before accepting completion: test results, browser or screenshot checks for UI work, reviewed diffs, executed commands, and documented remaining risks.
+
 ## Overview
 
 This lesson explains how to use Claude as a structured development collaborator rather than a generic chat assistant. The source article focuses on operational habits that make Claude Code and Claude Desktop more reliable in real engineering work: scoping context, interrupting drift early, preserving state in files, using slash commands deliberately, and verifying changes with tests and visual checks.
@@ -338,6 +352,26 @@ Success criteria:
 - You corrected scope when needed.
 - You ended with a reusable handoff in `progress.md`.
 - You required evidence-based verification rather than trusting a completion claim.
+
+## Test Yourself
+
+<details><summary>What workflow should occur before Claude edits repository files?</summary>
+
+Have Claude read the project instructions, inspect only the relevant repository areas, and report the architecture, commands, files, constraints, proposed change, and risks. Review that plan before authorizing edits.
+
+</details>
+
+<details><summary>When should `/compact` be used instead of `/clear`?</summary>
+
+Use `/compact` when continuing related work and explicitly preserve decisions, changed files, test status, constraints, and next steps. Use `/clear` when switching to an unrelated task, after saving the current state in a handoff file such as `progress.md`.
+
+</details>
+
+<details><summary>Why are passing tests and explicit verification part of the task rather than an optional final check?</summary>
+
+The article warns that Claude's completion claims are not sufficient evidence. Commands, test results, visual checks, diff review, and stated residual risks make the outcome verifiable and expose incomplete or unintended changes.
+
+</details>
 
 ## Further Reading
 

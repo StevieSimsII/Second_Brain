@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Start with a predefined AI workflow whenever you can map the task’s decision points; it will usually be cheaper, faster, easier to debug, and more reliable than an autonomous agent. Add autonomy only when valuable ambiguity makes a fixed execution path inadequate.
+
+## Key Takeaways
+
+1. Optimize production AI systems for dependable task completion, not maximum autonomy.
+2. Use a workflow when you can enumerate the stages, branches, tool calls, validation rules, and escalation paths in advance.
+3. Reserve agents for ambiguous, changing, or open-ended tasks whose value justifies greater cost, unpredictability, and monitoring burden.
+4. Keep a necessary agent minimal: define its environment, tools, and system prompt before adding orchestration, memory, caching, or multi-agent coordination.
+5. Write tool descriptions that state inputs, outputs, side effects, failure modes, and conditions for use; the model cannot recover context that was never placed in its context window.
+6. Define completion criteria and escalation rules explicitly, and repeat critical constraints near the decisions they govern.
+7. Compare workflow and agent implementations on the same cases using correctness, tool misuse, ambiguous outputs, debugging effort, latency, and token consumption.
+
 ## Overview
 
 This lesson distills a practical engineering message from Barry Zhang's guidance on agent infrastructure at Anthropic: most teams should not start by building autonomous agents. They should start by building workflows. The core argument is that reliability, speed of iteration, and operational simplicity matter more than autonomy for most production AI systems.
@@ -179,6 +193,26 @@ By the end, you should be able to answer:
 - Which approach was easier to validate and debug?
 - What prompt or tool-description ambiguities caused failures?
 - At what point, if any, did the extra autonomy pay for itself?
+
+## Test Yourself
+
+<details><summary>When should a team prefer a workflow over an agent?</summary>
+
+Prefer a workflow when the task’s decision points and execution branches can be mapped ahead of time. The lesson argues that constrained paths generally improve reliability, cost, latency, observability, and debugging.
+
+</details>
+
+<details><summary>What are the three core parts of the lesson’s minimal agent architecture?</summary>
+
+The three parts are the environment the agent can observe and affect, the tools it can invoke, and the system prompt that defines its goals, constraints, and tool-use rules.
+
+</details>
+
+<details><summary>How can a team expose prompt and tool-definition problems before deployment?</summary>
+
+Ask the model to identify every ambiguity, hidden assumption, missing constraint, and confusing instruction in the system prompt and tool definitions, prioritizing anything that affects tool selection or stopping behavior. Revise them and rerun the same tests to measure whether failures decrease.
+
+</details>
 
 ## Further Reading
 

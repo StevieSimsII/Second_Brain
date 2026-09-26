@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use GitHub Issues, Pull Requests, and Projects as one lightweight Scrum system that keeps planning directly connected to implementation. A simple workflow with linked artifacts and automated status changes makes the board more accurate while reducing duplicate tracking.
+
+## Key Takeaways
+
+1. Model backlog items as consistently structured GitHub Issues with acceptance criteria, estimates, labels, and clear ownership.
+2. Keep the core workflow simple: Backlog, Ready, In Progress, In Review, and Done.
+3. Assign every committed issue to an explicit sprint field or milestone so scope changes and carryover remain visible.
+4. Link pull requests to issues with keywords such as `Closes #123` to create traceability and automatically close completed work.
+5. Maintain several views over the same project data, including a prioritized backlog, current sprint board, personal work queue, and review queue.
+6. Automate routine transitions—such as adding new issues, setting default status, and marking merged work Done—to keep the board aligned with code activity.
+7. Treat the board as a coordination tool: limit work in progress, define Done clearly, and avoid oversized issues or unused custom statuses.
+
 ## Overview
 
 This lesson explains how to use GitHub Projects as a lightweight Scrum system for software teams. Even though the source content is sparse, the topic strongly suggests a practical workflow centered on mapping Scrum artifacts and ceremonies—product backlog, sprint backlog, status tracking, and review cadence—onto GitHub Issues, Pull Requests, Milestones, and Project views.
@@ -249,6 +263,26 @@ Answer these questions:
 
 ### Stretch goal
 Add a `Blocked` label or field and create a saved view showing only blocked sprint work. This helps surface impediments during standup.
+
+## Test Yourself
+
+<details><summary>How can the main Scrum artifacts be represented in GitHub?</summary>
+
+Use Issues for product and sprint backlog items, Pull Requests for their implementation, and a GitHub Project for planning and status visibility. The completed, merged work represents the increment.
+
+</details>
+
+<details><summary>What makes a sprint&#x27;s scope visible and controllable in GitHub Projects?</summary>
+
+Assign selected issues to an explicit sprint field or milestone, then show them in a filtered sprint view grouped by status. Limit the number and size of selected issues to fit team capacity, and make mid-sprint additions visible.
+
+</details>
+
+<details><summary>Why should pull requests be linked to their corresponding issues?</summary>
+
+Linking creates a traceable path from requirements and acceptance criteria to code review and completion. Keywords such as `Closes #123` can also close the issue automatically when the pull request is merged.
+
+</details>
 
 ## Further Reading
 

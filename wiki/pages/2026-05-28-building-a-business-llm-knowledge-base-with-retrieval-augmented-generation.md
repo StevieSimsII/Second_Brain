@@ -13,6 +13,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> A business knowledge base becomes reliable when it retrieves relevant, permission-appropriate chunks from current company documents before asking an LLM to answer. Retrieval quality matters as much as generation because parsing, chunking, metadata, and ranking determine what evidence the model receives.
+
+## Key Takeaways
+
+1. Build the pipeline in five stages: ingest documents, preprocess and chunk text, create embeddings, retrieve relevant chunks, and generate an answer from those chunks.
+2. Split documents into roughly 300–600-character chunks with 50–100 characters of overlap as a starting point, then evaluate alternative sizes against real questions.
+3. Store chunk text, its embedding vector, document and chunk IDs, source metadata, and access controls together so retrieval can be filtered and traced.
+4. Embed queries with the same embedding model used for document chunks, rank by similarity, and initially return the top 3–5 chunks.
+5. Prompt the LLM to use only retrieved context, identify missing information, and cite source snippets or document names.
+6. Improve retrieval precision with metadata filters and reranking, and test whether retrieved chunks actually contain the answer—not merely whether the final response sounds plausible.
+7. Keep the index useful with scheduled synchronization, automatic re-indexing, permission-aware retrieval, and logs of failed queries, missing documents, and hallucinations.
+
 ## Overview
 
 This lesson explains how to build an internal knowledge base for a business using large language models, document embeddings, and retrieval-augmented generation (RAG). The goal is to let an LLM answer company-specific questions grounded in your own documents rather than relying only on its pretraining data.
@@ -187,6 +201,26 @@ print(generate(prompt))
 5. Re-index automatically when a file changes.
 
 By the end, you should understand the full path from raw business documents to grounded LLM answers.
+
+## Test Yourself
+
+<details><summary>Why does a RAG system retrieve document chunks before asking the LLM to answer?</summary>
+
+Retrieval supplies a small set of relevant, company-specific evidence instead of relying only on the model’s pretraining or sending the entire repository. This improves business relevance, freshness, and factual grounding while reducing wasted prompt context.
+
+</details>
+
+<details><summary>What problems result from chunks that are too small or too large?</summary>
+
+Chunks that are too small can separate facts from the context needed to interpret them. Chunks that are too large can combine unrelated topics, weaken embedding precision, and consume unnecessary context-window space.
+
+</details>
+
+<details><summary>What distinguishes a production business knowledge base from a toy RAG demo?</summary>
+
+A production system adds reliable source connectors, scheduled synchronization, per-chunk metadata and access controls, parsing safeguards, observability, reranking, and evaluation with real business questions. It also logs failures and refreshes the index as documents change.
+
+</details>
 
 ## Further Reading
 

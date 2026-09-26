@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> SkillOpt improves frozen LLM agents by iteratively rewriting a reusable natural-language skill, validating each candidate, and saving the best version instead of changing model weights. This brings training-loop discipline—rollouts, feedback, gating, and checkpoints—to prompt and behavior optimization across hosted or closed-weight models.
+
+## Key Takeaways
+
+1. Treat the skill document as the learned artifact: SkillOpt produces a deployable `best_skill.md`, not a model checkpoint.
+2. Use task trajectories to generate textual update signals; reflection analyzes successes, failures, and execution traces before the optimizer proposes revisions.
+3. Gate candidate revisions on validation data so batch-specific improvements do not automatically replace the current or best skill.
+4. Separate the frozen target model from the optimizer model; one executes tasks under the skill, while the other analyzes trajectories and proposes or ranks edits.
+5. Implement benchmark-specific semantics in `skillopt/envs/<benchmark>/`—typically through `dataloader.py`, `adapter.py`, `rollout.py`, `evaluator.py` or `reflect.py`, and `skills/initial.md`—while reusing the common training engine.
+6. Inspect `history.json`, versioned skill snapshots, step outputs, and `runtime_state.json` to compare experiments, diagnose updates, and resume interrupted runs.
+7. Verify an experiment by diffing the benchmark's `initial.md` against `best_skill.md`, then evaluating the saved skill separately with `scripts/eval_only.py`.
+
 ## Overview
 
 SkillOpt is a Python framework for improving LLM-based agents without fine-tuning model weights. Instead of updating parameters, it iteratively edits a natural-language skill document, evaluates the new behavior on task trajectories, and keeps only changes that pass validation gates. The result is a deployable `best_skill.md` artifact that can be reused with the same frozen model across future runs.
@@ -219,6 +233,26 @@ A strong answer should mention at least:
 - `skills/initial.md`
 
 The goal of this exercise is not just to run the tool, but to observe that the primary learned artifact is a markdown skill document, backed by validation and experiment traces.
+
+## Test Yourself
+
+<details><summary>What does SkillOpt optimize, and what artifact does a successful run produce?</summary>
+
+It optimizes a natural-language skill document while leaving the target model's weights frozen. The primary deployable artifact is the best validation-approved version saved as `best_skill.md`.
+
+</details>
+
+<details><summary>Why does SkillOpt evaluate proposed skill rewrites on validation data before accepting them?</summary>
+
+Validation gating helps prevent a rewrite that merely fits the current training batch from replacing a more reliable skill. A candidate is promoted only when it satisfies the configured improvement criteria.
+
+</details>
+
+<details><summary>What is the minimum structure needed to add a new benchmark?</summary>
+
+The lesson recommends a benchmark config plus an environment containing a dataloader, adapter, rollout logic, evaluator or reflection logic, and an initial skill document. These pieces define the data schema, task interaction, scoring or diagnosis, and starting behavior while the shared engine handles optimization.
+
+</details>
 
 ## Further Reading
 

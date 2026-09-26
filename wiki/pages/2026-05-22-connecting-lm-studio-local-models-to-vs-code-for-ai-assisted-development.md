@@ -13,6 +13,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Run a coding-capable model in LM Studio, expose it through the local OpenAI-compatible API, and configure a compatible VS Code extension to use that endpoint. This keeps source code local while trading cloud convenience for workstation resource limits and extension compatibility concerns.
+
+## Key Takeaways
+
+1. Verify the LM Studio server independently with `curl http://localhost:1234/v1/models` before configuring VS Code.
+2. Configure the extension with an OpenAI-compatible provider, the LM Studio base URL, a syntactically valid API key such as `lm-studio`, and the exact model ID exposed by the server.
+3. Choose a code-tuned or instruction-tuned model that balances coding quality, context length, quantization, memory use, and generation speed on your hardware.
+4. Debug from the bottom up: confirm the model runs, test the API, check endpoint access, match the model name, and only then tune prompts and context.
+5. Treat connection refusal as a likely server or port problem, “model not found” as an identifier mismatch, and slow output as a possible model-size, context-size, or CPU-inference issue.
+6. Confirm that the VS Code extension supports the capabilities you need—such as chat, inline completion, file edits, streaming, or tool calling—because OpenAI-compatible endpoint support alone may not provide them all.
+
 ## Overview
 
 This lesson explains how to use LM Studio as a local model server and connect it to Visual Studio Code so coding assistants and AI-enabled extensions can run against models on your own machine instead of a hosted API. This setup is useful for engineers who want lower latency, offline development, privacy over source code, or experimentation with different open-weight models.
@@ -202,6 +215,26 @@ def fizzbuzz(n):
    - If it does not, document the limitation and try a second extension.
 
 Deliverable: a short note containing the LM Studio endpoint, chosen model, the extension used, whether chat worked, whether inline completion worked, and one performance observation.
+
+## Test Yourself
+
+<details><summary>What are the three layers in the local coding-assistant architecture?</summary>
+
+LM Studio runs the model, its local server exposes an OpenAI-style HTTP API, and a VS Code extension sends prompts to that endpoint and displays the results.
+
+</details>
+
+<details><summary>Why should you test the LM Studio API before configuring VS Code?</summary>
+
+A successful `/v1/models` or chat-completions request confirms that the model and server work independently. If that test passes, remaining failures are more likely caused by the extension’s endpoint, provider, API-key, model-name, or feature configuration.
+
+</details>
+
+<details><summary>Which model characteristics most affect the editor experience?</summary>
+
+Coding ability and context length affect output usefulness, while model size, quantization, RAM or VRAM requirements, and generation speed affect whether inference is practical on the workstation.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> A reported drop in Anthropic’s compute spend from $0.71 to $0.56 per revenue dollar suggests improving unit economics, but operating profit alone does not prove full economic sustainability. Engineering teams should optimize and measure cost per business outcome while preserving the ability to switch models as price-performance changes.
+
+## Key Takeaways
+
+1. The source claims Anthropic’s compute-to-revenue ratio fell from 71% to 56%, leaving an additional $0.15 per revenue dollar for margin, R&D, support, or price competition.
+2. Validate cloud subsidies, training-cost treatment, depreciation, stock compensation, and infrastructure commitments before treating reported operating profit as proof of sustainable profitability.
+3. Lower inference prices are only one margin lever; routing, shorter prompts, caching, batching, quantization, and reduced human-review rates can materially improve economics.
+4. Track cost per completed task alongside workflow time, review load, rework, throughput, and business outcomes—not just tokens and latency.
+5. Abstract model access behind an internal gateway so workloads can move between providers when price, quality, or performance changes.
+6. Renegotiate AI contracts more frequently when provider costs and market prices improve faster than annual procurement cycles.
+7. In the lesson’s exercise, baseline monthly revenue is $12,000 against $600 of inference and $30,000 of review costs, producing a negative $18,600 contribution margin; the combined efficiency scenario improves it to negative $3,360, mainly through lower review costs.
+
 ## Overview
 
 This lesson unpacks a short but important discussion about the economics of frontier AI companies, centered on a claim that Anthropic expects positive operating profit and improving compute efficiency. The core issue is not just whether an AI company is profitable in a given quarter, but what falling compute-to-revenue ratios imply about model serving costs, gross margins, pricing power, and the maturity of enterprise demand.
@@ -258,6 +272,26 @@ Write a short note answering:
 - Which mattered more: raw model cost decline or workflow redesign?
 - How would contract lag affect your vendor strategy?
 - What accounting or reporting assumptions would you need to validate before trusting a vendor profitability claim?
+
+## Test Yourself
+
+<details><summary>Why does a decline in compute spend per revenue dollar matter?</summary>
+
+It suggests that each revenue dollar consumes less infrastructure expense, leaving more contribution for operating costs, investment, or profit. The improvement could reflect lower serving costs, better pricing, or a more favorable workload mix.
+
+</details>
+
+<details><summary>Why is operating profit insufficient to establish that a frontier AI company is economically sustainable?</summary>
+
+Operating profit may not reveal the effects of cloud credits, partner subsidies, capitalized training expenses, depreciation, stock compensation, or off-balance-sheet infrastructure commitments. Those assumptions must be examined before drawing a full-stack profitability conclusion.
+
+</details>
+
+<details><summary>Which lever has the largest impact in the lesson’s combined efficiency scenario?</summary>
+
+Reducing human review from 20% to 10% saves $15,000 per month, far more than the $240 saved by lowering token volume 25% and per-token cost 20%. This illustrates why workflow redesign can matter more than raw model-price declines.
+
+</details>
 
 ## Further Reading
 

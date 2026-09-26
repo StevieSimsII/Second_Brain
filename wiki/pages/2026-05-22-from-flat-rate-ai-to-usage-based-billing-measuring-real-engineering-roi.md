@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> As AI coding tools move from subsidized flat rates to usage-based billing, teams need to connect each dollar of usage to workflow-level outcomes. Adoption alone cannot show whether AI improves delivery, quality, or business results enough to justify its cost.
+
+## Key Takeaways
+
+1. Instrument AI usage by developer, team, repository, workflow, model, and cost so spending can be traced to specific engineering work.
+2. Measure value with delivery and quality signals—such as cycle time, review iterations, rollback rate, escaped defects, and incident-resolution time—not prompt counts or license activation.
+3. Estimate task-level ROI as `(value produced - AI cost) / AI cost`, while treating hours saved as a rough proxy rather than guaranteed business value.
+4. Compare workflows separately because AI may create strong returns for tests or documentation while adding review overhead and defects to large refactors.
+5. Manage AI consumption like cloud spend through budgets, tagging, monitoring, forecasting, ownership, and workflow-specific guardrails.
+6. Start with monthly team and workflow reporting, then investigate high-cost usage with low acceptance, heavy rework, or rising defect rates.
+7. The source argues that companies linking AI consumption to observable outcomes will be better prepared for CFO scrutiny than companies tracking adoption alone.
+
 ## Overview
 
 This lesson explains a major shift in enterprise AI tooling: coding assistants and agent products are moving from subsidized flat-rate pricing to usage-based billing. The source highlights why this matters operationally and financially: when token or request costs become visible, teams can no longer treat AI adoption as a proxy for value.
@@ -171,6 +185,26 @@ Write a one-paragraph policy based on your findings. Example:
 - Set monthly budget alerts for incident-response usage.
 
 This exercise reinforces the source's main lesson: once billing becomes usage-based, you need workflow-level evidence, not just user-level activity.
+
+## Test Yourself
+
+<details><summary>Why does usage-based billing make adoption metrics insufficient?</summary>
+
+Prompt volume and active users show activity, not whether that activity creates enough value to cover its cost. Teams must connect usage to outcomes such as faster delivery, fewer defects, lower rework, or increased product output.
+
+</details>
+
+<details><summary>What data layers are needed to evaluate engineering AI ROI?</summary>
+
+Teams need identity and cost attribution, usage telemetry, workflow context, outcome measurements, and reporting that compares spend with productivity and quality results. Together, these layers connect an AI charge to who incurred it, for what work, and with what result.
+
+</details>
+
+<details><summary>How should a team decide which AI workflow to restrict when cutting spend?</summary>
+
+Compare workflows by total cost, net value, acceptance rate, rework, and defects. Restrict the workflow with weak or negative value and poor quality signals before cutting a high-return workflow merely because it has high usage.
+
+</details>
 
 ## Further Reading
 

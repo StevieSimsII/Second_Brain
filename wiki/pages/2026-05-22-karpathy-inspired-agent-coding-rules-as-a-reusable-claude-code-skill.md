@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat coding-agent instructions as version-controlled engineering infrastructure: package a small set of behavioral rules for reuse across projects and tools. This can reduce silent assumptions, overengineering, unrelated edits, and unverified work.
+
+## Key Takeaways
+
+1. Centralize agent guidance in reusable, version-controlled files instead of repeating ad hoc prompts in every session.
+2. Require the agent to surface ambiguity, compare plausible interpretations, and discuss tradeoffs before implementing non-trivial changes.
+3. Prefer the smallest implementation that satisfies the request; avoid speculative abstractions, unnecessary configurability, and new dependencies.
+4. Keep diffs surgical by editing only request-relevant code and preserving surrounding structure, comments, and public interfaces.
+5. Turn vague tasks into verifiable outcomes with tests or explicit checks, and require verification before declaring completion.
+6. Package the same behavioral policy for each environment: `CLAUDE.md` or a Claude Code skill/plugin, and `.cursor/rules/*.mdc` for Cursor.
+7. Evaluate whether the rules work by comparing ruled and no-rules sessions on files changed, code added, clarifying questions, and verification steps.
+
 ## Overview
 
 This repository packages a set of coding-behavior guidelines for AI coding agents into reusable configuration files for Claude Code and Cursor. Instead of being a traditional software library with runtime logic, it is an operational repo: its core artifact is a `CLAUDE.md` instruction file and related plugin/rule packaging that steer an agent toward better engineering behavior.
@@ -224,6 +238,26 @@ Create your own variant of the skill with one additional rule, such as:
 - never rename public interfaces unless explicitly requested
 
 Then rerun the same task and note how the behavior changes.
+
+## Test Yourself
+
+<details><summary>What four behavioral principles form the core of the repository&#x27;s agent policy?</summary>
+
+Think before coding, simplicity first, surgical changes, and goal-driven execution. Together, they direct the agent to clarify uncertainty, minimize implementation scope, avoid unrelated edits, and verify results.
+
+</details>
+
+<details><summary>Why is this repository considered configuration and packaging rather than a traditional software library?</summary>
+
+Its primary artifacts are instruction files and tool-specific metadata, not executable business logic or a library API. Those artifacts are installed or copied into coding environments where they influence agent behavior.
+
+</details>
+
+<details><summary>How can you test whether a project-local rule set actually improves agent behavior?</summary>
+
+Run the same ambiguous task in fresh sessions with and without the rules. Compare the number of files and lines changed, whether the agent asks clarifying questions, whether it avoids speculative design, and whether it defines and runs verification checks.
+
+</details>
 
 ## Further Reading
 

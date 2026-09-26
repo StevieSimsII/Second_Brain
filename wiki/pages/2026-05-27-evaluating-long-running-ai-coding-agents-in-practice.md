@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Judge a long-running coding agent by verified progress, correctness, and required supervision—not by how many hours it runs or how much code it produces. A fair evaluation needs a bounded task, consistent environment, objective validation, intervention tracking, and safety guardrails.
+
+## Key Takeaways
+
+1. Measure task completion, correctness, test pass rate, iterations, time stuck, rollbacks, cost, and human intervention—not code volume or session duration.
+2. Look for convergence: effective agents narrow the problem, make increasingly targeted changes, improve validation, and learn from test or build output.
+3. Treat repeated edits, uninformative command retries, scattered changes, and invented assumptions about APIs or architecture as warning signs.
+4. Compare agents using the same repository snapshot, prompt, permissions, and test harness so setup and operator differences do not distort the result.
+5. Use sandboxed repositories, scoped credentials, ephemeral environments, and approval gates to prevent secret exposure, production damage, and irreversible actions.
+6. Prefer long-running agents for well-specified work such as tests, repetitive refactors, failure investigation, feature scaffolding, and draft pull requests.
+7. Run a controlled 60–90 minute experiment on a small repository, log every intervention in `agent-eval.md`, and score correctness, efficiency, code quality, test quality, and autonomy from 1–5.
+
 ## Overview
 
 This lesson explains how to think about a long-running AI coding agent experiment, where a model like Codex is allowed to operate for hours with minimal interruption. Even when the source material is only a video title, the scenario is highly relevant to engineers evaluating whether agentic coding tools can move beyond autocomplete and handle multi-step software work.
@@ -172,6 +186,26 @@ Repeat the same task twice:
 - once with a broader autonomous instruction set
 
 Compare which setup leads to better convergence. This will teach you whether your bottleneck is model capability or task framing.
+
+## Test Yourself
+
+<details><summary>Why is a six-hour runtime not evidence that a coding agent performed well?</summary>
+
+Duration measures activity, not useful progress. Performance should be judged by whether the agent completed an objectively testable task correctly, converged efficiently, and minimized human intervention.
+
+</details>
+
+<details><summary>What makes a comparison between two coding agents fair and reproducible?</summary>
+
+Give both agents the same repository snapshot, task prompt, permissions, environment, and test harness. Record interventions and costs so differences in setup or operator behavior are not mistaken for model capability.
+
+</details>
+
+<details><summary>What distinguishes a healthy agent loop from an unproductive one?</summary>
+
+A healthy loop uses build and test feedback to reduce uncertainty and make more targeted changes. An unproductive loop repeatedly edits the same areas, retries commands without learning, introduces new failures, or drifts from the original goal.
+
+</details>
 
 ## Further Reading
 

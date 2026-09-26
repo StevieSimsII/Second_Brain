@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat a code-focused LLM like a fast junior engineer with imperfect judgment: give it sufficient repository context, explicit scope, constraints, acceptance criteria, and verification steps. A disciplined gather–plan–implement–verify loop makes its work safer, easier to review, and more likely to be production-useful.
+
+## Key Takeaways
+
+1. Ground each request with the failing behavior, relevant error output, likely files, scope constraints, and a concrete definition of success.
+2. Split nontrivial work into reviewable stages: diagnose the problem, identify affected files, propose a plan, implement a narrow change, update tests, and summarize risks.
+3. State invariants and prohibitions explicitly—for example, preserve public APIs, keep the session-cookie format unchanged, prefer minimal diffs, and avoid unrelated cleanup.
+4. Require verification as part of the task: run or name relevant tests, examine edge cases, compare behavior before and after, and note remaining risks.
+5. Narrow an uncertain response one dimension at a time by focusing on one file, comparing specific root causes, requesting tests first, or asking why an earlier patch failed.
+6. Use task-specific prompts: debugging needs errors and reproduction steps; refactoring needs invariants and scope boundaries; migrations need old and new APIs plus compatibility guarantees.
+7. Create reusable templates for bug fixes, refactors, and test generation with sections for the task, current and desired behavior, relevant files, constraints, output format, and verification requirements.
+
 ## Overview
 
 This lesson distills practical prompting techniques for Claude Code based on the theme of how Anthropic engineers actually work with code-focused LLMs. Even though the source page provides minimal transcript detail, the core topic strongly suggests a real-world workflow centered on giving the model better context, clearer constraints, and structured tasks so it can act like a reliable engineering assistant rather than a generic chatbot.
@@ -224,6 +238,26 @@ You should finish with:
 - one implemented fix with tests
 - one follow-up verification pass
 - three reusable prompt templates for future coding tasks
+
+## Test Yourself
+
+<details><summary>What information should replace a vague request such as “Fix the authentication bug”?</summary>
+
+Provide the observed failure, reproduction details or stack trace, relevant files, scope constraints, desired behavior, and acceptance criteria. Also request a diagnosis, minimal plan, implementation, tests, and edge-case review.
+
+</details>
+
+<details><summary>Why separate diagnosis, planning, implementation, and verification into distinct stages?</summary>
+
+The separation creates review checkpoints before code changes and makes errors easier to locate and correct. It also helps constrain nontrivial work to a small, auditable change.
+
+</details>
+
+<details><summary>How should you respond when the model’s first answer is too broad or uncertain?</summary>
+
+Iteratively narrow one dimension instead of restarting the entire prompt. Focus it on a file, ask it to compare a few possible causes, request tests first, or have it explain why the proposed patch could fail.
+
+</details>
 
 ## Further Reading
 

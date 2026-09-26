@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Use the Microsoft Learn MCP server and its TypeScript CLI to retrieve current, official Microsoft documentation and code samples instead of relying on generic search or stale model knowledge. The repository also demonstrates how to build resilient MCP clients through dynamic tool discovery, caching, refresh-on-failure, and separate output formatting.
+
+## Key Takeaways
+
+1. Connect to `https://learn.microsoft.com/api/mcp` through an MCP transport; do not treat it as a conventional webpage or fixed REST API.
+2. Discover tools and input schemas dynamically, cache their metadata, and refresh it after relevant invocation failures or `listChanged` notifications.
+3. Use `microsoft_docs_search` for conceptual and configuration documentation, `microsoft_docs_fetch` for retrieving a specific Learn page, and `microsoft_code_sample_search` for official examples and snippets.
+4. Keep command handling, MCP discovery, caching, invocation, error normalization, and presentation as separate, testable concerns.
+5. Use `--json` when integrating `@microsoft/learn-cli` with shell scripts, `jq`, agents, or other automated workflows.
+6. Run `npx @microsoft/learn-cli doctor` to diagnose endpoint, configuration, or MCP connectivity problems.
+7. Pair retrieval tools with agent skills that explain when to search documentation, verify APIs, or look for code samples.
+
 ## Overview
 
 This repository packages Microsoft's official Learn MCP server integration story and a TypeScript-based CLI that exposes the same documentation and code-sample retrieval capabilities outside an MCP-aware client. Its purpose is straightforward: give AI agents and engineers a reliable path to current Microsoft documentation and samples, reducing hallucinations compared with generic web search or stale model knowledge.
@@ -200,6 +214,26 @@ Then answer these questions:
 - When would you use docs search vs. code search?
 - Why is `--json` important for integrating the CLI into agent pipelines?
 - Why is dynamic tool discovery safer than hard-coding tool names in a long-lived client?
+
+## Test Yourself
+
+<details><summary>Why should a long-lived MCP client discover tools dynamically instead of permanently hard-coding their names and schemas?</summary>
+
+The server's available tools and schemas can evolve. Dynamic discovery, caching, and refresh-on-failure let the client adapt to changes instead of breaking when its assumptions become stale.
+
+</details>
+
+<details><summary>When should you use documentation search rather than code-sample search?</summary>
+
+Use documentation search for concepts, tutorials, configuration, and platform guidance. Use code-sample search when you need official implementation examples, API usage, or troubleshooting references, optionally filtered by language.
+
+</details>
+
+<details><summary>Why does the CLI provide both formatted terminal output and `--json` output?</summary>
+
+Formatted output makes results easy for people to read, while JSON makes the same retrieval capabilities composable in scripts and agent pipelines. For example, `jq` can extract a result URL and pass it directly to the fetch command.
+
+</details>
 
 ## Further Reading
 

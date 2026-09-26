@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Vector search is most reliable when treated as one component of a knowledge layer that also preserves exact terms, metadata, structure, relationships, and provenance. This broader architecture matters because production AI systems need precise, traceable retrieval—not just semantically similar chunks.
+
+## Key Takeaways
+
+1. Use vector search for conceptual similarity, but add lexical search when queries contain exact identifiers, proper nouns, dates, numbers, or domain-specific terms.
+2. Preserve document hierarchy, citations, entities, tables, and links during ingestion instead of storing only detached chunks and embeddings.
+3. Analyze each query and route it through the appropriate combination of semantic search, exact search, metadata filtering, and relationship traversal.
+4. Merge and rerank candidates from multiple retrieval methods, then expand the best results with surrounding context and source metadata.
+5. Enforce tenant, permission, freshness, and document-type constraints during retrieval rather than expecting similarity ranking to satisfy them.
+6. Evaluate vector-only and hybrid retrieval on semantic, exact-match, and filtered queries; the lesson recommends 8–10 test queries for a small prototype.
+7. Keep pure vector search for prototypes, small corpora, low-risk semantic Q&A, or applications where document similarity is the main objective.
+
 ## Overview
 
 This lesson explains the shift from treating vector search as the primary retrieval primitive to building a broader knowledge layer that combines embeddings, metadata, structure, and relationships. The source title suggests a critique of pure vector databases and a move toward more expressive retrieval systems for AI applications.
@@ -251,6 +265,26 @@ By the end, you should be able to explain with evidence:
 - where it fails
 - how additional structure improves retrieval quality
 - what parts of a full knowledge layer are worth implementing in your own stack
+
+## Test Yourself
+
+<details><summary>Why does the lesson describe vector search as being “demoted” in a knowledge-layer architecture?</summary>
+
+Vectors remain useful for semantic similarity, but they become one retrieval index among several. The knowledge layer coordinates vectors with lexical search, metadata, structure, relationships, policies, and provenance.
+
+</details>
+
+<details><summary>What problems can hybrid retrieval solve that vector-only retrieval often cannot?</summary>
+
+It can recover exact identifiers and specialized terms, enforce filters and access rules, traverse entity relationships, and retain source structure. These capabilities reduce contextually wrong matches and improve grounding.
+
+</details>
+
+<details><summary>How would you test whether a knowledge layer improves retrieval?</summary>
+
+Build semantic and lexical retrieval paths over 10–20 metadata-rich documents, then compare vector-only and hybrid results across 8–10 semantic, exact-match, and filtered queries. Record where each system misses terms, violates constraints, or returns weaker evidence.
+
+</details>
 
 ## Further Reading
 

@@ -13,6 +13,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Use the simplest component that creates a clean contract: tools for bounded system actions, skills for reusable model reasoning, and subagents only for workflows needing independent context and autonomy. This decomposition improves reliability and maintainability while controlling latency, cost, and orchestration complexity.
+
+## Key Takeaways
+
+1. Start decomposition from observed failure modes such as missing system access, overloaded prompting, or conflicting goals.
+2. Use a tool for deterministic, execution-oriented operations with explicit schemas, narrow responsibilities, and well-defined failures.
+3. Extract repeated model-centric reasoning into a named skill with typed inputs, outputs, and a test set.
+4. Reserve subagents for separate goal-directed workflows that require iterative decisions, specialized context, or conflicting instructions.
+5. Evaluate statefulness, autonomy, determinism, reuse, and isolation needs before choosing an abstraction.
+6. Give every component only the context it needs; sending full conversation history to each subagent can increase cost and degrade performance.
+7. Decompose incrementally: convert deterministic operations into tools, extract reusable reasoning into skills, and add subagents only if the main agent remains overloaded.
+
 ## Overview
 
 As LLM-based agents grow beyond a single prompt, their behavior often becomes harder to reason about, test, and improve. A common design question is whether new capability should be added as a tool call, a reusable skill, or a separate subagent with its own context and control loop. Getting this decomposition right has a major impact on reliability, latency, cost, and maintainability.
@@ -242,6 +256,26 @@ You should be able to justify every component with one sentence:
 - why it is not just part of the main prompt
 - why it is or is not a tool
 - why it does or does not need its own agent loop
+
+## Test Yourself
+
+<details><summary>How do tools, skills, and subagents differ?</summary>
+
+A tool performs a bounded external action, a skill encapsulates a reusable model-based reasoning pattern, and a subagent pursues an independent objective with its own context and control loop.
+
+</details>
+
+<details><summary>When does the lesson recommend introducing a subagent?</summary>
+
+Use one when a workflow requires sustained autonomy, iterative planning, specialized context, or instructions that would conflict with the parent agent. Do not use one merely to modularize a simple action or reasoning transform.
+
+</details>
+
+<details><summary>How should a team decompose an existing monolithic agent?</summary>
+
+Review logs and group recurring failures, then turn deterministic operations into tools and repeated reasoning patterns into skills. Add subagents only for workflows that remain too complex, and evaluate each new boundary against the original behavior.
+
+</details>
 
 ## Further Reading
 
