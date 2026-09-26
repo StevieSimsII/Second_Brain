@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Hooks add an enforceable policy layer around AI-initiated actions, allowing tool calls to be inspected, changed, permitted, or blocked. This matters because coded guardrails are more reliable than asking an AI model to follow safety and quality rules through prompts alone.
+
+## Key Takeaways
+
+1. Use `PreToolUse` to evaluate file writes, shell commands, and other tool calls before they execute.
+2. Encode critical rules in hooks instead of prompts when compliance must be enforced rather than requested.
+3. Deny operations by default when they violate path restrictions, command allowlists, lint requirements, or approval policies.
+4. Block dangerous command patterns such as `rm -rf` before they reach the shell.
+5. Log the event type, requested tool, relevant arguments, checks, decision, and errors to distinguish unsafe requests from policy bugs and downstream failures.
+6. Treat hooks as middleware or admission control for AI-assisted development, not merely as customization features.
+
 ## Overview
 These notes explain how hooks work in AI-assisted developer tools like GitHub Copilot CLI and VS Code integrations. Hooks act as programmable interception points before or after AI-driven actions, giving you a way to inspect, modify, allow, or deny operations such as file writes, shell commands, and other tool calls.
 
@@ -74,6 +87,26 @@ Observability is also important. Good hook debugging usually logs:
 - any error output
 
 That visibility helps separate different classes of problems: unsafe model requests, overly strict policy logic, or downstream tool failures. In practice, hooks are best treated as a governance layer for AI-assisted development, not just a convenience feature.
+
+## Test Yourself
+
+<details><summary>Why are hooks more reliable than prompt instructions for enforcing developer-workflow policies?</summary>
+
+Prompt instructions are soft constraints that an LLM may fail to follow. Hooks implement the rules in code and can prevent an action from proceeding when required conditions are not met.
+
+</details>
+
+<details><summary>What should a `PreToolUse` hook inspect before allowing an action?</summary>
+
+It can inspect the requested tool, arguments, target files, workspace boundaries, command allowlists, lint or formatting results, and whether manual approval is required.
+
+</details>
+
+<details><summary>What information should hook logging capture, and why?</summary>
+
+Logs should capture the event type, requested tool, relevant arguments or paths, checks performed, final decision, and errors. This makes it easier to separate unsafe model requests, overly strict policy logic, and downstream tool failures.
+
+</details>
 
 ## Personal Notes
 Understanding AI Tool Hooks in Copilot CLI and VS Code

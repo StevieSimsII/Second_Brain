@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Build an isolated, reproducible Python environment and validate it with a tiny PyTorch training loop before studying language-model concepts. This prevents setup and hardware problems from obscuring tokenization, next-token prediction, and transformer fundamentals.
+
+## Key Takeaways
+
+1. Create a project-specific environment with `python3 -m venv .venv`, activate it, and upgrade `pip` before installing dependencies.
+2. Install PyTorch first, then add beginner utilities such as Jupyter, Matplotlib, tqdm, and NumPy.
+3. Verify PyTorch imports and device support immediately with `torch.cuda.is_available()` for NVIDIA GPUs or `torch.backends.mps.is_available()` for Apple Silicon.
+4. Run a minimal forward pass, loss calculation, backward pass, and optimizer step to confirm that tensors, autograd, device placement, and training all work together.
+5. Keep datasets, notebooks, reusable source code, and generated outputs in separate `data/`, `notebooks/`, `src/`, and `outputs/` directories.
+6. Progress from a verified runtime to loading text, converting it into token IDs, constructing fixed-length context windows, training a next-token model, and sampling output.
+7. Freeze dependencies in `requirements.txt`, use project-relative data paths, and record whether each experiment ran on CPU, CUDA, or MPS.
+
 ## Overview
 
 These notes outline a practical beginner setup for studying large language models through Karpathy-style educational material. The focus is not just on installing tools, but on creating a clean, repeatable environment for running notebooks, experimenting with PyTorch code, organizing datasets, and verifying that CPU or GPU execution works correctly from the start.
@@ -105,6 +119,26 @@ From there, the workflow shifts toward language-model-specific tasks: loading te
 Good reproducibility habits should be part of the environment from the beginning. Freeze dependencies with `pip freeze > requirements.txt`, keep data paths relative to the project root, separate exploratory notebooks by topic, and save checkpoints or generated text to `outputs/`. It is also helpful to record whether an experiment ran on CPU, CUDA, or MPS so performance expectations stay realistic.
 
 The notes also include a concrete exercise: create a workspace, install tools, add an environment check script, run a tiny training script, then extend the lab into a text-based mini language model project. That sequence is a strong beginner path because it proves the environment works before introducing tokenization and model-building complexity.
+
+## Test Yourself
+
+<details><summary>Why should you run a tiny training loop before starting a language-model project?</summary>
+
+It verifies that PyTorch imports, tensors, device placement, autograd, the loss function, and the optimizer work together. This isolates environment problems before tokenization and model-building add more complexity.
+
+</details>
+
+<details><summary>What role does an isolated Python environment play in this workflow?</summary>
+
+It keeps project dependencies separate from other Python projects, reducing version conflicts and making the setup easier to reproduce or discard.
+
+</details>
+
+<details><summary>What sequence should follow once the PyTorch runtime has been validated?</summary>
+
+Load text, tokenize it into integer IDs, build fixed-length context windows, train a small next-token model, and sample generated output. This progression exposes the fundamental language-model pipeline instead of hiding it behind pretrained-model APIs.
+
+</details>
 
 ## Personal Notes
 

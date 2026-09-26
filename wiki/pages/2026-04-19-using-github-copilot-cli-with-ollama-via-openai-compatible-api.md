@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Point GitHub Copilot CLI at Ollama’s OpenAI-compatible endpoint to keep the Copilot terminal workflow while choosing local or Ollama-hosted models. This enables controlled, repeatable repository analysis in interactive sessions, scripts, and CI/CD.
+
+## Key Takeaways
+
+1. Use `ollama launch copilot` for the simplest setup because Ollama configures the provider automatically.
+2. Set `COPILOT_PROVIDER_BASE_URL=http://localhost:11434/v1` and `COPILOT_PROVIDER_WIRE_API=responses` when configuring the integration manually.
+3. Leave `COPILOT_PROVIDER_API_KEY` empty for a typical local Ollama instance and select the backend with `COPILOT_MODEL`.
+4. Choose a coding-capable model with at least a 64k-token context window for repository-level reasoning and conversation history.
+5. For headless automation, specify `--model`, add `--yes` to skip interactive selection, and place native Copilot arguments after `--`.
+6. Use interactive mode for repository exploration and architecture questions; use headless mode for scripted summaries, diff explanations, documentation, and CI tasks.
+7. The integration requires no custom plugin layer because Copilot CLI communicates directly with Ollama’s OpenAI-compatible API.
+
 ## Overview
 
 These notes explain how to configure GitHub Copilot CLI to use Ollama as the model backend through Ollama’s OpenAI-compatible API. The key idea is that Copilot CLI can send requests to a provider exposing an OpenAI-style interface, and Ollama serves that interface locally at `http://localhost:11434/v1`. This makes it possible to keep the Copilot CLI workflow while choosing local or Ollama-hosted models.
@@ -101,6 +115,26 @@ A practical workflow is:
 - Use **headless mode** in scripts or CI to generate summaries, notes, or implementation guidance.
 
 The integration is lightweight: there is no custom plugin layer involved. Copilot CLI simply talks to a compatible API, and Ollama provides that API.
+
+## Test Yourself
+
+<details><summary>Which settings redirect Copilot CLI to Ollama and select compatible API behavior?</summary>
+
+Set `COPILOT_PROVIDER_BASE_URL` to `http://localhost:11434/v1` and `COPILOT_PROVIDER_WIRE_API` to `responses`. Use `COPILOT_MODEL` to choose the model, and normally leave `COPILOT_PROVIDER_API_KEY` empty for a local instance.
+
+</details>
+
+<details><summary>How do you run Copilot CLI non-interactively through Ollama?</summary>
+
+Run a command such as `ollama launch copilot --model kimi-k2.5:cloud --yes -- -p "how does this repository work?"`. The `--` separator ensures that `-p` is passed to Copilot CLI rather than interpreted by the Ollama launcher.
+
+</details>
+
+<details><summary>Why do these notes recommend models with at least a 64k-token context window?</summary>
+
+Copilot CLI may need to reason across many repository files plus prior conversation history. A larger context window gives the model more room to consider that information together.
+
+</details>
 
 ## Personal Notes
 

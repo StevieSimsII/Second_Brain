@@ -13,6 +13,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> GitHub Copilot CLI can turn plain-language intent into shell commands and explain unfamiliar commands without leaving the terminal. Treat every suggestion as a draft: review its paths, scope, flags, assumptions, and platform compatibility before running it.
+
+## Key Takeaways
+
+1. Use “do mode” to translate a plain-language task into a candidate shell command or pipeline.
+2. Use “explain mode” to understand a command’s flags, arguments, recursion, and pipeline behavior.
+3. Review generated commands for incorrect paths, destructive operations, quoting problems, permissions, and unintended recursive scope.
+4. Verify that required tools and syntax are compatible with the current shell and operating system.
+5. Edit and refine suggestions directly in the terminal; Copilot CLI is most valuable as a fast first draft, not trusted automation.
+6. Keep learning core shell concepts such as quoting, pipes, redirection, and command semantics because Copilot CLI does not replace shell knowledge.
+7. Practice potentially risky commands in a safe workspace before applying them to repositories, files, or infrastructure that matter.
+
 ## Overview
 
 These notes cover how GitHub Copilot CLI brings AI-assisted help directly into terminal workflows. The focus is on using natural language to generate shell commands, explain existing commands, and reduce context switching for engineers who spend much of their day in the command line.
@@ -104,6 +118,26 @@ A useful explanation would include:
 The main practical takeaway is that Copilot CLI improves terminal productivity, but it does not replace shell knowledge. Understanding quoting, pipes, redirection, command semantics, and platform differences remains essential for safe and effective use.
 
 The training exercise in these notes is especially useful because it encourages hands-on practice in a safe workspace. It reinforces a strong habit: use Copilot CLI to accelerate thinking and command discovery, but always validate output manually before execution.
+
+## Test Yourself
+
+<details><summary>What are Copilot CLI’s two primary modes?</summary>
+
+“Do mode” converts natural-language intent into a candidate command. “Explain mode” translates an existing command into a description of its structure, flags, arguments, and behavior.
+
+</details>
+
+<details><summary>What should you verify before executing a generated command?</summary>
+
+Check paths, scope, recursive behavior, quoting, destructive effects, permissions, required tools, and platform-specific syntax. The lesson recommends treating every generated command as a draft that requires human approval.
+
+</details>
+
+<details><summary>Why does Copilot CLI not eliminate the need for shell knowledge?</summary>
+
+A plausible command may still be unsafe, incorrect, or incompatible with the current environment. Understanding shell fundamentals lets you evaluate and refine suggestions before they affect files, repositories, or infrastructure.
+
+</details>
 
 ## Personal Notes
 

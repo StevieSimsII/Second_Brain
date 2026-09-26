@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Build a dependable developer assistant by giving a Copilot-powered CLI a few narrowly defined jobs, relevant repository context, and structured output contracts. Keep developers in control by separating command suggestions from execution and requiring explicit approval for risky actions.
+
+## Key Takeaways
+
+1. Scope the assistant to repeatable tasks such as explaining staged diffs, drafting commit messages, suggesting shell commands, and analyzing failures.
+2. Gather task-specific context—such as `git diff --staged`, logs, `README.md`, `package.json`, `Makefile`, and git metadata—before asking the model for help.
+3. Define prompts with an explicit role, task, context, output format, safety rules, and risk classification.
+4. Return structured data such as `summary`, `suggested_command`, `risk_level`, and `safety_notes` so scripts can validate, log, and consume results predictably.
+5. Separate suggestion from execution: show the proposed command, explain it, classify its risk, and ask `Run it? [y/N]`.
+6. Never automatically run commands involving deletion, force-pushes, resets, installs, or system changes.
+7. Use AI to interpret intent and compose existing scripts and developer tools rather than replacing those tools.
+
 ## Overview
 
 These notes cover how to think about building a personal developer assistant using GitHub Copilot’s SDK and command-line tooling. The central idea is to move beyond passive inline suggestions and create a programmable assistant that can help with concrete engineering tasks such as explaining diffs, drafting commit messages, suggesting shell commands, and interpreting logs.
@@ -63,6 +77,26 @@ Safety is especially important for shell-oriented assistants. Commands involving
 The notes also emphasize that the assistant should be **repo-aware** where possible. Pulling in `README.md`, `package.json`, `Makefile`, test logs, build output, and git metadata makes the assistant much more useful than a generic model call. The goal is not universal intelligence, but dependable help in your actual environment.
 
 A practical implementation path is to start with a minimal script in Python or Node.js that gathers shell context, builds a prompt, sends it to a Copilot-compatible or other LLM backend, and prints a safe, structured response. From there, iterate by testing against real tasks and improving task-specific prompts.
+
+## Test Yourself
+
+<details><summary>Why should a personal developer assistant specialize in a small number of tasks?</summary>
+
+Narrow, recurring jobs are easier to supply with the right context, prompts, and output contracts. This generally makes the assistant more consistent and dependable than a broad chatbot.
+
+</details>
+
+<details><summary>What information should a terminal-assistant prompt contain?</summary>
+
+It should specify the assistant's role, the requested task, relevant repository or file context, the required output structure, and safety or risk rules.
+
+</details>
+
+<details><summary>What is the safe flow for handling a suggested shell command?</summary>
+
+Generate and display the command, explain its effect, classify its risk, and request explicit confirmation with a prompt such as `Run it? [y/N]`. Execute it only after approval, especially when it could alter or destroy data.
+
+</details>
 
 ## Personal Notes
 

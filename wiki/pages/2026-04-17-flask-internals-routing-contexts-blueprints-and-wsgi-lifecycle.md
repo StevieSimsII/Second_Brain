@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> Flask stays simple at the surface by coordinating Werkzeug routing, context-local proxies, deferred blueprint registration, flexible response conversion, and a structured WSGI lifecycle. Understanding those layers makes request behavior, extension design, and difficult bugs easier to trace.
+
+## Key Takeaways
+
+1. Trace a request as: WSGI server → `Flask.wsgi_app` → context push → hooks → route dispatch → response conversion → session save and response hooks → teardown → context pop.
+2. Treat `request`, `session`, `g`, and `current_app` as proxies to active request or application context state, not as ordinary global variables.
+3. Use Werkzeug’s URL map as the routing model: a rule matches the path, extracts variables, resolves an endpoint in the view-function registry, and invokes its callable.
+4. Think of blueprints as recorders of deferred setup operations; `register_blueprint` replays those operations with app-specific prefixes, namespaces, and options.
+5. Return strings, bytes, dictionaries, tuples, generators, or response objects from views when appropriate; Flask normalizes supported values into a response instance.
+6. Assume Flask’s default session cookie provides integrity through signing, not secrecy through encryption; clients can read stored session data.
+7. Use `test_client()` and explicit app or request contexts to test routes and code that depends on `current_app`, `request`, or `g` without running a live server.
+
 ## Overview
 
 These notes explain how Flask works beneath its simple public API by tracing the framework’s internal architecture and request lifecycle. They focus on how Flask composes Werkzeug, Jinja, Click, ItsDangerous, and related pieces into a lightweight but capable web framework, with special attention to routing, request and application contexts, blueprint registration, sessions, JSON handling, templating, CLI support, and testing.
@@ -63,6 +77,26 @@ Flask CLI support comes from `src/flask/cli.py` and is built on Click. The `flas
 Testing support in `src/flask/testing.py` wraps Werkzeug’s test client and works closely with Flask’s explicit context model. That makes it straightforward to test routes without a live server and to manually push app or request contexts when you want to exercise code that depends on `current_app`, `request`, or `g`.
 
 The included training exercise is a strong way to internalize these ideas. By building a small app with an application factory, blueprint, request hooks, session use, and a `MethodView`, then inspecting endpoint registration and writing a test with `test_client()`, you can directly observe the behavior implemented in `Flask.wsgi_app`, `full_dispatch_request`, blueprint registration, view dispatch, and session save/load logic.
+
+## Test Yourself
+
+<details><summary>Why can Flask expose `request`, `session`, `g`, and `current_app` without passing them through every function?</summary>
+
+They are proxy objects that resolve to state associated with the currently active request or application context. Context push and pop operations isolate that state across requests.
+
+</details>
+
+<details><summary>What happens when a blueprint is registered on an application?</summary>
+
+Flask replays the blueprint’s previously recorded setup operations against the concrete app. Registration applies options such as URL prefixes and endpoint namespaces, producing endpoints such as `api.ping`.
+
+</details>
+
+<details><summary>What security property do Flask’s default signed-cookie sessions provide, and what do they not provide?</summary>
+
+Signing lets Flask detect client-side modification and therefore protects integrity. It does not encrypt the cookie, so clients can still read its contents.
+
+</details>
 
 ## Personal Notes
 

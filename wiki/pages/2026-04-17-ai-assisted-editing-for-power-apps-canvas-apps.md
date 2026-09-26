@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI coding tools can edit Power Apps canvas apps through a source-driven `.pa.yaml` workflow, with coauthoring and MCP validation syncing changes back to Power Apps Studio. This could accelerate routine development, but preview status and privileged source access make human review, sandbox testing, and governance essential.
+
+## Key Takeaways
+
+1. Enable canvas app coauthoring before attempting AI-assisted edits, because it provides the supported channel for synchronizing validated changes into Power Apps Studio.
+2. Install .NET SDK 10.0 or later, an AI coding client such as GitHub Copilot CLI or Claude Code, and the Power Platform Skills and Canvas Apps extensions.
+3. Run `/configure-canvas-mcp` and provide the app URL to connect the coding assistant to an existing canvas app.
+4. Treat `.pa.yaml` as the editable source representation through which the assistant can add screens, update controls, change Power Fx formulas, and refactor app patterns.
+5. Require Canvas App MCP validation before syncing generated changes, while recognizing that validation does not replace human review or functional testing.
+6. Evaluate the preview workflow in a copied or sandbox app using one minimal change first, then inspect the generated source, test the app manually, and document permissions and validation behavior.
+7. Apply environment separation, connector and DLP checks, audit logging, retention rules, and production approval workflows before considering enterprise use.
+
 ## Overview
 
 These notes cover an emerging workflow for using AI coding tools to create and edit **Power Apps canvas apps** through a source-driven process instead of relying only on the visual designer. The core idea is that tools such as GitHub Copilot CLI or Claude Code can connect to an existing canvas app, inspect its source representation, generate changes, and sync validated updates back into Power Apps Studio.
@@ -98,6 +112,26 @@ The notes also include a practical training exercise for evaluating the workflow
 - Document permissions required, automated changes made, validation observed, and what human review is still needed.
 
 A useful stretch test is a **formula-level change**, such as disabling a submit button when an input is blank. This helps assess whether the AI produces the expected **Power Fx** formula and whether the output is inspectable enough for real governance requirements.
+
+## Test Yourself
+
+<details><summary>What components allow an AI coding tool to edit a canvas app and synchronize changes back to Power Apps Studio?</summary>
+
+The described workflow combines canvas app coauthoring, an AI coding client, Power Platform Skills and Canvas Apps extensions, the `.pa.yaml` source representation, and a Canvas App MCP server that validates proposed changes before synchronization.
+
+</details>
+
+<details><summary>Why is MCP validation insufficient as the only safeguard?</summary>
+
+Platform validation can catch structural or semantic problems, but it does not establish business correctness, data-policy compliance, or production readiness. Teams still need human review, manual testing, environment controls, auditing, and approvals.
+
+</details>
+
+<details><summary>How should a team safely evaluate this preview capability?</summary>
+
+Use a copied or sandbox app, enable coauthoring, connect with `/configure-canvas-mcp`, and begin with a minimal change such as editing a button caption. Inspect the generated `.pa.yaml`, confirm validation occurs, test the app manually, and document access requirements and remaining review needs.
+
+</details>
 
 ## Personal Notes
 

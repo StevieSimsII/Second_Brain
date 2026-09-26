@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> cb365 shows how to make Microsoft 365 automation consistent and safer by combining workload-based commands, centralized Microsoft Graph access, secure credential storage, predictable output, and explicit guardrails. These patterns matter because they reduce fragmented authentication logic and lower the risk of unintended high-impact actions.
+
+## Key Takeaways
+
+1. Organize CLI commands by Microsoft 365 workload—such as `todo`, `mail`, `calendar`, `teams`, and `sharepoint`—to keep operations discoverable and aligned with Microsoft Graph domains.
+2. Centralize authentication and Graph transport behavior so individual command handlers do not implement OAuth, credential refresh, or HTTP policies independently.
+3. Use profiles to support multiple tenants and authentication modes, including delegated device-code authentication and app-only authentication with client secrets or certificates.
+4. Prefer OS-native keychains for credentials; cb365 reportedly falls back to AES-256-GCM encrypted file storage for headless environments.
+5. Send structured `--json` or `--plain` results to stdout and human-readable status information to stderr so commands compose reliably in shell pipelines.
+6. Require explicit intent for write and destructive operations through guardrails such as `--dry-run`, `--confirm`, and `--force`.
+7. Expose Microsoft Graph constraints early: the lesson states that To Do is delegated-only, Loop requires app-only authentication and SharePoint Embedded setup, and OneDrive uploads are limited to small files in the documented behavior.
+
 ## Overview
 
 These notes cover **cb365**, a Go-based CLI that wraps Microsoft Graph to provide a consistent, scriptable interface to Microsoft 365 services such as To Do, Mail, Calendar, Contacts, Planner, Teams, SharePoint, OneDrive, and Loop. The project is notable not only for its workload coverage, but for its practical engineering choices: Cobra-based command structure, a shared Graph client layer, secure credential storage, and explicit safety guardrails for high-impact actions.
@@ -59,6 +73,26 @@ Finally, cb365 surfaces Microsoft Graph product constraints directly in the CLI:
 - OneDrive uploads are currently limited to small files in documented behavior
 
 That is a useful design trait: constraints are made visible early so automation fails predictably instead of hiding API limits until runtime.
+
+## Test Yourself
+
+<details><summary>Why does cb365 centralize Microsoft Graph access instead of implementing it separately in every command?</summary>
+
+A shared Graph layer keeps authentication, transport behavior, and HTTP customization consistent across workloads. It also reduces duplicated security-sensitive code and makes changes easier to apply globally.
+
+</details>
+
+<details><summary>How does cb365 make its output suitable for automation?</summary>
+
+It supports machine-readable modes such as `--json` and `--plain`, writes structured results to stdout, and sends status messages to stderr. Scripts can therefore parse results without human-readable messages corrupting the data stream.
+
+</details>
+
+<details><summary>What mechanisms establish an explicit intent boundary around high-impact operations?</summary>
+
+The lesson identifies `--dry-run`, `--confirm`, and `--force` as hardcoded safety controls. Together they let users preview changes and require deliberate authorization before write or destructive actions proceed.
+
+</details>
 
 ## Personal Notes
 

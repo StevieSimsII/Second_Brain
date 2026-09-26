@@ -10,6 +10,20 @@ depth: 1
 actionability: 1
 ---
 
+## TL;DR
+
+> Claude Code routines turn prompts, repository access, and connectors into hosted workflows triggered by schedules, API calls, or GitHub events. This matters because recurring engineering work can run consistently without relying on someone’s laptop or memory.
+
+## Key Takeaways
+
+1. Package instructions, repository context, connectors, and a trigger into one reusable routine.
+2. Use scheduled routines for periodic work such as nightly issue triage, maintenance, and documentation checks.
+3. Use API-triggered routines when deployment hooks, alerts, or internal tools need to start a Claude Code session with an HTTP POST payload.
+4. Use GitHub webhook routines for repository events; the lesson says a pull-request session can continue handling later comments, code pushes, and CI failures.
+5. Design routine outputs around concrete actions such as summaries, comments, Slack posts, issues, recommendations, or draft pull requests.
+6. Prioritize high-value automations because runs consume Claude Code usage and are subject to plan-based daily limits.
+7. Account for the feature’s stated constraints: research preview status, Claude Code on the web, and supported plan tiers.
+
 ## Overview
 
 These notes cover Claude Code routines, a hosted automation feature that turns prompts, repository access, and connectors into repeatable workflows. Instead of depending on a developer’s local machine, routines run in Claude Code’s managed environment and can be triggered on a schedule, via API calls, or from GitHub events.
@@ -63,6 +77,26 @@ The article’s examples span much of the software lifecycle:
 The notes also connect routines to prior Claude Code CLI behavior: users who previously used `/schedule` are effectively moving into a more centralized, hosted automation model. That indicates routines are not just a convenience feature, but a step toward managed agent orchestration for engineering work.
 
 Operationally, routines come with some constraints: the feature is in research preview, requires Claude Code on the web, and depends on supported plan tiers. There are also daily limits and usage implications, which means teams should be selective and measure whether a routine genuinely saves time or improves reliability.
+
+## Test Yourself
+
+<details><summary>What components does a Claude Code routine package into a managed workflow?</summary>
+
+It combines instructions, execution context such as repositories and connectors, and a trigger. When the trigger fires, Claude Code creates a hosted session that produces configured actions or outputs.
+
+</details>
+
+<details><summary>When should a team choose a schedule, an API call, or a GitHub webhook as the trigger?</summary>
+
+Choose a schedule for recurring time-based work, an API call for external systems such as deployment or observability tools, and a GitHub webhook for automation driven by repository events.
+
+</details>
+
+<details><summary>Why should teams be selective about which workflows become routines?</summary>
+
+The lesson notes that routine runs consume Claude Code usage and face plan-based daily limits. Teams should therefore favor workflows that measurably save time, improve reliability, or consistently produce valuable engineering outcomes.
+
+</details>
 
 ## Personal Notes
 

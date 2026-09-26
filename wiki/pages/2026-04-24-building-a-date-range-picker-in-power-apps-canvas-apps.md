@@ -9,6 +9,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Build the date range picker as a small state machine using native Canvas App controls and variables. Showing adjacent months, highlighting the interval, and automatically correcting reversed dates makes range selection faster and less error-prone.
+
+## Key Takeaways
+
+1. Track the picker with variables such as `varStartDate`, `varEndDate`, `varLeftMonth`, `varViewMode`, and `varIsOpen`.
+2. Derive the right calendar from the left calendar with `DateAdd(varLeftMonth, 1, Months)` so both panels stay synchronized.
+3. Set the first clicked date as the start; use the second as the end, automatically swapping the values when the second date is earlier.
+4. When both dates are already selected, treat the next click as a new start date and clear the previous end date.
+5. Use conditional formatting to give start and end dates a strong accent and dates inside the interval a lighter fill.
+6. Provide month and year gallery views so users can jump across large time spans before returning to day selection.
+7. Make Okay preserve the selected dates and close the picker; make Cancel clear both dates, restore `varViewMode` to `"Day"`, and close it.
+
 ## Overview
 
 These notes describe how to build a custom date range picker in a Power Apps Canvas App using standard UI building blocks like galleries, labels, icons, variables, and conditional formatting. The design focuses on a better user experience than separate start/end date inputs by showing two months side by side, visually highlighting the selected range, and supporting navigation across day, month, and year views.
@@ -62,6 +76,26 @@ The action buttons define the UX contract clearly:
 - **Cancel** clears `varStartDate`, `varEndDate`, resets `varViewMode` to `"Day"`, and closes the control.
 
 This approach is a strong example of how Power Fx formulas and Canvas App controls can be combined to build reusable, polished components for filtering, scheduling, booking, and date-driven workflows.
+
+## Test Yourself
+
+<details><summary>Why should the right-hand month be derived from `varLeftMonth` instead of stored independently?</summary>
+
+Using `DateAdd(varLeftMonth, 1, Months)` keeps the two calendars synchronized and reduces the amount of state and navigation logic that must be maintained.
+
+</details>
+
+<details><summary>What should happen when the second selected date is earlier than the first?</summary>
+
+The component should automatically swap the two values so `varStartDate` remains earlier than `varEndDate`, preserving a valid chronological range without requiring manual correction.
+
+</details>
+
+<details><summary>How do day, month, and year views work together?</summary>
+
+Month and year galleries provide faster navigation across long time spans. After choosing the target period, the picker returns to day view for exact date selection.
+
+</details>
 
 ## Personal Notes
 

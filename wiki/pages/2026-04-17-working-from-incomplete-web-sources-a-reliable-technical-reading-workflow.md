@@ -9,6 +9,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat an incomplete web source as a pointer to evidence, not as evidence itself. This prevents unsupported details from entering technical notes and directs research toward verifiable primary sources.
+
+## Key Takeaways
+
+1. Never let a weak source become a strong claim; a URL without its post body, media, or thread context supports only minimal facts.
+2. Inventory what is known and missing before interpreting a source so the evidence boundary remains explicit.
+3. Recover context by opening the URL, searching by post ID, checking archives and search results, and reviewing the publisher’s official materials from the same timeframe.
+4. Base durable engineering knowledge on official documentation, blog posts, repositories, model cards, or release notes rather than social posts alone.
+5. Separate recovered information into what changed, the affected system or product area, supporting evidence, and practical developer impact.
+6. Verify technical claims individually and label them `primary-confirmed`, `secondary-confirmed`, or `unverified`.
+7. Record unresolved uncertainty directly, including why information is unknown and what evidence is needed next.
+
 ## Overview
 
 These notes describe a practical workflow for extracting trustworthy technical understanding from an incomplete web source, especially when the source is a social-media URL with little or no captured content. The core lesson is that a missing or partially retrieved source should be treated as a pointer to evidence, not as evidence itself.
@@ -35,6 +49,26 @@ After recovery, separate the technical payload into stable categories: what chan
 A good heuristic is: **never let a weak source become a strong claim**. Social posts are often useful entry points, but durable engineering knowledge should be based on verifiable artifacts. If uncertainty remains, record it directly rather than smoothing it over.
 
 This workflow also scales well into lightweight automation. Even a simple script can track the source URL, source type, whether text was captured, extracted claims, and current verification status. The goal is not just to recover missing content, but to produce notes that distinguish observed facts from inferred context and preserve trust for future use.
+
+## Test Yourself
+
+<details><summary>How should a source containing only a title and URL be classified?</summary>
+
+Treat it as a discovery artifact rather than content to summarize. It identifies where evidence may exist but does not support detailed claims by itself.
+
+</details>
+
+<details><summary>What steps can recover context from an incomplete social-media source?</summary>
+
+Open the URL directly, search by post ID, inspect search results and archives, and check the publisher’s official site for related announcements. Then use linked documentation, release notes, repositories, or other durable primary sources to verify the technical details.
+
+</details>
+
+<details><summary>How should recovered technical claims be recorded for safe reuse?</summary>
+
+Document what changed, the affected area, the supporting evidence, and the practical impact. Verify each claim separately and assign a status such as `primary-confirmed`, `secondary-confirmed`, or `unverified`.
+
+</details>
 
 ## Personal Notes
 

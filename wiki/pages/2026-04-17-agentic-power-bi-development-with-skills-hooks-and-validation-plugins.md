@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The repository turns Power BI and Microsoft Fabric artifacts into safer, source-controlled engineering workflows by packaging domain instructions, specialist reviews, and deterministic validation as installable plugins. This matters because agents can help create changes while hooks and scripts independently enforce structural, semantic, and operational checks.
+
+## Key Takeaways
+
+1. Treat the repository as a plugin marketplace, not a standalone application; install only the domains needed, such as `pbip`, `pbi-desktop`, `reports`, or `fabric-cli`.
+2. Use skills to teach repeatable domain workflows, agents to perform specialized reviews or audits, and hooks to run deterministic checks triggered by tool actions.
+3. Validate source-controlled PBIP artifacts before opening them in Power BI by tracing `plugins/pbip/skills/pbip/SKILL.md`, `pbip-validator.md`, `hooks.json`, `config.yaml`, `validate-pbir.sh`, `validate-report-binding.sh`, and `validate-tmdl.sh`.
+4. Distinguish static PBIP validation from live-model validation: the `pbip` plugin checks files such as PBIR and TMDL, while `pbi-desktop` connects to a running model and uses scripts including `snapshot-model.ps1` and `check-referential-integrity.ps1`.
+5. Apply technology-specific report quality gates through reviewers for Deneb specifications, SVG-in-DAX, R visuals, and Python visuals instead of relying on one general-purpose review.
+6. Use `fabric-cli` scripts for remote operations such as downloading workspaces, executing DAX, exporting semantic models as PBIP, analyzing downstream reports, and querying lakehouses or SQL endpoints.
+7. Version and validate the automation itself: plugin manifests, skills, agents, hooks, scripts, release notes, and CI checks are maintained as governed engineering assets.
+
 ## Overview
 These notes describe a GitHub repository that acts as a plugin marketplace for coding agents working on Power BI and Microsoft Fabric tasks. Rather than being a standalone application, the repository packages reusable instructions, validation logic, review agents, helper scripts, and operational tooling into installable plugins for domains like PBIP, semantic models, report assets, Tabular Editor, Power BI Desktop, and Fabric administration.
 
@@ -133,6 +147,26 @@ Success criteria captured in the notes:
 - Explain the difference between a skill, an agent, and a hook
 - Identify the files implementing PBIP validation
 - Describe at least one Fabric automation workflow from the codebase
+
+## Test Yourself
+
+<details><summary>What is the difference between a skill, an agent, and a hook in this repository?</summary>
+
+A skill is a Markdown instruction pack that teaches domain knowledge and workflows. An agent is a specialized reviewer, debugger, or auditor, while a hook invokes executable logic to enforce deterministic validation after relevant actions.
+
+</details>
+
+<details><summary>Which assets should you inspect to understand the PBIP validation path?</summary>
+
+Start with `plugins/pbip/skills/pbip/SKILL.md` and `plugins/pbip/agents/pbip-validator.md`, then inspect `hooks/hooks.json`, `hooks/config.yaml`, `validate-pbir.sh`, `validate-report-binding.sh`, and `validate-tmdl.sh`. Together they show the instructional, review, registration, configuration, and enforcement layers.
+
+</details>
+
+<details><summary>How do the `pbip`, `pbi-desktop`, and `fabric-cli` plugins serve different workflows?</summary>
+
+`pbip` validates source-controlled project files, while `pbi-desktop` inspects and validates a model currently loaded in Power BI Desktop. `fabric-cli` supports remote operational workflows such as downloading workspaces, executing DAX, exporting models, and querying Fabric data services.
+
+</details>
 
 ## Personal Notes
 Agentic Power BI Development with Skills, Hooks, and Validation Plugins
