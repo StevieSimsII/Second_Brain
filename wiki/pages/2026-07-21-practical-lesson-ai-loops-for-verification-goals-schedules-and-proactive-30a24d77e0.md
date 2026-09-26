@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI loops turn one-shot prompts into controlled workflows by repeatedly doing work, checking it, and stopping when an explicit condition is met. Clear evaluators and stop rules matter because vague criteria can make a loop drift or continue unnecessarily.
+
+## Key Takeaways
+
+1. Define every AI loop with three parts: the task, the evaluator, and the stop rule.
+2. Use a turn-based loop when an output needs one verification pass before delivery, such as confirming that a frontend change works.
+3. Use a goal-based loop to revise toward a measurable threshold, such as an 8/10 rubric score or a target Lighthouse score.
+4. Use a time-based loop for recurring work triggered at a fixed interval, such as drafting meeting follow-ups every day at 9:00 a.m.
+5. Use a proactive loop to monitor for new inputs and continue until every item found in that run is processed or explicitly dismissed.
+6. Externalize quality criteria in a reusable rubric, skill, or evaluator so each iteration is judged consistently.
+7. Treat the speaker’s product commands, implementation details, and team-practice claims as examples until verified in primary documentation.
+
 ## Overview
 
 This lesson distills a YouTube transcript about using "loops" with an AI agent such as Claude Code. In the source, a loop is described as an agent repeating a cycle of work until a stop condition is met. The video presents four loop types: turn-based, goal-based, time-based, and proactive. The practical value is not the specific brand or slash-command syntax, but the operating idea: make the model do work, check the result, and continue only until a defined standard is reached. Evidence is strongest for the general pattern and the examples shown in the transcript; specific claims about official product behavior, commands, or team practices are reported by the speaker and should be treated as secondhand unless you verify them in primary docs.
@@ -69,6 +83,26 @@ After writing the four versions, compare them:
 - Which loop would save you the most repeated effort?
 
 Finally, refine one version into a reusable template with three parts: task, evaluator, and stop rule.
+
+## Test Yourself
+
+<details><summary>What is the basic control pattern shared by all four AI loop types?</summary>
+
+Define the task and its evaluation method, let the agent act, feed the evaluation result into the next iteration, and stop only when the stated condition is satisfied.
+
+</details>
+
+<details><summary>How does a proactive loop differ from a time-based loop?</summary>
+
+A time-based loop reruns a task on a schedule. A proactive loop adds monitoring and a completion rule, continuing until all work discovered during the run has been handled.
+
+</details>
+
+<details><summary>Why can a vague evaluator make an AI loop unreliable?</summary>
+
+The agent lacks an objective way to decide whether the work has passed, so it may drift, stop too early, or iterate without meaningful improvement. Concrete, relevant criteria make the stopping decision testable.
+
+</details>
 
 ## Further Reading
 

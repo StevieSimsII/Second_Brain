@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> VS Code 1.127 turns agent-assisted development into a more complete, governable workflow by combining parallel session management, in-editor browser testing, sandboxed command execution, and PR/CI feedback. This matters because teams can move faster with agents while retaining explicit permissions and enterprise policy controls.
+
+## Key Takeaways
+
+1. Use the Agents window to group, reorder, pin, and monitor concurrent agent sessions across projects and machines.
+2. Create peer chats within one host session when work streams should run in parallel while sharing session context, aggregated progress, and combined file changes.
+3. Let agents validate web apps through the integrated browser by opening pages, inspecting content and console errors, taking screenshots, clicking controls, and typing into forms.
+4. Review browser permissions per site for sensitive capabilities such as camera, microphone, location, clipboard, Bluetooth, USB, serial, and HID access.
+5. On macOS and Linux, use terminal sandboxing to run eligible agent commands with blocked network access and restricted filesystem access; commands needing broader privileges require approval.
+6. Handle failed CI and review comments from chat input banners with actions such as Fix Checks, Reveal Checks, Address Comments, and Reveal Comments.
+7. Distribute enterprise Copilot policy through managed-settings.json when MDM or account-based settings are absent, using the documented OS-specific location.
+
 ## Overview
 
 Visual Studio Code 1.127 expands the IDE from a coding surface into a more complete agent workspace. The release centers on agent-driven development: a dedicated Agents window for managing concurrent sessions, integrated browser tools that let agents validate web apps in-place, safer execution via terminal sandboxing, and tighter loops around pull requests, CI failures, and code review feedback.
@@ -251,6 +265,26 @@ Document your answers to these questions:
 
 ### Stretch exercise
 Simulate team governance by drafting a sample `managed-settings.json` for your OS that disables a plugin or bypass permission mode, then compare it against your organization's preferred Copilot policy model.
+
+## Test Yourself
+
+<details><summary>How do multi-chat sessions differ from separate top-level agent sessions?</summary>
+
+Peer chats are parallel tabs inside one host session, so they share higher-level context while maintaining independent conversations and progress. VS Code aggregates their status and file changes into the host session.
+
+</details>
+
+<details><summary>What safety boundaries apply when an agent uses browser tools or runs terminal commands?</summary>
+
+Browser access to sensitive APIs requires explicit, site-scoped permission, while terminal sandboxing on macOS and Linux blocks network access and restricts filesystem access. Operations that exceed the sandbox require user approval.
+
+</details>
+
+<details><summary>How does VS Code 1.127 help organizations govern agent-assisted development?</summary>
+
+According to the release, administrators can manage Copilot through a local managed-settings.json file when other enterprise delivery methods are absent, and can control browser tools and reachable domains. This adds enforceable policy controls alongside user-facing permission prompts and sandboxing.
+
+</details>
 
 ## Further Reading
 

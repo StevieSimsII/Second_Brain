@@ -14,6 +14,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> A natural gas bottleneck can occur even when gas is abundant underground if production, processing, pipelines, and storage cannot expand fast enough to meet LNG and AI-related power demand. This distinction matters because constrained deliverability can produce sharp increases in gas and electricity prices before the resource itself becomes scarce.
+
+## Key Takeaways
+
+1. Separate resource abundance from deliverability: the relevant question is how much gas can be produced, processed, transported, and stored by the required date.
+2. Model demand in layers, including existing domestic consumption, LNG export commitments, and incremental AI/data-center power demand.
+3. Trace the full dependency chain—wells, processing plants, gathering systems, interstate pipelines, storage, and generation—to find the narrowest constraint.
+4. Watch working gas storage as an early indicator; the speaker’s model identifies historically low 2028-2030 storage levels as the main warning of a potential crisis.
+5. Do not treat a flat forward curve as proof of long-term abundance, because later-dated gas markets may be illiquid and slow to price structural demand.
+6. Stress-test nonlinear outcomes: when spare capacity is low, a small additional shortfall can cause disproportionately large gas and electricity price increases.
+7. Match mitigation to lead time: the source favors near-term processing, pipelines, secured physical gas, and solar deployment, while treating large nuclear plants as a longer-term response.
+
 ## Overview
 
 This lesson turns the interview transcript into a practical framework for evaluating a supply shock thesis. The central claim in the source is not that the US is literally running out of gas underground, but that a modeled mismatch could emerge between 2028 and 2030 among natural gas production growth, LNG export commitments, AI-related power demand, and the infrastructure needed to process, move, and store gas. Treat this as a scenario analysis built from the speaker’s modeling assumptions, not as a settled forecast. The useful takeaway is how to reason from resource base, to flow capacity, to infrastructure bottlenecks, to end-user price exposure.
@@ -36,6 +50,26 @@ Use the transcript’s logic as a reusable analysis method. First, separate stoc
 ## Training Exercise
 
 Build a one-page stress test for any energy-intensive project. Define the project’s fuel or power need, then list five dependency layers: source production, processing, transportation, storage, and end-use delivery. For each layer, write one sentence on current capacity, one sentence on what must expand, and one sentence on what happens if expansion arrives two years late. Finish by answering three questions: What assumption is doing the most work in the forecast? What indicator would tell you the thesis is starting to play out? What backup plan reduces exposure if the core input price triples?
+
+## Test Yourself
+
+<details><summary>Why can natural gas become economically scarce even if large underground resources remain available?</summary>
+
+Gas must be produced, processed to pipeline specifications, transported, and balanced through storage before customers can use it. A capacity or timing constraint at any stage can restrict deliverability and drive prices higher.
+
+</details>
+
+<details><summary>Which indicator does the speaker’s model treat as the clearest sign that late-2020s tightness is becoming a crisis?</summary>
+
+The speaker points to historically low working gas storage during 2028-2030. Storage is the system’s balancing mechanism, so persistent depletion would indicate that supply and infrastructure are not keeping pace with demand.
+
+</details>
+
+<details><summary>How should an analyst stress-test an energy-intensive project against this thesis?</summary>
+
+Map its dependencies across production, processing, transportation, storage, and end-use delivery, then test what happens if required expansion is two years late. Identify the forecast’s most important assumption, a confirming indicator, and a backup plan for a tripling of the core input price.
+
+</details>
 
 ## Further Reading
 

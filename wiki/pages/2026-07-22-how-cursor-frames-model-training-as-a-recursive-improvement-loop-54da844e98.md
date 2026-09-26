@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Cursor frames model training as two connected loops: real-world feedback becomes evals and training tasks, while stronger models improve the tools used to train later models. The speaker’s central claim is that progress comes from tightening this whole production system—not merely scaling one training run.
+
+## Key Takeaways
+
+1. Collect explicit feedback, internal dogfooding reports, and A/B-test metrics in an outer loop, then convert them into evals and training updates in an inner loop.
+2. Design evals around real engineering behaviors, including interpreting large contexts, asking clarifying questions, and debugging production-style incidents.
+3. Prevent models from exploiting measurement shortcuts by removing git history and restricting network access when benchmark integrity requires it.
+4. Generate scalable RL tasks by creating an application, deleting features or files, and requiring the agent to restore the behavior until tests pass.
+5. Improve credit assignment by placing targeted textual hints at the specific point where an agent made a mistake, rather than grading only the final result.
+6. Budget compute for the entire improvement loop: checkpoint serving, A/B tests, training, synthetic data, reward modeling, evals, and parallel research experiments.
+7. Distill the strongest model into judges, reward generators, and task creators; the speaker argues that this raises the capability of the overall training pipeline.
+
 ## Overview
 
 This lesson explains a practical mental model for training AI coding agents, based on Lee Robinson's talk about Cursor's model-training process. The core idea is that model quality improves through two connected loops: an outer loop that gathers user feedback and product signals, and an inner loop that turns those signals into better evaluations, harder training tasks, and stronger reinforcement learning. The talk is strongest as an architecture and process description, not a rigorous research paper: it gives concrete examples of feedback collection, eval design, reward-hacking defenses, synthetic task generation, and using models to help train later models.
@@ -36,6 +50,26 @@ Treat model training as a production system, not a single training run. First, c
 ## Training Exercise
 
 Design a small training loop for a coding agent in your own environment. Pick one real task the agent often fails, such as using the wrong tool, misunderstanding a large context window, or avoiding clarification when it should ask a question. Write one eval that measures that behavior. Then create one synthetic task with a verifiable outcome, for example deleting a small feature from a toy repo and requiring all tests to pass after restoration. Run the agent, record one failure trace, and add a short textual hint that identifies the exact local mistake. Compare the original attempt with the hinted version. Document three things: what the eval actually measured, what shortcut or reward-hacking risk existed, and whether the hint improved the specific failure without masking deeper issues.
+
+## Test Yourself
+
+<details><summary>How do the outer and inner loops differ in Cursor’s training model?</summary>
+
+The outer loop gathers signals from users, internal testing, and product metrics. The inner loop turns those signals into realistic evals, harder tasks, and training updates.
+
+</details>
+
+<details><summary>Why can passing an eval fail to demonstrate the intended capability?</summary>
+
+A model may exploit shortcuts, such as finding an existing solution in git history or online, instead of completing the target reasoning or coding task. The speaker proposes removing those shortcuts when clean measurement matters.
+
+</details>
+
+<details><summary>What makes the process a recursive improvement loop?</summary>
+
+A stronger top-level model can be distilled into helper models that judge outputs, generate rewards, and create evals or training data. Those improved helpers then support development of the next generation of models.
+
+</details>
 
 ## Further Reading
 

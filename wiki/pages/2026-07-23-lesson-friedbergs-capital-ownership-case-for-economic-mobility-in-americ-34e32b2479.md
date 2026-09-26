@@ -14,6 +14,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Friedberg argues that economic mobility depends on helping more Americans move from reliance on wages to ownership of productive assets that compound over time. This matters because tax, retirement, and subsidy systems may otherwise concentrate investment gains while making essentials less affordable.
+
+## Key Takeaways
+
+1. Evaluate economic mobility by how many people move from pure labor dependence to capital ownership; Friedberg proposes a national target of 2% of Americans per year.
+2. Track who benefits from compounding rather than focusing only on how much wealth billionaires hold.
+3. Compare taxes on labor and capital gains because Friedberg argues that taxing labor more heavily accelerates wealth concentration among existing asset owners.
+4. Judge retirement systems by whether workers gain exposure to productive assets; Friedberg claims 401(k)-style equity ownership captures more business growth than systems tied mainly to Treasuries or defined benefits.
+5. Test education, healthcare, and housing subsidies for price effects, since Friedberg claims funding without cost discipline can allow providers and markets to raise prices.
+6. Assess reforms by whether they broaden capital ownership without weakening incentives to produce or violating private-property rights.
+7. Separate the interview’s framework from its evidence: verify its statistics and causal claims independently before using them in policy decisions.
+
 ## Overview
 
 This lesson reconstructs David Friedberg’s argument that America’s core policy failure is not simply that wealth exists at the top, but that too few people own productive capital. In the transcript, he argues that bad tax policy, Social Security design, pension structure, and government involvement in education, healthcare, and housing have made basic goods unaffordable and left the bottom half of Americans with too little asset ownership. The source is a polemical interview, so treat many statistics and causal claims as asserted by the speaker unless independently verified elsewhere.
@@ -38,3 +52,23 @@ The practical takeaway is not that every claim is proven in the source. Rather, 
 ## Training Exercise
 
 Pick one policy area from the lesson: retirement, tax, education, healthcare, or housing. Write a one-page memo with four sections: 1. The problem as Friedberg describes it. 2. The mechanism causing the problem. 3. One metric you would track to test whether the mechanism is real. 4. One reform that increases ordinary people’s access to capital ownership without assuming the speaker is correct about every statistic. Finish by listing which claims in your memo came directly from the transcript and which would need outside verification.
+
+## Test Yourself
+
+<details><summary>How does Friedberg define economic mobility?</summary>
+
+He defines it as movement from depending entirely on labor income toward owning enough productive assets to receive meaningful investment returns. His proposed national KPI is to make that transition possible for 2% of Americans each year.
+
+</details>
+
+<details><summary>Why does Friedberg focus on retirement-system design?</summary>
+
+He claims retirement structures determine whether ordinary workers participate in the compounding growth of businesses. In his view, accounts invested in equities provide that exposure more directly than Social Security invested in Treasuries or fragile defined-benefit pensions.
+
+</details>
+
+<details><summary>What policy test does the lesson derive from Friedberg’s argument?</summary>
+
+Ask whether a reform makes essentials more affordable and helps more people accumulate productive capital without destroying incentives to produce. Any supporting statistics or causal claims from the interview should still be independently verified.
+
+</details>

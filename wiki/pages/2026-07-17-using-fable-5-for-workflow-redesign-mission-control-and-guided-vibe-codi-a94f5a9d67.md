@@ -15,6 +15,19 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Use the strongest AI model for redesigning workflows and discovering valuable product directions, then use cheaper or more available models for routine execution. This matters because separating strategic thinking from implementation can improve results while conserving limited model usage.
+
+## Key Takeaways
+
+1. Inventory each recurring workflow by documenting its current process, pain points, and desired outcomes before asking AI to redesign it.
+2. Use reverse prompting: provide the current system and goals, then ask what the model would change and why instead of prescribing the solution.
+3. Build a personal “mission control” by combining frequently used tools—such as task management, content capture, and newsletter creation—into one accessible dashboard.
+4. Practice exploratory vibe coding by requesting five improvement ideas, choosing the most promising strand, expanding it, and repeating until it becomes a concrete feature.
+5. The speaker reports that in-app browser automation can handle tasks such as research, sign-ups, GitHub operations, and Vercel deployment, but users should verify external actions and protect secrets.
+6. Reserve high-capability, usage-limited models for workflow redesign, feature ideation, and architecture; assign routine code generation and repetitive edits to less constrained models.
+
 ## Overview
 
 This transcript presents a practical, opinionated workflow for getting value from an AI model the speaker calls "Fable 5" before a pricing change. The central claim is that the model is especially useful for higher-level thinking: redesigning personal workflows, proposing novel ideas, guiding software feature discovery, and using an in-app browser to perform computer tasks that previously required manual effort.
@@ -355,3 +368,23 @@ Expand this idea. What sub-features or design choices make it genuinely useful?
 - Which prompts produced useful novelty versus vague brainstorming?
 - Which tasks should remain human-controlled even if browser automation is available?
 - If usage is limited, which parts of your workflow deserve the strongest model most?
+
+## Test Yourself
+
+<details><summary>What is reverse prompting, and what information should precede it?</summary>
+
+Reverse prompting asks the model what it would change rather than directing it toward a predetermined solution. It should follow a description of the current workflow, its pain points, and the outcomes you want.
+
+</details>
+
+<details><summary>How does the lesson define “true vibe coding”?</summary>
+
+It is an exploratory process in which the model reviews an application, proposes several directions, and helps expand the most promising idea. The user guides the process by selecting useful strands instead of specifying a fixed feature from the outset.
+
+</details>
+
+<details><summary>Why does the speaker recommend separating ideation from execution across models?</summary>
+
+The speaker claims that a limited, higher-capability model provides more value for strategy, workflow redesign, and novel feature discovery. Routine implementation can then be delegated to a cheaper or more available model, preserving scarce capacity for higher-leverage work.
+
+</details>

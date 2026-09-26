@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Useful AI engineering combines software fundamentals, product judgment, domain knowledge, and responsible use of AI tools. AI can accelerate implementation, but humans must remain accountable for architecture, review, and deployment—especially in consequential systems.
+
+## Key Takeaways
+
+1. Treat AI engineering as applied systems work that combines software engineering, deployment, and enough AI/ML knowledge to operationalize models.
+2. Use AI coding tools for scaffolding and repetitive work, but require a human to justify architectural choices and review generated code.
+3. Match automation to risk: prototypes can tolerate more autonomy, while enterprise and high-consequence systems need tighter human oversight.
+4. Build portfolio projects around problems you know firsthand; domain-specific solutions are more defensible than generic AI demos.
+5. Learn durable foundations such as Python, full-stack development, cloud deployment, tokens, context windows, vector search, RAG, and basic linear algebra.
+6. Prepare for both no-AI interviews that test manual fundamentals and AI-allowed interviews that test whether you can direct tools and explain their output.
+7. Practice explaining tradeoffs to engineers, product teams, and non-technical stakeholders because communication strengthens technical credibility.
+
 ## Overview
 
 This lesson distills an interview with an AI engineer who moved from software testing into senior engineering and AI safety work. The core message is that AI engineering is less about chasing every new model and more about combining software fundamentals, product judgment, light mathematical fluency, and careful use of AI coding tools. The evidence in the source is mostly personal experience and hiring anecdotes, not controlled studies, so treat the advice as practitioner guidance rather than universal law.
@@ -36,6 +50,26 @@ Use this lesson as a career and execution framework. First, define AI engineerin
 ## Training Exercise
 
 Choose one domain you understand from direct experience. Design a small AI feature that solves one narrow problem in that domain. Write a one-page brief with: the user problem, why AI is needed, the simplest possible architecture, how you would evaluate whether it works, and one reason you would not automate review or deployment completely. Then implement only the smallest proof-of-concept and prepare to explain every architectural choice without AI assistance.
+
+## Test Yourself
+
+<details><summary>How does the speaker define the role of an AI engineer?</summary>
+
+The speaker frames it as a hybrid applied role that draws from software engineering, DevOps, and AI/ML fundamentals. The typical goal is to integrate and operate models in useful systems, not train frontier models from scratch.
+
+</details>
+
+<details><summary>Why should the level of AI autonomy vary by project context?</summary>
+
+The speaker argues that maintenance burden, accountability, and potential harm increase in established or consequential systems. A disposable prototype may tolerate extensive generation, while enterprise or high-risk code requires stronger human review and architectural control.
+
+</details>
+
+<details><summary>What makes a strong portfolio project for an aspiring AI engineer?</summary>
+
+Choose a narrow problem from a domain you understand through direct experience, then build the smallest end-to-end solution that demonstrates value. Be ready to explain the architecture, evaluation method, and limits of automation without relying on AI.
+
+</details>
 
 ## Further Reading
 

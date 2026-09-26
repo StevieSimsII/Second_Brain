@@ -12,6 +12,19 @@ depth: 1
 actionability: 2
 ---
 
+## TL;DR
+
+> Agentic extensibility replaces handwritten plugins with requests stated in natural language, allowing a tool to add a task-specific capability when it is needed. This could make customization faster and more accessible, though the source does not explain the underlying implementation or safeguards.
+
+## Key Takeaways
+
+1. Describe a missing capability in natural language instead of immediately building a traditional extension.
+2. Ask for a concrete, task-specific interface—such as a visual SQLite editor—not merely a generic text response.
+3. Treat dynamic self-extension as the post’s claimed interaction model, not as a documented technical architecture.
+4. Clarify risks, permissions, dependencies, and expected outputs before trusting an agent-created capability.
+5. Separate what the source directly supports—the requested outcome and interaction—from assumptions about code generation, packages, components, or runtime behavior.
+6. A future marketplace could make complex additions reusable and shareable, according to the post.
+
 ## Overview
 
 This source presents a shift in how software tools may be extended. Instead of writing a traditional extension, the user describes a missing capability in the GitHub Copilot app and the app adds it. The example given is asking for a visual SQLite editor. The post also claims a marketplace is coming for sharing more complex additions. Evidence is thin because the source is a short social post, so the lesson should be read as an introduction to the idea of agentic extensibility rather than a detailed product specification.
@@ -32,6 +45,26 @@ Based on the source, the workflow is: a user notices a missing feature, describe
 ## Training Exercise
 
 Write three feature requests for an AI-powered developer tool that currently lacks them: one data tool, one debugging tool, and one visualization tool. For each request, include: the missing capability, the exact prompt you would give the agent, the UI or artifact you expect back, and one risk or ambiguity that would need clarification before trusting the result. Then compare your requests to the SQLite editor example from the source and identify which parts are directly supported by the post and which parts are your own assumptions.
+
+## Test Yourself
+
+<details><summary>How does the claimed agentic extension model differ from traditional tool customization?</summary>
+
+Traditional customization requires someone to implement an extension. In the described model, the user states the missing capability in natural language and the app adds it at request time.
+
+</details>
+
+<details><summary>What does the SQLite example demonstrate?</summary>
+
+It suggests that an agent can provide a narrow, task-specific interface such as a visual database editor, rather than only returning explanatory text.
+
+</details>
+
+<details><summary>What remains unknown about how these capabilities are created?</summary>
+
+The source does not say whether the app generates code, composes existing components, installs packages, or relies on an internal runtime. Those mechanisms should be treated as assumptions unless separately documented.
+
+</details>
 
 ## Further Reading
 

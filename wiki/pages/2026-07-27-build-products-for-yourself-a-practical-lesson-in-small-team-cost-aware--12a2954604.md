@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Build a product you genuinely need, then protect its durability by keeping the team, costs, and planning horizon small. The speaker argues that this makes the business easier to sustain and keeps product decisions close to real users.
+
+## Key Takeaways
+
+1. Start with a recurring problem you personally experience and build the smallest solution you would willingly rely on.
+2. Treat cost as the main controllable competitor: the speaker’s basic survival rule is to earn more than you spend.
+3. Keep the company thin and the product substantial; require every new layer of overhead or organization to justify itself.
+4. Use teams of roughly two people per feature—often one programmer and one designer—to reduce translation loss and keep scope comprehensible.
+5. Plan in short horizons of about six weeks, choose a direction, and correct course through small daily decisions instead of detailed multi-year forecasts.
+6. Seek a stable, profitable orbit rather than growth for its own sake; evaluate opportunities by whether they make the product or company thicker, slower, or less enjoyable to run.
+7. Maintain direct customer contact through support, onboarding messages, and email so decision-makers remain exposed to actual user experiences.
+
 ## Overview
 
 This lesson captures a product philosophy centered on building tools you genuinely want to use, keeping the business thin, and treating cost control as the main constraint. In the source, the speaker argues that durable software companies come from small teams, direct customer contact, restrained growth, and repeated simplification over time. The lesson is practical rather than universal: it reflects one founder's operating style at 37signals, not a claim that every company should be run this way.
@@ -37,6 +51,26 @@ Use this philosophy as an operating loop. Start with a problem you personally fe
 ## Training Exercise
 
 Pick one tool you use weekly that annoys you. Write a one-page note with five sections: 1. the exact frustration you personally experience, 2. the smallest version of a product that would solve it for you, 3. the two-person team you would assign to build it, 4. the costs and organizational layers you would refuse to add in the first year, and 5. a six-week plan made of weekly checkpoints rather than a long roadmap. Then answer three review questions: 'Would I use this myself?', 'What part of this got thicker than necessary?', and 'If this stayed small but profitable, would that be enough?'
+
+## Test Yourself
+
+<details><summary>Why does the speaker describe cost as the company’s real competition?</summary>
+
+Competitors’ actions cannot be controlled, but spending, overhead, and organizational complexity can. The speaker argues that keeping costs below revenue is the most direct way to preserve the company’s ability to survive.
+
+</details>
+
+<details><summary>What does “thin company, thick product” mean?</summary>
+
+The organization should be a minimal shell that supports a substantial, well-made product. Processes, management layers, and overhead should not become more prominent or complicated than the product they exist to deliver.
+
+</details>
+
+<details><summary>How should this philosophy shape planning and team structure?</summary>
+
+Use small teams—often a programmer and a designer—and work in short horizons of roughly six weeks. Set a general direction, then adjust through frequent small decisions informed by direct contact with users.
+
+</details>
 
 ## Further Reading
 

@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The transcript’s core claim is that Kimmy K3 may be exceptionally strong for front-end and web engineering, but benchmark wins alone do not establish broad model superiority. Its practical value depends on completed-task cost, latency, generality, and confidence in its training and evaluation—not headline token prices alone.
+
+## Key Takeaways
+
+1. Evaluate models by task success, total token use, latency, and cost per completed task—not price per token alone.
+2. Treat the reported 76% front-end benchmark score and roughly 92% Next.js agent success rate as evidence of task-specific strength, not proof that Kimmy K3 is the best general-purpose model.
+3. The speaker describes Kimmy K3 as a 2.8-trillion-parameter, open-weight model with a 1-million-token context window that requires data-center-style serving.
+4. A model priced at half the cost per token may cost about the same per task if it consumes twice as many tokens; the transcript calls this difference “intelligence per token” or “intelligence density.”
+5. Include benchmark saturation, specialization, slow inference, and Anthropic’s unresolved distillation allegation when assessing confidence in the reported results.
+6. Strong open-weight models can lower costs and spread technical advances across the ecosystem while increasing competitive pressure on closed frontier labs.
+7. Run production tests before adoption: the narrator’s Rubik’s Cube example reportedly succeeded but took about 30 minutes, illustrating the tradeoff between output quality and latency.
+
 ## Overview
 
 This transcript argues that Moonshot AI's Kimmy K3 may represent a major moment for open-weight models, especially in front-end and web engineering tasks. The speaker highlights benchmark results claiming Kimmy K3 leads proprietary models on certain coding evaluations, while also emphasizing practical caveats: benchmark saturation, uncertainty about generalization, allegations of distillation, and the difference between headline token pricing and real task cost.
@@ -225,3 +239,23 @@ Score the model from 1-5 on each axis based only on the transcript:
 - trust/confidence in evaluation
 
 Then write one paragraph on why some scores are necessarily uncertain.
+
+## Test Yourself
+
+<details><summary>Why does the transcript reject token price as the sole measure of model cost?</summary>
+
+The speaker argues that total task cost depends on how many tokens a model consumes and whether it completes the work successfully. A model that costs half as much per token but uses twice as many tokens may offer no real savings.
+
+</details>
+
+<details><summary>What do the cited benchmark results support—and what do they not prove?</summary>
+
+According to the transcript, they support the claim that Kimmy K3 is highly competitive on front-end development, web engineering, and selected writing tasks. They do not prove broad superiority over more generalized proprietary models.
+
+</details>
+
+<details><summary>Which factors should a real deployment evaluation include?</summary>
+
+Test task success, token efficiency, latency, generality, and trust in the training and evaluation story. The lesson also recommends accounting for benchmark saturation, specialization, serving requirements, and unresolved allegations about distillation.
+
+</details>

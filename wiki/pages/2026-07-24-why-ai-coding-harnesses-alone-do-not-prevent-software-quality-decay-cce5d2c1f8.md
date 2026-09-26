@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI coding harnesses can accelerate implementation and verify tests, but the speaker argues they cannot reliably preserve maintainability on their own. Front-load product, architecture, and program design so agents produce smaller changes that humans can still review line by line.
+
+## Key Takeaways
+
+1. Treat passing tests as evidence of measured correctness, not proof of maintainable design.
+2. Keep humans responsible for understanding and reviewing the codebase; the speaker claims fully automated “lights off” software factories eventually accumulate quality problems that agents and tests cannot resolve alone.
+3. Define components, data models, interfaces, constraints, types, method signatures, and call paths before asking an agent to implement.
+4. Break features into vertical slices with an explicit implementation order and a test or verification step after each slice.
+5. Use shorter, staged pull requests to keep line-by-line human review practical and mandatory.
+6. Interpret overwhelming review effort as a sign of weak planning or decomposition, rather than a reason to eliminate review.
+7. Evaluate agent output against agreed design artifacts as well as test results, watching for awkward abstractions, defensive clutter, and changes that make future work harder.
+
 ## Overview
 
 This lesson turns the talk into a practical engineering stance: AI coding agents can speed up implementation, but speed alone does not preserve codebase quality. The speaker argues that current agent loops and harnesses are good at producing code that passes tests, yet weak at maintaining long-term design quality, especially in complex or aging codebases. The core lesson is to keep humans responsible for code comprehension and to shift effort earlier into product review, architecture, program design, and staged implementation so code review stays fast enough to remain mandatory.
@@ -36,6 +50,26 @@ Use AI to accelerate analysis and implementation, but keep a human-reviewed deli
 ## Training Exercise
 
 Pick a real feature in a codebase you know. First, write a one-page product review with the problem, expected behavior, and edge cases. Next, write a short architecture note listing the components touched, data model changes, and constraints. Then create a program-design sketch with the main types, function signatures, and call flow. Break the work into 3 vertical slices, each with a test or verification step. Only after that, ask an AI coding agent to implement slice 1. Review the result line by line and note where the code diverged from your design, where tests were sufficient, and where maintainability concerns appeared even though tests passed.
+
+## Test Yourself
+
+<details><summary>Why does the speaker argue that tests and coding harnesses cannot prevent software quality decay by themselves?</summary>
+
+They primarily verify observable correctness, such as completing a task without breaking tests. According to the speaker, they do not directly reward maintainability or reliably detect design choices that make future changes harder.
+
+</details>
+
+<details><summary>What work should happen before an AI agent begins implementation?</summary>
+
+Teams should review the product problem and expected behavior, document the architecture and constraints, sketch key types and call flows, and divide the feature into ordered vertical slices with verification steps.
+
+</details>
+
+<details><summary>What should a team conclude when human review of an agent-generated change becomes overwhelming?</summary>
+
+The speaker recommends treating it as evidence that the work was insufficiently planned or decomposed. The response should be to create smaller, better-aligned changes—not to remove human review.
+
+</details>
 
 ## Further Reading
 

@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> An AI agent’s performance depends on both the model and its harness—the prompts, tools, memory, orchestration, verification, and safety logic surrounding it. The source argues that systematically testing and simplifying this controllable layer can improve results more than switching models.
+
+## Key Takeaways
+
+1. Treat the agent as `model + harness`; if you are not training model weights, the harness is your main engineering surface.
+2. Define an execution contract for every task: required inputs, budgets, permissions, completion conditions, and output paths.
+3. Externalize state in files so work can survive context truncation, restarts, and delegation.
+4. Build production agents from combinations of prompt chaining, routing, parallelization, orchestrator-workers, and evaluator-optimizer loops.
+5. Run controlled ablations that change one harness component at a time while measuring success rate, token cost, tool calls, and runtime.
+6. Narrow the search space first and broaden it only when failure signals justify the added cost; the source reports that an acceptance-gated retry loop was the only consistently helpful module in one cited ablation.
+7. Regularly remove obsolete tools, resets, verifiers, and repair logic because harness assumptions can expire as models improve.
+
 ## Overview
 
 This lesson reframes an AI agent as `model + harness`, where the harness includes prompts, tools, memory, orchestration, verification, and safety logic. The source argues that, in multiple 2026 research examples, changing harness design produced larger performance differences than changing the underlying model. Evidence in the transcript is strongest for the high-level pattern and selected benchmark results; it is thinner on exact paper metadata because the papers are described but not named in the supplied source.
@@ -37,6 +51,26 @@ Treat agent development as harness engineering. Start by writing down the full c
 ## Training Exercise
 
 Pick one agent task you already understand well, such as repository bug fixing or document extraction. Write a one-page harness spec with: allowed tools, state files, completion conditions, budgets, and one failure taxonomy. Implement three paper-style variants on paper or in pseudocode: `baseline`, `baseline + verifier`, and `baseline + narrowed retry loop`. For each variant, predict which metric should change: success rate, token use, runtime, or reliability after interruption. Then review one real or imagined failure trace and rewrite only the harness, not the model choice. The goal is to practice isolating harness decisions as experimental variables rather than mixing prompt, tool, and memory changes together.
+
+## Test Yourself
+
+<details><summary>What components make up an AI agent according to the lesson?</summary>
+
+An agent consists of a model plus a harness. The harness includes prompts, tools, memory handling, orchestration, verification loops, completion criteria, and safety logic.
+
+</details>
+
+<details><summary>How should a team determine whether a harness component actually helps?</summary>
+
+Change one component at a time while holding the others fixed, then compare success rate, token cost, tool-call count, and wall-clock runtime. This makes the component’s effect easier to distinguish from unrelated changes.
+
+</details>
+
+<details><summary>Why should harness engineers favor narrowing before broadening?</summary>
+
+The source argues that disciplined narrowing can avoid costly, unreliable exploration. Broader search, extra verifiers, or multiple candidates should be introduced only when failure evidence shows they are needed.
+
+</details>
 
 ## Further Reading
 

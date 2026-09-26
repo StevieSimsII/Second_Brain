@@ -12,6 +12,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Burke Holland argues that keeping the prompt prefix stable lets AI coding tools reuse cached computation, sharply reducing input-token costs. Changing models, reasoning levels, skills, tools, or agent configuration can trigger cache misses and erase those savings.
+
+## Key Takeaways
+
+1. Treat prompt caching as a prefix-stability problem: unchanged system instructions, tools, skills, agent definitions, and conversation history enable reuse.
+2. Keep the model, reasoning level, enabled skills, MCP servers, and agent setup stable while completing related work.
+3. Batch related tasks into one session so the provider can reuse earlier prompt computation instead of repeatedly processing the full context.
+4. Expect cache reuse to expire; the source describes roughly a 30-minute TTL for OpenAI 5-6 models and a 5-minute default for Anthropic API caching, with extension options.
+5. Reverting to an earlier configuration may restore its cached prompt state if that variant remains within its TTL.
+6. Remember that cache misses can be partial because unchanged earlier chunks may still be reusable.
+7. Start a new session when instruction-file edits must take effect, because the source claims changes to an `AGENTS.md`-style file were not detected within the existing session.
+
 ## Overview
 
 This lesson explains prompt caching as described in Burke Holland’s transcript: why repeated prompts become cheaper, what kinds of changes silently trigger cache misses, and how to structure your workflow to preserve cache reuse. The practical takeaway is that much of your cost comes from input tokens, and small configuration changes can erase most of the savings unless you understand what counts as a changed prompt prefix.
@@ -33,6 +47,26 @@ Treat prompt caching as a prefix-stability problem. In the transcript’s model,
 ## Training Exercise
 
 Open your AI coding tool and run a small controlled experiment. First, send the same short prompt twice in the same session and record whether token reuse or lower cost appears on the second run. Next, change one variable at a time: switch the model, change reasoning level, enable or disable one skill or tool, and note which change causes reuse to disappear. Then revert to a previous configuration within a short window and test whether reuse returns. Finish by writing a short rule set for yourself: which settings you will keep fixed during focused work, which changes deserve a fresh session, and how long you can pause before assuming the cache has expired.
+
+## Test Yourself
+
+<details><summary>Why can a small configuration change substantially increase token cost?</summary>
+
+According to Holland, settings such as the model, reasoning level, enabled skills, MCP servers, and agent setup are part of the prompt prefix. Changing them can cause a cache miss, forcing the provider to recompute and bill more of the input.
+
+</details>
+
+<details><summary>What workflow best preserves prompt-cache reuse?</summary>
+
+Keep the environment stable, batch related work into the same session, and avoid unnecessary configuration toggles. If you return to a previous setup before its cache expires, reuse may resume.
+
+</details>
+
+<details><summary>Does a cache miss always mean the entire prompt must be recomputed?</summary>
+
+No. The transcript says prompts are cached in chunks, so unchanged earlier chunks may still be reused even when a later portion changes.
+
+</details>
 
 ## Further Reading
 

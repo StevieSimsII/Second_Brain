@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Reliable long-running AI agents need explicit exit conditions, iterative unknown-reduction, cheap prototypes, and independent verification—not merely longer prompts. These feedback loops help agents persist through ambiguity while producing work that is easier to inspect, test, and reuse.
+
+## Key Takeaways
+
+1. Define “done” with a testable exit condition such as a rendered file, design match, latency target, or rubric score.
+2. Reduce unknowns before full execution by researching edge cases, explaining the subsystem, identifying failure modes, and refining constraints.
+3. Prototype the cheapest version that can validate the idea; test video overlays in HTML before investing in a React or rendering pipeline.
+4. Separate creation from verification by having another agent assess the output against a rubric; the speakers argue this reduces leniency toward self-generated work.
+5. Save artifacts, implementation notes, scripts, and explainers as shared working memory for human review and future agent runs.
+6. Keep instruction files concise and centered on goals and principles; the speakers argue that excessive examples and prohibitions consume context and can constrain capable models.
+7. Match checks to the task: use hard metrics for deterministic work and rubrics, exploration, and multiple reviewers for subjective quality.
+
 ## Overview
 
 This lesson distills a transcripted discussion about how to get an AI coding agent to work longer, more reliably, and with less micromanagement. The core idea is that strong agent use is not just better prompting; it is designing feedback loops, clear exit conditions, lightweight prototypes, and verification steps. The speakers describe tools such as `/loop`, `/goal`, and reusable workflows, plus a practical video-editing example that combines transcription, UI generation, and rendering. Evidence is strongest for the workflow principles and examples shown in the transcript. Product-specific names appear to come from auto-transcribed audio and may contain recognition errors, so treat exact tool branding as approximate unless verified elsewhere.
@@ -36,6 +50,26 @@ Use this workflow when you want an agent to handle a substantial task with less 
 ## Training Exercise
 
 Pick a task you repeat, such as generating short video clips, writing release notes, or preparing a bug-fix summary. Write a one-sentence outcome, then ask an agent to do three things in order: 1. explain the relevant subsystem and likely failure modes, 2. produce a low-cost prototype or artifact with 2-3 variations, and 3. propose a workflow that separates generation from verification using a rubric. After reviewing the result, shorten any bloated instructions and rerun the task with a clearer exit condition. Compare the second run to the first and note which unknowns mattered most.
+
+## Test Yourself
+
+<details><summary>What should be established before asking an agent to perform a substantial task?</summary>
+
+Define a testable outcome or exit condition, then reduce important unknowns by investigating the subsystem, edge cases, constraints, and likely failure modes.
+
+</details>
+
+<details><summary>Why should creation and verification be assigned to separate agents?</summary>
+
+The speakers argue that a model may judge its own work too leniently. An independent reviewer applying a clear rubric creates a stronger feedback loop and makes deficiencies easier to identify.
+
+</details>
+
+<details><summary>How should prototyping differ from full implementation?</summary>
+
+A prototype should be the lowest-cost artifact that can validate the central idea, such as an HTML mockup for video overlays. Only after the concept works should the workflow invest in a more expensive production pipeline.
+
+</details>
 
 ## Further Reading
 

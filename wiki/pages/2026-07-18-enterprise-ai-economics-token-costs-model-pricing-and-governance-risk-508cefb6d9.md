@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat enterprise AI as a managed input cost: route each task to the cheapest model that meets its quality threshold. This matters because hidden token consumption and weak governance can erase business value even when AI usage is growing.
+
+## Key Takeaways
+
+1. Compare models by cost per useful task rather than brand prestige or raw token price.
+2. Inventory employee AI workflows and monitor token consumption before rising operating expenses reveal unmanaged usage.
+3. Route mainstream work to lower-cost models when quality remains sufficient, and reserve premium inference for tasks where better performance clearly increases revenue, reduces risk, or speeds execution.
+4. Evaluate every workflow by its job to be done, model-cost alternatives, minimum acceptable quality, and sensitive-data risk.
+5. Add a control layer for usage visibility, sensitive-data policies, and reduced dependence on any single model provider.
+6. Treat claims about model convergence, pricing, and vendor economics as point-in-time assertions from the speaker, not established facts.
+7. The speaker argues that scarce chips and memory may retain strong economics even if application-layer model margins compress.
+
 ## Overview
 
 This lesson distills an interview argument about the business economics of enterprise AI adoption. The central claim is that many large-language models are becoming close substitutes for many use cases, while their prices vary dramatically, so buyers need to manage AI as an input cost rather than as pure hype. The transcript also argues that hardware and memory vendors may keep benefiting from scarcity even if software-layer margins compress. Evidence is uneven: several pricing figures and company examples are asserted conversationally rather than demonstrated, and the transcript appears noisy in places, so treat specific product names and numbers as point-in-time claims from the speaker rather than settled facts.
@@ -35,6 +49,26 @@ Use this framework when evaluating enterprise AI adoption. First, inventory the 
 ## Training Exercise
 
 Pick one real workflow in your organization or personal stack, such as drafting support replies, code assistance, document summarization, or security analysis. Write a one-page evaluation with four parts: 1. the job to be done, 2. the cost of using a premium model versus a cheaper model, 3. the minimum acceptable quality threshold, and 4. the governance risks if users paste sensitive data into the system. End by deciding which tasks deserve premium inference and which should be routed to a lower-cost option.
+
+## Test Yourself
+
+<details><summary>Why should an enterprise compare cost per useful task instead of choosing models by reputation?</summary>
+
+The speaker argues that many models are close substitutes for mainstream work despite large price differences. Measuring cost against acceptable output quality reveals when a cheaper model can deliver the same business value.
+
+</details>
+
+<details><summary>When is premium-model inference justified?</summary>
+
+It is justified when its performance advantage clearly produces more revenue, lowers meaningful risk, or accelerates execution enough to cover the added cost. Otherwise, the task should be considered for a lower-cost model.
+
+</details>
+
+<details><summary>What controls help manage enterprise AI risk and spending?</summary>
+
+Organizations should inventory use cases, track token consumption, define approval rules for sensitive data, and use an abstraction or governance layer between employees and providers. These controls improve visibility, privacy management, and vendor flexibility.
+
+</details>
 
 ## Further Reading
 

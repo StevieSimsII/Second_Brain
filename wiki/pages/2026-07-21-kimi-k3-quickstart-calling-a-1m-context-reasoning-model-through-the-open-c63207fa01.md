@@ -12,6 +12,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Use the OpenAI Python SDK with Kimi’s custom base URL to access Kimi K3 while preserving its full assistant messages across multi-turn and tool-calling workflows. Correct message handling matters because reasoning, tool calls, structured output, and multimodal data use separate fields and formats.
+
+## Key Takeaways
+
+1. Point the OpenAI client at `https://api.moonshot.ai/v1` and authenticate with `MOONSHOT_API_KEY` to call `model="kimi-k3"`.
+2. Treat reasoning as always on; set the top-level `reasoning_effort` to `low`, `high`, or `max`, which the source says is the default, to balance depth and latency.
+3. Preserve the complete assistant message—not only `message.content`—in multi-turn and tool workflows because tool calls and metadata are stored on that message object.
+4. Handle streaming `reasoning_content` and final-answer `content` separately, and parse structured results only from the final `message.content`.
+5. Represent multimodal content as an array of typed parts; the source says images should use base64 data URLs rather than public URLs, while uploaded videos can use `ms://<file-id>`.
+6. Enforce structured output with a strict `json_schema`, execute every returned tool call yourself, and append each result with its matching `tool_call_id` before requesting the final answer.
+7. Keep long prompt prefixes unchanged to attempt automatic cache hits; the source says the preceding request must contain more than 256 prompt tokens to be cache-eligible.
+
 ## Overview
 
 This lesson teaches how to use Kimi K3 from the Kimi API Platform quickstart page. The source presents Kimi K3 as a flagship 2.8-trillion-parameter model with native visual understanding, a 1M-token context window, always-on reasoning, and OpenAI SDK compatibility through `base_url="https://api.moonshot.ai/v1"`. Practically, the page is most useful as an API integration guide: authenticate with `MOONSHOT_API_KEY`, send chat completion requests, control `reasoning_effort`, stream reasoning and answer deltas, pass image/video inputs in the required message format, enforce JSON output with `json_schema`, and run tool-calling loops correctly by preserving the full assistant message. Some broader claims, such as being the first open-source model in its class or having roughly 2.5x K2 scaling efficiency, are stated by the source but not independently substantiated within it.
@@ -34,6 +48,26 @@ A minimal working flow is: install `openai>=1.0`, set `MOONSHOT_API_KEY`, create
 ## Training Exercise
 
 Build a small Python script that does three things with the same `client`: first, asks Kimi K3 for a one-sentence summary of a local markdown file inserted as a system prompt; second, extracts two fields from a sentence using strict `json_schema`; third, runs a single required tool call using a toy function like `get_weather`. Success criteria: you preserve the complete assistant message during the tool loop, parse structured data only from `message.content`, and keep the long markdown prefix unchanged between two related summarization questions so your code is compatible with the source's caching guidance.
+
+## Test Yourself
+
+<details><summary>How do you configure the OpenAI Python SDK to call Kimi K3?</summary>
+
+Create an `OpenAI` client using `MOONSHOT_API_KEY` and set `base_url="https://api.moonshot.ai/v1"`. Then call the chat completions interface with `model="kimi-k3"`.
+
+</details>
+
+<details><summary>Why must a tool-calling loop preserve the complete assistant message?</summary>
+
+The complete message contains tool calls and related metadata that are absent from `message.content`. After executing each call, append a tool message with the matching `tool_call_id` before sending the conversation back to the model.
+
+</details>
+
+<details><summary>Which data should be parsed when Kimi K3 produces strict JSON output, especially during reasoning or streaming?</summary>
+
+Parse only the final `message.content` against the requested schema. Keep `reasoning_content` separate because it is intermediate reasoning, not the structured result.
+
+</details>
 
 ## Further Reading
 
