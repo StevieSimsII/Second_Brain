@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> GitHub Copilot CLI session forking lets you explore multiple approaches from the same accumulated context without disrupting the original conversation. This makes non-linear engineering work easier to compare and turns exploration into a deliberate step before commitment.
+
+## Key Takeaways
+
+1. Use `/fork` after establishing shared requirements, constraints, risks, and goals, so every alternative starts from the same checkpoint.
+2. Direct each fork toward a distinct tradeoff or hypothesis, such as minimizing rollout risk, maximizing implementation speed, or improving long-term architecture.
+3. Use `/session` to switch among active conversation branches and compare their outputs without relying on memory or copy-paste.
+4. Use `/rename` to give branches descriptive names such as `graphql-low-risk`, `graphql-fastest`, and `graphql-clean-schema`.
+5. Evaluate competing branches against consistent criteria, including architecture impact, rollout complexity, operational risk, and monitoring needs.
+6. Apply session branching to refactor planning, debugging hypotheses, prompt experiments, implementation tradeoffs, and competing architecture proposals.
+7. Continue refining only the most promising branch into an implementation plan or checklist after comparing the alternatives.
+
 ## Overview
 These notes describe a new GitHub Copilot CLI capability: forking conversations into separate branches and navigating them with session commands. The core idea is to treat AI-assisted work more like version control for reasoning, where one shared context can split into multiple paths for experimentation without losing the original thread.
 
@@ -54,6 +68,26 @@ A simple example from the notes is a migration from REST to GraphQL:
 Because all branches share the same starting context, comparisons are more reliable and require less repetition. Naming branches like `graphql-low-risk`, `graphql-fastest`, and `graphql-clean-schema` makes the workflow easier to manage once several branches exist.
 
 The training exercise extends this into a repeatable decision workflow. For example, when adding caching to a slow Node.js endpoint, you can branch into plans optimized for speed, safety, and scalability, then compare architecture impact, rollout complexity, operational risk, and monitoring needs before selecting one branch to refine into an implementation checklist.
+
+## Test Yourself
+
+<details><summary>Why should a Copilot CLI conversation be forked instead of simply changing direction in the existing session?</summary>
+
+A fork preserves the original discussion while creating an independent path that inherits all context up to the fork point. This prevents conflicting assumptions from polluting a linear conversation and makes alternatives easier to compare.
+
+</details>
+
+<details><summary>What roles do `/fork`, `/session`, and `/rename` play in a branching workflow?</summary>
+
+`/fork` creates an alternative conversation from the current state, `/session` switches between branches, and `/rename` assigns meaningful labels that make multiple experiments easier to track.
+
+</details>
+
+<details><summary>How could session branching support a REST-to-GraphQL migration decision?</summary>
+
+Start with one session containing the migration requirements, then create separate branches optimized for low-risk incremental rollout, implementation speed, and long-term schema clarity. Compare them using the same criteria before refining the strongest approach.
+
+</details>
 
 ## Personal Notes
 Branching Workflows with GitHub Copilot CLI Sessions

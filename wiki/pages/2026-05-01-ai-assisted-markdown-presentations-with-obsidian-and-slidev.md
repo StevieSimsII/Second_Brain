@@ -10,6 +10,19 @@ depth: 1
 actionability: 1
 ---
 
+## TL;DR
+
+> Keep research notes and presentation slides as local Markdown so AI can transform source-grounded material directly into a Slidev deck. This makes presentations searchable, reusable, versionable, and easier to refine without repeatedly reconstructing context.
+
+## Key Takeaways
+
+1. Store research, summaries, references, and drafts as local `.md` files to improve portability, searchability, version control, and reuse.
+2. Use Obsidian as one workspace for reading, linking, editing, and refining both source notes and the final presentation.
+3. Author the deck in Slidev with Markdown frontmatter, slide separators, layout directives, and themes instead of relying on a binary presentation file.
+4. Use AI to transform existing, source-grounded content—such as converting paragraphs into bullets, adding tables, or applying Slidev syntax—rather than generating the entire deck from scratch.
+5. Verify important AI-produced claims and confirm that summaries remain faithful to their sources.
+6. Expect additional export or collaboration steps when PowerPoint-native compatibility, enterprise coauthoring, or formal review workflows are required.
+
 ## Overview
 
 These notes describe a Markdown-first workflow for building presentations using local text files, Obsidian for editing, Slidev for rendering slides, and AI coding tools for research summarization and file transformation. Instead of treating slide creation as a separate activity in PowerPoint or another GUI tool, the process keeps research notes and final presentation content in the same file-based system.
@@ -36,6 +49,26 @@ A practical benefit of this approach is that AI can operate on explicit files ra
 This setup is especially well suited to technical users, independent consultants, developer advocates, and anyone who prefers text-first workflows. It is less ideal when the environment depends heavily on enterprise coauthoring, formal review workflows, or strict PowerPoint-native compatibility. In those cases, Markdown may still be useful upstream, but extra export or collaboration steps will likely be needed.
 
 The central idea is simple: if both research and slides live as text, then AI can assist across the full pipeline without repeated copy-paste or prompt reconstruction. The deck becomes a direct transformation of the knowledge base.
+
+## Test Yourself
+
+<details><summary>Why does keeping both research and slides in Markdown improve the presentation workflow?</summary>
+
+It lets content move directly from source notes into the deck without repeated copy-paste or prompt reconstruction. The files also remain searchable, reusable, portable, and suitable for version control.
+
+</details>
+
+<details><summary>What role should AI play in this workflow?</summary>
+
+AI should act as a structured-text transformation copilot, reshaping and formatting source-grounded files into useful slide content. Important claims and source fidelity still require human verification.
+
+</details>
+
+<details><summary>When may this Markdown-first approach be a poor fit?</summary>
+
+It may be less suitable when teams depend on enterprise coauthoring, formal review processes, or strict PowerPoint-native compatibility. Markdown can still support upstream research, but extra collaboration or export steps will likely be necessary.
+
+</details>
 
 ## Personal Notes
 

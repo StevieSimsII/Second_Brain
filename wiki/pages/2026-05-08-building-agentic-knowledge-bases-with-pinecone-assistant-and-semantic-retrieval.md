@@ -13,6 +13,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> An AI-native knowledge base uses semantic retrieval and retrieval-augmented generation to turn indexed documents into grounded, conversational answers. Managed services such as Pinecone Assistant reduce infrastructure work, but usefulness still depends on content quality, chunking, permissions, freshness, and traceability.
+
+## Key Takeaways
+
+1. Use semantic retrieval when users need to ask conceptual or cross-document questions without knowing the source’s exact wording.
+2. Build the core pipeline as documents → parsing → chunking → embeddings → vector index, followed by query embedding → similarity search → context assembly → LLM answer.
+3. Tune chunk size carefully: oversized chunks introduce noise, while undersized chunks fragment the context needed to answer accurately.
+4. Attach metadata such as title, source, timestamp, authorship, and permissions so retrieval can support filtering, access control, and citations.
+5. Expose source links, excerpts, or citations with generated answers so users can audit the supporting evidence.
+6. Reindex updated documents promptly and enforce permissions during retrieval, not only in the user interface.
+7. Prototype with a small collection of local markdown files to test retrieval quality, chunking, and prompt constraints before building a production system.
+
 ## Overview
 
 These notes describe the architecture and practical value of an AI-native wiki: a knowledge system where documents are ingested, chunked, embedded, indexed, and then explored through natural-language queries instead of manual navigation or keyword search. The core pattern is retrieval-augmented generation (RAG), where semantic search finds relevant source passages and an LLM uses them to generate grounded answers.
@@ -58,6 +72,26 @@ The notes also highlight production concerns that are easy to underestimate:
 A practical implementation usually includes connectors, parsers, a chunking strategy, an embedding service, a vector index, optional reranking, an LLM response layer, and a UI or API for chat and citations. Managed assistants reduce the amount of custom engineering required, but the underlying architecture remains the same.
 
 The included exercise is useful because it turns the concept into a minimal prototype. Building a small assistant over local markdown files helps validate retrieval quality, chunking choices, and prompting constraints before investing in a larger production setup.
+
+## Test Yourself
+
+<details><summary>How does an AI-native wiki differ from a traditional wiki?</summary>
+
+It prioritizes natural-language questions and semantic exploration over page-tree navigation and exact keyword matching. Semantic retrieval connects a user’s intent to relevant content even when their wording differs from the documents.
+
+</details>
+
+<details><summary>What role does chunking play in a RAG knowledge system?</summary>
+
+Chunking determines the units that can be retrieved and passed to the model. Chunks that are too large add irrelevant material, while chunks that are too small can separate facts from the context needed to interpret them.
+
+</details>
+
+<details><summary>What responsibilities remain when a managed assistant handles ingestion, indexing, retrieval, and orchestration?</summary>
+
+Teams still need to maintain high-quality and current content, enforce document permissions, provide traceable evidence, handle weak retrieval safely, and balance cost and latency through retrieval and prompt settings.
+
+</details>
 
 ## Personal Notes
 

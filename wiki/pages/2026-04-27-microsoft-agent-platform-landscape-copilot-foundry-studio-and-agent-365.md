@@ -10,6 +10,20 @@ depth: 1
 actionability: 1
 ---
 
+## TL;DR
+
+> Choose Microsoft’s agent platform by matching the builder, required technical control, user experience, and governance needs—not by treating the ecosystem as one interchangeable stack. The right architecture may span multiple layers, from Microsoft 365 Copilot as the user-facing experience to Agent 365 for fleet-wide oversight.
+
+## Key Takeaways
+
+1. Use Microsoft 365 Copilot when AI assistance should live inside familiar Microsoft 365 productivity workflows and draw on enterprise content.
+2. Choose Copilot Studio when business teams need to create or customize agents quickly through a structured, low-code environment.
+3. Use Microsoft Foundry when model selection, evaluation, deployment, and production-grade AI engineering require deeper technical control.
+4. Choose code-first Agent Development for SDK-level programmability, custom orchestration, external integrations, and protocol interoperability.
+5. Adopt Agent 365 when multiple agents create a need for centralized inventory, policy, lifecycle management, visibility, and operational oversight.
+6. Evaluate platform fit across four dimensions: who builds the solution, what agent is needed, where users will access it, and how it will be governed.
+7. Use the Agent Platform Advisor when requirements remain ambiguous; expect mature solutions to span more than one platform layer.
+
 ## Overview
 
 These notes summarize a top-level map of Microsoft’s AI agent ecosystem, focusing on how different product areas fit distinct parts of the agent lifecycle. Rather than presenting one unified platform, Microsoft separates concerns across Microsoft 365 Copilot, Copilot Studio, Microsoft Foundry, code-first agent development paths, and Agent 365 governance.
@@ -63,6 +77,26 @@ From a decision-making perspective, each platform aligns with a different projec
    Use this as a decision aid when requirements are still ambiguous and the right platform is unclear.
 
 The broader lesson is architectural: Microsoft is separating the agent lifecycle into distinct domains so teams can choose tooling that matches their delivery model and maturity level. Not every project should begin in the same product, and many real solutions may span more than one layer.
+
+## Test Yourself
+
+<details><summary>Which four dimensions should guide platform selection in Microsoft’s agent ecosystem?</summary>
+
+Identify who will build the solution, what kind of agent is required, where the experience will run, and how the agent will be governed.
+
+</details>
+
+<details><summary>When should a team prefer Microsoft Foundry over Copilot Studio?</summary>
+
+Prefer Microsoft Foundry when the project requires deeper control over models, evaluation, deployment, and formal AI engineering. Copilot Studio is better suited to faster, structured, low-code agent creation.
+
+</details>
+
+<details><summary>Why might one enterprise solution use more than one Microsoft agent platform?</summary>
+
+The platforms address different lifecycle layers rather than serving as complete substitutes. A solution might use custom development or Foundry for engineering, Microsoft 365 Copilot for the user experience, and Agent 365 for centralized governance.
+
+</details>
 
 ## Personal Notes
 

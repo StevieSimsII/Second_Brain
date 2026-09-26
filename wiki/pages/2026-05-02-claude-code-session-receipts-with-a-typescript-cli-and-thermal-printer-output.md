@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> Claude Receipts is a thin TypeScript orchestration layer that turns completed Claude Code sessions into accurate, polished receipts by combining `ccusage` accounting with local transcript metadata. Its normalized receipt model and separate renderers make it straightforward to add fields or support HTML, terminal, and ESC/POS outputs without duplicating core logic.
+
+## Key Takeaways
+
+1. Use Claude Code’s `SessionEnd` hook to run `claude-receipts generate` automatically when a coding session finishes.
+2. Delegate token and cost accounting to `ccusage session --id <session-id>` instead of duplicating pricing rules that can drift over time.
+3. Combine authoritative `ccusage` data with transcript JSONL metadata such as session name, timestamps, project path, and message counts.
+4. Build one normalized receipt model, then pass it to independent HTML, console, and ESC/POS rendering backends.
+5. Resolve settings deterministically in this order: CLI flag, `~/.claude-receipts.config.json`, `geoip-lite`, then the fallback `The Cloud`.
+6. Treat thermal printers as a device-specific output adapter supporting ESC/POS over USB or raw TCP, rather than mixing hardware concerns into receipt generation.
+7. Run the CLI on Node 22+; generated HTML receipts are stored under `~/.claude-receipts/projects/`.
+
 ## Overview
 These notes cover **Claude Receipts**, a TypeScript CLI that converts Claude Code sessions into receipt-style summaries showing token usage, model-level breakdowns, session metadata, and total cost. The tool integrates with Claude Code’s `SessionEnd` hook, uses `ccusage` as the source of truth for pricing and token accounting, parses local transcript artifacts for context, and renders output as HTML, terminal text, or ESC/POS thermal printer output.
 
@@ -73,6 +87,26 @@ Implementation details worth remembering:
 - `usb` is present for direct printer interaction on supported systems
 
 Overall, this is a strong example of a thin orchestration layer connecting external CLI integration, local file parsing, configuration management, and multiple output adapters.
+
+## Test Yourself
+
+<details><summary>Why does Claude Receipts call `ccusage` instead of calculating token costs from transcripts?</summary>
+
+The lesson describes `ccusage` as the authoritative source for token and pricing data. Delegating accounting avoids duplicated pricing logic and reduces the risk of cost calculations drifting out of date.
+
+</details>
+
+<details><summary>What information comes from transcripts, and how does it complement `ccusage`?</summary>
+
+Transcript JSONL files provide context such as session names, timestamps, project paths, and message counts. That metadata is combined with `ccusage` token and cost figures to produce an accurate and informative receipt.
+
+</details>
+
+<details><summary>How does the architecture make a new output format easier to add?</summary>
+
+Receipt generation first creates a normalized view-model that is independent of presentation. A new renderer can consume that model alongside the existing HTML, console, and thermal-printer adapters without reimplementing session resolution or accounting.
+
+</details>
 
 ## Personal Notes
 Building Claude Code Session Receipts with a TypeScript CLI and Thermal Printer Output

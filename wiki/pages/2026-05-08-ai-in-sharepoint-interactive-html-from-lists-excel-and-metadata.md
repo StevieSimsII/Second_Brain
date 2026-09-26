@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> SharePoint AI can turn existing lists, Excel files, and site metadata into interactive HTML experiences from natural-language prompts. This could reduce custom development, but production use depends on validating data freshness, permissions, generated-code governance, and repeatability.
+
+## Key Takeaways
+
+1. Treat SharePoint data as application input: lists can become dashboards, Excel employee files can become searchable org charts, and event records can become interactive schedules.
+2. Separate each solution into three layers: the source data, the prompt describing the desired experience, and reusable skills that enforce presentation rules.
+3. Define reusable skills for branding, layout, and formatting when outputs must remain consistent across sources and generation runs.
+4. Verify whether generated HTML is a static snapshot or stays connected to its SharePoint source before relying on it for operational reporting.
+5. Confirm that generated outputs preserve existing access boundaries and do not expose source data to unintended users.
+6. Validate how HTML, CSS, and JavaScript are hosted and restricted by tenant governance before using generated experiences in production.
+7. Design for schema changes and poor data quality; renamed columns, inconsistent records, and weak source structure can make generated interfaces unreliable.
+
 ## Overview
 
 These notes describe a SharePoint AI capability that can transform structured content already stored in SharePoint—such as lists, document libraries, Excel files, and even site metadata—into interactive HTML experiences without hand-coding. The examples include dashboards, org charts, conference schedules, restaurant menus, pricing pages, site maps, and usage-style reports generated from natural-language prompts and optionally standardized using reusable "skills."
@@ -68,6 +82,26 @@ There are also important engineering questions to validate before production use
 - **Schema resilience**: expect issues if columns are renamed, records are inconsistent, or data quality is weak.
 
 The notes also include a practical training exercise: choose a real or mock SharePoint dataset, define a target UI, write a generation prompt, define a reusable skill, map fields to UI elements, and document production concerns. This is a useful way to test whether the AI feature can be applied reliably in a real tenant and whether a proposed template is truly reusable across different datasets.
+
+## Test Yourself
+
+<details><summary>What three concerns should be separated when designing a reusable SharePoint AI solution?</summary>
+
+Separate the content or data source, the prompt intent that defines the desired interface, and the presentation policy captured in reusable skills. This makes it easier to apply consistent designs to different datasets.
+
+</details>
+
+<details><summary>Why must teams determine whether generated HTML is static or live?</summary>
+
+A snapshot may become outdated when the source changes, while a live connection may introduce runtime, permission, and reliability considerations. The distinction determines whether the result is suitable for operational use.
+
+</details>
+
+<details><summary>What should be validated before deploying a generated experience to production?</summary>
+
+Validate source-data quality and schema resilience, access permissions, HTML/CSS/JavaScript hosting rules, data freshness, and output repeatability. Strong prompts and reusable skills can help reduce drift across generation runs.
+
+</details>
 
 ## Personal Notes
 

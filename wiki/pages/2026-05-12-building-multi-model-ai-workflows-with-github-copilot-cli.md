@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Use GitHub Copilot CLI as one stage in a shell-based engineering loop: gather focused repository evidence, plan, make a small change, review it, and verify it locally. This matters because narrow, composable prompts keep AI grounded while tests, tooling, and human inspection remain the source of truth.
+
+## Key Takeaways
+
+1. Break broad engineering tasks into context gathering, diagnosis, planning, generation, review, and verification stages.
+2. Feed concrete artifacts such as `git diff`, compiler errors, stack traces, logs, and failing test output into prompts instead of relying on abstract descriptions.
+3. Use different models or model configurations for the stages where they perform best, such as planning, concise editing, review, or summarization.
+4. Separate planning from execution: request a diagnosis and 2–3 possible fixes before asking for a minimal code change and its tests.
+5. Compose terminal output into AI input through shell pipelines, while accounting for command differences between Copilot CLI versions.
+6. Prefer small, failure-driven loops over one-shot prompts to reduce hallucination and keep each step tied to actual repository state.
+7. Verify every generated change with tests, linting, formatting, runtime checks, and manual inspection before accepting it.
+
 ## Overview
 
 These notes cover how to use GitHub Copilot CLI as part of terminal-native, multi-step AI workflows for software engineering tasks. The core idea is to move beyond treating an LLM like a single chat interface and instead break work into stages such as context gathering, planning, code generation, review, summarization, and verification.
@@ -66,6 +80,26 @@ This reduces hallucination, encourages small iterative loops, and makes verifica
 - separate ideation from generation
 - verify every generated change
 - prefer small loops over one-shot prompts
+
+## Test Yourself
+
+<details><summary>Why is a staged Copilot CLI workflow preferable to one broad prompt?</summary>
+
+Each stage has a narrow purpose, making outputs easier to evaluate, revise, and verify. It also allows different models or configurations to handle planning, editing, review, and summarization.
+
+</details>
+
+<details><summary>What should be passed into a failure-driven prompt?</summary>
+
+Pass concrete evidence from the repository or toolchain, such as a failing test, compiler error, stack trace, log, or relevant diff. This grounds the model in the current state rather than an abstract description.
+
+</details>
+
+<details><summary>What remains the source of truth when AI is used in a terminal workflow?</summary>
+
+The repository state and local engineering controls remain authoritative. Tests, linters, formatters, runtime checks, code review, and human inspection must verify AI-generated suggestions and changes.
+
+</details>
 
 ## Personal Notes
 

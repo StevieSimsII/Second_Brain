@@ -13,6 +13,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> A practical engineering assistant combines Copilot CLI or SDK behavior with relevant repository context, constrained tools, and human approval. This matters because the surrounding orchestration—not the model alone—determines whether its output is useful, testable, and safe.
+
+## Key Takeaways
+
+1. Design the assistant as three layers: user interaction, assistant orchestration, and tool execution.
+2. Structure each request as a loop: accept the goal, collect relevant context, reason over both, propose actions, and return a result for review.
+3. Inject only task-relevant context such as the current directory, Git status, recent commits, logs, configuration, documentation, and team conventions.
+4. Separate the command interface, assistant service, context providers, tool adapters, and output formatter to improve testability and guardrail enforcement.
+5. Constrain shell, filesystem, Git, API, and search tools intentionally; mock tool adapters in tests so real commands are not executed.
+6. Keep users in control with command previews, scoped permissions, and explicit approval before execution.
+7. Specialize SDK-backed assistants with role instructions and repository-specific context instead of relying on generic chat behavior.
+
 ## Overview
 
 These notes describe how to build a practical personal engineering assistant using GitHub Copilot CLI and the Copilot SDK. The emphasis is on moving from passive AI assistance toward an orchestrated workflow where a user states intent, the assistant gathers context, optionally uses tools, and returns a reviewable result such as a command suggestion, summary, or next action.
@@ -96,6 +110,26 @@ The example implementation uses:
 - a manual approval step before any command is executed
 
 The main design takeaway is that usefulness comes from the surrounding system, not from the model alone. Prompt design, context quality, available tools, and safety boundaries determine whether the assistant is genuinely helpful in day-to-day engineering work.
+
+## Test Yourself
+
+<details><summary>What makes the proposed personal assistant more than a chatbot?</summary>
+
+It accepts a goal, gathers current environmental context, optionally uses constrained external tools, and returns an actionable result for review. Its usefulness comes from this orchestrated workflow rather than conversation alone.
+
+</details>
+
+<details><summary>Why should context providers and tool adapters be separate modules?</summary>
+
+Separation makes the system easier to test, maintain, and secure. Tool adapters can be mocked, and approval or permission rules can be enforced at a clear boundary.
+
+</details>
+
+<details><summary>What safeguards should be applied before the assistant executes a suggested shell command?</summary>
+
+The assistant should preview the command, explain it, operate with scoped permissions, and require explicit user approval. These controls preserve human oversight when commands or file changes could affect the environment.
+
+</details>
 
 ## Personal Notes
 

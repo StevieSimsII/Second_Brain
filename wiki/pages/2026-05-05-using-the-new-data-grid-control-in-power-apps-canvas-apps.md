@@ -9,6 +9,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use the Power Apps Data Grid for high-volume, tabular workflows where users need to scan, sort, filter, and edit records quickly without leaving the list. It can simplify CRUD screens, while Galleries and Forms remain better for custom layouts or complex editing workflows.
+
+## Key Takeaways
+
+1. Choose Data Grid when users manage many standardized records in rows and columns and need inline editing.
+2. Use Galleries when branding, custom layouts, record-specific visuals, or specialized interactions matter more than table efficiency.
+3. Use Form controls when edits require heavy validation, guided steps, or complex business logic.
+4. Bind the grid to connector-backed sources such as SharePoint, Dataverse, or SQL, then add support controls such as search, filters, refresh, and record count.
+5. Keep quick changes such as status, priority, and assignment inline so users retain their position and surrounding context.
+6. Combine a Data Grid with a detail form when routine fields can be edited inline but advanced changes need more control.
+7. Validate editing support, delegation, customization, and environment-specific behavior before broad production use, especially while the control's capabilities vary by release stage.
+
 ## Overview
 
 These notes cover the newer **Data Grid control** in **Power Apps Canvas Apps**, focusing on when it is a better fit than older patterns such as **Galleries** or the legacy **Data Table**. The main theme is that the Data Grid is designed for structured, tabular, high-volume record management where users need to review and edit many records quickly.
@@ -60,6 +74,26 @@ A practical decision rule:
 - Use **Form controls** when editing requires heavy validation, guided workflows, or more complex business logic.
 
 The main trade-off is flexibility. Because the grid is more opinionated than a Gallery, it may not support every custom interaction or visual pattern you want. In those cases, a hybrid design works well: use the grid for quick edits and a detail form for advanced updates.
+
+## Test Yourself
+
+<details><summary>When is the Data Grid a better choice than a Gallery?</summary>
+
+Use the Data Grid for standardized, high-volume tabular review with sorting, filtering, and inline editing. Use a Gallery when records need highly customized layouts, visuals, branding, or interactions.
+
+</details>
+
+<details><summary>How does inline editing improve an operational workflow such as a helpdesk queue?</summary>
+
+Operators can change fields such as Status, Priority, and Assigned To without opening another screen. This preserves their place in the queue and keeps nearby records visible for comparison.
+
+</details>
+
+<details><summary>What should a team verify before adopting the Data Grid broadly in production?</summary>
+
+The lesson recommends validating editing support, delegation behavior, customization limits, and environment- or release-specific behavior. A hybrid grid-and-form design can cover advanced edits the grid cannot handle.
+
+</details>
 
 ## Personal Notes
 

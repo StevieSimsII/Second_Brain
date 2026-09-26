@@ -9,6 +9,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Build a date range picker from two Date Picker controls, validate that the start is not after the end, and use the result to filter data. For datetime columns, an exclusive upper bound one day after the end date includes the full final day.
+
+## Key Takeaways
+
+1. Default `dpStart` and `dpEnd` to a useful range with `DateAdd(Today(), -7, Days)` and `Today()`.
+2. Treat a range as valid only when `dpStart.SelectedDate <= dpEnd.SelectedDate`; show an error and disable Apply when that condition fails.
+3. Filter datetime values with `Created >= startDate && Created < DateAdd(endDate, 1, Days)` so records throughout the end date are included.
+4. Store dates in context or global variables when users need temporary selections, popup behavior, presets, or an explicit Apply step.
+5. After a preset updates variables, reset variable-bound Date Picker controls so they display the new values.
+6. Package the controls and logic into a container or component that exposes `StartDate`, `EndDate`, and `IsValid` for reuse.
+7. Account for null selections, reverse-order input, UTC-versus-local datetime behavior, and delegation limits on large remote data sources.
+
 ## Overview
 These notes cover how to build a practical date range picker in a Power Apps canvas app using standard controls and Power Fx formulas. Because canvas apps do not provide a single built-in desktop-style date range picker, the pattern is typically composed from two Date Picker controls, validation logic, optional preset buttons, and filter expressions that drive galleries, reports, or other data-bound controls.
 
@@ -97,6 +111,26 @@ Important edge cases to consider:
 - Delegation limits when filtering large remote datasets
 
 A training exercise in the notes walks through creating a screen with two date pickers, validation, a preset button, and a gallery bound either to sample data or a real source. The resulting pattern is a solid reusable foundation for date-based filtering in canvas apps.
+
+## Test Yourself
+
+<details><summary>Why is `&lt; DateAdd(endDate, 1, Days)` generally preferable to `&lt;= endDate` for a datetime field?</summary>
+
+An end date commonly represents midnight at the start of that day, so `<= endDate` can omit records later that day. Comparing against the next day with an exclusive upper bound includes the entire selected end date.
+
+</details>
+
+<details><summary>When should dates be stored in variables instead of read directly from Date Picker controls?</summary>
+
+Use variables when selections must remain temporary until Apply, when the picker appears in a popup, or when presets need to update both dates as a single state change.
+
+</details>
+
+<details><summary>What should a reusable date range component expose?</summary>
+
+It should expose the selected `StartDate` and `EndDate` plus an `IsValid` value. Downstream galleries, charts, and reports can then consume the range without duplicating its validation logic.
+
+</details>
 
 ## Personal Notes
 Building a Date Range Picker in a Power Apps Canvas App

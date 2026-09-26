@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> AI agents need explicit Obsidian-specific rules because valid Markdown can still break a vault’s links, metadata, queries, canvases, and workflows. Treating agent skills as interface contracts helps preserve the system’s meaning, not merely its file syntax.
+
+## Key Takeaways
+
+1. Model an Obsidian vault as a structured knowledge system, not a directory of interchangeable Markdown files.
+2. Use Obsidian wikilinks such as `[[Note Name]]` and `[[Page|Alias]]` consistently to preserve backlinks, navigation, and graph relationships.
+3. Parse and write YAML frontmatter as structured, typed metadata because filters, queries, automation, and views may depend on exact fields.
+4. Apply schema-aware editing to JSON Canvas and Bases; text that looks plausible can still corrupt their structure or typed properties.
+5. Define agent skills as interface contracts covering accepted syntax, data shapes, editing rules, and operational boundaries.
+6. Write conservatively: preserve vault conventions, stable identifiers, names, references, and unrelated content.
+7. Prefer tool-native, validated operations, including cleanup tools such as Defuddle before adding web content to a vault.
+
 ## Overview
 These notes explain why AI agents that can read and write Markdown may still fail when operating inside Obsidian. Obsidian uses product-specific conventions such as wikilinks, YAML frontmatter, typed properties, JSON Canvas files, and vault-specific organizational patterns. If an agent treats the vault as generic text, it can create changes that look valid but quietly break links, metadata-driven workflows, or structured views.
 
@@ -60,6 +74,26 @@ A useful mental model is a layered interaction process:
    - Use cleanup and ingestion tools such as Defuddle for web content before inserting into the vault.
 
 The broader architectural takeaway is that agent integration with structured systems should be treated as a contract-design problem. If the system has hidden semantics, the agent needs explicit behavioral guidance. Otherwise, the system may slowly degrade through “almost correct” edits that are hard to notice until links, views, queries, or automations stop working.
+
+## Test Yourself
+
+<details><summary>Why is knowing standard Markdown insufficient for an agent working in Obsidian?</summary>
+
+Obsidian adds product-specific semantics such as wikilinks, typed frontmatter, Bases, and JSON Canvas schemas. An edit can remain readable Markdown while silently breaking backlinks, queries, views, or automation.
+
+</details>
+
+<details><summary>What role does an agent skill play when integrating with a structured tool?</summary>
+
+A skill acts as an interface contract that makes the tool’s hidden invariants explicit. It tells the agent which syntax, schemas, editing practices, and operational boundaries it must preserve.
+
+</details>
+
+<details><summary>What does practical correctness mean for an Obsidian edit?</summary>
+
+It means preserving the semantics and workflows the vault depends on, not merely producing files that parse. Links, required metadata, typed fields, schemas, identifiers, and local conventions must continue to work.
+
+</details>
 
 ## Personal Notes
 Teaching AI Agents to Use Obsidian Safely with Product-Specific Skills

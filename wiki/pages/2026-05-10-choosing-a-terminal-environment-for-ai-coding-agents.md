@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The best terminal for AI coding agents is the one with a predictable, reproducible, and isolated execution environment—not necessarily the best-looking terminal app. Stable tooling, scoped access, and strong logs make agent work safer, more reliable, and easier to audit.
+
+## Key Takeaways
+
+1. Evaluate the execution environment separately from the terminal emulator; shell behavior, PATH, dependencies, filesystem access, and logging matter more than appearance.
+2. Prefer a containerized terminal as the default for serious agent workflows because it improves reproducibility and limits the blast radius of mistakes.
+3. Give agents the project’s real toolchain—including version control, package managers, test runners, linters, compilers, and deployment CLIs—to avoid fragile workarounds.
+4. Remove interactive prompts and fullscreen interfaces; commands should run unattended and produce clean, preferably machine-readable output.
+5. Preserve commands, stdout and stderr, exit codes, and diffs so sessions can be audited, debugged, and replayed.
+6. Use minimal shell personalization, a known repository root, locked dependencies, scoped permissions, and disposable workspaces to reduce hidden assumptions.
+7. Structure repeatable scripts with safeguards such as `set -euo pipefail`, repository-root anchoring, and a consistent order for status, tests, builds, and other checks.
+
 ## Overview
 
 These notes cover how to evaluate a terminal environment for AI coding agents, focusing on the practical engineering properties that affect reliability and safety. The key point is that the “best terminal” is usually not about the visual terminal app itself, but about the surrounding execution environment: shell behavior, installed tools, filesystem access, reproducibility, and logging.
@@ -60,6 +74,26 @@ The example shell script in the notes shows a practical pattern:
 - and preserve a clean transcript.
 
 The included exercise reinforces the main lesson: evaluate whether the environment is reproducible, non-interactive, explicit about dependencies, and easy to reset after failure. For most teams, the best answer is a reproducible, sandboxed CLI environment with project-specific tooling preinstalled and strong logging.
+
+## Test Yourself
+
+<details><summary>Why does the surrounding execution environment matter more than the terminal emulator for an AI coding agent?</summary>
+
+The agent depends on shell semantics, installed tools, filesystem permissions, working-directory behavior, and command output to complete tasks. A visually polished emulator cannot compensate for missing dependencies, unpredictable configuration, or unsafe access.
+
+</details>
+
+<details><summary>Why are containerized terminals often a strong default for agent workflows?</summary>
+
+They provide a reproducible, isolated environment that can include the exact project toolchain while limiting access to unrelated files and secrets. They are also easier to reset after a failed or risky operation.
+
+</details>
+
+<details><summary>What makes a terminal workflow observable and agent-friendly?</summary>
+
+It runs non-interactively and records commands, stdout and stderr, exit codes, and file diffs. These records make the agent’s actions auditable and failures easier to diagnose or reproduce.
+
+</details>
 
 ## Personal Notes
 

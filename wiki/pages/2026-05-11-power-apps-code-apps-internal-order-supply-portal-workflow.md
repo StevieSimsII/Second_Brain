@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Power Apps Code Apps combine a governed Power Platform runtime and data layer with code-first development in VS Code. For an internal ordering portal, the critical engineering work is enforcing role-based access beyond the UI and packaging every dependency for reliable deployment.
+
+## Key Takeaways
+
+1. Use VS Code and source-oriented workflows to build Power Apps while retaining Power Platform identity, governance, integration, and runtime capabilities.
+2. Model the ordering portal around users, roles, catalog items, orders, order lines, and approval states.
+3. Define access rules per screen, data set, and action: standard users should create and view their own orders, while admins can view all orders, change statuses, and manage catalog items.
+4. Enforce Admin/User permissions in app and backend logic; hiding admin controls in the interface does not prevent unauthorized operations.
+5. Use a coding agent to scaffold screens and repetitive logic, but have engineers validate authorization, data integrity, business rules, and deployment readiness.
+6. Package the app, tables, security roles, connection references, environment variables, and automation flows in a Power Platform solution for promotion across development, test, and production.
+
 ## Overview
 
 These notes cover a lesson on building a **Power Apps Code App** through the example of an **Internal Order Supply Portal**, from initial setup through deployment. The material frames Code Apps as a hybrid approach that blends low-code Power Platform capabilities with more traditional developer workflows such as VS Code-based authoring, source-oriented development, AI-assisted generation, and solution packaging.
@@ -139,6 +152,26 @@ The notes also outline a practical exercise for internalizing the workflow:
 8. Reflect on what AI should generate versus what engineers must validate.
 
 This exercise is a useful template for experimenting with Code Apps even without the original tutorial.
+
+## Test Yourself
+
+<details><summary>Why is hiding the Admin Dashboard insufficient for role-based access control?</summary>
+
+A standard user might still invoke the underlying operation without using the visible interface. Authorization must also be enforced in application and backend logic so unauthorized status changes or catalog updates are rejected.
+
+</details>
+
+<details><summary>What development loop does the lesson recommend for AI-assisted implementation?</summary>
+
+Describe the desired behavior, let the coding agent generate code or artifacts, review the result, refine the prompts, and validate security and business logic. The agent accelerates scaffolding, while engineers remain responsible for correctness.
+
+</details>
+
+<details><summary>What should a deployable solution for the ordering portal contain?</summary>
+
+It should include the app, tables or entities, role definitions and security roles, connection references, environment variables, and any automation flows. Packaging these dependencies supports governed promotion across development, test, and production environments.
+
+</details>
 
 ## Personal Notes
 

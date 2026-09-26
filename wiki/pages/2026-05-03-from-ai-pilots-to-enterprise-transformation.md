@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI creates durable enterprise value when organizations redesign important workflows, ownership, governance, and measurement around it—not when they merely accumulate pilots. Transformation matters only when it measurably improves revenue, cost, speed, quality, or risk.
+
+## Key Takeaways
+
+1. Prioritize a few deeply integrated, high-value workflows over many disconnected AI pilots.
+2. Score AI use cases on business value, technical feasibility, data readiness, process fit, and change burden before investing.
+3. Measure the current workflow before introducing AI so changes in cycle time, throughput, cost, quality, or risk can be demonstrated.
+4. Redesign the end-to-end process—including roles, controls, escalation paths, and downstream systems—instead of adding AI to an unchanged workflow.
+5. Assign ownership across business, technology, risk, finance, legal, compliance, leadership, and frontline teams; a central AI team alone cannot deliver transformation.
+6. Use technical and adoption metrics during early stages, but judge transformation by business KPIs such as revenue, margin, conversion, support cost, and compliance outcomes.
+7. Validate quality and safety, deploy with training and governance, measure business impact, then reinvest in adjacent workflows or deeper process layers.
+
 ## Overview
 
 These notes cover the shift from isolated generative AI pilots to true enterprise transformation. The central idea is that many organizations can launch AI experiments quickly, but far fewer redesign workflows, governance, ownership, and measurement systems well enough to produce durable business value.
@@ -51,6 +65,26 @@ The notes propose a useful operating loop:
 8. Reinvest in adjacent workflows or deeper process layers.
 
 This reframes the problem from “Where can we apply AI?” to “Which business system should we redesign with AI at the center?” That distinction is what separates widespread AI activity from real enterprise transformation.
+
+## Test Yourself
+
+<details><summary>What distinguishes AI experimentation from enterprise transformation?</summary>
+
+Experimentation shows that an AI capability works in a narrow setting. Transformation integrates AI into redesigned processes, roles, controls, and operating models that produce lasting, measurable business outcomes.
+
+</details>
+
+<details><summary>Why is adding an AI assistant to an existing workflow often insufficient?</summary>
+
+It usually creates only a local optimization while leaving intake, review, escalation, staffing, analytics, and other process constraints unchanged. Larger gains require redesigning the entire workflow around the AI-enabled capability.
+
+</details>
+
+<details><summary>How should an organization measure progress from pilot to transformation?</summary>
+
+Start with technical metrics such as latency, error rate, hallucination rate, and cost per task, then track adoption through usage, completion, and override rates. Ultimately, require improvement in business KPIs such as cycle time, throughput, revenue, cost, quality, margin, or risk.
+
+</details>
 
 ## Personal Notes
 

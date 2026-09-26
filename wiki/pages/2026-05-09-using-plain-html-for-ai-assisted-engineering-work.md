@@ -10,6 +10,19 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Plain HTML can make AI-assisted engineering work easier to understand and act on because it preserves spatial layout, visual hierarchy, and lightweight interactivity. A self-contained HTML artifact can function as both a thinking surface and a disposable, task-specific interface that feeds decisions into the next step.
+
+## Key Takeaways
+
+1. Use a single self-contained HTML file with inline CSS and light JavaScript when a task is difficult to understand as linear prose.
+2. Match the layout to the work: tables for trade-offs, SVG for diagrams, tabs for alternatives, timelines for incidents, and collapsibles for secondary details.
+3. Present multiple concrete options side by side so engineers can compare trade-offs directly instead of reconstructing them from prose.
+4. Build narrow, temporary interfaces for tasks such as implementation planning, PR review, incident analysis, feature-flag editing, or prompt tuning.
+5. Include a copy, export, or editable-output path so decisions can move into a PR, source control, or the next AI prompt.
+6. Judge the artifact by whether another engineer can quickly identify its purpose, main components, risks, and next actions.
+
 ## Overview
 These notes capture a practical lesson: plain HTML can be a much better medium than markdown or prose for many AI-assisted engineering tasks. The core argument is that HTML preserves spatial layout, visual hierarchy, and lightweight interactivity, making plans, reviews, diagrams, reports, and prototypes easier to scan and act on.
 
@@ -45,6 +58,26 @@ The training exercise reinforces the idea with two practical options:
 - Build a **PR review page** with summary, file-by-file changes, highlighted risky areas, reviewer focus points, and anchors for navigation.
 
 The success criteria are simple and useful: another engineer should quickly understand what the artifact is for, what the main moving parts are, where the risks are, and what should happen next.
+
+## Test Yourself
+
+<details><summary>Why can plain HTML be more effective than markdown or prose for some AI-assisted engineering tasks?</summary>
+
+The lesson argues that many engineering tasks are spatial or relational rather than purely linear. HTML can express grouping, side-by-side comparisons, diagrams, callouts, and controls, reducing the effort needed to understand and act on the information.
+
+</details>
+
+<details><summary>What makes a self-contained HTML artifact practical for iterative engineering work?</summary>
+
+Keeping CSS and JavaScript inline makes the artifact inexpensive to generate, easy to open locally, and simple to share. Adding copy or export features also lets its conclusions become inputs to later prompts, PRs, or source-controlled documents.
+
+</details>
+
+<details><summary>What should an engineer include when asking AI to create an HTML working artifact?</summary>
+
+Specify a single self-contained file, a clear summary, a scan-friendly layout, and the comparisons, diagrams, or controls appropriate to the task. Include an export or copy mechanism when the artifact's decisions need to be reused.
+
+</details>
 
 ## Personal Notes
 Using Plain HTML as a High-Leverage Medium for AI-Assisted Engineering Work

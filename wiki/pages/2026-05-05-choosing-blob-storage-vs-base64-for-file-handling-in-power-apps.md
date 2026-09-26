@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use Base64 for small, temporary file transfers; use Azure Blob Storage for files that must persist, scale, remain securely accessible, or integrate with other systems. Separating binary content from business metadata improves performance and maintainability.
+
+## Key Takeaways
+
+1. Use Base64 only when files are small, temporary, and primarily passing through a simple workflow.
+2. Store persistent or high-volume binary files in Azure Blob Storage instead of embedding them in Power Apps or Dataverse records.
+3. Keep metadata such as filename, content type, owner, blob identifier, upload time, and retention category in Dataverse.
+4. Route uploads from Power Apps through Power Automate, an Azure Function, or a custom API that authenticates to Blob Storage.
+5. Protect blob access with Azure AD, RBAC, managed identities, or short-lived SAS tokens rather than public URLs.
+6. Define synchronization, deletion, update, retention, and access rules before adopting a blob-backed architecture.
+7. Expect Base64 payload inflation and memory overhead to reduce performance as file sizes or upload frequency increase.
+
 ## Overview
 
 These notes capture a practical architecture decision in Power Apps: whether to handle files inline as Base64 payloads or store them externally in Azure Blob Storage. The core takeaway is that Base64 can work well for small, simple, transient file transfers, while Blob Storage is usually the better fit for persistent, scalable, and secure file handling.
@@ -69,6 +83,26 @@ UploadedBy
 UploadedAt
 RetentionCategory
 ```
+
+## Test Yourself
+
+<details><summary>When is Base64 an appropriate choice for file handling in Power Apps?</summary>
+
+Base64 is appropriate when a file is small, temporary, and only needs to pass through a lightweight workflow. It becomes inefficient for larger files or frequent transfers because encoded payloads are larger and consume more memory.
+
+</details>
+
+<details><summary>What responsibilities belong to Blob Storage and Dataverse in the recommended enterprise pattern?</summary>
+
+Azure Blob Storage holds the binary file, while Dataverse holds the business record and metadata such as the filename, content type, blob path, owner, and upload date.
+
+</details>
+
+<details><summary>What security and lifecycle decisions must a blob-backed design address?</summary>
+
+The design must define who can upload or read files, how access is authenticated, whether links expire, and how updates, deletions, retention, and metadata synchronization are handled.
+
+</details>
 
 ## Personal Notes
 

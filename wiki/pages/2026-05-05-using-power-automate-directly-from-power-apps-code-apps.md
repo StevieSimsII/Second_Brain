@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Power Apps Code Apps can invoke Power Automate flows directly, eliminating workaround triggers and proxy layers. This creates a cleaner app-to-automation architecture, provided the SDK packages and connection references are configured correctly.
+
+## Key Takeaways
+
+1. Call Power Automate flows directly from Code Apps instead of relying on HTTP triggers, Dataverse events, custom connectors, or proxy APIs.
+2. Update the relevant npm SDK or client package before using the integration; an older version may hide or break the capability.
+3. Validate every connection reference before runtime because unresolved or unauthenticated connector bindings can cause authorization and binding failures.
+4. Keep responsibilities separate: use the Code App for UI and business interaction, and use the flow for orchestration and side effects such as approvals, notifications, synchronization, and task creation.
+5. Direct flow invocation can improve maintainability, security, developer experience, and operational simplicity by reducing the number of architectural components.
+6. Troubleshoot runtime failures by checking connector mappings even when the app invocation code and the flow itself appear valid.
+
 ## Overview
 These notes cover a new Power Platform capability: Power Apps Code Apps can now invoke Power Automate flows directly, instead of relying on indirect patterns like HTTP-triggered flows, Dataverse event triggers, or custom proxy layers. This is a meaningful improvement for developers building more code-centric apps on the Microsoft Power Platform because it reduces architectural overhead and makes automation feel like a native part of app logic.
 
@@ -67,6 +80,26 @@ This matters because it improves:
 - **Operational simplicity**: fewer things to troubleshoot
 
 A representative use case is an asset register app. The UI handles interaction and validation, while Power Automate handles approvals, notifications, syncing, or ticket/task creation. Direct invocation makes that boundary cleaner.
+
+## Test Yourself
+
+<details><summary>What workaround patterns can direct Power Automate invocation replace?</summary>
+
+It can replace patterns such as HTTP-triggered flows, Dataverse event triggers, custom connectors, and proxy APIs used to bridge app actions to automation.
+
+</details>
+
+<details><summary>Why might a correctly invoked and otherwise valid flow still fail at runtime?</summary>
+
+One or more connection references inside the flow may be unresolved or mapped to invalid or unauthenticated connections, resulting in authorization or binding errors.
+
+</details>
+
+<details><summary>How should responsibilities be divided between a Code App and a Power Automate flow?</summary>
+
+The Code App should handle the user interface, validation, and business interaction, while the flow should handle orchestration and side effects such as approvals, notifications, synchronization, or task creation.
+
+</details>
 
 ## Personal Notes
 Using Power Automate Directly from Power Apps Code Apps

@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> An LLM-maintained wiki turns raw sources and useful answers into a persistent, linked knowledge base instead of rebuilding understanding for every query. Its value compounds when immutable sources, schema-driven workflows, and regular maintenance keep the synthesis traceable and consistent.
+
+## Key Takeaways
+
+1. Compile source material into curated, cross-referenced markdown pages so future queries reuse prior synthesis rather than repeatedly processing raw chunks.
+2. Separate the system into three layers: immutable files in `raw/`, LLM-maintained pages in `wiki/`, and a schema file such as `CLAUDE.md` or `AGENTS.md` that governs maintenance.
+3. Define naming, frontmatter, linking, contradiction handling, page-creation criteria, and ingest/query/lint workflows in the schema file to reduce drift between sessions.
+4. Start queries at `wiki/index.md`, open only the relevant pages, and save valuable answers under `wiki/queries/` so recurring questions become durable assets.
+5. Run lint passes to find orphan pages, stale or contradictory claims, missing links, under-sourced areas, and frequently referenced topics that deserve dedicated pages.
+6. Use the pattern when long-term synthesis and contradiction tracking matter; favor conventional retrieval when the corpus is extremely large and fast lookup is the main requirement.
+7. Test the architecture with three source documents, one schema file, one saved query, one lint pass, and Git commits after each ingest.
+
 ## Overview
 
 These notes describe the **LLM Wiki** pattern popularized by Andrej Karpathy: a file-based, LLM-maintained knowledge base that sits between raw source material and future questions. Instead of relying on standard RAG to retrieve raw chunks at query time, the system continuously compiles source material into linked markdown pages, updates concepts and entities over time, tracks contradictions, and saves valuable answers back into the wiki.
@@ -128,6 +142,26 @@ It is weaker when:
 - the team will not maintain ingest discipline
 
 The notes also include a practical exercise: build a small wiki on a known technical topic using three source documents, one schema file, one query, and one lint pass. This makes the “wiki as codebase” analogy concrete, especially when paired with Git commits after each ingest.
+
+## Test Yourself
+
+<details><summary>How does an LLM Wiki differ from standard RAG?</summary>
+
+Standard RAG retrieves raw fragments and synthesizes an answer at query time. An LLM Wiki compiles sources earlier into persistent, linked pages, allowing later questions to reuse and improve accumulated synthesis.
+
+</details>
+
+<details><summary>What roles do the three architectural layers play?</summary>
+
+The `raw/` layer preserves immutable source evidence, the `wiki/` layer holds evolving summaries and relationships, and the schema file defines the conventions and workflows the LLM must follow.
+
+</details>
+
+<details><summary>Why are ingest, query, and lint all necessary?</summary>
+
+Ingest integrates new material, query turns compiled knowledge into reusable answers, and lint repairs structural or semantic problems. Together they let the wiki accumulate knowledge without silently accumulating disorder.
+
+</details>
 
 ## Personal Notes
 

@@ -13,6 +13,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> An “LLM wiki” gives an agent persistent, inspectable memory through curated text files, improving the quality and continuity of the context it receives. It works best alongside RAG: the wiki supplies durable, high-signal knowledge, while retrieval handles long-tail lookup across raw sources.
+
+## Key Takeaways
+
+1. Treat model memory as maintained documentation: ingest source material, distill it into stable pages, load the relevant pages for each task, and write back reviewed updates.
+2. Use explicit files such as indexes, project summaries, concept pages, decision records, entity profiles, and periodic summaries to preserve knowledge across sessions.
+3. Prefer canonical summaries over isolated retrieved chunks when the model needs stable explanations, constraints, risks, or decision rationale.
+4. Keep memory human-auditable by storing it in readable, editable, and versionable text or markdown files.
+5. Review model-proposed write-backs because summarization can omit details, introduce errors, or allow stale knowledge to persist.
+6. Combine a wiki for durable, high-signal memory with RAG for broad recall and long-tail lookup in large or rapidly changing document collections.
+
 ## Overview
 
 These notes describe the idea of an “LLM wiki”: a persistent, curated set of text or markdown files that acts as an external memory system for an LLM or agent. Instead of relying only on vector search over raw document chunks, the system maintains readable knowledge files such as topic summaries, decision logs, indexes, and periodic updates. This makes the model’s working knowledge more explicit, inspectable, and stable over time.
@@ -77,6 +90,26 @@ There are trade-offs. A wiki requires maintenance and can become stale if not cu
 - RAG for long-tail lookup into raw documents
 
 That combination gives the model a reliable mental map while still allowing deep retrieval when needed.
+
+## Test Yourself
+
+<details><summary>How does an LLM wiki differ from basic RAG?</summary>
+
+Basic RAG typically retrieves similar chunks from raw documents, while an LLM wiki supplies curated, structured, human-readable knowledge files. The wiki prioritizes stable summaries and explicit organization rather than relying only on nearest-neighbor retrieval.
+
+</details>
+
+<details><summary>What does the write-back loop add to an LLM wiki?</summary>
+
+After a task, the model can propose durable updates such as a new decision record, a refreshed project summary, or a list of unresolved questions. Human review remains important because those updates may be incomplete or incorrect.
+
+</details>
+
+<details><summary>Why is a hybrid wiki-and-RAG system often preferable?</summary>
+
+The wiki provides a reliable mental map of durable, high-signal knowledge, but it may not cover every detail or stay current without maintenance. RAG complements it by searching raw documents for long-tail details and rapidly changing information.
+
+</details>
 
 ## Personal Notes
 

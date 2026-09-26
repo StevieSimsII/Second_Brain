@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> GitHub Copilot hooks act as a control layer that can block unsafe or noncompliant tool actions before they run. Using `PreToolUse` for fast, deterministic checks turns team rules from suggestions into enforceable constraints while giving Copilot feedback to correct its approach.
+
+## Key Takeaways
+
+1. Use `PreToolUse` to inspect and deny planned tool calls before Copilot edits files or executes commands.
+2. Enforce fast quality gates with tools such as `eslint`, `ruff`, `biome`, or `prettier --check`, and require remediation before the workflow continues.
+3. Block dangerous shell commands, writes to protected files, changes outside the project root, and inconsistent dependency-lockfile updates.
+4. Return a specific, actionable reason whenever a hook denies an operation so Copilot can revise its plan instead of entering a denial loop.
+5. Keep hooks fast, deterministic, and selective; excessive strictness can stall the workflow, while loose rules provide little protection.
+6. Layer enforcement: use `PreToolUse` for immediate high-signal checks, local lint and tests for repository correctness, and CI for slower or broader validation.
+
 ## Overview
 
 These notes explain how GitHub Copilot hooks can be used as a control layer around AI-assisted development, especially to enforce quality and safety before tools are allowed to run. The main emphasis is on `PreToolUse`, a hook that can inspect intended actions and deny them when they violate policy, such as failing lint checks, touching protected files, or attempting unsafe commands.
@@ -60,6 +73,26 @@ A strong setup usually uses layered enforcement:
 3. CI as the final enforcement layer for slower or broader validation.
 
 The broader architectural takeaway is that hooks act as a control plane for AI-assisted development. They shift the question from “Will the model behave correctly?” to “What actions are permitted, under what conditions, and how are those conditions enforced automatically?”
+
+## Test Yourself
+
+<details><summary>Why is `PreToolUse` safer than checking AI-generated changes only after execution?</summary>
+
+It evaluates the intended action before files are changed or commands are run, preventing violations rather than merely detecting them afterward. This can reduce both risk and cleanup cost.
+
+</details>
+
+<details><summary>What qualities make a Copilot hook effective?</summary>
+
+An effective hook is fast enough to preserve interactivity, deterministic for consistent decisions, and actionable in explaining how to resolve a denial.
+
+</details>
+
+<details><summary>How should hooks fit into a broader code-quality strategy?</summary>
+
+Use hooks for immediate safety rules and fast checks, local lint and tests for repository-specific validation, and CI as the final layer for comprehensive or slower checks.
+
+</details>
 
 ## Personal Notes
 

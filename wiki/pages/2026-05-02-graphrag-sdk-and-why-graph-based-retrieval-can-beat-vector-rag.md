@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> GraphRAG-SDK turns documents into a knowledge graph and retrieves connected evidence through graph traversal, which the source claims improves multi-hop reasoning over standard vector RAG. Its value comes from exploring multiple relationship paths, merging evidence, and tracing answers back to original text—not merely from storing data in a graph.
+
+## Key Takeaways
+
+1. Use graph traversal when questions require chaining facts across distant chunks or multiple documents; vector similarity is better suited to retrieving locally related text.
+2. Preserve evidence links from every extracted node and edge to the original text so answers remain explainable, auditable, and easier to debug.
+3. Explore four candidate graph paths in parallel and merge their evidence, as the source describes, to improve recall without committing to one reasoning route too early.
+4. Control cost with two-stage processing: use a smaller model for initial graph extraction and a stronger LLM for verification, refinement, and answer synthesis.
+5. Evaluate the retrieval algorithm—not just the graph database—because the source attributes GraphRAG-SDK’s claimed benchmark advantage to parallel traversal and evidence merging.
+6. Treat local graph storage and local inference as separate concerns; the default pipeline may still call hosted LLMs, while LiteLLM compatibility may allow routing to private OpenAI-compatible endpoints.
+7. Design loaders, extraction models, graph backends, traversal strategies, generation models, and citation logic as replaceable components so the system can evolve independently.
+
 ## Overview
 These notes summarize the core idea behind FalkorDB’s GraphRAG-SDK: instead of retrieving only semantically similar text chunks, the system converts documents into a knowledge graph and answers questions by traversing relationships between entities, concepts, and evidence. The source claims this approach outperforms both standard vector RAG and Microsoft GraphRAG on GraphRAG-Bench, especially for questions that require connecting multiple facts across documents.
 
@@ -68,6 +82,26 @@ The notes also emphasize modularity. A practical implementation can often swap c
 An important operational caveat from the LinkedIn comments: although the graph database may run locally, the default extraction and answering path may still rely on hosted LLMs. LiteLLM compatibility suggests model calls can be redirected to OpenAI-compatible self-hosted or private endpoints, which matters for privacy-sensitive deployments.
 
 The benchmark takeaway is that graph retrieval can outperform both standard vector RAG and other graph-based approaches when the retrieval algorithm effectively exploits relationship structure. The key advantage is not merely storing a graph, but using traversal methods—especially parallel path exploration and evidence merging—that better support complex reasoning.
+
+## Test Yourself
+
+<details><summary>Why can graph-based retrieval handle some multi-hop questions better than standard vector RAG?</summary>
+
+Vector RAG retrieves chunks by semantic similarity, which may surface isolated facts without their relationships. Graph retrieval can explicitly traverse a chain such as biomarker → associated condition → recommended treatment and provide the connected evidence to the answering model.
+
+</details>
+
+<details><summary>What is the purpose of exploring four graph paths in parallel?</summary>
+
+According to the source, parallel exploration tests multiple relational routes instead of committing to one early. Merging the resulting evidence can improve recall and produce a stronger support set for the final answer.
+
+</details>
+
+<details><summary>Does running the graph database locally guarantee that all data processing stays local?</summary>
+
+No. The lesson notes that extraction and answer generation may still use hosted LLMs even when the graph database is local. LiteLLM compatibility may make it possible to redirect those calls to self-hosted or private OpenAI-compatible endpoints.
+
+</details>
 
 ## Personal Notes
 GraphRAG-SDK and Why Graph-Based Retrieval Can Beat Vector RAG

@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Design Microsoft 365 AI agents around two data lanes: Microsoft Graph for collaboration content and Dataverse for structured business records. Work IQ interprets natural-language intent and routes requests, avoiding unnecessary one-connector-per-app architectures.
+
+## Key Takeaways
+
+1. Treat Work IQ as the orchestration layer that interprets user intent and selects the appropriate Microsoft 365 data source.
+2. Route emails, files, meetings, calendars, chats, and documents through the Microsoft Graph-backed collaboration lane.
+3. Route accounts, opportunities, custom tables, and relationships through the separate Dataverse business-data lane.
+4. Build every agent around three responsibilities: intent classification, source routing, and unified response shaping.
+5. Start with simple routing rules, then add more advanced intent models as query variety and ambiguity increase.
+6. Ask for clarification or query both systems when a request could refer to Graph content, Dataverse records, or both.
+7. Do not assume every Microsoft 365 workload needs its own MCP server; the lesson frames MCP primarily as a standardized tool-access pattern, especially for Dataverse.
+
 ## Overview
 
 These notes describe a practical architecture pattern for Microsoft 365 AI agents: Microsoft 365 content is not typically exposed as separate MCP servers for each workload like SharePoint, Outlook, or Teams. Instead, a unified intelligence layer called **Work IQ** interprets natural-language intent, determines where the requested information lives, and routes retrieval accordingly. For collaboration content across the tenant, that usually means **Microsoft Graph**; for structured business records, it means **Dataverse**, which is treated as a separate access path.
@@ -85,6 +99,26 @@ The notes also suggest starting with a simple rules-based router before introduc
 Some prompts will be ambiguous and may require a clarifying question or retrieval from both systems. For instance, “Show me customer meeting notes” could refer to Teams meeting artifacts in Graph, CRM notes in Dataverse, or both. That makes ambiguity handling an important part of agent design.
 
 The broader architectural lesson is that the platform complexity is not removed but **centralized**. Work IQ handles orchestration and source selection, Graph remains the access plane for Microsoft 365 collaboration workloads, and Dataverse keeps its own structured integration model. This is why searching for separate “SharePoint MCP” or “Outlook MCP” servers may be the wrong design approach in this context.
+
+## Test Yourself
+
+<details><summary>What is the core two-lane architecture described in the lesson?</summary>
+
+Microsoft Graph provides the access lane for Microsoft 365 collaboration content, while Dataverse provides a separate lane for structured business records. Work IQ interprets the request and routes it to the appropriate lane.
+
+</details>
+
+<details><summary>How should an agent handle a request such as “Show me customer meeting notes”?</summary>
+
+It should recognize that the request is ambiguous because the notes might be Teams artifacts in Graph, CRM notes in Dataverse, or both. The agent should ask a clarifying question or retrieve from both sources and combine the results.
+
+</details>
+
+<details><summary>Why might searching for separate SharePoint, Outlook, or Teams MCP servers be the wrong approach in this architecture?</summary>
+
+The lesson presents Microsoft Graph as the shared access plane for those collaboration workloads, with Work IQ handling intent and routing. Separate app-specific MCP servers would therefore add complexity that the unified Graph-backed design is intended to centralize.
+
+</details>
 
 ## Personal Notes
 

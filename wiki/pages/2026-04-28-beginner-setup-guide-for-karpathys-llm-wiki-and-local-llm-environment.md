@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Build an isolated, reproducible LLM workspace and validate it in small stages before attempting larger experiments. This makes package, device, download, and model failures easier to identify and fix.
+
+## Key Takeaways
+
+1. Use a dedicated virtual environment to prevent conflicts among Python, PyTorch, Jupyter, Transformers, and tokenizer dependencies.
+2. Choose the installation path that matches the machine—CPU-only, CUDA, or Apple Silicon—and verify that PyTorch detects the expected device.
+3. Prefer known-compatible dependency versions over automatically choosing the newest releases.
+4. Validate the setup incrementally: run Python, import libraries, check device detection, load a tokenizer, and complete one tiny-model inference pass.
+5. Use `sshleifer/tiny-gpt2` as a lightweight end-to-end check of downloading, caching, inference, generation, and decoding.
+6. Separate durable notes, exploratory notebooks, and repeatable scripts, and track dependencies in `requirements.txt` or `pyproject.toml`.
+7. Record exact setup commands and retain a tiny validation script so upgrades and new-machine installations can be checked against a known-good baseline.
+
 ## Overview
 
 These notes describe a practical beginner setup for studying Karpathy-style LLM material locally. The emphasis is on building a dependable environment for reading, running scripts and notebooks, downloading small models, and experimenting without getting blocked by package conflicts, device issues, or broken installs.
@@ -106,6 +120,26 @@ This keeps durable knowledge separate from experiments:
 Hardware limitations should shape expectations. On CPU, focus on small models and concepts like tokenization, prompt formatting, and forward-pass mechanics. On GPU, confirm that the GPU is actually being used before trying larger checkpoints. Many beginners install GPU-capable packages but accidentally run on CPU due to mismatched CUDA libraries.
 
 Finally, the setup is only truly useful if it is reproducible. Record exact commands, save dependency versions, and keep a tiny validation script in the repo. That script becomes a known-good baseline whenever you update packages or move to a new machine.
+
+## Test Yourself
+
+<details><summary>Why should LLM tools be installed in a dedicated virtual environment?</summary>
+
+Isolation prevents the project’s package versions from conflicting with system Python or other projects. It also makes a broken or outdated environment easier to reproduce, replace, or roll back.
+
+</details>
+
+<details><summary>What should a minimal sanity-check loop verify before larger models are attempted?</summary>
+
+It should verify that Python runs, imports succeed, PyTorch detects the intended device, a tokenizer loads, and a tiny model completes one inference and decoding pass. Each stage narrows the likely cause when something fails.
+
+</details>
+
+<details><summary>How should hardware limitations influence beginner experiments?</summary>
+
+CPU users should emphasize small models and concepts such as tokenization, prompt formatting, and forward-pass mechanics. GPU users should first confirm that the correct backend is active, because a CUDA-capable installation can still run unintentionally on CPU.
+
+</details>
 
 ## Personal Notes
 
