@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Microsoft Work IQ APIs let enterprise agents use Microsoft 365’s semantic context, actions, cited responses, and persistent state inside the tenant trust boundary. This may replace substantial Graph/RAG plumbing while improving governance, efficiency, and cost control.
+
+## Key Takeaways
+
+1. Use Context to gather agent-ready organizational signals across email, calendars, meetings, chats, and files.
+2. Use Chat for Copilot-like answers with citations, Tools for enterprise actions, and Workspaces for tenant-bounded persistent state.
+3. Evaluate whether Work IQ can replace custom retrieval, prompt assembly, action adapters, citation logic, and external state storage in M365-centric agents.
+4. Microsoft’s post claims internal testing showed 2x faster runtime than traditional APIs and 80% fewer tokens in coding harnesses; validate both claims in a pilot before relying on them.
+5. Keep security and spending controls inside the platform by using the Microsoft 365 trust boundary and Copilot Credit limits at the tenant, group, or user level.
+6. Prioritize Work IQ for workflows dominated by Microsoft 365 data, while retaining custom Graph integrations where specialized data access or control remains necessary.
+
 ## Overview
 
 Microsoft Work IQ APIs expose the semantic intelligence layer that powers Microsoft Copilot to custom enterprise agents running inside the Microsoft 365 trust boundary. Instead of stitching together raw Microsoft Graph data, search pipelines, retrieval layers, and custom orchestration, engineers can call higher-level APIs that already understand organizational activity across email, calendar, meetings, chat, files, and collaboration signals.
@@ -209,6 +222,26 @@ workiq.tools.invoke(
 ```
 
 Even if you do not have API access, this exercise forces you to reason about architecture boundaries, orchestration simplification, and governance advantages.
+
+## Test Yourself
+
+<details><summary>What responsibilities do the four Work IQ API domains handle?</summary>
+
+Context gathers organizational source material, Chat generates cited responses, Tools performs actions, and Workspaces preserves state for long-running or multi-step agents.
+
+</details>
+
+<details><summary>Why might Work IQ reduce implementation complexity compared with a traditional Graph/RAG architecture?</summary>
+
+It provides higher-level semantic context, grounded responses, actions, and persistent state, potentially replacing custom retrieval, ranking, prompt assembly, endpoint adapters, and memory infrastructure.
+
+</details>
+
+<details><summary>How should a team test whether migrating an M365 agent to Work IQ is worthwhile?</summary>
+
+Compare the existing and proposed architectures on latency, grounding, implementation effort, compliance fit, cost control, maintainability, API calls, token usage, and external storage needs. Validate claimed performance and token savings with a focused pilot.
+
+</details>
 
 ## Further Reading
 

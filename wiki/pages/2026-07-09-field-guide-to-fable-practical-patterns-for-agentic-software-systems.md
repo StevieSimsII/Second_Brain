@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Production-grade agentic systems pair an uncertain reasoning model with deterministic tools, validation, safety controls, and evaluation. This separation makes multi-step automation more reliable, auditable, and safe.
+
+## Key Takeaways
+
+1. Treat prompts as versioned, testable policies that define goals, constraints, output formats, and escalation rules.
+2. Let the model choose and synthesize, while deterministic code executes actions, validates inputs, enforces permissions, and applies stopping conditions.
+3. Manage context deliberately: keep stable instructions in the system prompt, retrieve task-specific evidence on demand, and compress older state.
+4. Require structured outputs such as validated JSON to create a dependable contract between the model and application.
+5. Design every tool with a narrow purpose, strict input schema, authorization checks, defined failure behavior, and audit logs.
+6. Test prompt, model, retrieval, and tool changes against representative tasks to catch regressions and analyze failures.
+7. Automate low-risk, well-specified tasks; require confirmation for ambiguous or medium-risk actions; and route irreversible, high-risk, or policy-sensitive actions to human review.
+
 ## Overview
 
 This lesson distills the likely core ideas behind a technical talk titled "Field Guide to Fable" by an Anthropic speaker into a practical engineering-oriented framework for building software around large language models. Because the source content available here contains only video metadata and not a transcript, this lesson focuses on the common architectural and operational themes that a field guide for LLM-based systems would cover: task decomposition, tool use, memory, reliability, and evaluation.
@@ -200,6 +214,26 @@ Implement one of these:
 - How does structured output simplify control flow?
 
 If you want to extend the exercise, replace the keyword retriever with embeddings, add a second tool like `create_ticket`, and record evaluation results for 10 test prompts before and after each change.
+
+## Test Yourself
+
+<details><summary>Why should execution and policy enforcement remain outside the language model?</summary>
+
+Model behavior is uncertain, while execution, validation, permissions, and stopping rules need predictable enforcement. Keeping those responsibilities in deterministic code limits unsafe actions and improves auditability.
+
+</details>
+
+<details><summary>How should an agentic system decide what information to place in context?</summary>
+
+Stable instructions belong in the system prompt, task-specific evidence should be retrieved when needed, and older working state should be summarized. This reduces token waste, hallucinations, and inconsistent behavior.
+
+</details>
+
+<details><summary>What should the support-assistant exercise do when retrieved evidence is weak or an action is irreversible?</summary>
+
+It should return a structured decision to clarify or escalate rather than inventing details. Irreversible actions such as account deletion should be escalated automatically or require human confirmation.
+
+</details>
 
 ## Further Reading
 

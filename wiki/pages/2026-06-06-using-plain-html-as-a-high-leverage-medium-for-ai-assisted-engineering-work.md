@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Plain HTML is a high-leverage medium for AI-assisted engineering because it can render comparison, hierarchy, flow, and interaction directly. A self-contained page turns vague ideas into portable, reviewable artifacts that are often easier to understand and refine than linear prose.
+
+## Key Takeaways
+
+1. Match the HTML pattern to the task: use columns for comparisons, diagrams or timelines for flows, prototypes for behavior, structured templates for recurring reports, and minimal editors for one-off tools.
+2. Ask AI to generate a self-contained HTML document when an engineering task contains latent spatial structure, interaction, state, sequence, or hierarchy.
+3. Use HTML artifacts as operational deliverables—such as implementation plans, annotated diffs, design-system sheets, incident reports, and triage boards—not merely as polished summaries.
+4. Keep the workflow human-in-the-loop by adding an export path that converts selections or edits into markdown, configuration diffs, or input for the next AI prompt.
+5. Use inline SVG when an artifact needs editable, scalable diagrams or flowcharts within the same portable file.
+6. Favor lightweight pages with little or no JavaScript when they provide enough interaction; HTML's value comes partly from opening locally without a build step.
+7. Test an implementation plan by making its feature summary, three milestones, data flow, risks, and open questions understandable in under 60 seconds.
+
 ## Overview
 
 This article argues that plain HTML is an unusually effective output format for AI-generated engineering artifacts. Instead of forcing ideas into linear markdown or prose, HTML lets an agent produce spatial, interactive, and visually structured artifacts such as side-by-side comparisons, annotated diffs, clickable prototypes, diagrams, reports, and lightweight editing tools.
@@ -191,6 +205,26 @@ Stretch goals:
 - Add links to code areas or tickets.
 - Add a small embedded chart or status badge.
 - Create a second version in markdown and compare which format communicates faster.
+
+## Test Yourself
+
+<details><summary>Why can plain HTML communicate some engineering work more effectively than markdown?</summary>
+
+HTML preserves spatial relationships and supports visual hierarchy, styling, diagrams, and interaction. This makes comparisons, flows, states, and complex structures directly inspectable instead of forcing readers to reconstruct them from linear text.
+
+</details>
+
+<details><summary>What process does the lesson recommend for turning an engineering task into an HTML artifact?</summary>
+
+Identify the task's latent structure—such as comparison, sequence, hierarchy, state, flow, or interaction—then generate a self-contained page that renders it directly. Use it for review or editing, and optionally feed the revised page or exported data into the next AI step.
+
+</details>
+
+<details><summary>What makes an HTML editing tool useful in a human-in-the-loop AI workflow?</summary>
+
+It gives the human a task-specific interface for making decisions, such as prioritizing tickets or tuning configuration. An export function then converts those decisions into a reusable format such as markdown, a focused diff, or a follow-up prompt.
+
+</details>
 
 ## Further Reading
 

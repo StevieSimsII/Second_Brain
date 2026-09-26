@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use `pbir-cli` as the execution layer for programmatic Power BI report edits, while an agent skill supplies the workflow, safeguards, and context. The source argues that combining this separation with Power BI Desktop’s preview integration enables a fast edit-refresh-screenshot validation loop.
+
+## Key Takeaways
+
+1. Treat `pbir-cli` as a low-level editing tool, not as an agent, skill, or report-design framework.
+2. Put governance, best practices, task routing, and reusable procedures in the skill or human-review layer rather than expecting the CLI to enforce them.
+3. Create a backup before destructive operations such as removing visuals or deleting report pages.
+4. Constrain every edit by identifying the open report, target page, affected visuals, and intended formatting changes.
+5. Validate visual changes with the closed loop: edit, refresh the Power BI Desktop canvas, capture a screenshot, and inspect the result.
+6. Resolve ambiguous page names or visual descriptions before execution instead of allowing the agent to guess.
+7. The source recommends treating `pbir-cli` and Desktop’s external interaction capability as development tools while they remain beta and preview features, rather than depending on them in a hardened production pipeline before `1.0.0`.
+
 ## Overview
 
 This lesson explains a newly described workflow for automating Power BI report editing through `pbir-cli`, a community CLI tool that can now interact with Power BI Desktop via a Microsoft preview feature for external tools. The source material focuses on agentic development, where an AI agent uses scripted skills to inspect, modify, refresh, and screenshot an open report canvas, but the same tool can also be used manually or from automation.
@@ -164,6 +178,26 @@ Design your own skill contract for this workflow. Write a short specification th
 - report any unresolved ambiguity instead of guessing
 
 This exercise reinforces the core lesson: the real value comes from combining a low-level editing tool with a disciplined orchestration pattern.
+
+## Test Yourself
+
+<details><summary>What responsibilities belong to `pbir-cli`, and what responsibilities belong to the agent skill?</summary>
+
+`pbir-cli` performs concrete report inspection and modification operations. The skill teaches the agent how to sequence those operations, manage context, apply safeguards such as backups, and follow workflow or governance rules.
+
+</details>
+
+<details><summary>Why does the workflow use an edit-refresh-screenshot loop?</summary>
+
+Power BI report correctness is visual as well as structural. Refreshing the canvas and capturing a screenshot lets the agent or developer verify that removals, formatting changes, and layout results appear as intended.
+
+</details>
+
+<details><summary>What safeguards should precede destructive agentic report editing?</summary>
+
+Locate the correct open Desktop report, create a backup, scope the request to named pages and visuals, and resolve ambiguity before making changes. Afterward, refresh the canvas, capture a screenshot, and confirm the requested result.
+
+</details>
 
 ## Further Reading
 

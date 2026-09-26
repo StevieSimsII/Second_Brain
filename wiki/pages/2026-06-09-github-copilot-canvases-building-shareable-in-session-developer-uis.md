@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot canvases are described as code-defined, in-session interfaces that combine project visibility with agent-triggered actions. They matter because teams can turn repetitive prompt-based workflows into reusable, reviewable tools shared through repositories or gists.
+
+## Key Takeaways
+
+1. Treat a canvas as versioned team tooling: its code can be reviewed, committed to a repository, shared as a gist, and reused across sessions.
+2. Use canvases for repeated workflows where a purpose-built interface is faster and more discoverable than repeatedly writing natural-language prompts.
+3. Separate the design into project state, rendered UI, agent-triggered actions, and distribution or configuration.
+4. Combine visibility and control in one surface—for example, show worktree divergence from `main`, open associated sessions, and request cleanup of orphaned worktrees.
+5. Define each interaction with three parts: the user event, the command or prompt sent to the agent, and the expected UI refresh.
+6. Require confirmation for destructive actions such as deleting local worktrees, especially when generalizing a canvas for team use.
+7. Replace repository-specific assumptions with configuration options such as the default branch, sort metric, and destructive-action policy.
+
 ## Overview
 
 This lesson explains the GitHub Copilot App "canvas" concept described in the source: lightweight, code-defined interfaces that run inside a Copilot session and let engineers create custom views and controls for their development workflow. The example shown is a session browser that visualizes git worktrees, shows how far each has diverged from main, and lets the user jump to or clean up sessions directly from the canvas.
@@ -202,6 +216,26 @@ By the end, you should be able to:
 - identify a workflow suitable for a Copilot canvas
 - separate display state from agent-triggered actions
 - think about these canvases as team-owned tooling rather than one-off experiments
+
+## Test Yourself
+
+<details><summary>What makes a Copilot canvas more useful than a static dashboard?</summary>
+
+According to the lesson, a canvas can both visualize project state and send actions to the Copilot agent. A user might inspect worktree divergence, open a session, or initiate cleanup from the same interface.
+
+</details>
+
+<details><summary>What four layers form the lesson&#x27;s implied canvas architecture?</summary>
+
+The layers are presentation, state or data, agent-driven actions, and distribution. Together they cover rendering the interface, reading project metadata, executing commands, and sharing the canvas through a repository or gist.
+
+</details>
+
+<details><summary>How should you design a canvas interaction before implementing it?</summary>
+
+Specify the user event, the command or prompt sent to the agent, and how the UI should refresh afterward. Also identify safeguards such as confirmation before destructive operations.
+
+</details>
 
 ## Further Reading
 

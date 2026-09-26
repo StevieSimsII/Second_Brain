@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub Copilot CLI’s new terminal UI brings issues, pull requests, gists, local code, and AI assistance into one workflow. This matters because developers can move from task intake to implementation, review, and merge with fewer context switches.
+
+## Key Takeaways
+
+1. Use the Issues, Pull Requests, and Gists tabs to inspect GitHub objects without leaving the terminal.
+2. Press `C` in the demonstrated workflow to add the selected issue or pull request as context for Copilot chat.
+3. Use `/pr create` to initiate pull-request creation from Copilot CLI instead of manually moving between Git and GitHub interfaces.
+4. Treat Copilot CLI as a workflow hub connecting GitHub repository data, the local workspace, and assistant-driven implementation or review.
+5. Keep human verification in the loop: inspect changed files, test the implementation, and validate Copilot’s summary before merging.
+6. Open an item in the browser when a task benefits from GitHub’s richer web interface; the terminal UI complements rather than completely replaces it.
+7. Measure the UI’s value by tracking context switches for issue management, link copying, pull-request inspection, and review during a real task.
+
 ## Overview
 
 This update introduces a richer terminal user interface for GitHub Copilot CLI, bringing GitHub platform objects like issues, pull requests, and gists directly into the terminal. Instead of bouncing between shell, editor, browser, and chat, developers can navigate repository work, invoke Copilot, and perform common GitHub actions from one place.
@@ -172,6 +186,26 @@ If you want to get closer to the demo, try mapping these terminal actions to a s
 5. Merge after verification
 
 The learning objective is not just using another CLI tool; it is understanding how integrated terminal workflows compress the path from task intake to merged code.
+
+## Test Yourself
+
+<details><summary>What three layers does the lesson say Copilot CLI brings together?</summary>
+
+It combines GitHub repository data such as issues and pull requests, the local workspace containing code and branch state, and the assistant layer for implementation, commands, and summaries.
+
+</details>
+
+<details><summary>How does the demonstrated `C` shortcut support an agent-assisted workflow?</summary>
+
+It adds the selected issue or pull-request reference to Copilot chat, giving the assistant specific workflow context without requiring the developer to copy and paste links or summaries manually.
+
+</details>
+
+<details><summary>Why should the terminal UI not be treated as a complete replacement for GitHub’s browser interface?</summary>
+
+The lesson describes selective handoff: common actions can stay in the terminal, while detailed or visually richer tasks can still be opened in the browser. Developers should use whichever interface best fits the action.
+
+</details>
 
 ## Further Reading
 

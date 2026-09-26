@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Combine live vehicle positions with static route data so a tracking map shows not only where each train is, but also its route, destination, service status, and likely path through junctions. KQL supplies the enrichment logic, while Icon Map for Fabric turns the result into an interactive operational view.
+
+## Key Takeaways
+
+1. Join live coordinates to static routes, shapes, stops, destinations, and vehicle classes; coordinates alone cannot explain a train’s service or intended branch at a junction.
+2. Use KQL to retain each vehicle’s latest event, join it to trip metadata, calculate operational states such as delayed or on time, and project map-ready fields.
+3. Bind latitude and longitude to position, vehicle ID to the item key, route or status to color, destination and delay to tooltips, and train class to icon or 3D-model selection.
+4. Treat the map as a decision surface by supporting train selection, tooltips, and filters for route, network, speed, or delay status.
+5. Overlay stations, catchment areas, infrastructure, passenger loading, or reliability history to explain the operational significance of live vehicle positions.
+6. According to the source, Icon Map for Fabric supports built-in 3D vehicle models and custom models stored in OneLake.
+7. Reuse the same architecture—streaming telemetry, static network context, KQL enrichment, and interactive mapping—for buses, aircraft, delivery fleets, trams, or municipal vehicles.
+
 ## Overview
 
 This lesson explains the architecture behind a real-time train tracking experience built in Microsoft Fabric using Realtime Intelligence, KQL, and Icon Map for Fabric. The source material describes a system that ingests both live vehicle positions and static route definitions, then visualizes moving trains on an interactive map with route-aware behavior, filtering, tooltips, and historical context.
@@ -170,6 +184,26 @@ Add a station table with station coordinates and names, then think about how you
 
 ### What to learn from the exercise
 By the end, you should be able to explain why live coordinates alone are not enough, how KQL enrichment turns telemetry into operational context, and how an interactive map becomes much more valuable when backed by both static network data and real-time updates.
+
+## Test Yourself
+
+<details><summary>Why are live latitude and longitude values insufficient for route-aware train tracking?</summary>
+
+Coordinates identify a train’s current location but do not necessarily reveal its route, destination, service class, or intended branch at a junction. Joining the position feed to static network and trip metadata supplies that context.
+
+</details>
+
+<details><summary>What work should the KQL enrichment query perform before data reaches the map?</summary>
+
+It should select the latest position per vehicle, join positions to static trip or route metadata, derive operational fields such as delay status, and return the geometry, labels, styling attributes, and tooltip values required by the map.
+
+</details>
+
+<details><summary>How can the prototype distinguish a delayed train and make that information useful to an operator?</summary>
+
+A KQL `case` expression can classify a train with `delay_minutes >= 5` as `delayed`, while smaller positive values become `minor_delay`. The resulting status can drive map color, filtering, and tooltip details so operators can isolate affected services.
+
+</details>
 
 ## Further Reading
 

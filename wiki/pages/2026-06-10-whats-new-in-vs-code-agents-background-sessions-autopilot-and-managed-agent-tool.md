@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> VS Code is shifting AI assistance from a blocking chat into a session-based workflow where agent tasks can run in the background while developers keep working. Better completion detection, embedded browsing, and enterprise plugin controls aim to make that workflow more efficient, reliable, and governable.
+
+## Key Takeaways
+
+1. Run bounded agent tasks in the background so you can continue editing, reviewing diffs, or testing while the agent works.
+2. Use the searchable session picker to move quickly among concurrent or recent agent tasks without hunting through UI state.
+3. The release describes Autopilot as enabled by default and better at stopping when work is actually complete, reducing premature stops and unnecessary loops.
+4. Revisit documentation faster through integrated-browser URL suggestions based on previously visited pages.
+5. Keep high-frequency browser actions persistently visible by customizing the integrated browser toolbar.
+6. Enterprise administrators can restrict available agent plugins to support security review, compliance, and standardized tooling.
+7. Evaluate agent reliability by checking whether its output is complete, directly reviewable, and produced without excessive iteration.
+
 ## Overview
 
 This update focuses on how Visual Studio Code is evolving its AI-assisted workflow through the preview Agents window and related productivity features. The release introduces backgroundable agent sessions, a searchable session picker, improved Autopilot behavior, richer integrated browser ergonomics, and administrative controls for agent plugins in enterprise environments.
@@ -113,6 +127,26 @@ If you work in an enterprise environment, draft a one-page policy proposal answe
 - Which should require review?
 - What data access boundaries should plugins respect?
 - Who owns approval and auditing?
+
+## Test Yourself
+
+<details><summary>How do background sessions change the agent workflow in VS Code?</summary>
+
+They let an agent continue a coding or research task without occupying the foreground interaction surface. Developers can keep working in the editor and return through the searchable session picker.
+
+</details>
+
+<details><summary>What two failure modes is the improved Autopilot completion behavior intended to address?</summary>
+
+According to the release description, it aims to avoid stopping before a task is finished and continuing to iterate after useful work is complete. Better stopping criteria should reduce the supervision required for multi-step tasks.
+
+</details>
+
+<details><summary>Why do enterprise plugin controls matter for agent-based development?</summary>
+
+Agent plugins may connect to external systems, access data, or perform specialized actions. Central controls let administrators limit those capabilities to reviewed plugins and enforce organizational security and compliance policies.
+
+</details>
 
 ## Further Reading
 

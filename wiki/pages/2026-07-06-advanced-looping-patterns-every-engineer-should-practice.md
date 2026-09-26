@@ -12,6 +12,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Choose a loop based on what controls termination: a fixed count, available data, changing state, or ongoing events. The right pattern makes iteration easier to verify, avoids wasted work, and prevents performance or shutdown problems.
+
+## Key Takeaways
+
+1. Use counter-controlled loops when the amount of work is known; iterate over values directly unless an index is actually needed.
+2. Use sentinel-controlled loops for files, streams, and input whose length is unknown, with an explicit termination condition for exhausted or invalid data.
+3. Treat nested-loop cost as multiplicative: loops of sizes n and m typically require O(n*m) work, while square pairwise comparisons are often O(n^2).
+4. Stop or skip work with return, break, continue, and guard conditions once the result is known or an item is irrelevant.
+5. Build sums, frequency maps, transformed collections, and rolling state with accumulator loops to support clear one-pass algorithms.
+6. Design intentional infinite loops with timeouts, shutdown signals, exception recovery, backpressure, and observability.
+7. Keep termination conditions visible and avoid mutating loop-control state in multiple places.
+
 ## Overview
 
 This lesson distills a practical set of advanced looping patterns that show up constantly in real engineering work, even when the original source does not provide detailed transcript content. Rather than treating loops as only `for` and `while` syntax, the focus here is on higher-value iteration strategies: nested traversal, sentinel-controlled loops, early exits, infinite event loops, accumulation, and pattern-based iteration over data structures.
@@ -191,6 +205,26 @@ print({
 - Add nested loops by analyzing multiple log files in a directory.
 - Measure runtime on a large generated file and compare full-scan vs early-exit behavior.
 - Reimplement in your primary language and identify the language-specific iteration idioms.
+
+## Test Yourself
+
+<details><summary>What should determine which loop pattern you choose?</summary>
+
+Choose according to what ends the work: a known iteration count, exhausted input, a target system state, or an external stop for an ongoing event loop.
+
+</details>
+
+<details><summary>Why should engineers examine nested loops carefully?</summary>
+
+Their costs multiply: n outer iterations and m inner iterations usually produce O(n*m) work. Hashing, indexing, sorting, or precomputation may eliminate an expensive nested traversal.
+
+</details>
+
+<details><summary>Why might a log analyzer continue scanning after finding the first FATAL line?</summary>
+
+It must continue if the report also requires complete statistics such as the total line and ERROR counts. If only FATAL detection matters, an early exit can avoid unnecessary work.
+
+</details>
 
 ## Further Reading
 

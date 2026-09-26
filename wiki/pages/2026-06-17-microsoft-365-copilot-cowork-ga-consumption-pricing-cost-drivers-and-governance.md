@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Microsoft 365 Copilot Cowork combines a required user license with consumption charges of $0.01 per Copilot Credit, according to the source. Because the full task lifecycle is metered, organizations should govern agent design and usage as a FinOps problem before scaling adoption.
+
+## Key Takeaways
+
+1. Budget for both the Microsoft 365 Copilot User Subscription License and variable Copilot Credit consumption.
+2. Estimate the entire execution lifecycle—Models, Context, Tools, and Runtime—rather than treating each task as a single model call.
+3. Watch orchestration runtime closely; the source says it can overtake model inference as the main cost driver in autonomous, multi-step workflows.
+4. Use the source's planning bands: light tasks consume roughly 100-300 credits ($1-$3), medium tasks 400-700 credits ($4-$7), and heavy tasks 700+ credits ($7+).
+5. Start uncertain workloads on PayGo and consider the discounted P3 commitment model only after demand becomes predictable.
+6. Narrow retrieval, eliminate unnecessary tool actions, and reserve long-running orchestration for workflows whose business value justifies the added consumption.
+7. Apply access controls, scoped billing policies, budgets, approval workflows, and task-level reporting before broad deployment.
+
 ## Overview
 
 This lesson explains the shift of Microsoft 365 Copilot Cowork from preview-era "included inference" to a generally available, consumption-based service billed through Copilot Credits. For engineers, platform owners, and M365 administrators, the important change is that agentic AI usage is no longer just a licensing question; it becomes an operational cost-management problem tied to how tasks are executed.
@@ -186,6 +200,26 @@ for credits in [150, 550, 900]:
 ```
 
 Expected outcome: you should end with a small cost model and a governance proposal that demonstrates you understand how technical task design maps to financial exposure.
+
+## Test Yourself
+
+<details><summary>Why is Copilot Cowork described as having a two-layer cost structure?</summary>
+
+The source says users need a Microsoft 365 Copilot User Subscription License for access, while completed work incurs additional consumption charges through Copilot Credits. Licensing establishes entitlement; credits determine variable usage cost.
+
+</details>
+
+<details><summary>Which four dimensions drive Copilot Cowork consumption, and which may dominate agentic workloads?</summary>
+
+The four dimensions are Models, Context, Tools, and Runtime. According to the source, runtime orchestration may become dominant when workflows are autonomous, long-running, or involve many coordinated steps.
+
+</details>
+
+<details><summary>How should governance differ across light, medium, and heavy tasks?</summary>
+
+The lesson proposes enabling light tasks broadly for licensed users, limiting medium tasks to pilot groups with monthly budget caps, and requiring approval or dedicated billing policies for heavy tasks. Reporting should then connect consumption with task type, team, and business value.
+
+</details>
 
 ## Further Reading
 

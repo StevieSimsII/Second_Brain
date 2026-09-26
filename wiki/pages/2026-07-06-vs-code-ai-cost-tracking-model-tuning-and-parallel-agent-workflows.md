@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Treat AI coding assistance as an operational resource: tune context size and reasoning effort to the task, then use session cost tracking to measure the tradeoff among quality, latency, and spend. Separate agent conversations can keep parallel investigations focused while Restricted Mode reduces risk when exploring unfamiliar repositories.
+
+## Key Takeaways
+
+1. Match model settings to task complexity: use smaller context and lower reasoning for syntax help or boilerplate, and reserve larger context and higher reasoning for multi-file analysis, difficult debugging, or architecture decisions.
+2. Track total chat-session cost because broad file context, long conversation history, retries, and code regeneration can compound token spend.
+3. Use the unified model customization picker to adjust context size and reasoning effort instead of treating model selection as a fixed choice.
+4. Split debugging hypotheses, patch proposals, and refactor options into separate Agents window conversations to reduce context pollution and preserve a focused main thread.
+5. Record quality, latency, and session cost across comparable prompts before defining team guidelines for low-, medium-, and high-cost configurations.
+6. Keep Restricted Mode enabled while inspecting untrusted repositories so workspace features, code, and extensions do not gain trust automatically.
+
 ## Overview
 
 This release update highlights a shift in how AI-assisted development is managed inside Visual Studio Code: developers are being given better visibility into cost, more direct control over model behavior, and improved ways to explore multiple ideas in parallel. The key additions are chat session cost tracking, a unified model customization picker for selecting context size and reasoning effort, a preview Agents window for side conversations, and safer repository exploration with Restricted Mode enabled by default.
@@ -139,6 +152,26 @@ Define a team guideline for when to use each setting level. For example:
 - High context/high reasoning only for multi-file analysis or architecture decisions
 
 This turns the release features into an operational playbook rather than an ad hoc preference.
+
+## Test Yourself
+
+<details><summary>How do context size and reasoning effort affect an AI coding session?</summary>
+
+The lesson explains that larger context can improve relevance across more code but consumes more input tokens, while higher reasoning effort may improve difficult analysis but usually increases latency and cost.
+
+</details>
+
+<details><summary>Why use separate conversations in the Agents window instead of one long chat?</summary>
+
+Separate threads isolate debugging, patching, and architectural exploration. The lesson argues that this reduces semantic noise and may control cost by keeping unrelated history out of each prompt.
+
+</details>
+
+<details><summary>How can a team turn these VS Code features into an operational playbook?</summary>
+
+Run comparable tasks with different context and reasoning settings, then record quality, latency, and session cost. Use the results to define when low-cost, medium, or high-context and high-reasoning configurations are justified.
+
+</details>
 
 ## Further Reading
 

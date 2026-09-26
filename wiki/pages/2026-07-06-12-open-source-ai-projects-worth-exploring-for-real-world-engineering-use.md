@@ -13,6 +13,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Treat open-source AI projects as interchangeable layers in a system—not isolated demos—then evaluate how well they serve models, retrieve data, support applications, and operate in production. This matters because privacy and customization gains can be outweighed by hardware, security, licensing, and maintenance costs.
+
+## Key Takeaways
+
+1. Build around five layers: model, serving, application, data, and operations.
+2. Stabilize the model-serving endpoint first so applications can switch model backends without being rebuilt.
+3. Diagnose RAG quality at ingestion, chunking, embedding, retrieval, reranking, and prompt assembly before blaming the language model.
+4. Require agent systems to have scoped tool permissions, timeouts, rate limits, structured outputs, and audit logs before production use.
+5. Evaluate projects by release cadence, issue quality, deployment model, hardware needs, API compatibility, extensibility, security, and licensing—not GitHub stars alone.
+6. Prototype one model endpoint, one interface, and retrieval over 3–5 documents; measure setup time, resource usage, quality, latency, integration effort, and operational risks.
+
 ## Overview
 
 This lesson distills the likely intent behind a roundup-style video about open-source AI projects into a practical engineering guide. Rather than focusing on hype, it explains the major categories of open-source AI tooling you should evaluate right now: model runners, chat UIs, retrieval systems, coding assistants, agent frameworks, speech tools, image generation stacks, and workflow orchestration platforms.
@@ -353,6 +366,26 @@ Add one more open-source AI project category:
 - an agent tool that can search your docs and call a shell command
 
 By the end, you will have touched the main architectural patterns behind most "must-try" open-source AI projects and will be able to evaluate future tools more critically.
+
+## Test Yourself
+
+<details><summary>What are the five layers of a typical open-source AI stack?</summary>
+
+They are the model, serving, application, data, and operations layers. Separating them makes components easier to replace, test, and operate independently.
+
+</details>
+
+<details><summary>Why can a RAG system produce poor answers even when its language model is capable?</summary>
+
+The lesson argues that failures often originate in extraction, chunking, embeddings, retrieval, reranking, or prompt construction. Engineers should inspect the retrieved evidence before changing the model.
+
+</details>
+
+<details><summary>What should an engineer assess before adopting an open-source AI project in production?</summary>
+
+Assess maturity, deployment requirements, hardware assumptions, API compatibility, extensibility, security controls, and licensing. Also measure latency, resource use, response quality, integration effort, and ongoing operational burden.
+
+</details>
 
 ## Further Reading
 

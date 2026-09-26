@@ -12,6 +12,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Efficiency lowers resource use per unit, but it can also lower costs enough to expand demand and increase total consumption. To achieve absolute reductions, measure system-wide use and pair efficiency gains with limits or incentives that manage demand.
+
+## Key Takeaways
+
+1. Track total resource use as resource per unit multiplied by total activity; improving only the first factor does not guarantee aggregate savings.
+2. Expect stronger rebound effects when lower costs unlock many new users, applications, or operating hours.
+3. Distinguish partial rebound, which erodes some expected savings, from a Jevons-style increase, where total resource use rises above its original level.
+4. Evaluate unit economics, behavioral responses, and scale responses before concluding that an optimization will reduce costs, energy use, or emissions.
+5. A drop from 10 to 4 energy units per API call still raises total energy from 10,000 to 12,000 if demand grows from 1,000 to 3,000 calls.
+6. Pair efficiency improvements with workload budgets, capacity limits, pricing, quotas, or other constraints when absolute consumption must fall.
+
 ## Overview
 
 Jevons Paradox describes a counterintuitive pattern: when a resource is used more efficiently, total consumption of that resource can rise rather than fall. The idea matters because engineers, product teams, and policy makers often assume that better efficiency automatically reduces costs, energy demand, or environmental impact, but real-world systems frequently respond through changes in behavior, demand, and market expansion.
@@ -120,6 +133,26 @@ for demand_multiplier in [1.0, 1.2, 1.5, 2.0, 3.0]:
 
 ### Stretch task
 Apply the same model to an engineering scenario you know well, such as LLM inference, CI builds, GPU training jobs, or mobile data usage. Then propose one policy or product constraint that would ensure total consumption actually falls even after efficiency improves.
+
+## Test Yourself
+
+<details><summary>How can an activity become more efficient while consuming more resources overall?</summary>
+
+Efficiency reduces the resource required per unit, but the resulting lower cost can stimulate enough additional activity to offset that reduction. Total consumption rises when activity grows faster than resource use per unit falls.
+
+</details>
+
+<details><summary>What three layers should engineers examine when assessing a possible rebound effect?</summary>
+
+They should examine unit economics, behavioral responses, and scale responses. Together, these reveal what became cheaper, how users may react, and whether the system may expand into more traffic, applications, or markets.
+
+</details>
+
+<details><summary>In the lesson&#x27;s model, what demand multiplier is the break-even point when the efficiency factor is 0.4?</summary>
+
+The break-even demand multiplier is 2.5 because 0.4 × 2.5 = 1. Demand growth above 2.5 produces a Jevons-style increase in total resource use.
+
+</details>
 
 ## Further Reading
 

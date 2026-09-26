@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use the Power BI Report Authoring skill for deterministic, source-controlled edits to the PBIR report layer inside PBIP projects—not for semantic-model or DAX changes. Reliable automation requires validating the edited files and then reloading Power BI Desktop to verify the rendered result.
+
+## Key Takeaways
+
+1. Treat PBIR files on disk as the source of truth; save Power BI Desktop changes before asking an agent to continue.
+2. Use the Report Authoring skill for pages, visuals, filters, slicers, themes, formatting, bindings, and report-definition troubleshooting.
+3. Use the Power BI Modeling MCP server first when a request requires a new table, measure, field, or DAX logic.
+4. Validate PBIR structure after every editing pass, then reload the PBIP project in Power BI Desktop to catch rendering and interaction problems.
+5. Give the authoring skill explicit requests or a locked design; Microsoft recommends Report Design or Report Planner skills for open-ended prompts such as designing an entire dashboard.
+6. Commit or copy a baseline before agent edits so PBIR changes can be reviewed, diffed, and reverted.
+7. Prefer modern visuals and verify bindings and roles when replacing legacy visuals such as Q&A, Bing maps, or filled maps.
+
 ## Overview
 
 The Power BI Report Authoring skill is a preview AI-agent capability for creating, modifying, and validating the report layer of Power BI projects using natural language. It operates directly on PBIR files inside PBIP projects, making schema-correct edits to pages, visuals, filters, slicers, themes, and formatting rather than changing the semantic model itself.
@@ -168,6 +182,26 @@ Try a modernization pass on an older report:
 - replace a legacy card or matrix visual with its modern equivalent
 - reapply formatting after replacement
 - verify that bindings and visual roles still match the semantic model
+
+## Test Yourself
+
+<details><summary>When should you use the Report Authoring skill instead of the Modeling MCP server?</summary>
+
+Use Report Authoring for presentation-layer changes such as pages, visuals, slicers, filters, themes, formatting, and bindings. Use Modeling MCP when the semantic model needs tables, measures, fields, or DAX logic.
+
+</details>
+
+<details><summary>Why are both report validation and Power BI Desktop verification necessary?</summary>
+
+Validation detects structural, schema, query-state, and binding problems in PBIR files. Desktop verification confirms that visuals render correctly, formatting remains readable, and interactions such as slicers behave as intended.
+
+</details>
+
+<details><summary>What state does the agent consider authoritative during report editing?</summary>
+
+The saved PBIR content in the PBIP project is authoritative. Unsaved Power BI Desktop edits are invisible to the agent, so Desktop changes must be saved before another agent-driven iteration.
+
+</details>
 
 ## Further Reading
 

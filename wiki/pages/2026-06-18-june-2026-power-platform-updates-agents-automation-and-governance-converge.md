@@ -10,6 +10,19 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> Microsoft’s June 2026 updates bring AI agents, app-driven desktop automation, version control, and connector governance into one production-oriented Power Platform workflow. This convergence can reduce custom integration work while improving learning, auditability, and operational control.
+
+## Key Takeaways
+
+1. Microsoft says the Power Apps MCP server can turn user corrections into structured memory that agents reuse on future runs, creating a closed feedback loop without a separate machine-learning pipeline.
+2. Use Power Apps as the interaction layer and Power Automate Desktop for local or legacy-system work; the previewed Run Power App action can pass inputs, return outputs, and trigger subflows from app events.
+3. Compare desktop-flow versions across subflows, actions, variables, and UI elements to validate releases and diagnose failures; Microsoft says versions can remain in Dataverse for up to 12 months.
+4. Apply Advanced Connector Policies at the action and MCP-server level instead of relying only on broad connector allow/deny classifications.
+5. Inspect actual connector dependencies across apps, flows, and agents before tightening policies so governance changes do not unexpectedly break critical solutions.
+6. Design production-grade Power Platform solutions around three connected cycles: build apps and automations, operate them through feedback and version control, and govern them using observed usage.
+
 ## Overview
 
 This update highlights a clear shift in Microsoft Power Platform: AI agents, low-code automation, and governance are no longer separate concerns. New features across Power Apps, Power Automate Desktop, and platform governance show how organizations can build agents that improve from user feedback, orchestrate richer app-driven automation, and control connector usage with more precision.
@@ -171,6 +184,26 @@ If you already work in Power Platform, take an existing flow or app in your envi
 - List every external connector it uses.
 - Identify one connector that would benefit from stricter action-level governance.
 - Identify one user-correction point that could become part of a feedback loop for an agent.
+
+## Test Yourself
+
+<details><summary>How does closed-loop learning improve an agent during normal Power Platform use?</summary>
+
+According to the lesson, a user correction is converted into structured memory that the agent can consult during similar future executions. This allows behavior to improve through operational feedback rather than requiring a separate retraining pipeline.
+
+</details>
+
+<details><summary>What does the Run Power App action add to attended desktop automation?</summary>
+
+Microsoft’s previewed capability allows a desktop flow to launch a Power App, pass inputs to it, receive returned values, and respond to app events by triggering subflows. This creates an explicit handoff between the user-facing app and local or legacy-system automation.
+
+</details>
+
+<details><summary>Why should administrators inspect the usage inventory before applying Advanced Connector Policies?</summary>
+
+The inventory reveals which apps, flows, and agents actually depend on each connector. Administrators can then restrict risky actions or MCP capabilities with less chance of disrupting business-critical solutions.
+
+</details>
 
 ## Further Reading
 

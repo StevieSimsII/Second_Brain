@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> VS Code’s built-in Mermaid support lets teams create and preview diagrams as text inside Markdown without a separate extension. Keeping diagram sources beside code makes architecture and process documentation easier to version, review, and update.
+
+## Key Takeaways
+
+1. Embed a diagram in Markdown by placing valid Mermaid syntax inside a fenced code block labeled `mermaid`, then open VS Code’s Markdown preview.
+2. Treat Mermaid text—not an exported image—as the source of truth so diagram changes remain editable, diffable, and reviewable.
+3. Update Mermaid diagrams in the same pull request as related implementation changes to reduce stale documentation.
+4. Use flowcharts for processes and architecture, sequence diagrams for component interactions, and state diagrams for entity lifecycles.
+5. Keep diagrams small and focused; split large documentation when complexity makes a diagram difficult to understand or maintain.
+6. Use the short edit-and-preview loop to refine diagram structure, labels, and layout without switching to a separate drawing tool.
+
 ## Overview
 
 Visual Studio Code now includes Mermaid diagram support directly in the editor, removing the need for a separate extension in common documentation workflows. That matters because Mermaid lets engineers define diagrams as text, store them in source control, review them in pull requests, and keep architecture or process documentation close to the code it describes.
@@ -121,6 +134,26 @@ sequenceDiagram
 
 ### Stretch task
 Commit the file to a Git repository and make one follow-up change to the diagram. Inspect the diff to see how diagram changes are represented in source control.
+
+## Test Yourself
+
+<details><summary>Why is Mermaid’s text-based format useful for engineering documentation?</summary>
+
+Its source can be stored, diffed, and reviewed with the same version-control workflow used for code. This also lets teams update a diagram alongside the implementation it describes.
+
+</details>
+
+<details><summary>How do you create and view a Mermaid diagram in VS Code according to the lesson?</summary>
+
+Add Mermaid syntax to a Markdown fenced code block labeled `mermaid`, then open the Markdown preview. Edit the source and refresh or reopen the preview until the diagram communicates the intended structure.
+
+</details>
+
+<details><summary>What practices help prevent Mermaid documentation from becoming stale or unwieldy?</summary>
+
+Teams should update diagrams as part of relevant feature or architecture changes, preferably in the same pull request. They should also keep diagrams focused and split overly large documents or diagrams when needed.
+
+</details>
 
 ## Further Reading
 

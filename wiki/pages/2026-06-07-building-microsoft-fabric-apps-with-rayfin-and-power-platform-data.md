@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The source presents Rayfin as an open-source SDK and CLI for building managed applications directly in Microsoft Fabric. The pattern matters because it connects operational input, governed data, shared business definitions, and application delivery within one platform.
+
+## Key Takeaways
+
+1. Use Power Apps to capture operational data, Link to Fabric to connect it, OneLake to centralize it, a semantic model to govern it, and Rayfin to deliver the user-facing app.
+2. Put a semantic model between the application and raw storage so business entities, relationships, measures, naming conventions, and access patterns remain consistent.
+3. Treat Rayfin as the application layer close to Fabric’s governed data assets rather than as a standalone web app with a separately assembled backend and infrastructure stack.
+4. Combine low-code and pro-code components: Power Apps handles data entry, Fabric manages data and governance, and Rayfin provides the managed application experience.
+5. Apply this architecture to operational scenarios such as equipment maintenance, room reservations, field inspections, project tracking, or asset control.
+6. Treat the sample Rayfin CLI commands as illustrative lifecycle steps—not confirmed syntax—for initializing, connecting, binding a semantic model, and deploying an app.
+
 ## Overview
 
 This lesson explains the core idea behind Microsoft Rayfin as presented in the source: an open-source SDK and CLI for quickly building fully managed, enterprise-grade applications that run directly in Microsoft Fabric. The example scenario connects a Power App to Fabric through Link to Fabric, stores and organizes data in OneLake, exposes it through a semantic model, and then uses a Rayfin app as the user-facing experience.
@@ -179,6 +192,26 @@ Produce a short design document with:
 - the semantic model definition
 - the Rayfin screen list
 - 2-3 reasons why this architecture is preferable to a standalone custom app for your scenario
+
+## Test Yourself
+
+<details><summary>What is the end-to-end data and application flow described in the lesson?</summary>
+
+Users create or update data in Power Apps, Link to Fabric connects it to Fabric, and OneLake provides the centralized data layer. A semantic model organizes the data, and a Rayfin app consumes that model to provide the application experience.
+
+</details>
+
+<details><summary>Why should a Rayfin app consume a semantic model instead of querying raw tables directly?</summary>
+
+The semantic model supplies governed business entities, relationships, calculations, naming conventions, and access patterns. This can make the app more resilient to storage changes and keep its definitions aligned with reports and dashboards.
+
+</details>
+
+<details><summary>What developer burden does the source claim Rayfin can reduce?</summary>
+
+The source presents Rayfin as reducing custom scaffolding for hosting, authentication, APIs, deployment, and environment setup. It does so by packaging application delivery into a managed, Fabric-aware SDK and CLI workflow.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Work IQ is presented as Microsoft’s unified business-context layer for agents, separating enterprise grounding, response generation, actions, and tenant-bounded state. This can reduce custom Microsoft 365 integration work, but custom and third-party agents must be designed around consumption-based Copilot Credit costs and governance controls.
+
+## Key Takeaways
+
+1. Use Context for retrieval and grounding, Chat for cited responses, Tools for Microsoft 365 actions, and Workspaces for tenant-bounded task state.
+2. Require user approval before invoking side-effecting Tools operations such as sending email, scheduling meetings, or uploading files.
+3. Microsoft’s announcement says Work IQ can ground agents in email, chats, meetings, files, people data, and line-of-business systems through a semantic organizational model.
+4. First-party Copilot experiences reportedly include Work IQ for licensed users, while custom and third-party agents are billed by consumption through Copilot Credits.
+5. Treat Chat and Context as variable-cost operations and Tools as fixed-cost operations when estimating per-task spending.
+6. Reuse appropriate context and Workspace state to avoid repeated grounding and generation calls during multi-step workflows.
+7. Pair technical access controls with FinOps controls, including usage monitoring, spending limits, alerts, throttling, and API permissions by tenant, group, or user.
+
 ## Overview
 
 Work IQ is Microsoft's enterprise intelligence layer for grounding agents and applications in Microsoft 365 business context. The announcement describes its general availability API surface and positions it as the semantic layer that turns raw organizational signals—email, chats, meetings, files, people, and line-of-business systems—into context that AI agents can use safely and productively.
@@ -143,6 +157,26 @@ if approval == "yes":
 - A sequence diagram
 - A table with each API surface, its role, and expected billing behavior
 - One optimization idea to reduce Context/Chat consumption
+
+## Test Yourself
+
+<details><summary>What responsibility does each Work IQ surface have in a typical agent workflow?</summary>
+
+Context retrieves enterprise grounding, Chat generates evidence-linked responses, Tools execute Microsoft 365 actions, and Workspaces preserve intermediate state inside the tenant boundary.
+
+</details>
+
+<details><summary>Why should an engineering team model workload shape before deploying a custom Work IQ agent?</summary>
+
+The lesson says custom and third-party usage consumes Copilot Credits: Chat and Context costs vary with usage, while Tools operations have fixed charges. Repeated grounding or generation can therefore increase the cost of each task.
+
+</details>
+
+<details><summary>How should a meeting follow-up agent use Work IQ safely and efficiently?</summary>
+
+It should gather meeting context, create a cited summary and email draft, save the draft in a Workspace, and send it through Tools only after user approval. Reusing saved state can reduce repeated Context and Chat consumption.
+
+</details>
 
 ## Further Reading
 

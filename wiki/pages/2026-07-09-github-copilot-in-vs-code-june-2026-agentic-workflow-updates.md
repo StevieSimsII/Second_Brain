@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> GitHub says Copilot in VS Code 1.123–1.127 is evolving from a prompt-response assistant into a managed workspace for parallel, autonomous agent tasks. Richer browser context, persistent sessions, cost visibility, model controls, and governance make complex agent workflows easier to organize and supervise.
+
+## Key Takeaways
+
+1. Split implementation, testing, documentation, and review into separate chats or side-by-side sessions to keep complex workstreams focused.
+2. Use the integrated browser and screenshot attachments to give Copilot direct visual context when validating UI behavior or diagnosing rendering problems.
+3. Review total session cost and delegated subagent usage, because agentic tasks can consume resources through multiple nested operations.
+4. Match models to tasks inside VS Code by adjusting provider, context size, and reasoning effort; compatible Anthropic and OpenAI models support context windows up to 1 million tokens.
+5. Use Autopilot for multi-step execution when appropriate, while checking whether it completes every requirement instead of stopping early or continuing unnecessarily.
+6. Treat sessions as durable engineering artifacts by syncing and searching them, commenting on agent changes in the gutter, and generating pull request drafts from session context.
+7. Keep remote validation aligned with the runtime environment by using integrated browsing that proxies HTTP(S) traffic through remote workspaces.
+
 ## Overview
 
 This changelog summarizes how GitHub Copilot in Visual Studio Code evolved across VS Code 1.123 through 1.127, with a focus on making agent-driven development more practical in day-to-day engineering work. The updates are not just UI polish: they change how developers coordinate long-running agent tasks, supply browser and workspace context, monitor credit usage, select models, and let agents operate more autonomously.
@@ -156,6 +170,26 @@ Repeat the same task with a different model provider or a different reasoning ef
 - amount of manual steering needed
 - total session cost
 - usefulness of PR summary output
+
+## Test Yourself
+
+<details><summary>What four workflow layers organize the Copilot improvements described in the lesson?</summary>
+
+The lesson groups them into context gathering, task organization, execution autonomy, and operational control. Together they support richer inputs, parallel workstreams, more independent execution, and better oversight.
+
+</details>
+
+<details><summary>Why is session-level and subagent-level cost visibility more useful than per-request cost alone?</summary>
+
+A single agent task may trigger long action chains or delegated work that is not obvious from the initial prompt. Broader accounting helps identify expensive sessions and determine where resource usage occurs.
+
+</details>
+
+<details><summary>How would you structure the lesson’s dark-mode exercise to test the new workflow?</summary>
+
+Create separate chats for implementation, testing, and documentation, then use the integrated browser and a screenshot to validate the UI. Run a separate review session, compare session costs and completion quality, and generate a pull request draft from the session context.
+
+</details>
 
 ## Further Reading
 

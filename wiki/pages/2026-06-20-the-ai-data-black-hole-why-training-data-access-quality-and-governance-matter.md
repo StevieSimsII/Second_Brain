@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI behavior depends on the entire data lifecycle—not just model architecture—so opaque or poorly governed data makes failures, bias, compliance risks, and quality regressions difficult to diagnose. Treat data as a first-class system component with versioning, lineage, observability, and access controls.
+
+## Key Takeaways
+
+1. Ask data questions when an AI system behaves unexpectedly: inspect source mix, filtering changes, annotation guidelines, coverage gaps, and feedback representativeness.
+2. Version datasets and transformations so experiments can be reproduced and behavioral changes can be traced to specific inputs.
+3. Track lineage from raw sources through filtering, labeling, training, evaluation, and production feedback.
+4. Monitor source distribution, label agreement, filter drop rates, drift, PII detection, and coverage across languages or customer segments.
+5. Keep evaluation sets separate from training feedback to prevent leakage and misleading performance measurements.
+6. Balance access for model improvement with privacy, licensing, security, retention, and audit controls.
+7. Treat production feedback cautiously because engagement signals, synthetic outputs, and vocal user subsets can amplify errors or reduce diversity.
+
 ## Overview
 
 This lesson explains the idea of a "data black hole" in AI: the growing gap between how much model capability depends on data and how little visibility, access, or control many engineers and organizations actually have over that data. In practice, modern AI systems are often discussed in terms of model size, benchmarks, or inference UX, while the most consequential layer—the training and feedback data pipeline—remains opaque, fragmented, or inaccessible.
@@ -154,6 +168,26 @@ Produce a one-page design note summarizing:
 - and the first instrumentation you would add.
 
 If you work on a team, review the note with one ML engineer and one data/privacy stakeholder to compare how each person defines the real system boundary.
+
+## Test Yourself
+
+<details><summary>What does the lesson mean by a “data black hole” in AI?</summary>
+
+It is the hidden training, feedback, and evaluation data pipeline that strongly shapes model behavior but is difficult for users and even internal teams to inspect. Its effects are visible in model outputs, while its sources, transformations, and governance decisions may remain opaque.
+
+</details>
+
+<details><summary>Why might two teams using similar model architectures get different results?</summary>
+
+Their data sources, filtering rules, deduplication, labels, distribution balancing, tuning signals, or evaluation sets may differ. The lesson argues that these pipeline choices can matter more than the apparent similarity of the models.
+
+</details>
+
+<details><summary>What is a practical first step for improving data observability?</summary>
+
+Map the full pipeline with each stage’s source, owner, transformation, risks, and metrics, then identify the least observable stage. Add measurable checks such as source distribution, label agreement, filter drop rate, drift, or segment coverage.
+
+</details>
 
 ## Further Reading
 

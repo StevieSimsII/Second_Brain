@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Display the active Power Platform CLI authentication context in the PowerShell prompt to reduce the risk of running commands against the wrong environment or tenant. The repository keeps prompt rendering fast by caching a label from `pac auth who` in `PAC_CONTEXT` and refreshing it after authentication changes.
+
+## Key Takeaways
+
+1. Treat the shell prompt as an operational guardrail by keeping the active PAC environment or tenant visible at all times.
+2. The repository derives `PAC_CONTEXT` from `pac auth who`, preferring `Organization Friendly Name`, then `Organization Unique Name`, then the username prefix.
+3. Store the context label in the `PAC_CONTEXT` environment variable so oh-my-posh does not invoke PAC every time it redraws the prompt.
+4. Refresh `PAC_CONTEXT` after successful `pac auth create`, `select`, `delete`, `update`, `name`, or `clear` operations to prevent stale prompt state.
+5. Keep state discovery, prompt presentation, and profile installation separate so each layer can be changed independently.
+6. Use the manual `Refresh-PacContext` function when PAC state changes outside the wrapper or the displayed context appears stale.
+7. Resolve `pac.exe` from `PATH` instead of hard-coding its installation directory to make the setup more portable across developer machines.
+
 ## Overview
 
 This repository shows how to surface the active Microsoft Power Platform CLI authentication context directly in a PowerShell prompt powered by oh-my-posh. Instead of manually running `pac auth who` to confirm which environment or tenant is active, the prompt displays a short, readable label derived from the current PAC auth profile.
@@ -195,6 +209,26 @@ Success criteria:
 - the prompt displays that value through oh-my-posh
 - changing PAC auth context updates the prompt after refresh
 - you can explain why the repository uses an environment variable instead of executing PAC directly in the prompt segment
+
+## Test Yourself
+
+<details><summary>Why does the repository write the PAC context to an environment variable instead of running `pac auth who` during every prompt render?</summary>
+
+Caching the label in `PAC_CONTEXT` avoids repeated CLI calls and reduces prompt latency. The tradeoff is possible staleness, which the repository addresses with automatic and manual refresh mechanisms.
+
+</details>
+
+<details><summary>What priority order does the helper use when selecting the prompt label?</summary>
+
+It prefers `Organization Friendly Name`, falls back to `Organization Unique Name`, and then uses the username prefix. This turns PAC output into a compact label that is useful at a glance.
+
+</details>
+
+<details><summary>How does the prompt remain synchronized after the active PAC authentication profile changes?</summary>
+
+The PowerShell profile wraps `pac` and refreshes `PAC_CONTEXT` after successful auth-mutating commands such as `pac auth select` or `pac auth create`. A user can also call `Refresh-PacContext` manually.
+
+</details>
 
 ## Further Reading
 

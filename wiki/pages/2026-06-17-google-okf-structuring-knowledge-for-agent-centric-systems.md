@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Google’s OKF, as presented in the lesson, organizes knowledge into explicit entities, attributes, relationships, provenance, and action context so agents can retrieve and use it reliably. This matters because agents can assemble precise, auditable context for multi-step tasks instead of inferring structure from scattered prose.
+
+## Key Takeaways
+
+1. Treat agent quality as a knowledge-modeling problem, not only a model-selection or prompting problem.
+2. Represent domain knowledge as canonical objects with stable identifiers, typed attributes, and explicit relationships such as `depends_on`, `owned_by`, or `supersedes`.
+3. Attach provenance and metadata to each fact so agent outputs can be verified, debugged, and updated safely.
+4. Retrieve only the entities, relationships, policies, and procedures required for the current task to reduce token use and irrelevant context.
+5. Normalize duplicated prose into reusable knowledge units so one update can propagate consistently across agent workflows.
+6. Test the structure with multi-step questions—for example, identify a service, trace its dependencies, find its owner, and verify the applicable policy.
+7. Add action context and safety constraints before allowing an agent to recommend or execute operational steps.
+
 ## Overview
 
 This lesson explains the core idea behind Google's OKF as presented in the source: a structured way to organize knowledge so software agents can reliably understand, retrieve, and act on it. Rather than treating knowledge as unstructured text blobs, the approach emphasizes explicit structure, relationships, and machine-usable context that improve agent performance on search, planning, and task execution.
@@ -163,6 +177,26 @@ After modeling the data, compare this to storing the same information in one lon
 
 ### Stretch task
 Add provenance and timestamps, then design one more relation such as `approved_by`, `supersedes`, or `runbook_for`. This will show how quickly structured knowledge becomes more useful than flat text for multi-step tasks.
+
+## Test Yourself
+
+<details><summary>How does an agent-centric knowledge system differ from a document-centric one?</summary>
+
+A document-centric system retrieves passages and requires the agent to infer both their structure and the answer. An agent-centric system exposes canonical entities, attributes, relationships, and evidence that the agent can traverse directly.
+
+</details>
+
+<details><summary>Why should each structured fact include provenance?</summary>
+
+Provenance links a fact to its source, making agent outputs auditable and easier to verify, debug, and maintain. It also helps prevent unsupported claims from being treated as authoritative.
+
+</details>
+
+<details><summary>What should the training exercise reveal about structured knowledge?</summary>
+
+Questions involving ownership, dependencies, and required policies should become easier to answer than they are from one long document. The exercise should also expose missing relationships and metadata that an agent would need to act safely.
+
+</details>
 
 ## Further Reading
 

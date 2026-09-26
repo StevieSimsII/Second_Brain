@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> pbir-cli turns file-based PBIR reports into programmable assets that can be validated, refactored, inspected, and reviewed through source-controlled workflows. This reduces repetitive Power BI Desktop work and makes report development more suitable for automation and CI/CD.
+
+## Key Takeaways
+
+1. Use PBIR to expose report pages, visuals, settings, and metadata as files that can be inspected, diffed, and modified programmatically.
+2. Apply pbir-cli bulk operations to standardize fonts and colors across multiple visuals or pages, then review the resulting PBIR changes with git diff.
+3. Use strict validation in CI and lighter validation during local experimentation to balance reliability with iteration speed.
+4. Extract a reconstructed DAX query from a visual.json file for debugging and performance analysis, while accounting for unsupported visuals, simplified queries, and limited visual-calculation support.
+5. Automate screenshots of every report page for documentation, design review, regression testing, or pull request previews.
+6. Hot reload TMDL into Power BI Desktop to shorten the edit-test loop for semantic model changes.
+7. Treat legacy-report conversion, thin-report measure migration, and report-view retrieval as experimental workflows; local usage metrics also require linking the report to a published report through Fabric CLI.
+
 ## Overview
 
 This matters to engineers building Power BI and Microsoft Fabric solutions as code rather than exclusively through the GUI. PBIR and related tooling make reports diffable, scriptable, and suitable for CI/CD workflows. If you maintain many reports, need repeatable refactoring, or want to inspect report internals such as visual queries and page metadata, pbir-cli provides a path toward treating BI assets like software assets.
@@ -119,6 +133,26 @@ What to learn from the exercise:
 - how CLI automation reduces repetitive UI work
 - where extracted DAX is accurate versus simplified
 - how validation and bulk edits fit into a source-controlled BI workflow
+
+## Test Yourself
+
+<details><summary>Why is PBIR better suited to source-controlled report engineering than an opaque report artifact?</summary>
+
+PBIR exposes report structure—including pages, visuals, settings, and metadata—as files. Those files can be inspected, diffed, validated, transformed, and committed like software source code.
+
+</details>
+
+<details><summary>How should validation strictness differ between CI and local experimentation?</summary>
+
+CI should use strict validation to catch malformed or unsupported definitions before changes are merged. Local experiments can use lighter or disabled checks when strict warnings obstruct exploratory transformations.
+
+</details>
+
+<details><summary>What can engineers learn by extracting DAX from visual.json, and what limitations should they expect?</summary>
+
+The extracted query can reveal how a visual requests data, supporting debugging and performance analysis without opening Performance Analyzer. According to the lesson, some visuals are unsupported, queries may be simplified, and visual calculations have limited support.
+
+</details>
 
 ## Further Reading
 
