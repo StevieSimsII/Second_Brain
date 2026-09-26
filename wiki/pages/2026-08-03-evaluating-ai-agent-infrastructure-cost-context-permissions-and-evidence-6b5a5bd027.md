@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Evaluate AI agent infrastructure by the specific bottleneck it addresses—cost, context, permissions, privacy, or verification—and by measured evidence rather than popularity. Operational improvements often involve tradeoffs, so test total workflow outcomes instead of trusting headline metrics.
+
+## Key Takeaways
+
+1. Distinguish model scaffolding from model building: these tools primarily control what existing models can read, change, execute, and verify.
+2. Measure total workflow cost, not token compression alone; the source reports that RTK reduced visible shell output but increased overall cost in a JetBrains-controlled test because extra turns offset the savings.
+3. Use repository knowledge graphs when repeated file reading is the bottleneck, while accounting for the source’s cited tradeoff of lower token use and fewer tool calls against somewhat lower answer quality.
+4. Treat explicit read, write, execution, and external-access boundaries as core agent infrastructure rather than relying on prompts alone.
+5. Prefer local inference when reducing external data exposure is the goal, but verify model quality and actual network behavior instead of assuming local-first guarantees both.
+6. Treat security-agent findings as investigation leads, not verdicts, because repository scanning can miss runtime and configuration vulnerabilities.
+7. Prioritize independent, controlled, or reproducible evaluations; a credible mixed result is more informative than an untested headline metric or rapid star growth.
+
 ## Overview
 
 This lesson explains a shift in AI tooling described in the source: many fast-growing repositories are not new models, but infrastructure wrapped around existing models. Their job is to control cost, reduce unnecessary context, constrain permissions, keep data local, and audit outputs. The practical takeaway is not to rank tools by stars or slogans, but by the bottleneck they address and by the quality of evidence behind their claims. The source gives strong examples of both overclaimed wins and measured tradeoffs, especially for shell-output compression and repository knowledge graphs.
@@ -37,6 +51,26 @@ Use this four-part evaluation loop when assessing agent infrastructure. First, i
 ## Training Exercise
 
 Pick one real workflow you use, such as code review, repository navigation, document generation, or local automation. Write a one-page evaluation memo with three sections. 1. Bottleneck: state the main failure mode in your workflow and estimate whether it is mostly context, cost, permissions, privacy, or verification. 2. Tool fit: choose two tool patterns from the lesson, such as compression, graph indexing, local inference, or threat-model-based scanning, and explain which mechanism actually addresses your bottleneck. 3. Evidence check: for each pattern, list what would count as convincing proof in your environment, such as controlled cost runs, answer-quality comparisons, reproducible benchmark commands, or network-observed data flow. Finish by naming one tool category you would pilot first and one metric you would track to decide whether it stays.
+
+## Test Yourself
+
+<details><summary>Why can reducing the number of tokens in shell output fail to reduce overall agent cost?</summary>
+
+Shell output may be only a fraction of the total context, and compression can cause additional agent turns. The source reports that these effects caused overall cost to increase in a controlled RTK test despite smaller visible command output.
+
+</details>
+
+<details><summary>What four-part loop should you use to evaluate agent infrastructure?</summary>
+
+Identify the real bottleneck, map the tool to its actual mechanism, inspect the quality of evidence, and decide whether the measured tradeoff fits your use case.
+
+</details>
+
+<details><summary>Why should security-agent findings and open-source availability not be treated as proof of safety?</summary>
+
+Security agents can miss runtime and configuration problems, so their findings are leads for review. Open source makes risky behavior inspectable, but it does not automatically remove unsafe code paths.
+
+</details>
 
 ## Further Reading
 

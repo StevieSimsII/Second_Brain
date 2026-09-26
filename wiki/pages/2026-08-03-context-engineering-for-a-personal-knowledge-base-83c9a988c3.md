@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Build a personal knowledge base as a layered context system: keep the root instructions thin, route agents to task-specific material, and capture durable learning after useful sessions. This can reduce token overhead while giving stronger models enough context and freedom to exercise judgment.
+
+## Key Takeaways
+
+1. Use the root instruction file as a small router to domain-specific indexes, not as a warehouse for every rule and reference.
+2. Prefer intent-level guidance and 5–7 high-level principles over long lists of narrow rules when capable models can adapt to local context.
+3. Provide a design system, brand interface, or checklist instead of many repeated examples when you need consistency without suppressing exploration.
+4. Load detailed instructions and references only when the task needs them; the source argues that this progressive disclosure improves token efficiency and responsiveness.
+5. Keep tool descriptions lightweight unless extra detail is necessary for correct tool use.
+6. Review productive sessions and deliberately update memory files, reusable skills, or workflow documentation with durable lessons, even if the tooling can save some memories automatically.
+7. Use richer artifacts such as HTML when visual or structural information cannot be expressed as effectively in markdown.
+
 ## Overview
 
 This lesson distills a YouTube transcript about "new rules" for working with Claude-style coding agents. The core takeaway is that stronger models may need less rigid prompting and more structured context design: thin top-level routing, selective loading of files, lightweight tool descriptions, richer reference artifacts, and deliberate memory capture. Evidence in the source is partly second-hand: the speaker summarizes an Anthropic engineer's article and mixes it with examples from his own workspace.
@@ -36,6 +50,26 @@ Treat your knowledge base as a layered context system. Start with a small root i
 ## Training Exercise
 
 Pick one area of your knowledge base, such as writing or research. Create a thin root router file with links to 3 sub-files only. In one sub-file, replace a long block of rules with 5-7 high-level principles. In another, replace example-heavy guidance with a small design interface or checklist. Then run the same task twice: once with your old setup and once with the routed setup. Compare output quality, token usage if visible, and how easily you can maintain the files. Finish by writing a short calibration note describing one rule, one memory, and one reference artifact you would keep.
+
+## Test Yourself
+
+<details><summary>What should a top-level instruction file do in a layered knowledge base?</summary>
+
+It should remain small and route the agent to relevant domain-specific indexes and files. Detailed rules, references, skills, and memories should be loaded only when the task requires them.
+
+</details>
+
+<details><summary>Why does the lesson recommend design interfaces over collections of examples?</summary>
+
+A design system, brand interface, or checklist communicates reusable constraints while leaving room for the model to adapt. Repeated examples can consume context and constrain exploration too narrowly.
+
+</details>
+
+<details><summary>How should durable learning be handled after a productive session?</summary>
+
+Review the session and record reusable insights in the appropriate memory file, skill, or workflow documentation. The speaker recommends doing this deliberately even when newer tooling claims to capture useful memories automatically.
+
+</details>
 
 ## Further Reading
 

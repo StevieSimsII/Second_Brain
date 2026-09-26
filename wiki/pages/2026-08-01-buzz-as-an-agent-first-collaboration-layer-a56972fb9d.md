@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Buzz is presented as a persistent collaboration layer where people and AI agents share context, delegate work, and switch model harnesses without losing task history. That separation could make agent workflows more flexible, but the speakers describe Buzz as early-stage and better suited to low-risk work than complex engineering.
+
+## Key Takeaways
+
+1. Treat shared conversation history, project discussion, and agent outputs as the durable asset; treat the underlying model or harness as replaceable.
+2. The speakers claim Buzz can preserve an agent’s chat context while switching among harnesses such as Claude Code, Codex, Goose, and Open Code.
+3. Organize each channel around one outcome, then give agents clear roles for discussion, execution, review, and iteration.
+4. The reported workflow pattern is to discuss a task, delegate coding work, inspect returned links or screenshots, and iterate in the same shared context.
+5. Buzz is described as using Nostr relays for chats, code, and related state, which the speakers argue could reduce lock-in, though the transcript does not independently prove that architecture.
+6. The speakers report support for combining shared local models, open models, and hosted models, giving teams more control over compute costs and vendor dependence.
+7. Start with low-risk workflows for solopreneurs or small teams because the speakers report slowdowns, unreliable recurring workflows, and weaker suitability for advanced engineering work.
+
 ## Overview
 
 This lesson explains Buzz as it is described in the supplied transcript: a team chat tool where AI agents are treated as first-class teammates rather than add-ons. The practical idea is not just 'Slack with bots,' but a shared context layer where people and agents can discuss work, trigger coding tasks, inspect results, and keep context when switching underlying model harnesses. The evidence in the source is partly demonstrative and partly speculative, so you should treat product capabilities as reported by the speakers rather than independently verified documentation.
@@ -36,6 +50,26 @@ Use Buzz as a persistent workspace for people and agents. Start with a channel f
 ## Training Exercise
 
 Create a small, low-risk workflow on paper or in your own notes. Pick one recurring task such as reviewing customer feedback, drafting a weekly marketing summary, or prototyping a tiny internal dashboard. Define 1 channel, 2 agents, and 1 external input. For example: a private channel called 'weekly-insights,' an analyst agent that summarizes input data, and a builder agent that turns conclusions into a simple app or document. Then write the exact sequence: what context enters the channel, what each agent is asked to do, what output is expected, and where human review happens. Finally, note which parts require openness or portability, such as switching models, retaining history, or avoiding vendor lock-in. The goal is to design a workflow where shared context does real work rather than just storing chat logs.
+
+## Test Yourself
+
+<details><summary>What is the main distinction between Buzz and a conventional chat tool with bots?</summary>
+
+The speakers frame Buzz around AI agents as first-class teammates inside shared channels. Its proposed value is persistent context that supports discussion, delegation, execution, and review rather than isolated bot commands.
+
+</details>
+
+<details><summary>Why does separating persistent context from the model harness matter?</summary>
+
+It could let a team change models or coding harnesses without rebuilding the task history. According to the speakers, Buzz can retain chat context while switching among tools such as Claude Code, Codex, Goose, and Open Code.
+
+</details>
+
+<details><summary>What is an appropriate first workflow for evaluating Buzz?</summary>
+
+Choose a small, low-risk outcome with one channel, two clearly defined agents, one external input, and an explicit human review point. Avoid relying on it initially for complex engineering or critical recurring automation because the speakers describe the product as early and sometimes unreliable.
+
+</details>
 
 ## Further Reading
 

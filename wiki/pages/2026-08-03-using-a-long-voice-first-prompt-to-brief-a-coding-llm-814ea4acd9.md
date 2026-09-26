@@ -15,6 +15,19 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Give a coding LLM a detailed voice-first brief that captures goals, uncertainties, quality expectations, autonomy, and verification instead of polishing a short prompt. The source argues that supplying more context up front helps the model reconstruct intent and reduces later corrections.
+
+## Key Takeaways
+
+1. Speak a 5–10 minute stream-of-consciousness brief when your desired outcome is clearer than your exact instructions.
+2. Cover seven briefing dimensions: desire, quality bar, tools available, discovery, creative freedom, verification loop, and delivery format.
+3. Restate the final goal in one clear sentence after the longer brief so the intended outcome remains explicit.
+4. Ask for a plan before execution when you want to review the approach or ensure missing domain knowledge is investigated.
+5. Specify concrete checks—such as audience fit, mobile optimization, or output location—so the model knows how to verify its work.
+6. Treat the demo’s reported audience research, generated assets, pricing research, and mobile checks as speaker claims, not guaranteed behavior in every run.
+
 ## Overview
 
 This lesson teaches a practical prompting pattern from the source: give a coding LLM a long, messy, spoken brief instead of over-editing a short typed prompt. The claimed benefit is better context gathering up front, which reduces later corrections. The source demonstrates this with a website request for a naturopath audience, but it is a transcript of a video demo, not formal product documentation, so interface details and capability claims should be treated as reported by the speaker rather than independently verified facts.
@@ -48,6 +61,26 @@ Exercise: brief a coding LLM to create a one-page site for a niche service you d
 5. Then allow execution and compare the final result against your original ramble.
 
 Success criteria: the final brief is clearer than your raw notes, the model identifies missing information instead of hiding uncertainty, and the deliverable matches the stated goal and verification criteria.
+
+## Test Yourself
+
+<details><summary>Why does the source recommend a long voice-first brief over a carefully edited short prompt?</summary>
+
+The source claims speaking lowers the friction of expressing partially formed ideas and captures more context. That richer context may help the model infer intent earlier and reduce later corrections.
+
+</details>
+
+<details><summary>What information should a useful long brief include?</summary>
+
+It should describe the desired outcome, quality bar, available tools, needed discovery, allowed creative freedom, verification criteria, delivery format, and a final one-sentence goal.
+
+</details>
+
+<details><summary>When should you ask the model for a plan before execution?</summary>
+
+Use plan mode when you want a checkpoint before implementation, especially in an unfamiliar domain. Review whether the plan addresses missing knowledge and uncertainty rather than silently guessing.
+
+</details>
 
 ## Further Reading
 

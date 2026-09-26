@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> During major platform shifts, durable advantage comes from staying close to the technical frontier, building enabling capabilities early, and owning the infrastructure and workflows that turn prototypes into real usage. This matters because small investments in technical options, software ecosystems, and operational layers can compound into strategic control.
+
+## Key Takeaways
+
+1. Keep deep technical judgment central when decisions involve process technology, architecture, tooling, or other hard-to-reverse bets.
+2. Fund small acquisitions, prototypes, and internal projects that build capabilities before the strategic need becomes obvious; the lesson describes Apple’s custom-silicon path as gradual competence building.
+3. Build software, tools, and workflows around core technology; the source portrays Nvidia’s CUDA ecosystem as a compounding advantage beyond GPUs alone.
+4. Design for ecosystem adoption and standard interfaces; the lesson argues that TSMC’s multi-customer foundry model benefited from becoming broadly usable.
+5. Identify the binding constraint—such as energy, talent, latency, distribution, or compliance—rather than forecasting adoption from demand alone.
+6. Treat generation as only the first step in AI-native software; durable value also requires integrations, hosting, security, payments, support, and ongoing operation.
+7. Evaluate technology bets through five lenses: Inflection, Compounding Layer, Option-Building, Binding Constraint, and Operating Surface.
+
 ## Overview
 
 This lesson extracts practical strategy lessons from two interview segments in the source: one on Intel’s decline relative to Nvidia, TSMC, and Apple, and one on Lovable’s growth as an AI-native software platform. The core theme is that major technology shifts reward leaders who stay close to the technical frontier, invest early in enabling infrastructure, and build systems that compound over time. Some claims in the source are retrospective opinions or forward-looking predictions rather than settled facts, so this lesson treats them as arguments to evaluate, not truths to accept uncritically.
@@ -35,6 +49,26 @@ Use this 5-part evaluation loop for any technology bet. First, identify the infl
 ## Training Exercise
 
 Pick one product, team, or company you know well. Write a one-page memo with five headings: Inflection, Compounding Layer, Option-Building, Binding Constraint, and Operating Surface. Under each heading, add 2 concrete observations from the current situation and 1 decision you would make now. Then answer: if you were wrong for two years, which missed capability would hurt most? That final answer reveals the option you should start building immediately.
+
+## Test Yourself
+
+<details><summary>What five-part loop does the lesson recommend for evaluating a technology bet?</summary>
+
+Identify the Inflection, map the Compounding Layer, check Option-Building, find the Binding Constraint, and define the Operating Surface. Together, these reveal how competition may change and what is required to turn a technical possibility into sustained usage.
+
+</details>
+
+<details><summary>Why can small capability-building projects have strategic value even when their immediate impact is limited?</summary>
+
+They preserve future options by developing skills, technology, or organizational knowledge before a platform shift becomes obvious. The lesson uses Apple’s gradual path toward custom silicon as an example of this argument.
+
+</details>
+
+<details><summary>What broader platform lesson connects the Nvidia, TSMC, and Lovable examples?</summary>
+
+The lesson argues that a core technology becomes more defensible when paired with an ecosystem that makes it usable. Nvidia added a software stack, TSMC standardized access for many customers, and Lovable extends generation with deployment and operational workflows.
+
+</details>
 
 ## Further Reading
 

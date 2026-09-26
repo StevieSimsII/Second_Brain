@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Compare AI models by cost per successful task—not price per token—because efficiency, token use, latency, and output quality determine the real cost. The transcript argues that frontier labs may compound their advantage by using strong models and production data to repeatedly improve serving systems and cheaper downstream models.
+
+## Key Takeaways
+
+1. Measure total cost, latency, and acceptable-quality completions on a repeatable workload instead of comparing token prices alone.
+2. Separate model intelligence from serving efficiency: routing, kernel optimization, speculative decoding, and draft-model tuning can reduce costs without improving benchmark quality.
+3. The speaker claims strong models can help analyze production traffic, tune heuristics, optimize kernels, and improve their own or related models' inference efficiency.
+4. Treat recursive self-improvement as a continuous loop: observe behavior, propose changes, test them, analyze results, and repeat.
+5. The speaker speculates that labs may keep expensive frontier models internal while using them to create smaller, cheaper models for widespread deployment.
+6. Production traffic, compute, powerful internal models, and automated experimentation may form compounding advantages for leading AI labs.
+7. Open-source competition may gain strength from many independent teams collectively improving model and serving efficiency over time.
+
 ## Overview
 
 This lesson explains a core claim from the transcript: a frontier model was used to help optimize its own serving and architecture, enabling cheaper and faster downstream models. The practical takeaway is that model buyers should compare systems by cost per completed task, not raw price per token, and that iterative optimization loops may compound the lead of large AI labs. Evidence in the source is secondhand commentary over a video transcript, and several model and person names appear to be transcription errors, so treat specific labels cautiously.
@@ -35,6 +49,26 @@ Use this lesson as a decision framework. First, evaluate models by a concrete wo
 ## Training Exercise
 
 Pick two models you currently use. Define one repeatable task with a clear success rubric. Run the same prompt set on both models, record output quality, latency, input tokens, output tokens, and total cost, then compute cost per successful completion. After that, write a short note answering three questions: 1. Which model is cheaper per task? 2. Which differences came from model capability versus serving efficiency? 3. If one provider gained a 20% serving improvement tomorrow, how would that change your choice?
+
+## Test Yourself
+
+<details><summary>Why is cost per successful task more useful than cost per token?</summary>
+
+A low-priced model may consume more tokens, run longer, or fail more often. Cost per successful task incorporates quality, latency, token use, and the expense of retries or failures.
+
+</details>
+
+<details><summary>Which improvements can lower deployment costs without making a model more intelligent?</summary>
+
+Systems improvements such as better routing, optimized kernels, speculative decoding, and draft-model tuning can make inference faster or cheaper while benchmark capability remains unchanged.
+
+</details>
+
+<details><summary>What creates the compounding optimization loop described in the lesson?</summary>
+
+The speaker argues that production traffic and compute let strong internal models observe system behavior, propose improvements, test them, and analyze the results repeatedly. If effective, this cycle could continually improve serving efficiency and widen leading labs' advantages.
+
+</details>
 
 ## Further Reading
 

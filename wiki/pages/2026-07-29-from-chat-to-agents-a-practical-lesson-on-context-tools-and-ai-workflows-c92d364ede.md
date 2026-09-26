@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> AI agents become useful when you delegate a concrete result and onboard them with focused context, necessary tool access, and repeatable processes. Clear completion criteria and durable markdown files help agents work across multiple steps without repeatedly losing important business knowledge.
+
+## Key Takeaways
+
+1. Frame work as a goal with a concrete deliverable: chat provides answers, while agents can pursue a result through multiple steps.
+2. Define “done” explicitly because, according to the speaker, the agent’s observe-think-act loop continues until it reaches the stop condition implied by the goal.
+3. Onboard an agent like a capable new employee by supplying business context, access to required tools, and guidance for repeatable workflows.
+4. Store portable context in lean markdown files covering your role, business, offers, ideal customer, and brand voice rather than relying only on opaque application memory.
+5. Use a top-level `CLAUDE.md` or `AGENTS.md` to orient each session and direct the agent to relevant context and memory files.
+6. Record preferences and corrections in a memory file so later sessions can apply lessons instead of repeating the same mistakes.
+7. Connect only the external systems needed for the task, begin with conservative permissions such as read-only access, and expand access after establishing trust and reliability.
+
 ## Overview
 
 This lesson teaches a durable mental model for using AI agents productively at work. In the source, the speaker contrasts chat systems with agents: chat is "question to answer," while agents are "goal to result." The practical claim is that agents become useful when you onboard them like an employee: give them context about you and the business, connect the tools they need, and teach them repeatable ways of working. The strongest evidence in the excerpt supports context design, connector setup, and the basic agent loop. Evidence for the later "skills" layer is thinner here because the transcript excerpt ends before that section is fully developed.
@@ -37,6 +51,26 @@ Use this workflow. First, define a task as a goal with a concrete deliverable, n
 ## Training Exercise
 
 Create a folder for one recurring task you do every week. Add three files: `CLAUDE.md` or `AGENTS.md`, `context/about.md`, and `memory.md`. In `about.md`, write a factual summary of your role, audience, and priorities. In the main session file, instruct the agent to read the context and memory before any task and to ask questions when facts are missing. In `memory.md`, add 3 style or workflow preferences you care about. Then give the agent a concrete goal such as: "Draft a weekly performance summary for my team with 5 bullets, 2 risks, and 2 next actions." Review the result, make 3 corrections, and save those corrections back into `memory.md`. Repeat once and compare whether the second run needs fewer edits.
+
+## Test Yourself
+
+<details><summary>What distinguishes an agent workflow from a chat interaction in the speaker’s model?</summary>
+
+Chat follows a question-to-answer pattern, while an agent receives a goal and works through multiple steps toward a finished result. The user delegates execution rather than merely requesting advice.
+
+</details>
+
+<details><summary>What information should be included when onboarding an agent for recurring work?</summary>
+
+Provide focused context about the user, business, audience, offers, and brand voice; connect the tools required for the work; and document the process or preferences it should follow. A top-level session file can point the agent to these assets.
+
+</details>
+
+<details><summary>How can you improve reliability without overwhelming the agent or taking unnecessary security risks?</summary>
+
+Keep context lean, define the deliverable and completion criteria precisely, and save useful corrections as durable memory. Start connectors with limited permissions such as read-only access, then expand them only after the workflow proves trustworthy.
+
+</details>
 
 ## Further Reading
 

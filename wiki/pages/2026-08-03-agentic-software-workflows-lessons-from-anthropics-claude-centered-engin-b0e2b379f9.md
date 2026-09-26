@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> The lesson argues that engineering is shifting from code autocomplete to goal-driven agents that plan, use tools, load context as needed, and delegate work. This matters because productivity gains depend on redesigning workflows and scaling guardrails—not merely installing an AI tool.
+
+## Key Takeaways
+
+1. Define the desired outcome and give the model appropriate context and tools instead of hard-coding every workflow step.
+2. Let agents retrieve context through skills, tools, and MCP-style integrations when needed to reduce prompt bloat and improve flexibility.
+3. Scale autonomy gradually: begin with one agent, add concurrent agents, and introduce nested sub-agents for work that can be decomposed safely.
+4. Remove bottlenecks sequentially—coding, code review, then adjacent business tasks—rather than expecting one tool deployment to transform the entire process.
+5. Measure repeatable workflows with evals; use lighter human judgment for exploratory work when formal benchmarking would cost more than it reveals.
+6. Scale alignment, prompt-injection defenses, runtime classifiers, approval controls, and other guardrails alongside agent autonomy.
+7. Treat reported productivity figures, including Anthropic's asserted 8x increase in code output per engineer, as interview claims rather than independently verified evidence.
+
 ## Overview
 
 This lesson distills an interview transcript about how Anthropic uses Claude and Claude Code as the center of engineering and broader business workflows. The source argues that coding is shifting from line-by-line assistance to goal-driven agents that use tools, load context selectively, and coordinate sub-agents. Several performance claims are presented as interview statements rather than independently verified evidence, including an asserted 8x increase in code output per engineer at Anthropic and large gains at customer companies. The transcript also contains speech-to-text noise, so product names such as "Claude" and "Claude Code" sometimes appear garbled.
@@ -35,6 +49,26 @@ Use agentic workflows as a management layer above coding. Start by defining an o
 ## Training Exercise
 
 Pick one real workflow you repeat weekly, such as implementing a small feature, reviewing a pull request, or summarizing user feedback. Run it in three passes: first with one agent, second with two parallel agents using different approaches, and third with one agent that delegates at least one subtask to another agent. For each pass, record time spent, number of corrections you had to make, and what context or tools the agent needed. Then write a short note on which bottleneck moved, what still required human judgment, and what guardrails would be necessary before scaling the workflow.
+
+## Test Yourself
+
+<details><summary>How does an agentic coding workflow differ from autocomplete?</summary>
+
+Autocomplete suggests code locally, while an agentic workflow pursues a broader outcome across functions, files, features, and tools. The agent can plan, gather context, execute steps, and delegate subtasks.
+
+</details>
+
+<details><summary>What progression does the lesson recommend for increasing agent autonomy?</summary>
+
+Start with one agent, then run several agents concurrently, and finally use nested sub-agents for decomposable work. Increase autonomy only as confidence, measurement, and guardrails improve.
+
+</details>
+
+<details><summary>Why does the lesson frame AI adoption as process redesign?</summary>
+
+The source claims that benefits emerge by identifying and removing bottlenecks one at a time, such as coding and code review. Installing an AI tool alone does not reorganize the surrounding workflow or provide the safety controls needed for scale.
+
+</details>
 
 ## Further Reading
 

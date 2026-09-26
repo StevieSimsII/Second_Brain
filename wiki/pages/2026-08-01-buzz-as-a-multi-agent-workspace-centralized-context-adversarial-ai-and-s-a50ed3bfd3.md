@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Buzz is presented as a unified workspace where people, AI agents, repositories, project history, and compute share the same context. The speaker argues that this centralization enables stronger multi-agent collaboration and reduces context loss, though the product’s performance and novelty claims are not independently verified in the lesson.
+
+## Key Takeaways
+
+1. Treat shared context—not merely access to more models—as the foundation of effective multi-agent work.
+2. Give proposing, critiquing, and synthesizing agents access to the same prior decisions, repository state, constraints, and discussions.
+3. Keep code, planning, agent activity, and review in one searchable workspace when traceability and decision reconstruction matter.
+4. Use adversarial workflows in which agents debate and critique one another before producing a final answer; the speaker claims this improves writing, research, and coding outputs.
+5. Buzz is described as supporting local models with hardware-based recommendations, making local inference accessible without expert setup.
+6. The speaker presents pooled community hardware as a shared-compute layer that can host models for other workspace members.
+7. Treat Buzz’s performance and novelty claims as promotional unless they are independently tested or verified.
+
 ## Overview
 
 This lesson explains how the video presents Buzz: a chat workspace that combines humans, AI agents, repositories, and local/shared compute in one system. The core educational idea is not that Buzz is definitively better than Slack, Discord, or GitHub, but that the speaker sees its main innovation as centralized context. The transcript provides a strong product walkthrough and many use cases, but most performance and novelty claims are promotional and not independently verified in the source.
@@ -36,6 +50,26 @@ Based on the transcript, Buzz works like a channel-based workspace where humans 
 ## Training Exercise
 
 Design a small multi-agent workflow for a project you already understand. First, define one task that benefits from competing perspectives, such as drafting a design decision, reviewing code, or researching options. Then specify three roles: one agent proposes a solution, one agent critiques it, and one agent synthesizes the final answer. List what shared context each role would need to work well: prior decisions, repository state, team constraints, and earlier discussions. Finally, write a short reflection on which parts of this workflow require true shared context and which parts could still work in isolated chat tools. If you can identify where context loss would hurt output quality, you have captured the transcript’s main lesson.
+
+## Test Yourself
+
+<details><summary>What does the lesson identify as Buzz’s central innovation?</summary>
+
+The lesson identifies centralized context: conversations, agents, repositories, project history, and compute are brought into one workspace. The speaker argues that this gives agents more relevant shared history and reduces context loss.
+
+</details>
+
+<details><summary>How does an adversarial multi-agent workflow operate?</summary>
+
+One agent proposes a solution, another critiques it, and a third synthesizes the final answer. All three should share relevant decisions, repository state, constraints, and earlier discussions.
+
+</details>
+
+<details><summary>Why should the claims about Buzz be interpreted cautiously?</summary>
+
+The source provides a product walkthrough, but its claims about performance, output quality, and novelty are promotional and not independently verified in the lesson.
+
+</details>
 
 ## Further Reading
 

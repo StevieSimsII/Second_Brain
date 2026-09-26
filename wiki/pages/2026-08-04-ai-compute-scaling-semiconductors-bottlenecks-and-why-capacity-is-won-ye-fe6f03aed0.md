@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI compute capacity is won years before it becomes usable because scaling depends on a chain of slow, shifting constraints—not merely buying more GPUs. Evaluating AI infrastructure therefore requires tracing bottlenecks, lead times, system-level performance, and early supply commitments.
+
+## Key Takeaways
+
+1. Separate announced CapEx from usable compute: current spending may fund deposits, construction, power agreements, turbines, and chip capacity delivered years later.
+2. Identify the constraint with the longest lead time and least substitutability; bottlenecks can migrate among power, data centers, advanced packaging, memory, wafers, and lithography tools.
+3. Treat long-term compute agreements as strategic assets: the speakers argue that early buyers gain supply access and price protection, while late buyers face worse terms.
+4. Analyze accelerator performance at the system level; memory bandwidth, interconnect speed, packaging, and data movement can matter more than raw FLOPS.
+5. View EUV lithography as a potential long-range constraint because advanced logic production relies on scarce, expensive tools that take years to manufacture and deploy.
+6. Use HBM when bandwidth is the binding constraint; cheaper commodity memory may add capacity while leaving accelerators starved for data.
+7. Consider spillovers into adjacent markets: the speakers forecast that AI-driven DRAM and HBM demand could raise memory prices and pressure lower-end PC and smartphone sales.
+
 ## Overview
 
 This lesson explains how the transcript connects AI growth to semiconductor supply chains, data center buildouts, and long-term compute contracts. Its core claim is not just that AI needs more GPUs, but that practical scaling depends on a chain of constraints: power, data centers, advanced logic wafers, memory, packaging, and especially lithography tools. Many figures in the source are forward-looking estimates from the speakers rather than demonstrated facts, so treat the exact numbers as illustrative and the framework as the durable takeaway. The reusable lesson is to analyze AI infrastructure by asking where the current bottleneck sits, what the lead times are, and which firms locked in supply early enough to benefit.
@@ -36,6 +50,26 @@ Use this framework when evaluating any AI infrastructure claim. First, separate 
 ## Training Exercise
 
 Pick one AI deployment claim such as "company X can scale 10x next year." Write a short memo with five sections: 1. what resources that scale-up would require, 2. which of those resources can be bought quickly versus years ahead, 3. the likely bottleneck today, 4. whether older chips or cheaper memory would actually solve the bottleneck, and 5. whether the company's advantage comes from better models, better contracts, or both. For each section, label every statement as either directly supported by the transcript or an inference from it.
+
+## Test Yourself
+
+<details><summary>Why should announced hyperscaler CapEx not be treated as compute that becomes available immediately?</summary>
+
+The speakers argue that much of the spending supports deposits, construction, power infrastructure, turbines, and future supply commitments. Those investments may not produce usable capacity until later years.
+
+</details>
+
+<details><summary>What is the most useful way to find the limiting factor in an AI scale-up plan?</summary>
+
+Map every required resource, then identify the layer with the longest lead time and fewest substitutes. Reassess regularly because the active bottleneck can shift across power, facilities, packaging, memory, wafers, and lithography.
+
+</details>
+
+<details><summary>Why can two accelerators with similar FLOPS deliver substantially different real-world performance?</summary>
+
+Model throughput also depends on memory bandwidth, interconnects, package design, and the cost of moving data across chips and racks. A system can leave compute underused when those supporting components cannot keep up.
+
+</details>
 
 ## Further Reading
 

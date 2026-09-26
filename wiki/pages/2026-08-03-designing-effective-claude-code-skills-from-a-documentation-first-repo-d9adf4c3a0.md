@@ -12,6 +12,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Design Claude Code skills as reusable folders with clear trigger conditions, outcome-focused guidance, and progressively loaded supporting assets. This matters because concise constraints, known failure modes, and isolated execution can improve reliability without bloating the main context.
+
+## Key Takeaways
+
+1. Write the skill description as a condition for when the skill should run, not as a general summary of its contents.
+2. Organize each skill around `.claude/skills/<name>/SKILL.md`, with optional `references/`, `scripts/`, and `examples/` directories for supporting material.
+3. Specify the goal, constraints, outputs, and failure modes; avoid rigidly scripting obvious steps that the model can determine itself.
+4. Add a `Gotchas` section to every skill and update it with recurring mistakes and high-signal failure cases.
+5. Use progressive disclosure so detailed references, scripts, and examples enter context only when they are relevant.
+6. Use `context: fork` for workflows with substantial searches, tool output, or dead ends so the main session receives the result without all intermediate context.
+7. Treat the folder structure as documented recommended practice: the README names `.claude/skills/<name>/SKILL.md`, but the supplied repository tree does not show that directory in this snapshot.
+
 ## Overview
 
 This lesson distills what the supplied repository explicitly shows about Claude Code skills. The strongest evidence comes from the README’s architecture tables, the skills tips attributed to Thariq on March 17, 2026, and the repository file tree. The repo is documentation-first: it includes `best-practice/`, `implementation/`, `reports/`, and `tips/` directories plus `.claude/agents`, `.claude/commands`, `.claude/rules`, hooks, and config files. The README says skills live at `.claude/skills/<name>/SKILL.md`, but that folder is not visible in the provided file tree, so treat skill structure guidance here as recommended practice documented by the repo rather than an observed implemented skill directory in this snapshot.
@@ -32,6 +46,26 @@ Start by framing a skill as a reusable unit for a repeated workflow. According t
 ## Training Exercise
 
 Draft a skill for a workflow you repeat often, such as release verification or bug triage. Write a one-paragraph trigger description that says when the skill should be used. Then outline a `SKILL.md` with four sections: goal, constraints, gotchas, and outputs. Add three supporting assets you would want in a real folder structure: one reference note, one script, and one example. Finally, revise the skill by deleting any obvious instructions and replacing them with one or two high-signal failure cases the model should avoid.
+
+## Test Yourself
+
+<details><summary>How should a skill description be written to improve invocation reliability?</summary>
+
+Write it as an operational trigger that states when the skill should be used. The source advises against treating the description as merely a summary of the skill's contents.
+
+</details>
+
+<details><summary>What belongs in a skill folder besides `SKILL.md`, and why?</summary>
+
+The documented pattern allows `references/`, `scripts/`, and `examples/` directories. These assets support progressive disclosure by supplying detailed context or reusable work only when it is needed.
+
+</details>
+
+<details><summary>Why does the source recommend a `Gotchas` section and `context: fork`?</summary>
+
+A `Gotchas` section preserves recurring failure cases so the skill improves over time. The README presents `context: fork` as a way to isolate noisy execution and return only the result to the main context.
+
+</details>
 
 ## Further Reading
 
