@@ -10,6 +10,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Build rich Microsoft 365 Copilot experiences by using a declarative JSON package to guide tool selection and a separately hosted MCP server to execute logic and return structured widget data. This separation makes interactive dashboards easier to deploy, debug, and scale without embedding custom runtime code in Copilot.
+
+## Key Takeaways
+
+1. Treat `declarativeAgent.json`, `ai-plugin.json`, and `mcp-tools.json` as the contract connecting Copilot to the MCP backend.
+2. Design for two contracts: discovery must help Copilot select the correct tool, while execution and rendering must return the exact structure the widget expects.
+3. Return structured fields for charts, metrics, and sortable queues instead of relying only on generated prose.
+4. The source recommends Azure Container Apps for an existing .NET MCP service because it can run the service with limited refactoring and scale to zero when idle.
+5. Use `-developer on` to inspect Copilot tool calls and inline errors when invocation or widget rendering fails.
+6. If a tool runs but no widget appears, check output schemas and rendering compatibility before assuming the backend logic is broken.
+
 ## Overview
 
 For engineers building enterprise AI assistants, this pattern matters because it separates conversational orchestration from tool execution and UI rendering. You define a declarative Copilot app package, expose capabilities through an MCP server, and let Copilot invoke tools that return structured content suitable for rich visual experiences such as charts, queues, and dashboards.
@@ -210,6 +223,26 @@ Review your package and answer these questions:
 
 ### Stretch goal
 Containerize the mock service and prepare it for Azure Container Apps deployment with a simple `Dockerfile`. Even if you do not deploy it, this forces you to think through how the MCP backend would be hosted independently of the Microsoft 365 package.
+
+## Test Yourself
+
+<details><summary>What responsibilities belong to the declarative app package versus the hosted MCP server?</summary>
+
+The package describes the agent, behavioral instructions, plugin metadata, and available tools. The MCP server performs the application logic and returns structured data for Copilot to render.
+
+</details>
+
+<details><summary>What are the two contracts engineers should validate in this architecture?</summary>
+
+The discovery contract determines whether Copilot can find and select the appropriate tool. The execution/render contract determines whether the server successfully executes and returns data in the structure required by the widget.
+
+</details>
+
+<details><summary>Why does the source favor Azure Container Apps for the example .NET MCP server?</summary>
+
+The source says Container Apps can host the existing service without a major rewrite, support the required transport behavior, and scale to zero. This can reduce refactoring effort and idle infrastructure cost.
+
+</details>
 
 ## Further Reading
 

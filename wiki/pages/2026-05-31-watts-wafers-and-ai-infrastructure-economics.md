@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI infrastructure performance depends on converting scarce power, semiconductor capacity, and capital into useful compute—not merely acquiring the fastest accelerators. Identifying the next system-wide bottleneck matters because weak power delivery, networking, memory, cooling, or utilization can strand expensive hardware.
+
+## Key Takeaways
+
+1. Treat power as a first-class capacity constraint: accelerator availability does not help if utility access, rack delivery, or cooling cannot support deployment.
+2. Model an accelerator as a supply-chain stack that includes leading-edge wafers, advanced packaging, HBM, boards, servers, and racks; one constrained component can cap total output.
+3. Optimize the entire compute system—accelerators, networking, storage, memory bandwidth, scheduling, and reliability—because the best individual chip does not guarantee the best delivered throughput.
+4. Design training infrastructure for large, communication-intensive campaigns, while designing inference infrastructure around ongoing demand, batching, latency targets, memory footprint, and cost per token.
+5. Track utilization and effective output rather than GPU ownership; idle capacity, failures, restarts, and inefficient kernels turn capital expenditure into stranded cost.
+6. Expect bottlenecks to migrate from compute to memory, chips to power, or training to inference as individual constraints improve.
+7. In the exercise scenario, 10,000 accelerators can produce 172.8 billion tokens per day and require about 9.1 MW at the stated 1.3x power overhead, so the 50 MW facility can support them and the 1.5-billion-token daily target is readily achievable.
+
 ## Overview
 
 This lesson examines AI infrastructure through the physical and economic constraints implied by the themes "watts, wafers, and the future of AI infra." Instead of treating AI progress as purely a software story, it frames modern AI systems as the product of three hard bottlenecks: electrical power, semiconductor manufacturing capacity, and the capital-intensive design of data centers and accelerator clusters.
@@ -170,6 +184,26 @@ Estimate wall-clock training time and compare how much utilization loss changes 
 
 ### What to learn
 By the end, you should be able to explain why AI infra planning is not just about buying chips. The practical question is which scarce resource limits delivered compute first, and what engineering or procurement move most effectively relaxes that limit.
+
+## Test Yourself
+
+<details><summary>Why is buying more accelerators insufficient as an AI infrastructure strategy?</summary>
+
+Delivered compute also depends on wafer and packaging supply, HBM, facility power, cooling, networking, storage, software, and utilization. A shortage or weakness anywhere in that chain can leave accelerators unavailable, idle, or underperforming.
+
+</details>
+
+<details><summary>How do training and inference create different infrastructure requirements?</summary>
+
+Training tends to involve large, bursty runs that depend heavily on high-bandwidth, low-latency communication. Inference is continuous and demand-driven, emphasizing batching, latency targets, memory capacity, and cost per token.
+
+</details>
+
+<details><summary>What binds in the exercise scenario with 10,000 accelerators, 50 MW of power, and demand for 1.5 billion tokens per day?</summary>
+
+Each accelerator receives a 910 W allocation after overhead, so the facility could theoretically support about 54,945 accelerators—well above the 10,000 available. Those 10,000 accelerators provide 172.8 billion tokens per day, far above demand, so power does not bind and the stated demand can be met with substantial excess capacity.
+
+</details>
 
 ## Further Reading
 

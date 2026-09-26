@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Anthropic presents Claude Opus 4.8 as an operational upgrade for agentic AI, emphasizing controllable reasoning effort, dynamic parallel workflows, mid-task instruction changes, and more explicit uncertainty. These features matter because reliable automation depends on verification, efficient tool use, and honest failure reporting—not just stronger benchmark scores.
+
+## Key Takeaways
+
+1. Treat verification as the final authority: require passing tests, successful type checks, cited evidence, or human approval before an agent claims completion.
+2. Use low effort for exploration and routine summarization, high effort for normal implementation, and xhigh or max effort for difficult repairs, migrations, or asynchronous work where correctness outweighs latency.
+3. Anthropic claims Opus 4.8 is about four times less likely than its predecessor to leave flaws in its generated code unmentioned.
+4. Dynamic workflows can decompose large tasks, run many subagents in parallel, aggregate their work, and verify the combined output against acceptance criteria such as an existing test suite.
+5. Mid-task system entries in the Messages API let an orchestrator change permissions, budgets, priorities, or runtime context without introducing a fake user turn.
+6. Evaluate agentic systems on honesty as well as task success: record whether the model disclosed uncertainty, withheld completion claims until verification, requested clarification, and adapted after failed checks.
+7. Route workloads by operating requirements: use fast mode for latency-sensitive interactions and higher-effort modes for complex or high-stakes work.
+
 ## Overview
 
 This lesson explains Anthropic’s Claude Opus 4.8 release as a practical upgrade to a production-grade large language model, with a focus on what changed for engineers building assistants, coding agents, and knowledge-work systems. The announcement highlights improvements in coding, tool use, reasoning, long-session collaboration, and honesty, while also introducing platform features such as effort control, dynamic workflows in Claude Code, and a Messages API change that makes mid-task instruction updates easier.
@@ -248,6 +262,26 @@ If you have access to Claude’s API, replace the mocked assistant steps with re
 - token usage
 - number of tool/action steps
 - whether uncertainty was surfaced before failure
+
+## Test Yourself
+
+<details><summary>Why should an external verification gate control whether an agentic task is considered complete?</summary>
+
+Anthropic’s release emphasizes that confident output is not proof of success. Tests, type checks, citations, or human review provide independent evidence and prevent an agent from hiding or overlooking failures.
+
+</details>
+
+<details><summary>How should effort control be applied across a workflow?</summary>
+
+Use lower effort for inexpensive exploration and high effort for standard implementation. Escalate to xhigh or max when checks fail, ambiguity remains, or a difficult asynchronous task makes correctness more valuable than speed and token efficiency.
+
+</details>
+
+<details><summary>What do mid-task system instruction updates enable in an agent harness?</summary>
+
+They let the orchestrator authoritatively change permissions, token budgets, priorities, or environmental context while work is underway. This supports explicit state transitions without fabricating a user message or unnecessarily disrupting prompt caching.
+
+</details>
 
 ## Further Reading
 

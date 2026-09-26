@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> A Microsoft Fabric data app is a code-first web frontend that queries a governed semantic model with DAX and renders results with libraries such as Vega-Lite or D3.js. It enables more customized analytics experiences than Power BI reports, but teams must manage it as a software project with source control, testing, deployment, and governance.
+
+## Key Takeaways
+
+1. Treat each data app visual as a software assembly: a `.dax` query template retrieves data, a `.json` specification defines the visualization, and a `.ts` file connects the query, filters, metadata, and renderer.
+2. Use placeholders such as `{{YEAR}}`, `{{FILTERS}}`, and `{{TOPN}}` in DAX templates, then replace them from TypeScript at runtime to implement slicers, drill context, and cross-filtering.
+3. Validate the final substituted DAX in DAX Studio or Tabular Editor before connecting it to a visual; visible query logic can be inspected, tested, and optimized directly.
+4. Keep governed metrics and security in the semantic model while using the data app as a customizable presentation layer; the lesson says the user's Entra identity allows configured model permissions and row-level security to apply.
+5. Choose Vega-Lite for declarative chart specifications and helper-supported behavior; choose D3.js or another library when greater freedom justifies implementing more behavior yourself.
+6. Use the CLI workflow described in the lesson: scaffold with `bun create @microsoft/rayfin@latest`, preview with `bun run dev`, and deploy with `bunx rayfin up`.
+7. Apply normal web engineering discipline—including consistent styling, code review, automated testing, CI/CD, and scrutiny of AI-generated code—because a data app is not a low-code report artifact.
+
 ## Overview
 
 Microsoft Fabric Apps introduce a code-first way to build and host browser-based applications inside Fabric. One important template type, the data app, lets engineers connect a web app directly to a published semantic model and query it with DAX, then render the results with libraries such as Vega-Lite or D3.js. This effectively brings visualization-as-code to the Fabric ecosystem.
@@ -218,6 +232,26 @@ Then identify where the generated project stores:
 - agent support files
 
 This exercise reinforces the core model: a data app visual is not a single report object, but a small software assembly of query template, rendering spec, and application code.
+
+## Test Yourself
+
+<details><summary>How does a Fabric data app differ from a conventional Power BI report?</summary>
+
+A data app exposes the presentation layer as web source code: engineers write the DAX, visual specifications, layout, styles, and interactions. Power BI reports primarily configure those elements through a visual designer while the platform generates much of the underlying query and metadata behavior.
+
+</details>
+
+<details><summary>What responsibilities belong to the `.dax`, `.json`, and `.ts` files in the three-file visual pattern?</summary>
+
+The `.dax` file defines the semantic-model query template, the `.json` file defines the visual encoding, and the `.ts` file performs substitutions and binds the query, connection, column metadata, filters, and visual specification together.
+
+</details>
+
+<details><summary>Why should a Fabric data app be managed as a software project rather than as a drop-in replacement for low-code reporting?</summary>
+
+Its flexibility makes the team responsible for frontend structure, styling, runtime behavior, testing, maintainability, deployment, and governance. AI agents may accelerate development, but their generated code still requires review and understanding.
+
+</details>
 
 ## Further Reading
 

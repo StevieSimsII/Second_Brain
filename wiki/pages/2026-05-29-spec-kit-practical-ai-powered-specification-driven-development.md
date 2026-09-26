@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Spec Kit turns a specification into the source of truth for AI-assisted development, carrying product intent through clarification, planning, task generation, analysis, and implementation. This matters because better requirements and cross-artifact checks reduce the risk of generating code from ambiguity or inconsistent assumptions.
+
+## Key Takeaways
+
+1. Treat the specification as an active input to plans, tasks, and code—not as documentation that becomes stale after implementation begins.
+2. Follow the workflow `/constitution` → `/specify` → `/clarify` → `/plan` → `/tasks` → `/analyze` → `/implement` so unresolved assumptions are addressed before code generation.
+3. Use `/constitution` to establish project-wide rules such as type safety, testing expectations, accessible UI patterns, and API boundaries.
+4. Resolve permissions, scale, authentication, synchronization, and conflict behavior during `/clarify`; these decisions materially affect architecture and task coverage.
+5. Use `/analyze` to verify that technical plans and generated tasks still cover the original requirements, including edge cases such as offline conflicts and sharing permissions.
+6. Initialize a project for a supported coding agent with `specify init`, using options such as `--here`, `--no-git`, and `--debug` when the environment requires them.
+7. Spec Kit is designed to apply the same specification-driven process across supported agents such as Claude Code, GitHub Copilot, Cursor, and Gemini CLI.
+
 ## Overview
 
 Spec Kit is a specification-driven development toolkit that treats specifications as active inputs to implementation rather than static documents. Instead of jumping directly from vague feature ideas into code, it guides engineers through a structured workflow: define intent, clarify ambiguity, choose an architecture, break work into tasks, analyze consistency, and then implement with an AI coding agent.
@@ -180,6 +194,26 @@ After the exercise, write a short engineering review answering:
 
 ### Stretch goal
 Repeat the same feature with a different AI agent, such as Copilot or Cursor, and compare whether the clarification questions, plan quality, and task decomposition differ.
+
+## Test Yourself
+
+<details><summary>Why does Spec Kit place `/clarify` before `/plan`?</summary>
+
+Clarification resolves missing requirements and constraints before architectural decisions are made. According to the lesson, this reduces the chance that an AI agent creates a technically coherent plan based on incorrect or unstated assumptions.
+
+</details>
+
+<details><summary>What role does `/constitution` play in the workflow?</summary>
+
+It defines project-wide principles such as testing, accessibility, type safety, UX consistency, and code quality. Those rules then guide later planning and implementation decisions.
+
+</details>
+
+<details><summary>How can you check whether generated tasks preserve the original product intent?</summary>
+
+Run `/analyze` to check consistency and coverage across the specification, plan, and task list. If requirements such as offline conflict handling or permission edge cases are missing, refine the spec or plan and regenerate the tasks.
+
+</details>
 
 ## Further Reading
 

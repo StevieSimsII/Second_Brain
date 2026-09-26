@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The AI IPO wave thesis rests on more than hype: private companies must turn AI capability into durable revenue, defensible workflows, and scalable unit economics. This matters because public-market value will likely accrue to companies that control bottlenecks or customer relationships without remaining dangerously dependent on upstream providers.
+
+## Key Takeaways
+
+1. Evaluate AI companies by stack layer— infrastructure, models, tools, or applications—because each layer has different margins, bottlenecks, and defensibility.
+2. The lesson argues that late-stage private funding may produce a backlog of larger, more mature AI IPO candidates with significant revenue and higher investor expectations.
+3. Treat recurring, mission-critical workflow revenue as more durable than experimental spending or novelty-driven usage spikes.
+4. Test public-company readiness through repeatable customer acquisition, gross-margin potential, net revenue retention, defensible assets, and limited dependence on any single upstream provider.
+5. Make inference cost, model routing, and provider dependency part of business strategy because they directly affect margins and roadmap control.
+6. Look for proprietary workflow data, switching costs, distribution, and customer trust; the lesson presents these as stronger defenses than model quality alone.
+7. Use the 10-point readiness rubric: award two points each for recurring revenue, switching costs or proprietary data, improving unit economics, a large addressable market, and low single-supplier dependency.
+
 ## Overview
 
 This lesson explains the idea of a large upcoming wave of AI company IPOs and why experienced investors view it as structurally different from prior technology cycles. The core topic is not just AI hype, but the interaction between private capital, public market timing, infrastructure bottlenecks, software monetization, and the concentration of value across the AI stack.
@@ -125,6 +139,26 @@ Pick the strongest of the three and write a short memo explaining why it is the 
 
 ### Optional extension
 Take a real AI company you know and repeat the same exercise. If you are an engineer inside a startup, replace the hypothetical companies with competitors and identify which product and infrastructure decisions most affect long-term market value.
+
+## Test Yourself
+
+<details><summary>Why might a future AI IPO wave differ from earlier software IPO cycles?</summary>
+
+The lesson argues that AI is a full-stack platform transition spanning infrastructure, models, tooling, and applications. Because companies can also remain private longer, eventual candidates may reach public markets with larger revenue bases and more mature products.
+
+</details>
+
+<details><summary>What separates durable AI revenue from temporary demand?</summary>
+
+Durable revenue is recurring and tied to mission-critical workflows, with repeatable acquisition and retention driven by real usage. Experimental budgets, viral demos, and novelty-driven spikes provide weaker evidence of public-market durability.
+
+</details>
+
+<details><summary>How can technical architecture affect an AI company&#x27;s IPO readiness?</summary>
+
+Architecture determines inference costs, gross-margin potential, upstream dependency, and whether usage creates proprietary data or switching costs. A company whose revenue scales faster than compute and support costs—and that is not controlled by one provider—should score more favorably under the lesson's framework.
+
+</details>
 
 ## Further Reading
 

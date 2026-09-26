@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Dynamic simulation extends a steady-state flowsheet by giving equipment explicit inventories, calculating their rates of change, and integrating those states over time. This enables startup, disturbance, and control studies while reusing the simulator’s existing thermodynamic models.
+
+## Key Takeaways
+
+1. Represent dynamic equipment with explicit holdup states such as total mass, component inventories, and internal energy; without stored quantities, there is nothing to integrate over time.
+2. Model the process as coupled differential-algebraic equations: balances determine state derivatives, while phase equilibrium, hydraulics, and other constraints determine algebraic variables.
+3. At each time step, load unit states, recalculate properties and algebraic relations, evaluate derivatives, integrate the global state vector, update streams, and process controls or events.
+4. Reuse DWSIM property packages and unit-operation constitutive equations instead of duplicating thermodynamic logic for dynamic mode.
+5. Initialize a transient run from a consistent steady-state solution so differential states and algebraic constraints agree at the starting time.
+6. Use explicit Euler only as a minimal implementation path; the lesson warns that stiff chemical and thermal systems often require implicit integration or specialized DAE solvers.
+7. Treat controllers as dynamic blocks with measurements, internal states, and manipulated outputs connected to equipment such as valves, pumps, or heaters.
+
 ## Overview
 
 The provided source page is unavailable, so the lesson below reconstructs the likely subject matter from the article title: how dynamic simulation can be built in DWSIM. Dynamic simulation extends steady-state process simulation by tracking how process variables evolve over time, which is essential for startup/shutdown studies, controller design, disturbance analysis, and operator training.
@@ -258,6 +272,26 @@ Fout = max(0.0, k * M + Kc * (M - M_sp))
 ```
 
 Then compare open-loop and closed-loop responses. This is a good mental model for why dynamic simulation in a process simulator must include both state integration and control logic.
+
+## Test Yourself
+
+<details><summary>What must be added to a steady-state unit operation to make it dynamically meaningful?</summary>
+
+It must retain explicit inventories—such as total mass, component amounts, or internal energy—and expose equations for their time derivatives. It must also calculate outlet conditions from the current internal state.
+
+</details>
+
+<details><summary>Why should a dynamic simulation usually begin from a converged steady-state solution?</summary>
+
+The steady-state result provides an initial condition consistent with stream properties, thermodynamics, and algebraic constraints. Inconsistent initialization can make the transient solver fail immediately.
+
+</details>
+
+<details><summary>How does the tank exercise map to a DWSIM-style dynamic unit?</summary>
+
+Tank mass becomes a holdup state, composition is represented by component inventories, and temperature derives from the energy state. Inlet conditions come from upstream streams, while outlet flow is calculated algebraically from the equipment’s hydraulic relation.
+
+</details>
 
 ## Further Reading
 

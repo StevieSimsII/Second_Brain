@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The Ralph Loop repeatedly launches a coding agent with a clean context while preserving progress in the repository, tests, logs, and git state. This reduces context rot and turns one-shot assistance into a bounded workflow driven by measurable completion criteria.
+
+## Key Takeaways
+
+1. Start every agent iteration as a fresh process, and treat the current project state—not chat history—as the source of truth.
+2. Persist progress in inspectable artifacts such as source files, failing test output, task files, logs, git diffs, and commits.
+3. Define objective stopping conditions before running the loop, such as tests and builds passing or required outputs being generated.
+4. Run validation outside the AI process so success is determined by independent engineering checks rather than the agent’s own claim.
+5. Regenerate each prompt from stable inputs, including the task, relevant repository state, latest failures, constraints, and permitted actions.
+6. Bound autonomous execution with controls such as a maximum iteration count, timeouts, and guarded commands.
+7. The lesson presents Copilot-Ralph as a way to use GitHub Copilot CLI as a repeatable autonomous worker rather than only a one-shot suggestion tool.
+
 ## Overview
 
 This lesson explains the Ralph Loop, an autonomous AI coding pattern where an agent repeatedly works on the same task while starting each iteration with a clean context window. Instead of relying on long chat history, the loop stores progress in external artifacts such as source files, test results, and git state, which helps avoid the degradation often seen in long-running LLM sessions.
@@ -220,6 +234,26 @@ After the loop works, answer these questions:
 
 ### Stretch goal
 Add a second success criterion beyond tests, such as lint passing or a required string appearing in generated output. This will help you practice designing objective stop conditions for autonomous AI workflows.
+
+## Test Yourself
+
+<details><summary>Where does memory live in a Ralph Loop?</summary>
+
+Memory lives in external artifacts such as files, test results, logs, task markers, and git history. Each model invocation starts clean and reconstructs its understanding from that durable state.
+
+</details>
+
+<details><summary>Why should validation run outside the AI agent process?</summary>
+
+Independent tests, builds, or lint checks provide objective evidence of completion. This prevents the loop from stopping merely because the agent says the task is finished.
+
+</details>
+
+<details><summary>What three layers should be explicit when implementing a Ralph Loop?</summary>
+
+The task layer defines the goal and completion criteria, the execution layer controls repeated fresh agent invocations, and the validation layer determines whether to stop, retry, or fail.
+
+</details>
 
 ## Further Reading
 

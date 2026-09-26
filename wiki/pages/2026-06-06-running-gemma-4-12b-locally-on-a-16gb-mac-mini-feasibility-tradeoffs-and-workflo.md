@@ -13,6 +13,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> A quantized 12B model can provide useful local inference on a 16GB Apple Silicon Mac, but only with careful control of context length, runtime settings, and memory pressure. The lesson argues that real-world viability depends on the entire system—not merely whether the model weights fit in RAM.
+
+## Key Takeaways
+
+1. Use a quantized checkpoint because a 12B model in FP16 cannot fit comfortably within 16GB once macOS and runtime overhead are included.
+2. Budget memory for model weights, the growing KV cache, runtime overhead, and macOS background usage—not just the checkpoint size.
+3. Favor short prompts, moderate context lengths, and one interactive session at a time; large contexts, concurrent models, and expanding agent loops can trigger swapping and severe slowdowns.
+4. Treat lower-bit quantization as a tradeoff: it generally improves fit and may increase speed, but can reduce output quality.
+5. Evaluate usability with time to first token, generation speed, memory pressure, and task-specific output quality rather than relying only on benchmark scores.
+6. Tune context length, GPU-layer allocation, batch size, and quantization variant because runtime defaults can materially affect stability and performance.
+7. Compare local and hosted inference by workload: privacy, offline access, and zero per-token fees may favor local execution, while demanding throughput or quality may favor cloud APIs.
+
 ## Overview
 
 This lesson explains what it means to run a 12B-parameter language model like Gemma 4 locally on a 16GB Mac Mini, why that is notable, and what engineering tradeoffs make it possible. The core story is not just that a model fits, but that modern local inference stacks, quantization formats, and Apple Silicon's unified memory architecture let engineers do useful work with surprisingly capable models on consumer hardware.
@@ -137,6 +151,26 @@ Optional extension:
 - Run the same prompts on a smaller model and a hosted API.
 - Compare privacy, latency, and quality.
 - Decide which tasks should stay local and which should use the cloud.
+
+## Test Yourself
+
+<details><summary>Why is quantization necessary for running a 12B model on a 16GB Mac Mini?</summary>
+
+Quantization lowers the precision and memory footprint of the model weights. According to the lesson, full-precision weights would exceed the practical memory budget after accounting for macOS, the runtime, and inference state.
+
+</details>
+
+<details><summary>Why can a model that initially fits in memory still become unusable during a long conversation?</summary>
+
+The KV cache grows as prompt and generated sequence length increase. That growth can create enough memory pressure to trigger heavy swapping, causing latency to rise sharply or the runtime to become unstable.
+
+</details>
+
+<details><summary>How should you determine whether this local setup is suitable for your workflow?</summary>
+
+Test representative short, coding, and long-context prompts while measuring time to first token, tokens per second, memory pressure, and output quality. Repeat with different quantization levels or shorter contexts, then compare the results with a smaller local model and a hosted API.
+
+</details>
 
 ## Further Reading
 

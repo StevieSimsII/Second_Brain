@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Claude Code routines package a prompt, repository context, and connectors into hosted automations triggered by schedules, API calls, or GitHub events. They can replace substantial automation glue, but reliable production use depends on narrow prompts, explicit contracts, guardrails, and careful usage prioritization.
+
+## Key Takeaways
+
+1. Choose scheduled triggers for recurring work, API triggers for explicit machine-to-machine calls, and webhooks for reactions to source-control events.
+2. Define each routine with a precise prompt, target repository, required connectors, expected inputs, and exact output artifacts.
+3. According to the article, each invocation creates a traceable Claude session; GitHub webhook routines can keep updating the same session as a pull request evolves.
+4. Scope routines to bounded tasks and sensitive paths—for example, review only PRs touching `/auth-provider` against an authentication checklist.
+5. Test the workflow manually on a real PR, issue, deploy, or alert before automating it, then refine the prompt until outputs are consistent.
+6. Add filters, required payload fields, allowed file scopes, and low-confidence behavior to control noise and reduce unsafe actions.
+7. Prioritize repetitive, high-value workflows because routines share the interactive Claude Code usage budget and are also subject to plan-based daily limits.
+
 ## Overview
 
 Claude Code routines are hosted automations that let teams package a prompt, repository context, and external connectors into a repeatable workflow. Instead of wiring together cron jobs, bots, webhooks, and custom infrastructure yourself, you define the routine once and let Claude Code run it on a schedule, via an API endpoint, or in response to events such as GitHub activity.
@@ -197,6 +211,26 @@ Design two versions of the same routine:
 - a narrow version: handles only `/auth-provider`
 
 Then compare which one is more likely to be reliable, cheaper to run, and easier to trust in production.
+
+## Test Yourself
+
+<details><summary>Which trigger type should be used for scheduled maintenance, an explicit deployment callback, and a GitHub PR event?</summary>
+
+Use a scheduled routine for maintenance on a cadence, an API routine when the deployment system should call it directly, and a webhook routine for GitHub PR activity.
+
+</details>
+
+<details><summary>Why is a prompt limited to PRs touching `/auth-provider` likely to outperform a generic “review this PR” prompt?</summary>
+
+The narrower prompt supplies a clear scope, checklist, and expected output, making behavior more consistent, cheaper to run, and easier to trust. It also limits irrelevant analysis and comments.
+
+</details>
+
+<details><summary>What should a team do before putting a routine into production?</summary>
+
+Simulate it manually with a real event, compare the result with the desired artifact, and refine the prompt. Then add guardrails for predictable failures, including missing inputs, oversized changes, excessive triggering, and low-confidence conclusions.
+
+</details>
 
 ## Further Reading
 

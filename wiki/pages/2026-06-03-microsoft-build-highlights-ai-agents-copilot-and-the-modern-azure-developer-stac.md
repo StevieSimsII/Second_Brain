@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Treat Microsoft Build announcements as signals about platform direction, then evaluate them for production fit before adoption. Start with low-risk Copilot productivity gains and add agent autonomy only after security, observability, and deterministic tool boundaries are established.
+
+## Key Takeaways
+
+1. Classify announcements as immediate productivity gains, medium-term architecture changes, or long-term ecosystem bets before deciding whether to adopt, watch, or ignore them.
+2. Microsoft’s platform direction increasingly treats GitHub Copilot as a workflow layer for coding, refactoring, testing, documentation, and issue-to-code transitions.
+3. Evaluate agent systems by their tool invocation, state management, observability, guardrails, and failure behavior—not by the quality of an event demo.
+4. Check API stability, regional availability, pricing, identity, telemetry, fallback behavior, and delivery-pipeline effort before calling a feature production-ready.
+5. Prototype narrow AI features such as semantic search or internal Q&A before introducing tool-using agents with broader autonomy.
+6. Standardize deployment, monitoring, and access control before expanding an agent’s permissions or supported workflows.
+7. For a one-week support-agent prototype, expose one safe read-only tool, log every tool call, test 20 representative queries, and categorize failures.
+
 ## Overview
 
 This lesson summarizes the kinds of platform and tooling announcements typically surfaced at Microsoft Build: new Azure AI capabilities, GitHub Copilot and developer workflow improvements, agent-based application patterns, and cloud platform updates that affect how engineers design, ship, and operate software. Even when the source is a short event recap, the useful engineering takeaway is not the marketing headline but the architectural direction Microsoft is pushing across its ecosystem.
@@ -176,6 +190,26 @@ printf "# Build Feature Triage\n\n## Candidates\n- Copilot test generation\n- In
 ```
 
 The deliverable is a short design note that clearly states which announcement category you would pilot first, why, and what technical constraints must be solved before broader adoption.
+
+## Test Yourself
+
+<details><summary>What filtering strategy should engineers apply to a large set of Build announcements?</summary>
+
+Separate immediate productivity improvements from medium-term architectural changes and longer-term ecosystem bets. Then classify each candidate as adopt now, watch, or ignore based on its practical value and production readiness.
+
+</details>
+
+<details><summary>What distinguishes a production-ready agent from an impressive event demo?</summary>
+
+A production-ready agent has defined tool permissions, durable state handling, authentication, telemetry, evaluations, and safe fallbacks. Teams must also understand failure modes such as hallucinations, stale retrieval results, connector failures, rate limits, and latency.
+
+</details>
+
+<details><summary>What adoption sequence does the lesson recommend for AI-assisted development and agents?</summary>
+
+Begin with Copilot-assisted tests, documentation, and refactoring; then prototype narrow AI features such as search or internal Q&A. Add tool-using agents only for clearly defined workflows, after deployment, observability, and access controls are standardized.
+
+</details>
 
 ## Further Reading
 

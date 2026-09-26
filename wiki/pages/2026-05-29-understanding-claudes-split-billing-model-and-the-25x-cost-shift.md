@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> According to the source article, Claude’s unchanged headline subscription limits can mask a separate, API-priced credit pool for developer workflows, creating an effective cost increase of up to 25x. Teams should classify each Claude workflow by billing path and add caps, alerts, and safe shutdowns before automating it at scale.
+
+## Key Takeaways
+
+1. Treat Agent SDK usage, `claude -p`, Claude Code GitHub Actions, and third-party Agent SDK apps as likely programmatic usage that may draw from a separate monthly credit pool.
+2. Do not infer billing from the vendor, account, model, or subscription alone; verify the product surface, quota bucket, marginal cost, and exhaustion behavior for every workflow.
+3. Audit automation by trigger, interface, frequency, estimated runs, billing path, and risk level so repeated CI jobs and agent loops do not turn small per-run costs into surprise spend.
+4. For every metered workflow, determine whether depleted credits cause throttling, failure, or billable overage and whether the workflow fails safely.
+5. Assign each programmatic workflow a Safe, Sensitive, or Critical rating based on whether losing it would disrupt merges, releases, or essential engineering work.
+6. Give the three riskiest workflows a daily or monthly cap, a named owner, a fallback path, and an explicit decision about whether automation should continue.
+7. Require a budget-approval flag before running costly automation, and disable the workflow automatically when approval or available budget is missing.
+
 ## Overview
 
 This lesson explains a pricing and policy change described in the article "Everything That Went Wrong With Claude": Anthropic kept nominal subscription limits in place while moving several developer-facing workflows into a separate monthly credit pool priced like API usage. The practical outcome, according to the article, is that activities that previously felt covered by a subscription can now consume credits quickly and potentially create additional charges.
@@ -155,6 +169,26 @@ For your top 3 risky workflows, define:
 
 ### Stretch exercise
 Draft a one-page internal note titled: **"When Claude usage is subscription-backed vs metered"**. Include examples from your environment so other engineers do not assume CLI or CI usage behaves like standard chat usage.
+
+## Test Yourself
+
+<details><summary>What is the central distinction in Claude’s split billing model as described by the article?</summary>
+
+The article distinguishes subscription-style usage from programmatic usage charged against a separate monthly credit pool at API-like rates. A user can remain within visible subscription limits while CLI, SDK, CI, or integrated-app activity depletes another bucket.
+
+</details>
+
+<details><summary>Why can moving a Claude task from an interactive UI into CI materially change its cost?</summary>
+
+The interface can determine the billing path: interactive use may be subscription-backed, while a GitHub Action or SDK call may be metered. CI also repeats work across pull requests, branches, and scheduled jobs, amplifying even modest per-run costs.
+
+</details>
+
+<details><summary>What controls should a team establish for its highest-risk programmatic workflows?</summary>
+
+Each should have a usage cap, named owner, exhaustion fallback, and decision on whether it should remain automated. Teams should also add monitoring and a budget gate that prevents unapproved metered usage.
+
+</details>
 
 ## Further Reading
 

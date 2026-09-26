@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Auto DCA performs oil-and-gas decline-curve analysis entirely in the browser while keeping its TypeScript engine separate from the React UI. Its cross-validated model selection and parity tests against Equinor’s Python implementation aim to make private, portable forecasts numerically trustworthy.
+
+## Key Takeaways
+
+1. Fit exponential, harmonic, and hyperbolic Arps models, then select among them using expanding-window cross-validation rather than in-sample fit alone.
+2. Use AICc as a fallback or tie-breaker when a production series is short or competing models perform similarly.
+3. Fit positive production rates in log-space with a robust p-norm loss where p = 1.4, using transformed parameters, Nelder–Mead optimization, and multi-start initialization.
+4. Apply Modified Arps terminal decline to switch an optimistic hyperbolic tail smoothly to exponential decline once it reaches Dmin.
+5. Test sensitivity by changing terminal-decline and economic-limit assumptions; the lesson predicts these choices will affect EUR more than the fitted historical parameters.
+6. Keep scientific logic in the reusable @workollab/auto-dca-engine package so formulas, optimization, forecasting, parsing, and diagnostics can be tested independently of the React interface.
+7. Use golden fixtures from Equinor’s Python implementation as an executable specification; the project reports parity on real field data within 0.02 ppm.
+
 ## Overview
 
 Auto DCA is a monorepo that implements decline-curve analysis (DCA) for oil and gas wells entirely in the browser. It rebuilds Equinor's Python-based decline-curve-analysis engine as a dependency-free TypeScript library, then wraps it with a Vite/React frontend for CSV upload, model fitting, forecasting, EUR estimation, diagnostics, and confidence bands. The key promise is privacy and portability: production data never leaves the user's machine, yet the numerical results are validated against a known industry reference implementation.
@@ -219,6 +233,26 @@ By the end, you should be able to explain:
 - how Auto DCA chooses among Arps families,
 - how terminal decline changes reserves-style forecasts,
 - and how parity tests de-risk a Python-to-TypeScript scientific port.
+
+## Test Yourself
+
+<details><summary>How does Auto DCA choose among exponential, harmonic, and hyperbolic Arps models?</summary>
+
+It fits all three families and primarily compares their forecasting errors through expanding-window cross-validation on held-out future slices. The lesson says AICc is used when the series is too short or results are close.
+
+</details>
+
+<details><summary>Why does Auto DCA support a terminal decline rate for hyperbolic forecasts?</summary>
+
+An unrestricted hyperbolic curve can produce an overly optimistic long tail. Modified Arps switches smoothly to exponential decline when the decline rate reaches Dmin, producing a more conservative reserves-style forecast.
+
+</details>
+
+<details><summary>How does the repository build confidence in its Python-to-TypeScript numerical rewrite?</summary>
+
+It vendors Equinor’s Python implementation, generates golden outputs from that reference, and compares the TypeScript engine against those fixtures in parity tests. Separate model and CSV tests also isolate formula and parsing behavior.
+
+</details>
 
 ## Further Reading
 

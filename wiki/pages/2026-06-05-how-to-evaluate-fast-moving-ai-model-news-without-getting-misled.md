@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat every AI model announcement as a claim to evaluate, not a deployment decision. Classifying the artifact, testing the evidence against real workloads, and measuring operational tradeoffs prevents benchmark hype from driving costly choices.
+
+## Key Takeaways
+
+1. Classify each announcement as a research claim, demo, paper, API release, open-weight release, checkpoint, or benchmark report before comparing it with other systems.
+2. Treat checkpoints as evidence of a model family’s trajectory, not automatically as stable or production-ready deployment candidates.
+3. Use benchmark wins to begin evaluation; check the dataset, scoring method, contamination risk, task similarity, and operational significance of the reported gain.
+4. Break AGI and reasoning claims into testable questions about cross-domain transfer, adversarial robustness, error recovery, and independent reproducibility.
+5. Choose between open weights and closed APIs based on governance, customization, infrastructure, safety tooling, and operational constraints—not openness or headline performance alone.
+6. Evaluate accessible models on 25–100 representative tasks, tracking correctness, latency, structured-output reliability, token consumption, cost, and failure modes.
+7. Require a candidate to outperform the current baseline and a cheaper fallback on the workload that matters before adopting it in production.
+
 ## Overview
 
 This lesson turns a high-level AI news roundup into a practical framework for engineers who need to interpret announcements about new language models, AGI claims, checkpoints, and benchmark results. Instead of focusing on one specific model release, it teaches how to analyze claims about systems like Claude, GPT checkpoint variants, GLM, and Nemotron in a way that is technically grounded and useful for product, research, or infrastructure decisions.
@@ -158,6 +172,26 @@ Summarize your findings in one page:
 
 ### Optional extension
 Automate the comparison with a short script that converts your CSV into a ranked report. For example, weigh real-world correctness more heavily than benchmark headlines, and penalize missing pricing or unavailable access.
+
+## Test Yourself
+
+<details><summary>Why should artifact type be identified before comparing model announcements?</summary>
+
+A demo, research claim, checkpoint, public API, and supported product differ in accessibility, maturity, reproducibility, and operational guarantees. Comparing them as equivalent can create a misleading picture of relative capability.
+
+</details>
+
+<details><summary>What makes a benchmark result relevant to an engineering decision?</summary>
+
+Its tasks and scoring should resemble the production workload, remain discriminative, and have manageable contamination risk. The gain must also be large enough to improve practical outcomes such as reliability, latency, or cost.
+
+</details>
+
+<details><summary>What should a workload-based model trial measure?</summary>
+
+Test 25–100 representative tasks and measure correctness, latency, structured-output success, token use, cost, hallucinations, refusals, formatting failures, and tool misuse. Compare the results with the current model and a cheaper fallback.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 2
 actionability: 1
 ---
 
+## TL;DR
+
+> VS Code 1.122 makes agent sessions, self-managed AI models, and responsive browser testing more integrated with the editor. It enables chat in restricted or offline environments without GitHub sign-in while shortening the loop from reproducing a UI problem to sharing it with an agent.
+
+## Key Takeaways
+
+1. Configure a BYOK provider through Manage Language Models to use chat, tools, and MCP servers without GitHub authentication; inline suggestions and Next Edit Suggestions still require GitHub sign-in.
+2. Map chat.utilityModel and chat.utilitySmallModel to configured BYOK models when signed out, or helper features such as chat-title and commit-message generation remain unavailable.
+3. Use the Stable Custom Endpoint provider with compatible Chat Completions, Responses, or Messages APIs to connect VS Code to self-hosted or enterprise-managed model gateways.
+4. Review Agents window metadata—including the harness, project, worktree, and changed files—to understand where and how each agent session operated.
+5. Export local agent telemetry through the canonical github.copilot.* OpenTelemetry namespace to analyze repository context, agent type, tool parameters, and hook outcomes.
+6. Expect terminal sandboxing only in Default Approvals mode; Bypass Approvals and Autopilot no longer attempt commands inside the sandbox before retrying outside it.
+7. Open Show Emulation Toolbar in the integrated browser to test viewport, touch, and user-agent behavior, then use Add Screenshot to Chat to provide visual debugging context.
+
 ## Overview
 
 Visual Studio Code 1.122 expands VS Code’s AI and web-development workflows in three important ways: a more capable Agents window, Bring Your Own Key (BYOK) support that no longer requires GitHub sign-in, and built-in browser device emulation for responsive testing. The release also improves issue reporting and refines sandbox behavior for agent-driven terminal actions.
@@ -296,6 +310,26 @@ By the end, you should be able to:
 - understand the boundary between chat features and utility-model-backed features
 - use integrated device emulation for responsive testing
 - feed visual browser context into AI chat for UI debugging
+
+## Test Yourself
+
+<details><summary>Which AI capabilities can operate through BYOK without GitHub sign-in, and which still require it?</summary>
+
+Chat, tools, and MCP servers can use a configured BYOK provider without GitHub authentication. Inline suggestions and Next Edit Suggestions still require GitHub sign-in.
+
+</details>
+
+<details><summary>Why might some AI conveniences remain disabled after a signed-out BYOK setup begins working?</summary>
+
+VS Code uses separate utility models for tasks such as generating chat titles and commit messages. In a signed-out setup, chat.utilityModel and chat.utilitySmallModel must be mapped explicitly to configured BYOK models.
+
+</details>
+
+<details><summary>How does VS Code 1.122 support a faster responsive-debugging loop?</summary>
+
+The integrated browser can emulate screen size, touch behavior, and user-agent strings. Developers can reproduce a mobile layout issue, attach the current viewport with Add Screenshot to Chat, apply a suggested fix, and retest without leaving VS Code.
+
+</details>
 
 ## Further Reading
 

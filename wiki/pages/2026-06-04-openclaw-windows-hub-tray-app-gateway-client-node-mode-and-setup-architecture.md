@@ -10,6 +10,20 @@ depth: 3
 actionability: 1
 ---
 
+## TL;DR
+
+> OpenClaw Windows Hub separates gateway communication, connection management, setup, chat state, and Windows UI into reusable layers. This matters because the design supports resilient connectivity and independently enforced safety gates for remotely invoked Windows capabilities.
+
+## Key Takeaways
+
+1. Treat the gateway as the system’s runtime hub: status, sessions, channels, pairing, node registration, usage, and chat depend on a healthy WebSocket connection.
+2. Keep protocol code outside the desktop UI; `OpenClaw.Shared` lets the tray app, CLI, and future frontends reuse gateway communication, models, identity handling, and safety checks.
+3. Model connectivity explicitly with `GatewayConnectionManager`, `ConnectionStateMachine`, retry policies, credential resolution, gateway records, node registration, and optional SSH tunneling.
+4. Gate node actions at multiple layers: device pairing, `gateway.nodes.allowCommands`, local `%LOCALAPPDATA%\OpenClawTray\exec-policy.json`, command and environment sanitization, and Windows capability consent.
+5. Use the CLI to validate connection and message paths independently of WinUI, including direct testing with `--url`, `--token`, and `--message`.
+6. Treat onboarding as a resilient workflow: the lesson describes setup pipelines, retries, transaction journaling, existing-configuration detection, cleanup, and a managed WSL gateway path.
+7. Trace responsibilities by layer: CLI or tray UI → `OpenClaw.Connection` → `OpenClaw.Shared` WebSocket client → gateway; node requests return through policy checks before reaching Windows capabilities.
+
 ## Overview
 
 OpenClaw Windows Hub is a C# monorepo that turns a Windows machine into both a desktop companion for OpenClaw and, optionally, a controllable node in the OpenClaw ecosystem. It combines a WinUI 3 tray application, a shared WebSocket client library, a connection-management layer, a setup engine, and a CLI validator. The system is designed to connect to a local or remote OpenClaw gateway, surface operational state in a Windows-native UX, and expose device capabilities like notifications, canvas control, screen capture, camera access, and command execution under policy control.
@@ -212,6 +226,26 @@ Windows-specific shell:
 ```
 
 This exercise forces you to connect the repository layout, runtime behavior, and security model into a coherent engineering understanding.
+
+## Test Yourself
+
+<details><summary>What are the main responsibilities of `OpenClaw.Shared` and `OpenClaw.Connection`?</summary>
+
+The lesson describes `OpenClaw.Shared` as the reusable protocol layer containing the WebSocket client, domain models, identity support, deep-link parsing, and execution safeguards. `OpenClaw.Connection` orchestrates credentials, connection state, retries, configured gateways, tunnels, scopes, and node registration.
+
+</details>
+
+<details><summary>Why is node mode not equivalent to unrestricted remote shell access?</summary>
+
+According to the lesson, an invocation must pass gateway authorization and allowlists, device pairing, local capability support, execution policy, wrapper and environment sanitization, and any required Windows permission checks. These independent gates limit what the gateway can cause the Windows host to do.
+
+</details>
+
+<details><summary>How would you validate the message-send architecture without launching the tray application?</summary>
+
+Run `OpenClaw.Cli` using existing tray settings or supply a gateway URL and token directly, then trace calls from `Program.cs` through the connection layer to `OpenClawGatewayClient`. Check where the URL and credentials are resolved, which method performs the WebSocket send, and where missing scopes such as `operator.write` surface.
+
+</details>
 
 ## Further Reading
 

@@ -9,6 +9,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Microsoft presents NVIDIA RTX Spark PCs as a full-stack Windows-on-Arm platform where scheduling, unified memory, GPU runtimes, emulation, and security work together—not merely as faster hardware. Developers should evaluate native Arm readiness, Prism compatibility, GPU acceleration, memory behavior, and least-privilege agent access before migrating workloads.
+
+## Key Takeaways
+
+1. Treat RTX Spark readiness as a system-level problem spanning CPU scheduling, GPU execution, memory management, application compatibility, and security boundaries.
+2. Microsoft says workload profile scheduling and the Microsoft Power and Thermal Framework are tuned to distribute work across up to 20 heterogeneous CPU cores while managing sustained power and heat.
+3. RTX Spark systems can expose up to 128 GB of unified memory, but application throughput still depends on GPU-accessible memory limits, page-size management, and allocation behavior.
+4. Microsoft says Windows ML will provide native TensorRT access, giving developers a GPU-accelerated path for local inference alongside DirectX 12 graphics and neural-rendering workloads.
+5. Plan for a mixed Arm ecosystem: ship native Arm64 code where possible, benchmark remaining x86/x64 components under Prism, and inspect plugins or native extensions that could block migration.
+6. Microsoft positions Prism—including AVX and AVX2 support and RTX Spark-specific tuning—as a compatibility bridge rather than a substitute for validating performance-critical dependencies.
+7. Give local agents OS-enforced identities and explicit, least-privilege access to only the files, applications, APIs, and tools required for their tasks.
+
 ## Overview
 
 This announcement describes a new class of thin-and-light Windows PCs built around NVIDIA RTX Spark, a platform combining Arm CPU cores, Blackwell RTX GPU technology, unified memory, and Windows-specific OS optimizations. The key story is not just faster silicon, but deep platform work across scheduling, memory management, graphics, local AI execution, x86 emulation, and security primitives for on-device agents.
@@ -179,6 +193,26 @@ print("python_bits:", struct.calcsize("P") * 8)
 ```
 
 Use that information to start planning native Arm support and identifying where emulation or alternate GPU backends may be required.
+
+## Test Yourself
+
+<details><summary>Why does the lesson describe RTX Spark as a full-stack platform effort rather than simply a hardware upgrade?</summary>
+
+Microsoft's claimed benefits depend on coordinated changes across CPU scheduling, power and thermal control, unified-memory management, DirectX 12, Windows ML and TensorRT, Prism emulation, WSL, and agent containment. Faster silicon alone would not ensure that real applications run efficiently, compatibly, or securely.
+
+</details>
+
+<details><summary>What should an engineer examine when assessing an existing workflow for RTX Spark?</summary>
+
+Check every dependency for native Arm64 support or Prism compatibility, identify the required GPU backend, review unified-memory behavior, and test Python extensions, plugins, or other native binaries. If automation or an agent accesses local resources, also define a least-privilege security boundary.
+
+</details>
+
+<details><summary>Why is unified memory not automatically efficient even when CPU and GPU share the same pool?</summary>
+
+Performance still depends on operating-system policies such as GPU-visible memory limits, page sizes, allocation patterns, and CPU/GPU access behavior. Microsoft says its RTX Spark optimizations target these areas so larger models and assets can use shared memory more effectively.
+
+</details>
 
 ## Further Reading
 

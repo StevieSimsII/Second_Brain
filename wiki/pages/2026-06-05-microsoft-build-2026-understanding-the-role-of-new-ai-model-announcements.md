@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Treat a keynote model announcement as a starting point, not sufficient evidence for production adoption. Match each workload to the appropriate model class, then validate it with task-specific evaluations, cost and latency measurements, and enterprise governance checks.
+
+## Key Takeaways
+
+1. Wait for API documentation, model cards, benchmark reports, pricing, and safety disclosures before making implementation decisions from a keynote announcement.
+2. Route simple classification, tagging, extraction, and UI tasks to small low-latency models; reserve larger reasoning models for planning-heavy work.
+3. Use specialized multimodal, vision, speech, or media models when workloads involve screenshots, documents, audio, video, or generated media.
+4. Evaluate models on your own datasets using metrics such as hallucination rate, domain accuracy, latency p95, cost per task, tool-call success rate, and failure recovery behavior.
+5. Treat orchestration, permissions, grounding, retries, validation, observability, and safety checks as first-class requirements for agentic workflows.
+6. Require production controls such as audit logging, RBAC, regional availability, content filtering, prompt-injection defenses, data-retention controls, and private networking where applicable.
+7. The lesson argues that multi-model announcements signal a shift toward model portfolios, with dynamic, policy-driven routing replacing reliance on a single model.
+
 ## Overview
 
 This lesson explains how to interpret a major AI platform announcement when the source material is a high-level keynote rather than a technical paper or code repository. In this case, the source indicates a Microsoft Build 2026 talk by Mustafa Suleyman about seven new AI models, but it does not include technical details such as model architectures, benchmarks, APIs, or deployment guidance.
@@ -170,6 +184,26 @@ Write a one-page engineering note answering:
 4. What experiments would you run before rollout?
 
 This exercise trains the real skill needed after keynote announcements: converting vague product news into a concrete technical adoption plan.
+
+## Test Yourself
+
+<details><summary>Why is a keynote announcement insufficient for choosing a production model?</summary>
+
+A keynote emphasizes vision and product positioning but may omit architecture, API behavior, pricing, benchmarks, safety details, regional availability, and enterprise controls. Engineers need companion documentation and workload-specific testing before adoption.
+
+</details>
+
+<details><summary>How should an application choose among several model classes?</summary>
+
+Route by task requirements: use a small text model for simple work, a reasoning model for multi-step analysis, a vision model for images or screenshots, and a speech model for audio. The policy should also consider latency, accuracy, cost, and governance constraints.
+
+</details>
+
+<details><summary>What should a production evaluation measure beyond headline benchmarks?</summary>
+
+It should measure performance on representative internal examples, including factual or domain accuracy, hallucination rate, latency distribution, cost per task, tool-use reliability, and failure recovery. The exercise recommends collecting at least 20 examples for each task category.
+
+</details>
 
 ## Further Reading
 

@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> An RTX laptop’s real performance depends on the whole platform—especially GPU power limits, cooling, and shared CPU/GPU power—not just the model name. Evaluating these implementation details helps predict sustained performance, noise, and suitability for gaming, development, or AI workloads.
+
+## Key Takeaways
+
+1. Treat the exact GPU SKU, disclosed Total Graphics Power (TGP), chassis class, and cooling system as separate variables when comparing RTX laptops.
+2. Expect two laptops with the same RTX label to perform differently when their wattage limits, thermal designs, or firmware tuning differ.
+3. Do not assume a 45 W CPU and 115 W GPU can sustain their maximum power simultaneously; laptop controllers continuously redistribute a shared thermal and electrical budget.
+4. Prefer sustained benchmarks that include temperatures, fan noise, and performance over time instead of relying on short tests or launch-day marketing charts.
+5. Match the display to the GPU budget: driving a 1600p/240 Hz panel places substantially different demands on the system than driving a 1080p/144 Hz panel.
+6. Check VRAM, system RAM, SSD performance, and upgradeability for development and local AI workloads because the GPU alone does not determine usefulness.
+7. Validate predictions with workload-specific third-party tests covering native-resolution gaming, rendering or encoding, ray tracing, and local inference where relevant.
+
 ## Overview
 
 This lesson explains how to reason about new Nvidia RTX laptops when the source material is a product-focused video with limited technical detail. Rather than repeating marketing claims, it teaches the engineering mindset needed to evaluate mobile GPUs: the relationship between SKU names and power limits, the impact of thermals and chassis design, and why laptop performance often diverges from desktop expectations.
@@ -139,6 +153,26 @@ If you have access to an RTX laptop, run a 20-minute sustained test such as a ga
 - fan noise impression
 
 Then compare the first 2 minutes to the final 5 minutes to see whether the system throttles under sustained load.
+
+## Test Yourself
+
+<details><summary>Why can two laptops with the same Nvidia RTX GPU name deliver different sustained performance?</summary>
+
+Their TGP settings, cooling capacity, chassis thickness, firmware policies, and CPU power demands may differ. These factors determine how long the GPU can maintain high clock speeds without reaching thermal or electrical limits.
+
+</details>
+
+<details><summary>Why is adding the CPU and GPU wattage ratings an unreliable way to predict sustained laptop performance?</summary>
+
+The CPU and GPU usually share platform-level thermal and electrical constraints, so both may not sustain their rated power at the same time. Firmware reallocates power as workloads, temperatures, and current limits change.
+
+</details>
+
+<details><summary>What evidence should a buyer gather beyond the GPU model name?</summary>
+
+Check the stated TGP, CPU pairing, cooling design, RAM and storage configuration, display resolution, charger wattage, and upgradeability. Then use sustained, workload-specific third-party benchmarks that report temperatures, noise, and performance over time.
+
+</details>
 
 ## Further Reading
 

@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Explain code step by step and compare your intent with what the implementation actually does; the mismatch often reveals the bug. VS Code supports inspection and testing, while GitHub Copilot CLI can restate logic and challenge assumptions without replacing your reasoning.
+
+## Key Takeaways
+
+1. Narrate every function, branch, loop, variable change, and return value; uncertainty or contradiction marks the next place to investigate.
+2. Compare three things during debugging: intended behavior, code as written, and observed runtime behavior.
+3. Use VS Code to trace execution, navigate symbols, inspect related files, reproduce failures, and run focused tests.
+4. Use GitHub Copilot CLI as a reasoning mirror by requesting explanations, decompositions, assumptions, and edge cases rather than blindly accepting fixes.
+5. For shell commands and scripts, explicitly validate flags, shell expansion, environment assumptions, pipeline inputs, transformations, and outputs.
+6. In the example `is_even_sum`, the loop adds `1` per item instead of `n`, so it checks whether the list length is even rather than whether the numeric sum is even.
+7. In the training exercise, `len(values) - 1` is the wrong denominator for an average; use `len(values)` and define safe behavior for an empty list.
+
 ## Overview
 
 Rubber duck debugging is the practice of explaining your code, line by line, as if you were teaching it to an inanimate listener. The act of verbalizing assumptions, control flow, and expected outcomes often reveals bugs, missing edge cases, and unclear design decisions before you ever run a debugger. The source highlights using this technique inside Visual Studio Code and with GitHub Copilot CLI to make the process faster and more interactive.
@@ -124,6 +138,26 @@ Expected learning outcomes:
 - you learn to isolate mismatches between intent and implementation
 - you use AI tooling to clarify reasoning, not shortcut it
 - you build a repeatable debugging workflow for both code and shell commands
+
+## Test Yourself
+
+<details><summary>What three things should you compare in an explanation-first debugging session?</summary>
+
+Compare your intended behavior, the code as written, and the observed runtime behavior. The point where they diverge identifies the likely source of the bug.
+
+</details>
+
+<details><summary>Why should you ask GitHub Copilot CLI for explanations or edge cases instead of immediately asking for a fix?</summary>
+
+Explanation-first prompts make assumptions and control flow visible while preserving your understanding of the code. The lesson presents the tool as a mirror for reasoning, not an oracle whose changes should be accepted blindly.
+
+</details>
+
+<details><summary>What is wrong with the training exercise&#x27;s `average` function, and what additional case must be handled?</summary>
+
+It divides the total by `len(values) - 1`, although the denominator should be the number of values, `len(values)`. It must also handle an empty list safely to avoid division by zero.
+
+</details>
 
 ## Further Reading
 

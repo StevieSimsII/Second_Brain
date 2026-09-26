@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use a structured knowledge map to navigate LLM concepts, then retrieve targeted evidence, test it through small implementations, and update your notes. This matters because a wiki reduces discovery cost, while precise retrieval turns references into practical understanding.
+
+## Key Takeaways
+
+1. Treat a knowledge map as a navigation layer, not a final authority; validate important ideas with official documentation, papers, technical articles, and runnable examples.
+2. Start with a concrete engineering task, identify its concept cluster, and decompose it into small, answerable questions before retrieving information.
+3. Use progressive depth: begin with a high-level explanation and investigate mathematical or systems details only when the task requires them.
+4. Organize LLM knowledge into foundation, training, inference, augmentation, evaluation, and deployment layers so each new question has a likely home.
+5. Make each Markdown note actionable with a one-paragraph definition, 2–3 failure modes, one code example, and links to deeper references.
+6. The lesson argues that building a small prototype or test harness exposes gaps in understanding faster than passive reading.
+7. Repeat the loop—map, retrieve, test, refine, and update—so the knowledge base becomes a personalized graph of concepts, examples, and failure cases.
+
 ## Overview
 
 This lesson is about a practical pattern for accelerating technical learning: combine a structured LLM-oriented knowledge map or wiki with the skill of retrieval and targeted questioning. Even though the source content is sparse, the title suggests a workflow where a curated map of large-language-model concepts becomes much more valuable when paired with the ability to search, connect, validate, and operationalize what you find.
@@ -206,6 +220,26 @@ You should end the exercise with:
 - one answered technical question
 - at least three validated external references
 - one implementation takeaway you could apply in a real project
+
+## Test Yourself
+
+<details><summary>Why should a knowledge map be treated as a navigation layer rather than a final authority?</summary>
+
+It helps locate relevant concepts and relationships, but its summaries may omit implementation constraints. The lesson recommends triangulating important claims with primary documentation, papers, technical explanations, and working code.
+
+</details>
+
+<details><summary>How does question decomposition improve technical learning?</summary>
+
+It converts a broad topic into specific, retrieval-friendly questions that can be answered and tested independently. For example, studying RAG becomes questions about chunking, embeddings, retrieval failures, context injection, and evaluation.
+
+</details>
+
+<details><summary>What practical loop does the lesson recommend for building durable understanding?</summary>
+
+Map the domain, retrieve the relevant concept, test it in a small artifact, refine your understanding, and update your notes. Repeating this loop turns a static wiki into an increasingly useful engineering resource.
+
+</details>
 
 ## Further Reading
 

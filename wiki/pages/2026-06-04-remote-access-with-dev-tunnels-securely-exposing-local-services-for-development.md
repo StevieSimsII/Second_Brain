@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Dev tunnels make a local service remotely reachable through a temporary endpoint without requiring deployment or inbound firewall changes. They accelerate testing and collaboration, but exposing localhost changes the app’s trust boundary and requires deliberate access controls and cleanup.
+
+## Key Takeaways
+
+1. Forward only the required local port, such as `localhost:3000` or `localhost:8000`, rather than exposing the entire development machine.
+2. Require authentication or scoped permissions before sharing a tunnel URL, especially when the local app has debug tools, admin routes, secrets, or sensitive data.
+3. Use dev tunnels for short-lived workflows such as demos, webhook callbacks, mobile-device testing, cross-machine collaboration, and remote debugging—not as production hosting.
+4. Test external reachability from another device, network, or browser session, then inspect local logs to confirm that requests traverse the tunnel correctly.
+5. Verify protocol requirements before tunneling websocket-heavy or non-HTTP applications, because tool support can vary.
+6. Stop the tunnel after the task and confirm that its remote URL is no longer reachable.
+7. Follow organizational policies governing external exposure of local services, even when the tunnel uses HTTPS.
+
 ## Overview
 
 Dev Tunnels let developers securely expose a local port or service to a temporary public or shared endpoint without deploying the application to a full hosting environment. This is especially useful for demos, webhook testing, mobile-device validation, cross-machine collaboration, and remote debugging scenarios where a service running on localhost needs to be reachable from elsewhere.
@@ -140,6 +154,26 @@ Stop the tunnel and verify the remote URL is no longer reachable. This reinforce
 
 ### Stretch task
 Use the tunnel URL as a webhook target for a test integration. For example, point a sandbox webhook provider or local mock service at your tunneled endpoint and confirm that callbacks reach your machine.
+
+## Test Yourself
+
+<details><summary>How does a dev tunnel expose a local service without opening an inbound router or firewall port?</summary>
+
+The development machine establishes an outbound connection to a tunneling service. That service accepts traffic at a remote endpoint and relays it through the established channel to the selected local port.
+
+</details>
+
+<details><summary>Why does an HTTPS tunnel URL not automatically make the local application safe to share?</summary>
+
+HTTPS protects traffic in transit, but the app may still expose debug routes, weak authentication, test data, secrets, or administrative functions. The lesson emphasizes reviewing both tunnel access controls and the application behind the endpoint.
+
+</details>
+
+<details><summary>What should you verify during and after a basic dev-tunnel exercise?</summary>
+
+During the exercise, confirm that another device can reach the local service and that requests appear in local logs. Afterward, stop the tunnel and verify that the remote URL is no longer accessible.
+
+</details>
 
 ## Further Reading
 

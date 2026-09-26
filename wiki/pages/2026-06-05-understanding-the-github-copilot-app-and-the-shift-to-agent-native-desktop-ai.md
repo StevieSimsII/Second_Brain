@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Agent-native desktop AI shifts coding assistance from autocomplete and chat toward coordinating multi-step work across files, tools, and services. This matters because context management, permissions, approvals, and workflow integration become as important as model quality.
+
+## Key Takeaways
+
+1. Treat an agent-native product as a task orchestrator that gathers evidence, plans steps, invokes tools, and maintains actionable state—not merely as a chat interface.
+2. Design desktop developer agents around cross-tool context such as repositories, terminals, CI logs, git history, issues, pull requests, and tests.
+3. Require human approval for consequential actions such as editing files, running commands, opening pull requests, or affecting remote systems.
+4. Use scoped permissions, visible progress, audit logs, and rollback mechanisms to balance agent capability with user trust.
+5. Separate the architecture into a desktop shell, context-ingestion layer, agent runtime, tool adapters, safety layer, and model interface.
+6. For CI-failure investigations, gather evidence before proposing a fix, validate the hypothesis, and summarize the root cause, confidence, and next steps.
+7. The lesson interprets GitHub's "agent-native desktop experience" framing as a likely shift from an in-editor code suggester toward a broader software-work coordinator.
+
 ## Overview
 
 This lesson explains the idea behind GitHub’s Copilot app as an agent-native desktop experience: a developer tool designed not just to answer prompts, but to participate more actively in software work across the desktop environment. The source content is sparse, but the title and context point to an important product direction in developer tooling: moving from in-editor autocomplete and chat toward persistent, desktop-level AI agents that can coordinate tasks, understand context, and support end-to-end workflows.
@@ -196,6 +210,26 @@ cat ci.log | python summarize_failure.py
 ```
 
 This exercise helps you internalize the main lesson: agent-native desktop tools are less about chat alone and more about orchestrating context, actions, and approvals around real engineering work.
+
+## Test Yourself
+
+<details><summary>How does an agent-native developer tool differ from completion-first and chat-enhanced tools?</summary>
+
+Completion-first tools suggest code, while chat-enhanced tools answer questions and propose edits. An agent-native tool accepts higher-level goals, gathers context, coordinates multiple actions, and maintains task state across tools.
+
+</details>
+
+<details><summary>Why are human-in-the-loop controls essential in an agent-native desktop app?</summary>
+
+Broader context access and action-taking capabilities create greater risks. Approval checkpoints, scoped permissions, auditability, and rollback let users retain control over edits, commands, and external side effects.
+
+</details>
+
+<details><summary>What workflow should an agent use to investigate a failing CI build?</summary>
+
+It should collect repository and CI evidence, parse the failure, inspect relevant code and tests, form a root-cause hypothesis, propose a change, validate it with approved commands, and present findings for user review.
+
+</details>
 
 ## Further Reading
 

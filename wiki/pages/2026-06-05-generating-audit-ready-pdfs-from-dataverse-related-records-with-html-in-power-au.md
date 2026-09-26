@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Normalize related Dataverse records into one common schema, merge and sort them chronologically, then render the result as styled HTML for PDF conversion. This avoids Word-template maintenance while preserving rich text and giving the flow direct control over audit-ready formatting.
+
+## Key Takeaways
+
+1. Map every source table into common `Date`, `Activity`, `Content`, and `Style` fields so one HTML row template can render all record types.
+2. Combine normalized arrays with `union(...)` and sort on `Date` to produce a single chronological audit timeline instead of table-by-table sections.
+3. Emit rich-text notes and email bodies directly as HTML inside table cells to preserve their formatting more faithfully than plain-text template fields.
+4. Set row styling from record attributes such as email `prioritycode`; CSS class names are cleaner long-term than embedding raw style strings.
+5. Build the document from separate CSS, HTML header, table header, generated rows, and closing-tag components so each part can be changed independently.
+6. Save the assembled HTML as a file, convert it with an HTML-to-PDF action available in the environment, and then store or send the resulting PDF.
+7. Validate chronological ordering, retained rich-text formatting, conditional colors, and malformed source HTML before treating the export as audit-ready.
+
 ## Overview
 
 This lesson explains a practical pattern for exporting related Dataverse records—such as emails, notes, cases, and other activities—into a single PDF using Power Automate without relying on Word templates. Instead of pushing data into a document template, the flow builds HTML directly, applies CSS for styling, and then converts the result to PDF.
@@ -224,6 +238,26 @@ sort(union(body('Select_-_notes'), body('Select_-_emails')), 'Date')
     - Confirm that priority-based email rows have different background colors.
 
 **Stretch goal:** Replace inline styles with CSS classes such as `priority-high` and `priority-low`, then emit class names from the Select action instead of raw CSS strings. This makes the row rendering cleaner and centralizes styling in one CSS block.
+
+## Test Yourself
+
+<details><summary>Why must notes, emails, and other related records be normalized before rendering?</summary>
+
+Their Dataverse tables use different schemas. Mapping them to shared fields such as `Date`, `Activity`, `Content`, and `Style` allows one sorting step and one HTML row template to handle every record type.
+
+</details>
+
+<details><summary>How does the flow create a unified chronological timeline?</summary>
+
+It combines the normalized arrays with `union(...)` and applies `sort(..., 'Date')`. An Apply to each loop then renders the sorted items as HTML table rows.
+
+</details>
+
+<details><summary>What are the main trade-offs of HTML-first PDF generation compared with Word templates?</summary>
+
+The lesson says HTML provides easier schema changes, stronger rich-text handling, and direct styling control. In return, builders must maintain string-based HTML and CSS without a visual template editor, and may need to clean malformed source HTML.
+
+</details>
 
 ## Further Reading
 
