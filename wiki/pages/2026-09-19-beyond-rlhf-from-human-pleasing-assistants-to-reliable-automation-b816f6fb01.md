@@ -15,6 +15,18 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Tiago Almeida argues that RLHF makes language models effective assistants by optimizing for human preference, but that objective does not ensure correct, calibrated decisions without supervision. Reliable automation therefore requires training and evaluation objectives aligned with real production outcomes, uncertainty, and escalation—not merely persuasive responses.
+
+## Key Takeaways
+
+1. Distinguish assistance from automation by asking whether a person reviews each output; unsupervised execution requires stronger reliability controls.
+2. Treat human preference as the RLHF objective, not as proof of factual correctness or successful task completion.
+3. Assume fluent confidence can conceal objective mismatch; Almeida argues that RLHF may reward answers that look right even when they are wrong.
+4. Use verifiable rewards where outcomes can be mechanically checked, while recognizing Almeida's claim that RLVR alone is insufficient for general automation.
+5. Demand evidence before accepting Almeida's proposed alternative: the talk describes optimization for calibrated decision-making but supplies no reproducible algorithm or empirical results.
+
 ## Overview
 
 The talk argues that today’s language models excel as interactive assistants but remain unreliable foundations for autonomous, high-stakes software. The proposed explanation is objective mismatch: reinforcement learning from human feedback (RLHF) trains models to produce responses people prefer, which is not the same as training them to make correct, calibrated decisions without supervision. This framing helps explain why models can perform impressively on benchmarks and human-guided coding while businesses still hesitate to delegate consequential decisions to them. The speaker predicts a shift from AI-assisted software creation toward smarter software that performs work reliably, but offers only a high-level description—not evidence or implementation details—of a new post-training approach intended to support that shift.
@@ -36,6 +48,26 @@ Analyze an AI feature by separating its visible intelligence from its operationa
 ## Training Exercise
 
 Choose one proposed AI workflow, such as refund approval, invoice processing, customer support, or code deployment. Write two versions: an assistant that recommends an action to a human and an automation system that executes it. For each version, specify the success metric, available verifier, cost of a false positive, cost of a false negative, acceptable confidence threshold, escalation rule, audit log, and rollback mechanism. Create ten test cases containing ambiguous inputs, missing information, and adversarial instructions. Record whether each output is merely persuasive or demonstrably supported. Then decide which cases may be automated safely and which must retain human review. The goal is to practice detecting objective mismatch rather than assuming that a capable conversation implies dependable execution.
+
+## Test Yourself
+
+<details><summary>Why does Almeida argue that strong benchmark performance does not establish readiness for autonomous business decisions?</summary>
+
+Benchmarks and interactive tools often measure correctness in constrained settings or usefulness to a supervising person. Autonomous business work instead requires dependable decisions under real conditions, including calibrated uncertainty and safe escalation when the model lacks evidence.
+
+</details>
+
+<details><summary>What is the objective mismatch associated with RLHF in the talk?</summary>
+
+RLHF optimizes outputs according to human preferences, while automation needs correct and reliably executed outcomes. Almeida argues that this gap can reward responses that appear persuasive or confident without being operationally trustworthy.
+
+</details>
+
+<details><summary>What should be specified before converting an AI assistant into an automation system?</summary>
+
+Specify the production success metric, available verifier, costs of false positives and false negatives, confidence threshold, escalation rule, audit trail, and rollback mechanism. Then test ambiguous, incomplete, and adversarial cases on the real deployment distribution.
+
+</details>
 
 ## Further Reading
 

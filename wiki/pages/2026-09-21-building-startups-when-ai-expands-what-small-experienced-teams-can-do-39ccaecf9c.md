@@ -15,6 +15,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI coding agents can let small, experienced teams build mature products and complete entire customer workflows much faster. As implementation gets cheaper, choosing a valuable problem—and knowing where human judgment is still required—becomes the crucial startup skill.
+
+## Key Takeaways
+
+1. YC reports that hard-tech companies grew from roughly 8% to 20% of accepted companies, with notable increases in robotics, manufacturing, defense, semiconductors, photonics, and energy.
+2. Design products to complete a measurable customer outcome, not merely track the workflow; YC says end-to-end workflow startups rose from about 10% to more than 25% of a batch.
+3. Treat the model and its harness as one system: useful agents need the right context, tools, permissions, proprietary data, and feedback loops.
+4. Use general robotic foundation models as a starting point, but expect task-specific fine-tuning and separate validation for real-time response, safety, hardware reliability, supply chains, and capital needs.
+5. AI can help solo founders launch, but the speakers expect many successful solo founders to add co-founders or senior partners as their companies grow.
+6. Revisit previously unreliable ideas as models improve; the speakers describe tasks beginning to work after model upgrades even when they had failed a month earlier.
+
 ## Overview
 
 The speakers describe several patterns they observed among Y Combinator companies: a larger share of hard-tech startups, faster early revenue growth, more software that completes entire workflows, and more solo or experienced founders. Their central lesson is that AI—especially coding agents—can reduce the labor required to build mature products, but it does not replace judgment about which problems matter. These observations come from YC’s portfolio and internal batch analysis; they are useful signals, not proof that every market or startup will behave similarly.
@@ -37,6 +50,26 @@ Apply the lesson as a repeated discovery-and-delivery loop. First, choose a doma
 ## Training Exercise
 
 Choose one workflow from an industry you know. In 60–90 minutes, write a one-page opportunity brief containing: (1) the customer and the job they need completed; (2) the current process and its cost, delay, or failure mode; (3) which steps an AI agent could perform now; (4) which steps must remain human-controlled; (5) the systems and data the agent would need; (6) one narrow prototype deliverable; and (7) five evaluation cases, including at least two failures or edge cases. Then define a seven-day test with one outcome metric, such as completed cases, time saved, or dollars customers commit. Conclude with a go/no-go rule based on customer value and reliability rather than how impressive the demo appears.
+
+## Test Yourself
+
+<details><summary>Why does the lesson argue that problem selection becomes more important as AI improves implementation?</summary>
+
+When coding agents make prototypes and mature products faster to build, implementation becomes less of a bottleneck. The scarce advantage becomes recognizing a costly problem, defining the right outcome, and applying human judgment where automation is unreliable.
+
+</details>
+
+<details><summary>How does an end-to-end workflow product differ from traditional SaaS?</summary>
+
+Traditional SaaS often helps a person organize or operate a process, while an end-to-end product performs much of the process and delivers the result. The speakers argue that customers may pay more for completed outcomes than for software that merely tracks the work.
+
+</details>
+
+<details><summary>What should a founder test before expanding an agent-assisted product?</summary>
+
+Test a narrow workflow using outcome quality, completion time, error rate, required human intervention, and willingness to pay. High-stakes, ambiguous, or relationship-heavy decisions should remain human-controlled until the system is demonstrably reliable.
+
+</details>
 
 ## Further Reading
 

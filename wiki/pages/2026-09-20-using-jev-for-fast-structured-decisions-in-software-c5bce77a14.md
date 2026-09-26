@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Jev is a decision-focused AI model that turns application state and narrowly defined questions into structured probabilities, choices, or scores. It matters when software needs fast, repeated semantic judgments, while deterministic rules and generative tasks should remain with ordinary code or text-generating models.
+
+## Key Takeaways
+
+1. Use deterministic code for exact conditions such as counting basket items, arithmetic, or comparing dates; use Jev when the condition requires semantic judgment.
+2. Choose null questions for binary judgments, choice questions for application-defined categories, and score questions for descriptive ordinal scales.
+3. Interpret a null result near 0 as evidence for “no” and a result near 0.5 as little preference in either direction.
+4. Add an “other” option when choice categories may not cover every input, and describe every score level instead of using an unexplained numeric scale.
+5. Write every question so it can be answered from the state alone because Jev evaluates multiple questions independently and in parallel.
+6. Calibrate action and review thresholds with representative labeled examples; the source warns that high confidence does not guarantee correctness.
+7. Type Safe reported 70–500 millisecond response times and pricing of 4.2 cents per million input tokens with free output tokens, but these time-sensitive vendor claims should be verified before adoption.
+
 ## Overview
 
 Jev is a decision-focused AI model from Type Safe. It acts like a semantic “if statement”: an application sends some information, called the state, plus one or more questions, and receives structured probabilities, choices, or scores. Unlike general-purpose generative models, Jev is intended to judge information rather than write replies, summaries, or code. The source reports end-to-end response times of 70–500 milliseconds and a price of 4.2 cents per million input tokens, with output tokens free at the time described. These are vendor-reported and time-sensitive figures, so verify current performance, access, and pricing before designing around them.
@@ -37,6 +51,26 @@ Define a narrowly scoped decision and collect representative inputs. Put the rel
 ## Training Exercise
 
 Build a customer-support triage prototype. Use JSON state containing a message and submit three questions in one request: (1) a null question asking whether the message expresses frustration; (2) a choice question classifying the main request as update, refund, replacement, or other; and (3) a score question with levels 0 = request without frustration, 1 = dissatisfaction without strong anger, and 2 = strong anger. Create at least 20 representative messages, including polite complaints, implicit frustration, mixed requests, and irrelevant messages. Record the outputs and manually label the expected decisions. Choose action and review thresholds from these examples rather than copying the demonstration threshold of 0.8. Then test new messages and measure incorrect automatic actions, review frequency, latency, and token usage. Finally, identify one condition in the workflow that should remain deterministic code and explain why.
+
+## Test Yourself
+
+<details><summary>When should an application use Jev instead of an ordinary if statement?</summary>
+
+Use Jev when the decision depends on meaning or context, such as whether a message implies frustration. Use ordinary code when the answer can be calculated exactly, such as whether a basket contains at least three items.
+
+</details>
+
+<details><summary>How do null, choice, and score questions differ?</summary>
+
+Null returns the probability that a yes-or-no judgment is yes. Choice distributes probabilities across supplied options and selects one, while score evaluates descriptive levels and returns a probability-weighted value that may fall between them.
+
+</details>
+
+<details><summary>Why should production code not simply copy the demonstration threshold of 0.8?</summary>
+
+The source presents 0.8 only as a demonstration value and warns that confidence does not guarantee correctness. Teams should select thresholds using representative labeled inputs, measuring incorrect automatic actions and routing ambiguous or consequential cases to review.
+
+</details>
 
 ## Further Reading
 

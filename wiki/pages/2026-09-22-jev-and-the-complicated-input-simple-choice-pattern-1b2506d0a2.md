@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use a bounded classifier when complex language must lead to a small set of predefined choices; this connects flexible interpretation to predictable software actions without paying for unnecessary text generation. Because the judgment remains probabilistic, validate it on representative examples and escalate uncertain or high-risk decisions.
+
+## Key Takeaways
+
+1. Look for “complicated input, simple choice” tasks such as ticket routing, urgency scoring, document ranking, or agent-action approval.
+2. Define mutually exclusive outcomes and let deterministic code control what each outcome triggers; bounded output does not make the model’s judgment deterministic.
+3. Assign each step to the least expensive suitable primitive: code for calculation and retrieval, classifiers for bounded choices, and generative LLMs for reasoning, explanation, and writing.
+4. Use a classifier as a routing layer that decides whether to call a tool, invoke an LLM, escalate to a stronger model, or ask a human.
+5. Test accuracy, calibration, latency, cost, and costly false positives and negatives against rules, existing classifiers, LLMs, and human review before deployment.
+6. Treat reported performance as claims to verify: the source cites one developer’s result of 34× lower cost and 6× greater speed, plus launch evaluations approaching 100× faster and more than 100× cheaper than an LLM.
+7. Add an `ask_human` outcome, confidence thresholds, logging, and ongoing evaluation wherever mistakes could have meaningful consequences.
+
 ## Overview
 
 Jev is presented as a general-purpose language classifier: it reads complex text but returns only choices, scores, or probabilities from outcomes defined in advance. This makes it suitable for tasks that require interpretation but not open-ended writing—such as routing support tickets, prioritizing documents, selecting workflow steps, or reviewing proposed agent actions. The source calls these tasks “semi-deterministic”: the judgment remains probabilistic, while the permitted outputs and subsequent actions are controlled by software. The video reports major speed and cost advantages over generative LLM calls, but many figures come from launch materials or individual developer examples, so they should be validated on representative data before production use.
@@ -36,6 +50,26 @@ First, identify a decision currently embedded in a manual process or generative-
 ## Training Exercise
 
 Choose one workflow containing complex text and a simple downstream decision, such as inbox triage or support-ticket routing. Define three to five allowed labels with clear criteria, then assemble at least 50 representative examples, including ambiguous and high-risk cases. Establish the expected label for each example before testing. Implement or simulate two versions: one using your current method—rules, manual review, or an LLM—and one using a bounded classifier. Compare label accuracy, costly false positives and false negatives, latency, and estimated cost. Add an `ask_human` outcome and a confidence threshold, then rerun the evaluation. Adopt the classifier only if its measured tradeoffs fit the workflow; otherwise refine the labels, retain the existing method, or use a hybrid design.
+
+## Test Yourself
+
+<details><summary>What makes a task suitable for the “complicated input, simple choice” pattern?</summary>
+
+The input requires language interpretation or judgment, but the output can be restricted to a small, predefined set of labels, scores, or actions. Tasks requiring substantial explanation, invention, or drafting are better suited to a generative LLM.
+
+</details>
+
+<details><summary>Why is this architecture described as semi-deterministic?</summary>
+
+The classifier’s selection remains probabilistic, while application code deterministically defines the permitted outcomes and what each one triggers. Structured output improves control and integration but does not guarantee correctness.
+
+</details>
+
+<details><summary>How should a team evaluate a bounded classifier before adopting it?</summary>
+
+Test it on at least 50 representative examples, including ambiguous and high-risk cases, and compare accuracy, calibration, latency, cost, and consequential error types with the current approach. Add confidence thresholds and an `ask_human` path, then adopt it only if the measured tradeoffs fit the workflow.
+
+</details>
 
 ## Further Reading
 

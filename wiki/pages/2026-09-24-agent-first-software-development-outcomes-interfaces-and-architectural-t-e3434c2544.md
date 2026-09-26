@@ -15,6 +15,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Coding agents can shift software development from manually implementing tasks to defining outcomes, testing behavior, and improving the environment that guides agents. This matters because cheaper implementation can change which products, optimizations, languages, and architectures are economically viable—but the speaker’s dramatic gains remain claims to verify locally.
+
+## Key Takeaways
+
+1. Assign agents bounded outcomes with explicit constraints and acceptance tests instead of prescribing every implementation step.
+2. Run agent work asynchronously, then review completed artifacts through tests, interface contracts, performance measurements, security checks, and targeted inspection of risky code.
+3. Revisit decisions originally driven by implementation cost—such as web versus native clients or Ruby versus Rust—when agents materially change that cost.
+4. The speaker claims a Rust rewrite of HEY’s backend could use 99% less CPU and 95% less memory, but describes these figures as back-of-the-envelope estimates rather than validated benchmarks.
+5. Make applications agent-operable through stable command-line interfaces, machine-readable output, composable commands, and useful error messages.
+6. Treat the speaker’s proposal to reduce abstractions or tolerate duplication as an experiment; compare synchronization effort, defect rates, and change failures before adopting it broadly.
+
 ## Overview
 
 This lesson distills an enthusiastic, deliberately provocative argument for agent-first software development. Its central analogy is photography: when technology sharply lowers the cost of producing something, established crafts do not simply disappear; their economics, workflows, and creative possibilities change. The speaker argues that coding agents now make implementation cheap enough to shift developers from manually writing code toward specifying outcomes, evaluating behavior, and improving the systems that guide agents. Several dramatic productivity and efficiency figures in the talk are personal anecdotes or back-of-the-envelope estimates, not independently substantiated benchmarks. Treat them as hypotheses to test in your own environment rather than universal forecasts.
@@ -37,6 +50,26 @@ An agent-first workflow begins with a result rather than a code prescription. De
 ## Training Exercise
 
 Choose one small, reversible improvement in an existing application, such as adding an export command, improving a slow operation, or building a tiny native utility. Write a one-page outcome brief containing: the user problem, observable success criteria, performance and security limits, files or systems that must not change, and automated tests. Give the brief to an agent without specifying implementation steps. Review only the first result's behavior and test evidence, then identify where the brief or tooling was ambiguous. Revise the development harness—tests, fixtures, documentation, permissions, or CLI contracts—and run the task again. Compare elapsed time, human attention, defects, resource usage, and maintainability with a conventional implementation. Conclude whether the agent changed the economics enough to justify a different architecture; do not infer a universal productivity multiplier from one trial.
+
+## Test Yourself
+
+<details><summary>How does outcome assignment differ from traditional task assignment?</summary>
+
+Outcome assignment specifies the desired behavior, constraints, forbidden changes, and evidence of success while leaving implementation choices to the agent. Traditional task assignment tells the implementer which steps or code changes to perform.
+
+</details>
+
+<details><summary>How should unfamiliar agent-generated code be evaluated responsibly?</summary>
+
+Evaluate observable behavior with acceptance tests, interface contracts, performance and resource measurements, security checks, and operational limits. Black-box testing should be supplemented by targeted review of high-risk paths rather than treated as sufficient for every system.
+
+</details>
+
+<details><summary>Why might agents change architectural tradeoffs without eliminating them?</summary>
+
+Lower implementation costs can make native clients, systems languages, extensive optimization, or selective duplication more affordable. Maintenance, divergence, security, verification, and lifecycle costs still remain, so teams should prototype and measure alternatives before changing architecture.
+
+</details>
 
 ## Further Reading
 

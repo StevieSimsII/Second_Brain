@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Separate deliberation from execution: investigate risks pessimistically, then act decisively while adapting the route as circumstances change. This matters because focused action produces results, but stopping rules and reality checks are needed to prevent confidence and ambition from becoming overreach.
+
+## Key Takeaways
+
+1. Examine plausible dangers before committing; after deciding, reopen the decision only when material evidence changes.
+2. Keep the objective firm but treat plans as adaptable projects whose route, timing, and tactics can change.
+3. Concentrate attention, talent, money, or time on the current bottleneck instead of distributing resources evenly.
+4. Divide long-term work into stages that each deliver immediate value, generate feedback, and remain useful if later work stops.
+5. Napoleon reportedly treated morale and narrative as operational forces, but motivation can become manipulation, censorship, or propaganda.
+6. Use history to sharpen judgment, not as a formula; recognizing a past failure pattern does not guarantee avoiding it.
+7. Counter ambition with stopping rules, dissent, and reality checks so expansion does not continue merely to protect pride, identity, or past success.
+
 ## Overview
 
 This lesson distills a podcast discussion of The Mind of Napoleon, a collection of Napoleon Bonaparte’s written and spoken words edited and translated by J. Christopher Herold. Its central theme is the conversion of thought into action: investigate risks thoroughly, decide, and then execute without hesitation. Napoleon also treated history as material for judgment, morale and communication as strategic forces, and long-term projects as sequences of independently useful stages. These ideas are valuable as operating principles, but the source also presents a warning: the ambition, confidence, propaganda, and concentration of authority that supported Napoleon’s achievements contributed to contradictions, overreach, and dependence on continued victories. Quotations and interpretations here come through the discussed book and podcast transcript; the source does not independently establish the context or accuracy of every attributed remark.
@@ -36,6 +50,26 @@ Apply the ideas as a repeating operating cycle. First, define a concrete objecti
 ## Training Exercise
 
 Choose one project you can advance this week. Write a one-sentence objective and one measurable success condition. Then create four short sections: (1) Pessimistic review—five ways the project could fail; (2) Decisive point—the single constraint that most affects the result; (3) Useful stages—three increments, each valuable even if later work stops; and (4) Adaptation rules—two conditions that would justify changing the route. Select the smallest useful stage, concentrate your available resources on it for one focused work session, and produce a tangible result. Afterward, record what reality contradicted, what you learned, and whether the next stage advances the objective or merely continues the project from momentum or pride.
+
+## Test Yourself
+
+<details><summary>How should deliberation differ from execution under Napoleon’s reported operating style?</summary>
+
+During deliberation, actively investigate risks, vulnerabilities, and possible failures. Once a sound decision is made, execute confidently and reconsider it only when material new evidence appears.
+
+</details>
+
+<details><summary>What does it mean to concentrate strength at the decisive point in ordinary work?</summary>
+
+Identify the constraint or opportunity with the greatest effect on the outcome, then focus disproportionate attention, talent, money, or time there rather than spreading resources evenly.
+
+</details>
+
+<details><summary>Why does the lesson add an ambition check to its operating cycle?</summary>
+
+The source portrays ambition as both a driver of achievement and a cause of escalating overreach. An ambition check tests whether the next step still serves the mission or merely preserves status, momentum, or pride.
+
+</details>
 
 ## Further Reading
 

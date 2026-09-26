@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Evaluate frontier agents by cost per completed task, tool reliability, scope control, and long-session follow-through—not token price or headline benchmarks. These measures reveal how much supervision an agent needs before it can be trusted with meaningful work.
+
+## Key Takeaways
+
+1. Separate direct observations, vendor or benchmark claims, and speculation before drawing conclusions about a model.
+2. Compare cost per completed task, including retries and supervision, rather than comparing token prices alone.
+3. Test the entire agent workflow: planning, clarification, tool use, monitoring, verification, and cleanup.
+4. Treat small, well-scoped changes with minimal side effects as a key signal that an agent is becoming trustworthy.
+5. Evaluate long-context performance by checking whether the model retains goals and constraints after steering or context compaction.
+6. Add guardrails for follow-through and termination because the reviewer observed failures such as ignoring valid feedback, ending monitoring early, and entering loops.
+7. Set trust thresholds by task type, and delegate more freely only when failures are cheap, reversible, and covered by repeatable tests.
+
 ## Overview
 
 This lesson turns a single reviewer’s long-form account of using "GPT6 Astra" into a reusable framework for evaluating advanced AI models in real work. The source is strong on firsthand usage details and concrete examples, but thin on independently verified evidence, so treat pricing, rollout, benchmark, and safety claims as reported claims from the transcript rather than settled fact. The durable takeaway is not "this model wins," but how to judge any frontier model by cost per completed task, tool-use reliability, scope control, long-session behavior, and the point at which you trust it enough to delegate meaningful work.
@@ -35,6 +49,26 @@ Use this framework when assessing an advanced model for real work. First, separa
 ## Training Exercise
 
 Pick one model you already use and run a three-part evaluation. 1. Give it a bounded code task with a clear definition of done and note whether it stays within scope. 2. Give it a tool-using task that requires navigation or external state, then measure time-to-completion and how often it needs correction. 3. Give it a long task with midstream steering and at least one review cycle, then check whether it preserves context, addresses feedback without prompting, and stops only when the work is actually complete. Write a short scorecard with columns for direct evidence, reported claims, failure modes, and whether you would trust the model to run that task with light supervision, heavy supervision, or no delegation.
+
+## Test Yourself
+
+<details><summary>Why is cost per completed task more useful than token price when comparing agent models?</summary>
+
+It accounts for efficiency, retries, supervision, and whether the model can finish an end-to-end workflow. A higher-priced model may still be cheaper overall if it completes tasks reliably with fewer corrections.
+
+</details>
+
+<details><summary>What evidence categories should be separated when evaluating claims about a frontier model?</summary>
+
+Separate firsthand observations, reported vendor or benchmark claims, and speculation. This prevents secondhand pricing, availability, performance, or safety claims from being treated as independently verified facts.
+
+</details>
+
+<details><summary>What should a long-running evaluation test beyond the size of the context window?</summary>
+
+Test whether the model preserves goals, constraints, and lessons after midstream steering, review cycles, and context compaction. It should also address feedback and continue monitoring until the defined work is actually complete.
+
+</details>
 
 ## Further Reading
 

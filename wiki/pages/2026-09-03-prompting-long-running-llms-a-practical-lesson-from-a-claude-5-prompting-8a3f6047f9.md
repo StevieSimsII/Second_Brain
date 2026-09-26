@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> For substantial work, give a long-running LLM the complete job, purpose, guardrails, and finish criteria up front, then let it execute. This matters because the speaker argues that context and a precise definition of “done” improve judgment while reducing micromanagement and overproduction.
+
+## Key Takeaways
+
+1. Give the whole job up front: include the goal, constraints, and success criteria instead of prescribing every step.
+2. Clarify underspecified work before execution by having the model ask questions and turn rough intent into a concrete brief.
+3. Explain the audience and purpose so the model can make better local decisions while completing the task.
+4. Define “done” with explicit scope, format, evidence requirements, tone, and a stopping point to limit overproduction.
+5. State guardrails positively and explain why they exist; the source presents this as more effective for newer models than unexplained prohibitions.
+6. Skip redundant self-check instructions unless the task requires them; the speaker claims built-in verification often makes these prompts an unnecessary cost.
+7. Set a default voice—such as brief, plain English, and low jargon—to improve readability across tasks.
+
 ## Overview
 
 This lesson teaches a practical prompting style for newer, long-running language models, based on a YouTube transcript summarizing Anthropic guides and keynote advice. The central shift is to stop micromanaging the model step by step and instead hand over a complete job: state the task, why it matters, the guardrails, and what a finished result should look like. Evidence in the source is partly second-hand: several claims are presented as Anthropic or speaker guidance rather than shown directly from the original docs, so treat them as reported best practices from the video rather than independently verified product behavior.
@@ -36,6 +50,26 @@ Use this prompt pattern when assigning substantial work to a modern LLM. First, 
 ## Training Exercise
 
 Take a real task from your knowledge base workflow, such as summarizing an article, drafting a lesson, or planning a dashboard. First write a weak prompt that only says what to do. Then rewrite it using the four-part structure: job, why, guardrails, and done. Add one style instruction to control voice. Compare the two outputs for clarity, relevance, verbosity, and how much follow-up correction each one needs. Record which prompt elements most improved the result.
+
+## Test Yourself
+
+<details><summary>What four elements should a complete prompt for substantial work contain?</summary>
+
+It should state the job, explain why it matters, provide guardrails, and define what “done” looks like. Together, these give the model enough context to execute without step-by-step supervision.
+
+</details>
+
+<details><summary>What should you do when the task is too vague to specify fully at the outset?</summary>
+
+Run a short discovery phase in which the model asks follow-up questions and surfaces unknowns. Then convert the answers into a clearer brief before execution begins.
+
+</details>
+
+<details><summary>Why does the lesson recommend defining a stopping point and avoiding unnecessary self-check instructions?</summary>
+
+A stopping point limits excessive detail and makes completion measurable. The speaker also claims newer models already perform internal verification, so generic re-check instructions may add cost without delivering much benefit.
+
+</details>
 
 ## Further Reading
 

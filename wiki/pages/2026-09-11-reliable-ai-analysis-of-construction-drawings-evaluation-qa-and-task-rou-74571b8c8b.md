@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Reliable AI analysis of construction drawings depends on testing the model in its real tool environment, fixing document-quality issues first, and routing each task to short, specialized instructions. This matters because finding the right sheet does not guarantee a correct count, measurement, or cross-sheet conclusion.
+
+## Key Takeaways
+
+1. Build a representative benchmark before changing the workflow; include counting, measurement, and cross-sheet reasoning because simple text retrieval may not expose meaningful performance differences.
+2. Evaluate the model and its coding-agent harness as one system; the source reports that tools, navigation behavior, and execution context changed relative model performance.
+3. Run drawing-pack QA before analysis by checking filenames, contents, orientation, sheet dimensions, stated scale, registers, revisions, and document precedence.
+4. Route text lookup, counting, measurement, and cross-sheet checks to separate, minimal instruction sets; the source reports that excessive or irrelevant guidance sometimes reduced accuracy.
+5. Verify interpretation independently from retrieval because the tested systems often found the correct sheet but still produced the wrong answer.
+6. Trigger human review for known weak cases such as dense symbol counts, and provide sheet references, decisive notes, screenshots, confidence, assumptions, and an evidence trail.
+7. Use lightweight drawing memory for verified results; the source found advance indexing often unnecessary below roughly 40 drawings, while its recommendation to add retrieval infrastructure for hundreds of sheets remains preliminary.
+
 ## Overview
 
 This lesson presents an evidence-driven method for improving AI analysis of construction drawings. The source reports tests involving more than 200 questions across 100 drawings from multiple disciplines. The strongest results came from building a discriminating evaluation set, correcting document-quality problems before analysis, and using short task-routed instructions instead of one large prompt. AI reportedly handled direct retrieval well but remained less reliable at counting, measurement, cross-sheet synthesis, and deciding when enough evidence had been gathered. These findings are preliminary: the described workflow remains under development, and most navigation tests used drawing packages containing fewer than roughly 40 drawings.
@@ -37,6 +51,26 @@ Begin with a benchmark containing verified answers and score accuracy, token cos
 ## Training Exercise
 
 Build a miniature evaluation using 10–15 verified questions from one drawing package. Include three direct lookups, three counts, three measurements, and three questions requiring evidence from multiple sheets. First run the questions without special instructions and record accuracy, cost, repeatability, cited sheet, and failure category. Next perform a QA pass for filenames, orientation, sheet dimensions, scale, revisions, and register accuracy. Add only one targeted intervention per observed failure—for example, fuzzy search for spaced text, exclusion of legends from counts, or a requirement to inspect three relevant evidence locations. Run the same evaluation again. Finish by producing two example outputs: a concise human-facing answer with citations and screenshots, and a structured agent-facing answer containing the value, confidence, assumptions, and evidence trail. Do not claim improvement unless the repeated scores support it.
+
+## Test Yourself
+
+<details><summary>Why should an evaluation set be created before prompts or skills are optimized?</summary>
+
+It establishes a verified baseline and reveals failure modes that easy retrieval questions may hide. The lesson recommends including difficult counts, measurements, and cross-sheet questions so interventions can be judged by accuracy, cost, and repeatability.
+
+</details>
+
+<details><summary>What checks belong in the document-preparation phase?</summary>
+
+Check filenames against contents, page orientation, physical sheet dimensions, stated scales, drawing registers, revisions, and document precedence. Correcting these issues first reduces errors caused by unreliable metadata or malformed PDFs.
+
+</details>
+
+<details><summary>Why is a correct sheet citation insufficient proof that an answer is correct?</summary>
+
+The source reports that tested systems often located the relevant sheet but misinterpreted its evidence. Counts, boundaries, scales, calculations, and cross-sheet conclusions therefore require separate verification and an inspectable evidence trail.
+
+</details>
 
 ## Further Reading
 

@@ -15,6 +15,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use typed, schema-constrained AI outputs and confidence thresholds to turn high-volume inputs into actions without parsing free-form text. This approach is best for low-risk triage; high-stakes or ambiguous decisions still need evaluation and human review.
+
+## Key Takeaways
+
+1. Define only the output fields and types the workflow needs, such as category, priority, spam score, and reply likelihood.
+2. Convert confidence scores into explicit routing rules: automate clear cases, escalate urgent items, and send uncertain results to human review.
+3. Evaluate reliability on representative labeled examples because the described classifier does not provide a visible rationale.
+4. Record inputs, predictions, human decisions, latency, and errors so thresholds can be refined without changing the test labels.
+5. Treat the speakers’ claims of roughly 200 ms per query and $0.18 for classifying 1,700 emails as anecdotal, not guaranteed benchmarks.
+6. Keep tasks requiring current information, deep analysis, or high-stakes judgment outside full automation; the reported Bitcoin-trading experiment performed poorly.
+
 ## Overview
 
 The source presents Jev as a specialized AI classifier rather than a conversational text generator. An application supplies an input object, such as an email or support request, together with a predefined output schema. The model returns structured classifications and probability-like scores that software can use immediately. Demonstrations include email triage, lead scoring, support routing, video-clip selection, service matching, and browser control. The speakers claim very low latency and cost—for example, classifying 1,700 emails containing 4.2 million input tokens and 500,000 output tokens for $0.18, plus roughly 200 ms per query—but the transcript supplies no independent benchmark or methodological details, so these figures should be treated as anecdotal. The model also performed poorly in an experimental Bitcoin-trading use case, illustrating that fast classification is not a substitute for deep analysis, current information, or high-stakes judgment.
@@ -36,6 +49,26 @@ First, represent the item to be classified as structured input, such as an email
 ## Training Exercise
 
 Build a paper prototype for support-ticket triage. Define an input with a subject, body, customer tier, and product name. Define outputs for destination team, urgency score, spam score, and human-review score. Create 20 varied tickets, including obvious cases, ambiguous cases, spam, and one potentially severe account problem. Manually assign expected outcomes before running any classifier. Then design routing rules such as: escalate when urgency is at least 0.85; send to human review when the winning category is below 0.70 confidence; otherwise route automatically. Compare predicted and expected outcomes, inspect false escalations and missed urgent cases, and adjust thresholds without changing the test labels. Conclude by listing decisions that are safe to automate, decisions that require review, and high-stakes decisions—such as trading—that should remain outside the system.
+
+## Test Yourself
+
+<details><summary>Why are typed outputs preferable to free-form text in an automated classification workflow?</summary>
+
+Typed outputs conform to a predefined schema, so application code can use fields such as category and confidence directly instead of parsing prose. This makes routing rules simpler and more reliable.
+
+</details>
+
+<details><summary>How should an application turn confidence scores into actions?</summary>
+
+It should apply explicit thresholds, such as escalating urgency scores of at least 0.85 and requesting human review when category confidence is below 0.70. Clear, low-risk cases can be routed automatically.
+
+</details>
+
+<details><summary>Why should the source’s speed, cost, and trading results affect how Jev is deployed?</summary>
+
+The claimed latency and cost lack independent benchmarking, so teams should validate them in their own environment. The poor Bitcoin-trading result also shows that fast classification is not a substitute for current information, deep reasoning, or human judgment in high-stakes settings.
+
+</details>
 
 ## Further Reading
 

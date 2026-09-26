@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Build an AI second brain as a well-organized folder of Markdown files, then use routing, continuous capture, and regular audits to keep its context useful. This matters because AI output improves when durable knowledge is relevant, traceable, current, and governed.
+
+## Key Takeaways
+
+1. Use plain Markdown files for durable context that both people and file-capable AI agents can read and update.
+2. Create a root routing document that maps each request type to the smallest relevant set of files instead of loading the entire knowledge base.
+3. Start with verified context about stable domains such as people, products, projects, customers, and decisions; label assumptions and uncertainty explicitly.
+4. Preserve dates and source links when capturing updates from meetings, email, chat, or CRM systems so every summary remains traceable.
+5. Use a cloud routine and authenticated connector when ingestion must continue while the local computer is unavailable.
+6. Audit for stale claims, duplicates, contradictions, broken links, oversized files, and misplaced content; the presenter suggests doing this weekly or every two weeks but provides no evidence for an ideal frequency.
+7. Assign one owner and define file- or folder-level permissions for a shared second brain, especially when records are sensitive or authoritative.
+
 ## Overview
 
 A second brain can be implemented as a folder of Markdown files containing durable context about a person, team, or business. An AI agent with access to the folder can consult that context when performing tasks and add newly learned information. The source recommends a three-part lifecycle: create and route the initial knowledge base, automate updates from connected systems, and periodically optimize the growing collection. The examples and performance claims come from the presenter’s own system and promotional demonstration; the transcript does not provide independent benchmarks, the downloadable skill definitions, or enough implementation detail to reproduce every automation exactly.
@@ -36,6 +50,26 @@ A second brain can be implemented as a folder of Markdown files containing durab
 ## Training Exercise
 
 Build a small pilot rather than importing everything at once. Create a folder with subfolders for profile, work, projects, decisions, and daily notes. Add five concise Markdown files based on information you can verify. Then create a root routing file that maps three requests—project status, decision history, and personal preferences—to the relevant documents. Ask an AI agent to answer one question in each category and require it to name the files it used and flag missing evidence. Next, add one dated daily note and manually propagate an important change into the appropriate durable file. Finally, run a hygiene review: identify duplicates, stale statements, contradictions, oversized documents, and information lacking a source or date. Record proposed changes before applying them. Success means the agent retrieves only relevant context, distinguishes facts from uncertainty, and leaves a traceable update history.
+
+## Test Yourself
+
+<details><summary>What is the purpose of the root routing document?</summary>
+
+It directs the AI agent to the smallest relevant set of files for a request and states rules for maintaining the knowledge base. This reduces unnecessary context loading and helps keep retrieval consistent.
+
+</details>
+
+<details><summary>Why should captured information include dates and source references?</summary>
+
+Dates and sources make summaries traceable, help distinguish current information from stale claims, and support later verification when records conflict.
+
+</details>
+
+<details><summary>How do local scheduled tasks differ from cloud routines?</summary>
+
+A local task may run only while its computer is available and can access the local folder directly. A cloud routine can run while the laptop is closed, but the demonstrated approach requires an authenticated connector to reach the file-based knowledge base.
+
+</details>
 
 ## Further Reading
 

@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Design knowledge-work agents as persistent, asynchronous teammates that own outcomes—not as disposable chats that execute isolated prompts. This matters because reliable end-to-end completion reduces the user’s need to monitor, correct, and finish delegated work.
+
+## Key Takeaways
+
+1. Delegate meaningful outcomes with explicit completion criteria and handoff rules; according to the interview, a task that stops at 90% can preserve most of the user’s cognitive burden.
+2. Give persistent agents stable roles or workstreams so they can retain relevant context and make delegation easier to understand and control.
+3. Use a cloud runtime for asynchronous, cross-device work and a dedicated computer for workflows without suitable APIs or MCP integrations.
+4. Show concise status, outputs, approval requests, and recovery paths while hiding streams of tool calls, internal reasoning, and other operational noise.
+5. The team reportedly onboarded roughly 200–300 early users in about two weeks, using live observation and diverse participants to uncover setup, integration, and reliability failures.
+6. Frame roadmap decisions as new agent capabilities rather than new product controls; recurring automations can often be defined in natural language instead of a separate trigger-and-action interface.
+7. Measure end-to-end completion, intervention frequency, failure recovery, and output quality because isolated tool-call success does not establish that a workflow is dependable.
+
 ## Overview
 
 This lesson distills product-design principles from an interview about “Grockbot,” as rendered in the supplied transcript. The central idea is to design knowledge-work agents as persistent teammates rather than disposable chat sessions: they retain relevant context, operate asynchronously in the cloud, use their own computer and connected tools, and return completed work. The account is promotional and anecdotal rather than an independent evaluation, so claims about popularity, reliability, and business impact should be treated as interviewees’ observations. The most reusable lesson is that agent quality depends not only on model intelligence, but also on runtime design, tool access, focused user research, reliability, and disciplined simplification.
@@ -37,6 +51,26 @@ A teammate-oriented agent system begins with one or more persistent agents, each
 ## Training Exercise
 
 Choose one recurring knowledge-work task that currently takes 30–60 minutes, such as producing a daily project digest. Write a one-page delegation brief containing: the desired outcome, source systems, permitted actions, prohibited actions, completion criteria, output location, schedule, and conditions requiring human approval. Define one persistent agent role for the task; add a coordinator only if the work genuinely contains multiple independent specialties. Run or simulate the workflow on five real examples. For each attempt, record whether it completed end to end, where intervention was needed, whether the final result was trustworthy, and which failure came from missing context, tool access, computer interaction, or poor judgment. Then remove one unnecessary control or interface step, add one missing safeguard, and rerun the tests. The goal is not a flashy demonstration but a workflow the user can safely delegate without monitoring continuously.
+
+## Test Yourself
+
+<details><summary>Why is completing 90% of a delegated task often insufficient?</summary>
+
+The interview argues that uncertainty about the remaining 10% forces the user to monitor, correct, or finish the work. A trustworthy agent should meet explicit completion criteria or return a clearly described exception.
+
+</details>
+
+<details><summary>What are the two foundational runtime choices described for teammate-like agents?</summary>
+
+Run agents persistently in the cloud and give them dedicated computers. The cloud supports asynchronous, stateful work, while computer use extends coverage to interfaces without reliable structured integrations.
+
+</details>
+
+<details><summary>How should a team evaluate whether an agent workflow is genuinely reliable?</summary>
+
+Test complete real-world workflows and track end-to-end completion, required interventions, recovery from failures, and final-output quality. Also classify failures by missing context, tool access, interface interaction, or poor judgment.
+
+</details>
 
 ## Further Reading
 
