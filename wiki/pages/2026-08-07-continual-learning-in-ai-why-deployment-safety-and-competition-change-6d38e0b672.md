@@ -6,6 +6,13 @@ tags: [machine-learning, ai-safety, continual-learning, platform-economics, regu
 source_type: "youtube"
 source_fingerprint: "6d38e0b672"
 source_characters: 10097
+channel: "Dwarkesh Patel"
+published: "2026-08-07"
+duration_seconds: 517
+topics: [ai-safety-and-governance, machine-learning, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

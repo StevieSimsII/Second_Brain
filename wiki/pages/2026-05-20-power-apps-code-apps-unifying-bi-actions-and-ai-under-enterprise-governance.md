@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/nicolassprotti_microsoft-powerbi-fabric-
 date: "2026-05-20"
 tags: [powerapps, powerbi, fabric, power-platform, enterprise-security, ai-agents]
 source_type: "web"
+topics: [ai-safety-and-governance, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

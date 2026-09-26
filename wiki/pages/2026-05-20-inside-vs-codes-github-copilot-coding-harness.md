@@ -4,6 +4,10 @@ source: "https://code.visualstudio.com/blogs/2026/05/15/agent-harnesses-github-c
 date: "2026-05-20"
 tags: [vscode, github-copilot, agentic-ai, tool-calling, evaluation]
 source_type: "web"
+topics: [ai-agents, coding-agents, github-copilot, context-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

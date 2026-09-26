@@ -4,6 +4,13 @@ source: "https://youtu.be/TQd_YQvydVg?si=4d3kuA0QQ1qZqnwJ"
 date: "2026-05-23"
 tags: [ai-agents, claude, microsoft-foundry, llm, agentic-systems]
 source_type: "youtube"
+channel: "Claude"
+published: "2026-05-20"
+duration_seconds: 2056
+topics: [ai-agents, software-engineering, prompt-engineering, claude]
+kind: "tutorial"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

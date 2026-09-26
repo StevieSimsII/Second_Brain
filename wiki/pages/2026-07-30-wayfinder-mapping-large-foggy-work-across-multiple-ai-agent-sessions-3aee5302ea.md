@@ -6,6 +6,13 @@ tags: [planning, ai-agents, project-management, software-engineering, knowledge-
 source_type: "youtube"
 source_fingerprint: "3aee5302ea"
 source_characters: 17002
+channel: "Matt Pocock"
+published: "2026-07-30"
+duration_seconds: 909
+topics: [productivity, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

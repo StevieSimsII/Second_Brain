@@ -4,6 +4,13 @@ source: "https://youtu.be/h6_v1IBqmNI?si=y0kfSkbN-PqNoqJL"
 date: "2026-06-05"
 tags: [llms, ai-news, model-evaluation, benchmarking, reasoning, mlops]
 source_type: "youtube"
+channel: "WorldofAI"
+published: "2026-06-05"
+duration_seconds: 1060
+topics: [llm-evaluation, ai-models]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

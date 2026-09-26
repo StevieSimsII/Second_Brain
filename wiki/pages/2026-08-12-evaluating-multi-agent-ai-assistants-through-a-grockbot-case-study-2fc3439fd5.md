@@ -6,6 +6,13 @@ tags: [ai-agents, automation, human-computer-interaction, productivity, workflow
 source_type: "youtube"
 source_fingerprint: "2fc3439fd5"
 source_characters: 13337
+channel: "Alex Finn"
+published: "2026-08-11"
+duration_seconds: 730
+topics: [ai-agents, automation-workflows]
+kind: "demo"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/wariowario_copilot-cowork-is-now-general
 date: "2026-06-17"
 tags: [microsoft-365, copilot, finops, governance, ai-pricing]
 source_type: "web"
+topics: [ai-strategy, ai-agents, ai-safety-and-governance, microsoft-365]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

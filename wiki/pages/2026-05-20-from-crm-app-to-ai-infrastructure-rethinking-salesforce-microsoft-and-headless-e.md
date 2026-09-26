@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/stevemordue_salesforce-won-enterprise-cr
 date: "2026-05-20"
 tags: [crm, ai, enterprise-software, headless-architecture, microsoft, salesforce]
 source_type: "web"
+topics: [software-engineering, ai-agents, ai-strategy, microsoft-365]
+kind: "opinion"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [agentic-ai, software-engineering, developer-tools, productivity, ai-safet
 source_type: "youtube"
 source_fingerprint: "b0e2b379f9"
 source_characters: 44036
+channel: "SuonRym"
+published: "2026-07-30"
+duration_seconds: 2422
+topics: [ai-agents, coding-agents, claude, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

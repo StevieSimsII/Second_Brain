@@ -4,6 +4,10 @@ source: "https://www.thestateofbrand.com/news/jensen-huang-ai-layoffs"
 date: "2026-05-27"
 tags: [ai, leadership, workforce, change-management, capital-allocation]
 source_type: "web"
+topics: [ai-strategy, leadership-and-careers]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

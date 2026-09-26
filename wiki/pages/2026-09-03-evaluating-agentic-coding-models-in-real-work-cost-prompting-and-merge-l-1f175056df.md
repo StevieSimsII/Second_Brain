@@ -6,6 +6,13 @@ tags: [agentic-coding, llm-evaluation, prompt-design, software-engineering, benc
 source_type: "youtube"
 source_fingerprint: "1f175056df"
 source_characters: 65871
+channel: "Theo - t3․gg"
+published: "2026-09-03"
+duration_seconds: 3306
+topics: [llm-evaluation, ai-models, coding-agents, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

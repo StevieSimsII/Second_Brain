@@ -4,6 +4,13 @@ source: "https://youtu.be/FAWm7DuFSPc?si=aHL4D1TiYqGDgEot"
 date: "2026-05-28"
 tags: [llm, rag, embeddings, vector-database, knowledge-base]
 source_type: "youtube"
+channel: "Dream Labs AI"
+published: "2026-05-14"
+duration_seconds: 1054
+topics: [rag-and-retrieval, software-engineering]
+kind: "tutorial"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

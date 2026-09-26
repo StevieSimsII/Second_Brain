@@ -6,6 +6,13 @@ tags: [artificial-intelligence, reinforcement-learning, continual-learning, mode
 source_type: "youtube"
 source_fingerprint: "bf8b78107d"
 source_characters: 80000
+channel: "Dwarkesh Patel"
+published: "2026-09-11"
+duration_seconds: 5821
+topics: [machine-learning, ai-agents]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

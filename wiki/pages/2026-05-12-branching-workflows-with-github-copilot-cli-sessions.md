@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/burkeholland_you-can-now-fork-conversations-
 date: "2026-05-12"
 tags: [github-copilot, cli, ai-workflows, sessions, prompt-engineering]
 source_type: "web"
+topics: [github-copilot, coding-agents, developer-tools, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

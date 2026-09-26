@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/burkeholland_completely-understand-hooks-in-
 date: "2026-05-06"
 tags: [github-copilot, hooks, code-quality, linting, developer-workflow]
 source_type: "web"
+topics: [github-copilot, ai-safety-and-governance, coding-agents, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

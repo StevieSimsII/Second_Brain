@@ -4,6 +4,10 @@ source: "https://microsoft.github.io/agent-resources"
 date: "2026-04-27"
 tags: [microsoft, ai-agents, copilot, governance, architecture]
 source_type: "web"
+topics: [ai-agents]
+kind: "deep-dive"
+depth: 1
+actionability: 1
 ---
 
 ## Overview

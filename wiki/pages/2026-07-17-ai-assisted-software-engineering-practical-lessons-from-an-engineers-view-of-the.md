@@ -4,6 +4,13 @@ source: "https://youtu.be/O-1VXHRlH54?is=Qd1D0CCBmmLAlirC"
 date: "2026-07-17"
 tags: [ai-coding, developer-tools, software-engineering, llms, productivity]
 source_type: "youtube"
+channel: "South Park Commons"
+published: "2026-07-16"
+duration_seconds: 2815
+topics: [coding-agents, software-engineering, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://every.to/p/after-automation?utm_source=onboarding_email_bottom&
 date: "2026-07-10"
 tags: [ai, automation, knowledge-work, agents, benchmarks, human-in-the-loop]
 source_type: "web"
+topics: [ai-strategy, coding-agents, ai-agents]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

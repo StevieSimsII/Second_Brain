@@ -6,6 +6,13 @@ tags: [ai-workflows, prompting, automation, software-tools, vibe-coding]
 source_type: "youtube"
 source_fingerprint: "a94f5a9d67"
 source_characters: 16302
+channel: "Alex Finn"
+published: "2026-07-17"
+duration_seconds: 916
+topics: [prompt-engineering, productivity]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

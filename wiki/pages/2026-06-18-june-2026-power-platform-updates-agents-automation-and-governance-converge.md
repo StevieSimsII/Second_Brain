@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/tiffany-treacy_powerplatform-powerapps-p
 date: "2026-06-18"
 tags: [powerplatform, powerapps, powerautomate, governance, aiagents, dataverse]
 source_type: "web"
+topics: [automation-workflows, ai-agents, power-platform, ai-safety-and-governance]
+kind: "news"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

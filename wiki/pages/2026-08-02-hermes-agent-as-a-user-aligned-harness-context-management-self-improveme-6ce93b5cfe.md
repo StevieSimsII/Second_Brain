@@ -6,6 +6,13 @@ tags: [ai-agents, alignment, context-engineering, open-source, human-ai-collabor
 source_type: "youtube"
 source_fingerprint: "6ce93b5cfe"
 source_characters: 47519
+channel: "Peter Yang"
+published: "2026-08-02"
+duration_seconds: 2804
+topics: [ai-agents, context-engineering, prompt-engineering, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

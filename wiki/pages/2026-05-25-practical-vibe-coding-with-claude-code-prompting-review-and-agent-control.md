@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/eordax_ai-claude-ugcPost-745873410406756
 date: "2026-05-25"
 tags: [ai-coding, claude-code, developer-tools, prompting, code-review]
 source_type: "web"
+topics: [coding-agents, claude, prompt-engineering, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

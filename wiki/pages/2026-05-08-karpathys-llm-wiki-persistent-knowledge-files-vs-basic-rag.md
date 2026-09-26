@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=aGXTV5MTqDY"
 date: "2026-05-08"
 tags: [llm, rag, context-engineering, knowledge-management, agents]
 source_type: "youtube"
+channel: "AI Simplified"
+published: "2026-04-04"
+duration_seconds: 319
+topics: [context-engineering, rag-and-retrieval, ai-agents, prompt-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

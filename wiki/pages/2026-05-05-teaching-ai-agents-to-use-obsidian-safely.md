@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/stasbel_obsidian-ceo-personally-wrote-a-set-
 date: "2026-05-05"
 tags: [obsidian, ai-agents, markdown, metadata, tooling]
 source_type: "web"
+topics: [ai-agents, knowledge-management, prompt-engineering, classifiers-and-structured-output]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

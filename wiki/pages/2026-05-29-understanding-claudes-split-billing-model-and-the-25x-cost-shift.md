@@ -4,6 +4,10 @@ source: "https://clawd.rip/"
 date: "2026-05-29"
 tags: [llm-billing, anthropic, api-pricing, developer-tools, usage-limits]
 source_type: "web"
+topics: [claude, ai-strategy, ai-safety-and-governance, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

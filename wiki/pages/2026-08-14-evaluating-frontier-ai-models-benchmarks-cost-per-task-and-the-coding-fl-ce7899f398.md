@@ -6,6 +6,13 @@ tags: [llm-evaluation, ai-models, benchmarking, coding-agents, knowledge-work]
 source_type: "youtube"
 source_fingerprint: "ce7899f398"
 source_characters: 15191
+channel: "Matthew Berman"
+published: "2026-08-13"
+duration_seconds: 1035
+topics: [ai-models, llm-evaluation, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

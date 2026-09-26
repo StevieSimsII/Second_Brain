@@ -6,6 +6,12 @@ tags: [project-controls, construction-management, work-breakdown-structure, cost
 source_type: "youtube"
 source_fingerprint: "e7c5a92622"
 source_characters: 38338
+channel: "Tim Fairley"
+published: "2026-07-30"
+duration_seconds: 2183
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

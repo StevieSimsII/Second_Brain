@@ -6,6 +6,10 @@ tags: [ai-strategy, cloud-infrastructure, capital-allocation, organizational-des
 source_type: "web"
 source_fingerprint: "4a58c85963"
 source_characters: 10779
+topics: [ai-strategy, hardware-and-compute]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

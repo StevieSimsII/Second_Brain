@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/akshay-pachaar_github-wants-you-to-stop-
 date: "2026-05-20"
 tags: [ai-agents, spec-driven-development, prompt-engineering, github, software-process]
 source_type: "web"
+topics: [coding-agents, software-engineering, prompt-engineering, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

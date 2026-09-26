@@ -6,6 +6,13 @@ tags: [ai-economics, compute-scaling, inference, training, market-structure]
 source_type: "youtube"
 source_fingerprint: "b4274fbda7"
 source_characters: 12924
+channel: "Dwarkesh Patel"
+published: "2026-08-03"
+duration_seconds: 678
+topics: [ai-strategy, hardware-and-compute]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

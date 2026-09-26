@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=fgHk28xljYw"
 date: "2026-04-23"
 tags: [github-copilot, cli, terminal, shell, developer-tools]
 source_type: "youtube"
+channel: "Dan Wahlin"
+published: "2026-03-15"
+duration_seconds: 1408
+topics: [github-copilot, developer-tools]
+kind: "tutorial"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

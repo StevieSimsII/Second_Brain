@@ -4,6 +4,13 @@ source: "https://youtu.be/pMggiOb18tc?is=pid9_HnUieqibsX0"
 date: "2026-07-12"
 tags: [llms, ai-engineering, evaluation, agents, prompting, product-design]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-07-09"
+duration_seconds: 1513
+topics: [software-engineering, classifiers-and-structured-output, ai-agents, llm-evaluation]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

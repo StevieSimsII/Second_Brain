@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/mermaid-diagrams-are-now-built-directly-
 date: "2026-06-09"
 tags: [vscode, mermaid, diagrams, markdown, documentation]
 source_type: "web"
+topics: [developer-tools, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

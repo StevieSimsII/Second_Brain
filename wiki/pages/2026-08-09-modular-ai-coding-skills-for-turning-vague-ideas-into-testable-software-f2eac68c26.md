@@ -6,6 +6,13 @@ tags: [ai-agents, prompt-engineering, software-architecture, test-driven-develop
 source_type: "youtube"
 source_fingerprint: "f2eac68c26"
 source_characters: 29987
+channel: "Eric Tech"
+published: "2026-08-07"
+duration_seconds: 1457
+topics: [software-engineering, coding-agents, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [ai-agents, product-design, knowledge-work, user-research, automation, pro
 source_type: "youtube"
 source_fingerprint: "c4132dcd87"
 source_characters: 80000
+channel: "Lenny's Podcast"
+published: "2026-09-08"
+duration_seconds: 4963
+topics: [ai-agents, product-and-design, automation-workflows, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

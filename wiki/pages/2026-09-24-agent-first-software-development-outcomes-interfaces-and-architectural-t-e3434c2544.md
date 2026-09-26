@@ -6,6 +6,13 @@ tags: [ai-agents, software-architecture, developer-productivity, automation, app
 source_type: "youtube"
 source_fingerprint: "e3434c2544"
 source_characters: 45554
+channel: "Ruby on Rails"
+published: "2026-09-23"
+duration_seconds: 3787
+topics: [coding-agents, software-engineering, ai-agents, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=rJSsbHwkYAY"
 date: "2026-05-12"
 tags: [github-copilot, cli, llm, ai-workflows, developer-tools]
 source_type: "youtube"
+channel: "Burke Holland"
+published: "2026-03-31"
+duration_seconds: 1095
+topics: [github-copilot, developer-tools, coding-agents, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

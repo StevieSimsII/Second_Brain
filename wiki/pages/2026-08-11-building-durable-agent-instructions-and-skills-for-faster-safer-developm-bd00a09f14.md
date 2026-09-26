@@ -6,6 +6,13 @@ tags: [ai-agents, developer-workflows, prompt-engineering, knowledge-management,
 source_type: "youtube"
 source_fingerprint: "bd00a09f14"
 source_characters: 59212
+channel: "Theo - t3․gg"
+published: "2026-08-10"
+duration_seconds: 3075
+topics: [ai-agents, prompt-engineering, coding-agents, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

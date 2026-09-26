@@ -6,6 +6,13 @@ tags: [prompt-caching, llms, github-copilot, tokenization, developer-tools]
 source_type: "youtube"
 source_fingerprint: "f3dc58c179"
 source_characters: 13215
+channel: "Burke Holland"
+published: "2026-07-20"
+duration_seconds: 800
+topics: [github-copilot, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

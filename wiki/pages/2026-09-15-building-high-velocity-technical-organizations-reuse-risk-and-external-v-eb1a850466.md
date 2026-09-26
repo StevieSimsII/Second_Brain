@@ -6,6 +6,13 @@ tags: [engineering-management, organizational-design, risk-management, systems-e
 source_type: "youtube"
 source_fingerprint: "eb1a850466"
 source_characters: 61488
+channel: "All-In Podcast"
+published: "2026-09-14"
+duration_seconds: 3864
+topics: [leadership-and-careers]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

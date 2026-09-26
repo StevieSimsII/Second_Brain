@@ -6,6 +6,13 @@ tags: [ai-workflows, voice-interfaces, agent-orchestration, productivity, knowle
 source_type: "youtube"
 source_fingerprint: "815133adab"
 source_characters: 21919
+channel: "Alex Finn"
+published: "2026-07-27"
+duration_seconds: 1235
+topics: [productivity, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

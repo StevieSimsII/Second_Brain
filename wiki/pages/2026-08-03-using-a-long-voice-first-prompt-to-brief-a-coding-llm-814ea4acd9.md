@@ -6,6 +6,13 @@ tags: [prompting, llm-workflows, voice-input, ai-coding, web-design]
 source_type: "youtube"
 source_fingerprint: "814ea4acd9"
 source_characters: 10604
+channel: "Duncan Rogoff | Learn Claude Code"
+published: "2026-08-02"
+duration_seconds: 507
+topics: [prompt-engineering, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

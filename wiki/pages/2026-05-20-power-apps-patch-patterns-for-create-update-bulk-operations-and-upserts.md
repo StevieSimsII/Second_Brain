@@ -4,6 +4,9 @@ source: "https://www.linkedin.com/posts/shreyansh-haran_powerapps-powerplatform-
 date: "2026-05-20"
 tags: [powerapps, powerfx, patch, powerplatform, sharepoint]
 source_type: "web"
+kind: "tutorial"
+depth: 3
+actionability: 3
 ---
 
 ## Overview

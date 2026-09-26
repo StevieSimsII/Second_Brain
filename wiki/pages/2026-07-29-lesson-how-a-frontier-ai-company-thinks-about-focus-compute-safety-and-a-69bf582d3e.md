@@ -6,6 +6,13 @@ tags: [artificial-intelligence, product-strategy, compute-infrastructure, ai-saf
 source_type: "youtube"
 source_fingerprint: "69bf582d3e"
 source_characters: 61812
+channel: "Invest Like The Best"
+published: "2026-07-28"
+duration_seconds: 3348
+topics: [ai-strategy, hardware-and-compute, ai-safety-and-governance]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [multi-agent-systems, reasoning-models, test-time-compute, ai-evaluation, 
 source_type: "youtube"
 source_fingerprint: "ea603a59e6"
 source_characters: 79342
+channel: "Dwarkesh Patel"
+published: "2026-09-17"
+duration_seconds: 4810
+topics: [ai-agents, ai-safety-and-governance]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=iXd0t60YmMw"
 date: "2026-04-23"
 tags: [llm, python, pytorch, setup, environment]
 source_type: "youtube"
+channel: "Teacher's Tech"
+published: "2026-04-12"
+duration_seconds: 905
+topics: [python]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

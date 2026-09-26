@@ -6,6 +6,10 @@ tags: [developer-workflow, terminal-tools, browser-automation, ai-coding]
 source_type: "web"
 source_fingerprint: "fbcdd3d71e"
 source_characters: 5189
+topics: [developer-tools, coding-agents, github-copilot, productivity]
+kind: "demo"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/jukkaniiranen_people-often-ask-me-how-i-buil
 date: "2026-05-01"
 tags: [markdown, slidev, obsidian, ai-tools, presentations]
 source_type: "web"
+topics: [knowledge-management, developer-tools, productivity]
+kind: "deep-dive"
+depth: 1
+actionability: 1
 ---
 
 ## Overview

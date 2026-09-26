@@ -6,6 +6,13 @@ tags: [ai-agents, context-engineering, knowledge-management, prompting]
 source_type: "youtube"
 source_fingerprint: "83c9a988c3"
 source_characters: 28816
+channel: "Jay E | RoboNuggets"
+published: "2026-08-03"
+duration_seconds: 1441
+topics: [prompt-engineering, context-engineering, ai-agents, knowledge-management]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

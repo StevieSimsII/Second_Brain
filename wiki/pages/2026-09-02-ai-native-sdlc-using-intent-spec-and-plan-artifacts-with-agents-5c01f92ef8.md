@@ -6,6 +6,13 @@ tags: [software-development, ai-agents, sdlc, testing, workflow-design]
 source_type: "youtube"
 source_fingerprint: "5c01f92ef8"
 source_characters: 18986
+channel: "Rob Shocks"
+published: "2026-09-01"
+duration_seconds: 981
+topics: [software-engineering, ai-agents, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

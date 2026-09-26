@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/evan-boyle-107a1445_copilot-cli-now-supports
 date: "2026-05-08"
 tags: [github, copilot, cli, enterprise, plugins]
 source_type: "web"
+topics: [github-copilot, developer-tools]
+kind: "news"
+depth: 1
+actionability: 1
 ---
 
 ## Overview

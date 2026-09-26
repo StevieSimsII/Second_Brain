@@ -4,6 +4,13 @@ source: "https://youtu.be/UNzCG3lw6O0?is=nvGpH0CUNf3h_V8O"
 date: "2026-07-13"
 tags: [ai-agents, prompting, tool-use, evaluation, workflow-design]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-06-29"
+duration_seconds: 1243
+topics: [ai-agents, software-engineering, classifiers-and-structured-output]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

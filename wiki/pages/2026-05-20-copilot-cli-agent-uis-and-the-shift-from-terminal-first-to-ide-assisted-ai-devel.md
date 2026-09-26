@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/jukkaniiranen_claude-code-inside-microso
 date: "2026-05-20"
 tags: [copilot, cli, vscode, agents, developer-tools]
 source_type: "web"
+topics: [coding-agents, developer-tools, github-copilot, ai-agents]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

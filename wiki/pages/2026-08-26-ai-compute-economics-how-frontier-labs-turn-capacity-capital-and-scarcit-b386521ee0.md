@@ -6,6 +6,13 @@ tags: [ai-economics, compute-infrastructure, capital-allocation, market-structur
 source_type: "youtube"
 source_fingerprint: "b386521ee0"
 source_characters: 75988
+channel: "Dwarkesh Patel"
+published: "2026-08-25"
+duration_seconds: 4613
+topics: [ai-strategy, hardware-and-compute]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

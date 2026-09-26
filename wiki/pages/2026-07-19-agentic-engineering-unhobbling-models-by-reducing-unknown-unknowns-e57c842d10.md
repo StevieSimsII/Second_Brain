@@ -6,6 +6,13 @@ tags: [ai-agents, prompting, software-engineering, knowledge-work, human-agent-i
 source_type: "youtube"
 source_fingerprint: "e57c842d10"
 source_characters: 29588
+channel: "Greg Kamradt"
+published: "2026-07-14"
+duration_seconds: 1737
+topics: [prompt-engineering, ai-agents, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

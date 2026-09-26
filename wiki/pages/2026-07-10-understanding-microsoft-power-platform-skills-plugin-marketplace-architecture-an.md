@@ -4,6 +4,10 @@ source: "https://github.com/microsoft/power-platform-skills"
 date: "2026-07-10"
 tags: [power-platform, plugins, claude-code, github-copilot, javascript, pac-cli]
 source_type: "github"
+topics: [ai-agents, coding-agents, software-engineering, automation-workflows]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

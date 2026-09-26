@@ -6,6 +6,13 @@ tags: [web-performance, css, debugging, react, ai-assisted-development]
 source_type: "youtube"
 source_fingerprint: "eec1a52af8"
 source_characters: 29873
+channel: "Theo - t3․gg"
+published: "2026-08-04"
+duration_seconds: 1652
+topics: [software-engineering, web-development]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

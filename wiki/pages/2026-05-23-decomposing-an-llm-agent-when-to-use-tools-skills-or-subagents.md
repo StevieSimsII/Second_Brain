@@ -4,6 +4,13 @@ source: "https://youtu.be/mWvtOHlZM-I?si=o-fNoy43RFX7v2Ro"
 date: "2026-05-23"
 tags: [llm-agents, agent-design, prompt-engineering, tool-use, multi-agent-systems]
 source_type: "youtube"
+channel: "Claude"
+published: "2026-05-22"
+duration_seconds: 2706
+topics: [ai-agents, software-engineering, prompt-engineering, context-engineering]
+kind: "tutorial"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

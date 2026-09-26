@@ -4,6 +4,10 @@ source: "https://chrismvnro.com/generating-pdfs-of-related-records-in-dataverse-
 date: "2026-06-05"
 tags: [power-automate, dataverse, html, pdf, css, audit]
 source_type: "web"
+topics: [automation-workflows]
+kind: "tutorial"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

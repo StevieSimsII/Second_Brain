@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/burkeholland_the-github-copilot-cli-now-supp
 date: "2026-05-14"
 tags: [github-copilot, cli, byok, openrouter, llms]
 source_type: "web"
+topics: [github-copilot, developer-tools, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

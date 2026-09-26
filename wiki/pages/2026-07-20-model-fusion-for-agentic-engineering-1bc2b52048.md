@@ -6,6 +6,13 @@ tags: [ai-agents, software-engineering, orchestration, validation, decision-maki
 source_type: "youtube"
 source_fingerprint: "1bc2b52048"
 source_characters: 30145
+channel: "IndyDevDan"
+published: "2026-07-20"
+duration_seconds: 1582
+topics: [ai-agents, software-engineering, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

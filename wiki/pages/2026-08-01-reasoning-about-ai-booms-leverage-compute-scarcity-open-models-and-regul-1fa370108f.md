@@ -6,6 +6,13 @@ tags: [ai-economics, risk-management, market-structure, regulation, intellectual
 source_type: "youtube"
 source_fingerprint: "1fa370108f"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-07-31"
+duration_seconds: 5793
+topics: [ai-strategy]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

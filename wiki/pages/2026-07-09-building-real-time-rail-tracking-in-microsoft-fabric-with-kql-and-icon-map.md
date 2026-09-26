@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/jamesdales_microsoftfabric-iconmapforfab
 date: "2026-07-09"
 tags: [microsoft-fabric, kql, geospatial, realtime-intelligence, gtfs, mapping]
 source_type: "web"
+topics: [data-and-analytics, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

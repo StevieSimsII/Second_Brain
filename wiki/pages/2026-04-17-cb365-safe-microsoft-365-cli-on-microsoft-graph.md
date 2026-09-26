@@ -4,6 +4,10 @@ source: "https://github.com/nz365guy/cb365"
 date: "2026-04-17"
 tags: [golang, cli, microsoft-graph, microsoft-365, automation]
 source_type: "github"
+topics: [developer-tools, software-engineering, automation-workflows]
+kind: "deep-dive"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://cursor.com/blog/grok-4-5"
 date: "2026-07-09"
 tags: [llm, reinforcement-learning, tool-use, software-engineering, mixture-of-experts]
 source_type: "web"
+topics: [machine-learning, ai-agents, ai-models, coding-agents]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

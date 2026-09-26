@@ -6,6 +6,13 @@ tags: [software-architecture, open-source, ai-agents, product-strategy, develope
 source_type: "youtube"
 source_fingerprint: "02b635c857"
 source_characters: 31977
+channel: "Y Combinator"
+published: "2026-08-10"
+duration_seconds: 2513
+topics: [ai-agents, product-and-design, coding-agents, automation-workflows]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

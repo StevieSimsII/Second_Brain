@@ -6,6 +6,13 @@ tags: [ai-engineering, software-engineering, career-development, llm-application
 source_type: "youtube"
 source_fingerprint: "e9e2628443"
 source_characters: 80000
+channel: "Aman Manazir"
+published: "2026-07-13"
+duration_seconds: 3994
+topics: [software-engineering, coding-agents]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

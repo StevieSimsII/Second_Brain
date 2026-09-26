@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=YTVwRu_uPxY"
 date: "2026-05-10"
 tags: [terminal, ai-agents, cli, automation, developer-tools]
 source_type: "youtube"
+channel: "Burke Holland"
+published: "2026-05-06"
+duration_seconds: 84
+topics: [developer-tools, ai-agents, coding-agents, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,12 @@ source: "https://youtu.be/haK1KoQWm18?is=0sLJAhwRjy7d_KWW"
 date: "2026-06-10"
 tags: [ai-safety, document-analysis, video-summarization, research-workflows, critical-reading]
 source_type: "youtube"
+channel: "AI Explained"
+published: "2026-06-10"
+duration_seconds: 2039
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

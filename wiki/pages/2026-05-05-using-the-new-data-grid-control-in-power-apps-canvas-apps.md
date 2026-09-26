@@ -4,6 +4,9 @@ source: "https://linkedin.com/posts/deepika-jain-a9498977_powerapps-microsoft-lo
 date: "2026-05-05"
 tags: [powerapps, canvasapps, datagrid, lowcode, microsoft]
 source_type: "web"
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

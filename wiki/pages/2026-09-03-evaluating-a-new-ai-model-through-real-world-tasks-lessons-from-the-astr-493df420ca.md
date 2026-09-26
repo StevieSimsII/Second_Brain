@@ -6,6 +6,13 @@ tags: [ai-model-evaluation, prompt-engineering, ui-design, human-computer-intera
 source_type: "youtube"
 source_fingerprint: "493df420ca"
 source_characters: 6855
+channel: "Every"
+published: "2026-09-03"
+duration_seconds: 398
+topics: [ai-models, llm-evaluation]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

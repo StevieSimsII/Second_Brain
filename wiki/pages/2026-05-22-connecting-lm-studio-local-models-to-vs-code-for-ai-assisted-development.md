@@ -4,6 +4,13 @@ source: "https://youtu.be/l3hcewcrYjo?si=wasWdp9Zl6FPNrrt"
 date: "2026-05-22"
 tags: [lm-studio, vscode, local-llm, developer-tools, openai-api]
 source_type: "youtube"
+channel: "ProgrammingKnowledge"
+published: "2026-05-09"
+duration_seconds: 419
+topics: [local-llms, developer-tools]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

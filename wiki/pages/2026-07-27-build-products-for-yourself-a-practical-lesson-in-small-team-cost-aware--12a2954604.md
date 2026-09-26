@@ -6,6 +6,13 @@ tags: [product-design, entrepreneurship, software, management, strategy]
 source_type: "youtube"
 source_fingerprint: "12a2954604"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-02-15"
+duration_seconds: 8481
+topics: [leadership-and-careers, product-and-design]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

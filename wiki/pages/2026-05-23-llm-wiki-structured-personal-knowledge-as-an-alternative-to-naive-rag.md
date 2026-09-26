@@ -4,6 +4,13 @@ source: "https://youtu.be/aGXTV5MTqDY?si=x3grbblexBO5k44D"
 date: "2026-05-23"
 tags: [llm, rag, knowledge-management, retrieval, prompting]
 source_type: "youtube"
+channel: "AI Simplified"
+published: "2026-04-04"
+duration_seconds: 319
+topics: [rag-and-retrieval, prompt-engineering, knowledge-management]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

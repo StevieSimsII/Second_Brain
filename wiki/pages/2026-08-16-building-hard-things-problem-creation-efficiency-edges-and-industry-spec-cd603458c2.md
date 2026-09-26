@@ -6,6 +6,13 @@ tags: [entrepreneurship, operations, strategy, robotics, fundraising]
 source_type: "youtube"
 source_fingerprint: "cd603458c2"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-08-16"
+duration_seconds: 6535
+topics: [ai-strategy, leadership-and-careers]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

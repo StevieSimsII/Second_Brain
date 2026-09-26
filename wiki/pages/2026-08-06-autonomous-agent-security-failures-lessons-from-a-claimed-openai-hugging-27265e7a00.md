@@ -6,6 +6,13 @@ tags: [ai-safety, cybersecurity, agent-systems, incident-response, defensive-aut
 source_type: "youtube"
 source_fingerprint: "27265e7a00"
 source_characters: 39022
+channel: "Black Hat"
+published: "2026-08-06"
+duration_seconds: 2248
+topics: [ai-safety-and-governance, ai-agents]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

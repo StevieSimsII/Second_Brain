@@ -4,6 +4,12 @@ source: "https://youtu.be/F4a8aMLb678?is=0yKRGvri5Vyul2bR"
 date: "2026-07-06"
 tags: [programming, loops, control-flow, algorithms, iteration]
 source_type: "youtube"
+channel: "Matthew Berman"
+published: "2026-06-19"
+duration_seconds: 971
+kind: "tutorial"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

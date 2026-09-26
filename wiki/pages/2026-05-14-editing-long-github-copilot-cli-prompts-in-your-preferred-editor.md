@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/burkeholland_editing-prompts-in-terminals-is
 date: "2026-05-14"
 tags: [copilot, cli, terminal, editor, shell]
 source_type: "web"
+topics: [developer-tools, github-copilot]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

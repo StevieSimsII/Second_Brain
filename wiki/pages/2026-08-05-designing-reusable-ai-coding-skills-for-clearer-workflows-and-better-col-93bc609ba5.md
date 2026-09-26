@@ -6,6 +6,13 @@ tags: [ai-coding, documentation, workflow-design, prompt-engineering, knowledge-
 source_type: "youtube"
 source_fingerprint: "93bc609ba5"
 source_characters: 13161
+channel: "Matt Pocock"
+published: "2026-08-05"
+duration_seconds: 697
+topics: [ai-agents, prompt-engineering, coding-agents, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

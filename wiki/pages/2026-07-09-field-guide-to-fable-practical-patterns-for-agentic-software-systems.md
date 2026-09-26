@@ -4,6 +4,13 @@ source: "https://youtu.be/9fubhllmsBU?is=naMYCD__pKA4lox4"
 date: "2026-07-09"
 tags: [agents, llm, system-design, ai-engineering, workflows]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-07-06"
+duration_seconds: 1168
+topics: [ai-agents, software-engineering, prompt-engineering, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

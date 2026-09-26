@@ -4,6 +4,10 @@ source: "https://github.com/multica-ai/andrej-karpathy-skills"
 date: "2026-05-22"
 tags: [llm-agents, claude-code, prompt-engineering, developer-tools, cursor, coding-workflows]
 source_type: "github"
+topics: [coding-agents, prompt-engineering, ai-agents, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://youtu.be/Ynv_WYO_slw?si=4K8HcXgagP5Tp0Vg"
 date: "2026-05-28"
 tags: [ai-tools, knowledge-graphs, saas, evaluation, content-analysis]
 source_type: "youtube"
+channel: "Eric Tech"
+published: "2026-05-27"
+duration_seconds: 980
+topics: [rag-and-retrieval, llm-evaluation]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

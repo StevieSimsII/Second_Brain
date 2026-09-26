@@ -6,6 +6,13 @@ tags: [ai-systems, organizational-design, automation, knowledge-management, star
 source_type: "youtube"
 source_fingerprint: "317ad2e274"
 source_characters: 21600
+channel: "YC Root Access"
+published: "2026-08-14"
+duration_seconds: 1280
+topics: [ai-agents, ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

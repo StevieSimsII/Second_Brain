@@ -4,6 +4,12 @@ source: "https://youtu.be/8JU9fIbxLXY"
 date: "2026-05-20"
 tags: [powerapps, deeplinking, canvas-apps, power-fx, dataverse]
 source_type: "youtube"
+channel: "Power Squared"
+published: "2026-05-19"
+duration_seconds: 564
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

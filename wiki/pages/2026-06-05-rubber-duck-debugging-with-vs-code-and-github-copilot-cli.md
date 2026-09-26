@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/in-todays-video-were-showing-how-to-shar
 date: "2026-06-05"
 tags: [debugging, vscode, github-copilot, cli, developer-workflow]
 source_type: "web"
+topics: [developer-tools, software-engineering, github-copilot]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

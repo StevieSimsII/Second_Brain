@@ -4,6 +4,10 @@ source: "https://github.blog/news-insights/product-news/github-copilot-app-the-a
 date: "2026-06-05"
 tags: [github, copilot, developer-tools, ai-agents, desktop-apps]
 source_type: "web"
+topics: [ai-agents, github-copilot, coding-agents, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

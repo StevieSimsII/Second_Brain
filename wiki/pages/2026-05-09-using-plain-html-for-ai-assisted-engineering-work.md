@@ -4,6 +4,10 @@ source: "https://thariqs.github.io/html-effectiveness"
 date: "2026-05-09"
 tags: [html, prototyping, engineering-workflows, visualization, ux]
 source_type: "web"
+topics: [software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

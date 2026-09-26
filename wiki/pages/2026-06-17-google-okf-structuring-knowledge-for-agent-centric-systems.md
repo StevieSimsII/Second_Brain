@@ -4,6 +4,13 @@ source: "https://youtu.be/MY9F9K7wWX4?is=j8oyCcP_y8Ae1eBU"
 date: "2026-06-17"
 tags: [knowledge-graphs, ai-agents, information-architecture, semantic-modeling, retrieval]
 source_type: "youtube"
+channel: "Marie Haynes"
+published: "2026-06-16"
+duration_seconds: 1089
+topics: [rag-and-retrieval, ai-agents, classifiers-and-structured-output]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

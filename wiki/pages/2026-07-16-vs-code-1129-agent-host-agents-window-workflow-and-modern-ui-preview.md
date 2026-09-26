@@ -4,6 +4,10 @@ source: "https://code.visualstudio.com/updates/v1_129"
 date: "2026-07-16"
 tags: [vscode, agents, copilot, developer-tools, editor-ui]
 source_type: "web"
+topics: [coding-agents, developer-tools, ai-agents, github-copilot]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,10 @@ tags: [agent-workflows, prompt-engineering, developer-tools, knowledge-managemen
 source_type: "github"
 source_fingerprint: "d9adf4c3a0"
 source_characters: 80000
+topics: [claude, coding-agents, ai-agents, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://youtu.be/wgdxSCsmS-Q?is=VmCEmZy5NcqF7BL_"
 date: "2026-07-11"
 tags: [ai, sovereignty, public-policy, nvidia, palantir, infrastructure]
 source_type: "youtube"
+channel: "All-In Podcast"
+published: "2026-07-03"
+duration_seconds: 6130
+topics: [ai-safety-and-governance, hardware-and-compute]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

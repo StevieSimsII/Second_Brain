@@ -6,6 +6,13 @@ tags: [developer-tools, agent-workflows, github, automation, project-management]
 source_type: "youtube"
 source_fingerprint: "a18ce4f684"
 source_characters: 11203
+channel: "James Montemagno"
+published: "2026-07-10"
+duration_seconds: 621
+topics: [github-copilot, ai-agents]
+kind: "demo"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://github.com/chrishutchinson/claude-receipts"
 date: "2026-05-02"
 tags: [typescript, cli, claude-code, escpos, receipts]
 source_type: "github"
+topics: [developer-tools, software-engineering, claude, automation-workflows]
+kind: "deep-dive"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

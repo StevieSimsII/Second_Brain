@@ -6,6 +6,13 @@ tags: [product-design, software-engineering, simplicity, user-experience, decisi
 source_type: "youtube"
 source_fingerprint: "9fcd0a1270"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-07-26"
+duration_seconds: 6099
+topics: [product-and-design]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [ai-strategy, platform-economics, semiconductors, business-models, geopoli
 source_type: "youtube"
 source_fingerprint: "7b29504806"
 source_characters: 80000
+channel: "Invest Like The Best"
+published: "2026-08-18"
+duration_seconds: 5154
+topics: [ai-strategy, hardware-and-compute]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

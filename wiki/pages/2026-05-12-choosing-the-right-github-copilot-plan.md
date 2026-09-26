@@ -4,6 +4,10 @@ source: "https://docs.github.com/en/copilot/get-started/plans"
 date: "2026-05-12"
 tags: [github, copilot, pricing, enterprise, developer-tools]
 source_type: "web"
+topics: [github-copilot, ai-strategy]
+kind: "deep-dive"
+depth: 1
+actionability: 2
 ---
 
 ## Overview

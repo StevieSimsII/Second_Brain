@@ -4,6 +4,12 @@ source: "https://youtu.be/mkWz2MOCTv8?is=NHacJ8u_2_fe87MG"
 date: "2026-07-13"
 tags: [ai-news, llms, model-evaluation, product-strategy, media-literacy]
 source_type: "youtube"
+channel: "WorldofAI"
+published: "2026-07-11"
+duration_seconds: 769
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

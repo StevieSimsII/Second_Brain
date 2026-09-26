@@ -6,6 +6,10 @@ tags: [sharepoint, copilot, html, webparts, microsoft365]
 source_type: "web"
 source_fingerprint: "bab18486f5"
 source_characters: 2284
+topics: [microsoft-365]
+kind: "tutorial"
+depth: 1
+actionability: 2
 ---
 
 ## Overview

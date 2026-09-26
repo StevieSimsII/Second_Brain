@@ -6,6 +6,13 @@ tags: [machine-learning, llm-inference, systems-design, hardware, cost-optimizat
 source_type: "youtube"
 source_fingerprint: "8ca9504cb1"
 source_characters: 29343
+channel: "Theo - t3․gg"
+published: "2026-07-07"
+duration_seconds: 1691
+topics: [local-llms, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

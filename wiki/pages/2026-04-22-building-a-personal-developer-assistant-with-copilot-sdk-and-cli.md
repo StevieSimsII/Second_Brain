@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=5TN6l7JGWvs"
 date: "2026-04-22"
 tags: [github-copilot, cli, sdk, ai-assistants, developer-tools]
 source_type: "youtube"
+channel: "GitHub"
+published: "2026-04-22"
+duration_seconds: 308
+topics: [github-copilot, developer-tools, ai-agents, prompt-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

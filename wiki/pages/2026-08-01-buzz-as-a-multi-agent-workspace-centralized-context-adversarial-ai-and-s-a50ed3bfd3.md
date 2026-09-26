@@ -6,6 +6,13 @@ tags: [multi-agent-systems, ai-collaboration, developer-tools, local-inference, 
 source_type: "youtube"
 source_fingerprint: "a50ed3bfd3"
 source_characters: 20220
+channel: "Alex Finn"
+published: "2026-07-31"
+duration_seconds: 1144
+topics: [ai-agents]
+kind: "demo"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

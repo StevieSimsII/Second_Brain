@@ -4,6 +4,13 @@ source: "https://youtu.be/Mmj_G9RlW-I?si=Me6GUmQ5aQVL5rRg"
 date: "2026-05-31"
 tags: [ai-infrastructure, semiconductors, datacenters, power, economics]
 source_type: "youtube"
+channel: "Invest Like The Best"
+published: "2026-05-20"
+duration_seconds: 4931
+topics: [hardware-and-compute]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

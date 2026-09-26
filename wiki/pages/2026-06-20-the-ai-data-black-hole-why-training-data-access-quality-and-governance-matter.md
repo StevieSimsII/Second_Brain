@@ -4,6 +4,13 @@ source: "https://youtu.be/4pG3SJQPAwk?is=nsDjEHX49iB8qON9"
 date: "2026-06-20"
 tags: [ai, data, mlops, governance, training-data]
 source_type: "youtube"
+channel: "Dwarkesh Patel"
+published: "2026-06-19"
+duration_seconds: 717
+topics: [ai-safety-and-governance]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

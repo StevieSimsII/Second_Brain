@@ -6,6 +6,13 @@ tags: [ai-agents, workflow-design, prompt-engineering, technical-education, huma
 source_type: "youtube"
 source_fingerprint: "b78df3113e"
 source_characters: 44288
+channel: "Peter Yang"
+published: "2026-07-19"
+duration_seconds: 2477
+topics: [ai-agents, coding-agents, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

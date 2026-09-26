@@ -4,6 +4,10 @@ source: "https://learn.microsoft.com/en-us/power-bi/developer/agentic/power-bi-r
 date: "2026-06-20"
 tags: [powerbi, pbip, pbir, ai-agents, copilot, mcp]
 source_type: "web"
+topics: [ai-agents, power-bi-and-fabric, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

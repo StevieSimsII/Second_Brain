@@ -4,6 +4,10 @@ source: "https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studi
 date: "2026-07-09"
 tags: [vscode, github-copilot, agentic-ai, developer-tools, llm, productivity]
 source_type: "web"
+topics: [github-copilot, coding-agents, ai-agents, developer-tools]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

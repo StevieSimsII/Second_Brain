@@ -6,6 +6,10 @@ tags: [ai-agents, software-engineering, automation, testing, observability]
 source_type: "web"
 source_fingerprint: "4a59947586"
 source_characters: 2016
+topics: [ai-agents, software-engineering, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

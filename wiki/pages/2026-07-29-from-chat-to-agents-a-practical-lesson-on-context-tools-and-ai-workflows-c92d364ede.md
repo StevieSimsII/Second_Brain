@@ -6,6 +6,13 @@ tags: [ai-agents, prompt-engineering, knowledge-management, automation, workflow
 source_type: "youtube"
 source_fingerprint: "c92d364ede"
 source_characters: 80000
+channel: "Open Residency"
+published: "2026-07-22"
+duration_seconds: 8651
+topics: [ai-agents, prompt-engineering, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

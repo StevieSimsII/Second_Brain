@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/mahmoudhamedhassan_microsoft-agent-365-a
 date: "2026-05-20"
 tags: [mcp, agent365, microsoft365, ai-governance, security, enterprise-ai]
 source_type: "web"
+topics: [ai-safety-and-governance, ai-agents, mcp]
+kind: "tutorial"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

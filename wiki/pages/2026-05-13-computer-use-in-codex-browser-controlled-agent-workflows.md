@@ -4,6 +4,13 @@ source: "https://www.youtube.com/watch?v=D_FCYsshMI4"
 date: "2026-05-13"
 tags: [ai-agents, browser-automation, codex, tool-use, human-in-the-loop]
 source_type: "youtube"
+channel: "OpenAI"
+published: "2026-05-12"
+duration_seconds: 685
+topics: [ai-agents, automation-workflows]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

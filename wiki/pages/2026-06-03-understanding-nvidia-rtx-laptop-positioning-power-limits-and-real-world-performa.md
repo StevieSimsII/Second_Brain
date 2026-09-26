@@ -4,6 +4,13 @@ source: "https://youtu.be/0-VG9QBm8S8?si=GGKOpv5R2j4Z7S_Q"
 date: "2026-06-03"
 tags: [gpu, laptops, nvidia, performance, power-management]
 source_type: "youtube"
+channel: "Dave2D"
+published: "2026-05-31"
+duration_seconds: 350
+topics: [hardware-and-compute, ai-models]
+kind: "deep-dive"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

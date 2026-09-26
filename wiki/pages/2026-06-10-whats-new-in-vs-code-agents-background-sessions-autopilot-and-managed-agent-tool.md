@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/in-the-latest-vs-code-release-the-agents
 date: "2026-06-10"
 tags: [vscode, agents, ai-tools, developer-workflow, enterprise]
 source_type: "web"
+topics: [developer-tools, coding-agents, ai-agents, github-copilot]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

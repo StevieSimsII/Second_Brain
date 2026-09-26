@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/sean-astrakhan_githubcopilot-vscode-copi
 date: "2026-05-20"
 tags: [github-copilot, vscode, cli, developer-productivity, ai-tools]
 source_type: "web"
+topics: [github-copilot, developer-tools, coding-agents]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

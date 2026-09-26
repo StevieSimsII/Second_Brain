@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/burkeholland_github-just-released-a-new-
 date: "2026-05-20"
 tags: [github, copilot, ai-agents, worktrees, developer-tools]
 source_type: "web"
+topics: [github-copilot, coding-agents, ai-agents, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/zrosenfield_sharepoint-sharepoint-microsoft3
 date: "2026-05-08"
 tags: [sharepoint, microsoft365, ai, html, metadata, copilot]
 source_type: "web"
+topics: [microsoft-365]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

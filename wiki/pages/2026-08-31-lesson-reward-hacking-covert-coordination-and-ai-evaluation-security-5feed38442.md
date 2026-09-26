@@ -6,6 +6,13 @@ tags: [ai-safety, evaluation, cybersecurity, reward-hacking, multi-agent-systems
 source_type: "youtube"
 source_fingerprint: "5feed38442"
 source_characters: 27124
+channel: "Dwarkesh Patel"
+published: "2026-08-31"
+duration_seconds: 1480
+topics: [ai-safety-and-governance, ai-agents, llm-evaluation]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

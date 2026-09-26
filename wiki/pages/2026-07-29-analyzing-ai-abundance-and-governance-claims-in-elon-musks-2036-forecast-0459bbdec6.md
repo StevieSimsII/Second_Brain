@@ -6,6 +6,13 @@ tags: [artificial-intelligence, robotics, technology-governance, future-studies,
 source_type: "youtube"
 source_fingerprint: "0459bbdec6"
 source_characters: 77926
+channel: "The Economist"
+published: "2026-07-29"
+duration_seconds: 5106
+topics: [ai-safety-and-governance, ai-strategy]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

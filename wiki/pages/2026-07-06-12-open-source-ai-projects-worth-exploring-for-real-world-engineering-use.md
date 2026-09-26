@@ -4,6 +4,13 @@ source: "https://youtu.be/2lmBj_XQq0I?is=uwHO_4kRtaP5CY_8"
 date: "2026-07-06"
 tags: [open-source, ai, llm, agents, developer-tools, self-hosting]
 source_type: "youtube"
+channel: "Matthew Berman"
+published: "2026-06-23"
+duration_seconds: 912
+topics: [software-engineering, rag-and-retrieval]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

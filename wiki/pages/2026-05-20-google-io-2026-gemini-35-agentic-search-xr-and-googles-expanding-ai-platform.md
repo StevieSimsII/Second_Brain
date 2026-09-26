@@ -4,6 +4,10 @@ source: "https://www.zdnet.com/article/google-io-05-19-2026-live-blog/"
 date: "2026-05-20"
 tags: [google, gemini, ai-agents, search, android-xr, developer-tools]
 source_type: "web"
+topics: [ai-agents]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

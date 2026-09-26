@@ -4,6 +4,13 @@ source: "https://youtube.com/watch?v=lqiwQiDglGk&si=zkEbSeSXrol25glK"
 date: "2026-05-23"
 tags: [rag, vector-search, knowledge-graphs, retrieval, ai-infrastructure]
 source_type: "youtube"
+channel: "AI News & Strategy Daily | Nate B Jones"
+published: "2026-05-13"
+duration_seconds: 1208
+topics: [rag-and-retrieval, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

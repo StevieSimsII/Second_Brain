@@ -6,6 +6,13 @@ tags: [decision-making, strategy, leadership, execution, adaptability, historica
 source_type: "youtube"
 source_fingerprint: "5067be7ba5"
 source_characters: 63597
+channel: "Founders Podcast"
+published: "2026-09-05"
+duration_seconds: 3333
+topics: [productivity, leadership-and-careers]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

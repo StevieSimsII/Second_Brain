@@ -6,6 +6,13 @@ tags: [ai-workflows, prompt-engineering, developer-tooling, technical-writing, k
 source_type: "youtube"
 source_fingerprint: "87a95b666b"
 source_characters: 41199
+channel: "Theo - t3․gg"
+published: "2026-08-18"
+duration_seconds: 2301
+topics: [ai-agents, prompt-engineering, coding-agents, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

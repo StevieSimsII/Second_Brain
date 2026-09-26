@@ -6,6 +6,12 @@ tags: [research-workflows, ai-agents, sentiment-analysis, web-scraping, knowledg
 source_type: "youtube"
 source_fingerprint: "63704534b1"
 source_characters: 11615
+channel: "Chase AI"
+published: "2026-07-28"
+duration_seconds: 565
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://youtu.be/ItW-ielFvGg?is=F_ll9FRyPC_tQD86"
 date: "2026-07-11"
 tags: [ai, document-processing, ocr, computer-vision, llm, construction]
 source_type: "youtube"
+channel: "Tim Fairley"
+published: "2026-06-30"
+duration_seconds: 1135
+topics: [software-engineering]
+kind: "tutorial"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/joeunwin_aiengineering-githubcopilot-vsc
 date: "2026-05-27"
 tags: [vscode, ai-engineering, copilot, developer-tools, privacy, agentic-workflows]
 source_type: "web"
+topics: [coding-agents, github-copilot, developer-tools, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [artificial-intelligence, open-source, platform-strategy, infrastructure, 
 source_type: "youtube"
 source_fingerprint: "7b3e55f10d"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-08-14"
+duration_seconds: 5969
+topics: [ai-strategy]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

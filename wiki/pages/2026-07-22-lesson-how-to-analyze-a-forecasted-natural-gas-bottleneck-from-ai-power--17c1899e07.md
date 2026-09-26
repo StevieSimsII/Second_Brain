@@ -6,6 +6,12 @@ tags: [energy-markets, natural-gas, power-systems, infrastructure, scenario-anal
 source_type: "youtube"
 source_fingerprint: "17c1899e07"
 source_characters: 58224
+channel: "Invest Like The Best"
+published: "2026-07-21"
+duration_seconds: 3584
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

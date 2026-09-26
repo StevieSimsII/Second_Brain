@@ -6,6 +6,10 @@ tags: [developer-workflow, ai-assisted-development, deployment, version-control]
 source_type: "web"
 source_fingerprint: "287ebce13b"
 source_characters: 3284
+topics: [coding-agents]
+kind: "opinion"
+depth: 1
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [personal-knowledge-management, ai-agents, context-engineering, knowledge-
 source_type: "youtube"
 source_fingerprint: "e7d6d7a3e3"
 source_characters: 36183
+channel: "Y Combinator"
+published: "2026-08-06"
+duration_seconds: 2528
+topics: [context-engineering, ai-agents, automation-workflows, prompt-engineering]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

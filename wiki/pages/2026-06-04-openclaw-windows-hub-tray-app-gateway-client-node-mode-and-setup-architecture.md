@@ -4,6 +4,10 @@ source: "https://github.com/openclaw/openclaw-windows-node"
 date: "2026-06-04"
 tags: [csharp, winui, websocket, windows, tray-app, wsl]
 source_type: "github"
+topics: [software-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

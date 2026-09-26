@@ -6,6 +6,13 @@ tags: [automation, ai-workflows, debugging, productivity, systems-thinking]
 source_type: "youtube"
 source_fingerprint: "299bb40e9f"
 source_characters: 20797
+channel: "Austin Marchese"
+published: "2026-07-15"
+duration_seconds: 988
+topics: [ai-agents, automation-workflows, claude, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

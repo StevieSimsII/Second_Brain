@@ -6,6 +6,13 @@ tags: [ai-infrastructure, compute-economics, data-centers, model-strategy, semic
 source_type: "youtube"
 source_fingerprint: "b02254f8a3"
 source_characters: 76353
+channel: "a16z"
+published: "2026-08-31"
+duration_seconds: 4466
+topics: [ai-strategy, hardware-and-compute]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

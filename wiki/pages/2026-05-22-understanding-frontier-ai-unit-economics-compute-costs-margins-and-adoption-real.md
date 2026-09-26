@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/emollick_there-has-been-a-lot-of-online-
 date: "2026-05-22"
 tags: [ai-economics, llm, unit-economics, cloud-compute, enterprise-ai]
 source_type: "web"
+topics: [ai-strategy]
+kind: "deep-dive"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

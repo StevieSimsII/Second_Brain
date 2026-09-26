@@ -6,6 +6,9 @@ tags: [education, ai-literacy, critical-thinking, entrepreneurship, mindset]
 source_type: "web"
 source_fingerprint: "11ee4f7536"
 source_characters: 7743
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

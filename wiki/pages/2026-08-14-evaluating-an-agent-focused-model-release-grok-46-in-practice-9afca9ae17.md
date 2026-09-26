@@ -6,6 +6,13 @@ tags: [llm-evaluation, agentic-systems, benchmarking, developer-tools]
 source_type: "youtube"
 source_fingerprint: "9afca9ae17"
 source_characters: 27494
+channel: "Theo - t3․gg"
+published: "2026-08-13"
+duration_seconds: 1531
+topics: [llm-evaluation, ai-models, ai-agents, coding-agents]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

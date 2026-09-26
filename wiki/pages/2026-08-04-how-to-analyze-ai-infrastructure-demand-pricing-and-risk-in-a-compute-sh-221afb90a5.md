@@ -6,6 +6,13 @@ tags: [ai-infrastructure, semiconductors, cloud-computing, market-analysis, capi
 source_type: "youtube"
 source_fingerprint: "221afb90a5"
 source_characters: 71965
+channel: "Invest Like The Best"
+published: "2026-08-04"
+duration_seconds: 4724
+topics: [hardware-and-compute, ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

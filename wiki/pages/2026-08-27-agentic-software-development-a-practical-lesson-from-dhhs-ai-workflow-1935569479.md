@@ -6,6 +6,13 @@ tags: [software-engineering, ai-agents, programming, product-design, open-source
 source_type: "youtube"
 source_fingerprint: "1935569479"
 source_characters: 80000
+channel: "Lex Fridman"
+published: "2026-08-26"
+duration_seconds: 18951
+topics: [coding-agents, software-engineering, ai-agents]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://docs.ollama.com/integrations/copilot-cli"
 date: "2026-04-19"
 tags: [ollama, copilot-cli, openai-api, terminal-ai, developer-tools]
 source_type: "web"
+topics: [github-copilot, developer-tools, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

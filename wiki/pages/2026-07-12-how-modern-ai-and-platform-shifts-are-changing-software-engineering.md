@@ -4,6 +4,13 @@ source: "https://youtu.be/xUnRQ9vLXxo?is=PLsVjz4bmrg8waUB"
 date: "2026-07-12"
 tags: [software-engineering, ai, developer-tools, architecture, productivity]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-07-08"
+duration_seconds: 961
+topics: [software-engineering, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

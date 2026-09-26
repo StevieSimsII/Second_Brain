@@ -4,6 +4,13 @@ source: "https://youtu.be/GBISeUYMzoU?si=QIGdHYZJQumkcuJW"
 date: "2026-05-27"
 tags: [ai-coding, developer-tools, cursor, llm, software-engineering]
 source_type: "youtube"
+channel: "Matthew Berman"
+published: "2026-05-26"
+duration_seconds: 1882
+topics: [coding-agents, developer-tools, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

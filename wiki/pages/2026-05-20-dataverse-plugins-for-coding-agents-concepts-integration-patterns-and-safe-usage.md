@@ -4,6 +4,13 @@ source: "https://youtu.be/ya-MOAL08bY?si=B07wVB7zns5WZxyj"
 date: "2026-05-20"
 tags: [dataverse, plugins, ai-agents, microsoft-power-platform, tooling]
 source_type: "youtube"
+channel: "Microsoft Power Platform"
+published: "2026-05-14"
+duration_seconds: 374
+topics: [ai-agents, software-engineering, ai-safety-and-governance]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

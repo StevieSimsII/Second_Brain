@@ -6,6 +6,13 @@ tags: [machine-learning, classification, structured-output, type-safety, automat
 source_type: "youtube"
 source_fingerprint: "6c6e210fa9"
 source_characters: 34255
+channel: "Theo - t3․gg"
+published: "2026-09-20"
+duration_seconds: 1829
+topics: [classifiers-and-structured-output, software-engineering, ai-models]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

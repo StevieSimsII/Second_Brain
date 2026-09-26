@@ -6,6 +6,13 @@ tags: [construction-technology, document-analysis, ai-evaluation, prompt-enginee
 source_type: "youtube"
 source_fingerprint: "74571b8c8b"
 source_characters: 36584
+channel: "Tim Fairley"
+published: "2026-09-08"
+duration_seconds: 2009
+topics: [llm-evaluation, prompt-engineering, ai-agents, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

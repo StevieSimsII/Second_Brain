@@ -6,6 +6,13 @@ tags: [semiconductors, ai-infrastructure, computer-architecture, supply-chain, c
 source_type: "youtube"
 source_fingerprint: "fe6f03aed0"
 source_characters: 80000
+channel: "Dwarkesh Patel"
+published: "2026-03-13"
+duration_seconds: 9044
+topics: [hardware-and-compute, ai-strategy]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

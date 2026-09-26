@@ -6,6 +6,13 @@ tags: [agent-systems, automation, workflow-design, multi-agent, evaluation]
 source_type: "youtube"
 source_fingerprint: "0ce2bd09a2"
 source_characters: 11701
+channel: "Chase AI"
+published: "2026-07-21"
+duration_seconds: 633
+topics: [ai-agents, software-engineering, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

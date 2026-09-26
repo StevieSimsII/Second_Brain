@@ -6,6 +6,12 @@ tags: [ai-education, machine-learning, learning-science, curriculum-design, huma
 source_type: "youtube"
 source_fingerprint: "27f87f4bff"
 source_characters: 22470
+channel: "COAI"
+published: "2026-07-21"
+duration_seconds: 997
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

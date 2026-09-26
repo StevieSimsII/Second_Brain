@@ -4,6 +4,10 @@ source: "https://tabulareditor.com/blog/fabric-apps-explained-visualization-as-c
 date: "2026-06-03"
 tags: [fabric, powerbi, dax, vega-lite, react, webapps]
 source_type: "web"
+topics: [power-bi-and-fabric, data-and-analytics]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://github.com/microsoft/markitdown"
 date: "2026-04-17"
 tags: [python, markdown, llm, document-conversion, plugins]
 source_type: "github"
+topics: [python, software-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

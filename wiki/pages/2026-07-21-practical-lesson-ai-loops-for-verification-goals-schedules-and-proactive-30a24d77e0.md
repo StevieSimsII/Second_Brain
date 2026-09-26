@@ -6,6 +6,13 @@ tags: [ai-agents, prompt-engineering, automation, evaluation, workflows]
 source_type: "youtube"
 source_fingerprint: "30a24d77e0"
 source_characters: 21098
+channel: "Dream Labs AI"
+published: "2026-07-12"
+duration_seconds: 1114
+topics: [ai-agents, automation-workflows, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

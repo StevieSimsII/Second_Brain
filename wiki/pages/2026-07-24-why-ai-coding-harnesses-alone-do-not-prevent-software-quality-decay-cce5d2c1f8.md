@@ -6,6 +6,13 @@ tags: [software-engineering, code-review, ai-agents, maintainability, system-des
 source_type: "youtube"
 source_fingerprint: "cce5d2c1f8"
 source_characters: 21490
+channel: "AI Engineer"
+published: "2026-07-23"
+duration_seconds: 1157
+topics: [software-engineering, coding-agents, ai-agents]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

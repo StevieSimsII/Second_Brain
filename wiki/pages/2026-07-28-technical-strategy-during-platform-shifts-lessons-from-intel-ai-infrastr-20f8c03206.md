@@ -6,6 +6,13 @@ tags: [technical-strategy, semiconductors, ai-economics, platforms, product-deve
 source_type: "youtube"
 source_fingerprint: "20f8c03206"
 source_characters: 48326
+channel: "All-In Podcast"
+published: "2026-07-15"
+duration_seconds: 2984
+topics: [ai-strategy, hardware-and-compute]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

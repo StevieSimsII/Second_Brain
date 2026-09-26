@@ -6,6 +6,10 @@ tags: [llm, prompt-engineering, token-optimization, developer-tools, ai-systems]
 source_type: "web"
 source_fingerprint: "d78b497e80"
 source_characters: 13970
+topics: [coding-agents, context-engineering, prompt-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

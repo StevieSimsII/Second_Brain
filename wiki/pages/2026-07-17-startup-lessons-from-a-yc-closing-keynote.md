@@ -4,6 +4,13 @@ source: "https://youtu.be/eBUyTS7SzV4?is=6YQtl4dphZ00ngZJ"
 date: "2026-07-17"
 tags: [startups, ycombinator, founders, product, growth]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-07-16"
+duration_seconds: 1268
+topics: [leadership-and-careers, product-and-design]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

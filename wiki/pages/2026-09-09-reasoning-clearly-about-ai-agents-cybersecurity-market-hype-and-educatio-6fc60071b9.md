@@ -6,6 +6,13 @@ tags: [artificial-intelligence, ai-agents, cybersecurity, technology-policy, edu
 source_type: "youtube"
 source_fingerprint: "6fc60071b9"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-09-04"
+duration_seconds: 5515
+topics: [ai-safety-and-governance, ai-agents]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

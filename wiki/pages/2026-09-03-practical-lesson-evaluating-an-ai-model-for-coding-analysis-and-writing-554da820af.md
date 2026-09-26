@@ -6,6 +6,13 @@ tags: [ai-evaluation, llm-workflows, prompting, software-engineering, writing]
 source_type: "youtube"
 source_fingerprint: "554da820af"
 source_characters: 21293
+channel: "Every"
+published: "2026-09-01"
+duration_seconds: 1245
+topics: [llm-evaluation, ai-models]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

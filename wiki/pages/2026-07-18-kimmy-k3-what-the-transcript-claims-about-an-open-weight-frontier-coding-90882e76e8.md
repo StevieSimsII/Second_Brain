@@ -6,6 +6,13 @@ tags: [artificial-intelligence, language-models, open-weights, benchmarking, inf
 source_type: "youtube"
 source_fingerprint: "90882e76e8"
 source_characters: 11571
+channel: "Matthew Berman"
+published: "2026-07-17"
+duration_seconds: 732
+topics: [ai-models, llm-evaluation, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

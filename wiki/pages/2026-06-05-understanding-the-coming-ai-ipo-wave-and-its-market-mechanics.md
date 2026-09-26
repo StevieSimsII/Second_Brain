@@ -4,6 +4,13 @@ source: "https://youtu.be/UIoV8rG_25s?si=BAZIZM6QmW43uPnt"
 date: "2026-06-05"
 tags: [ai, ipos, venture-capital, public-markets, market-structure]
 source_type: "youtube"
+channel: "All-In Podcast"
+published: "2026-06-04"
+duration_seconds: 1965
+topics: [ai-strategy]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

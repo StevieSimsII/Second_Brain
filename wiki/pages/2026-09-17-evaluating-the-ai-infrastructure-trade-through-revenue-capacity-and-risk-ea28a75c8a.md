@@ -6,6 +6,13 @@ tags: [artificial-intelligence, technology-investing, capital-expenditure, marke
 source_type: "youtube"
 source_fingerprint: "ea28a75c8a"
 source_characters: 16776
+channel: "All-In Podcast"
+published: "2026-09-16"
+duration_seconds: 1090
+topics: [hardware-and-compute, ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

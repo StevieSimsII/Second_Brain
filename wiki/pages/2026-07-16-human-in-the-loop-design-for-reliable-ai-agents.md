@@ -4,6 +4,13 @@ source: "https://youtu.be/HbUznYhKFOc?is=T5eYyFEifEt_p38r"
 date: "2026-07-16"
 tags: [ai-agents, human-in-the-loop, automation, evaluation, reliability]
 source_type: "youtube"
+channel: "LangChain"
+published: "2026-07-16"
+duration_seconds: 4653
+topics: [ai-agents, software-engineering, ai-safety-and-governance]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

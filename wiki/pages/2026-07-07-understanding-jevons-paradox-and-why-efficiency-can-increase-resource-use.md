@@ -4,6 +4,12 @@ source: "https://youtu.be/a6sYYrLTOjQ?is=G7luggJVB68BFE4m"
 date: "2026-07-07"
 tags: [economics, efficiency, energy, sustainability, systems-thinking]
 source_type: "youtube"
+channel: "Hank Green"
+published: "2026-07-06"
+duration_seconds: 2002
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

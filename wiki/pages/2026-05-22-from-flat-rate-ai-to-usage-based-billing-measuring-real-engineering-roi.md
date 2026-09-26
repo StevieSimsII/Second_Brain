@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/colbynricker_one-github-copilot-user-did
 date: "2026-05-22"
 tags: [ai-costs, copilot, finops, engineering-management, developer-productivity]
 source_type: "web"
+topics: [ai-strategy, coding-agents]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

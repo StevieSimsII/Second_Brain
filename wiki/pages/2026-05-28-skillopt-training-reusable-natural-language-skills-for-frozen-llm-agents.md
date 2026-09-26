@@ -4,6 +4,10 @@ source: "https://github.com/microsoft/SkillOpt"
 date: "2026-05-28"
 tags: [llm, agents, prompt-optimization, python, evaluation, training-loops]
 source_type: "github"
+topics: [ai-agents, prompt-engineering, machine-learning, software-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

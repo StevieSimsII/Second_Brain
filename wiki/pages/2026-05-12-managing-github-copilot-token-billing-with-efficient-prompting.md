@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/silvia-rodenas-vaquero_githubcopilot-github-
 date: "2026-05-12"
 tags: [github-copilot, token-billing, prompting, developer-tools, enterprise]
 source_type: "web"
+topics: [github-copilot, prompt-engineering, coding-agents, ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

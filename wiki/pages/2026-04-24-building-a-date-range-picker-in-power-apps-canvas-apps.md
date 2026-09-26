@@ -4,6 +4,9 @@ source: "https://linkedin.com/posts/powerappstools_pick-a-date-range-in-power-ap
 date: "2026-04-24"
 tags: [powerapps, canvas-apps, date-picker, ux, low-code]
 source_type: "web"
+kind: "tutorial"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

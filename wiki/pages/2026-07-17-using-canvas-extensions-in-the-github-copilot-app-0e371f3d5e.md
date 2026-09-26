@@ -6,6 +6,10 @@ tags: [github-copilot, extensions, collaboration, workflow, artifacts]
 source_type: "web"
 source_fingerprint: "0e371f3d5e"
 source_characters: 5244
+topics: [github-copilot, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

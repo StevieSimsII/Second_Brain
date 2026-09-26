@@ -6,6 +6,13 @@ tags: [sharepoint, copilot, agent-design, prompt-engineering, knowledge-manageme
 source_type: "youtube"
 source_fingerprint: "84a4d3191a"
 source_characters: 7924
+channel: "Zach Rosenfield"
+published: "2026-08-25"
+duration_seconds: 464
+topics: [microsoft-365, prompt-engineering, ai-agents, context-engineering]
+kind: "demo"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

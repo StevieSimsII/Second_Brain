@@ -4,6 +4,13 @@ source: "https://youtu.be/krhedsvD5tw"
 date: "2026-05-20"
 tags: [powerapps, variables, power-fx, canvas-apps, state-management]
 source_type: "youtube"
+channel: "Shane Young"
+published: "2026-05-19"
+duration_seconds: 2002
+topics: [software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

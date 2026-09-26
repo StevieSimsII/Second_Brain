@@ -4,6 +4,13 @@ source: "https://youtu.be/13tHN3iP5kQ?is=PyCoECHbtpRZk9FD"
 date: "2026-07-10"
 tags: [llm-evaluation, prompt-engineering, benchmarking, ai-productivity, model-selection]
 source_type: "youtube"
+channel: "Every"
+published: "2026-07-09"
+duration_seconds: 814
+topics: [llm-evaluation, ai-models, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [machine-learning, llm-economics, ai-systems, model-optimization, agent-lo
 source_type: "youtube"
 source_fingerprint: "c1248d471b"
 source_characters: 12976
+channel: "Matthew Berman"
+published: "2026-07-30"
+duration_seconds: 885
+topics: [ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

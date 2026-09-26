@@ -4,6 +4,10 @@ source: "https://open.substack.com/pub/nandigamharikrishna/p/andrej-karpathys-ll
 date: "2026-05-08"
 tags: [llm, knowledge-management, rag, obsidian, markdown]
 source_type: "web"
+topics: [rag-and-retrieval, knowledge-management, software-engineering, ai-agents]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [ai-strategy, product-management, startup-operations, technology-adoption,
 source_type: "youtube"
 source_fingerprint: "1bec40fbd3"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-08-23"
+duration_seconds: 4696
+topics: [ai-strategy, leadership-and-careers, productivity]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

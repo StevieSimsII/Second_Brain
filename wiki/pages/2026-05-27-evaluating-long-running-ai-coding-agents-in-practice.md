@@ -4,6 +4,13 @@ source: "https://youtu.be/2wLJl9A2CnA?si=ETL9sXLR2e5ZtRg6"
 date: "2026-05-27"
 tags: [ai-agents, coding-assistants, evaluation, automation, developer-tools]
 source_type: "youtube"
+channel: "How I AI"
+published: "2026-05-27"
+duration_seconds: 1820
+topics: [coding-agents, ai-agents, llm-evaluation, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

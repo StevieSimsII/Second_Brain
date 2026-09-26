@@ -6,6 +6,13 @@ tags: [rag, knowledge-management, embeddings, data-ingestion, enterprise-search]
 source_type: "youtube"
 source_fingerprint: "afde5f9d0e"
 source_characters: 29596
+channel: "Nick Saraev"
+published: "2026-07-19"
+duration_seconds: 1428
+topics: [rag-and-retrieval, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

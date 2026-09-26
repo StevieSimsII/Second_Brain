@@ -6,6 +6,10 @@ tags: [sharepoint, copilot, dashboard, knowledge-management, low-code]
 source_type: "web"
 source_fingerprint: "3ec5d1ae9d"
 source_characters: 5854
+topics: [microsoft-365, coding-agents, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

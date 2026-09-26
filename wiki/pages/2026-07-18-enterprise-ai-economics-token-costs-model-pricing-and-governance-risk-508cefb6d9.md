@@ -6,6 +6,13 @@ tags: [artificial-intelligence, enterprise-software, economics, pricing, governa
 source_type: "youtube"
 source_fingerprint: "508cefb6d9"
 source_characters: 13750
+channel: "CNBC Television"
+published: "2026-07-14"
+duration_seconds: 802
+topics: [ai-strategy, ai-models]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

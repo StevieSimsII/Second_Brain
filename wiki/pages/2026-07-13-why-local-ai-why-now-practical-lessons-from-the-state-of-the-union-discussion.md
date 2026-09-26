@@ -4,6 +4,13 @@ source: "https://youtu.be/KB41dTlX1Uc?is=N47Gb4kIp0UP9CBv"
 date: "2026-07-13"
 tags: [local-ai, llms, edge-computing, gpu, privacy, inference]
 source_type: "youtube"
+channel: "AI Engineer"
+published: "2026-07-11"
+duration_seconds: 2669
+topics: [local-llms, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,12 @@ tags: [power-systems, hvdc, energy-infrastructure, data-centers, grid-architectu
 source_type: "youtube"
 source_fingerprint: "ea11f2e83d"
 source_characters: 25095
+channel: "Forbes"
+published: "2026-07-28"
+duration_seconds: 1324
+kind: "interview"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [startups, decision-making, ai-agents, product-strategy, organizational-de
 source_type: "youtube"
 source_fingerprint: "54a3c91970"
 source_characters: 54439
+channel: "a16z"
+published: "2026-08-12"
+duration_seconds: 3088
+topics: [leadership-and-careers, ai-strategy, ai-agents, automation-workflows]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

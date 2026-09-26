@@ -6,6 +6,13 @@ tags: [ai-safety, machine-learning, automation, reinforcement-learning, forecast
 source_type: "youtube"
 source_fingerprint: "2a3800b98a"
 source_characters: 80000
+channel: "Dwarkesh Patel"
+published: "2026-08-11"
+duration_seconds: 7952
+topics: [machine-learning, ai-safety-and-governance, ai-agents]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

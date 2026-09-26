@@ -4,6 +4,13 @@ source: "https://www.youtube.com/live/Wq45rvPGNHs?is=CeZ5am9USWcHM5Nn"
 date: "2026-07-09"
 tags: [chatgpt, ai-products, agents, multimodal, ux, llm-platforms]
 source_type: "youtube"
+channel: "OpenAI"
+published: "2026-07-09"
+duration_seconds: 2108
+topics: [ai-agents, software-engineering, context-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

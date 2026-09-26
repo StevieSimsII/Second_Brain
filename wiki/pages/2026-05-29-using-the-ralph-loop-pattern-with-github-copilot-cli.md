@@ -4,6 +4,10 @@ source: "https://sakari.niittymaa.com/blog_making-the-ralph-loop-work-with-githu
 date: "2026-05-29"
 tags: [ai-agents, github-copilot, cli, automation, llmops]
 source_type: "web"
+topics: [ai-agents, coding-agents, github-copilot, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

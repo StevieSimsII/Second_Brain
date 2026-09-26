@@ -4,6 +4,13 @@ source: "https://youtu.be/OvLIae4HCeM?si=W4MfPrNFx4B9_Y2U"
 date: "2026-06-05"
 tags: [ai, llms, multimodal, model-evaluation, cloud, product-strategy]
 source_type: "youtube"
+channel: "Microsoft"
+published: "2026-06-03"
+duration_seconds: 877
+topics: [software-engineering, ai-models, llm-evaluation]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

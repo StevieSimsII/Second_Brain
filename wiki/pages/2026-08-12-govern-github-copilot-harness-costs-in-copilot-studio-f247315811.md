@@ -6,6 +6,10 @@ tags: [copilot-studio, governance, cost-management, power-platform, api]
 source_type: "web"
 source_fingerprint: "f247315811"
 source_characters: 14986
+topics: [ai-safety-and-governance, github-copilot, ai-agents, ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

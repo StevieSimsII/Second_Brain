@@ -4,6 +4,13 @@ source: "https://youtu.be/v8rCHym0lXE?si=bjLrbrr47M_Qd_6j"
 date: "2026-05-28"
 tags: [llm, retrieval, learning, rag, knowledge-management]
 source_type: "youtube"
+channel: "Eric Tech"
+published: "2026-05-20"
+duration_seconds: 979
+topics: [productivity, rag-and-retrieval, knowledge-management]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

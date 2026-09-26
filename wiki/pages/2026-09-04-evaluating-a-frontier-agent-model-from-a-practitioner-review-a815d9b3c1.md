@@ -6,6 +6,13 @@ tags: [llms, ai-agents, model-evaluation, computer-use, software-engineering]
 source_type: "youtube"
 source_fingerprint: "a815d9b3c1"
 source_characters: 50966
+channel: "Theo - t3․gg"
+published: "2026-09-04"
+duration_seconds: 2652
+topics: [llm-evaluation, ai-agents, ai-models]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

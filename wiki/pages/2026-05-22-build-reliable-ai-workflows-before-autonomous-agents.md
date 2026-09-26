@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/john-r-rymer-a65b2211_autonomy-isnt-the-
 date: "2026-05-22"
 tags: [ai-agents, workflows, reliability, prompt-engineering, llm-systems]
 source_type: "web"
+topics: [software-engineering, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

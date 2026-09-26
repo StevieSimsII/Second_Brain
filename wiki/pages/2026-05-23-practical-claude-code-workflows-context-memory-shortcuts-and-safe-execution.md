@@ -4,6 +4,10 @@ source: "https://open.substack.com/pub/nandigamharikrishna/p/claude-shortcuts-an
 date: "2026-05-23"
 tags: [claude, developer-tools, context-management, ai-workflows, cli, productivity]
 source_type: "web"
+topics: [claude, coding-agents, context-engineering, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

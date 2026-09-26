@@ -6,6 +6,13 @@ tags: [entrepreneurship, ai-strategy, agents, systems-thinking, startup-executio
 source_type: "youtube"
 source_fingerprint: "cd8468241b"
 source_characters: 32583
+channel: "Y Combinator"
+published: "2026-07-29"
+duration_seconds: 1930
+topics: [ai-strategy, leadership-and-careers, ai-agents]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

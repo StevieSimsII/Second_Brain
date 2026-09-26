@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/akshay-pachaar_microsoft-graphrag-just-got-d
 date: "2026-05-02"
 tags: [graphrag, rag, knowledge-graphs, retrieval, llm]
 source_type: "web"
+topics: [rag-and-retrieval]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

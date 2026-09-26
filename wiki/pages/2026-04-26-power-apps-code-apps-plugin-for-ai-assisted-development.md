@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/joshgiles94_code-apps-plugin-ugcPost-7452313
 date: "2026-04-26"
 tags: [powerapps, powerplatform, ai-agents, lowcode, plugins]
 source_type: "web"
+topics: [ai-agents, software-engineering]
+kind: "opinion"
+depth: 1
+actionability: 1
 ---
 
 ## Overview

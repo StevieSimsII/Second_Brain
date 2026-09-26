@@ -4,6 +4,10 @@ source: "https://github.com/microsoftdocs/mcp"
 date: "2026-05-27"
 tags: [mcp, typescript, cli, documentation, llm, rag]
 source_type: "github"
+topics: [mcp, developer-tools, ai-agents, software-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

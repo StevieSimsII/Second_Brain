@@ -4,6 +4,13 @@ source: "https://youtu.be/PDxKrp-dTDA?si=3vIAJFARcni5PUPd"
 date: "2026-06-06"
 tags: [llm, gemma, macos, apple-silicon, local-inference, quantization]
 source_type: "youtube"
+channel: "Bart Slodyczka"
+published: "2026-06-04"
+duration_seconds: 895
+topics: [local-llms]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://youtu.be/M6mYodf0dJM?is=wruUCKuJ-Gr_rxCp"
 date: "2026-07-16"
 tags: [productivity, engineering-career, end-to-end, workflow, learning]
 source_type: "youtube"
+channel: "Matt Pocock"
+published: "2026-07-16"
+duration_seconds: 1037
+topics: [software-engineering, productivity]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

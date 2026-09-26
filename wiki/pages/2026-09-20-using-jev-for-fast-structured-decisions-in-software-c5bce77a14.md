@@ -6,6 +6,13 @@ tags: [ai-models, decision-systems, structured-output, typescript, application-d
 source_type: "youtube"
 source_fingerprint: "c5bce77a14"
 source_characters: 19317
+channel: "Codevolution"
+published: "2026-09-19"
+duration_seconds: 1332
+topics: [classifiers-and-structured-output, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

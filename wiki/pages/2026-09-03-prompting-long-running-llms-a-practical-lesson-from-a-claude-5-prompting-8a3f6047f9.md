@@ -6,6 +6,13 @@ tags: [prompting, llm, context-engineering, ai-workflows, knowledge-management]
 source_type: "youtube"
 source_fingerprint: "8a3f6047f9"
 source_characters: 15614
+channel: "Ben AI"
+published: "2026-09-02"
+duration_seconds: 795
+topics: [prompt-engineering, claude]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

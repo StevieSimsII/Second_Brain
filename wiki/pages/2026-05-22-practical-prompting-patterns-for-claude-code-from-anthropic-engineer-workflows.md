@@ -4,6 +4,13 @@ source: "https://youtu.be/qOvc9IUKEIc"
 date: "2026-05-22"
 tags: [prompting, claude-code, ai-coding, llm-workflows, developer-tools]
 source_type: "youtube"
+channel: "Austin Marchese"
+published: "2026-05-15"
+duration_seconds: 645
+topics: [prompt-engineering, coding-agents, claude, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [startups, artificial-intelligence, hard-tech, product-strategy, founder-s
 source_type: "youtube"
 source_fingerprint: "39ccaecf9c"
 source_characters: 38103
+channel: "Y Combinator"
+published: "2026-09-17"
+duration_seconds: 2189
+topics: [ai-strategy, ai-agents, leadership-and-careers, coding-agents]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/burkeholland_completely-understand-hooks-in-
 date: "2026-04-18"
 tags: [ai-agents, hooks, copilot, vscode, developer-tools]
 source_type: "web"
+topics: [ai-safety-and-governance, github-copilot, developer-tools, ai-agents]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

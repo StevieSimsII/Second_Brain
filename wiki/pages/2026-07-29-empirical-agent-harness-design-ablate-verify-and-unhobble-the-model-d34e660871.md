@@ -6,6 +6,13 @@ tags: [agent-design, prompting, evaluation, software-engineering, ai-systems]
 source_type: "youtube"
 source_fingerprint: "d34e660871"
 source_characters: 36157
+channel: "Y Combinator"
+published: "2026-07-27"
+duration_seconds: 2151
+topics: [ai-agents, coding-agents, prompt-engineering, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

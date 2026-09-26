@@ -4,6 +4,10 @@ source: "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/"
 date: "2026-05-20"
 tags: [agentic-ai, local-llm, nvidia-rtx, dgx-spark, hermes, qwen]
 source_type: "web"
+topics: [ai-agents, local-llms, context-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

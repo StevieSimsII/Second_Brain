@@ -4,6 +4,9 @@ source: "https://powerappstools.com/snippet-details/221"
 date: "2026-05-10"
 tags: [powerapps, canvas-apps, date-picker, power-fx, ui]
 source_type: "web"
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

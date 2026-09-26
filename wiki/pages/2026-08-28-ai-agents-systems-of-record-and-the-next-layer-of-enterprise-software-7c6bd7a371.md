@@ -6,6 +6,13 @@ tags: [artificial-intelligence, software-architecture, enterprise-software, saas
 source_type: "youtube"
 source_fingerprint: "7c6bd7a371"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-08-28"
+duration_seconds: 5800
+topics: [ai-agents, ai-strategy, software-engineering]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

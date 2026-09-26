@@ -6,6 +6,10 @@ tags: [github-copilot, command-line, developer-workflows, ai-assisted-developmen
 source_type: "github"
 source_fingerprint: "58079a5a59"
 source_characters: 15496
+topics: [github-copilot, developer-tools, coding-agents, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://tabulareditor.com/blog/ai-readiness-and-best-practices-for-sema
 date: "2026-04-22"
 tags: [semantic-models, power-bi, llm, dax, copilot, fabric]
 source_type: "web"
+topics: [power-bi-and-fabric, prompt-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

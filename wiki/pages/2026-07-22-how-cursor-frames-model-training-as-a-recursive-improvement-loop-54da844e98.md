@@ -6,6 +6,13 @@ tags: [machine-learning, reinforcement-learning, evaluation, ai-agents, software
 source_type: "youtube"
 source_fingerprint: "54da844e98"
 source_characters: 21514
+channel: "AI Engineer"
+published: "2026-07-15"
+duration_seconds: 1232
+topics: [machine-learning, coding-agents, ai-agents, llm-evaluation]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

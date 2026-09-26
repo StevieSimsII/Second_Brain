@@ -4,6 +4,10 @@ source: "https://speckit.org/"
 date: "2026-05-29"
 tags: [spec-driven-development, ai-agents, cli, software-design, requirements, developer-workflow]
 source_type: "web"
+topics: [coding-agents, software-engineering, ai-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

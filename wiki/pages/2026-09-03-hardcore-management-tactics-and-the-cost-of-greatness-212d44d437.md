@@ -6,6 +6,13 @@ tags: [leadership, management, incentives, focus, decision-making]
 source_type: "youtube"
 source_fingerprint: "212d44d437"
 source_characters: 47946
+channel: "My First Million"
+published: "2026-09-02"
+duration_seconds: 2509
+topics: [leadership-and-careers]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

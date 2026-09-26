@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/vs-code_the-latest-vs-code-release-makes
 date: "2026-07-06"
 tags: [vscode, ai-tools, cost-management, model-tuning, developer-productivity]
 source_type: "web"
+topics: [developer-tools, coding-agents, github-copilot]
+kind: "news"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/github-copilot-cli-cheat-sheet-ugcPost-74604
 date: "2026-05-14"
 tags: [github-copilot, cli, terminal, shell, productivity]
 source_type: "web"
+topics: [developer-tools, github-copilot]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

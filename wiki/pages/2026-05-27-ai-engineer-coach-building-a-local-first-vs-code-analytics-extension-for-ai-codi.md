@@ -4,6 +4,10 @@ source: "https://github.com/microsoft/AI-Engineering-Coach"
 date: "2026-05-27"
 tags: [typescript, vscode-extension, analytics, agentic-ai, rule-engine, webview]
 source_type: "github"
+topics: [software-engineering, developer-tools, coding-agents]
+kind: "deep-dive"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

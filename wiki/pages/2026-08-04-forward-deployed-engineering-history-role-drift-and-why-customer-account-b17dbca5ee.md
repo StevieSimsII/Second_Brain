@@ -6,6 +6,12 @@ tags: [software-engineering, customer-engineering, ai-engineering, devops, produ
 source_type: "youtube"
 source_fingerprint: "b17dbca5ee"
 source_characters: 17479
+channel: "AI Engineer"
+published: "2026-07-28"
+duration_seconds: 1009
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

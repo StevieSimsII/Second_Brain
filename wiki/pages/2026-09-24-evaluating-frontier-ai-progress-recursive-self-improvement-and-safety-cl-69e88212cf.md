@@ -6,6 +6,13 @@ tags: [artificial-intelligence, ai-safety, model-evaluation, recursive-self-impr
 source_type: "youtube"
 source_fingerprint: "69e88212cf"
 source_characters: 35588
+channel: "AI Explained"
+published: "2026-09-24"
+duration_seconds: 1974
+topics: [ai-safety-and-governance, llm-evaluation]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

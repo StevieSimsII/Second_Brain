@@ -4,6 +4,10 @@ source: "https://code.visualstudio.com/updates/v1_122"
 date: "2026-05-28"
 tags: [vscode, ai-agents, byok, opentelemetry, web-debugging, remote-development]
 source_type: "web"
+topics: [developer-tools, github-copilot, coding-agents, ai-agents]
+kind: "news"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

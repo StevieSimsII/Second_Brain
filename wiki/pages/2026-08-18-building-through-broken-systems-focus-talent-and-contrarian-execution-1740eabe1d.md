@@ -6,6 +6,13 @@ tags: [strategy, leadership, startups, talent, decision-making]
 source_type: "youtube"
 source_fingerprint: "1740eabe1d"
 source_characters: 80000
+channel: "Joe Lonsdale Clips"
+published: "2026-08-14"
+duration_seconds: 5321
+topics: [leadership-and-careers]
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

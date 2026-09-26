@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/rezadorrani_powerapps-powerplatform-codeapps
 date: "2026-05-11"
 tags: [powerapps, powerplatform, dataverse, vscode, rbac, deployment]
 source_type: "web"
+topics: [software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

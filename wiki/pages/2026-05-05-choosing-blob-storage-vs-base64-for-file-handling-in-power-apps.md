@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/radovan-santa-7aa737134_upload-files-without
 date: "2026-05-05"
 tags: [powerapps, azure, blob-storage, base64, dataverse]
 source_type: "web"
+topics: [software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,12 @@ source: "https://www.youtube.com/live/hMEdSCrWOTk?si=TAa9JhU8w0kd88Cr"
 date: "2026-05-24"
 tags: [scrum, github-projects, agile, issue-tracking, workflow, planning]
 source_type: "youtube"
+channel: "Scrum.org"
+published: "2025-06-24"
+duration_seconds: 3513
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

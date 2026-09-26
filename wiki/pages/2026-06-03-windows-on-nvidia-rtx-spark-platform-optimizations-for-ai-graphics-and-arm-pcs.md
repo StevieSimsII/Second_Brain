@@ -4,6 +4,9 @@ source: "https://blogs.windows.com/windowsexperience/2026/05/31/introducing-a-po
 date: "2026-06-03"
 tags: [windows, nvidia, arm, ai, graphics, platform]
 source_type: "web"
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,10 @@ source: "https://github.com/workollab/auto-dca"
 date: "2026-06-06"
 tags: [decline-curve-analysis, typescript, react, forecasting, optimization, oil-gas]
 source_type: "github"
+topics: [software-engineering, ai-models]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

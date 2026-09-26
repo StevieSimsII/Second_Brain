@@ -6,6 +6,13 @@ tags: [ai-classification, decision-systems, workflow-automation, structured-data
 source_type: "youtube"
 source_fingerprint: "cae08480a9"
 source_characters: 28324
+channel: "Greg Isenberg"
+published: "2026-09-18"
+duration_seconds: 1704
+topics: [classifiers-and-structured-output, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

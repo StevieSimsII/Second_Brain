@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/pulse/building-dwsim-dynamic-simulation-code-m
 date: "2026-06-05"
 tags: [dwsim, dynamic-simulation, process-modeling, numerical-methods, chemical-engineering]
 source_type: "web"
+topics: [software-engineering]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

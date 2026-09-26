@@ -4,6 +4,13 @@ source: "https://youtu.be/mD1F5DsC5tc?is=VyGosuKVF9S4tJOc"
 date: "2026-07-09"
 tags: [llm, model-evaluation, ai-product, benchmarking, safety]
 source_type: "youtube"
+channel: "Matthew Berman"
+published: "2026-07-09"
+duration_seconds: 534
+topics: [llm-evaluation, software-engineering, ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

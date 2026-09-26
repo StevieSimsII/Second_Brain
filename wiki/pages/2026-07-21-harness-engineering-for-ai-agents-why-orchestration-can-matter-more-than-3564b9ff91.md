@@ -6,6 +6,13 @@ tags: [ai-agents, orchestration, systems-design, prompt-engineering, evaluation]
 source_type: "youtube"
 source_fingerprint: "3564b9ff91"
 source_characters: 9830
+channel: "PY"
+published: "2026-04-14"
+duration_seconds: 705
+topics: [ai-agents, software-engineering, context-engineering, prompt-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

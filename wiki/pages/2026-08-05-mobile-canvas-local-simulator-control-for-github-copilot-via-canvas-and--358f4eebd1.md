@@ -6,6 +6,10 @@ tags: [csharp, mcp, mobile-testing, simulators, developer-tools]
 source_type: "github"
 source_fingerprint: "358f4eebd1"
 source_characters: 14473
+topics: [github-copilot, software-engineering, mcp, ai-agents]
+kind: "deep-dive"
+depth: 3
+actionability: 2
 ---
 
 ## Overview

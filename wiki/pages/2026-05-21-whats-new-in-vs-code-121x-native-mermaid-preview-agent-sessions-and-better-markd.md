@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/the-new-vs-code-release-adds-mermaid-dia
 date: "2026-05-21"
 tags: [vscode, markdown, mermaid, ai-agents, observability]
 source_type: "web"
+topics: [developer-tools, ai-agents]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -4,6 +4,13 @@ source: "https://youtu.be/zR5tyP4Onkc?si=br9ZvGFixmcb2xj7"
 date: "2026-05-28"
 tags: [llm, knowledge-graph, retrieval, personal-wiki, rag]
 source_type: "youtube"
+channel: "DevsKingdom"
+published: "2026-04-13"
+duration_seconds: 1013
+topics: [rag-and-retrieval, knowledge-management, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

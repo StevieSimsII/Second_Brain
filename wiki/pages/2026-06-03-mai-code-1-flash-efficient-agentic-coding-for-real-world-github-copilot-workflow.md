@@ -4,6 +4,10 @@ source: "https://microsoft.ai/news/introducingmai-code-1-flash/"
 date: "2026-06-03"
 tags: [llm, coding-models, github-copilot, agentic-tools, benchmarking]
 source_type: "web"
+topics: [ai-models, coding-agents, github-copilot, ai-agents]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

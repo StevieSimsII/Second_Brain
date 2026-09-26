@@ -4,6 +4,10 @@ source: "https://claude.com/blog/introducing-routines-in-claude-code"
 date: "2026-06-06"
 tags: [claude-code, automation, webhooks, api, scheduling, devops]
 source_type: "web"
+topics: [claude, automation-workflows, ai-agents, coding-agents]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

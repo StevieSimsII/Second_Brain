@@ -4,6 +4,10 @@ source: "https://www.linkedin.com/posts/henryjammes_workiq-share-747268684432189
 date: "2026-06-17"
 tags: [microsoft-365, copilot, agentic-ai, apis, enterprise-search]
 source_type: "web"
+topics: [ai-agents, microsoft-365, software-engineering, rag-and-retrieval]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

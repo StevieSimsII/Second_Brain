@@ -6,6 +6,13 @@ tags: [agent-systems, collaboration, workflow-automation, context-management, op
 source_type: "youtube"
 source_fingerprint: "a56972fb9d"
 source_characters: 36711
+channel: "Greg Isenberg"
+published: "2026-07-28"
+duration_seconds: 2324
+topics: [ai-agents, automation-workflows]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

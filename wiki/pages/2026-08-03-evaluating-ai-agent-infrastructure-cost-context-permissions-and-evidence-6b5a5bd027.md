@@ -6,6 +6,13 @@ tags: [ai-agents, developer-tools, context-management, local-ai, security]
 source_type: "youtube"
 source_fingerprint: "6b5a5bd027"
 source_characters: 20160
+channel: "Cloud Codes"
+published: "2026-08-02"
+duration_seconds: 1270
+topics: [ai-agents, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

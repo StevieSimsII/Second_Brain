@@ -6,6 +6,10 @@ tags: [llm-api, python, tool-calling, structured-output, multimodal]
 source_type: "web"
 source_fingerprint: "c63207fa01"
 source_characters: 12882
+topics: [python]
+kind: "tutorial"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

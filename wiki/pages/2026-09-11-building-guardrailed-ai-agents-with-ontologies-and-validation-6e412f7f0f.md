@@ -6,6 +6,13 @@ tags: [ai-agents, ontologies, knowledge-graphs, neuro-symbolic-ai, data-validati
 source_type: "youtube"
 source_fingerprint: "6e412f7f0f"
 source_characters: 16779
+channel: "AI Engineer"
+published: "2026-07-22"
+duration_seconds: 1278
+topics: [ai-agents, ai-safety-and-governance, classifiers-and-structured-output, software-engineering]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

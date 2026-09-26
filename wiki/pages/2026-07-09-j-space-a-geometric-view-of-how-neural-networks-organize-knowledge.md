@@ -4,6 +4,12 @@ source: "https://youtu.be/bjHuGNo3spk?is=Uy40_ykoAFJdKF0b"
 date: "2026-07-09"
 tags: [machine-learning, representation-learning, neural-networks, geometry, interpretability]
 source_type: "youtube"
+channel: "Matthew Berman"
+published: "2026-07-07"
+duration_seconds: 1534
+kind: "deep-dive"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

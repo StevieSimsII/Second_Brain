@@ -6,6 +6,13 @@ tags: [rlhf, ai-alignment, automation, language-models, software-reliability]
 source_type: "youtube"
 source_fingerprint: "b816f6fb01"
 source_characters: 17160
+channel: "AI Engineer"
+published: "2026-07-31"
+duration_seconds: 1084
+topics: [machine-learning, ai-agents, ai-safety-and-governance, llm-evaluation]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

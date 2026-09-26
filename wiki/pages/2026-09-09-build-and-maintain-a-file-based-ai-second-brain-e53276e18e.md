@@ -6,6 +6,13 @@ tags: [knowledge-management, ai-agents, markdown, automation, information-archit
 source_type: "youtube"
 source_fingerprint: "e53276e18e"
 source_characters: 22149
+channel: "Ben AI"
+published: "2026-09-07"
+duration_seconds: 1099
+topics: [knowledge-management, ai-agents, context-engineering, productivity]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

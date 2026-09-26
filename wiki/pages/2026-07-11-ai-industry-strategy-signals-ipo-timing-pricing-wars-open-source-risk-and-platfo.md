@@ -4,6 +4,13 @@ source: "https://youtu.be/PHL1j2ti420?is=43nXZpYnKZ1tIunf"
 date: "2026-07-11"
 tags: [ai, strategy, startups, platforms, open-source, market-dynamics]
 source_type: "youtube"
+channel: "All-In Podcast"
+published: "2026-07-10"
+duration_seconds: 6125
+topics: [ai-strategy, ai-safety-and-governance]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

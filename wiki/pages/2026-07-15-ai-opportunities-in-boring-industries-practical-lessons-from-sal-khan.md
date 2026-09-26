@@ -4,6 +4,13 @@ source: "https://youtu.be/s-Iz-lLAhdg?is=LYHl2pslXqiT2Pv9"
 date: "2026-07-15"
 tags: [ai-strategy, enterprise-ai, education, automation, industry-innovation]
 source_type: "youtube"
+channel: "Silicon Valley Girl"
+published: "2026-07-14"
+duration_seconds: 2649
+topics: [ai-strategy]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,13 @@ tags: [ai-governance, regulation, data-centers, payments, privacy, competition]
 source_type: "youtube"
 source_fingerprint: "bdc41c9a90"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-07-17"
+duration_seconds: 5394
+topics: [ai-safety-and-governance, ai-strategy]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

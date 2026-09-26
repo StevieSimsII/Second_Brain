@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/charlie-sexton_the-long-awaited-power-automa
 date: "2026-05-05"
 tags: [powerapps, powerautomate, code-apps, integration, microsoft-power-platform]
 source_type: "web"
+topics: [automation-workflows, software-engineering]
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

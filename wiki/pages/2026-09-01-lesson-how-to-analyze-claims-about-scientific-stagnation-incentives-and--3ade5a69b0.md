@@ -6,6 +6,12 @@ tags: [science-policy, research-funding, physics, critical-thinking, innovation]
 source_type: "youtube"
 source_fingerprint: "3ade5a69b0"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-08-26"
+duration_seconds: 5420
+kind: "interview"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

@@ -4,6 +4,12 @@ source: "https://youtu.be/A98dW2kIg3Q"
 date: "2026-06-04"
 tags: [dev-tunnels, remote-access, local-development, networking, developer-tools]
 source_type: "youtube"
+channel: "Visual Studio Code"
+published: "2026-06-04"
+duration_seconds: 453
+kind: "tutorial"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

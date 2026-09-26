@@ -6,6 +6,10 @@ tags: [editor, developer-tools, ai-agents, markdown, voice-input]
 source_type: "web"
 source_fingerprint: "e429dcbc68"
 source_characters: 12033
+topics: [developer-tools, coding-agents, github-copilot]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

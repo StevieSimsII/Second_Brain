@@ -4,6 +4,10 @@ source: "https://code.visualstudio.com/updates/v1_120"
 date: "2026-05-20"
 tags: [vscode, agents, copilot, markdown, extensions, llm]
 source_type: "web"
+topics: [developer-tools, coding-agents, ai-agents, software-engineering]
+kind: "news"
+depth: 3
+actionability: 1
 ---
 
 ## Overview

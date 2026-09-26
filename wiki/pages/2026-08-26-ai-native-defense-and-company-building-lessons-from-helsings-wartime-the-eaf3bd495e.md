@@ -6,6 +6,13 @@ tags: [autonomy, defense-tech, ai-systems, manufacturing, leadership]
 source_type: "youtube"
 source_fingerprint: "eaf3bd495e"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-08-26"
+duration_seconds: 5034
+topics: [ai-strategy, ai-agents, leadership-and-careers]
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

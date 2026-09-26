@@ -4,6 +4,10 @@ source: "https://hbr.org/2026/04/how-to-move-from-ai-experimentation-to-ai-trans
 date: "2026-05-03"
 tags: [generative-ai, digital-transformation, corporate-strategy, process-management, ai-adoption]
 source_type: "web"
+topics: [ai-strategy]
+kind: "opinion"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

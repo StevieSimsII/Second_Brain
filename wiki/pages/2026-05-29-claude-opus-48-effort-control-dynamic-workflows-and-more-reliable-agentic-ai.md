@@ -4,6 +4,10 @@ source: "https://www.anthropic.com/news/claude-opus-4-8?utm_content=hero_cta&utm
 date: "2026-05-29"
 tags: [llms, agentic-ai, anthropic, api, evaluation, reasoning]
 source_type: "web"
+topics: [claude, ai-models, ai-agents, coding-agents]
+kind: "news"
+depth: 2
+actionability: 2
 ---
 
 ## Overview

@@ -6,6 +6,10 @@ tags: [agent-design, developer-tools, tooling, extensibility, ai-agents]
 source_type: "web"
 source_fingerprint: "08355af8ac"
 source_characters: 1135
+topics: [github-copilot, ai-agents, developer-tools]
+kind: "opinion"
+depth: 1
+actionability: 2
 ---
 
 ## Overview

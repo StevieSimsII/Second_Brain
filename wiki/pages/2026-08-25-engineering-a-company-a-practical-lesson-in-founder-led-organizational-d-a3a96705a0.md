@@ -6,6 +6,13 @@ tags: [entrepreneurship, management, organizational-design, decision-making, pro
 source_type: "youtube"
 source_fingerprint: "a3a96705a0"
 source_characters: 80000
+channel: "David Senra"
+published: "2026-01-18"
+duration_seconds: 8621
+topics: [leadership-and-careers]
+kind: "opinion"
+depth: 2
+actionability: 3
 ---
 
 ## Overview

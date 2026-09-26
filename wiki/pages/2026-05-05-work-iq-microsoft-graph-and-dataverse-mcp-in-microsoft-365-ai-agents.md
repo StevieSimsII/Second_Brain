@@ -4,6 +4,10 @@ source: "https://linkedin.com/posts/sean-astrakhan_workiq-microsoft365-mcp-share
 date: "2026-05-05"
 tags: [microsoft365, mcp, dataverse, microsoft-graph, ai-agents]
 source_type: "web"
+topics: [ai-agents, software-engineering, microsoft-365, mcp]
+kind: "deep-dive"
+depth: 2
+actionability: 1
 ---
 
 ## Overview

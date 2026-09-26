@@ -6,6 +6,12 @@ tags: [economic-mobility, public-policy, tax-policy, wealth-inequality, retireme
 source_type: "youtube"
 source_fingerprint: "34e32b2479"
 source_characters: 67082
+channel: "Sourcery with Molly O'Shea"
+published: "2026-07-22"
+duration_seconds: 3881
+kind: "interview"
+depth: 2
+actionability: 2
 ---
 
 ## Overview
