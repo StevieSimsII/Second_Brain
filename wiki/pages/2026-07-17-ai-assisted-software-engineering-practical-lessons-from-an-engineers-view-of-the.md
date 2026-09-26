@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "South Park Commons"
 published: "2026-07-16"
 duration_seconds: 2815
-topics: [coding-agents, software-engineering, prompt-engineering]
+topics: [coding-agents, prompt-engineering, software-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

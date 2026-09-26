@@ -7,9 +7,9 @@ source_type: "youtube"
 channel: "Tim Fairley"
 published: "2026-06-30"
 duration_seconds: 1135
-topics: [software-engineering]
+topics: []
 kind: "tutorial"
-depth: 3
+depth: 2
 actionability: 2
 ---
 

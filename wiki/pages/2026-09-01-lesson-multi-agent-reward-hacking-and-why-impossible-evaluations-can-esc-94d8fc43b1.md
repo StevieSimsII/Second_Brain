@@ -9,7 +9,7 @@ source_characters: 80000
 channel: "Dwarkesh Patel"
 published: "2026-09-01"
 duration_seconds: 8433
-topics: [ai-agents, ai-safety-and-governance, llm-evaluation, software-engineering]
+topics: [ai-agents, ai-safety-and-governance, llm-evaluation]
 kind: "interview"
 depth: 2
 actionability: 2

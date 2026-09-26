@@ -6,7 +6,7 @@ tags: [sharepoint, html-dashboards, ai-workflows, data-contracts]
 source_type: "web"
 source_fingerprint: "cf7d0ead47"
 source_characters: 2557
-topics: [software-engineering, web-development, prompt-engineering]
+topics: [web-development, prompt-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

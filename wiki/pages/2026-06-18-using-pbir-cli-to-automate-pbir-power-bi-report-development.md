@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-repor
 date: "2026-06-18"
 tags: [powerbi, pbir, microsoftfabric, cli, reporting, tmdl]
 source_type: "web"
-topics: [power-bi-and-fabric, automation-workflows, developer-tools, software-engineering]
+topics: [power-bi-and-fabric, automation-workflows, developer-tools]
 kind: "tutorial"
 depth: 2
 actionability: 1

@@ -4,7 +4,7 @@ source: "https://linkedin.com/posts/andreasadner_microsoftcopilot-agui-copilotki
 date: "2026-05-14"
 tags: [mcp, copilot, generative-ui, langgraph, agents]
 source_type: "web"
-topics: [classifiers-and-structured-output, software-engineering, ai-agents]
+topics: [classifiers-and-structured-output, ai-agents]
 kind: "tutorial"
 depth: 2
 actionability: 2

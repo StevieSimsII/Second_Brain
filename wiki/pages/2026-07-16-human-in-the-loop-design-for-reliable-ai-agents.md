@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "LangChain"
 published: "2026-07-16"
 duration_seconds: 4653
-topics: [ai-agents, software-engineering, ai-safety-and-governance]
+topics: [ai-agents, ai-safety-and-governance]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -9,7 +9,7 @@ source_characters: 45554
 channel: "Ruby on Rails"
 published: "2026-09-23"
 duration_seconds: 3787
-topics: [coding-agents, software-engineering, ai-agents, ai-strategy]
+topics: [coding-agents, ai-agents, software-engineering, ai-strategy]
 kind: "opinion"
 depth: 2
 actionability: 2

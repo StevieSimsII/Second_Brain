@@ -9,7 +9,7 @@ source_characters: 20797
 channel: "Austin Marchese"
 published: "2026-07-15"
 duration_seconds: 988
-topics: [ai-agents, automation-workflows, claude, software-engineering]
+topics: [ai-agents, automation-workflows, claude]
 kind: "tutorial"
 depth: 2
 actionability: 3

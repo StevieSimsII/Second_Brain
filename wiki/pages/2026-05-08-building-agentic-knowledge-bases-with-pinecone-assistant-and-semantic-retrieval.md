@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "The AI Automators"
 published: "2026-05-07"
 duration_seconds: 1644
-topics: [rag-and-retrieval, software-engineering, knowledge-management]
+topics: [rag-and-retrieval, knowledge-management]
 kind: "deep-dive"
 depth: 2
 actionability: 1

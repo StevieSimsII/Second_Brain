@@ -6,7 +6,7 @@ tags: [knowledge-graph, ontology, rag, rust, postgresql]
 source_type: "github"
 source_fingerprint: "4eb733afdb"
 source_characters: 20800
-topics: [rag-and-retrieval, software-engineering]
+topics: [rag-and-retrieval]
 kind: "deep-dive"
 depth: 2
 actionability: 2

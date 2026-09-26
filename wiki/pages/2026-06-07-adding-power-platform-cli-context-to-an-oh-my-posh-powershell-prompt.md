@@ -4,8 +4,8 @@ source: "https://github.com/jukkan/oh-my-pac"
 date: "2026-06-07"
 tags: [powershell, oh-my-posh, power-platform, pac, cli]
 source_type: "github"
-topics: [developer-tools, software-engineering]
-kind: "tutorial"
+topics: [developer-tools]
+kind: "deep-dive"
 depth: 3
 actionability: 2
 ---

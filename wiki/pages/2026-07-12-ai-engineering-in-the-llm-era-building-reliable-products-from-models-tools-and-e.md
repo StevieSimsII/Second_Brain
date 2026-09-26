@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI Engineer"
 published: "2026-07-09"
 duration_seconds: 1513
-topics: [software-engineering, classifiers-and-structured-output, ai-agents, llm-evaluation]
+topics: [ai-agents, classifiers-and-structured-output, llm-evaluation]
 kind: "tutorial"
 depth: 2
 actionability: 2

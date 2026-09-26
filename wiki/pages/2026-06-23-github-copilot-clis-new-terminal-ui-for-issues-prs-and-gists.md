@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/copilot-cli-just-got-a-new-terminal-user
 date: "2026-06-23"
 tags: [copilot, cli, terminal-ui, github, developer-workflow]
 source_type: "web"
-topics: [github-copilot, developer-tools, coding-agents, software-engineering]
+topics: [github-copilot, developer-tools, coding-agents]
 kind: "news"
 depth: 2
 actionability: 2

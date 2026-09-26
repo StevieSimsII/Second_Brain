@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI News & Strategy Daily | Nate B Jones"
 published: "2026-05-13"
 duration_seconds: 1208
-topics: [rag-and-retrieval, software-engineering]
+topics: [rag-and-retrieval]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -4,7 +4,7 @@ source: "https://thariqs.github.io/html-effectiveness/"
 date: "2026-05-20"
 tags: [html, ux, developer-tools, prototyping, documentation]
 source_type: "web"
-topics: [software-engineering]
+topics: []
 kind: "tutorial"
 depth: 2
 actionability: 3

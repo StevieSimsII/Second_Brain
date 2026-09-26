@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/pulse/mai-either-microsofts-moat-its-next-copi
 date: "2026-07-10"
 tags: [microsoft, enterprise-ai, model-routing, copilot, cloud-strategy]
 source_type: "web"
-topics: [ai-strategy, software-engineering, microsoft-365]
+topics: [ai-strategy, microsoft-365]
 kind: "opinion"
 depth: 2
 actionability: 2

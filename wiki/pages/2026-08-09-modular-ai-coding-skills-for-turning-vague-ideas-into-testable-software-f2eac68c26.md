@@ -9,7 +9,7 @@ source_characters: 29987
 channel: "Eric Tech"
 published: "2026-08-07"
 duration_seconds: 1457
-topics: [software-engineering, coding-agents, prompt-engineering]
+topics: [coding-agents, software-engineering, prompt-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 3

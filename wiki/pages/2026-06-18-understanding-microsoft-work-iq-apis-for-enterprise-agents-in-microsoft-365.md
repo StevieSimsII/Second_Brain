@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/awaiskhawar_microsofts-work-iq-apis-are-
 date: "2026-06-18"
 tags: [microsoft-365, copilot, enterprise-agents, apis, governance]
 source_type: "web"
-topics: [ai-agents, microsoft-365, software-engineering]
+topics: [ai-agents, microsoft-365]
 kind: "deep-dive"
 depth: 2
 actionability: 1

@@ -9,7 +9,7 @@ source_characters: 36157
 channel: "Y Combinator"
 published: "2026-07-27"
 duration_seconds: 2151
-topics: [ai-agents, coding-agents, prompt-engineering, software-engineering]
+topics: [ai-agents, coding-agents, prompt-engineering]
 kind: "interview"
 depth: 2
 actionability: 3

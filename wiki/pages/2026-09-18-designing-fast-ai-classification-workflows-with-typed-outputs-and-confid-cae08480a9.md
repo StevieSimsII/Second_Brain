@@ -9,7 +9,7 @@ source_characters: 28324
 channel: "Greg Isenberg"
 published: "2026-09-18"
 duration_seconds: 1704
-topics: [classifiers-and-structured-output, software-engineering]
+topics: [classifiers-and-structured-output]
 kind: "tutorial"
 depth: 2
 actionability: 2

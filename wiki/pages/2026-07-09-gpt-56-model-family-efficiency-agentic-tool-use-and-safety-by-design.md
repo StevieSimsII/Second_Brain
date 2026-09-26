@@ -4,7 +4,7 @@ source: "https://openai.com/index/gpt-5-6/"
 date: "2026-07-09"
 tags: [llms, agents, tool-calling, model-evaluation, safety, api]
 source_type: "web"
-topics: [ai-models, ai-agents, software-engineering]
+topics: [ai-models, ai-agents]
 kind: "deep-dive"
 depth: 3
 actionability: 2

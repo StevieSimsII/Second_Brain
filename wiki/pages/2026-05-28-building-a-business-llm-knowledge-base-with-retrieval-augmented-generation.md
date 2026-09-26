@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Dream Labs AI"
 published: "2026-05-14"
 duration_seconds: 1054
-topics: [rag-and-retrieval, software-engineering]
+topics: [rag-and-retrieval]
 kind: "tutorial"
 depth: 3
 actionability: 2

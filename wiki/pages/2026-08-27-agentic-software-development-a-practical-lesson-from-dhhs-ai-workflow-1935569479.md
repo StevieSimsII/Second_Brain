@@ -9,7 +9,7 @@ source_characters: 80000
 channel: "Lex Fridman"
 published: "2026-08-26"
 duration_seconds: 18951
-topics: [coding-agents, software-engineering, ai-agents]
+topics: [coding-agents, ai-agents]
 kind: "interview"
 depth: 2
 actionability: 3

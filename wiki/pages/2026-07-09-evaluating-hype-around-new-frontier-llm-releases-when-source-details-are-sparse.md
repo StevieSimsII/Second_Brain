@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Matthew Berman"
 published: "2026-07-09"
 duration_seconds: 534
-topics: [llm-evaluation, software-engineering, ai-strategy]
+topics: [llm-evaluation, ai-strategy]
 kind: "tutorial"
 depth: 2
 actionability: 3

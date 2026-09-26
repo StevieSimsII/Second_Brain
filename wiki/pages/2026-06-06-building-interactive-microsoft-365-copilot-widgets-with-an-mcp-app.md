@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/shoebsayyed_microsoftcopilot-mcp-modelco
 date: "2026-06-06"
 tags: [microsoft365, copilot, mcp, azure, dotnet, agents]
 source_type: "web"
-topics: [ai-agents, mcp, software-engineering, microsoft-365]
+topics: [ai-agents, mcp, microsoft-365]
 kind: "tutorial"
 depth: 2
 actionability: 2

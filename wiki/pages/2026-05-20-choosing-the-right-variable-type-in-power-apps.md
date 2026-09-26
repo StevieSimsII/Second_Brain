@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Shane Young"
 published: "2026-05-19"
 duration_seconds: 2002
-topics: [software-engineering]
+topics: []
 kind: "tutorial"
 depth: 2
 actionability: 2

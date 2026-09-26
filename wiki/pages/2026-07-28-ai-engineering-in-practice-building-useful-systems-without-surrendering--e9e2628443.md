@@ -9,7 +9,7 @@ source_characters: 80000
 channel: "Aman Manazir"
 published: "2026-07-13"
 duration_seconds: 3994
-topics: [software-engineering, coding-agents]
+topics: [coding-agents]
 kind: "interview"
 depth: 2
 actionability: 2

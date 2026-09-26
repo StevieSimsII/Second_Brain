@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Matthew Berman"
 published: "2026-07-14"
 duration_seconds: 948
-topics: [coding-agents, software-engineering, prompt-engineering]
+topics: [coding-agents, prompt-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

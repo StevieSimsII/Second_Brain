@@ -4,10 +4,10 @@ source: "https://www.linkedin.com/posts/burkeholland_the-new-canvas-feature-of-t
 date: "2026-06-09"
 tags: [github-copilot, developer-tools, ui, worktrees, automation]
 source_type: "web"
-topics: [github-copilot, software-engineering, developer-tools, coding-agents]
+topics: [github-copilot, developer-tools, coding-agents, automation-workflows]
 kind: "tutorial"
 depth: 2
-actionability: 1
+actionability: 2
 ---
 
 ## Overview

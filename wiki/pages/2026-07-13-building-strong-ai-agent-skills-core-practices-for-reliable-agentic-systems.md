@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI Engineer"
 published: "2026-06-29"
 duration_seconds: 1243
-topics: [ai-agents, software-engineering, classifiers-and-structured-output]
+topics: [ai-agents, classifiers-and-structured-output]
 kind: "tutorial"
 depth: 2
 actionability: 2

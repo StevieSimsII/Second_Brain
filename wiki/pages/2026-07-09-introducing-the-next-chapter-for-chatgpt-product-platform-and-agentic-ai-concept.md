@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "OpenAI"
 published: "2026-07-09"
 duration_seconds: 2108
-topics: [ai-agents, software-engineering, context-engineering]
+topics: [ai-agents, context-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "The Verge"
 published: "2026-06-02"
 duration_seconds: 1508
-topics: [software-engineering, ai-agents, github-copilot, coding-agents]
+topics: [ai-agents, github-copilot, coding-agents]
 kind: "tutorial"
 depth: 2
 actionability: 2

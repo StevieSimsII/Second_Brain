@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/kurtbuhler_microsoftfabric-powerbi-agent
 date: "2026-06-10"
 tags: [powerbi, microsoft-fabric, cli, agentic-development, automation]
 source_type: "web"
-topics: [automation-workflows, ai-agents, developer-tools, software-engineering]
+topics: [ai-agents, automation-workflows, developer-tools]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -9,7 +9,7 @@ source_characters: 34228
 channel: "Ray Amjad"
 published: "2026-09-18"
 duration_seconds: 1648
-topics: [classifiers-and-structured-output, software-engineering, ai-agents, prompt-engineering]
+topics: [classifiers-and-structured-output, ai-agents, prompt-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

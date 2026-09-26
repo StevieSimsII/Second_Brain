@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Microsoft Power Platform"
 published: "2026-05-14"
 duration_seconds: 374
-topics: [ai-agents, software-engineering, ai-safety-and-governance]
+topics: [ai-agents, ai-safety-and-governance]
 kind: "tutorial"
 depth: 2
 actionability: 2

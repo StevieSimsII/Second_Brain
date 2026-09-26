@@ -9,7 +9,7 @@ source_characters: 30145
 channel: "IndyDevDan"
 published: "2026-07-20"
 duration_seconds: 1582
-topics: [ai-agents, software-engineering, prompt-engineering]
+topics: [ai-agents, prompt-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI Engineer"
 published: "2026-07-10"
 duration_seconds: 1173
-topics: [software-engineering, product-and-design, ai-agents, prompt-engineering]
+topics: [product-and-design, ai-agents, context-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 2

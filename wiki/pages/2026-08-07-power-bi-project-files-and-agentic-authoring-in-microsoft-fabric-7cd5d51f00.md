@@ -9,7 +9,7 @@ source_characters: 38045
 channel: "RADACAD"
 published: "2026-08-06"
 duration_seconds: 2808
-topics: [software-engineering, power-bi-and-fabric, ai-agents, automation-workflows]
+topics: [power-bi-and-fabric, ai-agents, automation-workflows]
 kind: "interview"
 depth: 2
 actionability: 1

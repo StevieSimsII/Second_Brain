@@ -9,7 +9,7 @@ source_characters: 11701
 channel: "Chase AI"
 published: "2026-07-21"
 duration_seconds: 633
-topics: [ai-agents, software-engineering, automation-workflows]
+topics: [ai-agents, automation-workflows]
 kind: "tutorial"
 depth: 2
 actionability: 3

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "DevsKingdom"
 published: "2026-04-13"
 duration_seconds: 1013
-topics: [rag-and-retrieval, knowledge-management, software-engineering]
+topics: [rag-and-retrieval, knowledge-management]
 kind: "tutorial"
 depth: 2
 actionability: 2

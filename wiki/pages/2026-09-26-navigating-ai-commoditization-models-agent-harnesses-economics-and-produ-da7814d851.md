@@ -6,6 +6,9 @@ tags: [artificial-intelligence, ai-agents, open-models, product-strategy, risk-m
 source_type: "youtube"
 source_fingerprint: "da7814d851"
 source_characters: 80000
+channel: "All-In Podcast"
+published: "2026-09-25"
+duration_seconds: 5663
 ---
 
 ## Overview

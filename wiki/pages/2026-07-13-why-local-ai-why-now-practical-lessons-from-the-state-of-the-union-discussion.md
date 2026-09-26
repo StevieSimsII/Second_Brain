@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI Engineer"
 published: "2026-07-11"
 duration_seconds: 2669
-topics: [local-llms, software-engineering]
+topics: [local-llms]
 kind: "tutorial"
 depth: 2
 actionability: 2

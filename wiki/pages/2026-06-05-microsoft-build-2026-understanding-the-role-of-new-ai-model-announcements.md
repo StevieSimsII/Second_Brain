@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Microsoft"
 published: "2026-06-03"
 duration_seconds: 877
-topics: [software-engineering, ai-models, llm-evaluation]
+topics: [ai-models, llm-evaluation]
 kind: "tutorial"
 depth: 2
 actionability: 2

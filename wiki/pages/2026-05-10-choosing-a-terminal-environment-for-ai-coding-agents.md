@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Burke Holland"
 published: "2026-05-06"
 duration_seconds: 84
-topics: [developer-tools, ai-agents, coding-agents, software-engineering]
+topics: [developer-tools, ai-agents, coding-agents]
 kind: "deep-dive"
 depth: 2
 actionability: 2

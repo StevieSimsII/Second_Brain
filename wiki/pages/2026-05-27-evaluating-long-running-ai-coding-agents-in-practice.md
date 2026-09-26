@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "How I AI"
 published: "2026-05-27"
 duration_seconds: 1820
-topics: [coding-agents, ai-agents, llm-evaluation, software-engineering]
+topics: [coding-agents, ai-agents, llm-evaluation]
 kind: "tutorial"
 depth: 2
 actionability: 2

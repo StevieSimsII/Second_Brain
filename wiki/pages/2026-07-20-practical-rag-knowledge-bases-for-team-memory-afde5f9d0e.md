@@ -9,10 +9,10 @@ source_characters: 29596
 channel: "Nick Saraev"
 published: "2026-07-19"
 duration_seconds: 1428
-topics: [rag-and-retrieval, software-engineering]
+topics: [rag-and-retrieval]
 kind: "tutorial"
 depth: 2
-actionability: 3
+actionability: 2
 ---
 
 ## Overview

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Every"
 published: "2026-07-09"
 duration_seconds: 814
-topics: [llm-evaluation, ai-models, software-engineering]
+topics: [llm-evaluation]
 kind: "tutorial"
 depth: 2
 actionability: 2

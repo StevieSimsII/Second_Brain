@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Matthew Berman"
 published: "2026-06-23"
 duration_seconds: 912
-topics: [software-engineering, rag-and-retrieval]
+topics: [rag-and-retrieval]
 kind: "tutorial"
 depth: 2
 actionability: 2

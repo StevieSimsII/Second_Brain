@@ -9,7 +9,7 @@ source_characters: 80000
 channel: "All-In Podcast"
 published: "2026-08-28"
 duration_seconds: 5800
-topics: [ai-agents, ai-strategy, software-engineering]
+topics: [ai-strategy, ai-agents]
 kind: "interview"
 depth: 2
 actionability: 2

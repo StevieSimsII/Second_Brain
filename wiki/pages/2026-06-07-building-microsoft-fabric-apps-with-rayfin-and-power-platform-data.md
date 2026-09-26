@@ -4,7 +4,7 @@ source: "https://www.linkedin.com/posts/andreasadner_rayfin-microsoftfabric-powe
 date: "2026-06-07"
 tags: [rayfin, microsoft-fabric, power-platform, onelake, semantic-models]
 source_type: "web"
-topics: [software-engineering]
+topics: []
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -9,7 +9,7 @@ source_characters: 34255
 channel: "Theo - t3․gg"
 published: "2026-09-20"
 duration_seconds: 1829
-topics: [classifiers-and-structured-output, software-engineering, ai-models]
+topics: [classifiers-and-structured-output, ai-models]
 kind: "tutorial"
 depth: 2
 actionability: 2

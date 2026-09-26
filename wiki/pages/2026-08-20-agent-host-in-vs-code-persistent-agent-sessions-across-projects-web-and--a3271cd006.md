@@ -6,7 +6,7 @@ tags: [developer-tools, vscode, agent-systems, session-management, remote-develo
 source_type: "web"
 source_fingerprint: "a3271cd006"
 source_characters: 5915
-topics: [software-engineering, developer-tools, ai-agents]
+topics: [developer-tools, ai-agents]
 kind: "demo"
 depth: 1
 actionability: 1

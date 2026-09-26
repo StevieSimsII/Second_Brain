@@ -4,7 +4,7 @@ source: "https://github.com/data-goblin/power-bi-agentic-development"
 date: "2026-05-26"
 tags: [power-bi, fabric, agentic-development, claude-code, copilot-cli, semantic-models]
 source_type: "github"
-topics: [power-bi-and-fabric, ai-agents, coding-agents, software-engineering]
+topics: [power-bi-and-fabric, ai-agents, coding-agents, automation-workflows]
 kind: "deep-dive"
 depth: 3
 actionability: 1

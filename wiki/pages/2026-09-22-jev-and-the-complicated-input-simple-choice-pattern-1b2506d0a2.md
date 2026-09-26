@@ -9,7 +9,7 @@ source_characters: 32298
 channel: "AI News & Strategy Daily | Nate B Jones"
 published: "2026-09-21"
 duration_seconds: 1981
-topics: [classifiers-and-structured-output, software-engineering]
+topics: [classifiers-and-structured-output]
 kind: "tutorial"
 depth: 2
 actionability: 2

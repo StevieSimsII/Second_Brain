@@ -9,7 +9,7 @@ source_characters: 44036
 channel: "SuonRym"
 published: "2026-07-30"
 duration_seconds: 2422
-topics: [ai-agents, coding-agents, claude, software-engineering]
+topics: [ai-agents, coding-agents, claude, ai-strategy]
 kind: "interview"
 depth: 2
 actionability: 3

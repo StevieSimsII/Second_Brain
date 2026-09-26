@@ -9,10 +9,10 @@ source_characters: 65724
 channel: "David Ondrej"
 published: "2026-06-18"
 duration_seconds: 3744
-topics: [software-engineering, coding-agents, ai-agents, context-engineering]
+topics: [coding-agents, ai-agents, software-engineering, context-engineering]
 kind: "opinion"
 depth: 2
-actionability: 3
+actionability: 2
 ---
 
 ## Overview

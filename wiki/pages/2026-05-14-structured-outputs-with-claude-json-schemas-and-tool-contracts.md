@@ -4,7 +4,7 @@ source: "https://claude.com/blog/structured-outputs-on-the-claude-developer-plat
 date: "2026-05-14"
 tags: [claude, json-schema, api-design, tool-calling, agent-systems]
 source_type: "web"
-topics: [claude, classifiers-and-structured-output, software-engineering, ai-agents]
+topics: [claude, classifiers-and-structured-output, ai-agents]
 kind: "deep-dive"
 depth: 1
 actionability: 1

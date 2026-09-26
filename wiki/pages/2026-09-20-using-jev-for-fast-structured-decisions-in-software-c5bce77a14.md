@@ -9,7 +9,7 @@ source_characters: 19317
 channel: "Codevolution"
 published: "2026-09-19"
 duration_seconds: 1332
-topics: [classifiers-and-structured-output, software-engineering]
+topics: [classifiers-and-structured-output]
 kind: "tutorial"
 depth: 2
 actionability: 2

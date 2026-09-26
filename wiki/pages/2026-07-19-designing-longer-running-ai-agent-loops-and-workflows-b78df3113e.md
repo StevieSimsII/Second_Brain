@@ -9,7 +9,7 @@ source_characters: 44288
 channel: "Peter Yang"
 published: "2026-07-19"
 duration_seconds: 2477
-topics: [ai-agents, coding-agents, software-engineering]
+topics: [ai-agents, coding-agents]
 kind: "interview"
 depth: 2
 actionability: 3

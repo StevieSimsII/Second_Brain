@@ -4,7 +4,7 @@ source: "https://github.com/pallets/flask"
 date: "2026-04-17"
 tags: [python, flask, wsgi, routing, blueprints]
 source_type: "github"
-topics: [python, software-engineering]
+topics: [python]
 kind: "deep-dive"
 depth: 3
 actionability: 1

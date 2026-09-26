@@ -9,7 +9,7 @@ source_characters: 47519
 channel: "Peter Yang"
 published: "2026-08-02"
 duration_seconds: 2804
-topics: [ai-agents, context-engineering, prompt-engineering, software-engineering]
+topics: [ai-agents, context-engineering, prompt-engineering]
 kind: "interview"
 depth: 2
 actionability: 2

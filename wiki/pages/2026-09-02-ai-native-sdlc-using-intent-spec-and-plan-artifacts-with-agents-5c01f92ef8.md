@@ -9,7 +9,7 @@ source_characters: 18986
 channel: "Rob Shocks"
 published: "2026-09-01"
 duration_seconds: 981
-topics: [software-engineering, ai-agents, coding-agents]
+topics: [ai-agents, coding-agents]
 kind: "tutorial"
 depth: 2
 actionability: 2

@@ -4,7 +4,7 @@ source: "https://linkedin.com/posts/wariowario_i-tried-the-new-create-and-edit-c
 date: "2026-04-17"
 tags: [powerapps, canvas-apps, ai-coding, copilot, governance]
 source_type: "web"
-topics: [coding-agents, software-engineering]
+topics: [coding-agents]
 kind: "tutorial"
 depth: 2
 actionability: 2

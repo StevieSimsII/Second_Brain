@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Claude"
 published: "2026-05-20"
 duration_seconds: 2056
-topics: [ai-agents, software-engineering, prompt-engineering, claude]
+topics: [ai-agents, prompt-engineering, claude, context-engineering]
 kind: "tutorial"
 depth: 2
 actionability: 1

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "Austin Marchese"
 published: "2026-05-15"
 duration_seconds: 645
-topics: [prompt-engineering, coding-agents, claude, software-engineering]
+topics: [prompt-engineering, coding-agents, claude]
 kind: "tutorial"
 depth: 2
 actionability: 3

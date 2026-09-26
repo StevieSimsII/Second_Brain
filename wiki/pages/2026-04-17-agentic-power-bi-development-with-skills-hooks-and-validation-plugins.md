@@ -4,7 +4,7 @@ source: "https://github.com/data-goblin/power-bi-agentic-development"
 date: "2026-04-17"
 tags: [power-bi, microsoft-fabric, agentic, pbip, automation]
 source_type: "github"
-topics: [power-bi-and-fabric, ai-agents, automation-workflows, software-engineering]
+topics: [power-bi-and-fabric, ai-agents, automation-workflows, context-engineering]
 kind: "deep-dive"
 depth: 2
 actionability: 2

@@ -7,7 +7,7 @@ source_type: "youtube"
 channel: "AI Engineer"
 published: "2026-07-06"
 duration_seconds: 1168
-topics: [ai-agents, software-engineering, prompt-engineering, context-engineering]
+topics: [ai-agents, context-engineering, prompt-engineering, classifiers-and-structured-output]
 kind: "tutorial"
 depth: 2
 actionability: 2
