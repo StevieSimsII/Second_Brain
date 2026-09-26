@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI strategy is shaped by control over capital, compute, regulation, and distribution—not model quality alone. Designing for provider portability, cost visibility, compliant fallbacks, and data portability protects AI products when financing, pricing, policy, or platform power shifts.
+
+## Key Takeaways
+
+1. Treat capital structure as a product constraint: private funding, strategic partnerships, debt, and public markets each create different pressures around control, exclusivity, reporting, and margins.
+2. Test extreme AI valuations against concrete assumptions about revenue, gross margins, compute access, enterprise adoption, and whether the company can control a platform rather than only supply models.
+3. Prepare for AI price wars by separating application logic from provider-specific APIs and supporting fallback providers or dynamic routing.
+4. Track token cost, latency, region, model license, and fallback availability so pricing or policy changes can be translated quickly into engineering decisions.
+5. Maintain an inventory covering model weights, code, datasets, licenses, evaluations, hosting regions, and redistribution rights because AI open-source dependencies extend beyond software packages.
+6. Treat regulatory policy as an architecture input when choosing deployment geography, hosting arrangements, data flows, and model dependencies.
+7. Build durable differentiation through workflow integration, domain data, compliance, or user trust because a well-funded platform may commoditize model access or bundle a competing product into its existing distribution channel.
+
 ## Overview
 
 This lesson turns a sparse video headline into a practical framework for analyzing major strategy themes in the AI industry: why frontier labs may delay or pursue IPOs, how hyperscalers can trigger price wars, what policy shifts in China could mean for open-source ecosystems, and how political or platform-linked financial products can reshape distribution and trust. Even without the full transcript, the topics in the title point to core forces that engineers, technical founders, product leaders, and infrastructure teams increasingly need to understand.
@@ -174,6 +188,26 @@ In 5-8 sentences, answer:
 - Where are you currently overexposed to a single vendor, region, or distribution channel?
 
 By the end, you should have a practical artifact that links business strategy signals to concrete system design choices.
+
+## Test Yourself
+
+<details><summary>What four interacting layers does the lesson recommend using to analyze AI industry developments?</summary>
+
+Analyze developments through capital, compute, distribution, and regulation. Together, these layers reveal who controls scarce resources and how an industry move may affect product architecture or vendor strategy.
+
+</details>
+
+<details><summary>Why should an AI application use a provider abstraction layer?</summary>
+
+It reduces dependence on provider-specific interfaces and makes it easier to switch or route between models when prices, quality, availability, or policy conditions change.
+
+</details>
+
+<details><summary>How should a team respond to a risk-matrix score above 3?</summary>
+
+Write one mitigation for the risk and define a corresponding engineering action, such as cost logging, a private open-weight fallback, portable data exports, or feature flags for switching providers.
+
+</details>
 
 ## Further Reading
 

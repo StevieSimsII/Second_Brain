@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Engineering effectiveness comes from owning the entire path from problem framing to validated outcome, not just writing code well. Finding and strengthening the weakest stage in that path makes delivery faster, more reliable, and more valuable.
+
+## Key Takeaways
+
+1. Map your workflow from task intake through outcome review, then identify the stage where work repeatedly stalls.
+2. Define success, constraints, and the smallest useful scope before implementation to reduce wasted effort.
+3. Validate work with fast feedback from tests, users, logs, code review, or demos before mistakes become expensive.
+4. Make your reasoning and results visible through specs, prototypes, PR descriptions, demos, and post-deploy notes.
+5. Practice the complete delivery cycle on small features instead of training only the technical stages you already enjoy.
+6. Timebox a tiny implementation to 30–60 minutes and reduce scope if it exceeds the limit.
+7. Judge engineering output by whether it solved the intended problem, not by lines of code or completed task count.
+
 ## Overview
 
 This lesson distills the idea of learning and practicing the full engineering flow end to end rather than optimizing only for isolated technical skills. The core message is that strong engineers do not just write code: they move from problem understanding to implementation, validation, communication, and iteration.
@@ -157,6 +171,26 @@ Add a small but complete feature to an existing app or toy project, such as:
 
 ### Stretch version
 Repeat the same exercise three times in one week with different tiny features. Compare where your bottlenecks move over time. The goal is not bigger projects; the goal is making the entire loop smoother and more predictable.
+
+## Test Yourself
+
+<details><summary>Why can a strong programmer still underperform in product delivery?</summary>
+
+Delivery is a connected pipeline whose speed and reliability depend on its weakest stage. Weak scoping, debugging, validation, communication, or outcome review can undermine excellent implementation.
+
+</details>
+
+<details><summary>What should be clarified before coding begins?</summary>
+
+State the user’s problem, what success looks like, the relevant constraints, and the smallest useful scope. Convert these into concrete acceptance criteria and a brief implementation design.
+
+</details>
+
+<details><summary>How can an engineer deliberately improve the full workflow?</summary>
+
+Ship small features through every stage, observe where time or clarity is lost, and add tools such as checklists, templates, tests, logs, or metrics. Repeat the cycle and compare how the bottleneck changes over time.
+
+</details>
 
 ## Further Reading
 

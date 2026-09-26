@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> VS Code 1.129 moves supported AI sessions into a dedicated agent host, enabling resumable, multi-window workflows and controlled coordination across sessions. Its docked review panel, worktree isolation, command execution, and skills migration make agent-assisted development more integrated and portable.
+
+## Key Takeaways
+
+1. Enable `chat.agentHost.enabled` and select a host-backed harness to use capabilities such as multi-window session access, cross-session coordination, `!` command execution, GitHub Enterprise authentication, and BYOK support in the Agents window.
+2. Enable `sessions.layout.singlePaneDetailPanel` to review generated files and diffs in persistent editor-style tabs with inline or side-by-side views.
+3. Use `New Worktree` when an agent task needs a separate filesystem context so its changes remain isolated until review and merge.
+4. Prefix a message with `!` in an agent-host session—for example, `!npm test`—to execute it as a terminal command instead of sending a natural-language request.
+5. Migrate legacy `*.prompt.md` commands to skills with `chat.customizations.promptMigration.enabled` when customization must work across agent-host harnesses rather than only the Local harness.
+6. Agent-host sessions can list, inspect, create, and message other sessions, but VS Code requires confirmation for cross-session messages and applies restrictions and send limits.
+7. Custom editors no longer handle diff and merge views by default; extension authors can use `customEditorPriority` to set separate priorities for text, diff, and merge editors.
+
 ## Overview
 
 This matters to engineers who use VS Code as both an IDE and an AI-assisted workspace. The changes are not just cosmetic: they alter how agent sessions are isolated, rendered, resumed, and coordinated across windows and tasks. If you rely on Copilot, Claude, Codex, custom prompts/skills, custom editors, or Git worktree-based task isolation, this release introduces architectural and workflow changes worth understanding.
@@ -155,6 +169,26 @@ Explore how VS Code 1.129 changes agent execution, review, and task delegation.
 - When would you prefer a new worktree over folder isolation?
 - How does `!` command execution change your chat-to-terminal workflow?
 - If you use custom prompts, what would be required to migrate them to skills?
+
+## Test Yourself
+
+<details><summary>Why does the agent host enable workflows that window-local sessions cannot provide?</summary>
+
+It runs the agent harness in a dedicated process and lets VS Code windows act as clients. This separation allows the same session to appear in multiple windows and supports session-aware coordination features.
+
+</details>
+
+<details><summary>When should an engineer choose `New Worktree` for an agent session?</summary>
+
+Use it when a task's filesystem changes should remain separate from the current working folder until they are reviewed and merged. This is especially useful for parallel or potentially disruptive work.
+
+</details>
+
+<details><summary>Why should teams migrate `*.prompt.md` files to skills?</summary>
+
+Legacy prompt files define slash commands only for the Local harness. Skills provide a more portable customization model for agent-host-based harnesses such as Copilot or Claude.
+
+</details>
 
 ## Further Reading
 

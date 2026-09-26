@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Sal Khan’s central strategic claim is that near-term AI value may be greatest in operationally messy, regulation-heavy industries with repetitive cognitive work and underserved demand. Success depends less on an impressive demo than on reliable workflow integration, guardrails, human oversight, and measurable outcomes.
+
+## Key Takeaways
+
+1. Target frequent, painful workflows in education, healthcare, government, insurance, logistics, accounting, and other operationally complex sectors.
+2. Augment people with summarization, classification, drafting, triage, and personalization before attempting to automate an entire job.
+3. Evaluate opportunities by pain frequency, pain severity, data availability, error tolerance, human fallback, integration complexity, and adoption path.
+4. Ground outputs in trusted domain materials, limit unsupported claims, enforce permissions, and escalate low-confidence or high-stakes cases to a human.
+5. Build production systems with interface, context, model, guardrail, human-oversight, and analytics layers; the context and guardrail layers often create the practical value.
+6. Measure operational results such as handling time, response time, acceptance rate, escalation rate, service quality, and access—not conversational impressiveness.
+7. According to the lesson’s interpretation of Khan’s argument, embedding AI into indispensable recurring workflows can provide stronger distribution than novelty-driven user acquisition.
+
 ## Overview
 
 This lesson distills a core strategic idea from Sal Khan’s talk: the biggest near-term AI opportunities may not come from flashy consumer apps, but from large, operationally messy, regulation-heavy industries that people often describe as “boring.” These sectors—such as education, healthcare, government services, back-office operations, and industrial workflows—contain repetitive cognitive work, fragmented data, and underserved users, making them strong candidates for practical AI deployment.
@@ -164,6 +178,26 @@ for step, value in workflow.items():
 
 ### Deliverable
 Produce a short design memo or slide with the workflow map, architecture, and success metrics. The exercise is successful if you can explain why your selected use case creates value specifically because the industry is operationally messy, repetitive, and underserved—not despite it.
+
+## Test Yourself
+
+<details><summary>Why can so-called boring industries be strong targets for AI?</summary>
+
+They often combine large budgets and underserved demand with repetitive cognitive work, fragmented data, manual coordination, and inconsistent service. The lesson argues that even modest improvements can therefore create substantial operational value.
+
+</details>
+
+<details><summary>What separates a deployable AI product from a polished model demo?</summary>
+
+A deployable product must integrate with existing systems, handle edge cases, enforce permissions, ground outputs in trusted context, support human review, and track quality. Demo fluency alone does not provide reliability, auditability, or user trust.
+
+</details>
+
+<details><summary>How should a team select and introduce an AI use case in a high-stakes workflow?</summary>
+
+Choose a narrow, frequent task with measurable pain, adequate data, tolerable or detectable errors, and a viable adoption path. Add guardrails and human fallback, then measure improvements in time, quality, consistency, access, and escalation rates.
+
+</details>
 
 ## Further Reading
 

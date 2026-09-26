@@ -13,6 +13,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Early-stage startups should optimize for learning speed: ship the smallest credible solution, observe real user behavior, and iterate quickly. This matters because market uncertainty—not technical complexity—is usually the greatest initial risk.
+
+## Key Takeaways
+
+1. Optimize for completed learning cycles—idea, implementation, user feedback, and iteration—not merely for code produced.
+2. Build for a narrow group with an urgent problem before trying to serve a broad market.
+3. Talk to users every week, ideally every day, and use their behavior alongside their feedback to prioritize product work.
+4. Treat manual onboarding, one-off integrations, and founder-led support as research that reveals what should eventually be automated.
+5. Track meaningful signals such as activation, retention, revenue, conversion, and engagement frequency instead of relying on vanity metrics.
+6. Prefer simple architectures, reversible decisions, and thin end-to-end releases that can test a product hypothesis quickly.
+7. Set one or two measurable weekly outcomes, then review what shipped, what users did, where they struggled, and what matters most next.
+
 ## Overview
 
 This lesson distills the likely practical themes of a Y Combinator closing keynote by Garry Tan into a self-contained training module for engineers and technical founders. Because the provided source content only includes the YouTube title and no transcript, the lesson focuses on the recurring startup operating principles that YC leaders typically emphasize: building quickly, talking to users, measuring progress, and compounding small advantages.
@@ -158,6 +172,26 @@ Produce a one-page summary with:
 - Next week's top priority
 
 This exercise trains the core YC-style habit: connecting engineering work directly to learning and traction, rather than treating shipping as the final goal.
+
+## Test Yourself
+
+<details><summary>Why should an early-stage engineering team optimize for learning rather than ideal system design?</summary>
+
+The lesson argues that market risk usually exceeds technical risk at the earliest stage. A fast, reliable implementation lets the team test whether users need the product before investing in abstractions or infrastructure.
+
+</details>
+
+<details><summary>How can work that does not scale help a startup?</summary>
+
+Manual onboarding, direct support, and one-off setup expose user needs and recurring friction. Once a manual process repeatedly creates value, the team has a clearer and safer target for automation.
+
+</details>
+
+<details><summary>What would make a one-week product test measurable?</summary>
+
+Define a narrow user and pain point, build the smallest workflow that delivers the core value, track 3–5 meaningful events, speak with 5 potential users, and choose one success metric such as repeat usage or willingness to pay.
+
+</details>
 
 ## Further Reading
 

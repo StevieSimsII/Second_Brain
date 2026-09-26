@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Evaluate frontier LLMs through repeated, instrumented use on real workflows—not one-off demos or generic benchmarks. The best model is the one that reliably reduces rework under the conditions where your team will use it.
+
+## Key Takeaways
+
+1. Choose 20–50 recurring tasks from real work and reuse the exact prompts and supporting context across models.
+2. Measure accuracy, completeness, latency, human rework, reliability, and cost efficiency with one consistent rubric.
+3. Test first-pass performance separately from improvement after feedback; they represent different workflows and forms of value.
+4. Run short, detailed, multi-turn, context-heavy, ambiguous, and adversarial prompts to reveal how much prompt engineering each model requires.
+5. Classify failures—such as hallucination, incorrect code changes, overconfidence, instruction drift, and context loss—instead of recording only pass or fail.
+6. Compare results by workflow because the strongest model for planning or document synthesis may not be the strongest for precise code edits.
+7. Separate novelty from utility by tracking whether a model saves time, catches subtle issues, and remains dependable over multiple weeks.
+
 ## Overview
 
 This lesson turns a sparse video reference about testing a frontier language model over a month into a practical framework for engineers who need to evaluate new LLMs systematically. Instead of focusing on marketing claims, it shows how to compare a model across realistic workflows such as coding, writing, analysis, and reliability under repeated use.
@@ -159,6 +173,26 @@ Write a 1-page conclusion answering:
 2. Where did each model fail most often?
 3. Did the more impressive model actually save more time?
 4. Would you deploy it for production-assisted workflows, personal productivity, or not at all?
+
+## Test Yourself
+
+<details><summary>Why is a month-long, task-based evaluation more useful than a one-off demo or generic benchmark?</summary>
+
+Repeated use exposes consistency, prompt robustness, and recurring failure modes that an impressive demo can conceal. Real tasks also show whether benchmark performance translates into less rework for the intended workflow.
+
+</details>
+
+<details><summary>Which measurements should a practical LLM evaluation combine?</summary>
+
+Combine quantitative measures such as latency, cost, success rate, and first-pass usability with qualitative ratings for correctness, completeness, clarity, reliability, and required rework.
+
+</details>
+
+<details><summary>How should the final comparison between models be framed?</summary>
+
+Determine which model performs best for each task category and under which conditions it reliably improves work. Avoid declaring a universal winner when models have different strengths, costs, and failure patterns.
+
+</details>
 
 ## Further Reading
 

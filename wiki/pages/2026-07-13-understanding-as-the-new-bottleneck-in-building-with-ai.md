@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> As AI makes generation cheap and fast, the harder product problem becomes establishing reliable shared understanding of the user’s intent, constraints, and context. Making assumptions, evidence, and plans visible helps prevent fluent but incorrect outputs and actions.
+
+## Key Takeaways
+
+1. Treat context assembly—including documents, workspace structure, history, permissions, preferences, and domain data—as core product infrastructure.
+2. Ask targeted clarifying questions when audience, scope, format, or desired action is ambiguous instead of assuming the first prompt is complete.
+3. Expose sources, inferred objectives, assumptions, extracted entities, and proposed plans so users can correct misunderstandings before execution.
+4. Design iterative propose–inspect–correct–rerun workflows rather than relying exclusively on one-shot generation.
+5. Evaluate understanding with clarification rate, grounding accuracy, correction frequency, action reversal rate, confidence calibration, and time to correct output—not only fluency or completion.
+6. Compare one-shot output with clarified output to identify recurring ambiguities that should become structured interface controls.
+7. The lesson attributes to Geoffrey Litt the broader claim that understanding is becoming the bottleneck because it precedes every useful generation and trustworthy action.
+
 ## Overview
 
 This lesson explores the idea that, in AI-assisted software and knowledge tools, the limiting factor is no longer only generating output but helping humans and systems achieve reliable understanding. The talk framing this idea, attributed to Geoffrey Litt at Notion, points toward a shift from traditional automation concerns toward designing products that clarify intent, context, and meaning before acting.
@@ -210,6 +224,26 @@ print(final_prompt)
 
 ### Stretch goal
 Turn repeated clarifications into product affordances. For example, replace free-text follow-up questions with dropdowns for audience, output type, and confidence level. This demonstrates how an AI feature evolves from open-ended chat toward a more reliable hybrid interface.
+
+## Test Yourself
+
+<details><summary>Why does the lesson describe understanding as the new bottleneck?</summary>
+
+Modern language models can generate plausible content quickly, but useful results still depend on correctly interpreting the user’s goal, constraints, and surrounding state. A misunderstanding upstream can make every later generation or action wrong.
+
+</details>
+
+<details><summary>What components should a reliable AI workflow include beyond model generation?</summary>
+
+It should capture input, assemble relevant context, interpret intent, resolve ambiguity, plan the work, execute it, present evidence and assumptions for review, and collect feedback from corrections or approvals.
+
+</details>
+
+<details><summary>How can a team test whether clarification improves an AI feature?</summary>
+
+Run the same ambiguous request through a one-shot workflow and a workflow that asks 2–3 targeted questions, then compare usefulness and remaining uncertainty. Track recurring ambiguities and convert them into structured controls such as audience, output type, and detail level.
+
+</details>
 
 ## Further Reading
 

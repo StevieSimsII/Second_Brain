@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Modern ChatGPT-style products are best understood as coordinated runtimes that combine models with memory, retrieval, tools, safety controls, and user experience. This matters because reliability now depends on the entire system—not merely the quality of a single model response.
+
+## Key Takeaways
+
+1. Treat an advanced assistant as a stateful runtime, not a single model endpoint: coordinate inference, memory, retrieval, tools, safety, and interface behavior.
+2. Separate reasoning from execution by exposing tools through typed inputs, validating every request, and running actions in controlled environments.
+3. Bound agent loops with maximum tool calls, timeouts, cost ceilings, permission scopes, and explicit approval for sensitive actions.
+4. Divide stored context into session memory, durable profile preferences, and document retrieval indexes; inject only information relevant to the current request.
+5. Make assistant behavior inspectable with status updates, citations, editable memory settings, confirmation prompts, and visible output artifacts.
+6. Evaluate the complete workflow using task completion, tool-call accuracy, grounding quality, latency, failure recovery, and user correction rates.
+7. The lesson suggests that a “next chapter” for ChatGPT would shift the product from chat as an interface toward an assistant operating layer with persistent context, multimodal inputs, and external actions.
+
 ## Overview
 
 This lesson distills the likely technical and product themes behind a launch-style presentation titled "Introducing the next chapter for ChatGPT." Because the provided source content contains only the page title and no transcript or detailed article text, this lesson focuses on the core engineering ideas such an announcement typically covers: model capabilities, multimodal interaction, memory and personalization, tool use, and agent-style workflows.
@@ -295,6 +309,26 @@ After building it, answer these engineering questions:
 - How would you evaluate correctness for a multi-step answer?
 
 This exercise reinforces the central lesson: the assistant is not just a model call; it is an orchestrated system with state, tools, and control logic.
+
+## Test Yourself
+
+<details><summary>What distinguishes a stateful assistant runtime from a traditional single-request chatbot?</summary>
+
+A stateful runtime coordinates the model with persistent context, retrieval, tools, safety checks, telemetry, and user-facing controls. It can carry context across interactions and execute multi-step workflows rather than only generate a response to one prompt.
+
+</details>
+
+<details><summary>How should an agentic tool-use loop operate, and what should constrain it?</summary>
+
+The runtime follows a reason–act–observe cycle: the model selects a structured tool call, the application validates and executes it, and the result returns to the model. Tool-call limits, timeouts, cost ceilings, permission scopes, and approval gates should keep the loop bounded.
+
+</details>
+
+<details><summary>Why are model benchmarks insufficient for evaluating an agentic assistant?</summary>
+
+Multi-step tasks can fail because of incorrect retrieval, invalid tool calls, timeouts, poor orchestration, or inadequate recovery even when the underlying model is capable. Evaluation therefore needs to cover end-to-end task completion, grounding, latency, recovery, and user trust.
+
+</details>
 
 ## Further Reading
 

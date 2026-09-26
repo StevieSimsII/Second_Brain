@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Reliable AI agents use controlled autonomy: automate repetitive, low-risk work while routing ambiguous, high-stakes, regulated, or irreversible decisions to people. This limits costly failures while turning human review into feedback that improves the system over time.
+
+## Key Takeaways
+
+1. Place human checkpoints according to risk, ambiguity, confidence, compliance requirements, cost, and action reversibility—not merely model capability.
+2. Decompose workflows into retrieval, drafting, classification, validation, approval, and execution so each step can receive the appropriate level of automation.
+3. Require review before consequential external actions such as sending emails, issuing refunds, modifying records, or calling expensive APIs.
+4. Equip operators with logs, traces, intermediate outputs, review queues, and escalation reasons so failures can be audited and corrected.
+5. Capture human approvals, rejections, edits, and escalation outcomes to improve prompts, routing rules, confidence thresholds, and recurring failure modes.
+6. For support triage, the lesson recommends auto-handling password resets, conditionally reviewing billing questions, and always reviewing refunds, unknown requests, and escalated language.
+7. Keep the review policy when replacing a rule-based classifier with an LLM; improved language understanding does not eliminate operational risk.
+
 ## Overview
 
 This lesson covers a core engineering idea behind production-grade AI agents: the best systems are rarely fully autonomous. Instead, they are designed so humans participate at key decision points, especially where judgment, ambiguity, risk, or exception handling matter. For engineers building agentic workflows, this shift is important because it replaces the simplistic goal of “remove the human” with the more practical goal of “use human attention where it creates the most leverage.”
@@ -225,6 +239,26 @@ def route_ticket(text: str) -> TicketResult:
 
 ### Stretch goal
 Replace the rule-based classifier with an LLM prompt, but keep the same review policy. Compare the outputs and note where human review remains necessary despite better language understanding.
+
+## Test Yourself
+
+<details><summary>Which tasks are poor candidates for full autonomy?</summary>
+
+Ambiguous, high-stakes, regulated, or irreversible tasks should generally retain human oversight. The lesson recommends using automation primarily for repetitive, low-risk, well-bounded work.
+
+</details>
+
+<details><summary>Why should an agent workflow be decomposed into smaller steps?</summary>
+
+Decomposition allows low-risk steps to run automatically while uncertain or consequential steps are reviewed. It also makes failures easier to observe, diagnose, and improve.
+
+</details>
+
+<details><summary>How does human review improve an agent beyond preventing immediate mistakes?</summary>
+
+Reviewer edits, approvals, rejections, and escalation reasons create feedback signals. Teams can use those signals to refine prompts, routing logic, confidence thresholds, and automation boundaries.
+
+</details>
 
 ## Further Reading
 

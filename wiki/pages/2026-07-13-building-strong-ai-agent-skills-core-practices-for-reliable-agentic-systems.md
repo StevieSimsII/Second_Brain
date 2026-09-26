@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Reliable AI agents are built as bounded systems of reusable skills, tool calls, validation, and recovery loops—not as one large prompt. This matters because explicit workflows make agent behavior testable, debuggable, and safer in real-world use.
+
+## Key Takeaways
+
+1. Define each agent skill with a trigger, inputs, procedure, tools, output contract, and validation criteria.
+2. Decompose complex requests into smaller steps so retrieval, comparison, recommendation, and other failure modes can be checked independently.
+3. Ground factual claims and state-changing actions in inspectable tools such as search, databases, code runners, and APIs.
+4. Use an iterative loop—understand, plan, act, observe, revise, and answer—so the agent can respond to tool results and recover from failures.
+5. Validate outputs for schema compliance, completeness, grounded claims, valid citations, and acceptable tool arguments before returning them.
+6. Handle failures explicitly by narrowing queries, retrying, selecting fallback tools, asking clarifying questions, or stating that evidence is insufficient.
+7. Evaluate agents on representative tasks using task success, tool-call count, latency, cost, schema validity, citation coverage, and recovery rate—not only final-answer correctness.
+
 ## Overview
 
 This lesson distills the practical engineering ideas implied by a talk on building effective agent skills: how to make AI agents plan, use tools, recover from failure, and operate reliably in real workflows. Rather than treating an agent as a single prompt, the focus is on the set of capabilities and operating patterns that turn a language model into a dependable system component.
@@ -142,6 +156,26 @@ Create a workflow that answers a question only after retrieving evidence and val
 - Did the agent fail more often because of bad retrieval, bad planning, or bad final-answer synthesis?
 - Which validator caught the most issues?
 - How would you split this into two skills instead of one?
+
+## Test Yourself
+
+<details><summary>What components should a well-defined agent skill include?</summary>
+
+It should specify its trigger condition, inputs, procedure, available tools, output contract, and validation checks. These components turn a vague capability into a reusable and testable workflow.
+
+</details>
+
+<details><summary>Why is an iterative reasoning-and-action loop more reliable than one-shot generation?</summary>
+
+The loop lets the agent inspect tool outputs, detect failed actions or weak evidence, revise its plan, and validate the draft before answering. It also creates explicit points for logging, retries, guardrails, and debugging.
+
+</details>
+
+<details><summary>How should the Evidence-Backed Answerer respond when retrieved evidence is weak or missing?</summary>
+
+Its validator should reject unsupported citations and unjustified high confidence. The agent should then refine retrieval, ask a clarifying question, or return that it does not have enough evidence rather than fabricate an answer.
+
+</details>
 
 ## Further Reading
 

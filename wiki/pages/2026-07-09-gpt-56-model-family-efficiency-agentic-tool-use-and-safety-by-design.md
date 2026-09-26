@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> OpenAI presents GPT-5.6 as a configurable inference platform: route work across Sol, Terra, and Luna, then add reasoning effort, tool orchestration, and safeguards only when needed. This matters because capability, cost, latency, and risk can be managed as architectural decisions rather than by sending every task to the largest model.
+
+## Key Takeaways
+
+1. Route routine work to Luna or Terra and escalate difficult, uncertain, or high-risk cases to Sol.
+2. Choose reasoning effort separately from model tier: use medium/default for baseline work, max for deeper planning and checking, and ultra when parallel decomposition is likely to improve results.
+3. Use Programmatic Tool Calling when workflows involve many tools or large intermediate outputs; OpenAI claims its in-memory coordination reduces model round trips and token overhead.
+4. Reserve multi-agent execution for naturally separable work such as testing several debugging hypotheses, reviewing multiple files, or browsing many sources; ultra uses four agents by default according to the lesson.
+5. Treat safety as a layered system combining model protections, real-time checks, monitoring, account enforcement, and trusted access for sensitive cyber work.
+6. Reduce repeated-work costs by caching stable prompt prefixes, using explicit cache breakpoints, and escalating only after a cheaper first pass fails.
+7. Evaluate deployments by useful work per dollar—including quality, latency, and token consumption—not by benchmark scores alone.
+
 ## Overview
 
 This lesson explains the GPT-5.6 release as a systems and product architecture update rather than just a model launch. The article introduces a three-tier model family—Sol, Terra, and Luna—plus higher-effort execution modes like max and ultra, with a strong emphasis on performance-per-dollar, agentic workflows, programmatic tool use, and layered safety controls.
@@ -207,6 +221,26 @@ Design a two-pass workflow:
 3. Ultra is used only when decomposition across subagents is likely to reduce total time-to-result.
 
 This exercise will force you to apply the article's main engineering ideas as system design decisions rather than as benchmark facts.
+
+## Test Yourself
+
+<details><summary>What four dimensions define the configurable GPT-5.6 platform described in the lesson?</summary>
+
+The four dimensions are model tier (Sol, Terra, or Luna), reasoning effort (default through ultra), execution mode (direct, programmatic tools, or multi-agent), and risk control (standard versus trusted and monitored access).
+
+</details>
+
+<details><summary>When should a workflow use Programmatic Tool Calling?</summary>
+
+Use it when a task requires many tool calls or produces large intermediate outputs such as logs, search results, or tables. The generated in-memory program can filter and aggregate those results so only salient state returns to the model.
+
+</details>
+
+<details><summary>How can a two-pass routing strategy reduce cost without abandoning high-end capability?</summary>
+
+Let Terra perform the first-pass analysis, then escalate uncertain, failed, or high-risk cases to Sol with max effort. Use ultra only when parallel subagents are likely to reduce total time-to-result.
+
+</details>
 
 ## Further Reading
 

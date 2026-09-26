@@ -12,6 +12,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Canvas extensions turn GitHub Copilot collaboration into a persistent, shared workspace where you and the agent can directly inspect, edit, and continue work on the same artifact. This matters because structured workflows become easier to steer, verify, and carry across sessions than chat-only work.
+
+## Key Takeaways
+
+1. Use a canvas when a workflow needs structure, iteration, steering, or visible verification beyond chat.
+2. Define both human actions and agent actions explicitly in the `/create-canvas` prompt so the generated interface and capabilities match the workflow.
+3. Treat the artifact—not the prompt history—as the shared source of state: users edit through the interface, while the agent acts through capabilities such as `get_board`, `add_card`, or `move_card`.
+4. Store team-shared canvases in `.github/extensions` and personal canvases in `~/.copilot/extensions`.
+5. Expect a canvas extension directory to commonly contain `package.json`, an entry file such as `extension.mjs`, and optional JSON artifacts for persisted state, while recognizing that GitHub Docs does not prescribe a strict fixed layout.
+6. After creation, inspect the canvas in the app’s right side panel and iterate by asking the agent to add, remove, or revise capabilities and interface behavior.
+
 ## Overview
 
 Canvas extensions in the GitHub Copilot app matter because they move collaboration with an agent beyond chat and into a shared working surface. Instead of relying only on prompts and text responses, you and the agent can work on the same artifact directly, such as a board, document, checklist, dashboard, or markdown file.
@@ -227,3 +240,23 @@ You have completed the exercise if you can:
 - describe at least two human actions and two agent actions
 - identify the correct storage scope
 - explain how the canvas supports bidirectional collaboration
+
+## Test Yourself
+
+<details><summary>When is a canvas more appropriate than chat alone?</summary>
+
+According to GitHub Docs, a canvas is useful when work needs a structured, editable artifact, repeated iteration, steering, or direct visual verification. Examples include kanban boards, issue triage, planning documents, dashboards, and release checklists.
+
+</details>
+
+<details><summary>What should a strong `/create-canvas` prompt specify?</summary>
+
+It should name the artifact and workflow, the actions people must be able to perform, the actions or capabilities the agent needs, and whether the canvas is personal or team-shared.
+
+</details>
+
+<details><summary>How do project-scoped and user-scoped canvases differ?</summary>
+
+Project-scoped canvases are stored in `.github/extensions` and can be committed for team use. User-scoped canvases are stored in `~/.copilot/extensions` for personal use on the local machine.
+
+</details>

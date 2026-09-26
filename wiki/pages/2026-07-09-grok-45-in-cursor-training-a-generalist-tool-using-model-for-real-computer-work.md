@@ -10,6 +10,20 @@ depth: 3
 actionability: 2
 ---
 
+## TL;DR
+
+> Cursor presents Grok 4.5 as a shift from coding-specialist models toward general-purpose agents trained to complete long-running, verifiable work with tools. The key design lesson is that capable agents need interaction-rich data, difficult realistic environments, reliable verifiers, and safeguards that evolve with their capabilities.
+
+## Key Takeaways
+
+1. Separate knowledge training from behavior training: broad pretraining supplies domain knowledge, while reinforcement learning teaches investigation, tool use, error recovery, and verification.
+2. Cursor says Grok 4.5 was trained on trillions of tokens of interaction data, capturing development processes such as navigation, iterative editing, debugging, and tool use—not merely finished code.
+3. Keep reinforcement-learning tasks difficult enough that frontier models still fail; tasks that are already solved consistently provide little useful learning signal.
+4. Scale environment creation by having engineers define a problem and verifier, then using distributed agents to construct, test, and refine the task assets.
+5. Treat benchmark results as conditional on data hygiene: Cursor excluded CursorBench from its discussion after disclosing that an earlier snapshot of its codebase had accidentally entered training data.
+6. Update safeguards alongside capability growth; Cursor says Grok 4.5 received new controls reflecting its cybersecurity capabilities.
+7. Maintain different model classes for different operating points: Cursor positions a large generalist model for complex workflows while retaining Composer 2.5 as a coding specialist.
+
 ## Overview
 
 This lesson explains Cursor's announcement of Grok 4.5, a jointly trained mixture-of-experts model built with SpaceXAI and positioned as a shift from a coding-specialist assistant toward a broader model for computer-based knowledge work. The article matters because it outlines how modern frontier assistants are increasingly trained not just on static text, but on realistic interactive environments where they must use tools, recover from mistakes, and verify their own work.
@@ -263,6 +277,26 @@ After completing the exercise, answer these:
 
 ### Stretch goal
 Write a Python script that generates multiple bug-fix tasks with paired tests and verifier scripts. This will help you understand the article's idea of scaling environment construction through automation.
+
+## Test Yourself
+
+<details><summary>What is the distinction between what a model knows and how it behaves?</summary>
+
+Broad pretraining teaches facts, domain patterns, language, and code structure. Reinforcement learning in interactive environments teaches the model how to investigate, call tools, recover from errors, and verify results.
+
+</details>
+
+<details><summary>Why are a problem specification and verifier central to scalable training-environment creation?</summary>
+
+The specification defines the required outcome, while the verifier provides an objective success signal. Cursor says agents can then help construct, test, and refine many environments without requiring humans to hand-author every detail.
+
+</details>
+
+<details><summary>What does the CursorBench contamination disclosure teach about evaluating models?</summary>
+
+Benchmark performance can be inflated when training data overlaps with evaluation material. Results should therefore be interpreted alongside data provenance, contamination checks, task construction, and evaluation methodology.
+
+</details>
 
 ## Further Reading
 

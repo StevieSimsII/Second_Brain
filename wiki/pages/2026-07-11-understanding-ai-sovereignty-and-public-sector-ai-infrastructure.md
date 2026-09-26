@@ -13,6 +13,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI sovereignty means controlling where and how sensitive data, models, compute, and security policies operate. It matters because legal jurisdiction, GPU access, auditability, and vendor dependence directly shape public-sector AI architecture.
+
+## Key Takeaways
+
+1. Translate sovereignty goals into concrete controls such as in-country processing, customer-managed encryption keys, fine-grained RBAC, immutable audit logs, and approved model registries.
+2. Treat GPU capacity, networking, storage bandwidth, and deployment location as strategic design constraints rather than ordinary infrastructure details.
+3. Choose cloud, on-premises, air-gapped, or hybrid deployment according to data residency, classification, patching, and audit requirements.
+4. Use software-plus-hardware partnerships to reduce integration time, but assess lock-in across compute, runtime, observability, data integration, and application layers.
+5. Keep interfaces between data, models, inference serving, and applications explicit when future model replacement and portability are requirements.
+6. Optimize public-sector AI for trust, traceability, and reproducibility—not deployment speed alone.
+
 ## Overview
 
 This lesson explains the idea of AI sovereignty: the effort by nations, states, and large institutions to control their own compute, data, models, and deployment environments rather than relying entirely on foreign vendors or public cloud platforms. It also uses the example of a high-profile partnership between an AI software company and a GPU infrastructure company to show how strategic alliances shape real-world AI capacity.
@@ -146,6 +159,26 @@ For each version, score from 1-5 on:
 - operational complexity
 - portability
 - compliance fit
+
+## Test Yourself
+
+<details><summary>What four layers make up the sovereign-AI stack described in the lesson?</summary>
+
+The stack consists of data, model, compute, and control layers. Sovereignty depends on governing their interactions, not merely owning GPU hardware or storing data locally.
+
+</details>
+
+<details><summary>Why can a software-plus-hardware alliance be both valuable and risky?</summary>
+
+It can accelerate deployment by providing validated infrastructure and integrated operational software. It can also create multi-layer vendor lock-in that reduces portability and bargaining power.
+
+</details>
+
+<details><summary>How should a national health agency translate a requirement such as “retain local control” into architecture decisions?</summary>
+
+It should require in-country data storage and model execution, controlled encryption keys, role-based access, auditable inference, approved model workflows, and explicit interfaces that allow future model replacement.
+
+</details>
 
 ## Further Reading
 

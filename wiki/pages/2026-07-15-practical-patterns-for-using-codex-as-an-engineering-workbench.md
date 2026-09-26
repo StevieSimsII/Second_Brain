@@ -13,6 +13,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Use Codex as a scoped engineering collaborator across understanding, planning, implementation, verification, and review—not merely as autocomplete. This workflow matters because small, context-aware, tested changes are easier to trust, inspect, and reverse.
+
+## Key Takeaways
+
+1. Start by providing relevant files, interfaces, constraints, expected behavior, and acceptance criteria instead of the entire repository.
+2. Ask Codex to identify affected files, side effects, edge cases, tests, risks, and assumptions before it changes code.
+3. Request minimal, reviewable diffs that preserve existing conventions and avoid unrelated refactoring.
+4. Make verification explicit with exact test, lint, type-checking, and manual-check commands; for bug fixes, capture the failure with a regression test first.
+5. Separate implementation from critique by running focused reviewer passes for correctness, security, performance, and maintainability.
+6. Turn recurring workflows such as bug triage, test generation, migrations, and PR notes into reusable prompt templates.
+
 ## Overview
 
 This lesson distills practical ways engineers can use a code-focused AI assistant like Codex as more than a chat tool: as a workbench for exploring code, generating changes, reviewing architecture, and automating repetitive development tasks. Even though the source content is only a video stub, the core topic clearly points to differentiated usage patterns—how experienced users get more leverage by changing workflow, not just prompts.
@@ -147,6 +160,26 @@ Success criteria:
 - tests pass locally
 - the assistant helped with planning, implementation, and review
 - you can explain why this workflow is better than asking for a full solution in one prompt
+
+## Test Yourself
+
+<details><summary>What are the five stages of the recommended Codex workflow?</summary>
+
+Understand, plan, change, verify, and document. The lesson recommends treating these as distinct checkpoints rather than requesting a complete solution in one prompt.
+
+</details>
+
+<details><summary>Why does the lesson recommend minimal diffs instead of broad rewrites?</summary>
+
+Small patches are easier to inspect, validate, revert, and align with existing repository conventions. They also reduce the risk of unrelated changes.
+
+</details>
+
+<details><summary>How should verification be incorporated into AI-assisted bug fixing?</summary>
+
+First create a targeted regression test that reproduces the failure, then implement the smallest fix. Run the relevant tests, static analysis, and manual checks, and use the resulting errors to request targeted follow-up changes.
+
+</details>
 
 ## Further Reading
 

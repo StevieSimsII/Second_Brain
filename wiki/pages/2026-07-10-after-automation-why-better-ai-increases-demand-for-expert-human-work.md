@@ -10,6 +10,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> The article argues that better AI makes routine competence cheaper and more abundant, increasing demand for experts who can frame problems, evaluate outputs, maintain guardrails, and create differentiated work. Automation changes where human value sits rather than simply eliminating human work.
+
+## Key Takeaways
+
+1. Automate repeatable, well-scoped tasks with stable inputs and clear success criteria; keep humans involved when ambiguity, risk, or context increases.
+2. Treat human-agent collaboration as a “sandwich”: a person frames and directs the work before validating and integrating the result.
+3. Expect cheap AI-generated competence to increase output volume while also producing more generic, low-differentiation work.
+4. Invest in review queues, evaluations, CI checks, repository rules, permissions, escalation paths, and workflow maintenance as automation expands.
+5. Interpret benchmark gains within their human-designed frame, including the prompt, environment, stopping conditions, helper logic, and grading process.
+6. Move expert attention upstream to deciding goals and constraints, and downstream to reviewing, integrating, migrating, and monitoring AI-generated work.
+7. Analyze a real workflow by identifying three tasks to automate, three places requiring human review, and two expert capabilities the team should develop next.
+
 ## Overview
 
 This lesson explains a practical paradox emerging in AI-heavy organizations: as automation improves, the amount of human work often increases rather than disappears. The article argues that modern AI makes previously scarce competence cheap, which expands output volume, but also creates more low-differentiation work that must be framed, reviewed, integrated, and improved by human experts.
@@ -174,6 +188,26 @@ Produce a 1-page summary with:
 - 2 new expert capabilities your team should build next
 
 If you do this with your actual engineering process, you will directly see the article's thesis: automation removes some execution work, but increases the need for framing, evaluation, and systems design.
+
+## Test Yourself
+
+<details><summary>Why does the article claim that improved automation can increase demand for expert human work?</summary>
+
+Cheaper competence allows more people to generate code, content, designs, and analyses, increasing both volume and sameness. The article argues that experts are then needed to frame tasks, review quality, govern workflows, integrate results, and create differentiation.
+
+</details>
+
+<details><summary>What is the difference between an agent employee and human-agent collaboration?</summary>
+
+An agent employee asynchronously handles repeatable, clearly scoped work such as drafting or ticket triage. Human-agent collaboration keeps a person actively involved in planning, redirecting, sequencing, and validating complex or open-ended work.
+
+</details>
+
+<details><summary>Why can a strong benchmark score overstate what a model can do independently?</summary>
+
+A benchmark evaluates the model inside a frame humans designed, including the prompt, task environment, hints, stopping rules, helper logic, and grading process. Success within that frame does not resolve surrounding judgments such as whether the task should be attempted, what must be preserved, or how its result should be deployed safely.
+
+</details>
 
 ## Further Reading
 

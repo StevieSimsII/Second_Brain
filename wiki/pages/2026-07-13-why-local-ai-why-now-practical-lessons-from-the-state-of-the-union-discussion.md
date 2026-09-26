@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Local AI is now practical for more workloads because efficient models, quantization, optimized runtimes, and better hardware have lowered deployment barriers. It matters because teams can choose where inference runs based on privacy, latency, cost, quality, and control instead of defaulting entirely to cloud APIs.
+
+## Key Takeaways
+
+1. Treat GPU memory as a primary constraint: model size, context length, batch size, and multimodal inputs all compete for VRAM.
+2. Use 8-bit or 4-bit quantization to reduce memory use and improve throughput, while testing for losses in accuracy, instruction-following, and reasoning quality.
+3. Route private, latency-sensitive, or steady-volume workloads locally when the operational burden is justified.
+4. Prefer cloud APIs for bursty demand or requests that require stronger models than local hardware can support.
+5. Combine both approaches in a hybrid architecture: handle simple or sensitive tasks locally and escalate low-confidence or complex requests to a hosted model.
+6. Evaluate deployments with task-specific measurements such as time to first token, total response time, output quality, memory fit, and CPU or GPU utilization.
+7. Start private document Q&A with a small local model and simple keyword retrieval before adding the complexity of embeddings or a vector database.
+
 ## Overview
 
 This lesson distills the likely technical themes behind a panel discussion titled "Why Local, Why Now," focused on running modern AI systems on local hardware instead of relying exclusively on hosted APIs. The core idea is that improved model efficiency, better consumer GPUs, optimized runtimes, and growing privacy and latency requirements are making on-device and self-hosted AI increasingly practical for engineers and product teams.
@@ -169,6 +183,26 @@ Implement a hybrid router:
 - If the prompt exceeds a threshold or requires complex reasoning, mark it for cloud fallback.
 
 This exercise forces you to think like a systems engineer rather than just a model consumer: the real lesson is deciding where inference should run and why.
+
+## Test Yourself
+
+<details><summary>Why has local AI become more practical now?</summary>
+
+The lesson attributes the shift to smaller open-weight models, quantized variants, optimized inference engines, and improved consumer and edge hardware. Together, these changes let useful workloads run on machines that previously lacked enough memory or compute.
+
+</details>
+
+<details><summary>What factors should determine whether a request runs locally or in the cloud?</summary>
+
+Consider data sensitivity, latency targets, steady-state volume, available hardware, required model quality, and whether cloud fallback is acceptable. Local execution favors privacy, responsiveness, and predictable sustained costs; cloud execution favors elasticity and access to larger models.
+
+</details>
+
+<details><summary>How should an engineer test a local inference setup?</summary>
+
+Run a representative prompt and record time to first token, total response time, subjective quality, memory fit, and hardware utilization. Then test the model with retrieved private context and decide which request types meet requirements locally and which need cloud escalation.
+
+</details>
 
 ## Further Reading
 

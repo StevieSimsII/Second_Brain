@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Parse construction drawings into structured, location-aware evidence before asking an LLM to reason over them. Sending only task-relevant regions, text, tables, symbols, and links can reduce token costs while improving accuracy, traceability, and failure analysis.
+
+## Key Takeaways
+
+1. Segment each sheet into semantic regions—such as title blocks, legends, schedules, callouts, and details—before applying language-model reasoning.
+2. Use the best extractor for each content type: OCR for notes and dimensions, table extraction for schedules, object detection for symbols, and direct parsing for vector PDF text and geometry.
+3. Preserve bounding boxes and normalized coordinates because construction-document meaning often depends on the spatial relationship between labels, symbols, notes, and drawing elements.
+4. Convert extracted content into a structured intermediate representation containing sheet IDs, region types, text, bounding boxes, and cross-reference links.
+5. Pack prompts around the specific task; a door fire-rating question should retrieve relevant schedule rows, legend definitions, nearby notes, and linked references instead of entire sheets.
+6. Retain provenance from every generated answer back to its sheet, region, row, or note, and add schema checks, confidence thresholds, and cross-sheet consistency tests.
+7. The lesson reports that decomposition can improve accuracy by around 20% in practice, while acknowledging that the added pipeline complexity is the primary engineering tradeoff.
+
 ## Overview
 
 This lesson explains a practical pattern for getting AI systems to interpret construction drawings more accurately while dramatically reducing token usage. The core idea is to avoid sending entire large-format plan sheets directly into a multimodal model and instead build a staged pipeline that extracts structure first: detect relevant regions, recover text and geometry, and send only compact, task-specific context to an LLM.
@@ -171,6 +185,26 @@ You should end with a small script that:
 2. selects a region of interest,
 3. constructs a compact prompt payload, and
 4. answers a targeted question more cheaply than using the entire drawing directly.
+
+## Test Yourself
+
+<details><summary>Why can a staged pipeline outperform whole-sheet prompting for construction drawings?</summary>
+
+The lesson argues that segmentation and task-specific retrieval remove irrelevant visual clutter and make small text and relationships more explicit. This gives the LLM a smaller, less ambiguous evidence set while making extraction failures easier to locate.
+
+</details>
+
+<details><summary>What information should a structured intermediate representation preserve?</summary>
+
+It should preserve sheet identifiers, semantic regions, recognized text, bounding boxes, tables or symbols, and links between references. These fields support targeted retrieval, spatial reasoning, verification, and source citation.
+
+</details>
+
+<details><summary>How would you build the lesson&#x27;s minimal title-block and legend prototype?</summary>
+
+Render a sheet at high resolution, run OCR with bounding boxes, and filter results into the bottom-right 25% for the title block and top-right 25% for the legend. Send the resulting compact JSON to an LLM, then compare its quality, latency, cost, and verifiability with a full-image baseline.
+
+</details>
 
 ## Further Reading
 

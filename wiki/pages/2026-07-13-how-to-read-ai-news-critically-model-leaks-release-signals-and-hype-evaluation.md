@@ -12,6 +12,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat AI headlines as evidence to classify, not facts to build around. Acting only when a claim has credible support and operational relevance protects engineering roadmaps from rumors, staged demos, and benchmark hype.
+
+## Key Takeaways
+
+1. Classify every claim as an official release, rumor, benchmark result, product demo, research preview, or ecosystem update before evaluating it.
+2. Score confidence as High for official artifacts and reproducible access, Medium for multiple credible but indirect references, and Low for leaks, screenshots, unnamed sources, or teasers.
+3. Treat a model described as “soon” as a reason to prepare an evaluation harness, not rewrite production code.
+4. Evaluate models on production factors—including stability, cost, latency, throughput, error modes, and integration support—not leaderboard position alone.
+5. Check robotics demos for autonomy, teleoperation, environmental constraints, recovery behavior, and repeatability before inferring general capability.
+6. Use SDK updates, API schema changes, model IDs, pricing edits, evaluation support, and partner announcements as stronger release signals than leaked names.
+7. Translate each headline into one action: ignore it, monitor it, benchmark it when available, or begin migration planning.
+
 ## Overview
 
 This lesson turns a sparse AI news video listing into a practical framework for analyzing fast-moving announcements about frontier models, rumored releases, robotics demos, and benchmark claims. Rather than treating each headline as fact, the goal is to teach an engineer how to separate confirmed capability, product positioning, speculation, and marketing.
@@ -175,6 +189,26 @@ Take one rumored model and define a benchmark plan before it launches:
 - fallback if the release disappoints
 
 This forces you to connect news consumption to real system design decisions.
+
+## Test Yourself
+
+<details><summary>What evidence justifies assigning an AI announcement a High confidence rating?</summary>
+
+Official documentation, a live API, or another public artifact with reproducible access supports a High rating. Screenshots, leaks, and teaser clips remain Low confidence.
+
+</details>
+
+<details><summary>Why is a benchmark win insufficient grounds for changing a production system?</summary>
+
+According to the lesson, benchmark results may depend on task selection, scaffolding, tool use, or cherry-picked examples. A production decision must also account for reliability, cost, latency, throughput, error modes, and integration support.
+
+</details>
+
+<details><summary>How should an engineering team respond when a rumored model is described as launching “soon”?</summary>
+
+Prepare tasks, success criteria, cost and latency limits, and an evaluation harness, but avoid rewriting production code. Reconsider integration only after access, documentation, pricing, and reproducible results become available.
+
+</details>
 
 ## Further Reading
 

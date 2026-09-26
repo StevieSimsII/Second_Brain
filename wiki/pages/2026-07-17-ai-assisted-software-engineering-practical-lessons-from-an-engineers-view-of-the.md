@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI shifts software engineering’s bottleneck from writing code to specifying intent, supplying context, and verifying results. Its benefits depend on strong tests, modular architecture, and human judgment—not blind trust in generated code.
+
+## Key Takeaways
+
+1. Treat prompts as lightweight specifications: include relevant interfaces, constraints, expected behavior, failure modes, and examples.
+2. Use AI for bounded tasks such as adding a parser, testing an edge case, refactoring a module, or generating a migration—not vague whole-feature requests.
+3. Treat generated code as a draft from a fast junior collaborator; review it for broken invariants, hallucinated APIs, hidden complexity, and weak error handling.
+4. Validate every meaningful change with tests, linters, type checks, local builds, and manual diff review.
+5. Provide architectural and local context so the model does not optimize one component while damaging system-wide consistency.
+6. Use compiler errors, failed tests, and review feedback to request narrow fixes that preserve working code and minimize churn.
+7. The lesson argues that engineers increasingly act as specifiers, evaluators, and orchestrators while humans retain responsibility for requirements, architecture, risk, and product fit.
+
 ## Overview
 
 AI coding tools matter because they shift the bottleneck from typing code to specifying intent, validating output, and managing system complexity. Engineers, team leads, and developer-tool builders should care because the competitive advantage increasingly comes from combining fast AI-assisted iteration with strong judgment, testing, architecture, and operational discipline.
@@ -189,6 +203,26 @@ pytest
 
 ### Expected learning outcome
 By the end, you should see that AI is most effective when you provide scope, constraints, and verification criteria. You should also experience firsthand that reviewing and testing generated code is the real engineering work that makes AI assistance reliable.
+
+## Test Yourself
+
+<details><summary>Why does the lesson describe context and evaluation as the new bottlenecks in AI-assisted development?</summary>
+
+AI can generate code quickly, but incomplete context can produce locally plausible changes that conflict with project conventions or architecture. Engineers must supply the right information and rigorously evaluate whether the result is correct and maintainable.
+
+</details>
+
+<details><summary>What information should a strong coding prompt include?</summary>
+
+It should define the desired behavior, relevant files and interfaces, technical constraints, failure modes, compatibility requirements, and success criteria such as required tests.
+
+</details>
+
+<details><summary>How should an engineer verify an AI-generated change?</summary>
+
+Review the diff for incorrect assumptions, unnecessary rewrites, API changes, and weak error handling, then run appropriate tests, linters, type checks, and builds. For risky changes, add regression tests first and require the generated code to satisfy them.
+
+</details>
 
 ## Further Reading
 

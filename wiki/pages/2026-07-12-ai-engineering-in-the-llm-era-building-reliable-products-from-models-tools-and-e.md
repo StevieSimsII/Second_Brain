@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Reliable LLM products come from treating the model as one probabilistic component inside a controlled software system. Structured outputs, safe tools, focused context, telemetry, and task-specific evaluations turn promising prototypes into dependable products.
+
+## Key Takeaways
+
+1. Design the whole system—models, prompts, retrieval, tools, memory, business logic, validation, and evaluations—not just the model call.
+2. Start with one narrow task and measurable user outcome, then build the simplest end-to-end flow that handles representative cases.
+3. Create 20-100 realistic examples, classify failures, fix one failure category at a time, and rerun evaluations after every change.
+4. Use structured outputs or function calls so application code can validate model decisions before executing tools or other side effects.
+5. Keep deterministic software responsible for data access, permissions, validation, business rules, and execution; use the model for ambiguity, reasoning, extraction, transformation, and language.
+6. Maintain fast smoke tests, a production-derived regression suite, task-specific scoring rubrics, and human review where automatic scoring is unreliable.
+7. Balance quality, latency, cost, capability, reliability, autonomy, and safety explicitly; improvements along one dimension often impose costs elsewhere.
+
 ## Overview
 
 This lesson distills the core ideas commonly discussed under the banner of the “golden age of AI engineering”: the shift from treating models as isolated demos to building full products around them. The focus is not just on model capability, but on engineering systems that combine prompting, retrieval, tool use, structured outputs, evaluation, and iterative product development to deliver real user value.
@@ -193,6 +207,26 @@ After testing, answer these questions:
 - What telemetry would you log in production?
 
 This exercise mirrors the real AI engineering workflow: narrow scope, explicit tool boundaries, constrained outputs, and an eval loop that turns qualitative model behavior into something you can improve systematically.
+
+## Test Yourself
+
+<details><summary>Why should an LLM be treated as one component of a larger software system?</summary>
+
+Its behavior is probabilistic and sensitive to context. Surrounding deterministic software can enforce permissions, validate schemas, execute approved actions, apply business rules, and provide fallbacks.
+
+</details>
+
+<details><summary>How do evaluations function as a control loop for an LLM product?</summary>
+
+Teams run representative cases against defined success criteria, inspect and categorize failures, make a targeted change, and rerun the suite. This reveals whether a prompt, model, retrieval, or tool change improved real task performance or introduced regressions.
+
+</details>
+
+<details><summary>What is the purpose of the support-copilot exercise&#x27;s two-step orchestration flow?</summary>
+
+The first call classifies intent and decides whether policy retrieval is needed; application code then retrieves the relevant policy before the second call drafts the final response. This separates model reasoning from controlled data access and makes each stage easier to validate and debug.
+
+</details>
 
 ## Further Reading
 

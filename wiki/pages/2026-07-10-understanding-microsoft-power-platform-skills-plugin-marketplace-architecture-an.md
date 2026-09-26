@@ -10,6 +10,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> The repository productizes Power Platform development workflows by combining agent instructions with manifests, scripts, hooks, MCP servers, and platform tools. This layered architecture matters because executable guardrails and validation make AI-generated work more reliable than prompts alone.
+
+## Key Takeaways
+
+1. Treat the repository as an operational plugin marketplace, not a conventional SDK or library.
+2. Trace plugin discovery from the root `marketplace.json` to each plugin’s `.plugin/plugin.json`; `.claude-plugin/plugin.json` exists for backward compatibility.
+3. Expect most agent behavior to come from Markdown assets in `agents/`, `skills/`, `commands/`, and shared references.
+4. Use scripts, MCP servers, and external tools such as `pac`, Azure CLI, Node.js, and .NET to turn agent instructions into Dataverse, app, flow, packaging, and deployment operations.
+5. Use pre- and post-tool hooks to capture telemetry, validate generated artifacts, and block unsafe or noncompliant changes.
+6. Choose architecture by development surface: `mobile-apps` bundles an Expo template and extensive validators, `model-apps` emphasizes Dataverse automation and React samples, and `power-automate` exposes flow operations through an MCP server.
+7. Apply repository-level validators and GitHub Actions to keep plugin names, descriptions, compatibility metadata, telemetry keys, keywords, and versions consistent across the marketplace.
+
 ## Overview
 
 For a working engineer, the important idea is that this repo is not a typical SDK or library. It is an operational layer that teaches coding agents how to behave in Power Platform projects by combining plugin manifests, agents, skills, references, hooks, scripts, and MCP servers. If you want to understand how AI development workflows are productized for enterprise platforms, or if you need to extend or debug these plugins, this repository is a strong example.
@@ -128,6 +142,26 @@ Understand how a plugin in this marketplace turns agent instructions into concre
 
 ### Stretch exercise
 Compare `model-apps` with `mobile-apps` and list three architectural differences. Focus on why `mobile-apps` needs a bundled template and many validation hooks while `model-apps` emphasizes Dataverse scripts and React page samples.
+
+## Test Yourself
+
+<details><summary>How are marketplace metadata and plugin metadata separated?</summary>
+
+The root `marketplace.json` lists discoverable plugins using names and repository-relative sources. Each plugin owns its identity, version, licensing, description, and keywords in `.plugin/plugin.json`, while `.claude-plugin/plugin.json` supports older consumers.
+
+</details>
+
+<details><summary>What happens after an agent loads a plugin and receives a Power Platform task?</summary>
+
+The agent consults instructions, references, and samples, then may invoke scripts, external CLIs, or MCP servers. Hooks can run around those tool calls to record telemetry, validate results, or block unsafe output before artifacts are written or deployed.
+
+</details>
+
+<details><summary>Why is `mobile-apps` packaged differently from `model-apps`?</summary>
+
+The lesson describes `mobile-apps` as needing a complete Expo starting point plus guardrails for dependencies, navigation, accessibility, file writes, offline behavior, and Dataverse payloads. `model-apps` instead centers on Dataverse creation scripts, solution packaging, page manifests, and React/TypeScript samples for generative pages.
+
+</details>
 
 ## Further Reading
 

@@ -13,6 +13,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI and higher-level platforms are making implementation cheaper, shifting engineering value toward defining the right problem, designing systems, integrating components, and verifying results. This matters because faster code generation produces little value unless the software is correct, secure, maintainable, and useful.
+
+## Key Takeaways
+
+1. Treat AI as a force multiplier for boilerplate, API explanations, test drafts, and prototypes—not as a substitute for engineering judgment.
+2. Separate software work into four layers: intent, design, implementation, and verification; the lesson argues that implementation is becoming cheaper relative to the other three.
+3. Write precise requirements before generating code, then inspect assumptions, edge cases, failure modes, and business constraints.
+4. Prioritize integration skills because production failures often occur at boundaries such as authentication, billing, queues, permissions, observability, and deployment.
+5. Build tests, logging, and other guardrails early so faster implementation does not create hidden operational risk.
+6. Use architecture and code review to evaluate coupling, correctness, readability, maintainability, and performance—not merely syntax or API recall.
+7. Increase team leverage by creating reusable templates, patterns, prompts, evaluation checklists, and platform guardrails.
+
 ## Overview
 
 This lesson distills a common emerging theme in modern software discourse: the assumptions that shaped software engineering over the last decade are being disrupted by AI-assisted development, higher-level platforms, and changing expectations around how software is built and maintained. Engineers who learned in an era centered on handwritten CRUD apps, framework specialization, and manual implementation details now need to rethink leverage, abstraction, and where human judgment matters most.
@@ -131,6 +145,26 @@ For the AI-assisted version, add:
 Refactor both versions to use a managed service or higher-level abstraction, such as hosted auth, a cloud database, or an ORM. Note how much code disappears and what new operational constraints appear.
 
 The objective is to experience the main lesson directly: implementation gets cheaper, but specification, review, testing, and integration remain the real engineering work.
+
+## Test Yourself
+
+<details><summary>Why does the lesson argue that AI changes engineering work without eliminating the need for engineers?</summary>
+
+AI can reduce the effort needed to scaffold and implement software, but humans still must define intent, choose tradeoffs, integrate systems, and verify outputs. Generated code remains valuable only when it satisfies real constraints and is safe to operate.
+
+</details>
+
+<details><summary>What four layers does the lesson use to analyze software development?</summary>
+
+The four layers are intent, design, implementation, and verification. The lesson's central claim is that implementation is becoming cheaper relative to the judgment required in the other layers.
+
+</details>
+
+<details><summary>How should an engineer evaluate an AI-assisted implementation?</summary>
+
+Review every generated file, test validation and integration behavior, inspect unnecessary complexity and edge cases, and document assumptions and tradeoffs. For production use, add appropriate security, observability, testing, and operational guardrails.
+
+</details>
 
 ## Further Reading
 

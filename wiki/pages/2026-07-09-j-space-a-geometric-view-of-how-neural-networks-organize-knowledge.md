@@ -12,6 +12,19 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> J-Space treats a neural network’s internal representations as a high-dimensional geometry in which useful concepts and decisions become easier to separate. This matters because engineers can analyze that geometry to debug models, compare layers, and test what information a model has learned.
+
+## Key Takeaways
+
+1. Analyze clusters, directions, and subspaces in activations instead of assuming individual neurons correspond to individual concepts.
+2. Compare raw inputs, hidden-layer activations, and final representations with linear probes to test whether task-relevant concepts become easier to separate.
+3. Collect layer activations, visualize them with PCA or UMAP, and measure their structure with cosine or Euclidean distance.
+4. Treat each neural-network layer as a transformation that can separate relevant features while compressing nuisance variation.
+5. Do not infer model behavior from a probe alone: a probe can detect encoded information without proving the model uses that information to make decisions.
+6. Interpret 2D projections cautiously because PCA, t-SNE, and UMAP can obscure or distort the original high-dimensional geometry.
+
 ## Overview
 
 This lesson introduces the idea of "J-Space," a geometric framing for understanding how modern AI models may organize and process information internally. Rather than treating a neural network as an opaque function approximator, the central theme is that useful structure emerges in its learned representations: concepts, relationships, and decisions can often be understood as positions, directions, and transformations in a high-dimensional space.
@@ -131,6 +144,26 @@ class MLP(nn.Module):
 
 ### Stretch task
 Repeat the experiment with embeddings from a pretrained language or vision model. Compare representations from multiple layers and see where task-relevant structure appears most clearly.
+
+## Test Yourself
+
+<details><summary>What does the J-Space perspective emphasize when analyzing a neural network?</summary>
+
+It emphasizes the geometry of internal representations: where examples lie, how they cluster, which directions encode attributes, and how layers transform that structure. This shifts attention from individual parameters or neurons to measurable organization across many units.
+
+</details>
+
+<details><summary>How can an engineer test whether deeper layers produce more useful representations?</summary>
+
+Extract activations from several layers, train the same simple linear probe on each representation, and compare validation accuracy. PCA or UMAP plots can supplement the measurement by showing how class clusters and boundaries change.
+
+</details>
+
+<details><summary>Why are linear probes and 2D visualizations insufficient as complete explanations of a model?</summary>
+
+A probe may recover information that the model does not actually use, while a 2D projection can distort high-dimensional relationships. Both are diagnostic tools whose conclusions should be checked with additional metrics and behavioral evidence.
+
+</details>
 
 ## Further Reading
 
