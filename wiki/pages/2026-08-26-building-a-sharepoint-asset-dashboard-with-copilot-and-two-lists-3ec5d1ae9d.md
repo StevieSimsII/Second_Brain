@@ -12,6 +12,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Copilot can quickly turn data from two SharePoint lists into one practical asset dashboard, but the generated interface still needs deliberate ownership, deployment, and failure-handling decisions. The real value comes from iterative prompting that combines records and makes operational rules visible.
+
+## Key Takeaways
+
+1. Combine asset inventory and ownership or allocation records in one dashboard so users do not have to manually reconcile two SharePoint lists.
+2. Specify the first interface concretely: include a status filter, asset selector, image area, and the exact detail fields users need.
+3. Refine the generated page through focused follow-up prompts, such as reducing image size, swapping panels, enlarging text, and tightening spacing.
+4. Filter the ownership-history table by the selected asset to enrich inventory records with relevant cross-list context.
+5. Use conditional formatting to expose business rules, such as showing overdue maintenance dates in red and acceptable dates in green.
+6. Define who maintains the tool and how users will be alerted when SharePoint schema changes break it before the dashboard becomes operationally important.
+7. Treat hosting, data binding, schema resilience, and long-term maintenance as unresolved because the source does not provide those implementation details.
+
 ## Overview
 
 This lesson shows a practical pattern for turning fragmented SharePoint list data into a single HTML-based view with Microsoft Copilot. In the source, one list stores asset inventory and another stores asset allocations or ownership history. The core idea is not that Copilot magically understands an entire system, but that it can generate an initial interface from a plain-language prompt and then refine it through repeated conversation. The evidence is strong for the workflow and UI features described in the transcript, but thin on implementation details such as hosting, data bindings, schema resilience, and long-term maintenance.
@@ -33,6 +47,26 @@ Observed workflow from the source: start with two SharePoint lists, one for asse
 ## Training Exercise
 
 Create a small practice scenario with two mock SharePoint lists: `Asset Inventory` and `Asset Ownership`. Write a prompt for an HTML dashboard that includes a status filter, an asset selector, an image area, and a details panel. Then write three follow-up prompts to refine the page: add an ownership-history table filtered to the selected asset, highlight overdue maintenance dates, and improve layout readability. After the UI exercise, document two operational decisions before sharing the tool: who maintains it and how users will know when list-schema changes break it.
+
+## Test Yourself
+
+<details><summary>Why does the dashboard use two SharePoint lists?</summary>
+
+One list contains asset inventory, while the other contains allocations or ownership history. Combining them lets the dashboard show both current asset details and related historical context in one view.
+
+</details>
+
+<details><summary>What refinement pattern does the lesson demonstrate?</summary>
+
+Start with a concrete natural-language prompt for the initial interface, review the result, and request one focused improvement at a time. Examples include adding ownership history, applying maintenance-date formatting, and adjusting the layout.
+
+</details>
+
+<details><summary>What operational decisions should be made before sharing the dashboard?</summary>
+
+Assign responsibility for maintaining the tool and define how users will learn that a SharePoint schema change has broken it. Hosting, deployment, data binding, and failure handling also require decisions beyond what the source explains.
+
+</details>
 
 ## Further Reading
 

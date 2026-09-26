@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Evaluate AI models on real work, not raw capability alone: writing quality, sustained tool use, creative breadth, interface restraint, and understanding the actual job all affect usefulness. The source’s presenter views Astra as highly capable but says Fable often shows better judgment through simpler, more intuitive results.
+
+## Key Takeaways
+
+1. Test writing as a primary capability by checking clarity, tone control, editorial usefulness, and signs of formulaic AI prose.
+2. Measure computer use by how much real work the model completes in software—and how little supervision it needs—not merely whether it can operate controls.
+3. Use interactive tasks such as 3D scenes, simulations, and games to test whether a model can turn broad creative goals into working artifacts.
+4. Count unnecessary buttons, labels, fields, and steps; added complexity can reveal weak product judgment despite strong technical execution.
+5. Compare literal prompt fulfillment with the underlying job to be done to determine whether the model understands user intent.
+6. The presenter describes Astra as a strong daily driver for writing, computer use, and visual creation, while judging Fable more refined in simplicity and long-running delegation.
+7. Evidence in the review is anecdotal, based on team testing and examples rather than formal benchmarks or a documented methodology.
+
 ## Overview
 
 This lesson turns a YouTube day-one review of "Astra" into a reusable framework for evaluating frontier AI models in practice. The source argues that Astra is exceptionally strong at writing, computer use, and building 3D visualizations or games, but weaker at restraint, interface simplicity, and fully grasping the user's underlying intent compared with a competing model called Fable. Evidence in the source is mostly anecdotal: the presenter cites extensive team testing and several examples, but provides no formal benchmark data or detailed methodology. The practical takeaway is that model quality is not just about capability; it is also about taste, judgment, and how well a model extends a prompt without overbuilding.
@@ -35,6 +49,26 @@ Use the review as a five-part model evaluation rubric. First, test writing on re
 ## Training Exercise
 
 Choose one task in each of these four categories: writing, software operation, interface generation, and workflow design. For each task, write a prompt that specifies the goal but not the implementation details. Then evaluate the model on four questions: 1. Did it produce strong output? 2. Did it add unnecessary complexity? 3. Did it infer the real user need? 4. Would you trust it on a long-running task with limited supervision? Afterward, rewrite one prompt to emphasize simplicity and another to emphasize autonomy, and compare how the outputs change. Conclude by deciding whether the model is better suited as a daily driver, a specialist creative tool, or a high-trust delegation agent.
+
+## Test Yourself
+
+<details><summary>What five dimensions does the lesson recommend using to evaluate an AI model?</summary>
+
+Evaluate realistic writing, sustained computer use, visual or interactive generation, interface restraint, and understanding of the underlying user need.
+
+</details>
+
+<details><summary>How can a highly capable model still make a weaker product?</summary>
+
+It may add unnecessary controls or steps, interpret the prompt too literally, or overlook the simplest workflow. Capability does not guarantee taste, restraint, or sound judgment.
+
+</details>
+
+<details><summary>Why should the review’s comparison between Astra and Fable be treated cautiously?</summary>
+
+The presenter supports the claims with team experience and selected examples, but provides no formal benchmark data or detailed methodology. The conclusions are therefore useful evaluation hypotheses rather than established findings.
+
+</details>
 
 ## Further Reading
 

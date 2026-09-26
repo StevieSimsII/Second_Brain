@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI agents are more likely to become an interaction layer over trusted systems of record than to replace them outright. The practical advantage comes from integrating agents with reliable business data while reserving custom development for workflows unique to the organization.
+
+## Key Takeaways
+
+1. Treat systems of record as canonical sources of business data; the hosts argue that reliability, compliance, and long-debugged behavior make them difficult to replace with quickly assembled AI tools.
+2. Evaluate enterprise AI in three layers: models, agent harnesses, and domain context; useful agents need tools, memory, permissions, and access to real business information.
+3. Design software for agents as well as humans by providing stable APIs, command-line access, auditable actions, predictable write-backs, and clear permission boundaries.
+4. Build workflows that create a unique business advantage, but buy commodity capabilities such as CRM, messaging, and spreadsheets when mature products already solve them.
+5. Distinguish a defensible system of record from a replaceable workflow shell when assessing an AI software opportunity.
+6. Consider agents as power users that may expose underused features in mature platforms by discovering and executing actions more consistently than typical users.
+7. Use the source's claim about horizontal systems of record being more defensible than vertical workflow tools as an architectural hypothesis, not an established rule.
+
 ## Overview
 
 This lesson extracts a durable idea from the podcast conversation: AI does not automatically replace enterprise software. In the source, the hosts argue that the most defensible products are systems of record that store canonical business data, while AI agents become a new interaction layer on top. They also distinguish between building custom workflows that are unique to a business and rebuilding generic horizontal tools that already exist. Much of the discussion is opinionated and speculative, but it offers a practical framework for deciding where AI creates value in software architecture.
@@ -35,6 +49,26 @@ Use this framework when evaluating an AI software opportunity. First, identify w
 ## Training Exercise
 
 Pick one tool your team uses, such as a CRM, ticketing system, or internal spreadsheet workflow. Write a one-page analysis with four sections: 1. what data in this tool is the source of truth, 2. which tasks are repetitive enough for an agent, 3. what APIs or actions an agent would need to perform those tasks safely, and 4. which parts of the workflow are truly unique to your organization and worth custom-building. Conclude by labeling the opportunity as 'integrate with existing system' or 'build custom workflow on top.'
+
+## Test Yourself
+
+<details><summary>Why do the hosts expect many systems of record to survive the rise of AI agents?</summary>
+
+They argue that these systems contain canonical business data and embody reliability, compliance, and behavior refined over years. Agents may provide a new interface to them without assuming responsibility for replacing their trusted foundations.
+
+</details>
+
+<details><summary>What does the three-layer AI progression imply for building an enterprise agent?</summary>
+
+A model alone is insufficient. The agent also needs a harness providing tools, memory, and permissions, plus domain context drawn from actual business systems.
+
+</details>
+
+<details><summary>How should a team decide whether to build software or integrate an existing product?</summary>
+
+It should custom-build processes that create a distinctive organizational advantage and integrate mature tools for commodity functions. The decision should also account for where source-of-truth data lives and which permissioned actions an agent needs.
+
+</details>
 
 ## Further Reading
 

@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> Turn repeatable work into personal skills that can follow you across SharePoint sites, then test improvements before replacing them. For SharePoint HTML, the demo recommends giving agents the tenant’s `/_html` instructions so their output respects the platform’s sandbox and supported features.
+
+## Key Takeaways
+
+1. Use a personal skill when the same behavior needs to work across multiple SharePoint sites; the transcript says personal skills are stored in OneDrive under a Copilot agent assets folder.
+2. Encode 3 to 5 explicit editorial or workflow rules in a skill so a reusable capability replaces repeated one-off prompts.
+3. Review the generated happy-path, edge-case, and adversarial tests before accepting changes proposed by the demonstrated “improve skill” workflow.
+4. Compare the reported baseline and revised evaluation before overwriting a skill; save a new version or discard the changes when the evidence is insufficient.
+5. Separate portable skill logic, evaluation criteria, and publishing constraints instead of resolving all three ad hoc in each chat.
+6. The demo claims each Microsoft 365 tenant has a `customer-name.sharepoint.com/_html` page that agents can consult for tenant-specific SharePoint HTML instructions.
+7. Point an HTML-generating agent to the tenant’s `/_html` page because, according to the transcript, general-purpose agents may not produce SharePoint sandbox-safe HTML by default.
+
 ## Overview
 
 This lesson explains three features demonstrated in the supplied video transcript: personal skills that travel across SharePoint sites, an "improve skill" workflow that tests and revises a skill, and a tenant-specific `/_html` page that gives agents instructions for generating SharePoint-ready HTML. The evidence is a product demo transcript, so the lesson should be read as an explanation of the demonstrated workflow rather than an independently verified product specification.
@@ -37,6 +51,26 @@ Treat the workflow as a three-part system. First, convert repeatable knowledge w
 ## Training Exercise
 
 Create a mini knowledge-base workflow on paper or in your notes. Define one portable editing skill with 3 to 5 explicit rules, such as removing throat-clearing openers or simplifying false binaries. Write one example input and one expected revised output. Then draft a test plan with three cases: a normal case, an edge case, and an adversarial case where the skill should avoid over-editing. Finally, write a short checklist for HTML output constraints you would want an agent to read before publishing into a sandboxed environment like SharePoint. The goal is to practice separating reusable skill logic, evaluation criteria, and publishing constraints.
+
+## Test Yourself
+
+<details><summary>When should a personal skill be used instead of a site skill?</summary>
+
+Use a personal skill when the same reusable behavior should follow the user across multiple SharePoint sites. The transcript describes site skills as local to a site collection and personal skills as portable through OneDrive.
+
+</details>
+
+<details><summary>What checks should happen before an improved skill replaces the original?</summary>
+
+Review whether the happy-path, edge-case, and adversarial tests represent the real task, then compare the baseline with the revised evaluation. Only overwrite the original when the reported results justify the change; otherwise save a separate version or discard it.
+
+</details>
+
+<details><summary>Why does the lesson recommend directing agents to the tenant’s `/_html` page?</summary>
+
+The demo presents that page as a source of tenant-specific instructions for generating SharePoint-ready HTML. Following those instructions is intended to keep output compatible with SharePoint’s sandbox and supported features.
+
+</details>
 
 ## Further Reading
 

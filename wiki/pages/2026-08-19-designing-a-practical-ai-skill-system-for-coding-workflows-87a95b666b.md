@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Treat AI coding skills as small, inspectable workflow modules: adopt only the ones that address recurring problems, test them on real work, and edit them to fit your process. This matters because the speaker reports that better routing, writing, questioning, and debugging came from selective customization—not bulk installation.
+
+## Key Takeaways
+
+1. Write concise, high-signal skill descriptions because they determine when the model loads the full instructions.
+2. Choose skills by comparing them with recurring pain points in your own workflow, then manually inspect the strongest candidates before adopting them.
+3. Test text-only skills by pasting their instructions into a chat before installing them permanently.
+4. Keep skills that improve readability, questioning, debugging depth, or coordination, and record results across multiple real prompts.
+5. Separate model-invoked skills such as debugging aids from user-invoked skills such as teaching, grilling, or simplification tools.
+6. Store skills in a managed library, sync them across machines when useful, and revise their Markdown as your workflow changes.
+7. Treat the speaker's reported improvements as anecdotal because the source provides examples and personal experience rather than controlled benchmarks.
+
 ## Overview
 
 This lesson treats AI coding "skills" as lightweight workflow modules rather than magic upgrades. In the source, the speaker evaluates two public skill packs made mostly of small Markdown files, then reports that the biggest gains came from selectively adopting a few skills, reading their text closely, and editing them to fit personal work. The durable takeaway is not "install everything"; it is to build a managed, inspectable skill library that improves how agents write, question assumptions, debug, and coordinate work. Evidence for effectiveness in the source is mainly anecdotal: the speaker shows before-and-after output quality and describes better debugging and planning, but does not present a controlled benchmark.
@@ -36,6 +50,26 @@ A practical workflow from the source looks like this: first, inventory your actu
 ## Training Exercise
 
 Create a folder for your own skill library. Pick one recurring failure mode in your AI workflow, such as vague status updates, weak debugging, or poor architectural questioning. Write a one-file skill that targets only that problem. Include a short trigger description, 3-5 concrete rules, and 2 examples of bad versus better output. Test it on three real prompts from your history. For each test, record whether the skill improved clarity, correctness, or review speed. Revise the file once based on those results. The goal is not to build a perfect general skill; it is to prove you can iteratively shape one useful behavior with explicit instructions.
+
+## Test Yourself
+
+<details><summary>Why should a skill description be concise and high-signal?</summary>
+
+The description acts as a routing trigger that helps the model decide whether to load the full skill. It should clearly identify the relevant task or failure mode rather than attempt to contain the entire workflow.
+
+</details>
+
+<details><summary>What process should you follow before permanently adopting a public skill?</summary>
+
+Compare it with your recurring workflow problems, read its instructions closely, and test it on real prompts—potentially by pasting the text directly into a chat. Keep and customize it only if it improves a meaningful outcome such as clarity, correctness, debugging depth, or review speed.
+
+</details>
+
+<details><summary>Why distinguish user-invoked skills from model-invoked skills?</summary>
+
+Some skills are useful automatically during ordinary work, such as debugging guidance, while others should run only by explicit request, such as teaching or plan-grilling modes. Separating them prevents specialized behaviors from triggering at unhelpful times.
+
+</details>
 
 ## Further Reading
 

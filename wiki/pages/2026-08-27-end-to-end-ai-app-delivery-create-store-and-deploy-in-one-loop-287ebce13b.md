@@ -12,6 +12,19 @@ depth: 1
 actionability: 2
 ---
 
+## TL;DR
+
+> An integrated loop connecting app creation in Cursor, code storage in Origin, and deployment to Vercel could reduce costly tool handoffs. Before relying on it, verify sync triggers, rollback options, preservation of project context, and the portability costs of vendor coupling.
+
+## Key Takeaways
+
+1. Map delivery as three explicit stages—creation, code storage, and deployment—and document the artifact, handoff, and failure mode at each stage.
+2. Treat the Cursor–Origin–Vercel flow as a claimed high-level workflow, not a verified technical specification; the source does not document setup, APIs, or automation behavior.
+3. Reducing context switches may save more time on small apps than accelerating code writing, according to one commenter.
+4. Verify whether Cursor edits sync automatically, require manual pushes, or trigger deployment through another mechanism; the source leaves this unanswered.
+5. Preserve business intent, constraints, architectural decisions, and history alongside source code because repository awareness alone may not capture why the system was built a certain way.
+6. Evaluate rollback paths and portability before adopting the workflow; one commenter characterizes its dependence on three platforms as triple vendor lock-in.
+
 ## Overview
 
 This lesson examines a claimed workflow described in a Cursor LinkedIn post: create a new web app in Cursor, store its code with Origin, and deploy it to Vercel. The source does not document implementation details, automation behavior, or setup steps, so treat it as a high-level product workflow rather than a verified technical specification. The practical value is the idea of collapsing app creation, code storage, and deployment into one loop to reduce handoffs between tools.
@@ -32,6 +45,26 @@ Based on the source alone, the workflow can be understood as a three-step pipeli
 ## Training Exercise
 
 Take a small app idea and map it into three explicit stages: creation, code storage, and deployment. For each stage, write down the artifact produced, the handoff to the next stage, and one failure mode. Then add a fourth column for missing project context: business intent, constraints, architecture decisions, and history. Use the result to identify what an end-to-end AI workflow would need to preserve beyond source code alone.
+
+## Test Yourself
+
+<details><summary>What are the three stages in the proposed delivery loop?</summary>
+
+Create a web app in Cursor, store its code with Origin, and deploy it to Vercel. The claimed benefit is fewer handoffs and context switches between these stages.
+
+</details>
+
+<details><summary>Which operational questions should be answered before relying on this workflow?</summary>
+
+Determine what triggers deployment, whether edits sync automatically or require manual pushes, what rollback path exists, and how difficult it would be to move away from the selected vendors.
+
+</details>
+
+<details><summary>Why is storing source code insufficient for preserving complete project knowledge?</summary>
+
+A repository may contain the implementation without capturing business intent, constraints, architectural rationale, or decision history. Those elements should be recorded explicitly so an AI-assisted workflow preserves why the system exists and evolved.
+
+</details>
 
 ## Further Reading
 

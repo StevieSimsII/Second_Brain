@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Analyze AI competition by mapping compute, power, capital, distribution, and geopolitical chokepoints—not just model quality. This matters because inference costs and infrastructure constraints can determine which technical advantages become durable businesses.
+
+## Key Takeaways
+
+1. Treat dependence on Taiwan, TSMC, China-linked supply chains, electricity, or a single supplier as part of the business model rather than a side risk.
+2. Separate frontier leadership from durable equilibrium; the source portrays a US-led frontier with capable Chinese followers as relatively favorable but potentially unstable.
+3. Model training and inference separately because a lightweight chatbot query and a long-running reasoning task have materially different economics.
+4. Stress-test infrastructure investments for delayed supply and changing financing conditions; shortages today can become overcapacity when fabs and data centers arrive years later.
+5. Match monetization to the customer: the source argues consumer AI often favors advertising, while enterprise AI depends on productivity gains, workflow integration, and usage or subscription pricing.
+6. Test aggregation advantages against serving costs; controlling discovery and demand remains valuable, but AI usage is not approximately free to deliver.
+7. Look for companies that are their own first customer, using internal scale to improve chips, infrastructure, or AI products before selling them externally.
+
 ## Overview
 
 This lesson turns an opinion-heavy interview into a reusable framework for reasoning about the AI industry. The source argues that AI competition is shaped less by simple model rankings and more by chokepoints in chips, power, capital, and distribution. It also claims that many standard software intuitions break under AI because inference has real marginal cost, frontier progress is capital intensive, and geopolitics can dominate technical capability. Treat this as a strategic lens, not settled fact: many points in the source are judgments, analogies, or forecasts rather than demonstrated conclusions.
@@ -36,3 +50,23 @@ Use the source as a seven-step analysis method. First, map physical bottlenecks:
 ## Training Exercise
 
 Pick three companies mentioned in the source: one model company, one platform company, and one infrastructure company. For each, write a one-page memo with five sections: 1. Core advantage today. 2. Main bottleneck or dependency. 3. Monetization model and its likely weakness. 4. Capital-cycle risk over the next three to five years. 5. One reason the market may be underestimating or overestimating the company. Then compare the three memos and decide which company has the best combination of durable demand, manageable marginal cost, and survivable geopolitical exposure. If evidence is thin, say exactly what additional data you would need.
+
+## Test Yourself
+
+<details><summary>Why is model quality alone an incomplete way to analyze AI competition?</summary>
+
+The source argues that access to chips, fabs, memory, electricity, capital, distribution, and geopolitically exposed suppliers can constrain whether a strong model can be trained, served, and monetized at scale.
+
+</details>
+
+<details><summary>How do inference costs change traditional software and aggregation assumptions?</summary>
+
+AI services incur real marginal costs that vary by workload, so capturing more demand does not automatically produce software-like economics. Analysts must compare serving cost with the revenue model for each use case.
+
+</details>
+
+<details><summary>What seven steps does the lesson recommend for evaluating an AI company or strategy?</summary>
+
+Map physical bottlenecks; separate training from inference economics; identify monetization; test aggregation dynamics; examine capital-cycle exposure; assess whether the firm is its own first customer; and incorporate geopolitical dependencies.
+
+</details>

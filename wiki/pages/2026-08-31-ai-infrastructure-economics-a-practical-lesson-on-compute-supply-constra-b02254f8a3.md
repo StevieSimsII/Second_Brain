@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> AI progress and business outcomes depend on the whole compute supply chain—not just better chips or models—because power, cooling, land, financing, and construction can all constrain capacity. Evaluating AI companies therefore requires examining infrastructure dependencies, internal compute allocation, and ecosystem power alongside product quality.
+
+## Key Takeaways
+
+1. Map every AI business across chips, power, data centers, model labs, routing layers, and applications before assessing its growth potential.
+2. Separate demand growth from supply constraints; the interview participants argue that AI demand can rise even while power, cooling, land, copper, financing, and construction limit available compute.
+3. Treat training versus inference as a strategic allocation decision: model companies can use capacity to generate revenue today or pursue better models for tomorrow.
+4. Evaluate platform power at the system level; the speakers portray Nvidia’s networking, developer ecosystem, supply-chain coordination, and financing support as important alongside chip performance.
+5. Test whether market trends are complements before labeling them competitors; the speakers argue that open models, frontier labs, cloud providers, infrastructure firms, and applications can expand together.
+6. Expect enterprise architectures to combine tuned internal models, frontier APIs, and routing layers when organizations need to balance cost, control, proprietary context, and model quality.
+7. Label forecasts by confidence: the lesson treats infrastructure constraints and multi-model enterprise systems as more concrete than orbital data centers or asteroid mining.
+
 ## Overview
 
 This lesson turns a wide-ranging interview transcript into a usable framework for reasoning about the AI stack. The source is opinionated and often speculative, but it consistently returns to a few durable ideas: AI progress depends on compute supply, compute is constrained by power and physical infrastructure, model companies must choose between training and inference, and firms with strong ecosystems can shape the rest of the market. Treat the transcript as a snapshot of investor and operator thinking rather than settled fact. Its value is in the decision lenses it offers, not in any single forecast.
@@ -37,6 +51,26 @@ Use the transcript as a six-step analysis loop. First, map the stack: chips, pow
 ## Training Exercise
 
 Pick one AI company from each layer: a chip vendor, a model provider, and an application company. For each, write a one-page memo using only the framework from this lesson: 1. What infrastructure inputs does it depend on? 2. Where are its supply bottlenecks? 3. Does it benefit more from training, inference, or routing? 4. Is its moat product quality, ecosystem control, financing access, proprietary data, or distribution? 5. Which of its growth assumptions are concrete in the source, and which are speculative? Finish by stating the single weakest assumption in each memo.
+
+## Test Yourself
+
+<details><summary>Why does the lesson treat compute as a broader bottleneck than chip availability?</summary>
+
+AI capacity also depends on power, cooling, land, copper, financing, permitting, and construction timelines. A shortage or delay in any of these inputs can restrict model development and adoption even when chips are available.
+
+</details>
+
+<details><summary>What is the strategic trade-off between training and inference?</summary>
+
+A model company can allocate compute to paid inference that supports current revenue or to training that may improve future models. The lesson notes that reported performance may therefore reflect an internal capacity decision as well as customer demand.
+
+</details>
+
+<details><summary>How should the framework distinguish durable analysis from speculation?</summary>
+
+Map the stack, separate demand from supply, inspect allocation and ecosystem advantages, and then assign confidence to each claim. Treat ideas such as orbital compute as possible responses to physical constraints, not as established outcomes.
+
+</details>
 
 ## Further Reading
 

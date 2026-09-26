@@ -15,6 +15,20 @@ depth: 2
 actionability: 3
 ---
 
+## TL;DR
+
+> Evaluate agentic coding models by how reliably they carry real repository work through tools, review, fixes, and merge—not by headline benchmarks or one-shot prices. This matters because cache costs, review churn, scope control, and supervision load determine production value.
+
+## Key Takeaways
+
+1. Measure review findings, post-PR fix commits, merge-ready time, and abandoned work instead of relying on benchmark scores alone.
+2. Account for cached context reads and cache writes when estimating multi-step agent costs; the speaker claims these can matter more than base token prices.
+3. Test low, medium, and high reasoning effort on representative tasks; higher effort may catch subtle complexity, but maximum effort is not automatically cost-effective.
+4. Prompt explicitly for brief progress updates, autonomy on reversible actions, an exact stopping condition, and boundaries on what must not change.
+5. Evaluate models on real backlog items, cross-file changes, messy PR takeovers, and repository audits rather than toy prompts.
+6. Use negative constraints to prevent nearby over-fixes, unnecessary tests, and task expansion that create review churn.
+7. Treat the speaker’s reported reduction in severe review findings and follow-up commits as a field observation that must be validated in your own repositories and risk environment.
+
 ## Overview
 
 This lesson turns a practitioner review of "Fable 5.1" into a reusable method for assessing coding models in production-like workflows. The source combines vendor release notes, public benchmark discussion, and the speaker's own heavy usage across real repositories. The central takeaway is practical: for agentic coding, the best model is not necessarily the one with the best headline benchmark or cheapest one-shot cost, but the one that carries work cleanly through tool use, review, fixes, and merge. The evidence is mixed in places. Some claims come from official benchmark and pricing notes cited in the video, while others are anecdotal observations from the speaker's first 24 hours of use, so treat them as field reports rather than universal truths.
@@ -36,3 +50,23 @@ Use the source's evaluation method as a repeatable workflow. First, separate ven
 ## Training Exercise
 
 Pick one real repository and run a three-part evaluation on a coding model. 1. Choose three tasks: a small bug fix, a cross-file feature tweak, and a takeover of an already-open PR that needs cleanup. 2. For each task, run the model at two effort levels and use a fixed prompt that states the goal, scope limits, desired progress-update style, and autonomous stopping rule. 3. Compare outcomes with a scorecard: correctness, files touched, unnecessary scope growth, review findings, follow-up commits after PR creation, and time to merge-ready. Write a short conclusion answering: Did the model mainly speed up drafting, or did it improve the full review-to-merge loop? Where evidence is thin, say so explicitly.
+
+## Test Yourself
+
+<details><summary>Why can an agentic coding model with a lower cache-read price be cheaper even if its base token price is not the lowest?</summary>
+
+Multi-step agents repeatedly resume generation after tool calls and reuse large portions of context. The source argues that cheaper cache reads can reduce total workflow cost, though expensive cache writes may offset the savings.
+
+</details>
+
+<details><summary>Which metrics best reveal whether a model improves the full review-to-merge loop?</summary>
+
+Track review findings, follow-up commits after opening the PR, time to merge-ready, abandoned or superseded work, scope growth, and cross-package completeness. These expose shipping quality better than a benchmark or initial draft speed alone.
+
+</details>
+
+<details><summary>How should prompts and reasoning effort be tuned for a production evaluation?</summary>
+
+Use a fixed prompt that defines the goal, scope limits, progress-update style, permitted autonomous actions, and stopping rule. Compare multiple effort levels on the same representative tasks, then select based on correctness, cost, and supervision required.
+
+</details>

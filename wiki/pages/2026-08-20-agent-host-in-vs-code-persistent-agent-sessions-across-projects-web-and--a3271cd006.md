@@ -12,6 +12,20 @@ depth: 1
 actionability: 1
 ---
 
+## TL;DR
+
+> VS Code's Agent Host separates an agent session from any single editor window, allowing the session to keep running and be accessed across projects, interfaces, and machines. This architecture matters because clients can reconnect to shared session state without owning the agent’s lifetime.
+
+## Key Takeaways
+
+1. Treat the client, host process, and session state as separate architectural layers; the demo indicates that closing a folder or changing projects does not end a host-owned session.
+2. The demo shows one live session synchronizing approved tool calls, chat input, and queue changes across multiple attached clients.
+3. The same session can be accessed through VS Code’s chat view, an Agents window, and the web interface at `vscode.dev/agents`.
+4. Remote session access allows a browser to connect to an Agent Host machine and interact with sessions that are still running there, according to the demo.
+5. Agent Host can reconnect to another machine so users can view or start sessions against folders located on that remote host.
+6. Do not infer protocol mechanics, storage design, authentication, security, or failure recovery from the demo; those implementation details are not established by the source.
+7. Test host-based persistence by starting a session, closing its folder, switching projects, reconnecting from another client, and checking which actions remain synchronized.
+
 ## Overview
 
 This lesson explains the core idea demonstrated in the source: VS Code's Agent Host separates an agent session from the editor window so the session can keep running across project switches, web access, and multiple machines. The practical takeaway is architectural: if agent execution lives in a dedicated host process instead of a single client window, the same live session can be resumed and controlled from different interfaces. Evidence is limited to a product demo transcript and linked resources, so implementation details beyond the demonstrated behavior are not established here.
@@ -32,6 +46,26 @@ Based on the demo, Agent Host changes the execution model from 'session lives in
 ## Training Exercise
 
 Create a short architecture note with three columns: `client`, `host`, and `session state`. Using only the source, map what belongs in each column. Then write a test plan you would run if you had access to the feature: start a session, close the folder, open a different project, reconnect from another client, and verify which actions stay synchronized. Finish by listing two benefits of host-based sessions and two unanswered questions the demo leaves open, such as authentication, failure recovery, or protocol details.
+
+## Test Yourself
+
+<details><summary>How does Agent Host change the relationship between an agent session and a VS Code window?</summary>
+
+The lesson describes the session as living in a dedicated host process rather than inside one editor window. Compatible clients attach to that host-owned session, so changing projects or closing the original folder does not necessarily stop it.
+
+</details>
+
+<details><summary>What evidence in the demo suggests that multiple clients share one live session?</summary>
+
+The same session appears in multiple interfaces, with approved tool calls, chat input, and queue changes reflected across views. The lesson presents this as evidence of clients attaching to common backend session state.
+
+</details>
+
+<details><summary>Which important implementation questions remain unanswered by the source?</summary>
+
+The source does not establish how authentication, storage, security, failure recovery, or the Agent Host Protocol work internally. These should be treated as open questions rather than assumed capabilities.
+
+</details>
 
 ## Further Reading
 

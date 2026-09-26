@@ -15,6 +15,20 @@ depth: 2
 actionability: 2
 ---
 
+## TL;DR
+
+> An AI-native SDLC shifts the bottleneck from writing code to defining intent, producing durable specifications and plans, and validating agent output. High-quality artifacts matter because they let humans and agents collaborate safely without relying on shared conversational context.
+
+## Key Takeaways
+
+1. Treat `intent.md`, `spec.md`, and `plan.md` as durable handoff documents rather than depending on a single long agent conversation.
+2. Start with `intent.md` that records the problem, user impact, goals, constraints, and relevant context; the transcript says the originator need not be an engineer.
+3. Make `plan.md` detailed enough for another engineer or agent to implement without revisiting earlier conversations.
+4. Use parallel agents or Git worktrees only when tasks are independent and the supporting artifacts provide sufficient context.
+5. Require deterministic proof—including linting, builds, automated tests, and browser or end-to-end checks—before human review.
+6. Version artifacts and constrain agents with hooks, permissions, policy files, and review gates to improve safety and auditability.
+7. Route alerts, incidents, tickets, or messages back into the lifecycle by having an agent diagnose the issue and draft a new `intent.md`.
+
 ## Overview
 
 This lesson explains an AI-native software development life cycle (SDLC) as described in the supplied video transcript. The core claim is that coding is no longer the main bottleneck; process design, artifact quality, governance, and testing become the limiting factors once agents speed up implementation. Evidence is moderate rather than primary: the source is a speaker's walkthrough of Anthropic's playbook, not the playbook itself, so details should be treated as an informed summary.
@@ -37,6 +51,26 @@ Treat the SDLC as a document-driven loop rather than a conversation-driven one. 
 ## Training Exercise
 
 Pick one small feature or bug in a real project and run it through the artifact chain. Write a short `intent.md` with problem statement, user impact, constraints, and desired outcome. Then draft `spec.md` with requirements, design notes, and non-goals. Next, create `plan.md` listing files to change, implementation order, risks, and tests you will use as proof. Before coding, check whether the plan is complete enough that another engineer could execute it without the prior chat. After implementation, run linting, tests, and one manual or browser-based verification step. End by writing a brief retrospective: which parts of the work were accelerated by the agent, and which process bottlenecks remained.
+
+## Test Yourself
+
+<details><summary>What is the purpose of the `intent.md` → `spec.md` → `plan.md` artifact chain?</summary>
+
+It progressively translates a problem and desired outcome into requirements, design decisions, and an executable implementation plan. According to the transcript, these durable documents allow different humans and agents to collaborate without sharing the original conversation.
+
+</details>
+
+<details><summary>When is parallel agent execution most likely to work well?</summary>
+
+It works best when tasks are independent and the artifacts contain enough context, constraints, and success criteria to guide each agent. Git worktrees can isolate concurrent implementation work.
+
+</details>
+
+<details><summary>Why are deterministic checks and governance necessary even when agents accelerate coding?</summary>
+
+Faster implementation does not prove correctness or safety. The lesson recommends automated checks, evals, bounded permissions, policy enforcement, and review gates to catch regressions, control agent behavior, and preserve an auditable record.
+
+</details>
 
 ## Further Reading
 
