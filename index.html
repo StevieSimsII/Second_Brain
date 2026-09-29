@@ -437,6 +437,80 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+    "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+    "date": "2026-09-29",
+    "tags": [
+      "ai-agents",
+      "coding-models",
+      "model-evaluation",
+      "cost-optimization",
+      "software-architecture"
+    ],
+    "source": "https://www.youtube.com/watch?v=8WbW_n95wc4",
+    "source_type": "youtube",
+    "channel": "Theo - t3․gg",
+    "published": "2026-09-29",
+    "duration_seconds": 1906,
+    "minutes": 31.8,
+    "minutes_estimated": false,
+    "tldr": "Sonnet 5.5 appears most valuable as a fast research subagent that examines large codebases for a stronger model, rather than as the default model for coding or interface design. The practical lesson is to route models by task and evaluate total task cost, token use, latency, and output quality together.",
+    "topics": [
+      "ai-models",
+      "ai-agents",
+      "claude",
+      "coding-agents"
+    ],
+    "kind": "opinion",
+    "depth": 3,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> Sonnet 5.5 appears most valuable as a fast research subagent that examines large codebases for a stronger model, rather than as the default model for coding or interface design. The practical lesson is to route models by task and evaluate total task cost, token use, latency, and output quality together.\n\n## Key Takeaways\n\n1. Route large-codebase investigation, architectural analysis, and hypothesis checking to Sonnet 5.5 while retaining a stronger model such as Opus 5.5 as the primary orchestrator.\n2. Avoid judging model cost from input and output prices alone; cache-read charges, reasoning tokens, and total tokens consumed can erase an apparent price advantage.\n3. Avoid max reasoning for ordinary work: the presenter reports cases where moving from x-high to max increased token usage by roughly 1,500% and sometimes reduced accuracy through overthinking.\n4. Do not under-budget Anthropic models either; the presented benchmarks showed substantial performance losses at low reasoning effort, making medium, high, or x-high more practical candidates.\n5. In the presenter’s large-codebase audit, Sonnet 5.5 reportedly performed slightly better than Opus 5.5, cost about half as much, and finished in roughly five minutes.\n6. Higher generation speed does not guarantee faster task completion: the presenter’s game-building test took Sonnet 5.5 about 43 minutes versus 36 minutes for Opus because Sonnet generated far more tokens.\n7. Use representative workload tests instead of relying on one benchmark; coding, architecture analysis, interface design, computer use, and long-running artifact creation expose different strengths.\n\n## Key Moments\n\n- [7:12](https://www.youtube.com/watch?v=8WbW_n95wc4&t=432s) — See how unchanged list prices can hide the model’s real per-task cost.\n- [11:25](https://www.youtube.com/watch?v=8WbW_n95wc4&t=685s) — Learn why reasoning settings are token budgets rather than simple intelligence levels.\n- [12:26](https://www.youtube.com/watch?v=8WbW_n95wc4&t=746s) — See how max reasoning reportedly caused a 1,500% token increase and possible overthinking.\n- [16:06](https://www.youtube.com/watch?v=8WbW_n95wc4&t=966s) — Identify the practical reasoning range: avoid both low and max for most Anthropic workloads.\n- [17:39](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1059s) — Understand why high token throughput can still produce slower end-to-end completion.\n- [21:19](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1279s) — Reframe Sonnet as a tool called by stronger agents rather than a default interactive model.\n- [22:52](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1372s) — Review the large-codebase audit where Sonnet reportedly beat Opus slightly at about half the cost.\n- [30:05](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1805s) — Turn the evaluation into a routing strategy for research and verification subagents.\n\n## Overview\n\nThe source evaluates Sonnet 5.5 through published benchmarks and the presenter’s own coding, repository-analysis, interface-design, and game-building experiments. Its central conclusion is counterintuitive: the model is not necessarily the best direct replacement for Opus 5.5, but it may be a particularly useful worker inside a multi-model agent system.\n\nThis matters to engineers designing coding-agent workflows because model selection should happen per task, not per project. Teams working with large repositories can potentially improve responsiveness and cost by delegating search-heavy analysis to a faster model while reserving the primary model for synthesis, implementation, and judgment.\n\n## Key Concepts\n\n- **Task-aware model routing**: Different tasks reward different model characteristics. The source recommends keeping Opus 5.5 or Fable 5.1 in charge while routing bounded repository research and verification to Sonnet 5.5.\n- **Orchestrator and subagent roles**: An orchestrator decomposes work, delegates narrow investigations, and integrates the findings. A subagent does not need to be the best general-purpose coder if it can quickly return reliable evidence for a specific question.\n- **Total task economics**: Headline token prices do not represent the full cost of an agent run. Cache reads, cache writes, reasoning consumption, output length, retries, and the number of tokens needed to finish all affect the final bill.\n- **Reasoning budget**: The presenter characterizes low, medium, high, and x-high as ceilings that permit progressively more reasoning when needed. Max is described differently: it may force a large reasoning floor, which can increase consumption even when the task does not benefit.\n- **Token efficiency versus generation speed**: Tokens per second measures how quickly text is emitted, not how quickly useful work finishes. A faster model can take longer overall if it produces substantially more tokens, as the presenter reports in the fish-game experiment.\n- **Workload-specific benchmarking**: A single benchmark cannot establish the best model for every workflow. The source compares terminal operation, code analysis, interface design, computer use, and artifact creation, with noticeably different outcomes.\n- **Repository-analysis workload**: The presenter’s most favorable Sonnet test required examining a very large codebase and proposing how to split a giant pull request. This tested comprehension, architectural reasoning, and explanation more than direct code generation.\n- **Qualitative usability**: Formatting, clarity, instruction following, and interaction quality influence whether a model works well as a collaborator. The presenter reports clearer writing than earlier Sonnet generations but weaker frontend design results than Fable 5.1 and Opus 5.5.\n\n## How It Works\n\n1. Keep the strongest judgment-oriented model as the orchestrator.\n2. Decompose the job into implementation tasks and bounded research questions.\n3. Delegate repository searches, behavior tracing, architectural inventories, and hypothesis checks to the faster research model.\n4. Ask each subagent for evidence: relevant files, relationships, risks, and uncertainties rather than an ungrounded recommendation.\n5. Return those findings to the orchestrator for synthesis and implementation decisions.\n6. Start with medium or high reasoning, raising it only when measured task quality justifies the extra cost; avoid max by default.\n7. Record total cost, elapsed time, token consumption, and output usefulness for the complete task.\n8. Adjust routing using results from your own representative workloads rather than benchmark rankings alone.\n\n## Training Exercise\n\n1. Choose a real repository and define one bounded question, such as how authentication state travels from an incoming request to database access.\n2. Run the investigation with your primary model and save its findings, elapsed time, token totals, and estimated cost.\n3. Run the same investigation with a cheaper or faster candidate model at medium reasoning, requiring file-level evidence and an explicit uncertainty list.\n4. Repeat at high reasoning; use max only if you deliberately want to measure its overhead.\n5. Score each result on evidence coverage, correctness, clarity, latency, and total cost.\n6. Give the best candidate’s report to the primary model and ask it to verify the evidence and propose an implementation plan.\n7. Adopt subagent routing only if the combined research-and-synthesis workflow improves cost or time without materially reducing correctness.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can a model with lower advertised input and output prices still cost as much as a premium model on an agentic coding task?\u003c/summary>\n\nAgentic work repeatedly reads cached context and may generate large numbers of reasoning and output tokens. The presenter argues that Sonnet 5.5’s cache-read price and high token consumption can therefore offset its lower headline prices.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>When does the source suggest using Sonnet 5.5 instead of Opus 5.5?\u003c/summary>\n\nUse it as a delegated worker for bounded investigation: exploring a large repository, locating behaviors, checking a hypothesis, or preparing architectural findings. Opus remains the suggested primary model for general coding, judgment-heavy work, and orchestration.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is max reasoning not automatically the safest setting for a difficult task?\u003c/summary>\n\nMax may impose a high minimum amount of reasoning instead of merely raising the allowed ceiling. According to the presenter’s tests, that can dramatically increase cost and latency while encouraging second-guessing that sometimes worsens results.\n\n\u003c/details>\n\n## Further Reading\n\n- [Original YouTube source](https://www.youtube.com/watch?v=8WbW_n95wc4)\n- [Presenter’s website and community links](https://t3.gg)\n- [CodeRabbit sponsor link from the source](https://soydev.link/coderabbit)",
+    "related": [
+      {
+        "id": "2026-05-29-claude-opus-48-effort-control-dynamic-workflows-and-more-reliable-agentic-ai",
+        "title": "Claude Opus 4.8: Effort Control, Dynamic Workflows, and More Reliable Agentic AI",
+        "date": "2026-05-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "claude",
+          "coding-agents"
+        ]
+      },
+      {
+        "id": "2026-06-03-mai-code-1-flash-efficient-agentic-coding-for-real-world-github-copilot-workflow",
+        "title": "MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows",
+        "date": "2026-06-03",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "coding-models"
+        ]
+      },
+      {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-architecture"
+        ]
+      },
+      {
+        "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
+        "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
+        "date": "2026-09-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "model-evaluation"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-28-founder-control-reality-checks-and-metas-relentless-expansion-be6a2b8c30",
     "title": "Founder Control, Reality Checks, and Meta’s Relentless Expansion",
     "date": "2026-09-28",
@@ -762,11 +836,11 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-20-designing-fast-decision-layers-for-agentic-coding-with-jev-b14c599573",
-        "title": "Designing Fast Decision Layers for Agentic Coding with Jev",
-        "date": "2026-09-20",
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
         "shared_tags": [
-          "classifiers-and-structured-output"
+          "ai-models"
         ]
       }
     ]
@@ -10947,6 +11021,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "model-evaluation"
+        ]
+      },
+      {
         "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
         "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
         "date": "2026-07-12",
@@ -10954,16 +11038,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "agents",
           "ai-agents",
           "llms"
-        ]
-      },
-      {
-        "id": "2026-06-05-how-to-evaluate-fast-moving-ai-model-news-without-getting-misled",
-        "title": "How to Evaluate Fast-Moving AI Model News Without Getting Misled",
-        "date": "2026-06-05",
-        "shared_tags": [
-          "ai-models",
-          "llms",
-          "model-evaluation"
         ]
       }
     ]
@@ -12608,9 +12682,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-22-designing-fast-typed-classification-pipelines-with-system-1-models-6c6e210fa9",
-        "title": "Designing Fast, Typed Classification Pipelines with System 1 Models",
-        "date": "2026-09-22",
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
         "shared_tags": [
           "ai-models"
         ]
