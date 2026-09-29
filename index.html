@@ -437,6 +437,82 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+    "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+    "date": "2026-09-29",
+    "tags": [
+      "ai-coding",
+      "coding-agents",
+      "model-evaluation",
+      "code-review",
+      "agentic-workflows",
+      "llm-costs"
+    ],
+    "source": "https://www.youtube.com/watch?v=vu8X3YroB-w",
+    "source_type": "youtube",
+    "channel": "Theo - t3․gg",
+    "published": "2026-09-29",
+    "duration_seconds": 1858,
+    "minutes": 31.0,
+    "minutes_estimated": false,
+    "tldr": "GPT 6.1 Soul is presented as a fast, inexpensive model for scoped coding tasks, investigation, and deep review, but not as the strongest choice for autonomous rewrites or frontend design. The practical strategy is to pair it with a stronger implementation model rather than choose one model for every job.",
+    "topics": [
+      "ai-models",
+      "ai-agents",
+      "llm-evaluation",
+      "coding-agents"
+    ],
+    "kind": "opinion",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> GPT 6.1 Soul is presented as a fast, inexpensive model for scoped coding tasks, investigation, and deep review, but not as the strongest choice for autonomous rewrites or frontend design. The practical strategy is to pair it with a stronger implementation model rather than choose one model for every job.\n\n## Key Takeaways\n\n1. Match models to roles: use GPT 6.1 Soul for investigation, codebase audits, and review, while retaining Opus 5.5 for long, unattended implementation work.\n2. Evaluate reliability alongside peak intelligence; the presenter found GPT 6.1 Soul less prone than Astra to sudden low-quality behavior, even though Astra retained higher peaks in some tasks.\n3. Account for cache reads when estimating agent costs: the presenter reports prices of $2 per million input tokens, $10 per million output tokens, and $0.10 per million cached input tokens.\n4. Treat benchmark results as directional evidence; the presenter discloses incomplete runs, configuration mistakes, excluded GPU-dependent tasks, and scores that changed as runs completed.\n5. Keep humans in control for consequential actions: the reported invoice workflow prepared browser tabs and payment details but left the final send action to the user.\n6. Do not infer implementation quality from visual fidelity; the generated game looked impressive but reportedly had poor movement, frame rate, gameplay, and interface design.\n7. A reviewer–implementer loop can outperform a single-model workflow: GPT 6.1 Soul reportedly found regressions and unused code that other models missed, while Opus handled implementation more effectively.\n\n## Key Moments\n\n- [3:41](https://www.youtube.com/watch?v=vu8X3YroB-w&t=221s) — Learn why the presenter treats his benchmark results as provisional rather than definitive.\n- [7:19](https://www.youtube.com/watch?v=vu8X3YroB-w&t=439s) — See how discounted cache reads can dominate the economics of agentic coding workloads.\n- [10:59](https://www.youtube.com/watch?v=vu8X3YroB-w&t=659s) — Understand the reported reliability improvement over Astra and the limits that remain.\n- [13:03](https://www.youtube.com/watch?v=vu8X3YroB-w&t=783s) — See why deep code review and codebase auditing emerge as the model’s strongest roles.\n- [16:10](https://www.youtube.com/watch?v=vu8X3YroB-w&t=970s) — Learn where the model reportedly stalls during long, unattended rewrites.\n- [21:24](https://www.youtube.com/watch?v=vu8X3YroB-w&t=1284s) — Derive a task-routing strategy that combines Soul’s investigation with Opus’s implementation.\n- [24:34](https://www.youtube.com/watch?v=vu8X3YroB-w&t=1474s) — Observe the gap between strong 3D asset generation and weak UI or gameplay judgment.\n- [26:37](https://www.youtube.com/watch?v=vu8X3YroB-w&t=1597s) — Follow a real review loop in which the model identifies regressions missed by other models.\n\n## Overview\n\nThe source evaluates GPT 6.1 Soul as a coding-agent model through provisional benchmarks and hands-on work involving code review, computer use, codebase improvement, a Rust rewrite, and game generation. Its central lesson is that model selection should be based on task shape, behavioral reliability, and real workload cost—not a single leaderboard score.\n\nThe presenter’s preferred workflow assigns GPT 6.1 Soul scoped analytical work and uses Opus 5.5 for extended implementation. This matters to engineers operating coding agents because a model can be excellent at finding defects yet poor at sustaining progress, or visually impressive yet weak at interaction design.\n\n## Key Concepts\n\n- **Task–model fit**: Model quality is multidimensional: review, implementation, computer use, visual generation, and product design require different capabilities. The presenter considers GPT 6.1 Soul strong for bounded investigation and review but weaker for long autonomous rewrites and frontend work.\n- **Behavioral spikiness**: Spikiness is the tendency to alternate between excellent and inexplicably poor behavior. The presenter reports that GPT 6.1 Soul has lower peaks than Astra in some areas but is substantially less spiky, making it easier to trust for routine work.\n- **Cached-token economics**: Agents repeatedly reuse large prompts, repository context, and conversation history, so cached input can be a major share of consumption. The presenter reports a cached-input price of $0.10 per million tokens and cites an analysis in which agent sessions were 96% cache reads, making this price more consequential than headline input pricing.\n- **Scoped versus unattended work**: Scoped work has a defined objective and bounded search space, such as reviewing a pull request or locating a bug. Unattended work requires sustained judgment and recovery across a long sequence; the presenter reports that Soul followed process rules even when they stopped progress and did not ask for help.\n- **Reviewer–implementer separation**: One model can implement while another independently audits its work. In the reported workflow, Opus produced changes while GPT 6.1 Soul inspected them for regressions, hidden gaps, and unnecessary code.\n- **Benchmark uncertainty**: Benchmark scores depend on harness configuration, hardware, reasoning settings, and completed samples. The presenter explicitly warns that his numbers were still changing, some runs were incomplete, earlier configurations were wrong, and three H100-dependent tasks were removed.\n- **Output quality versus product quality**: High-fidelity assets do not guarantee good interaction design or usable software. The generated aquarium reportedly had attractive fish and 3D elements but suffered from cluttered UI, weak movement, poor frame rate, and a shallow or confusing gameplay loop.\n\n## How It Works\n\n1. Classify the task before selecting a model: distinguish review, investigation, bounded implementation, long autonomous work, computer use, and design.\n\n2. Test candidates on representative repository tasks rather than relying solely on public benchmarks. Record correctness, regressions found, completion rate, elapsed time, token use, and human cleanup.\n\n3. Calculate effective cost from input, output, and cached-input usage. For repetitive agent workflows, inspect the cache-read share because it can dominate total spend.\n\n4. Route bounded analysis and independent review to GPT 6.1 Soul when local tests confirm the reported strengths. Preserve a human approval step for payments, merges, deployments, and other consequential actions.\n\n5. Route prolonged implementation or major rewrites to the model that demonstrates sustained progress and good judgment. In the presenter’s tests, that remained Opus 5.5.\n\n6. Run a second-model audit before merging. Return concrete findings to the implementing model, request fixes, and repeat until the review finds no material gaps.\n\n7. Escalate or stop agents that obey a process without advancing the objective. Long loops can waste time even when low token prices make them financially affordable.\n\n## Training Exercise\n\n1. Choose a small pull request or isolated bug in a non-production repository and define acceptance criteria plus a fixed spending limit.\n2. Ask one model to investigate the relevant code and produce a risk-ranked review without editing files.\n3. Ask a second model to implement the fix using the review and acceptance criteria.\n4. Send the resulting diff back to the first model for an independent audit covering correctness, regressions, dead code, and missing tests.\n5. Run the project’s tests and manually verify the affected behavior; do not merge based only on either model’s report.\n6. Record elapsed time, input/output/cache usage, defects found, false positives, stalled steps, and human corrections.\n7. Repeat with the model roles reversed, then choose default routing rules based on observed completion quality and total workflow cost.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why is the lowest token price not sufficient for choosing a coding model?\u003c/summary>\n\nTotal value depends on cache pricing, token utilization, task duration, reliability, and whether the model completes the work correctly. A cheap run that stalls for days can cost more in engineering time than a pricier model that finishes.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What evidence supports assigning GPT 6.1 Soul a reviewer role rather than making it the sole implementer?\u003c/summary>\n\nThe presenter reports that it uncovered regressions, deeply audited codebases, and identified 1.3 million unused lines. He also reports that it stalled on a long Rust rewrite and produced code that was harder to justify merging than Opus-generated code.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How should the benchmark claims in the source influence a purchasing decision?\u003c/summary>\n\nUse them as hypotheses to test on representative internal tasks, not as universal rankings. The presenter acknowledges incomplete runs, setup errors, excluded tasks, variable scores, and imperfect correspondence between benchmarks and daily coding work.\n\n\u003c/details>",
+    "related": [
+      {
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "llm-evaluation"
+        ]
+      },
+      {
+        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
+        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
+        "date": "2026-05-25",
+        "shared_tags": [
+          "ai-agents",
+          "ai-coding",
+          "code-review",
+          "coding-agents"
+        ]
+      },
+      {
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "model-evaluation"
+        ]
+      },
+      {
+        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
+        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
+        "date": "2026-08-14",
+        "shared_tags": [
+          "ai-models",
+          "coding-agents",
+          "llm-evaluation"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-09-29-openais-shift-toward-persistent-agents-and-an-integrated-work-platform-589d3b459c",
     "title": "OpenAI’s Shift Toward Persistent Agents and an Integrated Work Platform",
     "date": "2026-09-29",
@@ -531,6 +607,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Sonnet 5.5 appears most valuable as a fast research subagent that examines large codebases for a stronger model, rather than as the default model for coding or interface design. The practical lesson is to route models by task and evaluate total task cost, token use, latency, and output quality together.\n\n## Key Takeaways\n\n1. Route large-codebase investigation, architectural analysis, and hypothesis checking to Sonnet 5.5 while retaining a stronger model such as Opus 5.5 as the primary orchestrator.\n2. Avoid judging model cost from input and output prices alone; cache-read charges, reasoning tokens, and total tokens consumed can erase an apparent price advantage.\n3. Avoid max reasoning for ordinary work: the presenter reports cases where moving from x-high to max increased token usage by roughly 1,500% and sometimes reduced accuracy through overthinking.\n4. Do not under-budget Anthropic models either; the presented benchmarks showed substantial performance losses at low reasoning effort, making medium, high, or x-high more practical candidates.\n5. In the presenter’s large-codebase audit, Sonnet 5.5 reportedly performed slightly better than Opus 5.5, cost about half as much, and finished in roughly five minutes.\n6. Higher generation speed does not guarantee faster task completion: the presenter’s game-building test took Sonnet 5.5 about 43 minutes versus 36 minutes for Opus because Sonnet generated far more tokens.\n7. Use representative workload tests instead of relying on one benchmark; coding, architecture analysis, interface design, computer use, and long-running artifact creation expose different strengths.\n\n## Key Moments\n\n- [7:12](https://www.youtube.com/watch?v=8WbW_n95wc4&t=432s) — See how unchanged list prices can hide the model’s real per-task cost.\n- [11:25](https://www.youtube.com/watch?v=8WbW_n95wc4&t=685s) — Learn why reasoning settings are token budgets rather than simple intelligence levels.\n- [12:26](https://www.youtube.com/watch?v=8WbW_n95wc4&t=746s) — See how max reasoning reportedly caused a 1,500% token increase and possible overthinking.\n- [16:06](https://www.youtube.com/watch?v=8WbW_n95wc4&t=966s) — Identify the practical reasoning range: avoid both low and max for most Anthropic workloads.\n- [17:39](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1059s) — Understand why high token throughput can still produce slower end-to-end completion.\n- [21:19](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1279s) — Reframe Sonnet as a tool called by stronger agents rather than a default interactive model.\n- [22:52](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1372s) — Review the large-codebase audit where Sonnet reportedly beat Opus slightly at about half the cost.\n- [30:05](https://www.youtube.com/watch?v=8WbW_n95wc4&t=1805s) — Turn the evaluation into a routing strategy for research and verification subagents.\n\n## Overview\n\nThe source evaluates Sonnet 5.5 through published benchmarks and the presenter’s own coding, repository-analysis, interface-design, and game-building experiments. Its central conclusion is counterintuitive: the model is not necessarily the best direct replacement for Opus 5.5, but it may be a particularly useful worker inside a multi-model agent system.\n\nThis matters to engineers designing coding-agent workflows because model selection should happen per task, not per project. Teams working with large repositories can potentially improve responsiveness and cost by delegating search-heavy analysis to a faster model while reserving the primary model for synthesis, implementation, and judgment.\n\n## Key Concepts\n\n- **Task-aware model routing**: Different tasks reward different model characteristics. The source recommends keeping Opus 5.5 or Fable 5.1 in charge while routing bounded repository research and verification to Sonnet 5.5.\n- **Orchestrator and subagent roles**: An orchestrator decomposes work, delegates narrow investigations, and integrates the findings. A subagent does not need to be the best general-purpose coder if it can quickly return reliable evidence for a specific question.\n- **Total task economics**: Headline token prices do not represent the full cost of an agent run. Cache reads, cache writes, reasoning consumption, output length, retries, and the number of tokens needed to finish all affect the final bill.\n- **Reasoning budget**: The presenter characterizes low, medium, high, and x-high as ceilings that permit progressively more reasoning when needed. Max is described differently: it may force a large reasoning floor, which can increase consumption even when the task does not benefit.\n- **Token efficiency versus generation speed**: Tokens per second measures how quickly text is emitted, not how quickly useful work finishes. A faster model can take longer overall if it produces substantially more tokens, as the presenter reports in the fish-game experiment.\n- **Workload-specific benchmarking**: A single benchmark cannot establish the best model for every workflow. The source compares terminal operation, code analysis, interface design, computer use, and artifact creation, with noticeably different outcomes.\n- **Repository-analysis workload**: The presenter’s most favorable Sonnet test required examining a very large codebase and proposing how to split a giant pull request. This tested comprehension, architectural reasoning, and explanation more than direct code generation.\n- **Qualitative usability**: Formatting, clarity, instruction following, and interaction quality influence whether a model works well as a collaborator. The presenter reports clearer writing than earlier Sonnet generations but weaker frontend design results than Fable 5.1 and Opus 5.5.\n\n## How It Works\n\n1. Keep the strongest judgment-oriented model as the orchestrator.\n2. Decompose the job into implementation tasks and bounded research questions.\n3. Delegate repository searches, behavior tracing, architectural inventories, and hypothesis checks to the faster research model.\n4. Ask each subagent for evidence: relevant files, relationships, risks, and uncertainties rather than an ungrounded recommendation.\n5. Return those findings to the orchestrator for synthesis and implementation decisions.\n6. Start with medium or high reasoning, raising it only when measured task quality justifies the extra cost; avoid max by default.\n7. Record total cost, elapsed time, token consumption, and output usefulness for the complete task.\n8. Adjust routing using results from your own representative workloads rather than benchmark rankings alone.\n\n## Training Exercise\n\n1. Choose a real repository and define one bounded question, such as how authentication state travels from an incoming request to database access.\n2. Run the investigation with your primary model and save its findings, elapsed time, token totals, and estimated cost.\n3. Run the same investigation with a cheaper or faster candidate model at medium reasoning, requiring file-level evidence and an explicit uncertainty list.\n4. Repeat at high reasoning; use max only if you deliberately want to measure its overhead.\n5. Score each result on evidence coverage, correctness, clarity, latency, and total cost.\n6. Give the best candidate’s report to the primary model and ask it to verify the evidence and propose an implementation plan.\n7. Adopt subagent routing only if the combined research-and-synthesis workflow improves cost or time without materially reducing correctness.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can a model with lower advertised input and output prices still cost as much as a premium model on an agentic coding task?\u003c/summary>\n\nAgentic work repeatedly reads cached context and may generate large numbers of reasoning and output tokens. The presenter argues that Sonnet 5.5’s cache-read price and high token consumption can therefore offset its lower headline prices.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>When does the source suggest using Sonnet 5.5 instead of Opus 5.5?\u003c/summary>\n\nUse it as a delegated worker for bounded investigation: exploring a large repository, locating behaviors, checking a hypothesis, or preparing architectural findings. Opus remains the suggested primary model for general coding, judgment-heavy work, and orchestration.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is max reasoning not automatically the safest setting for a difficult task?\u003c/summary>\n\nMax may impose a high minimum amount of reasoning instead of merely raising the allowed ceiling. According to the presenter’s tests, that can dramatically increase cost and latency while encouraging second-guessing that sometimes worsens results.\n\n\u003c/details>\n\n## Further Reading\n\n- [Original YouTube source](https://www.youtube.com/watch?v=8WbW_n95wc4)\n- [Presenter’s website and community links](https://t3.gg)\n- [CodeRabbit sponsor link from the source](https://soydev.link/coderabbit)",
     "related": [
       {
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "model-evaluation"
+        ]
+      },
+      {
         "id": "2026-05-29-claude-opus-48-effort-control-dynamic-workflows-and-more-reliable-agentic-ai",
         "title": "Claude Opus 4.8: Effort Control, Dynamic Workflows, and More Reliable Agentic AI",
         "date": "2026-05-29",
@@ -560,16 +647,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "coding-agents",
           "software-architecture"
-        ]
-      },
-      {
-        "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
-        "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
-        "date": "2026-09-04",
-        "shared_tags": [
-          "ai-agents",
-          "ai-models",
-          "model-evaluation"
         ]
       }
     ]
@@ -2194,6 +2271,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "llm-evaluation"
+        ]
+      },
+      {
         "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
         "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
         "date": "2026-08-14",
@@ -2212,17 +2300,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-models",
           "benchmarking",
           "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-07-09-grok-45-in-cursor-training-a-generalist-tool-using-model-for-real-computer-work",
-        "title": "Grok 4.5 in Cursor: Training a Generalist Tool-Using Model for Real Computer Work",
-        "date": "2026-07-09",
-        "shared_tags": [
-          "ai-agents",
-          "ai-models",
-          "coding-agents",
-          "software-engineering"
         ]
       }
     ]
@@ -2353,9 +2430,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-03-evaluating-a-new-ai-model-through-real-world-tasks-lessons-from-the-astr-493df420ca",
-        "title": "Evaluating a New AI Model Through Real-World Tasks: Lessons from the Astra Day-One Review",
-        "date": "2026-09-03",
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
         "shared_tags": [
           "ai-models",
           "llm-evaluation"
@@ -4282,22 +4359,23 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "coding-agents",
+          "llm-evaluation"
+        ]
+      },
+      {
         "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
         "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
         "date": "2026-09-04",
         "shared_tags": [
           "ai-agents",
           "ai-models",
-          "llm-evaluation"
-        ]
-      },
-      {
-        "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
-        "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
-        "date": "2026-08-14",
-        "shared_tags": [
-          "ai-models",
-          "benchmarking",
           "llm-evaluation"
         ]
       }
@@ -4354,21 +4432,21 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-models",
+          "coding-agents",
+          "llm-evaluation"
+        ]
+      },
+      {
         "id": "2026-08-14-evaluating-an-agent-focused-model-release-grok-46-in-practice-9afca9ae17",
         "title": "Evaluating an Agent-Focused Model Release: Grok 4.6 in Practice",
         "date": "2026-08-14",
         "shared_tags": [
           "ai-models",
-          "benchmarking",
-          "llm-evaluation"
-        ]
-      },
-      {
-        "id": "2026-07-09-evaluating-hype-around-new-frontier-llm-releases-when-source-details-are-sparse",
-        "title": "Evaluating Hype Around New Frontier LLM Releases When Source Details Are Sparse",
-        "date": "2026-07-09",
-        "shared_tags": [
-          "ai-strategy",
           "benchmarking",
           "llm-evaluation"
         ]
@@ -11085,8 +11163,8 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
-        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
         "date": "2026-09-29",
         "shared_tags": [
           "ai-agents",
@@ -11095,13 +11173,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
-        "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
-        "date": "2026-07-12",
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
         "shared_tags": [
-          "agents",
           "ai-agents",
-          "llms"
+          "ai-models",
+          "model-evaluation"
         ]
       }
     ]
@@ -12746,8 +12824,8 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
-        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
         "date": "2026-09-29",
         "shared_tags": [
           "ai-models"
@@ -13284,13 +13362,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-07-13-how-to-read-ai-news-critically-model-leaks-release-signals-and-hype-evaluation",
-        "title": "How to Read AI News Critically: Model Leaks, Release Signals, and Hype Evaluation",
-        "date": "2026-07-13",
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
         "shared_tags": [
-          "llms",
-          "model-evaluation",
-          "product-strategy"
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation"
         ]
       }
     ]
