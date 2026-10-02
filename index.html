@@ -437,6 +437,80 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+    "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+    "date": "2026-10-02",
+    "tags": [
+      "software-development",
+      "ai-agents",
+      "testing",
+      "ci-cd",
+      "code-review",
+      "observability"
+    ],
+    "source": "https://www.youtube.com/watch?v=6CaQ9ZFuuKI",
+    "source_type": "youtube",
+    "channel": "Eric Tech",
+    "published": "2026-09-20",
+    "duration_seconds": 1262,
+    "minutes": 21.0,
+    "minutes_estimated": false,
+    "tldr": "AI can accelerate implementation, but the surrounding lifecycle must become more rigorous. Capture intent, turn it into an executable specification and plan, give agents automated verification, constrain risky actions, and feed production evidence into the next development cycle.",
+    "topics": [
+      "coding-agents",
+      "ai-agents",
+      "claude"
+    ],
+    "kind": "tutorial",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> AI can accelerate implementation, but the surrounding lifecycle must become more rigorous. Capture intent, turn it into an executable specification and plan, give agents automated verification, constrain risky actions, and feed production evidence into the next development cycle.\n\n## Key Takeaways\n\n1. Separate the artifact chain into intent.md for why the change matters, spec.md for what the system must do, and plan.md for how the work will be completed and verified.\n2. Make every implementation task self-checking: the presenter recommends withholding “done” status until tests, linting, and the build are all green.\n3. Test from the bottom up: cover functions with Jest or Vitest, UI components with React Testing Library, and complete user flows with Cypress or Playwright.\n4. Protect model and instruction changes with continuous evaluations; the presenter relays a recommendation to build evals from 20–50 real tasks the agent has previously completed.\n5. Encode team-specific review standards in review.md, including required checks, finding severity, and files or findings that should be ignored.\n6. Use hooks as deterministic guardrails to block credential exposure, edits to protected files, unsafe production access, or merges that fail required checks.\n7. Monitor releases through tools such as Datadog or Sentry, roll back serious regressions when authorized, and convert recurring production problems into new intent artifacts.\n\n## Key Moments\n\n- [1:44](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=104s) — Learn how an AI interview can refine requirements and preserve decisions in intent.md or a ticket system.\n- [4:10](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=250s) — See why intent captures the “why” while a specification defines technical requirements and expected behavior.\n- [6:05](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=365s) — Turn intent and specifications into ordered, file-specific tasks with risks and completion evidence.\n- [8:53](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=533s) — Give the coding agent a verification loop based on tests, linting, builds, or other observable checks.\n- [12:15](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=735s) — Choose tests by layer: functions first, then UI components, then complete user journeys.\n- [14:00](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=840s) — Use 20–50 previously completed tasks as regression evaluations when models, rules, or skills change.\n- [15:46](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=946s) — Standardize AI code review with review.md and enforce non-negotiable safety rules through hooks.\n- [18:13](https://www.youtube.com/watch?v=6CaQ9ZFuuKI&t=1093s) — Connect deployment failures and production monitoring to repair, rollback, and a new development cycle.\n\n## Overview\n\nAn AI-native software development lifecycle uses agents throughout planning, design, implementation, testing, review, deployment, and maintenance. Faster code generation does not eliminate engineering discipline; it shifts more attention toward precise requirements, reliable verification, controlled permissions, and production feedback.\n\nThe approach is useful to developers and teams adopting coding agents such as Claude Code. Its central pattern is an auditable chain of artifacts and checks: intent → specification → plan → implementation → automated verification → review and guardrails → deployment → monitoring → new intent.\n\n## Key Concepts\n\n- **Intent artifact**: intent.md records why a change should exist, including the problem, desired outcome, affected users, constraints, and open questions. A project may have one intent per change, and the source of truth may live in the repository or in a ticket system such as Jira, GitHub Projects, or Linear.\n- **Specification artifact**: spec.md translates intent into what the system must do, including technical requirements and expected behavior. It creates a clearer contract for implementation without collapsing the business reason and technical design into the same document.\n- **Execution plan**: plan.md converts the intent and specification into actionable work. The described template includes the files to change, work order, risks, and evidence that will prove completion; teams can retain their existing planning format if it already works.\n- **Agent verification loop**: An agent needs observable feedback so it can check and repair its own work. The presenter highlights tests, linting, builds, screenshots, and behavioral output as possible checks, with tests, linting, and build all expected to pass before completion is reported.\n- **Layered testing**: Tests follow dependency direction: functions form the lowest layer, UI components may depend on several functions, and end-to-end tests exercise complete flows across pages. The source associates Jest or Vitest with functional tests, React Testing Library with components, and Cypress or Playwright with end-to-end flows.\n- **Continuous agent evaluations**: Automated tests check the product, while agent evaluations check whether a model, skill, or ruleset can still perform representative tasks. The presenter reports a recommendation to derive 20–50 eval cases from successful real tasks and run them in continuous integration when models or instructions change.\n- **Review policy and hooks**: review.md can encode a team's pull-request procedure, including required tests, finding categories and severity, and exclusions such as generated files. Hooks add deterministic controls around agent actions, such as preventing secrets, protected-file edits, unsafe database access, or unapproved merges.\n- **Closed-loop operations**: Deployment is divided into pre-release diagnosis and post-release observation. Build failures can initiate a proposed repair, while production signals from systems such as Datadog or Sentry can trigger investigation, authorized rollback, and a new intent-driven cycle.\n\n## How It Works\n\n1. Interview stakeholders or the requester until the problem, outcomes, constraints, affected users, and unresolved choices are explicit.\n2. Store those decisions in intent.md or the team's ticket system as the durable source of truth for why the change exists.\n3. Convert the intent into spec.md, defining technical requirements and expected behavior.\n4. Produce plan.md with ordered tasks, exact files or interfaces where known, risks, and proof-of-completion checks.\n5. Write the relevant tests before or alongside implementation, beginning with functions and moving upward to components and complete user flows.\n6. Let the agent implement against a feedback loop, correcting its work until required tests, linting, builds, and other checks pass.\n7. Run representative agent evaluations in CI so model, rule, or skill changes do not silently weaken established workflows.\n8. Review the pull request against review.md and enforce hard safety boundaries with hooks before permitting a merge or production action.\n9. Diagnose deployment failures, inspect production metrics after release, and turn recurring operational findings into a fresh intent artifact.\n\n## Training Exercise\n\n1. Choose a small change, such as adding validation and an error message to an existing form.\n2. Draft intent.md with the problem, desired outcome, affected users, constraints, and open questions.\n3. Write spec.md with accepted inputs, invalid cases, visible behavior, and any relevant interfaces.\n4. Create plan.md listing the files to inspect or change, task order, major risks, and completion checks.\n5. Add one function-level test, one component test, and one end-to-end happy or failure path where the application supports those layers.\n6. Implement the change while repeatedly running tests, linting, and the build; do not mark the work complete until every required check passes.\n7. Draft a short review.md covering bugs, security, compliance, severity levels, and ignored generated files. Review the change against it.\n8. Define one hook or CI rule that blocks a realistic unsafe action, such as committing a credential or merging after failed tests.\n9. Specify the production signal you would monitor and write the intent statement that a regression in that signal would generate for the next cycle.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why are intent.md, spec.md, and plan.md separate rather than combined into one prompt?\u003c/summary>\n\nThey preserve three different decisions: why a change is needed, what behavior and technical requirements define it, and how the agent should implement and prove it. This separation makes assumptions and omissions easier for humans and agents to inspect.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What makes an agent task verifiable instead of merely well described?\u003c/summary>\n\nIt includes observable completion checks, such as passing tests, linting, a successful build, screenshots, or expected outputs. The agent can use those checks as a feedback loop and correct its work before requesting human review.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How does production monitoring become part of planning?\u003c/summary>\n\nLogs and metrics can reveal recurring errors, slow queries, or user drop-off after deployment. Those findings become new intent artifacts, which restart the specification, planning, implementation, testing, review, and deployment cycle.\n\n\u003c/details>\n\n## Further Reading\n\n- [AI-Native SDLC Playbook](https://academy.claude.com/courses/ai-native-sdlc-playbook/introduction)\n- [Eric Tech community](https://www.skool.com/erictech/about)\n- [BookZero](https://bookzero.ai)\n- [Certificate Program in Agentic AI](https://online.lifelonglearning.jhu.edu/jhu-certificate-program-agentic-ai?utm_source=Brand_Mktg&utm_medium=YT+Influencer&utm_campaign=Eric)",
+    "related": [
+      {
+        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+        "date": "2026-09-02",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development",
+          "testing"
+        ]
+      },
+      {
+        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
+        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
+        "date": "2026-05-25",
+        "shared_tags": [
+          "ai-agents",
+          "claude",
+          "code-review",
+          "coding-agents"
+        ]
+      },
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "ai-agents",
+          "code-review",
+          "coding-agents"
+        ]
+      },
+      {
+        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
+        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "claude",
+          "coding-agents"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-10-02-deterministic-state-machines-for-reliable-self-improving-ai-agents-469795167c",
     "title": "Deterministic State Machines for Reliable, Self-Improving AI Agents",
     "date": "2026-10-02",
@@ -837,6 +911,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
+        "shared_tags": [
+          "ai-agents",
+          "claude",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-06-03-mai-code-1-flash-efficient-agentic-coding-for-real-world-github-copilot-workflow",
         "title": "MAI-Code-1-Flash: Efficient Agentic Coding for Real-World GitHub Copilot Workflows",
         "date": "2026-06-03",
@@ -845,16 +929,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-models",
           "coding-agents",
           "coding-models"
-        ]
-      },
-      {
-        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
-        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
-        "date": "2026-09-24",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents",
-          "software-architecture"
         ]
       }
     ]
@@ -1050,9 +1124,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
-        "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
-        "date": "2026-08-11",
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
         "shared_tags": [
           "ai-agents",
           "coding-agents"
@@ -2818,6 +2892,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> An AI-native SDLC shifts the bottleneck from writing code to defining intent, producing durable specifications and plans, and validating agent output. High-quality artifacts matter because they let humans and agents collaborate safely without relying on shared conversational context.\n\n## Key Takeaways\n\n1. Treat `intent.md`, `spec.md`, and `plan.md` as durable handoff documents rather than depending on a single long agent conversation.\n2. Start with `intent.md` that records the problem, user impact, goals, constraints, and relevant context; the transcript says the originator need not be an engineer.\n3. Make `plan.md` detailed enough for another engineer or agent to implement without revisiting earlier conversations.\n4. Use parallel agents or Git worktrees only when tasks are independent and the supporting artifacts provide sufficient context.\n5. Require deterministic proof—including linting, builds, automated tests, and browser or end-to-end checks—before human review.\n6. Version artifacts and constrain agents with hooks, permissions, policy files, and review gates to improve safety and auditability.\n7. Route alerts, incidents, tickets, or messages back into the lifecycle by having an agent diagnose the issue and draft a new `intent.md`.\n\n## Overview\n\nThis lesson explains an AI-native software development life cycle (SDLC) as described in the supplied video transcript. The core claim is that coding is no longer the main bottleneck; process design, artifact quality, governance, and testing become the limiting factors once agents speed up implementation. Evidence is moderate rather than primary: the source is a speaker's walkthrough of Anthropic's playbook, not the playbook itself, so details should be treated as an informed summary.\n\n## Key Concepts\n\n- **Process Becomes the Bottleneck**: The transcript argues that agents compress the time spent writing code, which shifts attention to planning, design, testing, deployment, and maintenance. Improving only implementation speed is not enough; the rest of the lifecycle must also be redesigned.\n- **Artifact Chain**: The workflow is organized around durable documents passed between humans and agents. The transcript names an artifact chain that begins with `intent.md`, then moves to `spec.md`, then `plan.md`, with later stages producing pull requests, test results, and review outputs.\n- **Intent as the Starting Point**: Instead of beginning with a traditional backlog handoff, the originator of a feature, bug, or improvement works with an agent to capture goals, context, and pain points in `intent.md`. The source emphasizes that the originator can be anyone, not just an engineer.\n- **Spec and Plan as Handoff Documents**: After intent is reviewed, an agent generates a spec that translates goals into requirements and design. A later planning step produces `plan.md`, which should be detailed enough that an engineer or another agent could implement the work without revisiting earlier conversations.\n- **Parallel Agent Execution**: The transcript describes using multiple agents or subagents, sometimes with Git worktrees, to execute independent tasks in parallel. This only works well if the artifacts are strong enough to replace missing conversational context.\n- **Deterministic Checks and Evals**: Testing is not just human QA. The source stresses linting, build checks, automated tests, browser or end-to-end checks, and longer-lived eval suites used to detect regressions when models, skills, or workflows change.\n- **Governance and Hooks**: Hooks, permissions, policy files, and review gates constrain what agents may do. The transcript frames governance as essential for safety, auditability, and measurement, including versioning artifacts and tracking who changed them.\n- **Maintenance as an Automated Entry Point**: In the most ambitious form of the workflow, operational signals such as alerts, tickets, or messages can trigger an agent to diagnose issues and generate a new `intent.md`. Maintenance becomes another agent-driven entry point into the same lifecycle.\n\n## How It Works\n\nTreat the SDLC as a document-driven loop rather than a conversation-driven one. First, an originator works with an agent to produce `intent.md`, capturing the problem, goals, constraints, and relevant context. Second, an agent converts that intent into `spec.md`, adding requirements and design details while applying team policies, style guides, or skills. Third, an engineer or agent turns the spec into `plan.md`, listing files to change, work order, risks, constraints, and proof or success checks. Fourth, agents implement the plan, ideally inside bounded permissions and with hooks that prevent unsafe actions. Fifth, the system runs deterministic checks such as linting, builds, tests, and possibly browser-based validation before human review. Sixth, deployment flows through pull requests, policy checks, security review, and release gates. Finally, maintenance events can re-enter the loop by generating a fresh intent from logs, incidents, or tickets. The practical lesson is that durable artifacts let separate humans and agents collaborate without depending on a single long context window.\n\n## Training Exercise\n\nPick one small feature or bug in a real project and run it through the artifact chain. Write a short `intent.md` with problem statement, user impact, constraints, and desired outcome. Then draft `spec.md` with requirements, design notes, and non-goals. Next, create `plan.md` listing files to change, implementation order, risks, and tests you will use as proof. Before coding, check whether the plan is complete enough that another engineer could execute it without the prior chat. After implementation, run linting, tests, and one manual or browser-based verification step. End by writing a brief retrospective: which parts of the work were accelerated by the agent, and which process bottlenecks remained.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>What is the purpose of the `intent.md` → `spec.md` → `plan.md` artifact chain?\u003c/summary>\n\nIt progressively translates a problem and desired outcome into requirements, design decisions, and an executable implementation plan. According to the transcript, these durable documents allow different humans and agents to collaborate without sharing the original conversation.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>When is parallel agent execution most likely to work well?\u003c/summary>\n\nIt works best when tasks are independent and the artifacts contain enough context, constraints, and success criteria to guide each agent. Git worktrees can isolate concurrent implementation work.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why are deterministic checks and governance necessary even when agents accelerate coding?\u003c/summary>\n\nFaster implementation does not prove correctness or safety. The lesson recommends automated checks, evals, bounded permissions, policy enforcement, and review gates to catch regressions, control agent behavior, and preserve an auditable record.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=LoMOPj-lO8U)",
     "related": [
       {
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development",
+          "testing"
+        ]
+      },
+      {
         "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
         "title": "Designing Longer-Running AI Agent Loops and Workflows",
         "date": "2026-07-19",
@@ -2840,15 +2925,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-06-03-microsoft-build-highlights-ai-agents-copilot-and-the-modern-azure-developer-stac",
         "title": "Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack",
         "date": "2026-06-03",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-05-28-vs-code-1122-agents-air-gapped-byok-and-integrated-browser-device-emulation",
-        "title": "VS Code 1.122: Agents, Air-Gapped BYOK, and Integrated Browser Device Emulation",
-        "date": "2026-05-28",
         "shared_tags": [
           "ai-agents",
           "coding-agents"
@@ -3313,21 +3389,22 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
+        "shared_tags": [
+          "ai-agents",
+          "observability",
+          "testing"
+        ]
+      },
+      {
         "id": "2026-10-02-deterministic-state-machines-for-reliable-self-improving-ai-agents-469795167c",
         "title": "Deterministic State Machines for Reliable, Self-Improving AI Agents",
         "date": "2026-10-02",
         "shared_tags": [
           "ai-agents",
           "observability"
-        ]
-      },
-      {
-        "id": "2026-07-20-model-fusion-for-agentic-engineering-1bc2b52048",
-        "title": "Model Fusion for Agentic Engineering",
-        "date": "2026-07-20",
-        "shared_tags": [
-          "ai-agents",
-          "software-engineering"
         ]
       }
     ]
@@ -3391,9 +3468,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
-        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
-        "date": "2026-09-24",
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
         "shared_tags": [
           "ai-agents",
           "coding-agents"
@@ -8128,13 +8205,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
-        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
-        "date": "2026-08-27",
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
         "shared_tags": [
           "ai-agents",
-          "coding-agents",
-          "software-engineering"
+          "code-review",
+          "coding-agents"
         ]
       }
     ]
