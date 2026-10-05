@@ -437,6 +437,79 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-10-05-parallel-agent-workflows-in-the-refreshed-codex-cli-f46ae746d2",
+    "title": "Parallel Agent Workflows in the Refreshed Codex CLI",
+    "date": "2026-10-05",
+    "tags": [
+      "codex",
+      "cli",
+      "developer-tools",
+      "ai-agents",
+      "terminal-workflows"
+    ],
+    "source": "https://www.youtube.com/watch?v=PUBc2G0Tj5E",
+    "source_type": "youtube",
+    "channel": "OpenAI",
+    "published": "2026-10-05",
+    "duration_seconds": 194,
+    "minutes": 3.2,
+    "minutes_estimated": false,
+    "tldr": "The refreshed Codex CLI keeps multiple coding tasks, their status, and their outputs inside one terminal-centered interface. Parallel agents, isolated worktrees, remote control, and rendered technical artifacts can reduce context switching during development.",
+    "topics": [
+      "developer-tools",
+      "coding-agents",
+      "ai-agents"
+    ],
+    "kind": "demo",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> The refreshed Codex CLI keeps multiple coding tasks, their status, and their outputs inside one terminal-centered interface. Parallel agents, isolated worktrees, remote control, and rendered technical artifacts can reduce context switching during development.\n\n## Key Takeaways\n\n1. Start independent tasks in parallel when they can proceed without blocking one another, such as changing a website, expanding tests, and documenting a flow.\n2. Use the agent view to filter, search, group by status, and open active tasks instead of tracking work across separate terminals and directories.\n3. Fork a conversation into a new worktree to explore another implementation direction with the same context but a separate checkout.\n4. Enable remote control on a specific computer to check task progress and answer Codex questions from a phone, as demonstrated in the walkthrough.\n5. Review completed changes and test results when returning to the terminal; the interface also renders Mermaid diagrams and supported LaTeX inline.\n6. Use activity analytics to inspect frequently used chats, plugins, and skills.\n\n## Key Moments\n\n- [0:34](https://www.youtube.com/watch?v=PUBc2G0Tj5E&t=34s) — See how the full-screen interface preserves scrollable output while keeping the next-message footer available.\n- [1:04](https://www.youtube.com/watch?v=PUBc2G0Tj5E&t=64s) — Learn how one voice request launches three separate tasks across multiple projects.\n- [1:34](https://www.youtube.com/watch?v=PUBc2G0Tj5E&t=94s) — Explore agent filtering, status grouping, search, follow-ups, and conversation forks into isolated worktrees.\n- [2:06](https://www.youtube.com/watch?v=PUBc2G0Tj5E&t=126s) — See remote control used to monitor the same computer and respond to a task from a phone.\n- [2:37](https://www.youtube.com/watch?v=PUBc2G0Tj5E&t=157s) — View usage analytics plus Mermaid and supported LaTeX rendered directly in the terminal.\n\n## Overview\n\nThe OpenAI walkthrough presents a refreshed, full-screen Codex CLI designed for developers who prefer to remain in the terminal. It demonstrates launching multiple agent tasks by voice, monitoring them from a unified task view, and reviewing their outputs without manually searching through terminals or project directories.\n\nThe workflow matters most for developers coordinating independent changes across one or more projects. Worktree-based forks support isolated experimentation, while remote control, activity analytics, and in-terminal rendering extend the workflow beyond editing code alone.\n\n## Key Concepts\n\n- **Full-screen terminal interface**: Earlier output remains scrollable while the footer for the next message stays available. The design is intended to keep interaction and task history accessible in one terminal view.\n- **Parallel agent tasks**: A single request can start several distinct tasks across multiple projects. The example assigns agents to a website change, CLI test coverage, and a Mermaid order-flow diagram.\n- **Agent task management**: The agent view shows running work and supports filtering, status grouping, search, and direct task navigation. Codex can also be asked to inspect other tasks or send follow-up instructions.\n- **Conversation forks and worktrees**: A conversation can be forked with the same context into a separate worktree. The presenter describes this as a completely separate checkout for trying another development direction.\n- **Remote control**: The walkthrough enables remote control on a laptop, selects that computer from a phone, and accesses the same tasks. This allows progress checks and answers to agent questions while away from the keyboard.\n- **Terminal-native artifacts**: The interface renders a Mermaid diagram directly in the terminal and is described as supporting LaTeX rendering. This keeps documentation and mathematical notation alongside the development workflow.\n- **Usage analytics**: The demonstrated analytics view reports activity, top chats, and used plugins and skills. It can help a user understand which parts of their Codex workflow they rely on most.\n\n## How It Works\n\n1. Open a project in the Codex CLI's full-screen interface.\n2. Describe multiple independent outcomes in one request; the demonstration uses voice mode to request three separate tasks.\n3. Enter the agent view to see running tasks, then filter, group by status, search, or open a specific task.\n4. Ask Codex to inspect another task or send a follow-up when coordination is needed.\n5. Fork the conversation into a separate worktree when testing an alternative direction that should not share the original checkout.\n6. Optionally enable remote control for a specific computer, then monitor or unblock the same tasks from a phone.\n7. Return to the terminal to inspect completed changes, test results, diagrams, and any work that still needs attention.\n\n## Training Exercise\n\n1. Choose a small project with three independent needs: one visible feature change, one test improvement, and one documentation artifact.\n2. Ask Codex to create three separate tasks—for example, adjust a page background, test a price-change and confirmation path, and generate a Mermaid flow diagram.\n3. Open the agent view and practice filtering, grouping by status, searching, and jumping directly into each task.\n4. Send one task a follow-up that clarifies an acceptance criterion.\n5. Fork one conversation into a separate worktree and use it to explore an alternative implementation.\n6. Review the resulting changes and test output before accepting anything; confirm that each task met its stated goal and remained within its intended project.\n7. Render the Mermaid result in the terminal and record which parts of the workflow reduced manual navigation or context switching.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>When should separate Codex tasks be run in parallel rather than as one combined task?\u003c/summary>\n\nUse separate tasks when the work can advance independently—for example, modifying a website, checking CLI tests, and producing a diagram. The walkthrough shows these running concurrently across multiple projects.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is a worktree useful when exploring a different implementation direction?\u003c/summary>\n\nIt preserves the conversation context while providing a separate checkout. This lets you experiment without mixing the alternative approach into the original working tree.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How does the demonstrated workflow reduce context switching?\u003c/summary>\n\nThe CLI centralizes task creation, agent status, search, follow-ups, changes, test results, and rendered artifacts. Remote control also lets the user monitor and unblock those same tasks away from the terminal.\n\n\u003c/details>\n\n## Further Reading\n\n- [Meet the New Codex CLI](https://www.youtube.com/watch?v=PUBc2G0Tj5E)",
+    "related": [
+      {
+        "id": "2026-05-10-choosing-a-terminal-environment-for-ai-coding-agents",
+        "title": "Choosing a Terminal Environment for AI Coding Agents",
+        "date": "2026-05-10",
+        "shared_tags": [
+          "ai-agents",
+          "cli",
+          "coding-agents",
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-05-20-copilot-cli-agent-uis-and-the-shift-from-terminal-first-to-ide-assisted-ai-devel",
+        "title": "Copilot CLI, Agent UIs, and the Shift from Terminal-First to IDE-Assisted AI Development",
+        "date": "2026-05-20",
+        "shared_tags": [
+          "ai-agents",
+          "cli",
+          "coding-agents",
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
+        "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
+        "date": "2026-06-05",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "developer-tools"
+        ]
+      },
+      {
+        "id": "2026-04-27-building-a-personal-assistant-with-github-copilot-sdk-and-cli",
+        "title": "Building a Personal Assistant with GitHub Copilot SDK and CLI",
+        "date": "2026-04-27",
+        "shared_tags": [
+          "ai-agents",
+          "cli",
+          "developer-tools"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-10-05-three-skills-for-orchestrating-reviewing-and-improving-ai-coding-work-104ea24944",
     "title": "Three Skills for Orchestrating, Reviewing, and Improving AI Coding Work",
     "date": "2026-10-05",
@@ -13125,18 +13198,18 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
-        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
-        "date": "2026-06-23",
+        "id": "2026-10-05-parallel-agent-workflows-in-the-refreshed-codex-cli-f46ae746d2",
+        "title": "Parallel Agent Workflows in the Refreshed Codex CLI",
+        "date": "2026-10-05",
         "shared_tags": [
           "cli",
           "developer-tools"
         ]
       },
       {
-        "id": "2026-06-05-rubber-duck-debugging-with-vs-code-and-github-copilot-cli",
-        "title": "Rubber Duck Debugging with VS Code and GitHub Copilot CLI",
-        "date": "2026-06-05",
+        "id": "2026-06-23-github-copilot-clis-new-terminal-ui-for-issues-prs-and-gists",
+        "title": "GitHub Copilot CLI’s New Terminal UI for Issues, PRs, and Gists",
+        "date": "2026-06-23",
         "shared_tags": [
           "cli",
           "developer-tools"
@@ -14664,6 +14737,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-10-05-parallel-agent-workflows-in-the-refreshed-codex-cli-f46ae746d2",
+        "title": "Parallel Agent Workflows in the Refreshed Codex CLI",
+        "date": "2026-10-05",
+        "shared_tags": [
+          "ai-agents",
+          "cli",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-07-22-strategic-programming-with-ai-build-the-harness-not-just-the-prompt-f834d63396",
         "title": "Strategic Programming With AI: Build the Harness, Not Just the Prompt",
         "date": "2026-07-22",
@@ -14677,16 +14760,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-05-29-using-the-ralph-loop-pattern-with-github-copilot-cli",
         "title": "Using the Ralph Loop Pattern with GitHub Copilot CLI",
         "date": "2026-05-29",
-        "shared_tags": [
-          "ai-agents",
-          "cli",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-05-10-choosing-a-terminal-environment-for-ai-coding-agents",
-        "title": "Choosing a Terminal Environment for AI Coding Agents",
-        "date": "2026-05-10",
         "shared_tags": [
           "ai-agents",
           "cli",
@@ -18408,6 +18481,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Browser-controlled agents automate software by repeatedly observing the interface, choosing an action, executing it, and verifying the result. They can handle systems without suitable APIs, but dependable use requires state checks, recovery logic, and human approval for sensitive actions.\n\n## Key Takeaways\n\n1. Build computer-use workflows as a perception-action loop: observe, plan, execute, re-observe, and verify.\n2. Prefer API automation when a suitable API exists because it is generally faster and more deterministic; use computer control when no adequate API exists or exact end-user behavior matters.\n3. Combine visual reasoning with structured DOM, accessibility, or browser-automation selectors to gain flexibility without relying entirely on brittle coordinate clicks.\n4. Gate sensitive actions—including entering secrets, sending messages, submitting forms, making purchases, and changing production data—behind explicit user approval.\n5. Handle redirects, stale pages, expired logins, modal dialogs, and missing elements with state history, expected-transition checks, safe retries, timeouts, and stop conditions.\n6. Start a Playwright prototype with one complete loop: observe page state, choose one action, execute it, verify the outcome, and optionally request manual approval.\n\n## Overview\nThese notes cover the concept of **computer use** in Codex-style AI systems: agents that interact with a live graphical environment, especially a browser, by observing state, choosing actions, and executing UI operations like clicking, typing, scrolling, and navigating. The focus is less on traditional API integrations and more on multimodal, environment-aware workflows that let an agent operate software through the same interface a human would use.\n\nThis matters because browser-controlled agents unlock automation for systems that lack clean APIs, including legacy enterprise software, web apps, QA flows, and repetitive operational tasks. The main value is flexibility, but the tradeoff is fragility and risk: UI automation can break on layout changes, timing issues, or unexpected dialogs, so practical implementations need verification, retries, safety gates, and human approval for sensitive steps.\n\n## Key Concepts\n- **Computer use**: the ability of an AI model to control software through its user interface instead of relying only on text prompts or structured APIs.\n- **Perception-action loop**: the agent repeatedly observes the environment, decides what to do next, executes an action, and checks the result.\n- **Browser as execution surface**: browsers are a common and sandboxable environment for demonstrating agent behavior across search, forms, dashboards, and web apps.\n- **Tool grounding**: the model’s reasoning must map to concrete environment actions such as DOM selection, coordinate clicks, keyboard input, or hybrid control.\n- **Human-in-the-loop approval**: risky or irreversible actions should pause for explicit user confirmation.\n- **Reliability and brittleness**: robust browser agents need state checks, retries, timeouts, and fallback behavior because UI-driven workflows are inherently fragile.\n\n## How It Works\nA browser-controlled agent is best understood as a layered workflow rather than a single model invocation. The user provides a goal, such as exporting a report or comparing documentation pages, and the system decomposes that goal into smaller actions tied to the current browser state.\n\nA practical implementation often includes:\n- a **planner** to break a goal into steps\n- a **perception layer** to read browser state from screenshots, DOM snapshots, accessibility trees, or metadata\n- an **action layer** to click, type, scroll, navigate, and switch tabs\n- a **verifier** to confirm whether an action had the intended effect\n- a **safety layer** to block or escalate dangerous actions\n\nThe core loop is:\n\n1. Observe current browser state.\n2. Ask the model to choose the next action given the goal and current state.\n3. Execute the action.\n4. Re-observe and verify progress.\n5. Continue until the task completes, fails, or requires escalation.\n\nA simplified pseudocode version:\n\n```text\nstate = observe_browser()\nwhile not done:\n    action = model.plan(goal, state, history)\n    if requires_approval(action):\n        wait_for_user_confirmation()\n    result = execute(action)\n    state = observe_browser()\n    done = check_completion(goal, state, result)\n```\n\nThere are two main control styles:\n- **Visual control**: screenshot-based reasoning with coordinate interactions; highly general but brittle.\n- **Structured control**: DOM, accessibility labels, or browser automation hooks; more reliable when available.\n\nIn practice, the strongest systems combine both. For example, the model may use screenshots to understand layout while the runtime uses deterministic selectors to execute the click. This hybrid approach gives broader reasoning while improving reliability.\n\nThe notes also highlight an important design decision: **how much autonomy to allow**. Low-autonomy systems may require approval before every step. Higher-autonomy systems may run continuously but still gate actions like:\n- entering secrets\n- sending emails or messages\n- submitting forms\n- making purchases\n- changing production data\n\nFailure recovery is another core requirement. Real browser sessions involve redirects, stale pages, login expiry, modal dialogs, and missing elements. A production-ready agent should track state history, verify expected transitions, retry safe actions, and stop when it is likely stuck.\n\nCompared with API-based automation:\n- **API automation** is faster, cleaner, and more deterministic.\n- **Computer use** is more flexible when no suitable API exists or when reproducing exact end-user behavior matters.\n\nThe included exercise outlines a minimal prototype using Playwright in Node.js. The aim is to build the agent skeleton: observe page state, choose one action, execute it, verify the result, and optionally insert a manual approval gate. This is a useful practical starting point for understanding browser-agent mechanics.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>What is the core loop of a browser-controlled agent?\u003c/summary>\n\nThe agent observes the browser, plans the next action, executes it, re-observes the environment, and verifies progress. It continues until the goal is complete, the task fails, or escalation is required.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is a hybrid of visual and structured control often preferable?\u003c/summary>\n\nScreenshots help the model interpret unfamiliar layouts, while DOM selectors, accessibility labels, or automation hooks execute actions more deterministically. Combining them reduces the brittleness of coordinate-only control.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>When should computer use be chosen over API-based automation?\u003c/summary>\n\nChoose computer use when no suitable API exists or when reproducing the exact end-user workflow is important. Prefer APIs when available because they are typically faster, cleaner, and more reliable.\n\n\u003c/details>",
     "related": [
       {
+        "id": "2026-10-05-parallel-agent-workflows-in-the-refreshed-codex-cli-f46ae746d2",
+        "title": "Parallel Agent Workflows in the Refreshed Codex CLI",
+        "date": "2026-10-05",
+        "shared_tags": [
+          "ai-agents",
+          "codex"
+        ]
+      },
+      {
         "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
         "title": "Founder Judgment and Agentic Workflows in the AI Era",
         "date": "2026-08-13",
@@ -18429,15 +18511,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-08-11-building-an-open-source-ai-agent-product-from-personal-friction-02b635c857",
         "title": "Building an Open-Source AI Agent Product from Personal Friction",
         "date": "2026-08-11",
-        "shared_tags": [
-          "ai-agents",
-          "automation-workflows"
-        ]
-      },
-      {
-        "id": "2026-06-20-power-bi-report-authoring-skill-for-agent-driven-pbir-and-pbip-editing",
-        "title": "Power BI Report Authoring Skill for Agent-Driven PBIR and PBIP Editing",
-        "date": "2026-06-20",
         "shared_tags": [
           "ai-agents",
           "automation-workflows"
@@ -18903,6 +18976,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> The best terminal for AI coding agents is the one with a predictable, reproducible, and isolated execution environment—not necessarily the best-looking terminal app. Stable tooling, scoped access, and strong logs make agent work safer, more reliable, and easier to audit.\n\n## Key Takeaways\n\n1. Evaluate the execution environment separately from the terminal emulator; shell behavior, PATH, dependencies, filesystem access, and logging matter more than appearance.\n2. Prefer a containerized terminal as the default for serious agent workflows because it improves reproducibility and limits the blast radius of mistakes.\n3. Give agents the project’s real toolchain—including version control, package managers, test runners, linters, compilers, and deployment CLIs—to avoid fragile workarounds.\n4. Remove interactive prompts and fullscreen interfaces; commands should run unattended and produce clean, preferably machine-readable output.\n5. Preserve commands, stdout and stderr, exit codes, and diffs so sessions can be audited, debugged, and replayed.\n6. Use minimal shell personalization, a known repository root, locked dependencies, scoped permissions, and disposable workspaces to reduce hidden assumptions.\n7. Structure repeatable scripts with safeguards such as `set -euo pipefail`, repository-root anchoring, and a consistent order for status, tests, builds, and other checks.\n\n## Overview\n\nThese notes cover how to evaluate a terminal environment for AI coding agents, focusing on the practical engineering properties that affect reliability and safety. The key point is that the “best terminal” is usually not about the visual terminal app itself, but about the surrounding execution environment: shell behavior, installed tools, filesystem access, reproducibility, and logging.\n\nThis matters because coding agents operate through the terminal as their execution surface. They inspect repositories, run tests, edit files, invoke build tools, and recover from failures there. A well-chosen environment improves determinism, reduces brittle behavior, limits risk, and makes agent actions auditable and repeatable across machines or teams.\n\n## Key Concepts\n\n- **Terminal as an execution substrate**: For coding agents, the terminal is not just a human UI; it is the programmable environment where file operations, commands, and tool invocations happen. Its quality directly affects how reliably the agent can execute tasks and recover from errors.\n- **Deterministic environments**: Agents perform better when shell behavior, PATH, runtimes, and dependencies are predictable. Reproducibility reduces failures caused by aliases, missing binaries, inconsistent prompts, or machine-specific configuration.\n- **Sandboxing and safety**: Shell access can expose files, packages, and secrets. Isolated workspaces, scoped permissions, and disposable environments such as containers reduce blast radius while still enabling useful work.\n- **Observability and transcripts**: Good terminal setups preserve command history, stdout/stderr, exit codes, and diffs. This supports auditing, debugging, replaying sessions, and understanding what the agent actually changed.\n- **Toolchain compatibility**: The terminal environment must support the project’s real tools, including version control, package managers, test runners, linters, compilers, and deployment CLIs. Missing tools push agents into fragile workarounds.\n- **Non-interactive automation**: Agent-friendly workflows avoid prompts and fullscreen interfaces. Commands should run unattended and ideally produce clean, machine-readable output.\n\n## How It Works\n\nWhen evaluating a terminal for AI coding agents, it helps to separate the terminal emulator from the terminal environment. The emulator matters less than whether the environment is predictable, isolated, and capable of running the repository’s actual workflows.\n\nA coding agent often follows a loop like this: inspect the repo, read relevant files, search with tools like `rg` or `git grep`, run tests or builds, modify files, rerun checks, and summarize results. For that loop to work consistently, the environment should provide stable shell semantics, a known working directory, core CLI tools, and clean command output.\n\nThe notes suggest several properties to optimize for:\n\n- Predictable shell behavior, ideally with minimal personalization.\n- Stable repository-root handling so commands run in the right place.\n- Full access to the project toolchain.\n- Output that is parseable and useful for automation.\n- Strong logging of commands, outputs, exit codes, and file changes.\n- Guardrails for risky operations through approvals or restricted permissions.\n\nIn practice, there are three common setup patterns:\n\n- **Local developer terminal**: convenient and fast, but often polluted by personal aliases, secrets, and machine-specific config.\n- **Containerized terminal**: more reproducible and safer; often the best default for serious agent workflows.\n- **Remote or devcontainer workspace**: useful for team consistency and fast onboarding.\n\nA strong default architecture is to mount the repository into an isolated workspace, start a shell with minimal profile logic, preinstall or lock dependencies, run commands non-interactively, and capture logs and diffs. This enables a coding agent to operate with fewer hidden assumptions and makes failures easier to diagnose.\n\nThe example shell script in the notes shows a practical pattern:\n\n- use `set -euo pipefail` to fail fast,\n- anchor execution at the git repo root,\n- run status and checks in a repeatable order,\n- avoid interactive flags,\n- and preserve a clean transcript.\n\nThe included exercise reinforces the main lesson: evaluate whether the environment is reproducible, non-interactive, explicit about dependencies, and easy to reset after failure. For most teams, the best answer is a reproducible, sandboxed CLI environment with project-specific tooling preinstalled and strong logging.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does the surrounding execution environment matter more than the terminal emulator for an AI coding agent?\u003c/summary>\n\nThe agent depends on shell semantics, installed tools, filesystem permissions, working-directory behavior, and command output to complete tasks. A visually polished emulator cannot compensate for missing dependencies, unpredictable configuration, or unsafe access.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why are containerized terminals often a strong default for agent workflows?\u003c/summary>\n\nThey provide a reproducible, isolated environment that can include the exact project toolchain while limiting access to unrelated files and secrets. They are also easier to reset after a failed or risky operation.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What makes a terminal workflow observable and agent-friendly?\u003c/summary>\n\nIt runs non-interactively and records commands, stdout and stderr, exit codes, and file diffs. These records make the agent’s actions auditable and failures easier to diagnose or reproduce.\n\n\u003c/details>",
     "related": [
       {
+        "id": "2026-10-05-parallel-agent-workflows-in-the-refreshed-codex-cli-f46ae746d2",
+        "title": "Parallel Agent Workflows in the Refreshed Codex CLI",
+        "date": "2026-10-05",
+        "shared_tags": [
+          "ai-agents",
+          "cli",
+          "coding-agents",
+          "developer-tools"
+        ]
+      },
+      {
         "id": "2026-05-20-copilot-cli-agent-uis-and-the-shift-from-terminal-first-to-ide-assisted-ai-devel",
         "title": "Copilot CLI, Agent UIs, and the Shift from Terminal-First to IDE-Assisted AI Development",
         "date": "2026-05-20",
@@ -18930,16 +19014,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "coding-agents",
-          "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-04-27-building-a-personal-assistant-with-github-copilot-sdk-and-cli",
-        "title": "Building a Personal Assistant with GitHub Copilot SDK and CLI",
-        "date": "2026-04-27",
-        "shared_tags": [
-          "ai-agents",
-          "cli",
           "developer-tools"
         ]
       }
