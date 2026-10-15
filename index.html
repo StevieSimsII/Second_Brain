@@ -437,6 +437,72 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+    "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+    "date": "2026-10-15",
+    "tags": [
+      "software-engineering",
+      "ai-assisted-development",
+      "iterative-development",
+      "software-quality",
+      "technical-leadership"
+    ],
+    "source": "https://www.youtube.com/watch?v=F8fBgDCf2Y4",
+    "source_type": "youtube",
+    "channel": "Rise8",
+    "published": "2026-09-29",
+    "duration_seconds": 3112,
+    "minutes": 51.9,
+    "minutes_estimated": false,
+    "tldr": "AI can generate plausible code quickly, but speed does not guarantee correctness, adaptability, or mission value. Sustainable development alternates feature delivery with learning, testing, refactoring, and restoring options for future change.",
+    "topics": [
+      "coding-agents",
+      "software-engineering"
+    ],
+    "kind": "opinion",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> AI can generate plausible code quickly, but speed does not guarantee correctness, adaptability, or mission value. Sustainable development alternates feature delivery with learning, testing, refactoring, and restoring options for future change.\n\n## Key Takeaways\n\n1. Treat AI-generated code as untrusted until its behavior is verified; syntactic correctness and plausibility are not proof that it works.\n2. Alternate feature delivery with consolidation: remove duplication, improve readability, strengthen tests, reconsider designs, and sometimes reimplement a messy solution.\n3. Evaluate software as both present features and future options; every feature introduces constraints such as compatibility obligations and migration costs.\n4. Prefer iterative delivery for consequential or widely deployed systems because later learning must inform earlier decisions.\n5. Combine carefully chosen automated tests with designs that make entire classes of errors difficult or impossible.\n6. Measure progress near outcomes and mission rather than through lines of code, pull-request counts, or other effort and output metrics.\n7. Optimize the development process for learning; working software should emerge from repeated feedback rather than an attempt to specify everything correctly in one shot.\n\n## Key Moments\n\n- [6:20](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=380s) — Learn why Beck calls AI “the genie” and treats augmented development as a human-led process.\n- [7:22](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=442s) — See the distinction between plausible generated code and software that demonstrably works.\n- [20:19](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=1219s) — Understand how shipping features consumes options for future change.\n- [23:54](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=1434s) — Learn what teams can do in the pause between features to restore adaptability.\n- [31:47](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=1907s) — Reframe software development as learning that produces software as a side effect.\n- [35:31](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=2131s) — See why one-shot, specification-driven generation repeats the central mistake of waterfall development.\n- [37:38](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=2258s) — Examine Beck’s two reservations about formal methods: change friction and the specification-to-implementation gap.\n- [43:51](https://www.youtube.com/watch?v=F8fBgDCf2Y4&t=2631s) — Trace effort through output and outcome to mission—and learn why early metrics invite Goodhart’s law.\n\n## Overview\n\nKent Beck presents AI-assisted programming as augmented development: a human remains responsible for judging correctness, guiding learning, and deciding what should happen next. Models can rapidly produce code that looks convincing, but Beck reports repeatedly reaching a point where one fix breaks something else, forcing him to restart projects.\n\nThe practical challenge is therefore not maximizing generated code. It is preserving a system’s capacity to change while delivering useful behavior, then connecting that behavior to outcomes and a shared mission. This matters to programmers, engineering leaders, software buyers, and teams responsible for long-lived or mission-critical systems.\n\n## Key Concepts\n\n- **The genie**: Beck’s metaphor emphasizes that an AI may grant the literal request without delivering what the user actually needed. Its output can appear impressive while hiding incorrect behavior, shortcuts, or fragile design, so humans must maintain an adversarial verification posture.\n- **Plausibility versus correctness**: Generated code can be syntactically valid and resemble a solution without satisfying its real requirements. Beck argues that “compiler-like” output, for example, should not be called a working compiler unless it reliably compiles programs that then run as intended.\n- **Features and futures**: A feature creates current value but also consumes optionality through compatibility commitments, accumulated structure, and removal costs. Beck frames a project’s economic value as the combination of what it does now and the valuable changes it can still accommodate.\n- **Resting between features**: After completing a feature, a team can deliberately consolidate before proceeding. Activities include refactoring, eliminating duplication, improving readability, strengthening safeguards, or discarding and reimplementing a solution to gain clarity.\n- **Learning-oriented development**: Beck proposes maximizing learning and allowing software to emerge as a side effect. His example with Ward Cunningham—rebuilding an afternoon’s questionable work clearly in about 15 minutes the next morning—illustrates how discarding code can preserve knowledge and improve the result.\n- **Iterative versus one-shot development**: One-shot development assumes a sufficiently complete specification can produce finished software in a single pass. Iterative development deploys something valuable, observes what happens, and repeatedly improves it; Beck considers this essential when systems have large user bases, persistent data, or evolving needs.\n- **Tests, foolproofing, and formal methods**: Beck says carefully selected examples, automated tests, and designs that prevent classes of errors can produce trustworthy software, though AI may take shortcuts such as returning constants merely to satisfy tests. He reports two unresolved concerns with formal methods: proofs can resist change, and a gap may remain between a verified mathematical model and its running implementation.\n- **Effort, output, outcome, and mission**: Effort produces output; customers use that output, creating behavioral outcomes; those outcomes may advance a mission shared by builders and users. Metrics taken early in this chain are easier to collect but less connected to real value and more vulnerable to Goodhart’s law.\n\n## How It Works\n\n1. Define the user behavior or mission result the next change should support.\n2. Ask the AI for a small, bounded implementation rather than an entire system in one pass.\n3. Verify observable behavior with representative examples and automated tests; inspect for shortcuts that satisfy tests without implementing the intended behavior.\n4. Deliver or exercise the smallest useful increment and gather feedback.\n5. Pause before adding another feature. Remove duplication, simplify the design, improve readability, add safeguards, or reimplement the change if the team’s understanding has improved.\n6. Check whether the system still permits likely future changes without widespread breakage.\n7. Repeat the cycle, measuring changed behavior and mission progress where possible—not code volume or activity alone.\n\n## Training Exercise\n\n1. Choose a small program with two planned features, such as a task tracker that can add tasks and later assign due dates.\n2. Use an AI coding assistant to implement only the first feature.\n3. Write behavioral tests that include normal cases, edge cases, and at least one attempt to expose a shortcut such as a hard-coded result.\n4. List the future changes the current design makes easy, difficult, or impossible.\n5. Spend one short consolidation cycle removing duplication, clarifying structure, and making a likely defect class harder to introduce.\n6. Implement the second feature and record whether consolidation reduced the cost or risk of the change.\n7. Evaluate the work using four columns—effort, output, outcome, and mission—and identify which available measures actually demonstrate user or mission value.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why should a team pause after an AI-generated feature instead of immediately requesting the next one?\u003c/summary>\n\nFast feature accumulation consumes options for change and can quickly produce a system where fixing one defect creates others. The pause lets the team learn, test, refactor, remove duplication, reconsider the design, and restore some of those options.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is a sufficiently detailed specification not a dependable substitute for iterative development?\u003c/summary>\n\nLater implementation and usage reveal information that should alter earlier decisions. For systems with users, persistent data, and compatibility requirements, repeated one-shot replacement also creates continuity and migration problems.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why can increased AI output fail to represent increased productivity in a meaningful sense?\u003c/summary>\n\nMore generated code or pull requests measures effort or output, not changed user behavior or mission accomplishment. When those convenient metrics become targets, teams may distort the system to improve the numbers while making less progress on what matters.\n\n\u003c/details>\n\n## Further Reading\n\n- [Prodacity](https://www.rise8.us/prodacity)\n- [Rise8 on LinkedIn](https://www.linkedin.com/company/rise8/)",
+    "related": [
+      {
+        "id": "2026-07-17-ai-assisted-software-engineering-practical-lessons-from-an-engineers-view-of-the",
+        "title": "AI-Assisted Software Engineering: Practical Lessons from an Engineer’s View of the Future",
+        "date": "2026-07-17",
+        "shared_tags": [
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-12-how-modern-ai-and-platform-shifts-are-changing-software-engineering",
+        "title": "How Modern AI and Platform Shifts Are Changing Software Engineering",
+        "date": "2026-07-12",
+        "shared_tags": [
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "coding-agents",
+          "software-engineering"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-10-14-architecture-of-always-on-proactive-ai-agents-f7f842c14b",
     "title": "Architecture of Always-On, Proactive AI Agents",
     "date": "2026-10-14",
@@ -4203,6 +4269,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> An integrated loop connecting app creation in Cursor, code storage in Origin, and deployment to Vercel could reduce costly tool handoffs. Before relying on it, verify sync triggers, rollback options, preservation of project context, and the portability costs of vendor coupling.\n\n## Key Takeaways\n\n1. Map delivery as three explicit stages—creation, code storage, and deployment—and document the artifact, handoff, and failure mode at each stage.\n2. Treat the Cursor–Origin–Vercel flow as a claimed high-level workflow, not a verified technical specification; the source does not document setup, APIs, or automation behavior.\n3. Reducing context switches may save more time on small apps than accelerating code writing, according to one commenter.\n4. Verify whether Cursor edits sync automatically, require manual pushes, or trigger deployment through another mechanism; the source leaves this unanswered.\n5. Preserve business intent, constraints, architectural decisions, and history alongside source code because repository awareness alone may not capture why the system was built a certain way.\n6. Evaluate rollback paths and portability before adopting the workflow; one commenter characterizes its dependence on three platforms as triple vendor lock-in.\n\n## Overview\n\nThis lesson examines a claimed workflow described in a Cursor LinkedIn post: create a new web app in Cursor, store its code with Origin, and deploy it to Vercel. The source does not document implementation details, automation behavior, or setup steps, so treat it as a high-level product workflow rather than a verified technical specification. The practical value is the idea of collapsing app creation, code storage, and deployment into one loop to reduce handoffs between tools.\n\n## Key Concepts\n\n- **Integrated delivery loop**: The central idea is that app creation, code storage, and deployment can happen in a connected workflow instead of separate manual stages.\n- **Tool handoff cost**: One commenter argues the main time cost in shipping small apps is often moving work between tools, not writing the code itself.\n- **Repository versus project knowledge**: A comment highlights a limit of AI systems that understand code but may lose the reasons behind architectural choices, constraints, and history.\n- **Unverified sync behavior**: A commenter asks whether edits in Cursor stay synced automatically to deployment targets or require manual pushes. The source provides no answer, so this remains unknown.\n- **Vendor coupling risk**: A comment describes the workflow as a form of triple vendor lock-in, pointing to a tradeoff between convenience and portability.\n- **Thin evidence discipline**: Because the source is a short social post plus comments, strong factual claims about architecture, APIs, or deployment mechanics would be unjustified.\n\n## How It Works\n\nBased on the source alone, the workflow can be understood as a three-step pipeline: 1) start a new web app in Cursor, 2) store the resulting code in Origin, and 3) deploy the app to Vercel. The lesson is not the internals of any one platform, but the systems view: if creation, storage, and deployment are connected, a developer can potentially move from idea to running app with fewer context switches. A careful practitioner should still ask operational questions before relying on such a loop: what event triggers deployment, whether updates sync automatically, what rollback path exists, and how tightly the project depends on these specific vendors.\n\n## Training Exercise\n\nTake a small app idea and map it into three explicit stages: creation, code storage, and deployment. For each stage, write down the artifact produced, the handoff to the next stage, and one failure mode. Then add a fourth column for missing project context: business intent, constraints, architecture decisions, and history. Use the result to identify what an end-to-end AI workflow would need to preserve beyond source code alone.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>What are the three stages in the proposed delivery loop?\u003c/summary>\n\nCreate a web app in Cursor, store its code with Origin, and deploy it to Vercel. The claimed benefit is fewer handoffs and context switches between these stages.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Which operational questions should be answered before relying on this workflow?\u003c/summary>\n\nDetermine what triggers deployment, whether edits sync automatically or require manual pushes, what rollback path exists, and how difficult it would be to move away from the selected vendors.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is storing source code insufficient for preserving complete project knowledge?\u003c/summary>\n\nA repository may contain the implementation without capturing business intent, constraints, architectural rationale, or decision history. Those elements should be recorded explicitly so an AI-assisted workflow preserves why the system exists and evolved.\n\n\u003c/details>\n\n## Further Reading\n\n- [Cursor link referenced in the post](https://lnkd.in/gmKbZDVp)\n- [Genesis](https://appforge.genesisforgeai.com)\n- [Genesis demos](https://www.youtube.com/@franciscovaras7186)\n- [Source post](https://lnkd.in/p/gwi24_X7)",
     "related": [
       {
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
+        "shared_tags": [
+          "ai-assisted-development",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-08-04-github-copilot-cli-through-a-sample-book-app-58079a5a59",
         "title": "GitHub Copilot CLI Through a Sample Book App",
         "date": "2026-08-04",
@@ -4224,15 +4299,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-06-10-whats-new-in-vs-code-agents-background-sessions-autopilot-and-managed-agent-tool",
         "title": "What’s New in VS Code Agents: Background Sessions, Autopilot, and Managed Agent Tooling",
         "date": "2026-06-10",
-        "shared_tags": [
-          "coding-agents",
-          "developer-workflow"
-        ]
-      },
-      {
-        "id": "2026-05-06-github-copilot-hooks-for-code-quality-and-safe-tool-use",
-        "title": "GitHub Copilot Hooks for Code Quality and Safe Tool Use",
-        "date": "2026-05-06",
         "shared_tags": [
           "coding-agents",
           "developer-workflow"
@@ -6839,6 +6905,14 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
+        "shared_tags": [
+          "ai-assisted-development"
+        ]
+      },
+      {
         "id": "2026-08-27-end-to-end-ai-app-delivery-create-store-and-deploy-in-one-loop-287ebce13b",
         "title": "End-to-End AI App Delivery: Create, Store, and Deploy in One Loop",
         "date": "2026-08-27",
@@ -6852,14 +6926,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "date": "2026-07-21",
         "shared_tags": [
           "debugging"
-        ]
-      },
-      {
-        "id": "2026-08-28-building-a-sharepoint-live-html-dashboard-with-a-local-ai-via-a-data-sou-cf7d0ead47",
-        "title": "Building a SharePoint Live HTML Dashboard with a Local AI via a Data Source Contract",
-        "date": "2026-08-28",
-        "shared_tags": [
-          "web-development"
         ]
       }
     ]
@@ -6963,6 +7029,14 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
+        "shared_tags": [
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-12-ai-engineering-in-the-llm-era-building-reliable-products-from-models-tools-and-e",
         "title": "AI Engineering in the LLM Era: Building Reliable Products from Models, Tools, and Evaluation",
         "date": "2026-07-12",
@@ -6976,14 +7050,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "date": "2026-07-12",
         "shared_tags": [
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-06-06-claude-code-routines-event-driven-and-scheduled-automations-for-engineering-work",
-        "title": "Claude Code Routines: Event-Driven and Scheduled Automations for Engineering Workflows",
-        "date": "2026-06-06",
-        "shared_tags": [
-          "devops"
         ]
       }
     ]
@@ -8606,6 +8672,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Useful AI engineering combines software fundamentals, product judgment, domain knowledge, and responsible use of AI tools. AI can accelerate implementation, but humans must remain accountable for architecture, review, and deployment—especially in consequential systems.\n\n## Key Takeaways\n\n1. Treat AI engineering as applied systems work that combines software engineering, deployment, and enough AI/ML knowledge to operationalize models.\n2. Use AI coding tools for scaffolding and repetitive work, but require a human to justify architectural choices and review generated code.\n3. Match automation to risk: prototypes can tolerate more autonomy, while enterprise and high-consequence systems need tighter human oversight.\n4. Build portfolio projects around problems you know firsthand; domain-specific solutions are more defensible than generic AI demos.\n5. Learn durable foundations such as Python, full-stack development, cloud deployment, tokens, context windows, vector search, RAG, and basic linear algebra.\n6. Prepare for both no-AI interviews that test manual fundamentals and AI-allowed interviews that test whether you can direct tools and explain their output.\n7. Practice explaining tradeoffs to engineers, product teams, and non-technical stakeholders because communication strengthens technical credibility.\n\n## Overview\n\nThis lesson distills an interview with an AI engineer who moved from software testing into senior engineering and AI safety work. The core message is that AI engineering is less about chasing every new model and more about combining software fundamentals, product judgment, light mathematical fluency, and careful use of AI coding tools. The evidence in the source is mostly personal experience and hiring anecdotes, not controlled studies, so treat the advice as practitioner guidance rather than universal law.\n\n## Key Concepts\n\n- **AI engineer as a hybrid role**: The speaker defines AI engineering as applying AI to real problems by borrowing from multiple disciplines: software engineering for application design, DevOps for deployment, and AI/ML fundamentals for model-based features. In his framing, an AI engineer usually integrates and operationalizes models rather than training frontier models from scratch.\n- **Use AI tools for leverage, not blind delegation**: The transcript repeatedly warns that AI can generate large amounts of code quickly, but speed does not remove accountability. A pull request still needs architectural justification, especially in established codebases or high-risk systems.\n- **Context determines how autonomous your workflow should be**: The speaker treats AI usage as context-dependent. Greenfield prototypes and freelance proof-of-concepts can tolerate more automation, while startups and especially enterprises require tighter review because maintenance burden, system risk, and accountability are higher.\n- **Strong projects come from domain knowledge**: For aspiring AI engineers, the recommended portfolio strategy is to solve a problem you understand from prior experience. A healthcare worker, tester, or support engineer should build around problems they have actually seen, because that creates more defensible and differentiated projects than generic demo apps.\n- **Fundamentals still matter**: The source emphasizes linear algebra, vector search, tokens, context windows, retrieval-augmented generation, and general programming fundamentals. The claim is not that you need elite math skills, but that you need enough understanding to detect when generated code or equations are wrong.\n- **Interviewing now tests both manual skill and AI fluency**: A recurring theme is that companies are still figuring out interviewing in the age of AI tools. The practical takeaway is to prepare for both no-AI rounds that test fundamentals and AI-allowed rounds that test how well you collaborate with tools rather than copy from them.\n- **Soft skills are part of technical credibility**: The interview argues that explaining tradeoffs, architecture, and research to different audiences is a real advantage in AI engineering. Being able to speak to engineers, product people, and non-technical stakeholders is presented as a differentiator, not an optional extra.\n\n## How It Works\n\nUse this lesson as a career and execution framework. First, define AI engineering as applied systems work: pick a real problem, not a trendy stack. Second, build a small end-to-end solution that proves value, ideally in a domain you know well. Third, use AI coding tools to remove repetitive work such as scaffolding, but keep humans responsible for architecture, review, and deployment decisions. Fourth, study durable concepts instead of hype cycles: Python, full-stack basics, cloud deployment, tokens, context windows, vector search, and RAG. Fifth, prepare for hiring with two modes of practice: manual coding to keep fundamentals alive, and AI-assisted coding where you can explain every decision. The transcript also implies a safety rule: the more consequential the system, the less acceptable it is to stack imperfect AI generation and AI approval without clear human accountability.\n\n## Training Exercise\n\nChoose one domain you understand from direct experience. Design a small AI feature that solves one narrow problem in that domain. Write a one-page brief with: the user problem, why AI is needed, the simplest possible architecture, how you would evaluate whether it works, and one reason you would not automate review or deployment completely. Then implement only the smallest proof-of-concept and prepare to explain every architectural choice without AI assistance.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>How does the speaker define the role of an AI engineer?\u003c/summary>\n\nThe speaker frames it as a hybrid applied role that draws from software engineering, DevOps, and AI/ML fundamentals. The typical goal is to integrate and operate models in useful systems, not train frontier models from scratch.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why should the level of AI autonomy vary by project context?\u003c/summary>\n\nThe speaker argues that maintenance burden, accountability, and potential harm increase in established or consequential systems. A disposable prototype may tolerate extensive generation, while enterprise or high-risk code requires stronger human review and architectural control.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What makes a strong portfolio project for an aspiring AI engineer?\u003c/summary>\n\nChoose a narrow problem from a domain you understand through direct experience, then build the smallest end-to-end solution that demonstrates value. Be ready to explain the architecture, evaluation method, and limits of automation without relying on AI.\n\n\u003c/details>\n\n## Further Reading\n\n- [Interview Source](https://www.youtube.com/watch?v=Gt2bKGJbd0U)\n- [7 Day Engineer Resource Mentioned in Transcript](amonmanazer.com/7dayengineer)",
     "related": [
       {
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
+        "shared_tags": [
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-08-03-agentic-software-workflows-lessons-from-anthropics-claude-centered-engin-b0e2b379f9",
         "title": "Agentic Software Workflows: Lessons from Anthropic's Claude-Centered Engineering",
         "date": "2026-08-03",
@@ -8630,15 +8705,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "coding-agents",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-05-27-ai-engineering-coach-for-vs-code-local-analytics-and-coaching-for-ai-assisted-de",
-        "title": "AI Engineering Coach for VS Code: Local Analytics and Coaching for AI-Assisted Development",
-        "date": "2026-05-27",
-        "shared_tags": [
-          "ai-engineering",
-          "coding-agents"
         ]
       }
     ]
@@ -10280,14 +10346,12 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
-        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
-        "date": "2026-05-25",
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
         "shared_tags": [
-          "ai-coding",
           "coding-agents",
-          "developer-tools",
-          "prompt-engineering"
+          "software-engineering"
         ]
       }
     ]
@@ -11325,22 +11389,21 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
+        "id": "2026-10-15-engineering-ai-assisted-software-for-trust-change-and-mission-57e7ac610f",
+        "title": "Engineering AI-Assisted Software for Trust, Change, and Mission",
+        "date": "2026-10-15",
         "shared_tags": [
           "coding-agents",
           "software-engineering"
         ]
       },
       {
-        "id": "2026-05-23-practical-claude-code-workflows-context-memory-shortcuts-and-safe-execution",
-        "title": "Practical Claude Code Workflows: Context, Memory, Shortcuts, and Safe Execution",
-        "date": "2026-05-23",
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
         "shared_tags": [
           "coding-agents",
-          "developer-tools",
-          "productivity"
+          "software-engineering"
         ]
       }
     ]
