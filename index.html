@@ -574,6 +574,80 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     ]
   },
   {
+    "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+    "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+    "date": "2026-10-21",
+    "tags": [
+      "coding-agents",
+      "software-architecture",
+      "context-engineering",
+      "code-review",
+      "developer-workflow"
+    ],
+    "source": "https://www.youtube.com/watch?v=mkN4uRZYPfs",
+    "source_type": "youtube",
+    "channel": "Beyond Coding",
+    "published": "2026-10-14",
+    "duration_seconds": 4523,
+    "minutes": 75.4,
+    "minutes_estimated": false,
+    "tldr": "Coding agents are strongest when humans define the product intent, architecture, boundaries, and interfaces before generation begins. Treat generated code as cheap and replaceable: inspect it early, reject work you cannot readily understand, and strengthen the scaffold before trying again.",
+    "topics": [
+      "coding-agents",
+      "ai-agents",
+      "software-engineering"
+    ],
+    "kind": "interview",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> Coding agents are strongest when humans define the product intent, architecture, boundaries, and interfaces before generation begins. Treat generated code as cheap and replaceable: inspect it early, reject work you cannot readily understand, and strengthen the scaffold before trying again.\n\n## Key Takeaways\n\n1. Scaffold directories, dependency boundaries, core files, types, signatures, examples, deployment constraints, and short Markdown instructions before assigning implementation work to an agent.\n2. Separate deliberation from execution: Kelkboom keeps his main conversational agent away from files until it has clarified the request sufficiently to dispatch implementation agents.\n3. Prefer a well-specified, substantial one-shot task over repeated patching; the participants report that agents often duplicate concepts or layer patches during long iterative changes.\n4. Run alternative implementations in separate Git worktrees, then compare them and merge only the useful parts.\n5. Review generated work early—sometimes after one or two hours—and discard the worktree if the structure is unrecognizable or inconsistent with the scaffold.\n6. Build context progressively: locate relevant information, rank brief metadata, inspect diffs or commits, and only then load complete files.\n7. Keep human collaboration in the workflow; fast agent feedback should not replace product conversations, team review, mentorship, or time spent internalizing new knowledge.\n\n## Key Moments\n\n- [11:54](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=714s) — Learn how files, comments, signatures, examples, and directory boundaries steer an agent before it writes an implementation.\n- [15:54](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=954s) — Use existing open-source projects and agent-led comparison to learn unfamiliar architectural patterns before scaffolding.\n- [40:12](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=2412s) — Treat code as disposable by exploring several implementations in parallel Git worktrees.\n- [41:45](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=2505s) — See how deeply Kelkboom scaffolds projects, including project names, diagrams, folder structures, core files, and domain types.\n- [53:33](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=3213s) — Build a distributed context graph with Markdown nodes, searchable metadata, ranking, and progressive disclosure.\n- [58:18](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=3498s) — Separate an inquiry-focused main agent from sub-agents that are allowed to modify files.\n- [1:03:07](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=3787s) — Reject unfamiliar generated code early, diagnose the conflicting assumptions, improve the scaffold, and rerun from a fresh context.\n- [1:06:25](https://www.youtube.com/watch?v=mkN4uRZYPfs&t=3985s) — Reconsider reviews and testing through smaller changes, commit history, static analysis, and mutation testing.\n\n## Overview\n\nThis lesson presents a scaffold-first workflow for using coding agents on software intended to remain understandable and maintainable. The central division of labor is that humans establish intent, architecture, terminology, deployment constraints, and quality boundaries; agents then perform implementation inside those decisions.\n\nIt is most relevant to senior engineers, architects, technical leads, and developers moving beyond short-lived prototypes. The discussion also warns that agent speed can weaken learning and collaboration when it replaces product clarification, code-review dialogue, mentoring, and deliberate reflection.\n\n## Key Concepts\n\n- **Intent before implementation**: Decide whether the goal is experimentation, learning, a quick outcome, or a durable product. A disposable proof of concept may justify minimal structure, while a system expected to evolve warrants greater architectural preparation and review.\n- **Structural scaffolding**: Create the project shape before generation: directories, projects or packages, Markdown boundary notes, dependency direction, key files, type definitions, signatures, examples, and diagrams. Kelkboom reports spending roughly 20 minutes to an hour on this preparation, depending on the project.\n- **One-shot implementation bias**: Kelkboom reports that agents handle a large, clearly prepared implementation better than a long series of conceptual revisions. In his examples, repeated changes led to patched-over designs and one compiler feature being implemented five times, so the workflow moves more reasoning ahead of execution.\n- **Open-mode coordinator**: The main agent is reserved for conversation, teaching, clarification, and retrieval rather than file modification. Only after the request is considered sufficiently understood does it dispatch sub-agents that can implement the task; Kelkboom describes using multiple models and a greater-than-90% confidence threshold in his own experimental harness.\n- **Progressive context graph**: Knowledge is represented as distributed Markdown nodes and connections carrying summaries, paths, URLs, folder references, or commit hashes. Search and ranking identify likely information first, after which the agent follows relevant links and examines changes before loading full source files.\n- **Disposable worktrees**: Each implementation can run in an isolated Git worktree, allowing several agents to explore alternatives without contaminating the main codebase. A separate comparison pass can select useful pieces, while unrecognizable or structurally wrong attempts can simply be removed.\n- **Deterministic back pressure**: Non-deterministic agent behavior is constrained with stronger scaffolds, scripts, tests, static analysis, deployment rules, and other machine-checkable boundaries. When a failure repeats, the goal is to convert the relevant expectation into an explicit and repeatable control.\n- **Human learning and collaboration**: Instant answers can reduce the reflection needed to internalize a domain, while private agent workflows can erode team coordination. The discussion advocates studying fundamentals, talking with experienced people, retaining substantive reviews, and creating communities where people can learn and make mistakes together.\n\n## How It Works\n\n1. Define the outcome and lifespan. State whether the work is a disposable experiment, a learning exercise, or a product expected to evolve.\n2. Clarify the product. Specify users, desired behavior, domain terms, constraints, deployment environment, storage choices, and security expectations.\n3. Study unfamiliar territory. Examine established projects, ask the agent to contrast their strengths and weaknesses, and translate unfamiliar language conventions into terms from a language you know.\n4. Scaffold the solution. Create folders, packages, dependency directions, boundary notes, core types, signatures, examples, diagrams, and required infrastructure decisions.\n5. Validate understanding without editing. Use a conversational agent to surface ambiguity and conflicting assumptions before authorizing file changes.\n6. Execute in isolation. Assign the prepared task to one or more implementation agents working in separate Git worktrees.\n7. Inspect early. Review the emerging structure, diffs, and recognizable architectural landmarks after a limited interval instead of waiting for the full run.\n8. Reject or accept decisively. If the work violates the scaffold or is not readily understandable, discard the attempt, diagnose the missing constraint, improve the scaffold, and rerun from a fresh context.\n9. Verify the path as well as the result. Examine commit progression and use tests, mutation testing where appropriate, static analysis, and scaffold-aware checks before merging.\n10. Review with people. Keep changes reviewable and discuss the reasoning and product intent, not only the generated lines of code.\n\n## Training Exercise\n\n1. Choose a small feature that normally takes a few hours, such as importing a CSV file and validating its records.\n2. Write a one-paragraph objective that identifies the user, expected behavior, failure cases, deployment target, and whether the feature is experimental or durable.\n3. Create only the scaffold: directories, a dependency-flow note, core record types, public function signatures, two representative input examples, and empty test cases. Do not implement the feature.\n4. Ask a conversational agent to critique the scaffold without modifying files. Resolve ambiguous terminology, ownership, data flow, and error-handling decisions.\n5. Give the same finalized scaffold to two implementation agents in separate Git worktrees.\n6. After a fixed checkpoint, inspect each diff. Record whether the implementation follows the expected boundaries, duplicates concepts, adds unexplained infrastructure, or remains immediately understandable.\n7. Discard any attempt that violates the architecture rather than patching it. Add one concrete constraint to the scaffold for each observed failure and rerun once from a fresh context.\n8. Run the prepared tests and static checks. If available for the chosen language, run a small mutation-testing pass to see whether the tests detect intentionally introduced faults.\n9. Compare the first and second attempts in a short note: which scaffold changes improved the result, what still required human judgment, and what should become a reusable project rule.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does scaffolding improve an agent-generated codebase rather than merely constrain implementation style?\u003c/summary>\n\nThe scaffold records decisions about boundaries, dependency flow, data shapes, deployment, and expected extension points. According to Kelkboom, this keeps an agent from optimizing only for the immediate request and reduces duplication, God objects, and concepts that are difficult to change later.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should you do when generated code works but does not resemble the architecture you expected?\u003c/summary>\n\nDo not merge it merely because it runs. Kelkboom recommends discarding the isolated worktree, identifying which instruction, scaffold element, or underlying idea was ambiguous or conflicting, and rerunning from a fresh context after correcting that source problem.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How does progressive context disclosure help an agent work on a large system?\u003c/summary>\n\nIt begins with small, ranked clues such as summaries, paths, URLs, or commit hashes, then follows the most relevant connections into diffs and complete files. This limits context size while giving the agent a structured route to the information needed for the task.\n\n\u003c/details>\n\n## Further Reading\n\n- [Lead Architect Reveals His Rules for Coding Agents](https://www.youtube.com/watch?v=mkN4uRZYPfs)\n- [Carlos Kelkboom on LinkedIn](https://www.linkedin.com/in/carlos-k-4016b8225)\n- [Patrick Akil on LinkedIn](https://www.linkedin.com/in/patrick-akil)\n- [Patrick Akil on X](https://twitter.com/PatrickAkil_)",
+    "related": [
+      {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-architecture",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
+        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
+        "date": "2026-07-24",
+        "shared_tags": [
+          "ai-agents",
+          "code-review",
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
+        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
+        "date": "2026-08-09",
+        "shared_tags": [
+          "code-review",
+          "coding-agents",
+          "software-architecture",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-10-05-three-skills-for-orchestrating-reviewing-and-improving-ai-coding-work-104ea24944",
+        "title": "Three Skills for Orchestrating, Reviewing, and Improving AI Coding Work",
+        "date": "2026-10-05",
+        "shared_tags": [
+          "ai-agents",
+          "code-review",
+          "coding-agents"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-10-16-evaluating-ai-claims-through-verifiability-incentives-and-human-control-8cd9a0484a",
     "title": "Evaluating AI Claims Through Verifiability, Incentives, and Human Control",
     "date": "2026-10-16",
@@ -767,11 +841,11 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
-        "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
-        "date": "2026-07-24",
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
         "shared_tags": [
-          "ai-agents",
+          "software-architecture",
           "software-engineering"
         ]
       }
@@ -904,9 +978,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
-        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
-        "date": "2026-09-24",
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
         "shared_tags": [
           "coding-agents",
           "software-engineering"
@@ -1530,13 +1604,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-10-08-claude-code-mods-event-driven-interface-customization-and-workflow-guard-60de398533",
-        "title": "Claude Code Mods: Event-Driven Interface Customization and Workflow Guardrails",
-        "date": "2026-10-08",
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
         "shared_tags": [
           "ai-agents",
-          "coding-agents",
-          "workflow-automation"
+          "code-review",
+          "coding-agents"
         ]
       }
     ]
@@ -2267,6 +2341,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Coding agents can shift software development from manually implementing tasks to defining outcomes, testing behavior, and improving the environment that guides agents. This matters because cheaper implementation can change which products, optimizations, languages, and architectures are economically viable—but the speaker’s dramatic gains remain claims to verify locally.\n\n## Key Takeaways\n\n1. Assign agents bounded outcomes with explicit constraints and acceptance tests instead of prescribing every implementation step.\n2. Run agent work asynchronously, then review completed artifacts through tests, interface contracts, performance measurements, security checks, and targeted inspection of risky code.\n3. Revisit decisions originally driven by implementation cost—such as web versus native clients or Ruby versus Rust—when agents materially change that cost.\n4. The speaker claims a Rust rewrite of HEY’s backend could use 99% less CPU and 95% less memory, but describes these figures as back-of-the-envelope estimates rather than validated benchmarks.\n5. Make applications agent-operable through stable command-line interfaces, machine-readable output, composable commands, and useful error messages.\n6. Treat the speaker’s proposal to reduce abstractions or tolerate duplication as an experiment; compare synchronization effort, defect rates, and change failures before adopting it broadly.\n\n## Overview\n\nThis lesson distills an enthusiastic, deliberately provocative argument for agent-first software development. Its central analogy is photography: when technology sharply lowers the cost of producing something, established crafts do not simply disappear; their economics, workflows, and creative possibilities change. The speaker argues that coding agents now make implementation cheap enough to shift developers from manually writing code toward specifying outcomes, evaluating behavior, and improving the systems that guide agents. Several dramatic productivity and efficiency figures in the talk are personal anecdotes or back-of-the-envelope estimates, not independently substantiated benchmarks. Treat them as hypotheses to test in your own environment rather than universal forecasts.\n\n## Key Concepts\n\n- **Falling production costs change what gets built**: The talk compares coding agents with mass-market and digital photography. Lowering production friction can increase total output, enable previously uneconomical work, and redirect human effort. In software, this may make small utilities, aggressive optimization, native clients, and neglected improvements affordable. The durable lesson is to revisit decisions originally justified by implementation cost whenever that cost changes materially.\n- **Shift from task assignment to outcome assignment**: More capable agents can receive a problem or desired result rather than a sequence of implementation steps. The human role moves toward defining success, supplying constraints, and judging the finished behavior. The speaker cautions that excessive prescription may prevent an agent from discovering a better implementation, especially when the human is unfamiliar with the target technology.\n- **Use asynchronous agent workflows**: The speaker recommends treating agents more like coworkers than live autocomplete: assign a bounded problem, let the agent work independently, and review an artifact when it is ready. This avoids waiting on token-by-token output and permits several work streams to progress concurrently. Such delegation still requires clear acceptance criteria, isolated work, and review checkpoints.\n- **Evaluate unfamiliar implementations as black boxes**: The speaker reports using agents to produce Rust and C++ without inspecting every line, judging the programs through their external behavior instead. A responsible version of this approach combines acceptance tests, performance measurements, interface contracts, security checks, and operational limits. The source presents strong confidence in black-box evaluation but offers little evidence about its reliability in safety-critical or long-lived systems.\n- **Recalculate native, web, and language tradeoffs**: Some products are web-based or cross-platform primarily because multiple native implementations were too expensive to maintain. If agents reduce that expense, higher-fidelity native clients may become viable. The web remains valuable when instant access, links, and zero installation matter. Likewise, efficient but human-unfriendly languages may become more attractive if agents absorb much of their implementation burden. These choices should follow measured lifecycle costs, not excitement alone.\n- **Optimize systems for agents as well as humans**: Rails conventions are presented as potentially agent-friendly because predictable structure reduces ambiguity and token usage. The talk also argues that applications should expose command-line interfaces so personal agents can operate them without navigating a graphical UI or relying on an app-specific chatbot. Stable schemas, composable commands, useful error messages, and machine-readable output make software easier to automate.\n- **Revisit abstraction and duplication cautiously**: Traditional abstractions reduce repetition and centralize change, but they can also become coordination bottlenecks when many agents modify a system simultaneously. The speaker suggests that cheap generation and synchronization may alter this tradeoff. This remains speculative: duplicated logic can still diverge, conceal defects, and raise verification costs. Experiment in bounded areas and compare change failure rates before altering architectural principles broadly.\n- **Pair optimism with verification and security**: The talk advocates acting despite uncertain economic predictions while acknowledging genuine security risks. Productive optimism means running experiments and building defenses, not assuming favorable outcomes. Agents can generate vulnerable code or take harmful actions, so teams need least-privilege access, isolated execution, dependency scanning, tests, audit logs, and human approval for consequential operations.\n\n## How It Works\n\nAn agent-first workflow begins with a result rather than a code prescription. Define the user-visible outcome, relevant constraints, forbidden changes, and objective acceptance tests. Give the agent the repository context and a narrow work area, then allow it to implement asynchronously. Evaluate the result at the system boundary: run tests, exercise workflows, inspect performance and resource consumption, scan dependencies, and review risky code paths. If the result fails, first improve the specification, tests, tools, or environment—the development 'factory'—before manually patching the output. Record where human intervention was necessary so future tasks can be automated more reliably. For architectural decisions, compare alternatives empirically: prototype the web, native, or systems-language version; measure latency, binary size, resource use, maintainability, and defect rates; then choose based on evidence. The talk reports striking gains from this style, including much greater code output and large backend resource reductions, but those are speaker-reported examples without enough methodology in the source to generalize.\n\n## Training Exercise\n\nChoose one small, reversible improvement in an existing application, such as adding an export command, improving a slow operation, or building a tiny native utility. Write a one-page outcome brief containing: the user problem, observable success criteria, performance and security limits, files or systems that must not change, and automated tests. Give the brief to an agent without specifying implementation steps. Review only the first result's behavior and test evidence, then identify where the brief or tooling was ambiguous. Revise the development harness—tests, fixtures, documentation, permissions, or CLI contracts—and run the task again. Compare elapsed time, human attention, defects, resource usage, and maintainability with a conventional implementation. Conclude whether the agent changed the economics enough to justify a different architecture; do not infer a universal productivity multiplier from one trial.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>How does outcome assignment differ from traditional task assignment?\u003c/summary>\n\nOutcome assignment specifies the desired behavior, constraints, forbidden changes, and evidence of success while leaving implementation choices to the agent. Traditional task assignment tells the implementer which steps or code changes to perform.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How should unfamiliar agent-generated code be evaluated responsibly?\u003c/summary>\n\nEvaluate observable behavior with acceptance tests, interface contracts, performance and resource measurements, security checks, and operational limits. Black-box testing should be supplemented by targeted review of high-risk paths rather than treated as sufficient for every system.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why might agents change architectural tradeoffs without eliminating them?\u003c/summary>\n\nLower implementation costs can make native clients, systems languages, extensive optimization, or selective duplication more affordable. Maintenance, divergence, security, verification, and lifecycle costs still remain, so teams should prototype and measure alternatives before changing architecture.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source keynote on YouTube](https://www.youtube.com/watch?v=vDjW_dRyKXY)",
     "related": [
       {
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-architecture",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
         "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
         "date": "2026-07-24",
@@ -2295,15 +2380,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "coding-agents",
           "software-architecture",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-10-07-how-ai-agents-reallocate-software-value-across-data-workflows-and-interf-021cab04fe",
-        "title": "How AI Agents Reallocate Software Value Across Data, Workflows, and Interfaces",
-        "date": "2026-10-07",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
         ]
       }
     ]
@@ -6516,6 +6592,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Reduce AI coding randomness by turning vague ideas into shared context, lightweight specs, feature-sized tickets, tests, and focused reviews. Keeping these skills short and modular lets you revisit the step that needs work without rerunning a rigid pipeline.\n\n## Key Takeaways\n\n1. Interview the user one decision branch at a time until behavior, constraints, style, and priorities are clear enough to record.\n2. Freeze agreed decisions in a lightweight spec without embedded code, so the AI must inspect the current codebase instead of copying stale snippets.\n3. Slice work by end-to-end features, such as a complete login flow, rather than by technical layers like database, backend, and UI.\n4. When requirements are concrete, write tests first, confirm that they fail, and implement until they pass.\n5. Review code with compact refactoring vocabulary—including “shotgun surgery,” “feature envy,” and “data clumps”—to identify change-fragile or misplaced logic.\n6. Use the skills as independent modules in any order; revisit grooming, specification, ticketing, implementation, or review whenever that stage needs refinement.\n7. Favor clear entry points and fewer unnecessary file hops so an AI model can understand behavior with less context and fewer tokens.\n\n## Overview\n\nThis lesson explains a modular approach to using AI for software development, based on the video’s description of Matt Pocock-style “skills.” The core idea is to reduce AI randomness by gathering missing context, freezing decisions into lightweight specs, splitting work into feature-based tickets, implementing with tests where possible, and reviewing code with a compact checklist. A key claim in the source is that these skills are intentionally short and modular so they can be run in any order instead of forcing a rigid end-to-end pipeline. Some popularity claims in the video, such as download rankings and totals, are presented by the speaker and not independently verified in the supplied source.\n\n## Key Concepts\n\n- **Context Gathering Before Coding**: The lesson argues that AI often misses the target because it lacks the full story: desired behavior, style, constraints, and priorities. The proposed fix is to interview the user until both sides reach a shared understanding.\n- **Modular Skills Instead of One Locked Pipeline**: Rather than forcing brainstorming, planning, implementation, and review into one chained workflow, the source recommends small reusable skills that can be invoked in any order. This makes it easier to revisit one step without rerunning everything.\n- **Grooming as Structured Interviewing**: The “grooming” skill is described as asking questions relentlessly until ambiguity is removed. It follows a decision-tree style: focus on one branch at a time, wait for answers, offer recommendations, and avoid acting before confirmation.\n- **Specs Without Embedded Code**: After agreement is reached, the next step is to convert decisions into a written spec. The source emphasizes keeping code blocks out of the spec so the AI is pushed to inspect the real codebase later instead of blindly following stale snippets.\n- **Feature-Sliced Tickets**: The source contrasts slicing work by feature versus by technical layer. Feature-based tickets are preferred because each ticket can produce an end-to-end testable increment, such as a complete login flow, instead of isolated database or UI work.\n- **Test-Driven Implementation**: Implementation is described as triggering TDD when possible: write tests first, observe failure, then implement until tests pass. The lesson frames this as a way to shape code against explicit requirements rather than letting tests merely mirror buggy code.\n- **Vocabulary-Driven Code Review**: The review approach uses a short checklist built from refactoring vocabulary like “shotgun surgery,” “feature envy,” and “data clumps.” The point is to compress rich engineering guidance into compact terms that a capable model can act on.\n- **Architecture for Token Efficiency**: The source claims AI struggles when logic is scattered across too many files and call chains. The proposed architectural improvement is not one giant file, but clearer entry points and deletion tests so the model can understand behavior with fewer hops and fewer tokens.\n\n## How It Works\n\nUse the workflow as a loop, not a one-way conveyor belt. First, run a grooming-style interview to surface requirements, tradeoffs, and unstated assumptions. Ask one decision at a time, recommend concrete options, and do not move forward until the answer is clear enough to record. Next, freeze the result into a spec that describes behavior, constraints, and design intent without embedding code snippets that may age badly. Then convert the spec into feature-based tickets so each task can produce something testable end to end. During implementation, prefer writing tests first when the behavior is concrete enough to express. After coding, review from a fresh context using compact refactoring vocabulary to check for misplaced logic, duplicated concepts, and change-fragile structure. Finally, inspect the architecture itself: look for dead code, overly shallow wrappers, duplicated modules, and call patterns that force the model to jump through too many files to understand one behavior. The practical principle across all steps is minimal but precise guidance: short prompts, strong shared context, and just enough guardrails to steer a capable model without over-constraining it.\n\n## Training Exercise\n\nPick a small app feature, such as user login or checkout. First, write 8-12 grooming questions that narrow one branch of decisions at a time, and answer them as if you were the stakeholder. Second, turn the answers into a one-page spec with no code blocks. Third, split the spec into 3 feature-based tickets, each producing a testable slice of value. Fourth, for one ticket, write the tests before the implementation and list what should fail initially. Fifth, perform a review using these terms: shotgun surgery, feature envy, and data clumps. End by naming one architectural change that would make the feature easier for an AI model to understand in fewer file hops.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why should a specification avoid embedded code snippets?\u003c/summary>\n\nCode snippets can become stale and encourage the AI to follow outdated implementation details. A behavior-focused spec pushes the model to inspect the actual codebase before implementing.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why are feature-based tickets preferred over tickets divided by technical layer?\u003c/summary>\n\nA feature-based ticket can deliver a complete, end-to-end behavior that is independently testable. Layer-based tickets often produce isolated pieces that provide no usable value until several tasks are combined.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How do modular skills reduce randomness without creating a rigid workflow?\u003c/summary>\n\nEach skill adds a focused guardrail—such as gathering context, recording decisions, testing behavior, or reviewing structure—while remaining independently reusable. This lets the developer repeat only the step that needs improvement and run the skills in the order the situation requires.\n\n\u003c/details>\n\n## Further Reading\n\n- [YouTube Source Video](https://www.youtube.com/watch?v=8D8ewFBJfFM)",
     "related": [
       {
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
+        "shared_tags": [
+          "code-review",
+          "coding-agents",
+          "software-architecture",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-08-11-building-durable-agent-instructions-and-skills-for-faster-safer-developm-bd00a09f14",
         "title": "Building Durable Agent Instructions and Skills for Faster, Safer Development",
         "date": "2026-08-11",
@@ -6544,17 +6631,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "coding-agents",
           "prompt-engineering"
-        ]
-      },
-      {
-        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
-        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
-        "date": "2026-09-24",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents",
-          "software-architecture",
-          "software-engineering"
         ]
       }
     ]
@@ -9356,6 +9432,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> AI coding harnesses can accelerate implementation and verify tests, but the speaker argues they cannot reliably preserve maintainability on their own. Front-load product, architecture, and program design so agents produce smaller changes that humans can still review line by line.\n\n## Key Takeaways\n\n1. Treat passing tests as evidence of measured correctness, not proof of maintainable design.\n2. Keep humans responsible for understanding and reviewing the codebase; the speaker claims fully automated “lights off” software factories eventually accumulate quality problems that agents and tests cannot resolve alone.\n3. Define components, data models, interfaces, constraints, types, method signatures, and call paths before asking an agent to implement.\n4. Break features into vertical slices with an explicit implementation order and a test or verification step after each slice.\n5. Use shorter, staged pull requests to keep line-by-line human review practical and mandatory.\n6. Interpret overwhelming review effort as a sign of weak planning or decomposition, rather than a reason to eliminate review.\n7. Evaluate agent output against agreed design artifacts as well as test results, watching for awkward abstractions, defensive clutter, and changes that make future work harder.\n\n## Overview\n\nThis lesson turns the talk into a practical engineering stance: AI coding agents can speed up implementation, but speed alone does not preserve codebase quality. The speaker argues that current agent loops and harnesses are good at producing code that passes tests, yet weak at maintaining long-term design quality, especially in complex or aging codebases. The core lesson is to keep humans responsible for code comprehension and to shift effort earlier into product review, architecture, program design, and staged implementation so code review stays fast enough to remain mandatory.\n\n## Key Concepts\n\n- **Harness engineering vs. model limits**: The talk argues that better loops, sandboxes, review bots, and more tokens cannot fully solve quality decay if the underlying model was not trained to optimize for maintainability. In the speaker's framing, this is a training and verification problem, not just an orchestration problem.\n- **Software factory failure mode**: A 'lights off software factory' removes human code reading and relies on agents, tests, monitoring, and automated review. The speaker claims this fails in practice because teams eventually hit issues that require understanding a codebase whose quality has already eroded.\n- **Maintainability as the missing objective**: Passing tests is easier to verify than preserving good design. The talk defines the real problem as maintainability: keeping a codebase easy to change without causing unrelated breakage. The speaker links poor maintainability to classic design problems like 'shotgun surgery.'\n- **Why current coding benchmarks are insufficient**: The transcript describes benchmark setups where models are rewarded for fixing a task and not breaking tests. That reward structure encourages correctness on the measured task, but it does not directly penalize awkward abstractions, defensive clutter, or other design choices that may hurt the codebase months later.\n- **Front-loaded alignment reduces review cost**: The proposed remedy is to spend time before coding on product review, architecture, component contracts, data models, constraints, and program design. The claimed payoff is shorter, higher-quality pull requests that humans can still review line by line.\n- **Program design and vertical slices**: The talk emphasizes planning at the level of types, method signatures, call paths, and implementation order. 'Vertical slices' means choosing an incremental build sequence across the system, with checks between phases, instead of letting an agent make broad horizontal changes all at once.\n- **Human ownership remains necessary**: The practical conclusion is not to avoid AI agents, but to use them where they help most while keeping humans accountable for understanding, reviewing, and steering the code. The speaker treats code reading as a constraint that current teams still need to accept.\n\n## How It Works\n\nUse AI to accelerate analysis and implementation, but keep a human-reviewed delivery path. Start with a short product review that states the user problem, expected behavior, and any mockups. Then write an architecture note covering components, data models, interfaces, and constraints. Add a program-design pass that names key types, method signatures, call flows, and boundaries between modules. After that, break the work into vertical slices with an explicit implementation order and tests at each stage. Let the agent implement one slice at a time. Review every line against the earlier design artifacts, not just against test results. If review feels overwhelming, treat that as a signal that planning or decomposition was weak, not as evidence that review should be removed. The speaker presents this as the workable compromise: AI makes coding faster, while upfront alignment keeps review cheap enough to preserve quality.\n\n## Training Exercise\n\nPick a real feature in a codebase you know. First, write a one-page product review with the problem, expected behavior, and edge cases. Next, write a short architecture note listing the components touched, data model changes, and constraints. Then create a program-design sketch with the main types, function signatures, and call flow. Break the work into 3 vertical slices, each with a test or verification step. Only after that, ask an AI coding agent to implement slice 1. Review the result line by line and note where the code diverged from your design, where tests were sufficient, and where maintainability concerns appeared even though tests passed.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does the speaker argue that tests and coding harnesses cannot prevent software quality decay by themselves?\u003c/summary>\n\nThey primarily verify observable correctness, such as completing a task without breaking tests. According to the speaker, they do not directly reward maintainability or reliably detect design choices that make future changes harder.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What work should happen before an AI agent begins implementation?\u003c/summary>\n\nTeams should review the product problem and expected behavior, document the architecture and constraints, sketch key types and call flows, and divide the feature into ordered vertical slices with verification steps.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should a team conclude when human review of an agent-generated change becomes overwhelming?\u003c/summary>\n\nThe speaker recommends treating it as evidence that the work was insufficiently planned or decomposed. The response should be to create smaller, better-aligned changes—not to remove human review.\n\n\u003c/details>\n\n## Further Reading\n\n- [Talk Source](https://www.youtube.com/watch?v=Ib5GBkD555M)\n- [Human Layer](https://humanlayer.com)",
     "related": [
       {
+        "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
+        "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
+        "date": "2026-10-21",
+        "shared_tags": [
+          "ai-agents",
+          "code-review",
+          "coding-agents",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
         "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
         "date": "2026-08-09",
@@ -9384,16 +9471,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "coding-agents",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
-        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
-        "date": "2026-10-02",
-        "shared_tags": [
-          "ai-agents",
-          "code-review",
-          "coding-agents"
         ]
       }
     ]
