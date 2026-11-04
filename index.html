@@ -437,6 +437,77 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+    "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+    "date": "2026-11-04",
+    "tags": [
+      "ai-agents",
+      "software-development",
+      "databases",
+      "product-design",
+      "entrepreneurship"
+    ],
+    "source": "https://www.youtube.com/watch?v=vl7HiMdGfjo",
+    "source_type": "youtube",
+    "channel": "Y Combinator",
+    "published": "2026-10-30",
+    "duration_seconds": 2925,
+    "minutes": 48.8,
+    "minutes_estimated": false,
+    "tldr": "As AI makes software creation accessible to more people, knowing what to build becomes more valuable than writing every line of code. Products serving this market must give agents code-first interfaces, actionable errors, durable user-owned data, and measurable feedback loops.",
+    "topics": [
+      "ai-agents",
+      "ai-strategy",
+      "coding-agents"
+    ],
+    "kind": "interview",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> As AI makes software creation accessible to more people, knowing what to build becomes more valuable than writing every line of code. Products serving this market must give agents code-first interfaces, actionable errors, durable user-owned data, and measurable feedback loops.\n\n## Key Takeaways\n\n1. Treat builders as a broader audience than professional developers: domain experts can now create niche and personal software without first recruiting an engineering team.\n2. Keep personal data in a durable store of record that multiple applications and agents can use; otherwise, essential context becomes trapped inside one vendor or agent.\n3. Design agent-facing products around code, CLIs, APIs, infrastructure as code, and sandbox compatibility—not only human-operated dashboards.\n4. Make errors self-remediating by explaining the cause, the corrective action, and the relevant documentation so an agent can recover instead of abandoning the product.\n5. Evaluate complete use cases across different models, then optimize correctness, retrieval quality, cost, and latency from real execution traces.\n6. The Supabase CEO reports growth to 13 million sign-ups, nearly 50 million managed databases, and more than one million new databases per week; he attributes much of the inflection to AI-assisted building.\n7. Choose durable problem categories, dogfood emerging workflows, preserve team capacity for experiments, and adapt quickly as development interfaces change.\n\n## Key Moments\n\n- [4:34](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=274s) — Why domain experts are becoming builders even without traditional software-engineering backgrounds\n- [8:42](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=522s) — How personalized taxi, finance, and health applications become economically practical\n- [12:12](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=732s) — Why a user-owned database can serve as the shared record beneath many agents\n- [20:12](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=1212s) — How Supabase moved from dashboard-first to API-first and then code-first interfaces\n- [27:29](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=1649s) — How dogfooding through conversation exposes the needs of personal agents\n- [30:01](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=1801s) — How actionable errors and model evaluations help agents recover and complete tasks\n- [36:20](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=2180s) — How traces, evaluation sets, and automated loops can continuously improve retrieval\n- [45:41](https://www.youtube.com/watch?v=vl7HiMdGfjo&t=2741s) — Why durable categories, adaptability, and experimentation matter during rapid platform shifts\n\n## Overview\n\nAI-assisted development expands software creation from professional engineers to anyone who understands a problem well enough to describe and refine a solution. The conversation illustrates this shift with personal finance and health tools, a locally focused taxi application, and agent-managed knowledge systems that might previously have required a company or engineering team.\n\nThis matters to product teams, infrastructure providers, founders, and independent builders. The emerging design target is not simply a friendly interface for humans: it is an environment where agents can select tools, operate them through code, recover from errors, access user-owned context, and improve against explicit evaluations.\n\n## Key Concepts\n\n- **Builder**: A builder is anyone who can turn domain knowledge into working software with AI assistance, whether or not that person is a professional developer. The source argues that identifying the right problem is becoming a greater constraint than producing an initial implementation.\n- **Personal software**: AI lowers the cost of creating applications that serve one person rather than a mass market. Such software can combine private context across finances, health, calendars, files, and relationships without needing to accommodate every user's preferences.\n- **Personal database**: A personal database is a user-controlled system of record beneath applications and agents. It makes accumulated context portable and allows different interfaces or agents to operate on the same data instead of locking it inside one assistant.\n- **Agent-first interface**: Agents generally work more effectively through machine-operable surfaces such as APIs, CLIs, code, and declarative configuration. Supabase describes evolving from a dashboard company to an API company and then to a code-first company as automated builders became more important.\n- **Self-remediating errors**: An error should tell an agent what failed, why it failed, and how to correct it or locate the relevant documentation. This turns failure handling into part of the product interface and reduces the chance that an agent switches to another tool when it gets stuck.\n- **Evaluation loop**: An evaluation loop converts representative tasks or production traces into repeatable tests of correctness, quality, cost, and latency. The Gbrain example describes agents repeatedly attempting improvements, retaining changes that improve scores, and documenting unsuccessful experiments.\n- **Workload-tiered infrastructure**: Personal prototypes and large production systems do not require identical infrastructure. Copplestone describes a strategy spanning lightweight SQLite-compatible workloads through Postgres-compatible systems intended to scale toward very large data volumes, though these are company plans rather than independently established outcomes.\n- **Adaptive product strategy**: Rapid platform shifts make fixed assumptions about interfaces and customers fragile. The proposed response is continual dogfooding, partnerships with ecosystem participants, spare capacity for experiments, and acceptance that many bets will fail.\n\n## How It Works\n\n1. Start with a concrete problem and the user's domain knowledge rather than a predetermined application category.\n2. Give an agent access to machine-operable tools: code, APIs, CLIs, schemas, configuration, and isolated execution environments.\n3. Store durable user context in a database or file store independent of any single agent.\n4. Let the agent build a narrow workflow and observe where selection, execution, or recovery fails.\n5. Rewrite errors so they include a diagnosis, a corrective action, and a documentation path.\n6. Capture representative tasks or real traces as an evaluation set, including correctness, latency, retrieval quality, and cost.\n7. Run improvement loops against those evaluations; keep measurable gains and record failed approaches.\n8. Dogfood the experience conversationally, minimizing manual code intervention to reveal what a less technical builder would encounter.\n\n## Training Exercise\n\nBuild and evaluate a tiny agent-first personal application.\n\n1. Choose one narrow workflow, such as categorizing receipts, tracking workouts, or organizing reading notes.\n2. Define a portable data model with three to five fields and store it independently from the chat or agent interface.\n3. Ask an AI coding agent to create the workflow using only code, an API, or a CLI; avoid manually repairing its implementation during the first attempt.\n4. Record every point where the agent gets stuck, including ambiguous commands, missing context, and unhelpful errors.\n5. Rewrite one failure message so it states the cause, recommended fix, and verification step.\n6. Create five representative evaluation cases, including one malformed input and one edge case. Score task correctness, latency, and any monetary or token cost.\n7. Run a second implementation attempt with the improved interface, compare the scores, and document both successful and unsuccessful changes.\n8. Finally, connect a second agent or interface to the same data store to verify that the user's data is portable rather than bound to the original agent.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does broader access to code generation increase the importance of domain expertise?\u003c/summary>\n\nThe mechanical ability to build is becoming easier to access, but selecting a valuable problem still requires knowledge of a particular workflow or industry. The discussion argues that domain experts can now implement ideas that previously failed because they could not recruit an engineer.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What makes an infrastructure product agent-first rather than merely usable by an agent?\u003c/summary>\n\nAn agent-first product exposes its capabilities through code, APIs, CLIs, and reproducible configuration. It also provides actionable errors and tests complete agent workflows so models can diagnose failures and continue without human dashboard intervention.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why separate personal data from the agent currently using it?\u003c/summary>\n\nA separate database preserves a durable store of record that can support several agents and applications. This reduces vendor lock-in and prevents relationships, files, health information, and routines from becoming inaccessible when the user changes agents.\n\n\u003c/details>\n\n## Further Reading\n\n- [Apply to Y Combinator](https://www.ycombinator.com/apply)\n- [Work at a startup](https://www.ycombinator.com/jobs)",
+    "related": [
+      {
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "coding-agents"
+        ]
+      },
+      {
+        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
+        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
+        "date": "2026-10-02",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development"
+        ]
+      },
+      {
+        "id": "2026-09-02-ai-native-sdlc-using-intent-spec-and-plan-artifacts-with-agents-5c01f92ef8",
+        "title": "AI-Native SDLC: Using Intent, Spec, and Plan Artifacts with Agents",
+        "date": "2026-09-02",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development"
+        ]
+      },
+      {
+        "id": "2026-08-27-agentic-software-development-a-practical-lesson-from-dhhs-ai-workflow-1935569479",
+        "title": "Agentic Software Development: A Practical Lesson from DHH’s AI Workflow",
+        "date": "2026-08-27",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "product-design"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-11-03-agentic-software-delivery-across-models-repositories-tools-and-git-aa911d4212",
     "title": "Agentic software delivery across models, repositories, tools, and Git",
     "date": "2026-11-03",
@@ -696,6 +767,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-10-22-designing-ai-for-a-post-work-future-truth-curiosity-embodiment-and-abund-10f942bd5c",
         "title": "Designing AI for a Post-Work Future: Truth, Curiosity, Embodiment, and Abundance",
         "date": "2026-10-22",
@@ -711,15 +791,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-strategy",
           "artificial-intelligence"
-        ]
-      },
-      {
-        "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
-        "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
-        "date": "2026-10-13",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
         ]
       }
     ]
@@ -1320,6 +1391,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
         "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
         "date": "2026-09-24",
@@ -1337,16 +1418,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-strategy",
           "artificial-intelligence",
           "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-08-03-agentic-software-workflows-lessons-from-anthropics-claude-centered-engin-b0e2b379f9",
-        "title": "Agentic Software Workflows: Lessons from Anthropic's Claude-Centered Engineering",
-        "date": "2026-08-03",
-        "shared_tags": [
-          "ai-strategy",
-          "coding-agents",
-          "software-engineering"
         ]
       }
     ]
@@ -1794,6 +1865,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> AI agents can make a software interface easier to abandon while making reliable data, specialized workflows, and accumulated agent context more valuable. Evaluate software by separating its data, application, and agentic layers—and by measuring the business outcomes each layer enables.\n\n## Key Takeaways\n\n1. Separate every software purchase into three layers: data, application workflows, and agentic interaction.\n2. Agent accessibility is becoming table stakes, but an API or MCP connection alone does not give customers a reason to keep paying.\n3. Preserve dependable applications for high-risk execution such as payroll; an agent can simplify their complexity without replacing their rules, approvals, and compliance controls.\n4. Document how employees use AI before changing vendors, because valuable instructions, preferences, feedback, and unwritten procedures may be embedded in individual agent setups.\n5. Compare building with buying based on risk and opportunity cost: a custom recruiting search may be practical, while rebuilding compliant payroll could divert engineers from competitive work.\n6. Design software so structured data and workflows are accessible from multiple interfaces and agents rather than depending on repeated visits to one graphical interface.\n7. Tie AI adoption and software purchasing to outcomes such as sales, revenue, profitability, or operating speed—not merely to whether a product includes AI.\n\n## Key Moments\n\n- [2:02](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=122s) — See how a recruiter’s agent absorbs selection criteria and becomes harder to replace than the original recruiting interface.\n- [4:35](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=275s) — Learn what customers still pay for when agents perform much of the information processing.\n- [17:32](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1052s) — Use DoorDash’s text ordering and limited MCP beta to understand how a business can retain transactions after losing direct interface usage.\n- [19:03](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1143s) — Understand why agent connectivity earns consideration but does not create durable differentiation by itself.\n- [21:06](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1266s) — Compare a custom recruiting workflow built on Crustdata APIs with packaged recruiting software.\n- [22:41](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1361s) — See why an agent may increase Workday payroll’s value instead of replacing its configured rules and execution system.\n- [24:30](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1470s) — Apply the data, application, and agentic-layer framework to employees, buyers, and software vendors.\n- [29:56](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1796s) — Turn the framework into concrete actions for employees, leaders, and software sellers.\n\n## Overview\n\nThe presenter proposes a three-layer model for understanding software in an agent-mediated workplace: the data layer supplies information, the application layer provides interfaces and structured workflows, and the agentic layer interprets requests and coordinates work. Agents may reduce direct use of traditional interfaces without eliminating the underlying data, rules, approvals, or execution systems.\n\nThis model matters to employees whose working knowledge is becoming embedded in agents, leaders choosing vendors, and sellers redefining software value. The central practical lesson is to identify which layer produces an outcome, what can safely be substituted, and what context or reliability would be lost during a change.\n\n## Key Concepts\n\n- **Data layer**: This layer contains records and structured information that agents need to perform useful work. In the recruiting example, the presenter reports that a business retained the structured candidate-data provider while building its own search workflow above it.\n- **Application layer**: Applications combine interfaces with workflows, and those components should not be treated as identical. A graphical interface may become less important while the underlying workflow—especially one involving rules, approvals, or compliance—remains highly valuable.\n- **Agentic layer**: This layer interprets goals, processes information, invokes tools, and coordinates tasks. Its value can grow as users teach it preferences, exceptions, and procedures that were never formally documented.\n- **Context lock-in**: An agent can accumulate selection criteria, feedback, custom skills, and tacit operating knowledge over time. The presenter argues that changing AI vendors may therefore cost more than leaders realize, even when the new vendor appears cheaper by license or token price.\n- **Agent reachability**: APIs and protocols such as MCP let external agents retrieve data or request actions. The DoorDash example illustrates the strategy: preserve the transaction whether a customer uses DoorDash’s own assistant or another agent, although the presenter cautions that reachability alone is only table stakes.\n- **Dependable execution**: Some systems remain valuable because they execute consequential work correctly, not because users enjoy their interfaces. The Workday payroll example highlights configured rules, records, approvals, issue detection, and compliance-sensitive execution that an agent can make easier to navigate.\n- **Build-versus-buy boundary**: AI lowers the cost of constructing some workflows, making a custom layer over purchased data more plausible. The boundary changes when errors carry substantial compliance risk or when internal engineering effort would be better spent on competitive advantage.\n- **Multi-value stack**: The presenter argues that vendors increasingly need to explain their combined value across data, workflows, agent access, trust, and optionality. Buyers should test each claim separately and ask how the complete stack improves a measurable business outcome.\n\n## How It Works\n\n1. Map the data layer: identify each system of record, data supplier, access method, ownership boundary, and source of unique information.\n2. Decompose the application layer: distinguish the visible interface from the rules, approvals, integrations, and execution workflows underneath it.\n3. Map the agentic layer: record which agents people use, what tools they call, what instructions or skills they contain, and how feedback improves their output.\n4. Trace a real outcome through all three layers—for example, candidate selection, customer onboarding, food ordering, or payroll correction.\n5. Test substitutability: ask what happens if the interface, workflow provider, data source, or agent is changed independently.\n6. Estimate hidden migration costs, including lost context, recreated skills, retraining, validation, compliance review, and temporary productivity loss.\n7. Decide whether to build, buy, or combine components according to differentiation, execution risk, engineering opportunity cost, and required vendor optionality.\n8. Reassess regularly as agent capabilities improve and the boundary between interface work and automated work shifts.\n\n## Training Exercise\n\n1. Choose one recurring workflow you perform, such as preparing a candidate shortlist, onboarding a customer, or resolving an invoice issue.\n2. Draw three columns labeled Data, Application, and Agent. List every source, workflow, interface, rule, and AI tool involved.\n3. Mark what is unique or difficult to reproduce: proprietary records, tacit instructions, approval logic, compliance controls, integrations, or agent memory.\n4. Simulate four changes separately: remove the graphical interface, replace the data provider, replace the workflow system, and replace the agent.\n5. For each change, estimate reconstruction time, validation work, operational risk, and the business outcome affected.\n6. Decide which components should remain purchased, which could be built, and which need portability measures such as documented prompts, exported instructions, or vendor-neutral access.\n7. Summarize the result for a manager in five sentences: the outcome, the three layers involved, the hardest component to replace, the main risk, and your recommendation.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can an agent weaken one vendor relationship while strengthening another?\u003c/summary>\n\nIt can replace the interface or information-arrangement work of a point solution while continuing to depend on an underlying data provider or execution system. Meanwhile, the agent accumulates organization-specific instructions and context that make the agent relationship costly to replace.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is making software reachable through MCP or an API insufficient as a long-term strategy?\u003c/summary>\n\nConnectivity allows agents to consider and use a service, but comparable providers can become easier to substitute once they are equally accessible. Durable value must still come from differentiated data, dependable execution, valuable workflows, or specialized agent capabilities.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How should a leader evaluate an AI-vendor change without accidentally destroying productivity?\u003c/summary>\n\nFirst map how teams actually use agents, including local instructions, data sources, feedback loops, and application workflows. Then compare migration costs and business outcomes across all three layers instead of making the decision from license or token prices alone.\n\n\u003c/details>\n\n## Further Reading\n\n- [Full post: AI agents and software buying](https://natesnewsletter.substack.com/p/ai-agents-software-buying?utm_source=youtube&utm_medium=video&utm_campaign=ai-agents-software-buying-launch&utm_content=description)\n- [Nate's Library MCP connection guide](https://unlock-ai.natebjones.com/guides/how-to-connect-nates-library?utm_source=youtube&utm_medium=video&utm_campaign=ai-agents-software-buying-launch&utm_content=description)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
         "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
         "date": "2026-09-24",
@@ -1816,15 +1896,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
         "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
         "date": "2026-10-13",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-09-29-openais-shift-toward-persistent-agents-and-an-integrated-work-platform-589d3b459c",
-        "title": "OpenAI’s Shift Toward Persistent Agents and an Integrated Work Platform",
-        "date": "2026-09-29",
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
@@ -2074,6 +2145,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> More token usage creates value only when it produces better outcomes. Engineers should route each task to the cheapest model that meets its performance, speed, reliability, and privacy requirements, including specialized classifiers such as Jev where appropriate.\n\n## Key Takeaways\n\n1. OpenRouter processed 146 trillion tokens in the reported week, versus 4.5 trillion roughly one year earlier, according to the presenter; the later claim of 445 trillion conflicts with the earlier figure and should not be treated as confirmed.\n2. Token volume is not a value metric: measure useful work, latency, reliability, total cost, and human time rather than celebrating higher consumption.\n3. DeepSeek, Google, and OpenAI repeatedly occupied OpenRouter’s leading market-share positions, but that dataset excludes substantial direct and subscription traffic to model providers.\n4. Gemini 3.8 Flash is the presenter’s default Pi agent model because he considers its performance, speed, and cost balance suitable for routine work.\n5. Jev is presented as a zero-shot decision or classification model that can complement general-purpose LLMs; the presenter reports roughly 20% token-cost savings in his early Pi-agent benchmarks.\n6. Free models can lower direct cost but may introduce data-retention and privacy risks; the presenter advises against sending proprietary information without understanding provider policies.\n7. Start recurring work with a capable frontier model, then move stable subtasks to cheaper, faster, or more specialized models after measuring quality.\n\n## Key Moments\n\n- [1:03](https://www.youtube.com/watch?v=8BD6w5wELRo&t=63s) — See the reported rise from 4.5 trillion to 146 trillion weekly OpenRouter tokens.\n- [3:40](https://www.youtube.com/watch?v=8BD6w5wELRo&t=220s) — Learn why token growth must be evaluated against useful work and human time.\n- [7:19](https://www.youtube.com/watch?v=8BD6w5wELRo&t=439s) — Follow the presenter’s rough calculation illustrating why OpenRouter share cannot represent the whole market.\n- [10:58](https://www.youtube.com/watch?v=8BD6w5wELRo&t=658s) — Understand how Jev differs from an agent’s general-purpose language model.\n- [12:32](https://www.youtube.com/watch?v=8BD6w5wELRo&t=752s) — Review the presenter’s early benchmark showing an estimated 20% cost reduction with Jev.\n- [15:38](https://www.youtube.com/watch?v=8BD6w5wELRo&t=938s) — Examine the privacy trade-off behind ostensibly free model access.\n- [19:42](https://www.youtube.com/watch?v=8BD6w5wELRo&t=1182s) — See why control of an agent harness enables customization and model substitution.\n- [23:53](https://www.youtube.com/watch?v=8BD6w5wELRo&t=1433s) — Apply the frontier-first, optimize-afterward strategy to repeated workloads.\n\n## Overview\n\nThe lesson is a practical framework for reading model-usage data and designing economical AI systems. The presenter uses OpenRouter rankings to argue that aggregate token demand is growing rapidly, while repeatedly noting that OpenRouter represents only one slice of the market. One numerical inconsistency deserves caution: the source first reports 146 trillion tokens for the latest week but later says 445 trillion.\n\nFor engineers building agents, the actionable idea is to manage a portfolio of compute rather than crown one universal model. General-purpose LLMs, open-weight models, and specialized decision models can be routed according to quality, speed, cost, uptime, and privacy requirements.\n\n## Key Concepts\n\n- **Tokenomics**: Tokenomics is the discipline of connecting model consumption to useful outcomes. The presenter distinguishes productive compute growth from token burning that merely creates a feeling of activity.\n- **Dataset scope**: OpenRouter rankings describe traffic passing through OpenRouter, not the entire model market. Direct provider usage and subscriptions are omitted, while price-sensitive individual developers and smaller organizations may be disproportionately represented.\n- **Performance-speed-cost trade-off**: A model is useful when it meets the task’s required quality at acceptable latency and cost. The presenter treats workhorse models such as Gemini Flash as valuable because they balance these dimensions rather than maximizing only intelligence.\n- **Specialized decision models**: Jev is described as a fast, reliable, zero-shot classifier for decisions within broader workflows. It is not presented as a wholesale LLM replacement; its role is to handle narrow choices that otherwise consume general-model tokens.\n- **Combined compute**: “Combine compute, don’t select compute” means assigning different models to the jobs they handle best. An agent might use a classifier for routing, an inexpensive workhorse for routine operations, and a frontier model for difficult reasoning.\n- **Harness ownership**: An agent harness controls tools, prompts, routing, and model selection. The presenter argues that owning and modifying this layer makes it possible to incorporate Jev-like tools and reports about 20% lower token spend in his own early implementation.\n- **Free-token trade-off**: Zero-price access can accelerate adoption, but the presenter warns that prompts or other data may be retained. That privacy claim is his assessment rather than verified evidence in the source, so engineers should inspect actual provider policies before using sensitive data.\n- **Frontier-first optimization**: For a new problem, the presenter begins with a state-of-the-art model to establish a working result. Once the task repeats, he moves suitable portions to cheaper, faster, or more specialized models while preserving the required outcome.\n\n## How It Works\n\n1. Define the outcome and its minimum quality, latency, reliability, privacy, and cost requirements.\n2. Establish a baseline with a capable general-purpose model and record task success, token use, elapsed time, and human intervention.\n3. Break the workflow into subtasks such as classification, routing, extraction, generation, and difficult reasoning.\n4. Test cheaper workhorse models on routine subtasks and specialized decision models on narrow choices.\n5. Route uncertain or high-stakes cases back to a stronger model instead of forcing one inexpensive model to handle everything.\n6. Compare the combined system with the baseline using end-to-end outcomes—not token count alone.\n7. Recheck provider uptime, pricing, privacy terms, and dataset scope as conditions change.\n\n## Training Exercise\n\n1. Choose one repeated AI workflow, such as classifying support requests and drafting replies.\n2. Run 20 representative cases through your strongest available model; record correctness, latency, token cost, and minutes of human correction.\n3. Separate the classification decision from reply generation.\n4. Replace only classification with a cheaper model, a local classifier, or a decision-model API; keep the strong model as a fallback for low-confidence cases.\n5. Repeat the same 20 cases and calculate total cost, success rate, median latency, and human correction time.\n6. Adopt the routed design only if it preserves your quality threshold and improves total economics.\n7. Document what data each provider may retain, and remove sensitive fields before testing any free endpoint.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can’t OpenRouter’s market-share chart determine which model provider is winning overall?\u003c/summary>\n\nIt measures only traffic routed through OpenRouter. Direct API use, enterprise contracts, memberships, and subscriptions can make a provider’s total activity very different from its OpenRouter rank.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How can adding a classifier reduce an agent’s token cost without simply choosing a weaker LLM?\u003c/summary>\n\nA classifier can make narrow routing or decision calls without invoking a general-purpose model for every step. The stronger LLM remains available for tasks that require it, so the system combines specialized and general compute.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should an engineer measure to determine whether rising token spend is productive?\u003c/summary>\n\nCompare spend with useful task completion, output quality, latency, reliability, and human time saved. More tokens are justified only when the resulting system-level value outweighs their monetary and operational costs.\n\n\u003c/details>\n\n## Further Reading\n\n- [OpenRouter rankings](https://openrouter.ai/rankings)\n- [Pi coding agent](https://pi.dev/)\n- [10 Levels of Jev](https://youtu.be/_U-O5lYhJ7Q)\n- [Self-Compact Pi Agent](https://youtu.be/3b0U4_02bAE)\n- [Anthropic IPO report referenced by the presenter](https://finance.yahoo.com/technology/ai/articles/anthropic-targets-2-trillion-ipo-121612775.html)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
         "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
         "date": "2026-10-13",
@@ -2098,15 +2178,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
-        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
-        "date": "2026-09-29",
-        "shared_tags": [
-          "ai-agents",
-          "ai-models"
         ]
       }
     ]
@@ -2153,6 +2224,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development"
+        ]
+      },
+      {
         "id": "2026-11-03-agentic-software-delivery-across-models-repositories-tools-and-git-aa911d4212",
         "title": "Agentic software delivery across models, repositories, tools, and Git",
         "date": "2026-11-03",
@@ -2169,17 +2250,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "claude",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
-        "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
-        "date": "2026-05-25",
-        "shared_tags": [
-          "ai-agents",
-          "claude",
-          "code-review",
           "coding-agents"
         ]
       }
@@ -2526,9 +2596,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-10-05-tokenomics-model-routing-and-specialized-decision-models-7106af5bba",
-        "title": "Tokenomics, Model Routing, and Specialized Decision Models",
-        "date": "2026-10-05",
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
@@ -2770,6 +2840,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Coding agents can shift software development from manually implementing tasks to defining outcomes, testing behavior, and improving the environment that guides agents. This matters because cheaper implementation can change which products, optimizations, languages, and architectures are economically viable—but the speaker’s dramatic gains remain claims to verify locally.\n\n## Key Takeaways\n\n1. Assign agents bounded outcomes with explicit constraints and acceptance tests instead of prescribing every implementation step.\n2. Run agent work asynchronously, then review completed artifacts through tests, interface contracts, performance measurements, security checks, and targeted inspection of risky code.\n3. Revisit decisions originally driven by implementation cost—such as web versus native clients or Ruby versus Rust—when agents materially change that cost.\n4. The speaker claims a Rust rewrite of HEY’s backend could use 99% less CPU and 95% less memory, but describes these figures as back-of-the-envelope estimates rather than validated benchmarks.\n5. Make applications agent-operable through stable command-line interfaces, machine-readable output, composable commands, and useful error messages.\n6. Treat the speaker’s proposal to reduce abstractions or tolerate duplication as an experiment; compare synchronization effort, defect rates, and change failures before adopting it broadly.\n\n## Overview\n\nThis lesson distills an enthusiastic, deliberately provocative argument for agent-first software development. Its central analogy is photography: when technology sharply lowers the cost of producing something, established crafts do not simply disappear; their economics, workflows, and creative possibilities change. The speaker argues that coding agents now make implementation cheap enough to shift developers from manually writing code toward specifying outcomes, evaluating behavior, and improving the systems that guide agents. Several dramatic productivity and efficiency figures in the talk are personal anecdotes or back-of-the-envelope estimates, not independently substantiated benchmarks. Treat them as hypotheses to test in your own environment rather than universal forecasts.\n\n## Key Concepts\n\n- **Falling production costs change what gets built**: The talk compares coding agents with mass-market and digital photography. Lowering production friction can increase total output, enable previously uneconomical work, and redirect human effort. In software, this may make small utilities, aggressive optimization, native clients, and neglected improvements affordable. The durable lesson is to revisit decisions originally justified by implementation cost whenever that cost changes materially.\n- **Shift from task assignment to outcome assignment**: More capable agents can receive a problem or desired result rather than a sequence of implementation steps. The human role moves toward defining success, supplying constraints, and judging the finished behavior. The speaker cautions that excessive prescription may prevent an agent from discovering a better implementation, especially when the human is unfamiliar with the target technology.\n- **Use asynchronous agent workflows**: The speaker recommends treating agents more like coworkers than live autocomplete: assign a bounded problem, let the agent work independently, and review an artifact when it is ready. This avoids waiting on token-by-token output and permits several work streams to progress concurrently. Such delegation still requires clear acceptance criteria, isolated work, and review checkpoints.\n- **Evaluate unfamiliar implementations as black boxes**: The speaker reports using agents to produce Rust and C++ without inspecting every line, judging the programs through their external behavior instead. A responsible version of this approach combines acceptance tests, performance measurements, interface contracts, security checks, and operational limits. The source presents strong confidence in black-box evaluation but offers little evidence about its reliability in safety-critical or long-lived systems.\n- **Recalculate native, web, and language tradeoffs**: Some products are web-based or cross-platform primarily because multiple native implementations were too expensive to maintain. If agents reduce that expense, higher-fidelity native clients may become viable. The web remains valuable when instant access, links, and zero installation matter. Likewise, efficient but human-unfriendly languages may become more attractive if agents absorb much of their implementation burden. These choices should follow measured lifecycle costs, not excitement alone.\n- **Optimize systems for agents as well as humans**: Rails conventions are presented as potentially agent-friendly because predictable structure reduces ambiguity and token usage. The talk also argues that applications should expose command-line interfaces so personal agents can operate them without navigating a graphical UI or relying on an app-specific chatbot. Stable schemas, composable commands, useful error messages, and machine-readable output make software easier to automate.\n- **Revisit abstraction and duplication cautiously**: Traditional abstractions reduce repetition and centralize change, but they can also become coordination bottlenecks when many agents modify a system simultaneously. The speaker suggests that cheap generation and synchronization may alter this tradeoff. This remains speculative: duplicated logic can still diverge, conceal defects, and raise verification costs. Experiment in bounded areas and compare change failure rates before altering architectural principles broadly.\n- **Pair optimism with verification and security**: The talk advocates acting despite uncertain economic predictions while acknowledging genuine security risks. Productive optimism means running experiments and building defenses, not assuming favorable outcomes. Agents can generate vulnerable code or take harmful actions, so teams need least-privilege access, isolated execution, dependency scanning, tests, audit logs, and human approval for consequential operations.\n\n## How It Works\n\nAn agent-first workflow begins with a result rather than a code prescription. Define the user-visible outcome, relevant constraints, forbidden changes, and objective acceptance tests. Give the agent the repository context and a narrow work area, then allow it to implement asynchronously. Evaluate the result at the system boundary: run tests, exercise workflows, inspect performance and resource consumption, scan dependencies, and review risky code paths. If the result fails, first improve the specification, tests, tools, or environment—the development 'factory'—before manually patching the output. Record where human intervention was necessary so future tasks can be automated more reliably. For architectural decisions, compare alternatives empirically: prototype the web, native, or systems-language version; measure latency, binary size, resource use, maintainability, and defect rates; then choose based on evidence. The talk reports striking gains from this style, including much greater code output and large backend resource reductions, but those are speaker-reported examples without enough methodology in the source to generalize.\n\n## Training Exercise\n\nChoose one small, reversible improvement in an existing application, such as adding an export command, improving a slow operation, or building a tiny native utility. Write a one-page outcome brief containing: the user problem, observable success criteria, performance and security limits, files or systems that must not change, and automated tests. Give the brief to an agent without specifying implementation steps. Review only the first result's behavior and test evidence, then identify where the brief or tooling was ambiguous. Revise the development harness—tests, fixtures, documentation, permissions, or CLI contracts—and run the task again. Compare elapsed time, human attention, defects, resource usage, and maintainability with a conventional implementation. Conclude whether the agent changed the economics enough to justify a different architecture; do not infer a universal productivity multiplier from one trial.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>How does outcome assignment differ from traditional task assignment?\u003c/summary>\n\nOutcome assignment specifies the desired behavior, constraints, forbidden changes, and evidence of success while leaving implementation choices to the agent. Traditional task assignment tells the implementer which steps or code changes to perform.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How should unfamiliar agent-generated code be evaluated responsibly?\u003c/summary>\n\nEvaluate observable behavior with acceptance tests, interface contracts, performance and resource measurements, security checks, and operational limits. Black-box testing should be supplemented by targeted review of high-risk paths rather than treated as sufficient for every system.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why might agents change architectural tradeoffs without eliminating them?\u003c/summary>\n\nLower implementation costs can make native clients, systems languages, extensive optimization, or selective duplication more affordable. Maintenance, divergence, security, verification, and lifecycle costs still remain, so teams should prototype and measure alternatives before changing architecture.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source keynote on YouTube](https://www.youtube.com/watch?v=vDjW_dRyKXY)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-10-21-scaffold-first-engineering-maintainable-software-with-coding-agents-db94c332b3",
         "title": "Scaffold First: Engineering Maintainable Software with Coding Agents",
         "date": "2026-10-21",
@@ -2798,17 +2878,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "coding-agents",
           "software-architecture"
-        ]
-      },
-      {
-        "id": "2026-08-09-modular-ai-coding-skills-for-turning-vague-ideas-into-testable-software-f2eac68c26",
-        "title": "Modular AI Coding Skills for Turning Vague Ideas Into Testable Software",
-        "date": "2026-08-09",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents",
-          "software-architecture",
-          "software-engineering"
         ]
       }
     ]
@@ -3066,9 +3135,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
-        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
-        "date": "2026-09-24",
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
         "shared_tags": [
           "ai-agents",
           "ai-strategy",
@@ -3076,13 +3145,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-26-ai-native-defense-and-company-building-lessons-from-helsings-wartime-the-eaf3bd495e",
-        "title": "AI-Native Defense and Company Building: Lessons from Helsing's Wartime Thesis",
-        "date": "2026-08-26",
+        "id": "2026-09-24-agent-first-software-development-outcomes-interfaces-and-architectural-t-e3434c2544",
+        "title": "Agent-First Software Development: Outcomes, Interfaces, and Architectural Tradeoffs",
+        "date": "2026-09-24",
         "shared_tags": [
           "ai-agents",
           "ai-strategy",
-          "leadership-and-careers"
+          "coding-agents"
         ]
       }
     ]
@@ -4586,6 +4655,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "software-development"
+        ]
+      },
+      {
         "id": "2026-07-19-designing-longer-running-ai-agent-loops-and-workflows-b78df3113e",
         "title": "Designing Longer-Running AI Agent Loops and Workflows",
         "date": "2026-07-19",
@@ -4599,15 +4678,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-06-05-understanding-the-github-copilot-app-and-the-shift-to-agent-native-desktop-ai",
         "title": "Understanding the GitHub Copilot App and the Shift to Agent-Native Desktop AI",
         "date": "2026-06-05",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-06-03-microsoft-build-highlights-ai-agents-copilot-and-the-modern-azure-developer-stac",
-        "title": "Microsoft Build Highlights: AI Agents, Copilot, and the Modern Azure Developer Stack",
-        "date": "2026-06-03",
         "shared_tags": [
           "ai-agents",
           "coding-agents"
@@ -5121,6 +5191,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> DHH’s practical AI workflow shifts software development from manually specifying implementation toward defining outcomes, testing generated software, and steering revisions. This matters because faster implementation makes human judgment about product direction, architecture, and quality the main constraint.\n\n## Key Takeaways\n\n1. Start with a concrete user problem and desired outcome instead of a detailed implementation plan.\n2. Ask an agent for a working version—or 2–3 distinct approaches when the solution’s shape is unclear—then evaluate the software by using it.\n3. Report observed problems in product terms first; give code-level instructions when architecture, security, or performance requires them.\n4. Review AI-generated changes for system-wide cohesion before merging them into a mature codebase, because a locally reasonable patch can still weaken the overall architecture.\n5. Use agents to widen the option space through prototyping and revisions, then use human taste to select what should exist and reject what should not.\n6. According to DHH, agentic development and traditional programming are related but distinct skills, with product judgment becoming more important as implementation gets cheaper.\n7. In collaborative and open-source work, delegate test scaffolding, bug reproduction, pull-request summaries, and first-pass review to agents while maintainers retain responsibility for direction and standards.\n\n## Overview\n\nThis lesson distills David Heinemeier Hansson's account of how AI changed his software workflow from code-first programming to agent-steered product building. The source is a long-form interview, so its strongest claims are experiential and argumentative rather than experimentally verified. Treat statements about model capability, productivity gains, and the future of programming as informed opinions from one practitioner, not settled evidence. The durable takeaway is a working method: define outcomes, let agents generate and revise implementations, preserve architectural judgment where it matters, and evaluate software by using it rather than over-specifying it upfront.\n\n## Key Concepts\n\n- **From implementation-first to outcome-first**: The source argues that the biggest change is not just better autocomplete, but a shift from telling computers exactly how to build something toward describing the problem and evaluating the result. In this model, the human contribution moves upward toward goals, constraints, and taste.\n- **Agentic development is not the same as traditional programming**: DHH distinguishes between understanding and writing low-level program structures versus directing an agent to produce software. His claim is that these are related but different skills, and that product judgment can matter more than manual coding speed in the new workflow.\n- **Architecture still matters, especially in existing codebases**: A central caution in the interview is that unrestricted AI-generated changes can damage coherence in a mature product. The lesson is not 'let the model do anything,' but 'use agents aggressively while keeping a strong review standard for structure, boundaries, and long-term maintainability.'\n- **Iterate through use, not exhaustive upfront specification**: The source connects modern AI workflows to agile ideas: people often do not know what they want until they can interact with a working version. Agents make this cheaper, so rapid prototyping, comparison, and refinement become the main design loop.\n- **Taste becomes a primary bottleneck**: The interview argues that many teams are constrained less by implementation capacity than by vision, prioritization, and judgment. If software becomes cheaper to produce, selecting what should exist and what should be rejected becomes more important.\n- **Open source shifts from contribution scarcity to contribution filtering**: DHH describes a world where more people can propose changes because agents lower the skill barrier. That does not remove the need for maintainers; it changes their job from writing everything themselves to filtering, validating, and selecting high-value contributions.\n\n## How It Works\n\nUse this workflow. Start with a concrete user problem, not a detailed implementation plan. Ask the agent for a working version, or for 2-3 distinct approaches if the shape is unclear. Interact with the result immediately and record what feels wrong, missing, slow, or awkward. Feed back observations in product terms first, and only drop to code-level instructions when architecture, security, or performance genuinely require it. In an existing codebase, review for cohesion before merging: a locally reasonable patch can still weaken the system as a whole. For collaborative or open-source work, let agents handle drudge work such as test scaffolding, bug reproduction, PR summaries, and first-pass review, then keep human judgment focused on direction, standards, and tradeoffs. The operating principle is simple: widen the option space with agents, then narrow it with human taste.\n\n## Training Exercise\n\nPick a tool you use often that feels 80% right but 20% annoying. Write a one-paragraph problem statement describing the user, the job to be done, and the 3 most important frustrations. Then do three rounds: first, have an agent generate a minimal prototype; second, use it and list only observed problems, not implementation ideas; third, ask for two alternative revisions and choose one based on clarity, speed, or usability. After that, write a short review answering: what decisions required taste, what required technical review, and where the agent improved or harmed architectural quality.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>How does an outcome-first AI workflow differ from implementation-first programming?\u003c/summary>\n\nThe human defines the problem, goals, and constraints, then evaluates and steers generated implementations instead of specifying every low-level construction step. DHH argues that this moves more of the human contribution toward judgment and taste.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why does architecture still require close attention when agents modify an existing codebase?\u003c/summary>\n\nAn agent can produce a patch that solves an isolated problem while weakening boundaries, consistency, or long-term maintainability. Human review must therefore assess how the change affects the system as a whole.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What is the core iteration loop recommended by the lesson?\u003c/summary>\n\nGenerate a working prototype, use it immediately, record observed shortcomings, and request revised or alternative versions. Let agents expand the available options, then choose among them using product judgment and technical review.\n\n\u003c/details>\n\n## Further Reading\n\n- [YouTube source video](https://www.youtube.com/watch?v=NYFGCESmikA)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "coding-agents",
+          "product-design"
+        ]
+      },
+      {
         "id": "2026-07-24-why-ai-coding-harnesses-alone-do-not-prevent-software-quality-decay-cce5d2c1f8",
         "title": "Why AI Coding Harnesses Alone Do Not Prevent Software Quality Decay",
         "date": "2026-07-24",
@@ -5148,15 +5228,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "coding-agents",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-11-03-agentic-software-delivery-across-models-repositories-tools-and-git-aa911d4212",
-        "title": "Agentic software delivery across models, repositories, tools, and Git",
-        "date": "2026-11-03",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents"
         ]
       }
     ]
@@ -6452,6 +6523,14 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Diamandis argues that industrial-era schooling underprepares students for an AI-shaped economy. Families and educators can close the gap by developing adaptable mindsets, entrepreneurship, and practical AI literacy through real-world projects.\n\n## Key Takeaways\n\n1. Treat the Moonshots community’s 4.3-out-of-10 future-readiness rating as directional evidence, not a representative population finding, because Diamandis acknowledges the sample may be biased.\n2. Audit learning environments by asking whether students are learning to think with AI, adapt to change, and create real value.\n3. Use Diamandis’s three pillars—mindset, entrepreneurship, and AI skills—to identify gaps in a class, program, or learning routine.\n4. Teach AI literacy as prompting, AI-assisted reasoning, research, critical evaluation, and creative collaboration—not merely traditional programming.\n5. Replace some recall-heavy assignments with projects that require better questions, critical review of AI output, and a useful artifact such as a proposal, explainer, or prototype.\n6. Develop purpose, curiosity, abundance, moonshot ambition, and exponential thinking as habits for responding to rapid change.\n7. Measure whether redesigned learning activities improve readiness instead of assuming that AI use or project-based work is automatically effective.\n\n## Overview\n\nThis lesson turns Peter H. Diamandis's article into a practical framework for evaluating whether education is preparing students for an AI-shaped economy. The source argues that traditional schooling is misaligned with future needs and supports that claim with a survey of the author's Moonshots community. The author explicitly notes that this audience is likely biased, so treat the numbers as directional evidence from a like-minded community, not as a representative population study. The core takeaway is still actionable: if schools underteach AI, families, teachers, and students can still prioritize AI literacy, adaptable thinking, and real-world value creation.\n\n## Key Concepts\n\n- **System mismatch**: The article's central claim is that a school model designed for an industrial era emphasizes memorization and standardized content while undervaluing skills the author sees as essential in an AI era.\n- **Community-survey evidence**: The article uses a Moonshots community survey to argue that many insiders think education is underpreparing students; for example, the average future-readiness rating reported is 4.3 out of 10. The author also admits this sample may be biased.\n- **AI readiness gap**: A major concern in the article is that students are not being taught to use AI well. Reported parent responses say AI is often banned or merely allowed rather than taught, with only a very small share describing it as core curriculum.\n- **Future skill priorities**: The source says parents most value AI literacy, critical thinking, adaptability, and entrepreneurship over narrower test-driven preparation. This is presented as evidence of a gap between what schools teach and what families believe matters.\n- **Three-pillar education model**: The author's proposed replacement framework has three parts: mindsets, entrepreneurship, and AI skills. Together they are meant to prepare students to keep learning, create value, and work effectively with AI.\n- **Mindset as operating system**: The article treats mindset as foundational, naming purpose, curiosity, abundance, moonshot ambition, and exponential thinking as habits that shape how a learner responds to rapid change.\n- **AI literacy over coding**: The source distinguishes AI literacy from traditional programming. It emphasizes prompting, reasoning with AI, research support, and creative collaboration, linking this to the Socratic method.\n\n## How It Works\n\nUse the lesson as a diagnostic and redesign tool. First, audit a learning environment by asking three questions drawn from the article: Are students being taught to think with AI, to adapt, and to build real value? Second, compare current instruction against the source's three pillars: mindset, entrepreneurship, and AI literacy. Third, convert the gap into concrete practice: replace some memorization-heavy work with AI-assisted research, Socratic prompting, project-based learning, and small acts of creation such as selling, building, or presenting something useful. The article's logic is simple: if the environment does not teach students how to learn, use AI, and create value, it is preparing them for a world that is already disappearing.\n\n## Training Exercise\n\nRun a 45-minute redesign exercise. Step 1: Write down one class, program, or learning routine you know well. Step 2: Score it from 1-10 on the three pillars in the source: mindset, entrepreneurship, and AI literacy. Step 3: List one existing activity that mainly rewards recall. Step 4: Rewrite that activity into an AI-age version: require students to ask better questions, use AI as a research partner, evaluate the output critically, and produce a real artifact such as a proposal, explainer, or prototype. Step 5: Add one mindset prompt from the article, such as purpose or curiosity, and ask how the work helps another person. Step 6: Note what evidence you would need to know whether the redesign actually improved readiness, since the source provides a strong argument but only limited survey evidence.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>What are the three pillars in Diamandis’s proposed education model?\u003c/summary>\n\nThe three pillars are mindset, entrepreneurship, and AI skills. They are intended to help students keep learning, create value, and work effectively with AI.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why should the reported 4.3-out-of-10 future-readiness score be interpreted cautiously?\u003c/summary>\n\nIt comes from a survey of Diamandis’s Moonshots community, an audience he acknowledges is likely biased. The result is useful as directional evidence from a like-minded group, not as a representative population estimate.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How can a recall-focused assignment be redesigned for AI-era readiness?\u003c/summary>\n\nRequire students to formulate strong questions, use AI as a research partner, evaluate its output critically, and create a useful artifact such as a proposal, explainer, or prototype. Add a mindset prompt and define evidence that would show whether the redesign improved readiness.\n\n\u003c/details>\n\n## Further Reading\n\n- [YOUR CHILD IS NOT READY - by Peter H. Diamandis](https://metatrends.substack.com/p/your-child-is-not-ready?r=7692ad)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "entrepreneurship"
+        ]
+      },
+      {
         "id": "2026-07-27-build-products-for-yourself-a-practical-lesson-in-small-team-cost-aware--12a2954604",
         "title": "Build Products for Yourself: A Practical Lesson in Small-Team, Cost-Aware Product Design",
         "date": "2026-07-27",
@@ -6473,14 +6552,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "date": "2026-09-09",
         "shared_tags": [
           "education"
-        ]
-      },
-      {
-        "id": "2026-09-01-lesson-how-to-analyze-claims-about-scientific-stagnation-incentives-and--3ade5a69b0",
-        "title": "Lesson: How to Analyze Claims About Scientific Stagnation, Incentives, and Speculative Physics",
-        "date": "2026-09-01",
-        "shared_tags": [
-          "critical-thinking"
         ]
       }
     ]
@@ -8938,21 +9009,21 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "entrepreneurship"
+        ]
+      },
+      {
         "id": "2026-08-23-practical-lessons-on-ai-adoption-product-focus-and-building-in-a-slow-mo-1bec40fbd3",
         "title": "Practical Lessons on AI Adoption, Product Focus, and Building in a Slow-Moving Economy",
         "date": "2026-08-23",
         "shared_tags": [
           "ai-strategy",
-          "leadership-and-careers"
-        ]
-      },
-      {
-        "id": "2026-08-16-building-hard-things-problem-creation-efficiency-edges-and-industry-spec-cd603458c2",
-        "title": "Building Hard Things: Problem Creation, Efficiency Edges, and Industry-Specific Robotics",
-        "date": "2026-08-16",
-        "shared_tags": [
-          "ai-strategy",
-          "entrepreneurship",
           "leadership-and-careers"
         ]
       }
@@ -10991,12 +11062,12 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-02-hermes-agent-as-a-user-aligned-harness-context-management-self-improveme-6ce93b5cfe",
-        "title": "Hermes Agent as a User-Aligned Harness: Context Management, Self-Improvement, and Open Workflows",
-        "date": "2026-08-02",
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
         "shared_tags": [
           "ai-agents",
-          "human-ai-collaboration"
+          "coding-agents"
         ]
       }
     ]
@@ -12561,6 +12632,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> The article argues that better AI makes routine competence cheaper and more abundant, increasing demand for experts who can frame problems, evaluate outputs, maintain guardrails, and create differentiated work. Automation changes where human value sits rather than simply eliminating human work.\n\n## Key Takeaways\n\n1. Automate repeatable, well-scoped tasks with stable inputs and clear success criteria; keep humans involved when ambiguity, risk, or context increases.\n2. Treat human-agent collaboration as a “sandwich”: a person frames and directs the work before validating and integrating the result.\n3. Expect cheap AI-generated competence to increase output volume while also producing more generic, low-differentiation work.\n4. Invest in review queues, evaluations, CI checks, repository rules, permissions, escalation paths, and workflow maintenance as automation expands.\n5. Interpret benchmark gains within their human-designed frame, including the prompt, environment, stopping conditions, helper logic, and grading process.\n6. Move expert attention upstream to deciding goals and constraints, and downstream to reviewing, integrating, migrating, and monitoring AI-generated work.\n7. Analyze a real workflow by identifying three tasks to automate, three places requiring human review, and two expert capabilities the team should develop next.\n\n## Overview\n\nThis lesson explains a practical paradox emerging in AI-heavy organizations: as automation improves, the amount of human work often increases rather than disappears. The article argues that modern AI makes previously scarce competence cheap, which expands output volume, but also creates more low-differentiation work that must be framed, reviewed, integrated, and improved by human experts.\n\nThis matters to engineers, product leaders, operations teams, and founders who are reorganizing work around coding agents and workflow automation. Instead of treating AI as a binary replacement for people, the piece offers a more operational model: AI excels inside frames humans provide, while human value shifts toward setting goals, judging outputs, maintaining systems, and creating the next layer of differentiation.\n\n## Key Concepts\n\n- **Agent employees**: The article distinguishes agents that act like delegated coworkers from humans collaborating live with AI. Agent employees can be invoked asynchronously to draft documents, triage support issues, or summarize discussions without requiring constant supervision. They are most effective on repeatable, well-scoped tasks with stable inputs and clear success criteria.\n- **Human-agent collaboration**: A second and more important mode is synchronous collaboration in tools like Codex or Claude Code, where a human and one or more agents share the same workspace. In this mode, the human plans, redirects, reviews, and sequences work while the agent executes subtasks. The article calls this the human 'sandwich': the person frames the work at the beginning and validates it at the end.\n- **Cheap competence**: Language models package the visible residue of past human expertise—code, prose, tickets, designs—into a broadly accessible system. That makes previously specialized output much cheaper to produce. As a result, more people can attempt tasks that used to require dedicated experts.\n- **Commoditization and slop**: When many users rely on the same models and patterns, output tends to converge toward generic sameness. The article uses 'slop' to describe work that is superficially competent but lacks coherence, specificity, or originality. This makes raw output abundant, but lowers its differentiated value.\n- **Frames vs framers**: Benchmarks measure model performance inside a frame: a prompt, task definition, and evaluation setup chosen by humans. A framer is the human who decides what problem matters, what constraints apply, and what counts as success. The core claim is that models can optimize within frames, but that does not eliminate the need for humans to define and revise those frames.\n- **Benchmark saturation**: As models improve on a benchmark, they make the measured task cheaper and more widely attempted. But once a benchmark is saturated, humans shift to a harder framing of the same domain, such as moving from 'can the model rewrite code?' to 'when should a rewrite happen, with what scope and migration plan?'. This creates a repeating cycle where automation expands demand for expert judgment.\n\n## How It Works\n\nThe article builds its argument from observed workflows inside Every, a company that heavily uses AI across coding, writing, design, support, and email. The central observation is that extensive automation has not removed the need for human workers. Instead, it has changed the shape of work.\n\nThe operational model has two layers:\n\n1. **Delegated agents**\n   - Slack-style coworker agents handle tasks like proposal drafting, digest creation, metrics analysis, and memo generation.\n   - Embedded agents sit inside a workflow like customer support and handle repetitive front-line interactions.\n   - These systems reduce toil, but they require setup, monitoring, maintenance, and escalation paths.\n\n2. **Interactive collaboration environments**\n   - Tools like Codex and Claude Code act as a shared operating environment for complex work.\n   - The human stays in the loop, steering the process, checking quality, and deciding what the next subproblem is.\n   - This mode is especially important for open-ended tasks such as coding, writing, and cross-functional decision-making.\n\nA key practical claim is that agents work best when the problem is stable and the frame is already well defined. For example, a support agent can classify and close routine tickets because the workflow, policies, and desired outputs are fairly explicit. But as soon as the task becomes ambiguous or high stakes, human involvement becomes necessary to:\n\n- choose the target problem\n- supply context the model does not naturally have\n- spot incorrect or low-quality outputs\n- turn draft output into a real business decision\n- maintain the automation itself\n\nThe article then explains **why more automation creates more human work**.\n\nFirst, AI makes yesterday's expertise cheap. Because models are trained on the recorded outputs of human work, they can reproduce common forms of that work at low cost. That means more employees can now generate code, content, designs, and analyses.\n\nSecond, cheap competence gets adopted widely. The volume of output grows because many more people can now perform tasks that used to be bottlenecked on experts.\n\nThird, volume creates sameness. If everyone uses similar models and prompting habits, much of the resulting work becomes generic. This lowers the value of default model output.\n\nFourth, sameness increases demand for differentiation. Organizations now need experts not only to produce original work, but to review, sharpen, govern, and systematize the flood of AI-generated drafts.\n\nThis creates two kinds of new expert work:\n\n- **Quality control and governance**: review queues, evals, CI checks, repo rules, prompt files, permissions, and workflow design.\n- **Higher-order application**: using AI to tackle larger or more novel problems than were previously feasible.\n\nThe benchmark section reinforces the same idea. The article describes an internal 'Senior Engineer benchmark' where a coding agent is asked to perform a first-principles rewrite of a broken codebase. A model score on that benchmark looks like a measure of raw intelligence, but the author argues it is actually a measure of the model operating within a carefully chosen frame.\n\nThat frame includes:\n\n- the exact prompt\n- hints embedded in the prompt\n- the structure of the codebase\n- the stopping conditions\n- the grading process\n- helper logic, such as automated prodding when the model stalls\n\nThis matters because benchmark gains are real but easy to overinterpret. If a model gets dramatically better at one framed task, that lowers the cost of doing that task. Then more people attempt it, which exposes additional decisions that were previously hidden inside expert judgment.\n\nFor example, if 'rewrite the app from first principles' becomes cheap, the next hard problems become:\n\n- whether a rewrite should happen at all\n- what should be preserved\n- how migration works\n- how to review the result\n- what rollback looks like\n- how existing data and users are affected\n\nSo the measured task gets cheaper, but the surrounding expert decisions become more visible and more valuable.\n\nThe article generalizes this into a repeatable loop:\n\n```text\nhuman expertise -> captured as corpus -> model makes it cheap -> adoption expands -> output becomes abundant\n-> generic output loses value -> experts move upstream/downstream\n-> humans define new frames and constraints -> models improve inside those frames\n-> cycle repeats\n```\n\nThe final argument is that even in a future with AGI-like systems, this framing problem remains. A highly capable model may choose strategies and optimize over long horizons, but it is still generally pursuing goals supplied by humans or organizations. The system can operate within frames and perhaps move between them, but the human role of deciding what matters now, in this situation, for this business or customer, does not disappear so easily.\n\nFor working engineers, the practical takeaway is not 'AI can never replace tasks.' It is: the more your team automates execution, the more valuable become the skills of framing problems, building guardrails, evaluating outputs, and integrating AI work into live systems.\n\n## Training Exercise\n\nBuild a small team workflow analysis to identify where AI creates more expert work rather than less.\n\n### Goal\nMap one real workflow in your team into:\n1. tasks that can be delegated to an agent,\n2. tasks that require human-agent collaboration,\n3. expert judgments that become *more* important after automation.\n\n### Step 1: Pick a workflow\nChoose one concrete process, such as:\n- bug triage\n- pull request creation and review\n- customer support escalation\n- incident postmortem drafting\n- product spec creation\n\n### Step 2: Break it into stages\nList 5-10 steps in the workflow. Example for PR delivery:\n- clarify the problem\n- inspect the codebase\n- implement changes\n- run tests\n- review architecture impact\n- merge and deploy\n- monitor regressions\n\n### Step 3: Classify each step\nCreate a table like this:\n\n```text\n| Step | Delegated agent? | Human-AI collaboration? | Human expert judgment needed? | Why? |\n|------|-------------------|-------------------------|-------------------------------|------|\n| Implement fix | Yes | Yes | Medium | Agent can code, but human validates approach |\n| Decide if rewrite is needed | No | Yes | High | Requires tradeoff judgment and system context |\n| Run regression tests | Yes | No | Low | Stable and automatable |\n```\n\n### Step 4: Identify the frame\nFor 2-3 steps, write the exact prompt or instruction you would give an agent. Then ask:\n- What assumptions are hidden in this prompt?\n- What context had to be decided before the prompt was possible?\n- What would the model likely miss without a human reviewer?\n\n### Step 5: Find the 'new expert work'\nWrite down at least 3 tasks that become more important *because* AI is now involved. Examples:\n- defining repository rules\n- improving test harnesses\n- reviewing AI-generated diffs\n- setting support escalation thresholds\n- refining evaluation criteria\n\n### Step 6: Run one live experiment\nUse an AI assistant on a real but low-risk task. For example:\n\n```text\nPrompt: Review this module and propose whether we should patch the bug incrementally or do a structural rewrite. List the invariants we must preserve, the migration risks, and the tests required to validate the change.\n```\n\nThen compare:\n- the raw AI answer\n- your own review comments\n- what additional context you had to inject\n\n### Deliverable\nProduce a 1-page summary with:\n- the workflow you analyzed\n- 3 tasks to automate now\n- 3 places where human review is mandatory\n- 2 new expert capabilities your team should build next\n\nIf you do this with your actual engineering process, you will directly see the article's thesis: automation removes some execution work, but increases the need for framing, evaluation, and systems design.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does the article claim that improved automation can increase demand for expert human work?\u003c/summary>\n\nCheaper competence allows more people to generate code, content, designs, and analyses, increasing both volume and sameness. The article argues that experts are then needed to frame tasks, review quality, govern workflows, integrate results, and create differentiation.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What is the difference between an agent employee and human-agent collaboration?\u003c/summary>\n\nAn agent employee asynchronously handles repeatable, clearly scoped work such as drafting or ticket triage. Human-agent collaboration keeps a person actively involved in planning, redirecting, sequencing, and validating complex or open-ended work.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why can a strong benchmark score overstate what a model can do independently?\u003c/summary>\n\nA benchmark evaluates the model inside a frame humans designed, including the prompt, task environment, hints, stopping rules, helper logic, and grading process. Success within that frame does not resolve surrounding judgments such as whether the task should be attempted, what must be preserved, or how its result should be deployed safely.\n\n\u003c/details>\n\n## Further Reading\n\n- [OpenAI: GPT-4 Technical Report](https://arxiv.org/abs/2303.08774)\n- [Anthropic: Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback)\n- [Herbert A. Simon - The Sciences of the Artificial](https://mitpress.mit.edu/9780262691918/the-sciences-of-the-artificial/)\n- [Andrej Karpathy: Software Is Changing (talks and essays on AI-native development)](https://karpathy.ai/)",
     "related": [
       {
+        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
+        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
+        "date": "2026-11-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "coding-agents"
+        ]
+      },
+      {
         "id": "2026-07-17-vs-code-1127-agent-workflows-browser-automation-and-enterprise-controls",
         "title": "VS Code 1.127: Agent Workflows, Browser Automation, and Enterprise Controls",
         "date": "2026-07-17",
@@ -12584,16 +12665,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-09-21-building-startups-when-ai-expands-what-small-experienced-teams-can-do-39ccaecf9c",
         "title": "Building Startups When AI Expands What Small, Experienced Teams Can Do",
         "date": "2026-09-21",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-08-03-agentic-software-workflows-lessons-from-anthropics-claude-centered-engin-b0e2b379f9",
-        "title": "Agentic Software Workflows: Lessons from Anthropic's Claude-Centered Engineering",
-        "date": "2026-08-03",
         "shared_tags": [
           "ai-agents",
           "ai-strategy",
