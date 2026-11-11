@@ -504,6 +504,81 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     ]
   },
   {
+    "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+    "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+    "date": "2026-11-10",
+    "tags": [
+      "ai-agents",
+      "model-evaluation",
+      "software-engineering",
+      "workflow-design",
+      "vibe-coding"
+    ],
+    "source": "https://www.youtube.com/watch?v=VkvCrIc3jfU",
+    "source_type": "youtube",
+    "channel": "Every",
+    "published": "2026-11-10",
+    "duration_seconds": 6132,
+    "minutes": 102.2,
+    "minutes_estimated": false,
+    "tldr": "Fable 5.2 appears most useful for ambitious, ambiguous work that can run autonomously and verify itself. The practical shift is to define success with evals, launch several tasks in parallel, and reserve faster models for routine execution.",
+    "topics": [
+      "ai-agents",
+      "ai-models",
+      "llm-evaluation",
+      "productivity"
+    ],
+    "kind": "interview",
+    "depth": 2,
+    "actionability": 2,
+    "content": "## TL;DR\n\n> Fable 5.2 appears most useful for ambitious, ambiguous work that can run autonomously and verify itself. The practical shift is to define success with evals, launch several tasks in parallel, and reserve faster models for routine execution.\n\n## Key Takeaways\n\n1. Attach evals or another source of ground truth to long-running tasks; the presenters found that Fable 5.2 performed best when it could inspect and test its own output.\n2. Run independent projects in parallel instead of waiting interactively: the presenters describe tasks lasting from roughly 24 hours to several days or weeks.\n3. Use Fable 5.2 selectively for ambiguous, consequential, or technically difficult work; Opus 5.5 and Sonnet were still preferred for faster, cheaper everyday iterations.\n4. Lower the effort level when rapid feedback matters. Several testers reported strong results at medium or high, while extra-high or maximum effort sometimes added latency or degraded design output.\n5. Route work by difficulty: use Fable as an orchestrator that delegates routine execution, or let a smaller model consult it as an adviser when blocked.\n6. Treat generated software as a maintained system, not a one-shot demo; automated tests, review, feedback capture, and repair loops remain necessary.\n7. Evaluate cost against the previously feasible alternative, not token prices alone. The presenters report approximately $3,000 for a detailed 3D simulation, $10,000 for a video editor, and $20,000 for a music application at API-equivalent pricing.\n\n## Key Moments\n\n- [5:13](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=313s) — Why slower autonomous work requires parallel projects and a redesigned workflow\n- [8:52](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=532s) — How missing tools and verification caused a long-running task to fail\n- [10:29](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=629s) — A 3D Jerusalem benchmark demonstrates long-horizon research, implementation, and play-testing\n- [25:02](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=1502s) — Ground truth and thousands of automated checks make autonomous refinement possible\n- [32:51](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=1971s) — A model-selection rule separates everyday work from ambiguous, difficult assignments\n- [40:06](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=2406s) — Two routing patterns use Fable as either orchestrator or specialist adviser\n- [1:06:39](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=3999s) — Writing tests reveal strong low-effort drafting but weak information hierarchy\n- [1:24:24](https://www.youtube.com/watch?v=VkvCrIc3jfU&t=5064s) — A backlog experiment produces 75 pull requests while preserving unresolved product decisions\n\n## Overview\n\nThe source presents Fable 5.2 as a long-horizon model suited to difficult software, research, simulation, and design work. Every’s testers report building browser-based 3D environments, a specialized digital audio workstation, an internal video editor, and large batches of pull requests with unusually little direct code handling.\n\nThe evidence is experiential rather than a controlled, independent benchmark: most comparisons are demonstrations, internal tests, and presenter judgments. The lesson is therefore less “this model is universally best” and more a reusable operating method for capable agents: provide verification, match effort to the task, parallelize execution, and route cheaper models to simpler work.\n\n## Key Concepts\n\n- **Long-horizon execution**: The model is used for assignments lasting hours, days, or potentially weeks rather than a short chat exchange. This makes it suitable for large builds and research loops, but it also means users should launch multiple independent tasks instead of waiting synchronously.\n- **Evals and ground truth**: An eval is a repeatable way to judge whether work is correct or improving. Examples in the source include known event timelines, collision tests, play-testing, expected experimental outcomes, and automated code review.\n- **Effort-level selection**: More inference effort is not automatically better for every task. Testers reported that medium or high could provide quicker iteration, while extra-high or maximum effort encouraged extensive verification and sometimes produced worse design results.\n- **Orchestrator pattern**: Fable plans the project, makes ambiguous decisions, and delegates straightforward execution to faster models such as Opus or Sonnet. This preserves its judgment where it matters while reducing expensive token use.\n- **Adviser pattern**: A faster model performs most of the work and consults Fable only when it encounters a difficult bug or judgment call. This fits tasks that are mostly routine but contain a few challenging decisions.\n- **Professional-context amplification**: The strongest examples combined the model with deep human domain knowledge. A musician specified features for an ambient-music workstation, while finance and design specialists created tests based on their own professional expectations.\n- **Information hierarchy**: Strong reasoning does not guarantee strong prose structure. The writing test found that Fable could draft at low effort but still tended to delay the central point behind a long anecdote, making editorial review necessary.\n- **Decision backlog**: One presenter argues that autonomous implementation changes what belongs in a backlog. Tasks already approved can be executed, while the backlog becomes a queue of unresolved choices, dependencies, and questions requiring human judgment.\n\n## How It Works\n\n1. Choose a consequential task with a clear outcome but enough ambiguity to benefit from stronger judgment.\n2. Supply the complete working environment: files, visual inputs, tools, sandbox access, and domain references. A deck-editing attempt failed because the model received extracted text but could not properly inspect the slides’ images.\n3. Define verification before execution. Add tests, expected states, comparison data, visual checks, or a scoring rubric.\n4. Select effort deliberately: use medium or high for interactive work; reserve higher settings for autonomous work where extensive checking is valuable.\n5. Decide the routing pattern. Let Fable orchestrate many cheaper workers when the whole project is difficult, or use it as an adviser when only isolated decisions require stronger judgment.\n6. Launch several independent jobs and review them at planned checkpoints instead of continually prompting each thread.\n7. Inspect artifacts and eval results, not merely the model’s narrative of what it completed.\n8. Feed defects into a repeatable repair loop with automated testing and human review for consequential changes.\n\n## Training Exercise\n\nBuild a small long-horizon workflow without attempting a production-scale application.\n\n1. Choose a bounded project, such as an interactive historical map, specialized calculator, or three-screen internal tool.\n2. Write a one-paragraph outcome specification and list five acceptance checks, including at least one edge case and one visual or usability check.\n3. Split the project into planning, implementation, testing, and documentation tasks.\n4. Assign the planning and ambiguous decisions to the strongest available model; route two routine implementation tasks to a faster model if your environment supports delegation.\n5. Run one version at medium effort and another at high effort while keeping the specification identical.\n6. Record elapsed time, cost, passed checks, defects, and required human interventions.\n7. Review the artifacts directly and identify whether failures came from model capability, missing context, inadequate tools, or weak evals.\n8. Improve the evals once and rerun only the failed portion. Conclude with a routing rule stating which future tasks deserve the stronger model.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why are evals especially important for a model that can work unattended for days?\u003c/summary>\n\nLong execution does not guarantee useful execution. Evals, visual inspection tools, tests, or other ground truth let the model detect errors and refine its work before a person returns.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>When should a faster model remain the default instead of Fable 5.2?\u003c/summary>\n\nUse the faster model for routine, well-specified, latency-sensitive, or highly iterative work. The presenters continued to prefer Opus 5.5 or Sonnet for everyday coding, prose iteration, and many static design tasks.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What organizational change follows from reliable long-horizon agents?\u003c/summary>\n\nPeople become responsible for specifying outcomes, choosing evals, launching parallel work, and resolving product decisions. One presenter concluded that a backlog should retain undecided work, while already-approved tasks can move directly into execution.\n\n\u003c/details>\n\n## Further Reading\n\n- [Original YouTube source](https://www.youtube.com/watch?v=VkvCrIc3jfU)\n- [Every subscription](https://every.to/subscribe?utm_source=youtube)\n- [Every on X](https://x.com/every)\n- [Dan Shipper on X](https://x.com/danshipper)",
+    "related": [
+      {
+        "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
+        "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
+        "date": "2026-09-04",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
+        "date": "2026-09-29",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation"
+        ]
+      },
+      {
+        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
+        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
+        "date": "2026-09-03",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "llm-evaluation",
+          "software-engineering"
+        ]
+      },
+      {
+        "id": "2026-10-05-tokenomics-model-routing-and-specialized-decision-models-7106af5bba",
+        "title": "Tokenomics, Model Routing, and Specialized Decision Models",
+        "date": "2026-10-05",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
     "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
     "date": "2026-11-10",
@@ -2354,6 +2429,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> More token usage creates value only when it produces better outcomes. Engineers should route each task to the cheapest model that meets its performance, speed, reliability, and privacy requirements, including specialized classifiers such as Jev where appropriate.\n\n## Key Takeaways\n\n1. OpenRouter processed 146 trillion tokens in the reported week, versus 4.5 trillion roughly one year earlier, according to the presenter; the later claim of 445 trillion conflicts with the earlier figure and should not be treated as confirmed.\n2. Token volume is not a value metric: measure useful work, latency, reliability, total cost, and human time rather than celebrating higher consumption.\n3. DeepSeek, Google, and OpenAI repeatedly occupied OpenRouter’s leading market-share positions, but that dataset excludes substantial direct and subscription traffic to model providers.\n4. Gemini 3.8 Flash is the presenter’s default Pi agent model because he considers its performance, speed, and cost balance suitable for routine work.\n5. Jev is presented as a zero-shot decision or classification model that can complement general-purpose LLMs; the presenter reports roughly 20% token-cost savings in his early Pi-agent benchmarks.\n6. Free models can lower direct cost but may introduce data-retention and privacy risks; the presenter advises against sending proprietary information without understanding provider policies.\n7. Start recurring work with a capable frontier model, then move stable subtasks to cheaper, faster, or more specialized models after measuring quality.\n\n## Key Moments\n\n- [1:03](https://www.youtube.com/watch?v=8BD6w5wELRo&t=63s) — See the reported rise from 4.5 trillion to 146 trillion weekly OpenRouter tokens.\n- [3:40](https://www.youtube.com/watch?v=8BD6w5wELRo&t=220s) — Learn why token growth must be evaluated against useful work and human time.\n- [7:19](https://www.youtube.com/watch?v=8BD6w5wELRo&t=439s) — Follow the presenter’s rough calculation illustrating why OpenRouter share cannot represent the whole market.\n- [10:58](https://www.youtube.com/watch?v=8BD6w5wELRo&t=658s) — Understand how Jev differs from an agent’s general-purpose language model.\n- [12:32](https://www.youtube.com/watch?v=8BD6w5wELRo&t=752s) — Review the presenter’s early benchmark showing an estimated 20% cost reduction with Jev.\n- [15:38](https://www.youtube.com/watch?v=8BD6w5wELRo&t=938s) — Examine the privacy trade-off behind ostensibly free model access.\n- [19:42](https://www.youtube.com/watch?v=8BD6w5wELRo&t=1182s) — See why control of an agent harness enables customization and model substitution.\n- [23:53](https://www.youtube.com/watch?v=8BD6w5wELRo&t=1433s) — Apply the frontier-first, optimize-afterward strategy to repeated workloads.\n\n## Overview\n\nThe lesson is a practical framework for reading model-usage data and designing economical AI systems. The presenter uses OpenRouter rankings to argue that aggregate token demand is growing rapidly, while repeatedly noting that OpenRouter represents only one slice of the market. One numerical inconsistency deserves caution: the source first reports 146 trillion tokens for the latest week but later says 445 trillion.\n\nFor engineers building agents, the actionable idea is to manage a portfolio of compute rather than crown one universal model. General-purpose LLMs, open-weight models, and specialized decision models can be routed according to quality, speed, cost, uptime, and privacy requirements.\n\n## Key Concepts\n\n- **Tokenomics**: Tokenomics is the discipline of connecting model consumption to useful outcomes. The presenter distinguishes productive compute growth from token burning that merely creates a feeling of activity.\n- **Dataset scope**: OpenRouter rankings describe traffic passing through OpenRouter, not the entire model market. Direct provider usage and subscriptions are omitted, while price-sensitive individual developers and smaller organizations may be disproportionately represented.\n- **Performance-speed-cost trade-off**: A model is useful when it meets the task’s required quality at acceptable latency and cost. The presenter treats workhorse models such as Gemini Flash as valuable because they balance these dimensions rather than maximizing only intelligence.\n- **Specialized decision models**: Jev is described as a fast, reliable, zero-shot classifier for decisions within broader workflows. It is not presented as a wholesale LLM replacement; its role is to handle narrow choices that otherwise consume general-model tokens.\n- **Combined compute**: “Combine compute, don’t select compute” means assigning different models to the jobs they handle best. An agent might use a classifier for routing, an inexpensive workhorse for routine operations, and a frontier model for difficult reasoning.\n- **Harness ownership**: An agent harness controls tools, prompts, routing, and model selection. The presenter argues that owning and modifying this layer makes it possible to incorporate Jev-like tools and reports about 20% lower token spend in his own early implementation.\n- **Free-token trade-off**: Zero-price access can accelerate adoption, but the presenter warns that prompts or other data may be retained. That privacy claim is his assessment rather than verified evidence in the source, so engineers should inspect actual provider policies before using sensitive data.\n- **Frontier-first optimization**: For a new problem, the presenter begins with a state-of-the-art model to establish a working result. Once the task repeats, he moves suitable portions to cheaper, faster, or more specialized models while preserving the required outcome.\n\n## How It Works\n\n1. Define the outcome and its minimum quality, latency, reliability, privacy, and cost requirements.\n2. Establish a baseline with a capable general-purpose model and record task success, token use, elapsed time, and human intervention.\n3. Break the workflow into subtasks such as classification, routing, extraction, generation, and difficult reasoning.\n4. Test cheaper workhorse models on routine subtasks and specialized decision models on narrow choices.\n5. Route uncertain or high-stakes cases back to a stronger model instead of forcing one inexpensive model to handle everything.\n6. Compare the combined system with the baseline using end-to-end outcomes—not token count alone.\n7. Recheck provider uptime, pricing, privacy terms, and dataset scope as conditions change.\n\n## Training Exercise\n\n1. Choose one repeated AI workflow, such as classifying support requests and drafting replies.\n2. Run 20 representative cases through your strongest available model; record correctness, latency, token cost, and minutes of human correction.\n3. Separate the classification decision from reply generation.\n4. Replace only classification with a cheaper model, a local classifier, or a decision-model API; keep the strong model as a fallback for low-confidence cases.\n5. Repeat the same 20 cases and calculate total cost, success rate, median latency, and human correction time.\n6. Adopt the routed design only if it preserves your quality threshold and improves total economics.\n7. Document what data each provider may retain, and remove sensitive fields before testing any free endpoint.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can’t OpenRouter’s market-share chart determine which model provider is winning overall?\u003c/summary>\n\nIt measures only traffic routed through OpenRouter. Direct API use, enterprise contracts, memberships, and subscriptions can make a provider’s total activity very different from its OpenRouter rank.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How can adding a classifier reduce an agent’s token cost without simply choosing a weaker LLM?\u003c/summary>\n\nA classifier can make narrow routing or decision calls without invoking a general-purpose model for every step. The stronger LLM remains available for tasks that require it, so the system combines specialized and general compute.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should an engineer measure to determine whether rising token spend is productive?\u003c/summary>\n\nCompare spend with useful task completion, output quality, latency, reliability, and human time saved. More tokens are justified only when the resulting system-level value outweighs their monetary and operational costs.\n\n\u003c/details>\n\n## Further Reading\n\n- [OpenRouter rankings](https://openrouter.ai/rankings)\n- [Pi coding agent](https://pi.dev/)\n- [10 Levels of Jev](https://youtu.be/_U-O5lYhJ7Q)\n- [Self-Compact Pi Agent](https://youtu.be/3b0U4_02bAE)\n- [Anthropic IPO report referenced by the presenter](https://finance.yahoo.com/technology/ai/articles/anthropic-targets-2-trillion-ipo-121612775.html)",
     "related": [
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models"
+        ]
+      },
+      {
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
@@ -2375,15 +2459,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
         "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
         "date": "2026-10-13",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-10-07-how-ai-agents-reallocate-software-value-across-data-workflows-and-interf-021cab04fe",
-        "title": "How AI Agents Reallocate Software Value Across Data, Workflows, and Interfaces",
-        "date": "2026-10-07",
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
@@ -2726,6 +2801,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation"
+        ]
+      },
+      {
         "id": "2026-05-25-practical-vibe-coding-with-claude-code-prompting-review-and-agent-control",
         "title": "Practical Vibe-Coding with Claude Code: Prompting, Review, and Agent Control",
         "date": "2026-05-25",
@@ -2734,17 +2820,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-coding",
           "code-review",
           "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
-        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
-        "date": "2026-09-29",
-        "shared_tags": [
-          "ai-agents",
-          "ai-models",
-          "coding-agents",
-          "model-evaluation"
         ]
       }
     ]
@@ -2857,6 +2932,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "model-evaluation"
+        ]
+      },
+      {
         "id": "2026-05-29-claude-opus-48-effort-control-dynamic-workflows-and-more-reliable-agentic-ai",
         "title": "Claude Opus 4.8: Effort Control, Dynamic Workflows, and More Reliable Agentic AI",
         "date": "2026-05-29",
@@ -2871,16 +2956,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-10-08-claude-code-mods-event-driven-interface-customization-and-workflow-guard-60de398533",
         "title": "Claude Code Mods: Event-Driven Interface Customization and Workflow Guardrails",
         "date": "2026-10-08",
-        "shared_tags": [
-          "ai-agents",
-          "claude",
-          "coding-agents"
-        ]
-      },
-      {
-        "id": "2026-10-02-an-ai-native-software-development-lifecycle-built-on-intent-verification-d1629c49a7",
-        "title": "An AI-Native Software Development Lifecycle Built on Intent, Verification, and Feedback",
-        "date": "2026-10-02",
         "shared_tags": [
           "ai-agents",
           "claude",
@@ -4364,6 +4439,18 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Evaluate frontier agents by cost per completed task, tool reliability, scope control, and long-session follow-through—not token price or headline benchmarks. These measures reveal how much supervision an agent needs before it can be trusted with meaningful work.\n\n## Key Takeaways\n\n1. Separate direct observations, vendor or benchmark claims, and speculation before drawing conclusions about a model.\n2. Compare cost per completed task, including retries and supervision, rather than comparing token prices alone.\n3. Test the entire agent workflow: planning, clarification, tool use, monitoring, verification, and cleanup.\n4. Treat small, well-scoped changes with minimal side effects as a key signal that an agent is becoming trustworthy.\n5. Evaluate long-context performance by checking whether the model retains goals and constraints after steering or context compaction.\n6. Add guardrails for follow-through and termination because the reviewer observed failures such as ignoring valid feedback, ending monitoring early, and entering loops.\n7. Set trust thresholds by task type, and delegate more freely only when failures are cheap, reversible, and covered by repeatable tests.\n\n## Overview\n\nThis lesson turns a single reviewer’s long-form account of using \"GPT6 Astra\" into a reusable framework for evaluating advanced AI models in real work. The source is strong on firsthand usage details and concrete examples, but thin on independently verified evidence, so treat pricing, rollout, benchmark, and safety claims as reported claims from the transcript rather than settled fact. The durable takeaway is not \"this model wins,\" but how to judge any frontier model by cost per completed task, tool-use reliability, scope control, long-session behavior, and the point at which you trust it enough to delegate meaningful work.\n\n## Key Concepts\n\n- **Reported claims vs. verified facts**: The transcript mixes firsthand experience, vendor benchmark summaries, and speculation about rollout constraints. A durable knowledge base should label each type clearly. For example, the reviewer directly observed coding, computer-use, and 3D tasks, but pricing tables, benchmark scores, and availability details are still secondhand unless you verify them elsewhere.\n- **Cost per task matters more than token price**: The reviewer argues that raw input/output token pricing does not tell the full story. A model can be expensive per token yet cheaper per finished task if it is more efficient, requires fewer retries, or can complete longer end-to-end workflows without supervision. This is a practical way to compare models used as agents rather than as chatbots.\n- **Agentic capability is broader than code generation**: The source treats the model’s value as coming from computer use, long-running workflows, self-prompting, and multi-step coordination, not just writing code. The practical lesson is to evaluate models on the full work loop: planning, asking clarifying questions, using tools, monitoring results, and cleaning up after changes.\n- **Trust depends on scope discipline**: A major positive claim in the transcript is that the model makes smaller, better-scoped changes than earlier models. That matters because useful agents do not just solve problems; they avoid creating oversized PRs, unnecessary tests, or side effects that raise review cost. Scope control is a key trust signal.\n- **Long-context performance includes compaction behavior**: The reviewer emphasizes not only a large context window, but the model’s ability to stay oriented as tasks evolve and to retain useful state after compaction. For durable evaluation, test whether the model can continue a long task without losing constraints, goals, or lessons learned earlier in the session.\n- **Strong capability can coexist with frustrating failure modes**: The source gives examples where the model identifies valid review feedback yet fails to act, stops monitoring too early, or gets stuck in loops. This is a crucial operational lesson: a highly capable model may still need guardrails for follow-through, verification, and termination conditions.\n\n## How It Works\n\nUse this framework when assessing an advanced model for real work. First, separate evidence into three buckets: direct observation, reported benchmark/vendor claim, and speculation. Second, test the model on complete workflows rather than isolated prompts: code changes, tool use, document or spreadsheet manipulation, UI work, and long-running tasks. Third, score outcomes on practical dimensions the transcript highlights: cost per finished task, speed, ability to ask focused questions without blocking, scope discipline, quality of cleanup, and reliability under review feedback. Fourth, probe edge cases deliberately: long sessions, conflicting instructions, monitoring responsibilities, and tasks where aesthetics or human taste matter, such as frontend design or video editing. Finally, define your trust threshold explicitly. The reviewer’s closing question is the durable one: at what bar do you stop checking every step and start delegating? In practice, that bar should be task-specific, backed by repeatable tests, and lowered only where failures are cheap and reversible.\n\n## Training Exercise\n\nPick one model you already use and run a three-part evaluation. 1. Give it a bounded code task with a clear definition of done and note whether it stays within scope. 2. Give it a tool-using task that requires navigation or external state, then measure time-to-completion and how often it needs correction. 3. Give it a long task with midstream steering and at least one review cycle, then check whether it preserves context, addresses feedback without prompting, and stops only when the work is actually complete. Write a short scorecard with columns for direct evidence, reported claims, failure modes, and whether you would trust the model to run that task with light supervision, heavy supervision, or no delegation.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why is cost per completed task more useful than token price when comparing agent models?\u003c/summary>\n\nIt accounts for efficiency, retries, supervision, and whether the model can finish an end-to-end workflow. A higher-priced model may still be cheaper overall if it completes tasks reliably with fewer corrections.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What evidence categories should be separated when evaluating claims about a frontier model?\u003c/summary>\n\nSeparate firsthand observations, reported vendor or benchmark claims, and speculation. This prevents secondhand pricing, availability, performance, or safety claims from being treated as independently verified facts.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should a long-running evaluation test beyond the size of the context window?\u003c/summary>\n\nTest whether the model preserves goals, constraints, and lessons after midstream steering, review cycles, and context compaction. It should also address feedback and continue monitoring until the defined work is actually complete.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=XFWpf0wLbh0)",
     "related": [
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
         "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
         "date": "2026-09-03",
@@ -4392,17 +4479,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "llm-evaluation",
           "software-engineering"
-        ]
-      },
-      {
-        "id": "2026-07-09-gpt-56-model-family-efficiency-agentic-tool-use-and-safety-by-design",
-        "title": "GPT-5.6 Model Family: Efficiency, Agentic Tool Use, and Safety by Design",
-        "date": "2026-07-09",
-        "shared_tags": [
-          "ai-agents",
-          "ai-models",
-          "llms",
-          "model-evaluation"
         ]
       }
     ]
@@ -4656,6 +4732,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-models",
+          "llm-evaluation",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-09-04-evaluating-a-frontier-agent-model-from-a-practitioner-review-a815d9b3c1",
         "title": "Evaluating a Frontier Agent Model From a Practitioner Review",
         "date": "2026-09-04",
@@ -4669,15 +4755,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-08-14-evaluating-frontier-ai-models-benchmarks-cost-per-task-and-the-coding-fl-ce7899f398",
         "title": "Evaluating Frontier AI Models: Benchmarks, Cost per Task, and the Coding Flywheel",
         "date": "2026-08-14",
-        "shared_tags": [
-          "ai-models",
-          "llm-evaluation"
-        ]
-      },
-      {
-        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
-        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
-        "date": "2026-09-29",
         "shared_tags": [
           "ai-models",
           "llm-evaluation"
@@ -9391,6 +9468,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Wayfinder breaks large, ambiguous work into dependency-linked decision tickets that can be resolved across separate AI-agent sessions. This matters because it turns uncertainty into a visible frontier of actionable work while preserving decisions outside any single context window.\n\n## Key Takeaways\n\n1. Use Wayfinder when a task cannot be planned cleanly in one AI-agent session; execute directly when the path is already clear.\n2. Define the destination first, then create a map of decision tickets that progressively reduces uncertainty.\n3. Give each research, prototype, grilling, or task ticket its own agent session and record the outcome back in the map.\n4. Work only on frontier tickets that are currently unblocked; completing them should expose or unlock the next decisions.\n5. Use prototypes to test and clarify decisions early instead of relying on low-fidelity, waterfall-style planning.\n6. Store maps, dependencies, and ticket outcomes in an issue tracker as durable memory across sessions; the speaker demonstrates GitHub and claims the method can be configured for other trackers.\n7. Treat the resulting spec as a temporary coordination artifact that can be converted into implementation tickets, not as a permanent source of truth.\n\n## Overview\n\nThis lesson presents Wayfinder as a planning method for work that is too ambiguous or too large for a single AI-agent session. The source argues that instead of forcing a big task into one context window, you create a map of decision tickets, resolve them across multiple sessions, and track what is known, blocked, and still uncertain. The evidence is experiential rather than formal: the speaker describes how the method works, how it is used with issue trackers, and how it supports coding and non-coding projects.\n\n## Key Concepts\n\n- **Fog of war**: Wayfinder is meant for tasks where the destination is roughly known but the path is unclear. The method treats uncertainty as normal and plans to reduce it over time rather than pretending the full path is already known.\n- **Map and frontier**: The central artifact is a map of decision tickets. The frontier is the set of tickets that can be worked on now, while other parts remain blocked or hidden by unresolved questions.\n- **Decision tickets**: Each node on the map is a ticket handled in its own agent session. The source describes four ticket types: research, prototype, grilling, and task.\n- **Blocking relationships**: Some decisions depend on earlier decisions. Wayfinder tracks these dependencies so that finishing one ticket can unlock new work on the frontier.\n- **Prototype-driven planning**: The speaker explicitly uses prototypes to avoid low-fidelity, waterfall-style planning. In this approach, prototypes are not implementation polish; they are a fast way to test and clarify decisions.\n- **Issue-tracker-backed memory**: Wayfinder stores maps and ticket outcomes in an issue tracker. The source shows GitHub issues and claims the approach is issue-tracker agnostic with setup, but only GitHub is directly demonstrated in the transcript.\n- **Spec as a temporary destination document**: In the speaker’s workflow, the map can be converted into a dense spec, then into implementation tickets. The spec is described as a temporary coordination artifact rather than a permanent source of truth.\n\n## How It Works\n\nStart by defining the destination: what 'done' should look like, such as a spec or another concrete outcome. Use an initial session to grill the problem, inspect relevant context, and create the first map of decision tickets. Work only the tickets on the current frontier, usually by opening a fresh agent session per ticket. As tickets are resolved, write the outcome back to the map so the system records what was learned, what remains blocked, and what new tickets are now available. Use research tickets to gather facts, prototype tickets to make ideas concrete, grilling tickets to clarify decisions through discussion, and task tickets for real-world or scheduled actions. When the fog has cleared enough, convert the completed map into a spec or directly into implementation tickets. The practical rule from the source is simple: use Wayfinder when a task cannot be planned cleanly in one session; skip it when the path is already clear enough to execute directly.\n\n## Training Exercise\n\nPick one real project that feels too large or unclear for a single session. Write a destination in one sentence, then draft an initial map with 6-10 decision tickets split across the four ticket types from the source: research, prototype, grilling, and task. Mark which tickets are immediately takable and which are blocked by dependencies. Resolve two frontier tickets, then update the map with what changed: what uncertainty was removed, what new tickets opened up, and whether the destination now needs refinement. Finish by writing a short temporary spec that summarizes the decisions and links each major decision back to its ticket.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>When should Wayfinder be used instead of direct execution?\u003c/summary>\n\nUse it when the destination is roughly understood but the path is too large or ambiguous to plan cleanly in one agent session. If the work is already well defined and actionable, the source recommends executing it directly.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What is the frontier in a Wayfinder map?\u003c/summary>\n\nThe frontier is the set of decision tickets that can be worked on now because their dependencies are resolved. Completing frontier tickets records new knowledge and may unlock previously blocked work.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What roles do the four ticket types serve?\u003c/summary>\n\nResearch tickets gather facts, prototype tickets make ideas concrete, grilling tickets clarify decisions through discussion, and task tickets represent real-world or scheduled actions. Together they provide distinct ways to reduce uncertainty on the path to the destination.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=F3lL98Pj90o)",
     "related": [
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "productivity",
+          "software-engineering"
+        ]
+      },
+      {
         "id": "2026-07-19-agentic-engineering-unhobbling-models-by-reducing-unknown-unknowns-e57c842d10",
         "title": "Agentic Engineering: Unhobbling Models by Reducing Unknown Unknowns",
         "date": "2026-07-19",
@@ -9416,15 +9503,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "productivity"
-        ]
-      },
-      {
-        "id": "2026-09-10-designing-ai-agents-that-feel-like-trusted-teammates-c4132dcd87",
-        "title": "Designing AI Agents That Feel Like Trusted Teammates",
-        "date": "2026-09-10",
-        "shared_tags": [
-          "ai-agents",
-          "knowledge-work"
         ]
       }
     ]
@@ -9777,9 +9855,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-07-30-wayfinder-mapping-large-foggy-work-across-multiple-ai-agent-sessions-3aee5302ea",
-        "title": "Wayfinder: Mapping Large, Foggy Work Across Multiple AI Agent Sessions",
-        "date": "2026-07-30",
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
         "shared_tags": [
           "ai-agents",
           "productivity"
@@ -13434,9 +13512,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
-        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
-        "date": "2026-09-29",
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
         "shared_tags": [
           "ai-agents",
           "ai-models",
@@ -13444,8 +13522,8 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-09-29-use-fast-mid-tier-models-as-research-subagents-not-default-coders-e0f4d27b35",
-        "title": "Use Fast Mid-Tier Models as Research Subagents, Not Default Coders",
+        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
+        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
         "date": "2026-09-29",
         "shared_tags": [
           "ai-agents",
@@ -15096,9 +15174,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-10-05-tokenomics-model-routing-and-specialized-decision-models-7106af5bba",
-        "title": "Tokenomics, Model Routing, and Specialized Decision Models",
-        "date": "2026-10-05",
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
         "shared_tags": [
           "ai-models"
         ]
@@ -15562,13 +15640,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-14-evaluating-an-agent-focused-model-release-grok-46-in-practice-9afca9ae17",
-        "title": "Evaluating an Agent-Focused Model Release: Grok 4.6 in Practice",
-        "date": "2026-08-14",
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
         "shared_tags": [
           "ai-models",
-          "benchmarking",
-          "llm-evaluation"
+          "llm-evaluation",
+          "model-evaluation"
         ]
       }
     ]
@@ -15625,22 +15703,22 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-10-operating-long-horizon-ai-models-with-evals-parallelism-and-model-routin-7e1fa51e5b",
+        "title": "Operating Long-Horizon AI Models with Evals, Parallelism, and Model Routing",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-models",
+          "llm-evaluation",
+          "model-evaluation"
+        ]
+      },
+      {
         "id": "2026-07-09-gpt-56-model-family-efficiency-agentic-tool-use-and-safety-by-design",
         "title": "GPT-5.6 Model Family: Efficiency, Agentic Tool Use, and Safety by Design",
         "date": "2026-07-09",
         "shared_tags": [
           "ai-models",
           "llms",
-          "model-evaluation"
-        ]
-      },
-      {
-        "id": "2026-09-29-choosing-ai-coding-models-by-workflow-fit-reliability-and-total-cost-86469d5d8a",
-        "title": "Choosing AI Coding Models by Workflow Fit, Reliability, and Total Cost",
-        "date": "2026-09-29",
-        "shared_tags": [
-          "ai-models",
-          "llm-evaluation",
           "model-evaluation"
         ]
       }
