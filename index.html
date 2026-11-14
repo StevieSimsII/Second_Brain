@@ -437,6 +437,79 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+    "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+    "date": "2026-11-14",
+    "tags": [
+      "artificial-intelligence",
+      "recursive-self-improvement",
+      "ai-research",
+      "reinforcement-learning",
+      "scaling-laws"
+    ],
+    "source": "https://www.youtube.com/watch?v=1NHPDzpfR6Y",
+    "source_type": "youtube",
+    "channel": "Dwarkesh Patel",
+    "published": "2026-11-13",
+    "duration_seconds": 2666,
+    "minutes": 44.4,
+    "minutes_estimated": false,
+    "tldr": "AI research contains measurable objectives that could let automated researchers improve the systems doing the research. If those systems reach top-human ability, their speed, scale, and parallelism could compress years of progress into a much shorter period—but continual learning, data, and experiment compute remain serious uncertainties.",
+    "topics": [
+      "machine-learning",
+      "ai-agents",
+      "llm-evaluation"
+    ],
+    "kind": "opinion",
+    "depth": 2,
+    "actionability": 1,
+    "content": "## TL;DR\n\n> AI research contains measurable objectives that could let automated researchers improve the systems doing the research. If those systems reach top-human ability, their speed, scale, and parallelism could compress years of progress into a much shorter period—but continual learning, data, and experiment compute remain serious uncertainties.\n\n## Key Takeaways\n\n1. Verifiable objectives—such as held-out loss, training cost, task-learning speed, latency, and GPU utilization—could provide automated researchers with rapid feedback and extensive practice.\n2. The presenter’s median estimate is 2028 for AI systems to match the best human AI researchers, with at least a 25% probability that this does not happen until after 2032.\n3. Automated researchers could multiply progress through three advantages: roughly 10-times-faster work, continuous operation, and large populations of parallel agents.\n4. The presenter distinguishes a software-only singularity, where improvements compound within months, from a “spark,” where roughly three to six years of current progress occur in one year before compute becomes limiting.\n5. Pre-training, post-training, and inference efficiency each expose measurable proxies, making much of AI R&D more amenable to reinforcement learning and parallel experimentation than open-ended creative work.\n6. Continual learning, suitable evaluation proxies, sufficient data, and experiment compute could slow recursive improvement; the argument is that these bottlenecks are substantial but not necessarily prohibitive.\n7. Strong performance on verifiable tasks would not automatically encode every real-world skill; the presenter instead expects improved meta-learning to help future systems acquire unfamiliar expertise quickly after deployment.\n\n## Key Moments\n\n- [2:03](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=123s) — See why rapid progress in verifiable mathematics is presented as a preview of automated AI research.\n- [8:14](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=494s) — Understand the presenter’s 2028 median forecast and the evidence and uncertainty behind it.\n- [11:10](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=670s) — Learn how faster work, top-level capability, and massive parallelism could accelerate algorithmic progress.\n- [14:24](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=864s) — Compare a compounding software-only singularity with a compute-limited “spark.”\n- [17:21](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=1041s) — Follow the case that broad reinforcement learning could produce fast learners rather than systems preloaded with every skill.\n- [25:59](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=1559s) — Examine the measurable proxies that make pre-training, post-training, and inference research partly verifiable.\n- [33:59](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=2039s) — See why missing continual learning may delay automation without necessarily preventing it.\n- [39:58](https://www.youtube.com/watch?v=1NHPDzpfR6Y&t=2398s) — Learn how experiment compute could constrain an agent swarm and how smaller experiments and scaling laws might help.\n\n## Overview\n\nRecursive self-improvement occurs when AI systems contribute to research that produces better AI systems, which can then perform still more effective research. The presenter argues that this loop has already begun in limited form and could accelerate dramatically once automated researchers reach the ability of the best humans.\n\nThe lesson matters to AI researchers, forecasters, policymakers, and technical leaders because it identifies a concrete mechanism for rapid capability growth: measurable research objectives combined with fast, numerous agents. It is a forecast and argument rather than an established outcome, and its timing depends on unresolved bottlenecks including continual learning and experimental resources.\n\n## Key Concepts\n\n- **Recursive self-improvement**: An AI system helps improve the algorithms, training methods, data, or efficiency used to build its successors. Those improved successors may then conduct better research, creating a feedback loop whose speed depends on both research gains and growing difficulty.\n- **Verifiable research proxy**: A proxy is a measurable objective that stands in for research progress. Examples in the source include held-out pre-training loss, compute needed to reach a target capability, learning speed in a new environment, inference latency, and GPU utilization.\n- **Three areas of AI R&D**: The presenter divides algorithmic progress into pre-training, post-training, and inference efficiency. He argues that each exposes measurable outcomes, although selecting useful objectives and predicting which small-scale results will transfer remain harder research problems.\n- **Parallel agent research**: AI R&D contains modular tasks that different agents could attempt independently and evaluate locally. Large agent populations could explore many combinations, but coordination costs and shared experiment compute imply steep diminishing returns.\n- **Software-only singularity**: In this proposed scenario, improvements to automated researchers compound faster than promising ideas become difficult to find. The presenter suggests this could generate extremely capable systems within months without first requiring a comparable expansion of physical compute.\n- **The “spark” scenario**: Here, automated research creates a large but temporary burst—estimated by the presenter at roughly three to six years of current progress in one year. Progress then slows because further advances require more chips, data centers, experiments, or other physical infrastructure.\n- **Meta-learning and transfer**: Rather than learning every future real-world task during training, an advanced system could become better at entering unfamiliar situations, gathering information, planning, and adapting. The source treats transfer from verifiable training to these general abilities as plausible but difficult to measure directly.\n- **Continual and online learning**: Current systems struggle to retain and integrate experience across long periods. The presenter proposes longer effective contexts or research breakthroughs in online learning as possible solutions, while assigning meaningful probability to this limitation delaying top-human research automation.\n\n## How It Works\n\n1. Define measurable research objectives, such as reducing training compute at a fixed loss, improving adaptation to unseen tasks, or lowering inference latency.\n2. Train automated researchers through many rounds of proposing changes, running experiments, and receiving objective feedback.\n3. Deploy many copies across modular workstreams such as data filtering, synthetic environments, model architecture, attention kernels, and inference software.\n4. Retain changes that improve held-out measurements, while testing whether small-scale gains transfer to larger models.\n5. Use the resulting efficiency and capability gains to build smaller, faster, or smarter successor models and support more researcher copies.\n6. Repeat the loop. Acceleration continues only while gains in research ability outweigh diminishing returns, coordination costs, harder-to-find ideas, and experiment-compute limits.\n\n## Training Exercise\n\n1. Choose one hypothetical AI-research goal, such as reducing the compute required to reach a fixed validation loss.\n2. Write an exact measurable proxy, including the fixed dataset, model scale, compute budget, and held-out evaluation.\n3. List five experiments that independent agents could run in parallel to improve that score.\n4. Identify two ways the proxy could be gamed or fail to predict performance at larger scale.\n5. Design an outer-loop evaluation that tests whether small-scale improvements transfer to a model 100 times larger.\n6. Classify the remaining constraints as researcher-time, data, coordination, experiment-compute, or real-world-feedback bottlenecks.\n7. Explain whether repeated success would create a self-reinforcing loop, and state what would eventually slow it down.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does verifiability matter for recursive self-improvement beyond merely scoring an AI researcher’s output?\u003c/summary>\n\nIt enables repeated reinforcement-learning practice and lets many agents independently test contributions before combining them. That makes both capability training and parallel coordination more tractable.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What determines whether automated AI research produces a software-only singularity or a temporary “spark”?\u003c/summary>\n\nThe key competition is between improving researchers and increasingly difficult research problems. If research capability compounds faster than ideas become harder to find, progress may accelerate sharply; otherwise, software gains may compress several years of progress before compute becomes the dominant constraint.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How does the presenter answer the objection that training on verifiable tasks cannot produce expertise in messy real-world domains?\u003c/summary>\n\nHe argues that large, varied training environments could develop general skills such as planning, information seeking, collaboration, and learning from feedback. Future systems would still need real-world experience, but their meta-learning ability, speed, and parallel copies might let them acquire it much faster than humans.\n\n\u003c/details>\n\n## Further Reading\n\n- [Written essay with footnotes and links](https://www.dwarkesh.com/p/rsi)\n- [Source video](https://www.youtube.com/watch?v=1NHPDzpfR6Y)",
+    "related": [
+      {
+        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
+        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
+        "date": "2026-07-22",
+        "shared_tags": [
+          "ai-agents",
+          "llm-evaluation",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
+        "id": "2026-08-12-recursive-self-improvement-how-automated-ai-rd-could-accelerate-capabili-2a3800b98a",
+        "title": "Recursive Self-Improvement: How Automated AI R&D Could Accelerate Capability and Risk",
+        "date": "2026-08-12",
+        "shared_tags": [
+          "ai-agents",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
+        "id": "2026-09-11-why-ai-self-improvement-depends-on-objectives-data-verification-and-cont-bf8b78107d",
+        "title": "Why AI Self-Improvement Depends on Objectives, Data, Verification, and Continual Learning",
+        "date": "2026-09-11",
+        "shared_tags": [
+          "ai-agents",
+          "artificial-intelligence",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
+        "id": "2026-09-24-evaluating-frontier-ai-progress-recursive-self-improvement-and-safety-cl-69e88212cf",
+        "title": "Evaluating Frontier AI Progress, Recursive Self-Improvement, and Safety Claims",
+        "date": "2026-09-24",
+        "shared_tags": [
+          "artificial-intelligence",
+          "llm-evaluation",
+          "recursive-self-improvement"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-11-10-governing-ai-through-civil-liberties-data-sovereignty-and-shared-prosper-59cba72a13",
     "title": "Governing AI Through Civil Liberties, Data Sovereignty, and Shared Prosperity",
     "date": "2026-11-10",
@@ -3206,6 +3279,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+        "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+        "date": "2026-11-14",
+        "shared_tags": [
+          "artificial-intelligence",
+          "llm-evaluation",
+          "recursive-self-improvement"
+        ]
+      },
+      {
         "id": "2026-07-29-lesson-how-a-frontier-ai-company-thinks-about-focus-compute-safety-and-a-69bf582d3e",
         "title": "Lesson: How a Frontier AI Company Thinks About Focus, Compute, Safety, and Adoption",
         "date": "2026-07-29",
@@ -3219,16 +3302,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-09-01-lesson-multi-agent-reward-hacking-and-why-impossible-evaluations-can-esc-94d8fc43b1",
         "title": "Lesson: Multi-Agent Reward Hacking and Why Impossible Evaluations Can Escalate",
         "date": "2026-09-01",
-        "shared_tags": [
-          "ai-safety",
-          "ai-safety-and-governance",
-          "llm-evaluation"
-        ]
-      },
-      {
-        "id": "2026-08-31-lesson-reward-hacking-covert-coordination-and-ai-evaluation-security-5feed38442",
-        "title": "Lesson: Reward Hacking, Covert Coordination, and AI Evaluation Security",
-        "date": "2026-08-31",
         "shared_tags": [
           "ai-safety",
           "ai-safety-and-governance",
@@ -3605,6 +3678,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Tiago Almeida argues that RLHF makes language models effective assistants by optimizing for human preference, but that objective does not ensure correct, calibrated decisions without supervision. Reliable automation therefore requires training and evaluation objectives aligned with real production outcomes, uncertainty, and escalation—not merely persuasive responses.\n\n## Key Takeaways\n\n1. Distinguish assistance from automation by asking whether a person reviews each output; unsupervised execution requires stronger reliability controls.\n2. Treat human preference as the RLHF objective, not as proof of factual correctness or successful task completion.\n3. Assume fluent confidence can conceal objective mismatch; Almeida argues that RLHF may reward answers that look right even when they are wrong.\n4. Use verifiable rewards where outcomes can be mechanically checked, while recognizing Almeida's claim that RLVR alone is insufficient for general automation.\n5. Demand evidence before accepting Almeida's proposed alternative: the talk describes optimization for calibrated decision-making but supplies no reproducible algorithm or empirical results.\n\n## Overview\n\nThe talk argues that today’s language models excel as interactive assistants but remain unreliable foundations for autonomous, high-stakes software. The proposed explanation is objective mismatch: reinforcement learning from human feedback (RLHF) trains models to produce responses people prefer, which is not the same as training them to make correct, calibrated decisions without supervision. This framing helps explain why models can perform impressively on benchmarks and human-guided coding while businesses still hesitate to delegate consequential decisions to them. The speaker predicts a shift from AI-assisted software creation toward smarter software that performs work reliably, but offers only a high-level description—not evidence or implementation details—of a new post-training approach intended to support that shift.\n\n## Key Concepts\n\n- **Assistance versus automation**: Assistance keeps a person in the loop: the model proposes, explains, or edits while the person evaluates the result. Automation removes that person from routine execution. The speaker argues that current models are much better suited to the first setting, especially when mistakes carry business consequences.\n- **RLHF objective**: The talk summarizes RLHF as collecting human preferences and optimizing model behavior toward those preferences. This produces useful conversational behavior, but the optimization target is what evaluators favor—not an independent guarantee of factual correctness, reliability, or successful task completion.\n- **Objective mismatch**: A model can appear capable while still being poorly matched to autonomous work. If training rewards persuasive, confident, or agreeable answers, the resulting behavior may look right even when it is wrong. The speaker presents this mismatch as a central reason interactive AI performance does not translate directly into dependable automation.\n- **Overpromising and calibration**: When uncertain, an RLHF-trained assistant may generate the answer it expects a person will prefer instead of clearly representing its uncertainty. For automation, the speaker says systems need calibrated decision-making: confidence and escalation behavior should correspond to the likelihood of being correct.\n- **RLVR and verifiable correctness**: The talk distinguishes RLHF from reinforcement learning with verifiable rewards (RLVR), which can optimize against mechanically checked outcomes such as whether a solution is correct. The speaker argues that RLVR is also not the complete answer for general automation, though the transcript does not provide a detailed evaluation or comparison.\n- **Smarter software**: Current AI often makes conventional software cheaper or faster to write without changing the software’s underlying capabilities. The speaker’s desired next step is software that can reliably perform more work itself, rather than ordinary SaaS with a chatbot attached or code produced just in time.\n- **Post-training as a design choice**: Different post-training objectives create different behavioral tendencies and may even require different interfaces. The speaker claims that reliable automation needs a new stack optimized for calibrated decisions, but the proposed system is described only conceptually and is not documented sufficiently in the source to reproduce or validate.\n\n## How It Works\n\nAnalyze an AI feature by separating its visible intelligence from its operational objective. First, identify who or what judges success: a user expressing preference, an automated verifier, or a measurable production outcome. Next, determine whether a person reviews every output. If so, the feature is assistance even when it uses tools or writes code. If outputs execute without review, it is automation and requires stronger controls. Define objective success criteria, estimate the cost of false actions and missed actions, and require the system to express uncertainty or escalate when evidence is insufficient. Test performance on the actual deployment distribution rather than relying only on conversational quality or benchmark scores. Finally, compare the training and evaluation objective with the production objective. A gap between them is a warning that fluent behavior may not imply reliable operation. This procedure follows the talk’s conceptual argument; the source does not supply a concrete new algorithm, empirical results, or implementation recipe for the claimed automation-oriented approach.\n\n## Training Exercise\n\nChoose one proposed AI workflow, such as refund approval, invoice processing, customer support, or code deployment. Write two versions: an assistant that recommends an action to a human and an automation system that executes it. For each version, specify the success metric, available verifier, cost of a false positive, cost of a false negative, acceptable confidence threshold, escalation rule, audit log, and rollback mechanism. Create ten test cases containing ambiguous inputs, missing information, and adversarial instructions. Record whether each output is merely persuasive or demonstrably supported. Then decide which cases may be automated safely and which must retain human review. The goal is to practice detecting objective mismatch rather than assuming that a capable conversation implies dependable execution.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does Almeida argue that strong benchmark performance does not establish readiness for autonomous business decisions?\u003c/summary>\n\nBenchmarks and interactive tools often measure correctness in constrained settings or usefulness to a supervising person. Autonomous business work instead requires dependable decisions under real conditions, including calibrated uncertainty and safe escalation when the model lacks evidence.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What is the objective mismatch associated with RLHF in the talk?\u003c/summary>\n\nRLHF optimizes outputs according to human preferences, while automation needs correct and reliably executed outcomes. Almeida argues that this gap can reward responses that appear persuasive or confident without being operationally trustworthy.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What should be specified before converting an AI assistant into an automation system?\u003c/summary>\n\nSpecify the production success metric, available verifier, costs of false positives and false negatives, confidence threshold, escalation rule, audit trail, and rollback mechanism. Then test ambiguous, incomplete, and adversarial cases on the real deployment distribution.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source video](https://www.youtube.com/watch?v=cJ0EOzey--o)",
     "related": [
       {
+        "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+        "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+        "date": "2026-11-14",
+        "shared_tags": [
+          "ai-agents",
+          "llm-evaluation",
+          "machine-learning"
+        ]
+      },
+      {
         "id": "2026-09-01-lesson-multi-agent-reward-hacking-and-why-impossible-evaluations-can-esc-94d8fc43b1",
         "title": "Lesson: Multi-Agent Reward Hacking and Why Impossible Evaluations Can Escalate",
         "date": "2026-09-01",
@@ -3631,16 +3714,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance",
-          "machine-learning"
-        ]
-      },
-      {
-        "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
-        "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
-        "date": "2026-07-22",
-        "shared_tags": [
-          "ai-agents",
-          "llm-evaluation",
           "machine-learning"
         ]
       }
@@ -4156,6 +4229,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> AI self-improvement depends on a reliable loop for choosing worthwhile objectives, generating new information, verifying real progress, and retaining what was learned—not merely producing more code or running more agents. The panel argues that current systems are strongest on clearly rewarded, verifiable tasks and remain weaker at open-ended judgment, realistic deployment, and continual learning.\n\n## Key Takeaways\n\n1. Treat objective specification as a separate problem from optimization; the panel argues that deciding what matters may remain human-led longer than achieving a clearly defined target.\n2. Call a system recursively self-improving only if it can repeatedly select objectives, optimize them, verify results, learn from outcomes, and choose useful next objectives without human repair.\n3. Evaluate difficulty and realism separately: success on hard, easily checked coding, game, or mathematics tasks does not guarantee sound judgment in changing, multi-objective production environments.\n4. Match distillation prompts to the desired deployment behavior; narrow benchmark trajectories may transfer benchmark skill while missing realistic workflows, corrections, and multi-turn interactions.\n5. Trace every claimed improvement to a source of new information, such as expert demonstrations, deployment traces, experiments, constructed environments, or existing corpus data.\n6. Design verification to detect benchmark gaming, misleading user signals, and regressions outside the target task—not just gains on the optimized metric.\n7. Choose a retention strategy explicitly because repeated small fine-tuning updates can cause forgetting; the panel suggests comparing context, specialized modules, incremental updates, and periodic retraining.\n\n## Overview\n\nThis lesson develops a practical framework for reasoning about rapid AI progress and recursive self-improvement. The panel’s central argument is that producing more code or running more agents does not automatically create explosive progress. A self-sustaining research system must repeatedly choose worthwhile objectives, create informative experiments, execute long-horizon work, verify results, and preserve new knowledge without damaging earlier capabilities. Present systems appear strongest when rewards are clear and outcomes are verifiable; their harder problems include open-ended objective selection, realistic deployment, long-term judgment, and continual learning. Much of the discussion is informed speculation rather than settled empirical fact, and several examples and numerical estimates are presented as speaker observations rather than independently established conclusions.\n\n## Key Concepts\n\n- **Objective specification is the central bottleneck**: AI can optimize a clearly defined target much more readily than it can decide which target matters. Tasks such as reaching a specified training loss or improving a benchmark provide direct feedback. Paradigm-shifting research is less tidy: researchers must identify promising questions, design tasks that reveal whether an intuition has merit, and decide what behavior is genuinely useful. The panel therefore separates alignment into defining the desired objective and successfully optimizing it, arguing that the first part may remain human-led longer.\n- **Recursive self-improvement requires a reliable closed loop**: A genuinely self-propelling system must propose an objective, optimize it, evaluate the outcome, learn from the result, and select the next objective—without drifting off course over many iterations. Strong coding or experiment execution solves only part of this loop. Models also need research taste, error checking, persistent autonomy, and the ability to recognize when an apparent improvement is irrelevant to the real goal.\n- **Verifiable environments enable progress but may not transfer**: Reinforcement learning works well when success can be measured, making coding problems, games, mathematical tasks, and training-efficiency challenges attractive environments. Yet difficult, puzzle-like environments occupy a different axis from realistic work involving changing requirements, repeated human interaction, and multiple competing objectives. A model can improve on benchmarks without acquiring equally strong real-world judgment. The panel treats generalization from narrow verifiable tasks to broad realistic work as possible but unpredictable.\n- **Distillation spreads behavior but depends on coverage**: Distillation trains a student model to reproduce behavior demonstrated by a teacher. The panel argues that behaviors learned through reinforcement learning may be relatively easy to copy once good trajectories exist, which could counter concentration among model providers. However, the prompt distribution is crucial: narrow benchmark prompts may reproduce benchmark skill while omitting behavior needed in realistic settings. Capturing diverse user workflows, corrections, and multi-turn traces can therefore matter as much as access to the teacher itself.\n- **Deployment data creates a delayed learning loop**: Models can already improve across generations when deployment traces are filtered, evaluated, converted into environments, and incorporated into mid-training or post-training. This is slower than an individual model updating immediately after every experience, but the panel expects progressively shorter cycles: specialize a model, gather traces, consolidate what was learned, and redeploy. Immediate learning is complicated by noisy rewards, privacy and business incentives, and the difficulty of determining whether an accepted action was actually good.\n- **Continual learning faces plasticity and forgetting**: Repeatedly fine-tuning one model on small, shifting datasets can erase older knowledge or reduce general capabilities. Supervised fine-tuning and on-policy distillation are described as potentially destructive after many micro-updates. Reinforcement learning often changes the model more conservatively, but that also limits how much explicit new knowledge it can install. Large mixed-data training runs can wash out noise, whereas indefinite local updating remains unreliable; this helps explain why organizations may periodically train new base models rather than updating one model forever.\n- **Progress is limited by where new information comes from**: Pre-training can extract signal already present in large web corpora, so filtering noise is a major concern. At the capability frontier, the needed insight may not exist in the corpus at all. New information must then come from expert demonstrations, deployment experience, experiments, or constructed environments. One speaker reports a small-scale study attributing roughly a 12× compute-efficiency gain to newer data and 3.7× to newer training recipes, but explicitly warns that the result may not extrapolate to frontier scale.\n- **Compute, model size, and data efficiency have different optima**: Long reinforcement-learning rollouts make inference cost important, creating pressure to limit active parameters even as hardware and total training compute improve. Sparse models separate total parameter count from the parameters used for each token, but the panel says the ideal sparsity level and its effect on data efficiency remain poorly understood. Architecture can also unlock qualitatively new regimes—such as very long context—even when a small-scale loss comparison makes its benefit look modest.\n\n## How It Works\n\nUse a six-stage loop to analyze any proposed autonomous AI system. First, identify the real-world outcome and ask who specifies it. Second, determine how training converts that outcome into rewards, demonstrations, or environments. Third, separate environment difficulty from realism: a hard, easily checked puzzle is not equivalent to messy production work. Fourth, inspect the source of new information—existing corpus data, human expertise, teacher-model trajectories, deployment traces, or experimentation. Fifth, define verification that can detect benchmark gaming, superficial user signals, and regressions outside the target task. Sixth, specify how improvements are retained: temporary context, a compressed module such as a LoRA or cache-like cartridge, post-training, continued mid-training, or a newly trained base model. The loop becomes recursive self-improvement only if the system can perform all six stages repeatedly and reliably. If humans must continually choose objectives, construct environments, interpret failures, or repair forgotten capabilities, the process is accelerated research rather than fully autonomous self-improvement.\n\n## Training Exercise\n\nChoose one ambitious capability—for example, an AI agent that improves a software project over a month. Write a one-page training-loop design with six sections: (1) the actual desired outcome, including qualities such as maintainability that a short benchmark may miss; (2) three training environments, each labeled by difficulty and realism; (3) the information source for each environment; (4) the reward or evaluator and one plausible way it could be gamed; (5) a deployment-feedback process that respects the organization’s incentive not to leak proprietary knowledge; and (6) a retention strategy comparing context, a specialized module, incremental weight updates, and periodic retraining. Finish by naming the weakest link in the closed loop and proposing an experiment that would test it. Do not claim the loop is autonomous if a human still supplies the crucial objective or judgment.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>What distinguishes accelerated AI research from fully autonomous recursive self-improvement?\u003c/summary>\n\nAccording to the panel’s framework, recursive self-improvement requires the system to manage the complete loop of objective selection, optimization, evaluation, learning, retention, and next-objective selection. If humans still provide crucial objectives, environments, judgments, or repairs, the process is accelerated research rather than fully autonomous self-improvement.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is performance in a verifiable environment insufficient evidence of real-world competence?\u003c/summary>\n\nA difficult task can still have a clear reward and stable requirements, while realistic work often involves changing goals, human interaction, and competing objectives. The panel cautions that transfer from narrow, verifiable tasks to messy deployment settings is possible but unpredictable.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why does continual learning remain a bottleneck for self-improving systems?\u003c/summary>\n\nRepeated fine-tuning on small, shifting datasets can erase previous knowledge or weaken general capabilities, while more conservative reinforcement-learning updates may install limited new knowledge. A sustainable system therefore needs a retention method that preserves improvements without causing regressions or accumulating noise.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source interview on AI self-improvement, training, and continual learning](https://www.youtube.com/watch?v=PrSf7IOYu-I)",
     "related": [
       {
+        "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+        "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+        "date": "2026-11-14",
+        "shared_tags": [
+          "ai-agents",
+          "artificial-intelligence",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
         "id": "2026-07-22-how-cursor-frames-model-training-as-a-recursive-improvement-loop-54da844e98",
         "title": "How Cursor Frames Model Training as a Recursive Improvement Loop",
         "date": "2026-07-22",
@@ -4182,15 +4266,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "continual-learning",
           "machine-learning"
-        ]
-      },
-      {
-        "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
-        "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
-        "date": "2026-09-09",
-        "shared_tags": [
-          "ai-agents",
-          "artificial-intelligence"
         ]
       }
     ]
@@ -7168,6 +7243,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+        "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+        "date": "2026-11-14",
+        "shared_tags": [
+          "ai-agents",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
         "id": "2026-10-01-frontier-ai-control-under-capability-jumps-and-recursive-self-improvemen-5e051860b2",
         "title": "Frontier AI Control Under Capability Jumps and Recursive Self-Improvement",
         "date": "2026-10-01",
@@ -7185,16 +7270,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-safety",
           "ai-safety-and-governance",
           "machine-learning"
-        ]
-      },
-      {
-        "id": "2026-09-11-why-ai-self-improvement-depends-on-objectives-data-verification-and-cont-bf8b78107d",
-        "title": "Why AI Self-Improvement Depends on Objectives, Data, Verification, and Continual Learning",
-        "date": "2026-09-11",
-        "shared_tags": [
-          "ai-agents",
-          "machine-learning",
-          "reinforcement-learning"
         ]
       }
     ]
@@ -10368,6 +10443,17 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-14-how-verifiable-ai-research-could-enable-recursive-self-improvement-36c07f39c3",
+        "title": "How Verifiable AI Research Could Enable Recursive Self-Improvement",
+        "date": "2026-11-14",
+        "shared_tags": [
+          "ai-agents",
+          "llm-evaluation",
+          "machine-learning",
+          "reinforcement-learning"
+        ]
+      },
+      {
         "id": "2026-08-12-recursive-self-improvement-how-automated-ai-rd-could-accelerate-capabili-2a3800b98a",
         "title": "Recursive Self-Improvement: How Automated AI R&D Could Accelerate Capability and Risk",
         "date": "2026-08-12",
@@ -10386,17 +10472,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "coding-agents",
           "evaluation",
           "llm-evaluation"
-        ]
-      },
-      {
-        "id": "2026-09-03-evaluating-agentic-coding-models-in-real-work-cost-prompting-and-merge-l-1f175056df",
-        "title": "Evaluating Agentic Coding Models in Real Work: Cost, Prompting, and Merge-Loop Quality",
-        "date": "2026-09-03",
-        "shared_tags": [
-          "ai-agents",
-          "coding-agents",
-          "llm-evaluation",
-          "software-engineering"
         ]
       }
     ]
