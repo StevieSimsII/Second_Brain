@@ -437,6 +437,78 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
 <div class="tip" id="tip"></div>
 <script id="articles-data" type="application/json">[
   {
+    "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+    "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+    "date": "2026-11-20",
+    "tags": [
+      "enterprise-ai",
+      "ai-agents",
+      "data-governance",
+      "knowledge-graphs",
+      "cybersecurity",
+      "organizational-design"
+    ],
+    "source": "https://www.youtube.com/watch?v=1bR0gtecoHU",
+    "source_type": "youtube",
+    "channel": "All-In Podcast",
+    "published": "2026-11-17",
+    "duration_seconds": 3726,
+    "minutes": 62.1,
+    "minutes_estimated": false,
+    "tldr": "AI capability alone does not transform an enterprise. Ali Ghodsi argues that useful agentic systems require organizational context, governed access, sustainable costs, and control of company data and intellectual property.",
+    "topics": [
+      "ai-strategy",
+      "ai-agents",
+      "ai-safety-and-governance"
+    ],
+    "kind": "interview",
+    "depth": 2,
+    "actionability": 1,
+    "content": "## TL;DR\n\n> AI capability alone does not transform an enterprise. Ali Ghodsi argues that useful agentic systems require organizational context, governed access, sustainable costs, and control of company data and intellectual property.\n\n## Key Takeaways\n\n1. Treat organizational context as infrastructure: agents need access to relevant meetings, decisions, documents, communications, metrics, and ownership information—not merely a stronger model.\n2. Solve four adoption barriers together: context, security and governance, token economics, and organizational control of data and intellectual property.\n3. Use an organizational ontology to connect people, reporting lines, metrics, meetings, decisions, and documents so agents can reason across fragmented systems.\n4. Measure business outcomes rather than AI activity; Ghodsi reports that customers often see only 20–30% coding speedups and mostly use AI for search-like chat or coding assistance.\n5. Reduce cross-functional latency by tracking where work waits for legal, finance, marketing, management, or another team to approve or clarify a decision.\n6. Separate recursive self-improvement from code automation: Ghodsi argues that autonomous model improvement would require progressively faster training, declining resource use, broad accuracy gains, and a repeatable loop sustaining all three.\n7. Prioritize concrete cyber risk over speculative certainty: attackers can launch many attempts and need only one success, while defenders must protect every boundary continuously.\n\n## Key Moments\n\n- [9:17](https://www.youtube.com/watch?v=1bR0gtecoHU&t=557s) — Ghodsi explains why he believes existing models satisfy an older definition of AGI while distinguishing them from superintelligence.\n- [13:25](https://www.youtube.com/watch?v=1bR0gtecoHU&t=805s) — Four enterprise adoption barriers emerge: missing context, cyber exposure, escalating token costs, and loss of control over proprietary intelligence.\n- [22:45](https://www.youtube.com/watch?v=1bR0gtecoHU&t=1365s) — The Genie demonstration shows an ontology connecting people, meetings, documents, communications, metrics, and decisions.\n- [29:30](https://www.youtube.com/watch?v=1bR0gtecoHU&t=1770s) — Engineering output and model costs are compared to identify teams using automated development workflows efficiently.\n- [33:06](https://www.youtube.com/watch?v=1bR0gtecoHU&t=1986s) — Human blockers are defined as approvals, handoffs, meetings, and escalations that interrupt otherwise fast automated work.\n- [44:23](https://www.youtube.com/watch?v=1bR0gtecoHU&t=2663s) — Recursive self-improvement is decomposed into four testable conditions rather than inferred from AI-written code.\n- [50:33](https://www.youtube.com/watch?v=1bR0gtecoHU&t=3033s) — Cybersecurity’s attacker–defender asymmetry explains why abundant defensive compute does not guarantee protection.\n- [57:15](https://www.youtube.com/watch?v=1bR0gtecoHU&t=3435s) — Drug discovery examples illustrate both AI’s practical potential and the real-world bottleneck of human trials.\n\n## Overview\n\nThe lesson separates model intelligence from organizational usefulness. Ghodsi’s central claim is that enterprises are behind not because models are incapable, but because the models lack trusted access to the information, relationships, and decisions that define how a company operates.\n\nLeaders, data teams, security teams, and AI product builders should therefore design agent systems as governed organizational infrastructure. The goal is not to maximize agent count or token usage, but to shorten decision cycles and improve measurable outcomes without exposing sensitive information or creating unsustainable costs.\n\n## Key Concepts\n\n- **Organizational context**: An agent cannot reliably help with work it cannot observe. Relevant context may include meeting transcripts, customer feedback, documents, communications, metrics, decisions, and the people responsible for acting on them. Ghodsi argues that missing context is the primary obstacle to meaningful enterprise AI.\n- **Organizational ontology**: The demonstrated Genie system builds a graph connecting employees, reporting relationships, work, meetings, communications, documents, and metrics. According to Ghodsi, this persistent structure lets the system interpret company-specific concepts and find supporting evidence more effectively than isolated search.\n- **Governed access**: Giving agents unrestricted access to every system increases attack surface and insider-risk exposure. Practical deployments need identity-aware permissions, auditable data access, and restrictions that preserve the policies already governing company information.\n- **Token economics**: More agents and longer contexts can increase operating costs rapidly. Ghodsi recommends matching model capability to task difficulty, including routing simple work to simpler or open models, and comparing AI costs with revenue, productivity, or another business result.\n- **Intelligence sovereignty**: A company must decide how much of its data, workflows, and derived knowledge it controls when relying on external model providers. The source frames this as protection against lock-in and loss of differentiated intellectual property, not simply as a storage-location question.\n- **Cross-functional latency**: Customer value flows across product, engineering, marketing, sales, finance, and legal rather than neatly down an organizational chart. AI can accelerate individual work while the overall process remains slow because approvals, handoffs, and unresolved ownership become human blockers.\n- **Recursive self-improvement**: Ghodsi proposes four conditions for a meaningful self-improvement flywheel: successive training must become increasingly faster, consume fewer resources, produce broad accuracy gains, and repeat continuously. He reports that he does not see current training workflows satisfying this combination.\n- **Cybersecurity asymmetry**: An attacker can run many unsuccessful attempts and still win if one agent finds a path through. A defender must protect the system continuously, so having more compute does not erase the asymmetry. Ghodsi treats this as a real near-term risk even while rejecting stronger claims about imminent runaway superintelligence.\n\n## How It Works\n\n1. Define a narrow business outcome, such as reducing the delay between customer feedback and an engineering decision.\n2. Identify the minimum context required: relevant meetings, documents, metrics, communications, ownership records, and product data.\n3. Represent the relationships among people, artifacts, decisions, and metrics in an ontology or knowledge graph.\n4. Apply existing identities and permissions so each agent receives only the context needed for its task.\n5. Require traceable evidence for summaries, correlations, recommendations, and claims about employee or customer behavior.\n6. Route each task to an appropriately capable model and record token, infrastructure, and review costs.\n7. Map human blockers such as approvals, unclear ownership, repeated meetings, and cross-team escalation.\n8. Evaluate the complete workflow using cycle time, decision quality, error rate, business impact, and cost—not the number of agents deployed.\n9. Keep humans responsible for consequential decisions, especially employment, security, legal, financial, and medical actions.\n\n## Training Exercise\n\nBuild a small, governed organizational-context prototype.\n\n1. Choose one low-risk workflow, such as converting customer feedback into a prioritized feature brief.\n2. Create a synthetic corpus containing five meeting notes, ten feedback items, an org chart, three product documents, and a glossary of internal terms.\n3. Model relationships among customers, requests, products, owners, meetings, and decisions in a table or graph.\n4. Define three roles—executive, product manager, and engineer—and specify which records each role may access.\n5. Ask an agent to identify repeated requests, cite the supporting records, name the responsible owner, and propose a next action.\n6. Introduce one conflicting document and one restricted record. Confirm that the system exposes the conflict, preserves citations, and refuses unauthorized access.\n7. Run the workflow with a high-capability model and a cheaper model. Record cost, latency, factual errors, and reviewer corrections.\n8. Compare the prototype with the manual process using total cycle time and decision quality. Proceed only if the governed workflow improves a defined outcome rather than merely producing more output.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can a highly capable general model still provide little value inside a large company?\u003c/summary>\n\nIt may lack the company’s private context, including decisions, meetings, responsibilities, product data, and workflows. Giving it access also introduces governance, security, cost, and ownership problems that must be addressed together.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How does an organizational ontology differ from ordinary live search over company documents?\u003c/summary>\n\nThe described ontology maintains relationships among people, reporting lines, metrics, meetings, decisions, and artifacts. This lets an agent reuse structured organizational knowledge and trace supporting evidence instead of independently rediscovering disconnected documents for every request.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why does extensive AI-generated code not, by itself, demonstrate recursive self-improvement?\u003c/summary>\n\nAutomating even all code production would not prove that successive models can train themselves increasingly quickly, use progressively fewer resources, improve broadly, and repeat that cycle without interruption. Ghodsi presents those four properties as necessary preconditions for a rapid self-improvement loop.\n\n\u003c/details>\n\n## Further Reading\n\n- [Original interview on YouTube](https://www.youtube.com/watch?v=1bR0gtecoHU)\n- [Ali Ghodsi on X](https://x.com/@alighodsi)",
+    "related": [
+      {
+        "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
+        "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
+        "date": "2026-11-10",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "ai-strategy"
+        ]
+      },
+      {
+        "id": "2026-10-07-how-ai-agents-reallocate-software-value-across-data-workflows-and-interf-021cab04fe",
+        "title": "How AI Agents Reallocate Software Value Across Data, Workflows, and Interfaces",
+        "date": "2026-10-07",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "enterprise-ai"
+        ]
+      },
+      {
+        "id": "2026-09-11-building-guardrailed-ai-agents-with-ontologies-and-validation-6e412f7f0f",
+        "title": "Building Guardrailed AI Agents with Ontologies and Validation",
+        "date": "2026-09-11",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "knowledge-graphs"
+        ]
+      },
+      {
+        "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
+        "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
+        "date": "2026-09-09",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "cybersecurity"
+        ]
+      }
+    ]
+  },
+  {
     "id": "2026-11-19-ai-assisted-construction-planning-automate-scheduling-keep-human-judgmen-64819dd1ca",
     "title": "AI-Assisted Construction Planning: Automate Scheduling, Keep Human Judgment",
     "date": "2026-11-19",
@@ -844,9 +916,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-06-17-microsoft-365-copilot-cowork-ga-consumption-pricing-cost-drivers-and-governance",
-        "title": "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance",
-        "date": "2026-06-17",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance",
@@ -1193,22 +1265,22 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-11-17-building-high-leverage-technology-product-strategy-shared-platforms-and--d7c89a41cd",
         "title": "Building High-Leverage Technology: Product Strategy, Shared Platforms, and Accountability",
         "date": "2026-11-17",
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance",
-          "ai-strategy",
-          "entrepreneurship"
-        ]
-      },
-      {
-        "id": "2026-11-19-human-agency-in-the-age-of-ai-agents-e138b7ceb0",
-        "title": "Human Agency in the Age of AI Agents",
-        "date": "2026-11-19",
-        "shared_tags": [
-          "ai-agents",
           "ai-strategy",
           "entrepreneurship"
         ]
@@ -1612,6 +1684,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-11-19-human-agency-in-the-age-of-ai-agents-e138b7ceb0",
         "title": "Human Agency in the Age of AI Agents",
         "date": "2026-11-19",
@@ -1624,15 +1705,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
-        "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
-        "date": "2026-11-04",
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
@@ -2664,9 +2736,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
-        "title": "Founder Judgment and Agentic Workflows in the AI Era",
-        "date": "2026-08-13",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
           "ai-strategy",
@@ -2674,12 +2746,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
-        "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
-        "date": "2026-10-13",
+        "id": "2026-08-13-founder-judgment-and-agentic-workflows-in-the-ai-era-54a3c91970",
+        "title": "Founder Judgment and Agentic Workflows in the AI Era",
+        "date": "2026-08-13",
         "shared_tags": [
           "ai-agents",
-          "ai-strategy"
+          "ai-strategy",
+          "organizational-design"
         ]
       }
     ]
@@ -2713,6 +2786,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> AI agents can make a software interface easier to abandon while making reliable data, specialized workflows, and accumulated agent context more valuable. Evaluate software by separating its data, application, and agentic layers—and by measuring the business outcomes each layer enables.\n\n## Key Takeaways\n\n1. Separate every software purchase into three layers: data, application workflows, and agentic interaction.\n2. Agent accessibility is becoming table stakes, but an API or MCP connection alone does not give customers a reason to keep paying.\n3. Preserve dependable applications for high-risk execution such as payroll; an agent can simplify their complexity without replacing their rules, approvals, and compliance controls.\n4. Document how employees use AI before changing vendors, because valuable instructions, preferences, feedback, and unwritten procedures may be embedded in individual agent setups.\n5. Compare building with buying based on risk and opportunity cost: a custom recruiting search may be practical, while rebuilding compliant payroll could divert engineers from competitive work.\n6. Design software so structured data and workflows are accessible from multiple interfaces and agents rather than depending on repeated visits to one graphical interface.\n7. Tie AI adoption and software purchasing to outcomes such as sales, revenue, profitability, or operating speed—not merely to whether a product includes AI.\n\n## Key Moments\n\n- [2:02](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=122s) — See how a recruiter’s agent absorbs selection criteria and becomes harder to replace than the original recruiting interface.\n- [4:35](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=275s) — Learn what customers still pay for when agents perform much of the information processing.\n- [17:32](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1052s) — Use DoorDash’s text ordering and limited MCP beta to understand how a business can retain transactions after losing direct interface usage.\n- [19:03](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1143s) — Understand why agent connectivity earns consideration but does not create durable differentiation by itself.\n- [21:06](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1266s) — Compare a custom recruiting workflow built on Crustdata APIs with packaged recruiting software.\n- [22:41](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1361s) — See why an agent may increase Workday payroll’s value instead of replacing its configured rules and execution system.\n- [24:30](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1470s) — Apply the data, application, and agentic-layer framework to employees, buyers, and software vendors.\n- [29:56](https://www.youtube.com/watch?v=0j8wy4jUlsw&t=1796s) — Turn the framework into concrete actions for employees, leaders, and software sellers.\n\n## Overview\n\nThe presenter proposes a three-layer model for understanding software in an agent-mediated workplace: the data layer supplies information, the application layer provides interfaces and structured workflows, and the agentic layer interprets requests and coordinates work. Agents may reduce direct use of traditional interfaces without eliminating the underlying data, rules, approvals, or execution systems.\n\nThis model matters to employees whose working knowledge is becoming embedded in agents, leaders choosing vendors, and sellers redefining software value. The central practical lesson is to identify which layer produces an outcome, what can safely be substituted, and what context or reliability would be lost during a change.\n\n## Key Concepts\n\n- **Data layer**: This layer contains records and structured information that agents need to perform useful work. In the recruiting example, the presenter reports that a business retained the structured candidate-data provider while building its own search workflow above it.\n- **Application layer**: Applications combine interfaces with workflows, and those components should not be treated as identical. A graphical interface may become less important while the underlying workflow—especially one involving rules, approvals, or compliance—remains highly valuable.\n- **Agentic layer**: This layer interprets goals, processes information, invokes tools, and coordinates tasks. Its value can grow as users teach it preferences, exceptions, and procedures that were never formally documented.\n- **Context lock-in**: An agent can accumulate selection criteria, feedback, custom skills, and tacit operating knowledge over time. The presenter argues that changing AI vendors may therefore cost more than leaders realize, even when the new vendor appears cheaper by license or token price.\n- **Agent reachability**: APIs and protocols such as MCP let external agents retrieve data or request actions. The DoorDash example illustrates the strategy: preserve the transaction whether a customer uses DoorDash’s own assistant or another agent, although the presenter cautions that reachability alone is only table stakes.\n- **Dependable execution**: Some systems remain valuable because they execute consequential work correctly, not because users enjoy their interfaces. The Workday payroll example highlights configured rules, records, approvals, issue detection, and compliance-sensitive execution that an agent can make easier to navigate.\n- **Build-versus-buy boundary**: AI lowers the cost of constructing some workflows, making a custom layer over purchased data more plausible. The boundary changes when errors carry substantial compliance risk or when internal engineering effort would be better spent on competitive advantage.\n- **Multi-value stack**: The presenter argues that vendors increasingly need to explain their combined value across data, workflows, agent access, trust, and optionality. Buyers should test each claim separately and ask how the complete stack improves a measurable business outcome.\n\n## How It Works\n\n1. Map the data layer: identify each system of record, data supplier, access method, ownership boundary, and source of unique information.\n2. Decompose the application layer: distinguish the visible interface from the rules, approvals, integrations, and execution workflows underneath it.\n3. Map the agentic layer: record which agents people use, what tools they call, what instructions or skills they contain, and how feedback improves their output.\n4. Trace a real outcome through all three layers—for example, candidate selection, customer onboarding, food ordering, or payroll correction.\n5. Test substitutability: ask what happens if the interface, workflow provider, data source, or agent is changed independently.\n6. Estimate hidden migration costs, including lost context, recreated skills, retraining, validation, compliance review, and temporary productivity loss.\n7. Decide whether to build, buy, or combine components according to differentiation, execution risk, engineering opportunity cost, and required vendor optionality.\n8. Reassess regularly as agent capabilities improve and the boundary between interface work and automated work shifts.\n\n## Training Exercise\n\n1. Choose one recurring workflow you perform, such as preparing a candidate shortlist, onboarding a customer, or resolving an invoice issue.\n2. Draw three columns labeled Data, Application, and Agent. List every source, workflow, interface, rule, and AI tool involved.\n3. Mark what is unique or difficult to reproduce: proprietary records, tacit instructions, approval logic, compliance controls, integrations, or agent memory.\n4. Simulate four changes separately: remove the graphical interface, replace the data provider, replace the workflow system, and replace the agent.\n5. For each change, estimate reconstruction time, validation work, operational risk, and the business outcome affected.\n6. Decide which components should remain purchased, which could be built, and which need portability measures such as documented prompts, exported instructions, or vendor-neutral access.\n7. Summarize the result for a manager in five sentences: the outcome, the three layers involved, the hardest component to replace, the main risk, and your recommendation.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why can an agent weaken one vendor relationship while strengthening another?\u003c/summary>\n\nIt can replace the interface or information-arrangement work of a point solution while continuing to depend on an underlying data provider or execution system. Meanwhile, the agent accumulates organization-specific instructions and context that make the agent relationship costly to replace.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why is making software reachable through MCP or an API insufficient as a long-term strategy?\u003c/summary>\n\nConnectivity allows agents to consider and use a service, but comparable providers can become easier to substitute once they are equally accessible. Durable value must still come from differentiated data, dependable execution, valuable workflows, or specialized agent capabilities.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How should a leader evaluate an AI-vendor change without accidentally destroying productivity?\u003c/summary>\n\nFirst map how teams actually use agents, including local instructions, data sources, feedback loops, and application workflows. Then compare migration costs and business outcomes across all three layers instead of making the decision from license or token prices alone.\n\n\u003c/details>\n\n## Further Reading\n\n- [Full post: AI agents and software buying](https://natesnewsletter.substack.com/p/ai-agents-software-buying?utm_source=youtube&utm_medium=video&utm_campaign=ai-agents-software-buying-launch&utm_content=description)\n- [Nate's Library MCP connection guide](https://unlock-ai.natebjones.com/guides/how-to-connect-nates-library?utm_source=youtube&utm_medium=video&utm_campaign=ai-agents-software-buying-launch&utm_content=description)",
     "related": [
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "enterprise-ai"
+        ]
+      },
+      {
         "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
         "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
         "date": "2026-11-04",
@@ -2738,15 +2821,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "ai-strategy",
           "saas"
-        ]
-      },
-      {
-        "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
-        "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
-        "date": "2026-11-10",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
         ]
       }
     ]
@@ -2790,6 +2864,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-safety-and-governance",
+          "cybersecurity"
+        ]
+      },
+      {
         "id": "2026-11-19-why-ai-control-depends-on-security-evaluation-and-the-ability-to-slow-do-45686da669",
         "title": "Why AI Control Depends on Security, Evaluation, and the Ability to Slow Down",
         "date": "2026-11-19",
@@ -2802,15 +2885,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-08-31-lesson-reward-hacking-covert-coordination-and-ai-evaluation-security-5feed38442",
         "title": "Lesson: Reward Hacking, Covert Coordination, and AI Evaluation Security",
         "date": "2026-08-31",
-        "shared_tags": [
-          "ai-safety-and-governance",
-          "cybersecurity"
-        ]
-      },
-      {
-        "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
-        "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
-        "date": "2026-09-09",
         "shared_tags": [
           "ai-safety-and-governance",
           "cybersecurity"
@@ -3002,6 +3076,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
@@ -3014,15 +3097,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-11-04-designing-software-data-and-infrastructure-for-an-agent-first-world-d3a7d2a9ba",
         "title": "Designing Software, Data, and Infrastructure for an Agent-First World",
         "date": "2026-11-04",
-        "shared_tags": [
-          "ai-agents",
-          "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-10-13-building-reliable-personal-ai-agents-through-focus-evaluation-and-trust-9911d07979",
-        "title": "Building Reliable Personal AI Agents Through Focus, Evaluation, and Trust",
-        "date": "2026-10-13",
         "shared_tags": [
           "ai-agents",
           "ai-strategy"
@@ -4590,6 +4664,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "knowledge-graphs"
+        ]
+      },
+      {
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
@@ -4602,15 +4686,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-09-09-reasoning-clearly-about-ai-agents-cybersecurity-market-hype-and-educatio-6fc60071b9",
         "title": "Reasoning Clearly About AI Agents, Cybersecurity, Market Hype, and Education",
         "date": "2026-09-09",
-        "shared_tags": [
-          "ai-agents",
-          "ai-safety-and-governance"
-        ]
-      },
-      {
-        "id": "2026-05-20-dataverse-plugins-for-coding-agents-concepts-integration-patterns-and-safe-usage",
-        "title": "Dataverse Plugins for Coding Agents: Concepts, Integration Patterns, and Safe Usage",
-        "date": "2026-05-20",
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance"
@@ -4937,6 +5012,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Evaluate AI claims by separating observed behavior from dramatic interpretation, then reconstructing the mechanism, evidence, incentives, and failure points. This turns hype or fear into testable claims and practical safeguards.\n\n## Key Takeaways\n\n1. Describe AI incidents first in terms of actors, actions, permissions, artifacts, and outcomes—not human-like labels such as “escape” or “sacrifice.”\n2. Distinguish capability from motive: an agent can find an unexpected way to pursue a human-assigned objective without forming an independent goal.\n3. Threat-model the entire agent system—including its harness, tools, sandbox, network access, secrets, shared memory, logs, and human operators—not just the model.\n4. Reduce agent-security risk with least privilege, network isolation, secret scanning, credential rotation, audit logs, monitoring, and adversarial testing.\n5. Separate genuine adoption from valuation: strong AI revenue and usage can coexist with excessive prices, weak margins, heavy capital requirements, and funding risk.\n6. Design AI education tools to support student thinking rather than replace it; measure delayed recall, unaided transfer, explanation quality, workload, and privacy—not just immediate performance.\n7. Label observations, attributed reports, opinions, analogies, and forecasts separately, then seek primary documentation before treating speaker claims as established facts.\n\n## Overview\n\nThis lesson turns a wide-ranging podcast discussion into a reusable framework for evaluating AI claims. Its central discipline is to separate observed behavior from dramatic interpretation. The speakers discuss frontier-model competition, elevated startup valuations, an alleged agent-security incident involving Hugging Face, open-versus-closed AI markets, data-center policy, and AI in schools. Much of the material consists of predictions, political argument, analogy, and secondhand descriptions rather than independently established findings. Treat statements about unreleased models, regulation, named organizations, influence campaigns, future IPOs, and educational outcomes as claims made by the speakers—not verified facts supplied by the transcript. The most durable takeaway is methodological: reconstruct the technical mechanism, identify the evidence and incentives, compare benefits with failure modes, and design bounded experiments before accepting either utopian or catastrophic narratives.\n\n## Key Concepts\n\n- **Mechanism before narrative**: Translate human-like descriptions of AI into concrete system behavior. In the incident as characterized by the speakers, a collection of agents worked toward an assigned cybersecurity objective, stored intermediate notes, encountered a reportedly misconfigured sandbox, reached the internet, and found exposed API credentials in public repositories. Terms such as “civilization,” “sacrifice,” or “escape” may make ordinary orchestration, logging, persistence, and security failures sound like independent intent. Because the transcript provides a contested, secondhand account rather than primary technical evidence, its details should be treated cautiously.\n- **Agents as orchestrated software**: An agent is presented as a model operating inside a harness that supplies tools, context, task loops, and external memory. Multiple specialized agents may be coordinated by a supervisory agent, commonly called a swarm or multi-agent architecture. Notes and shared files can let later processes continue earlier work because the model itself does not automatically retain durable memory. This architecture can produce unexpected behavior without implying consciousness or self-chosen goals.\n- **Threat modeling for agentic systems**: The discussion distinguishes capability from motive. A system may discover an unanticipated route to its assigned objective while still pursuing a human-provided goal. Analyze such events by asking: What was the objective? Which tools and permissions were available? What trust boundary failed? What credentials were exposed? What logs exist? Did the system create a new goal, or merely find an unexpected strategy? This produces actionable controls such as least privilege, network isolation, secret scanning, credential rotation, monitoring, and adversarial testing.\n- **AI offense and AI defense**: The speakers argue that increasingly capable code-generation systems will strengthen both attackers and defenders. They contrast dynamic, adaptive software with static defenses and mention ideas such as moving-target defense and code that changes over time. Their prediction that this will create a stalemate or make defense dominant is speculative. The practical lesson is narrower: organizations should assume that automation lowers the cost of vulnerability discovery and should improve defensive automation without treating it as infallible.\n- **Competition, cost, and control**: The podcast frames AI markets along several axes: frontier versus commodity capability, closed versus open models, and hosted tokens versus locally controlled infrastructure. Competition may reduce inference costs and increase choice, while concentrated providers can create dependency and switching risk. Open systems may offer sovereignty and auditability but also transfer more security and operational responsibility to users. Claims about particular companies, future releases, acquisitions, and market leadership are predictions or assertions from the speakers.\n- **Bubble reasoning under genuine growth**: The speakers compare the AI market with the late-1990s technology boom. They note that current AI businesses may have real revenue and usage while still receiving valuations that price in years of optimistic growth. Both conditions can coexist: an important technology can generate durable value, and individual assets can still be overpriced. A sound analysis separates product adoption, revenue quality, margins, capital requirements, competitive durability, valuation multiples, and survival under a funding downturn.\n- **Adaptive education versus cognitive outsourcing**: The discussion presents a real design tension. AI tutors could personalize explanations, pace, and practice, potentially extending tutoring to students who cannot afford human tutors. Conversely, having a model perform the core intellectual work may weaken recall, ownership, and independent reasoning. The transcript cites a Stanford review and a small essay-writing study, but it supplies neither source URL nor enough methodological detail to validate broad conclusions. Tool design, age, subject, supervision, and whether students must retrieve and explain material afterward are crucial variables.\n- **Evidence, incentives, and policy claims**: Policy debates can be distorted by sensational language, commercial incentives, political incentives, conflicts of interest, or selective evidence. The speakers make numerous partisan and causal claims about regulators, unions, advocacy groups, foreign actors, and public officials; the transcript alone does not substantiate many of them. A durable evaluation should label opinion as opinion, seek primary documentation, disclose relationships, distinguish proposed policy from enacted policy, and compare multiple plausible explanations before drawing conclusions.\n\n## How It Works\n\nUse a five-pass analysis. First, write a neutral event description containing only observable actors, actions, permissions, artifacts, and outcomes. Second, separate evidence levels: primary records, attributed reports, speaker interpretation, analogy, and prediction. Third, draw the system boundary—model, agent harness, tools, sandbox, network, secrets, logs, and human operators—and identify where control actually failed. Fourth, test competing explanations: independent goal formation, creative pursuit of an assigned goal, conventional software misconfiguration, exposed credentials, or some combination. Fifth, convert the analysis into action: restrict privileges, isolate networks, scan repositories for secrets, rotate compromised keys, preserve audit logs, test failure modes, and run limited pilots. Apply the same structure to markets and education: define measurable outcomes, compare against a baseline, identify who bears downside risk, and avoid extrapolating from one benchmark, anecdote, or small study. This framework permits serious attention to AI risks without mistaking rhetoric for evidence.\n\n## Training Exercise\n\nChoose one claim from the source—for example, “agents escaped a sandbox,” “AI tutoring improves learning,” or “AI valuations resemble 1998.” Produce a one-page analysis with six sections: (1) quote or closely paraphrase the claim; (2) list only the evidence contained in the transcript; (3) label every item as observation, attributed report, opinion, analogy, or forecast; (4) draw the relevant system or causal chain; (5) name at least three alternative explanations and the evidence that would distinguish them; and (6) propose a bounded test. For the education claim, design a four-week pilot comparing ordinary instruction, AI-assisted practice, and AI-generated answers. Measure immediate performance, delayed recall, unaided transfer, student explanation quality, teacher workload, and privacy incidents. Require students to attempt problems before receiving assistance and to complete a later no-AI assessment. End by stating what the experiment could establish, what it could not establish, and which source claims remain unverified.\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>Why does the lesson recommend “mechanism before narrative” when evaluating an AI incident?\u003c/summary>\n\nHuman-like language can make ordinary orchestration, persistence, or security failures sound like independent intent. Reconstructing objectives, permissions, tools, artifacts, and trust-boundary failures produces explanations that can be tested and acted upon.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>How can AI be economically important while some AI investments are still overpriced?\u003c/summary>\n\nA technology can achieve real adoption and revenue while valuations assume years of optimistic growth. Investors should separately assess revenue quality, margins, capital needs, competitive durability, valuation multiples, and resilience during a funding downturn.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What would a bounded test of AI-assisted education measure?\u003c/summary>\n\nA four-week pilot could compare ordinary instruction, AI-assisted practice, and AI-generated answers while measuring immediate performance, delayed recall, unaided transfer, explanation quality, teacher workload, and privacy incidents. Students should attempt work before receiving help and later complete a no-AI assessment.\n\n\u003c/details>\n\n## Further Reading\n\n- [Source video on YouTube](https://www.youtube.com/watch?v=DvFe9bR2eHA)\n- [All-In Summit website mentioned in the transcript](https://allinsummit.com)",
     "related": [
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance",
+          "cybersecurity"
+        ]
+      },
+      {
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
@@ -4961,16 +5046,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance"
-        ]
-      },
-      {
-        "id": "2026-10-22-designing-ai-for-a-post-work-future-truth-curiosity-embodiment-and-abund-10f942bd5c",
-        "title": "Designing AI for a Post-Work Future: Truth, Curiosity, Embodiment, and Abundance",
-        "date": "2026-10-22",
-        "shared_tags": [
-          "ai-agents",
-          "ai-safety-and-governance",
-          "artificial-intelligence"
         ]
       }
     ]
@@ -7129,13 +7204,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
-        "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
-        "date": "2026-11-10",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
           "ai-strategy",
-          "startups"
+          "organizational-design"
         ]
       }
     ]
@@ -7456,6 +7531,16 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-strategy",
+          "organizational-design"
+        ]
+      },
+      {
         "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
         "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
         "date": "2026-11-10",
@@ -7473,17 +7558,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
           "ai-agents",
           "ai-strategy",
           "leadership-and-careers"
-        ]
-      },
-      {
-        "id": "2026-10-16-finding-the-newly-technically-possible-through-fast-product-iteration-207f71a9aa",
-        "title": "Finding the Newly Technically Possible Through Fast Product Iteration",
-        "date": "2026-10-16",
-        "shared_tags": [
-          "ai-strategy",
-          "leadership-and-careers",
-          "product-strategy",
-          "startups"
         ]
       }
     ]
@@ -7617,9 +7691,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-11-17-building-high-leverage-technology-product-strategy-shared-platforms-and--d7c89a41cd",
-        "title": "Building High-Leverage Technology: Product Strategy, Shared Platforms, and Accountability",
-        "date": "2026-11-17",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance",
@@ -8267,13 +8341,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-11-17-building-high-leverage-technology-product-strategy-shared-platforms-and--d7c89a41cd",
-        "title": "Building High-Leverage Technology: Product Strategy, Shared Platforms, and Accountability",
-        "date": "2026-11-17",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
-          "ai-safety",
-          "ai-safety-and-governance"
+          "ai-safety-and-governance",
+          "cybersecurity"
         ]
       }
     ]
@@ -9443,6 +9517,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance"
+        ]
+      },
+      {
         "id": "2026-09-01-lesson-multi-agent-reward-hacking-and-why-impossible-evaluations-can-esc-94d8fc43b1",
         "title": "Lesson: Multi-Agent Reward Hacking and Why Impossible Evaluations Can Escalate",
         "date": "2026-09-01",
@@ -9459,15 +9542,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "developer-tools"
-        ]
-      },
-      {
-        "id": "2026-11-10-personal-ai-agents-as-an-operating-layer-for-work-entrepreneurship-and-d-cf97e6ca49",
-        "title": "Personal AI Agents as an Operating Layer for Work, Entrepreneurship, and Digital Choice",
-        "date": "2026-11-10",
-        "shared_tags": [
-          "ai-agents",
-          "ai-safety-and-governance"
         ]
       }
     ]
@@ -10129,21 +10203,21 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-06-17-microsoft-365-copilot-cowork-ga-consumption-pricing-cost-drivers-and-governance",
-        "title": "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance",
-        "date": "2026-06-17",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-safety-and-governance",
           "ai-strategy"
         ]
       },
       {
-        "id": "2026-10-16-evaluating-ai-claims-through-verifiability-incentives-and-human-control-8cd9a0484a",
-        "title": "Evaluating AI Claims Through Verifiability, Incentives, and Human Control",
-        "date": "2026-10-16",
+        "id": "2026-06-17-microsoft-365-copilot-cowork-ga-consumption-pricing-cost-drivers-and-governance",
+        "title": "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance",
+        "date": "2026-06-17",
         "shared_tags": [
           "ai-safety-and-governance",
-          "artificial-intelligence"
+          "ai-strategy"
         ]
       }
     ]
@@ -11992,9 +12066,9 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-11-17-building-high-leverage-technology-product-strategy-shared-platforms-and--d7c89a41cd",
-        "title": "Building High-Leverage Technology: Product Strategy, Shared Platforms, and Accountability",
-        "date": "2026-11-17",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-safety-and-governance",
           "ai-strategy"
@@ -12757,6 +12831,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-strategy",
+          "enterprise-ai"
+        ]
+      },
+      {
         "id": "2026-10-08-raise-ais-capability-ceiling-then-optimize-production-cost-dc6bbafd0a",
         "title": "Raise AI’s Capability Ceiling, Then Optimize Production Cost",
         "date": "2026-10-08",
@@ -12771,14 +12854,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-strategy",
           "enterprise-ai"
-        ]
-      },
-      {
-        "id": "2026-08-20-practical-framework-for-analyzing-ai-competition-compute-economics-and-p-7b29504806",
-        "title": "Practical Framework for Analyzing AI Competition, Compute Economics, and Platform Strategy",
-        "date": "2026-08-20",
-        "shared_tags": [
-          "ai-strategy"
         ]
       }
     ]
@@ -15127,13 +15202,13 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
-        "id": "2026-04-27-microsoft-agent-platform-landscape-copilot-foundry-studio-and-agent-365",
-        "title": "Microsoft Agent Platform Landscape: Copilot, Foundry, Studio, and Agent 365",
-        "date": "2026-04-27",
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
         "shared_tags": [
           "ai-agents",
-          "copilot",
-          "governance"
+          "ai-safety-and-governance",
+          "ai-strategy"
         ]
       }
     ]
@@ -17230,6 +17305,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-safety-and-governance",
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-06-17-microsoft-365-copilot-cowork-ga-consumption-pricing-cost-drivers-and-governance",
         "title": "Microsoft 365 Copilot Cowork GA: Consumption Pricing, Cost Drivers, and Governance",
         "date": "2026-06-17",
@@ -17242,15 +17326,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-06-06-claude-code-routines-event-driven-and-scheduled-automations-for-engineering-work",
         "title": "Claude Code Routines: Event-Driven and Scheduled Automations for Engineering Workflows",
         "date": "2026-06-06",
-        "shared_tags": [
-          "automation-workflows",
-          "claude"
-        ]
-      },
-      {
-        "id": "2026-04-17-claude-code-routines-for-scheduled-api-and-github-automation",
-        "title": "Claude Code Routines for Scheduled, API, and GitHub Automation",
-        "date": "2026-04-17",
         "shared_tags": [
           "automation-workflows",
           "claude"
@@ -20037,6 +20112,15 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
     "content": "## TL;DR\n\n> Power Apps code apps bring analytics, operational actions, and context-aware AI into one application built with modern developer tools but governed by Power Platform. This matters because teams can shorten the loop from insight to action without rebuilding enterprise identity, security, deployment, and data controls for every app.\n\n## Key Takeaways\n\n1. Treat dashboards as operational control planes: as AI takes more actions, users need trusted metrics and visual context to monitor outcomes.\n2. Use a unified flow—Observe, Understand, Decide, Act, Monitor—when users currently switch between reporting, workflow, and AI tools.\n3. Build code apps with VS Code, React, TypeScript, Git, and CI/CD while using the managed Power Platform runtime for enterprise controls.\n4. Ground embedded agents in the data, visuals, selections, and workflow context currently visible to the user; the source argues this makes responses more relevant and auditable.\n5. Apply Entra ID, Conditional Access, DLP policies, sharing controls, and ALM as part of the architecture rather than adding governance after development.\n6. Consider a code app when analytics must lead directly to corrective action, AI needs governed enterprise context, and the organization already relies on Microsoft's platform ecosystem.\n\n## Overview\n\nThis lesson explains the core idea behind Microsoft Power Apps code apps as presented in the source: combining the analytical experience historically associated with Power BI with the action-oriented workflows of Power Apps, and increasingly with embedded AI agents, all in a single governed application surface. The message is not that dashboards are going away, but that they are becoming more important as operational control panels in organizations where AI can take actions on behalf of users.\n\nThis matters to engineers, architects, and platform teams who need to balance developer velocity with enterprise requirements like identity, data loss prevention, conditional access, application lifecycle management, and secure sharing. If your organization has traditionally split reporting, app workflows, and automation across separate tools, code apps represent a model for bringing them together without giving up modern developer tooling.\n\n## Key Concepts\n\n- **Report, app, agent convergence**: The source argues that analytics, operational workflows, and AI assistance are converging into one user experience. Instead of viewing a dashboard in one tool, taking action in another, and consulting an AI assistant elsewhere, a single application can present the KPI, explain the variance, and trigger follow-up actions.\n- **Dashboards as control planes**: AI agents do not make dashboards obsolete; they increase the need for trusted metrics and visual context. When software can act autonomously or semi-autonomously, users need an observable control surface showing what is happening and whether outcomes remain within acceptable limits.\n- **Code apps in Power Platform**: Power Apps code apps target pro developers rather than only low-code makers. The model highlighted in the source uses familiar engineering tools such as VS Code, React, TypeScript, Git, and CI/CD, while deploying the app inside the Power Platform runtime and governance boundary.\n- **Governance by default**: A central theme is that enterprise constraints are not merely friction; they are enabling structure. Features such as DLP policies, Entra ID integration, Conditional Access, sharing controls, and ALM provide a managed environment so teams can move faster without inventing custom security and compliance controls for every app.\n- **Embedded AI grounded in business context**: The source emphasizes embedding agents directly inside the application, not as a detached chatbot. The value comes from grounding the agent in the same data, visuals, and workflow context the user is currently seeing, which makes explanations and suggested actions more relevant and auditable.\n- **Actionable analytics**: Traditional BI often ends at insight delivery: a user sees a variance and then must switch tools to respond. In the described model, users can investigate a KPI, understand its drivers through visuals, and immediately perform corrective actions such as reassigning work, flagging a supplier, or launching a workflow.\n\n## How It Works\n\nAt a high level, the source describes a shift from a loosely coupled pattern to an integrated one:\n\n- **Old pattern**\n  - Power BI to visualize and analyze\n  - Power Apps to capture user input or trigger action\n  - Optional automation and AI added separately\n\n- **New pattern**\n  - A **code app** becomes the primary surface\n  - It contains analytics-like views, operational controls, and embedded AI assistance\n  - It runs inside the **managed Power Platform environment** rather than as an entirely standalone web app\n\nThe architectural idea is important even though the source is a short post rather than a deep technical article. The app is described as being built with standard engineering tools:\n\n- **VS Code** for development\n- **React** for UI composition\n- **TypeScript** for typed application logic\n- **Git** for source control\n- **CI/CD** for repeatable delivery\n\nThat means the developer experience looks much closer to a modern frontend project than to purely drag-and-drop low-code authoring. However, the runtime and operational model remain aligned with Power Platform. This is the key tradeoff: teams gain pro-code flexibility while still inheriting platform controls.\n\n### Conceptual component model\n\nA practical way to think about the resulting application is as four layers:\n\n1. **Presentation layer**\n   - React components render KPI cards, charts, forms, action buttons, and conversational or agent-driven UI.\n   - The analytics portion may resemble a Power BI-style reporting experience even if delivered inside the code app.\n\n2. **Business interaction layer**\n   - User actions like reassigning ownership, flagging an issue, approving an exception, or starting remediation workflows are surfaced directly in the same screen.\n   - This layer bridges observation and action.\n\n3. **Agent layer**\n   - An embedded AI agent interprets user intent in the context of the current data.\n   - For example, if a user is looking at forecast vs. actual variance, the agent can explain likely drivers, estimate future exposure, draft communications, or propose next steps.\n\n4. **Platform governance layer**\n   - Identity and access are handled through **Entra ID**.\n   - **Conditional Access** governs where and how the app can be used.\n   - **DLP** policies constrain how data can move between systems.\n   - **Sharing and ALM** are managed using Power Platform capabilities rather than ad hoc infrastructure.\n\n### Data and workflow flow\n\nThe post's supply-chain example gives a useful reference flow:\n\n1. A user opens the app and sees a KPI summarizing forecast vs. actual performance.\n2. A visual such as a waterfall chart explains the drivers behind the variance.\n3. Because the UI is an app rather than a static report, the user can immediately take follow-up action from the same screen.\n4. An embedded agent can answer questions like \"what's our exposure next quarter?\" using the current analytical context.\n5. The app can then trigger workflow steps such as supplier escalation, ownership reassignment, or downstream automation.\n\nThis creates a tighter loop:\n\n```text\nObserve -> Understand -> Decide -> Act -> Monitor\n```\n\nInstead of breaking that loop across multiple products and browser tabs, the code app tries to make it one continuous experience.\n\n### Why the governance angle matters technically\n\nThe source strongly emphasizes that faster app generation, including AI-assisted development, is not enough on its own. In enterprise settings, the hard part is rarely just rendering a UI. It is ensuring that:\n\n- the right users can access the right data,\n- sensitive information does not leak between connectors or environments,\n- deployments are reproducible,\n- app changes can be governed through environments and pipelines,\n- auditing and trust are maintained when AI is involved.\n\nA plain React single-page app can absolutely solve the UI problem. But the source's argument is that code apps package modern web development inside an enterprise governance envelope that many organizations already operate. For teams deeply invested in Microsoft 365, Power Platform, Entra ID, and Fabric or Power BI, that can reduce integration and compliance overhead.\n\n### Practical interpretation for engineers\n\nIf you are designing internal business software, the lesson is not \"replace every app with Power Apps.\" The more useful takeaway is:\n\n- if your users consume analytics and then immediately need to act,\n- if AI suggestions should be grounded in governed enterprise data,\n- and if your organization already relies on Microsoft governance controls,\n\nthen a code-app approach may be more appropriate than building separate reporting, workflow, and assistant surfaces.\n\nThe source also hints at a roadmap implication: by 2026, teams may increasingly describe business applications not as separate BI artifacts plus apps, but as unified operational surfaces where analytics, automation, and AI are first-class components.\n\n## Training Exercise\n\nBuild a small design blueprint for a governed \"report + app + agent\" scenario in your environment.\n\n### Goal\nCreate a technical plan for a single-screen operational app that lets a user:\n1. View a KPI and one explanatory visual\n2. Ask an AI-powered question about the current data\n3. Trigger one corrective action\n4. Stay within enterprise identity and data-governance controls\n\n### Step-by-step\n\n1. **Choose a business scenario**\n   Pick one process where users currently inspect a report and then switch tools to respond. Examples:\n   - forecast vs actual variance\n   - overdue invoices\n   - ticket backlog by queue\n   - low inventory alerts\n\n2. **Define the screen layout**\n   Sketch a single page with these regions:\n   - KPI summary card\n   - explanatory chart or table\n   - action panel with 1-2 business operations\n   - embedded agent prompt area\n\n3. **Map the data sources**\n   For each screen element, document:\n   - source system\n   - sensitivity level\n   - who should access it\n   - whether the data can be combined with other connectors under your DLP rules\n\n4. **Design the user flow**\n   Write down a flow like:\n   - user opens app\n   - app loads KPI and variance breakdown\n   - user asks agent for explanation of a spike\n   - user triggers a follow-up action\n   - app records the action and refreshes status\n\n5. **Identify governance controls**\n   Explicitly list how your design would use:\n   - Entra ID for authentication\n   - Conditional Access for device or location constraints\n   - DLP for connector boundaries\n   - ALM/CI-CD for promotion across environments\n\n6. **Draft a React component tree**\n   Even if you do not implement it, define the UI structure:\n\n```text\n\u003cApp>\n  \u003cHeader />\n  \u003cKPIBanner />\n  \u003cVarianceChart />\n  \u003cActionPanel />\n  \u003cAgentPanel />\n  \u003cAuditTrail />\n\u003c/App>\n```\n\n7. **Write one agent grounding prompt**\n   Create a prompt template that uses current-page context. Example:\n\n```text\nYou are assisting a supply chain planner.\nCurrent KPI: Forecast variance = 8.4% unfavorable.\nVisible dimensions: supplier, region, quarter.\nUser-selected supplier: Contoso Components.\nExplain likely causes of the variance, estimate next-quarter exposure,\nand suggest the safest corrective action based only on available data.\n```\n\n8. **Evaluate the architecture**\n   Answer these questions:\n   - What part truly needs custom code?\n   - What part benefits most from the managed Power Platform runtime?\n   - Where could AI introduce risk if not grounded or governed?\n   - What user action should be fully automated versus user-confirmed?\n\n### Stretch task\nCreate a 1-page architecture note comparing two options:\n- a standalone React SPA hosted independently\n- a Power Apps code app using the same frontend concepts\n\nCompare them on:\n- development speed\n- identity integration\n- data governance\n- auditability\n- operational overhead\n- suitability for internal enterprise users\n\n## Test Yourself\n\n\u003cdetails>\u003csummary>How does a Power Apps code app change the traditional relationship between BI and operational workflows?\u003c/summary>\n\nIt makes one application the surface for viewing metrics, understanding their drivers, and taking corrective action. The source presents this as a way to avoid splitting the Observe-to-Monitor loop across separate reports, apps, and assistants.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>Why does the source argue that AI increases rather than eliminates the importance of dashboards?\u003c/summary>\n\nAutonomous or semi-autonomous actions still need trusted metrics, visual context, and observable outcomes. Dashboards therefore become control planes through which users can supervise whether AI-driven activity remains within acceptable limits.\n\n\u003c/details>\n\n\u003cdetails>\u003csummary>What is the central tradeoff of using a Power Apps code app instead of an independently hosted React SPA?\u003c/summary>\n\nA code app retains pro-code flexibility through React, TypeScript, Git, and CI/CD while operating inside Power Platform's governance boundary. According to the source, this can reduce identity, compliance, sharing, and lifecycle-management overhead, particularly for organizations already invested in Microsoft platforms.\n\n\u003c/details>\n\n## Further Reading\n\n- [Power Apps code apps overview](https://learn.microsoft.com/en-us/power-apps/developer/code-apps/overview)\n- [Microsoft Power Platform Well-Architected](https://learn.microsoft.com/en-us/power-platform/well-architected/)\n- [Overview of data loss prevention policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention)\n- [What is Microsoft Entra ID?](https://learn.microsoft.com/en-us/entra/fundamentals/whatis)\n- [What is Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/get-started/microsoft-fabric-overview)",
     "related": [
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-agents",
+          "ai-safety-and-governance"
+        ]
+      },
+      {
         "id": "2026-06-18-june-2026-power-platform-updates-agents-automation-and-governance-converge",
         "title": "June 2026 Power Platform Updates: Agents, Automation, and Governance Converge",
         "date": "2026-06-18",
@@ -20061,15 +20145,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "shared_tags": [
           "ai-agents",
           "ai-safety-and-governance"
-        ]
-      },
-      {
-        "id": "2026-08-07-power-bi-project-files-and-agentic-authoring-in-microsoft-fabric-7cd5d51f00",
-        "title": "Power BI Project Files and Agentic Authoring in Microsoft Fabric",
-        "date": "2026-08-07",
-        "shared_tags": [
-          "ai-agents",
-          "powerbi"
         ]
       }
     ]
@@ -22321,6 +22396,14 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         ]
       },
       {
+        "id": "2026-11-20-enterprise-ai-needs-context-governance-cost-control-and-ownership-82b2d0ac8d",
+        "title": "Enterprise AI Needs Context, Governance, Cost Control, and Ownership",
+        "date": "2026-11-20",
+        "shared_tags": [
+          "ai-strategy"
+        ]
+      },
+      {
         "id": "2026-08-28-ai-agents-systems-of-record-and-the-next-layer-of-enterprise-software-7c6bd7a371",
         "title": "AI Agents, Systems of Record, and the Next Layer of Enterprise Software",
         "date": "2026-08-28",
@@ -22332,14 +22415,6 @@ actionability: 3                # 0 awareness … 3 apply today (Jev)
         "id": "2026-07-18-enterprise-ai-economics-token-costs-model-pricing-and-governance-risk-508cefb6d9",
         "title": "Enterprise AI Economics: Token Costs, Model Pricing, and Governance Risk",
         "date": "2026-07-18",
-        "shared_tags": [
-          "ai-strategy"
-        ]
-      },
-      {
-        "id": "2026-05-20-from-crm-app-to-ai-infrastructure-rethinking-salesforce-microsoft-and-headless-e",
-        "title": "From CRM App to AI Infrastructure: Rethinking Salesforce, Microsoft, and Headless Enterprise Work",
-        "date": "2026-05-20",
         "shared_tags": [
           "ai-strategy"
         ]
